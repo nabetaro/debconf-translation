@@ -186,7 +186,9 @@ foreach (@buffer) {
 			next;
 		}
 	}
+}
 
+foreach (@buffer) {
 	# Run config script if any.
 	if (defined $config && length $config) {
 		chmod(0755, $config) or

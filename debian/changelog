@@ -17,6 +17,9 @@ debconf (0.9.02) experimental; urgency=low
   * Removed various outdated database transition code.
   * Added new transition code.
   * Changed interface of debconf-communicate.
+  * Made dpkg-preconfigure make one pass over the templates, and then a
+    second pass over the config scripts, should fix Overfiend's problem
+    with X.
 
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
 
