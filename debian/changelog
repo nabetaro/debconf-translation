@@ -1,3 +1,14 @@
+debconf (0.1.8) unstable; urgency=low
+
+  * Question->value now returns the default field if value is unset (thanks,
+    AJ)
+  * Various minor touchups everywhere.
+  * Killed slrn sample, this is going into the main slrn package and is
+    already significently better in there.
+  * Added Element/Gtk/*, from AJ.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun,  8 Aug 1999 16:00:44 -0700
+
 debconf (0.1.7) unstable; urgency=low
 
   * Added beginnings of GTK frontend by AJ.

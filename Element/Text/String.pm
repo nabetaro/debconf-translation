@@ -17,7 +17,7 @@ sub show {
 	$this->frontend->display(
 		$this->question->extended_description."\n");
 	
-	my $default=$this->question->value || $this->question->default;
+	my $default=$this->question->value;
 	
 	# Prompt for input using the short description.
 	$_=$this->frontend->prompt($this->question->description." ",

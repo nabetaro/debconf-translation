@@ -17,7 +17,7 @@ sub show {
 	$this->frontend->display(
 		$this->question->extended_description."\n");
 
-	my $default=$this->question->value || $this->question->default;
+	my $default=$this->question->value;
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";

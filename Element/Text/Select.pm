@@ -18,8 +18,8 @@ sub show {
 	$this->frontend->display($this->question->extended_description."\n");
 	
 	my $prompt;
-	my $type=$this->question->template->type;
-	my $default=$this->question->value || $this->question->default;
+	my $type=$this->question->type;
+	my $default=$this->question->value;
 	my $pdefault='';
 	my @choices=@{$this->question->choices};
 

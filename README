@@ -1,6 +1,7 @@
 This is a demo frontend for the Debian Configuration Management system. To
 test it, try these commands. (The Line frontend works best if
-libterm-readline-gnu-perl is installed, but it does not depend on it.)
+libterm-readline-gnu-perl is installed, but it does not depend on it. The
+Gtk frontend requires libgtk-perl.)
 
 make test FRONTEND=Dialog PACKAGE=demo
 make test FRONTEND=Line PACKAGE=demo

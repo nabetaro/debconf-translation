@@ -26,7 +26,7 @@ sub show {
 		$lines=6;
 	}
 
-	my $default=$this->question->value || $this->question->default;
+	my $default=$this->question->value;
 	my @params=();
 	my @choices=@{$this->question->choices};
 		

@@ -111,6 +111,24 @@ sub variables {
 	}
 }	
 
+=head2 value
+
+Get the current value of this Question. Will return the default value is there
+is no value set. Pass in a value to set the value.
+
+=cut
+
+sub value {
+	my $this = shift;
+	
+	if (@_ == 0) {
+		return $this->{value} if (defined $this->{value});
+		return $this->default;
+	} else {
+		return $this->{value} = shift;
+	}
+}
+
 # Set/get property.
 sub AUTOLOAD {
 	my $this=shift;

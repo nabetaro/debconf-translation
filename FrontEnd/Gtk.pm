@@ -1,22 +1,51 @@
 #!/usr/bin/perl -w
 
-#package Debian::DebConf::FrontEnd::Gtk;
-#use Debian::DebConf::FrontEnd::Base;
+=head1 NAME
+
+DebConf::FrontEnd::Gtk - gtk FrontEnd
+
+=cut
+
+=head1 DESCRIPTION
+
+This FrontEnd is a user interface based on Gtk. It is styled on the
+same lines as the Wizards in Microsoft Windows. (Be afraid..)
+
+=cut
+
+=head1 METHODS
+
+=cut
+
+package Debian::DebConf::FrontEnd::Gtk;
+use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Element::Gtk::String;
+use Debian::DebConf::Element::Gtk::Boolean;
+use Debian::DebConf::Element::Gtk::Select;
+use Debian::DebConf::Element::Gtk::Text;
+use Debian::DebConf::Element::Gtk::Note;
 use Gtk;
 use Gtk::Atoms;
+use vars qw(@ISA);
+@ISA=qw(Debian::DebConf::FrontEnd::Base);
+
 use strict;
-#use vars qw(@ISA);
-#@ISA=qw(Debian::DebConf::FrontEnd::Base);
 
-init Gtk;
+=head2 new
 
-my $window;
-my $questionframe;
-my $child;
+Creates and returns a new FrontEnd::Gtk object.
 
-sub run {
+=cut
+
+sub new {
+	my $proto = shift;
+	my $class = ref($proto) || $proto;
+	my $self  = bless $proto->SUPER::new(@_), $class;
+
 	# create the window
-	$window = new Gtk::Window('toplevel');
+	init Gtk;
+
+	my $window = new Gtk::Window('toplevel');
 	$window->set_title("Debian Configuration Guru");
 	$window->set_name("main window");
 	$window->set_uposition(20,20);
@@ -48,14 +77,14 @@ sub run {
 	$align->add($frame);
 	$frame->show;
 
-	my ($debianlogo, $debianlogo_mask) = create_from_xpm Gtk::Gdk::Pixmap($window->window, Gtk::Widget->get_default_style->bg('normal'), "debianlogo.xpm");
+	my ($debianlogo, $debianlogo_mask) = create_from_xpm Gtk::Gdk::Pixmap($window->window, Gtk::Widget->get_default_style->bg('normal'), "FrontEnd/debianlogo.xpm");
 
 	my $pixmap = new Gtk::Pixmap($debianlogo, $debianlogo_mask);
 	$frame->add($pixmap);
 	show $pixmap;
 
 	# the question frame is next
-	$questionframe = new Gtk::Frame;
+	my $questionframe = new Gtk::Frame;
 	$questionframe->set_shadow_type("none");
 	$hbox->pack_start($questionframe, 1, 1, 5);
 	$questionframe->show();
@@ -74,38 +103,89 @@ sub run {
 	             new Gtk::Button("Next"),
 	             new Gtk::Button("Back"));
 	($buttbox->pack_end($_,0,0,5), $_->show) foreach (@butts);
-	$butts[0]->signal_connect("clicked", \&Cancel);
-	$butts[1]->signal_connect("clicked", \&Next);
-	$butts[2]->signal_connect("clicked", \&Back);
+	$butts[0]->signal_connect("clicked", sub { $self->Cancel; });
+	$butts[1]->signal_connect("clicked", sub { $self->Next; });
+	$butts[2]->signal_connect("clicked", sub { $self->Back; });
 
 	$window->show();
 
-	main Gtk;
+	$self->{window} = $window;
+	$self->{questionframe} = $questionframe;
+	$self->{result} = "uninitialized";
 
-	return;
+	return $self;
 }
 
+=head2 makeelement
+
+This overrides themethod in the Base FrontEnd, and creates Elements in the
+Element::Gtk class. Each data type has a different Element created for it.
+
+=cut
+
+sub makeelement {
+	my $this = shift;
+	my $question = shift;
+
+	my $type = $question->template->type;
+	my $elt;
+	if ($type eq 'string') {
+		$elt=Debian::DebConf::Element::Gtk::String->new;
+	}
+	elsif ($type eq 'boolean') {
+		$elt=Debian::DebConf::Element::Gtk::Boolean->new;
+	}
+	elsif ($type eq 'select') {
+		$elt=Debian::DebConf::Element::Gtk::Select->new;
+	}
+	elsif ($type eq 'text') {
+		$elt=Debian::DebConf::Element::Gtk::Text->new;
+	}
+	elsif ($type eq 'note') {
+		$elt=Debian::DebConf::Element::Gtk::Note->new;
+	}
+	else {
+		die "Unknown type of element: \"$type\"";
+	}
+
+	$elt->question($question);
+	$elt->frontend($this);
+
+	return $elt;
+}
+
+=head2 newques
+
+=cut
+
 sub newques {
+	my $self = shift;
 	my $newtitle = shift; # string
 	my $newchild = shift; # Gtk widget
 
-	$questionframe->remove($child) if (defined $child);
-	$child = $newchild;
-	$questionframe->add($child);
-	$child->show();
-	$window->set_title("Debian Configuration Guru -- $newtitle");
+	$self->{questionframe}->remove($self->{child})
+		if (defined $self->{child});
+
+	$self->{questionframe}->add($newchild);
+	$newchild->show();
+	$self->{child} = $newchild;
+
+	$self->{questionframe}->realize;
+
+	$self->{window}->set_title("Debian Configuration Guru -- $newtitle");
+
 	Gtk->gc;
+	Gtk->main;
+
+	return $self->{result};
 }
 
-sub makelabel {
-	my $output = shift;
+=head2 maketext
 
-	my $label = new Gtk::Label($output);
-
-	return $label;
-}
+=cut
 
 sub maketext {
+	my $self = shift;
 	my $output = shift;
 
 	my $text = new Gtk::Text(undef,undef);
@@ -123,91 +203,27 @@ sub maketext {
 	return $hbox;
 }
 
-sub Element_Text {
-	my ($desc, $ext_desc) = @_;
-	newques($desc, maketext($ext_desc));
+sub Cancel {
+	my $self = shift;
+	$self->{result} = "cancel";
+	Gtk->main_quit;
 }
 
-sub Element_Note {
-	my ($desc, $ext_desc) = @_;
-	my $vbox = new Gtk::VBox(0,5);
-	my $text = maketext($ext_desc);
-	my $label = new Gtk::Label("This note has been saved in your mailbox");
-	$vbox->pack_start($text, 1,1,0);
-	$vbox->pack_start($label, 0,1,0);
-	$text->show(); $label->show();
-	newques($desc, $vbox);
+sub Back {
+	my $self = shift;
+	$self->{result} = "back";
+	Gtk->main_quit;
+}
+sub Next {
+	my $self = shift;
+	$self->{result} = "change";
+	Gtk->main_quit;
 }
 
+=head1 AUTHOR
 
-sub Element_Boolean {
-	my ($desc, $ext_desc, $default) = @_;
-	my $vbox = new Gtk::VBox(0,5);
-	my $text = maketext($ext_desc);
-	my $check = new Gtk::CheckButton($desc);
-	$check->set_active($default);
-	$vbox->pack_start($text, 1,1,0);
-	$vbox->pack_start($check, 0,1,0);
-	$text->show(); $check->show();
-	newques($desc, $vbox);
-}
+Anthony Towns <aj@azure.humbug.org.au>
 
-sub Element_Select {
-	my ($desc, $ext_desc, $default, @options) = @_;
-	my $vbox = new Gtk::VBox(0,5);
-	my $text = maketext($ext_desc);
-	my $last;
-	my $radio;
+=cut
 
-	$vbox->pack_start($text, 1,1,0);
-	$text->show();
-
-	foreach my $opt (@options) {
-		if ($last) {
-			$radio = new Gtk::RadioButton($opt, $last);
-		} else {
-			$radio = new Gtk::RadioButton($opt);
-		}
-		$radio->set_active(1) if ($opt eq $default);
-		$vbox->pack_start($radio, 0,0,0);
-		$radio->show();
-		$last = $radio;
-	}
-
-	newques($desc, $vbox);
-}
-
-sub Element_String {
-	my ($desc, $ext_desc, $default) = @_;
-	my $vbox = new Gtk::VBox(0,5);
-	my $text = maketext($ext_desc);
-	my $entry = new Gtk::Entry;
-	$entry->set_text($default);
-	$vbox->pack_start($text, 1,1,0);
-	$vbox->pack_start($entry, 0,1,0);
-	$text->show(); $entry->show();
-	newques($desc, $vbox);
-}
-
-sub Cancel { callback("cancel"); }
-sub Back { callback("back"); }
-sub Next { callback("change"); }
-
-sub callback {
-	my $button = shift;
-
-	if ($button eq "cancel") {
-		Element_Text("test text", <<EOF );
-this is a test message. it's not very exciting, but at least it exists. you
-could put something interesting here if you cared, but you probably don't.
-well, at least, i don't.
-hmmm.
-EOF
-	} elsif ($button eq "back") {
-		Element_Select("test select", "this is a select thing. choose one of the options", "baz", "foo", "bar", "baz", "quux", "quuux", "quuuux");
-	} else {
-		Element_Boolean("test boolean", "this is a test boolean. are you feeling lucky, punk?", 0);	
-	}
-}
-
-run;
+1

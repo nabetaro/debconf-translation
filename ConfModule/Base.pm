@@ -85,8 +85,12 @@ sub communicate {
 	chomp;
 	my ($command, @params)=split(' ', $_);
 	return if (lc($command) eq "stop");
-	$command="command_".lc($command);
 	my $w=$this->{write_handle};
+	if (lc($command) eq "stop") {
+		print $w "\n";
+		return;
+	}
+	$command="command_".lc($command);
 	print $w join(' ', $this->$command(@params))."\n";
 	return 1;
 }
@@ -126,9 +130,10 @@ sub command_version {
 
 =head2 command_capb
 
-Sets the client_capb property of the ConfModule to the confmodule's capb string, and
-also sets the capb_backup property of the ConfModule's assosicated FrontEnd if the
-confmodule can backup. Sends the capb property of the ConfModule to the confmodule.
+Sets the client_capb property of the ConfModule to the confmodule's
+capb string, and also sets the capb_backup property of the ConfModule's
+assosicated FrontEnd if the confmodule can backup. Sends the capb property
+of the ConfModule to the confmodule.
 
 =cut
 
@@ -164,8 +169,8 @@ sub command_endblock {}
 
 =head2 command_go
 
-Tells the associated FrontEnd to display items to the user, by calling its go method.
-Returns whatever the FrontEnd returns.
+Tells the associated FrontEnd to display items to the user, by calling
+its go method. Returns whatever the FrontEnd returns.
 
 =cut
 
@@ -176,8 +181,8 @@ sub command_go {
 
 =head2 command_get
 
-This must be passed a question name. It queries the question for the value set in it and
-returns that to the confmodule
+This must be passed a question name. It queries the question for the value
+set in it and returns that to the confmodule
 
 =cut
 
@@ -208,9 +213,9 @@ sub command_set {
 
 =head2 command_subst
 
-This must be passed a question name, a key, and a value. It sets up variable substitutions
-on the question's description so all instances of the key (wrapped in "${}") are replaced
-with the value.
+This must be passed a question name, a key, and a value. It sets up variable
+substitutions on the question's description so all instances of the key
+(wrapped in "${}") are replaced with the value.
 
 =cut
 
@@ -227,8 +232,8 @@ sub command_subst {
 
 =head2 command_register
 
-This should be passed a template name and a question name. It creates a mapping from the
-question to the template.
+This should be passed a template name and a question name. It creates a
+mapping from the question to the template.
 
 =cut
 
@@ -242,8 +247,8 @@ sub command_register {
 
 =head2 command_unregister
 
-Pass this a question name, and it will remove the mapping that creates that question, and
-remove the question itself.
+Pass this a question name, and it will remove the mapping that creates that
+question, and remove the question itself.
 
 =cut
 
@@ -256,9 +261,9 @@ sub command_unregister {
 
 =head2 command_fget
 
-Pass this a question name and a flag name. It returns the value of the specified flag on
-the question. Note that internally, any properties of a Question that start with "flag_"
-are flags.
+Pass this a question name and a flag name. It returns the value of the
+specified flag on the question. Note that internally, any properties of
+a Question that start with "flag_" are flags.
 
 =cut
 
@@ -274,8 +279,8 @@ sub command_fget {
 
 =head2 command_fset
 
-Pass this a question name, a flag name, and a value. It sets the value of the specified
-flag in the specified question.
+Pass this a question name, a flag name, and a value. It sets the value of
+the specified flag in the specified question.
 
 =cut
 
