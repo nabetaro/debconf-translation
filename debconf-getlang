@@ -10,6 +10,8 @@ use strict;
 use Debconf::Template::Transient;
 use Getopt::Long;
 
+print STDERR "debconf-getlang: This utility is deprecated; you should switch to using the po-debconf package.\n";
+
 =head1 SYNOPSIS
 
  debconf-getlang lang master [translation]

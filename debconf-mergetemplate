@@ -11,6 +11,8 @@ use Debconf::Template::Transient;
 use Debconf::Config;
 use Debconf::Gettext;
 
+print STDERR "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program.\n";
+
 =head1 SYNOPSIS
 
  debconf-mergetemplate [options] [templates.ll ...] templates

@@ -345,7 +345,7 @@ sub stringify {
 			my $ext=$_->$e;
 			if (defined $ext) {
 				# Add extended field.
-#				$Text::Wrap::break=q/\s/;
+				$Text::Wrap::break = qr/\n|\s(?=\S)/;
 				my $extended=expand(wrap(' ', ' ', $ext));
 				# The word wrapper sometimes outputs multiple
 				# " \n" lines, so collapse those into one.

@@ -70,7 +70,6 @@ sub display {
 	my $this=shift;
 	my $text=shift;
 	
-#	$Text::Wrap::break=q/\s+/;
 	$Text::Wrap::columns=$this->screenwidth;
 	$this->display_nowrap(wrap('','',$text));
 }
