@@ -548,6 +548,18 @@ fi
 	    </itemizedlist>
 	  </para>
 	</listitem>
+	<listitem>
+	  <para>
+	    Something weird is happening, and you don't understand what's
+	    going on.
+	  </para>
+	  <para>
+	    Try setting DEBCONF_DEBUG to 1 in the environment. This makes
+	    debconf output debugging information, including the commands
+	    your scripts send to it and its responses. You can also set it to
+	    2 for even more debugging information.
+	  </para>
+	</listitem>
       </itemizedlist>
     </para>
   </sect1>

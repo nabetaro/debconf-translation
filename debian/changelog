@@ -1,3 +1,13 @@
+debconf (0.2.68) unstable; urgency=low
+
+  * Documented DEBCONF_DEBUG, Closes: #54434
+  * Don't show "none of the above" choice in text frontend's select element.
+    It is only supposed to be in multiselect elements.
+  * A few more bug reports that were fixed 2 versions ago should be closed.
+    Closes: #54459, #54462, #54429, #54393, #54443, #54400
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  8 Jan 2000 14:19:33 -0800
+
 debconf (0.2.67) unstable; urgency=low
 
   * When the back button is hit, clear the buffer of all questions.

@@ -92,8 +92,6 @@ sub expandabbrev {
 sub show {
 	my $this=shift;
 
-	my $none_of_the_above="none of the above";
-
 	my @choices=$this->question->choices_split;
 	my $default=$this->question->value || '';
 	
@@ -103,13 +101,8 @@ sub show {
 	}
 	
 	# Come up with the set of abbreviations to use.
-	# Add "none of the above" choice if necessary.
 	my @important;
 	push @important, $default if $default ne '';
-	if ($this->frontend->promptdefault && $default ne '') {
-		push @choices, $none_of_the_above;
-		push @important, $none_of_the_above;
-	}
 	my %abbrevs=$this->pickabbrevs(\@important, @choices);
 
 	# Print out the question.
@@ -128,7 +121,6 @@ sub show {
 					   %abbrevs);
 		last if $value ne '';
 	}	
-	$value='' if $value eq $none_of_the_above;
 	$this->frontend->display("\n");
 	return $value;
 }
