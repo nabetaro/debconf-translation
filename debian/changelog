@@ -1,3 +1,15 @@
+debconf (1.1.10) unstable; urgency=low
+
+  * Fixed nasty uninitalized values from DirTree driver.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 29 May 2002 12:27:58 -0400
+
+debconf (1.1.9) unstable; urgency=low
+
+  * French po update from Martin Quinson <Martin.Quinson@tuxfamily.org>.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 28 May 2002 10:20:27 -0400
+
 debconf (1.1.8) unstable; urgency=low
 
   * Have Debconf::Log override die and print a stack trace.

@@ -228,7 +228,9 @@ sub ispassword {
 	my $this=shift;
 	my $item=shift;
 
-	my $template=Debconf::Template->get($this->getfield($item, 'template'));
+	my $template=$this->getfield($item, 'template');
+	return unless defined $template;
+	$template=Debconf::Template->get($template);
 	return unless $template;
 	my $type=$template->type || '';
 	return 1 if $type eq 'password';
