@@ -131,8 +131,7 @@ sub iterator {
 		return undef;
 	});
 
-	# Gag. Perhaps my parent needs some work..
-	$this->Debconf::DbDriver::Cache::iterator($iterator);
+	$this->SUPER::iterator($iterator);
 }
 
 =head2 remove(itemname)

@@ -23,6 +23,8 @@ are named according to item names, with slashes replaces by colons.
 It uses a Format module to handle reading and writing the files, so the
 files can be of any format.
 
+This is foundation for other DbDrivers, and it not itself useable as one.
+
 =head1 FIELDS
 
 =over 4
@@ -87,7 +89,7 @@ sub init {
 		# Now lock the directory. I use a lockfile named '.lock' in the
 		# directory, and flock locking. I don't wait on locks, just
 		# error out. Since I open a lexical filehandle, the lock is
-		# dropped when this object is destoryed.
+		# dropped when this object is destroyed.
 		open ($this->{lock}, ">".$this->{directory}."/.lock") or
 			$this->error("could not lock $this->{directory}: $!");
 		flock($this->{lock}, LOCK_EX | LOCK_NB) or
@@ -176,50 +178,6 @@ sub shutdown {
 	$this->SUPER::shutdown(@_);
 	delete $this->{lock};
 	return 1;
-}
-
-=head2 filename(itemname)
-
-Converts the item name into a filename. (Minus the base directory.)
-
-=cut
-
-sub filename {
-	my $this=shift;
-	my $item=shift;
-	$item =~ tr#/#:#;
-	return $item.$this->{extension};
-}
-
-=head2 iterator
-
-Returns an iterator that can iterate over the files with readdir.
-
-=cut
-
-sub iterator {
-	my $this=shift;
-	
-	# uses dirhandle autovivification..
-	my $handle;
-	opendir($handle, $this->{directory}) ||
-		$this->error("opendir: $!");
-
-	my $iterator=Debconf::Iterator->new(callback => sub {
-		my $ret;
-		do {
-			$ret=readdir($handle);
-			closedir($handle) if not defined $ret;
-			next if $ret eq '.lock'; # ignore lock file
-			next if length $this->{extension} and
-			        not $ret=~s/$this->{extension}//;
-			next if $ret =~ /-old$/;
-		} while defined $ret and -d "$this->{directory}/$ret";
-		$ret=~tr#:#/#;
-		return $ret;
-	});
-
-	$this->SUPER::iterator($iterator);
 }
 
 =head2 exists(itemname)

@@ -1,3 +1,12 @@
+debconf (1.1.17) unstable; urgency=low
+
+  * Fixed bug in PackageDir exists when called on nonexistant items that
+    were part of an existing package.
+  * Directory DbDriver is pure virtual now; I had to move exists and iterator
+    out of it, and it is fairly useless by itself.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Jul 2002 22:34:54 -0400
+
 debconf (1.1.16) unstable; urgency=low
 
   * Fixed up iterator for PackageDir DbDriver. PackageDir still has problems
