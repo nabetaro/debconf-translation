@@ -8,16 +8,16 @@
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 
-my $type=shift;
+Debian::DebConf::Config::frontend(shift);
+my $type=Debian::DebConf::Config::frontend();
 my $template=shift;
 my $script=shift;
 
 # Load up previous state information.
-if (-e $Debian::DebConf::Config::dbfn) {
-	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+if (-e Debian::DebConf::Config::dbfn()) {
+	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
 
 # Load up templates.
@@ -28,7 +28,7 @@ Debian::DebConf::ConfigDb::makequestions();
 
 # Set priority.
 if (exists $ENV{PRIORITY}) {
-	Debian::DebConf::Priority::set($ENV{PRIORITY});
+	Debian::DebConf::Config::priority($ENV{PRIORITY});
 }
 
 # Load modules and start up the FrontEnd and ConfModule.
@@ -47,4 +47,4 @@ die $@ if $@;
 1 while ($confmodule->communicate);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-DebConf::FrontEnd::Line - line-at-a-time FrontEnd
+DebConf::FrontEnd::Text - Text FrontEnd
 
 =cut
 
@@ -17,13 +17,13 @@ uses ReadLine to make the user interface just a bit nicer.
 
 =cut
 
-package Debian::DebConf::FrontEnd::Line;
+package Debian::DebConf::FrontEnd::Text;
 use Debian::DebConf::FrontEnd::Base;
-use Debian::DebConf::Element::Line::String;
-use Debian::DebConf::Element::Line::Boolean;
-use Debian::DebConf::Element::Line::Select;
-use Debian::DebConf::Element::Line::Text;
-use Debian::DebConf::Element::Line::Note;
+use Debian::DebConf::Element::Text::String;
+use Debian::DebConf::Element::Text::Boolean;
+use Debian::DebConf::Element::Text::Select;
+use Debian::DebConf::Element::Text::Text;
+use Debian::DebConf::Element::Text::Note;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
@@ -43,8 +43,8 @@ sub new {
 
 =head2 makeelement
 
-This overrides the method in the Base FrontEnd, and creates Elements in the]
-Element::Line class. Each data type has a different Element created for it.
+This overrides the method in the Base FrontEnd, and creates Elements in the
+Element::Text class. Each data type has a different Element created for it.
 
 =cut
 
@@ -57,19 +57,19 @@ sub makeelement {
 	my $type=$question->template->type;
 	my $elt;
 	if ($type eq 'string') {
-		$elt=Debian::DebConf::Element::Line::String->new;
+		$elt=Debian::DebConf::Element::Text::String->new;
 	}
 	elsif ($type eq 'boolean') {
-		$elt=Debian::DebConf::Element::Line::Boolean->new;
+		$elt=Debian::DebConf::Element::Text::Boolean->new;
 	}
 	elsif ($type eq 'select') {
-		$elt=Debian::DebConf::Element::Line::Select->new;
+		$elt=Debian::DebConf::Element::Text::Select->new;
 	}
 	elsif ($type eq 'text') {
-		$elt=Debian::DebConf::Element::Line::Text->new;
+		$elt=Debian::DebConf::Element::Text::Text->new;
 	}
 	elsif ($type eq 'note') {
-		$elt=Debian::DebConf::Element::Line::Note->new;
+		$elt=Debian::DebConf::Element::Text::Note->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";

@@ -71,7 +71,12 @@ sub import {
 	# see if we can run a config script, then fork off
 	# a child to continue.
 	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
-		my $type=ucfirst($Debian::DebConf::Config::frontend);
+		# Load up previous state information.
+		if (-e Debian::DebConf::Config::dbfn()) {
+			Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
+		}
+
+		my $type=Debian::DebConf::Config::frontend();
 
 		my $frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
@@ -91,11 +96,6 @@ sub import {
 		# Prevent deadlocks.
 		autoflush CHILD_STDOUT 1;
 		$confmodule->write_handle->autoflush;
-
-		# Load up previous state information.
-		if (-e $Debian::DebConf::Config::dbfn) {
-			Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
-		}
 
 		my $confmodule;
 
@@ -134,7 +134,7 @@ sub import {
 			1 while ($confmodule->communicate);
 			
 			# Save state.
-			Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
 			exit;
 		}
 		

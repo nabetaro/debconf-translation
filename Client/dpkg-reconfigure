@@ -9,7 +9,6 @@
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 use Getopt::Long;
 use Fcntl;
@@ -17,19 +16,18 @@ use POSIX qw(tmpnam);
 
 my $infodir="/var/lib/dpkg/info";
 
-my $frontend_type=$Debian::DebConf::Config::frontend;
-my $priority;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
-	"frontend|f=s" => \$frontend_type,
-	"priority|p=s" => sub { shift; Debian::DebConf::Priority::set(shift) },
+	"frontend|f=s" => sub { shift; Debian::DebConf::Config::frontend(shift) },
+	"priority|p=s" => sub { shift; Debian::DebConf::Config::priority(shift) },
 );
-$frontend_type=ucfirst($frontend_type);
 
 # Load up previous state information.
-if (-e $Debian::DebConf::Config::dbfn) {
-	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+if (-e Debian::DebConf::Config::dbfn()) {
+	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
+
+my $frontend_type=Debian::DebConf::Config::frontend();
 
 # Load up appropriate modules and start up the FrontEnd.
 my $frontend=eval qq{
@@ -41,7 +39,7 @@ die $@ if $@;
 
 # Make the frontend show questions even if the user has already seen them.
 # Since this is a reconfigure program, they may want to change their choices.
-$frontend->showold(1);
+Debian::DebConf::Config::showold('true');
 
 TOP:
 foreach my $pkg (@ARGV) {
@@ -74,4 +72,4 @@ foreach my $pkg (@ARGV) {
 }
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());

@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: dialog, text, gtk, web
-Default: dialog
+Choices: Dialog, Text, Gtk, Web
+Default: Dialog
 Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
@@ -26,12 +26,12 @@ Description: Ignore questions with a priority less than..
  If you're a newbie, pick "critical" now, so you only see the most important
  questions.
 
-Temple: debconf/showold
+Template: debconf/showold
 Type: boolean
 Default: false
 Description: Show all old question again and again?
  Debconf normally only askes you any given question once. Then it remembers
- your answer and never asks you that question again. If you prefer, debocnf
+ your answer and never asks you that question again. If you prefer, debconf
  can ask you questions over and over again, each time you upgrade or reinstall
  a package that asks them.
  .

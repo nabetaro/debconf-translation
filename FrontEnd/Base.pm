@@ -24,6 +24,7 @@ in some obscure situations.)
 package Debian::DebConf::FrontEnd::Base;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Element::Base;
+use Debian::DebConf::Config;
 use strict;
 use vars qw($AUTOLOAD);
 
@@ -72,7 +73,8 @@ sub add {
 	# Skip items that the user has seen or that are unimportant.
 	return unless Debian::DebConf::Priority::high_enough($priority);
 	# Set showold to make it ask even default questions.
-	return if ! $this->showold && $question->flag_isdefault eq 'false';
+	return if Debian::DebConf::Config::showold() eq 'false' && 
+		  $question->flag_isdefault eq 'false';
 
 	# Pass in the frontend to use as well, some elements need it.
 	push @{$this->{elements}}, $this->makeelement($question);

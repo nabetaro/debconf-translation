@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 #
-# Each Element::Line::String is a text input field.
+# Each Element::Text::String is a text input field.
 
-package Debian::DebConf::Element::Line::String;
+package Debian::DebConf::Element::Text::String;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;

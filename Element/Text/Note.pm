@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Line::Note - A note to the user
+Debian::DebConf::Element::Text::Note - A note to the user
 
 =cut
 
@@ -12,7 +12,7 @@ This is a note to the user, presented using a plain text interface.
 
 =cut
 
-package Debian::DebConf::Element::Line::Note;
+package Debian::DebConf::Element::Text::Note;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;

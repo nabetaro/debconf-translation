@@ -8,13 +8,13 @@ Debian::DebConf::Question - Question object
 
 =head1 DESCRIPTION
 
-This is an object that represents a Question. Each Question has some associated
-data. To get at this data, just use $question->fieldname to read a field, and 
-$question->fieldname(value) to write a field. Any field names at all can be used, 
-the convention is to lower-case their names, and prefix the names of fields that
-are flags with "flag_". If a field that is not defined is read, and a field by the
-same name exists on the Template the Question is mapped to, the value of that field
-will be returned instead.
+This is an object that represents a Question. Each Question has some
+associated data. To get at this data, just use $question->fieldname
+to read a field, and  $question->fieldname(value) to write a field. Any
+field names at all can be used, the convention is to lower-case their names,
+and prefix the names of fields that are flags with "flag_". If a field that
+is not defined is read, and a field by the same name exists on the Template
+the Question is mapped to, the value of that field will be returned instead.
 
 =cut
 

@@ -38,24 +38,6 @@ my %priorities=(
 
 =cut
 
-{
-
-	my $priority_level=$Debian::DebConf::Config::priority;
-
-=head1 set
-
-Set the current priority level to the specified value.
-
-=cut
-
-	sub set {
-		my $new=shift;
-		
-		die "Unknown priority $new" unless exists $priorities{$new};
-	
-		$priority_level=$new;
-	}
-
 =head1 high_enough
 
 Returns true iff the passed value is greater than or equal to
@@ -63,14 +45,13 @@ the current priority level.
 
 =cut
 
-	sub high_enough {
-		my $priority=shift;
-	
-		die "Unknown priority $priority" unless exists $priorities{$priority};
-	
-		return $priorities{$priority} >= $priorities{$priority_level};
-	}
-}	
+sub high_enough {
+	my $priority=shift;
+
+	die "Unknown priority $priority" unless exists $priorities{$priority};
+
+	return $priorities{$priority} >= $priorities{Debian::DebConf::Config::priority()};
+}
 
 =head1 AUTHOR
 

@@ -14,6 +14,7 @@ build:
 clean:
 	dh_testdir
 	dh_testroot
+	$(MAKE) clean
 	dh_clean
 
 install:

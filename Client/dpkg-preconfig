@@ -8,22 +8,18 @@
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
 
-my $frontend_type=$Debian::DebConf::Config::frontend;
-my $priority;
 my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
-	"frontend|f=s" => \$frontend_type,
-	"priority|p=s" => sub { shift; Debian::DebConf::Priority::set(shift) },
+	"frontend|f=s" => sub { shift; ebian::DebConf::Config::frontend(shift) },
+	"priority|p=s" => sub { shift; Debian::DebConf::Config::priority(shift) },
 	"apt|a" => \$apt,
 );
-$frontend_type=ucfirst($frontend_type);
 
 my @debs=@ARGV;
 
@@ -38,9 +34,11 @@ if ($apt) {
 }
 
 # Load up previous state information.
-if (-e $Debian::DebConf::Config::dbfn) {
-	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+if (-e Debian::DebConf::Config::dbfn()) {
+	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
+
+my $frontend_type=Debian::DebConf::Config::frontend();
 
 # Load up appropriate modules and start up the FrontEnd.
 my $frontend=eval qq{
@@ -86,4 +84,4 @@ foreach my $deb (@debs) {
 }
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());

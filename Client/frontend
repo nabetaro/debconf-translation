@@ -10,11 +10,11 @@ use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 
 # Load up previous state information.
-if (-e $Debian::DebConf::Config::dbfn) {
-	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+if (-e Debian::DebConf::Config::dbfn()) {
+	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
 
-my $type=ucfirst($Debian::DebConf::Config::frontend);
+my $type=Debian::DebConf::Config::frontend();
 
 my $frontend=eval qq{
 	use Debian::DebConf::FrontEnd::$type;
@@ -63,4 +63,4 @@ die $@ if $@;
 1 while ($confmodule->communicate);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());

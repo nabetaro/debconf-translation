@@ -1,7 +1,22 @@
 debconf (0.1.26) unstable; urgency=low
 
   * Added a config script and templates for debconf itself. It uses
-    them to configure what frontend to use, etc.
+    them to configure what frontend to use, etc. /etc/debconf.cfg is no
+    more.
+  * Modified Config.pm so it contains functions that return values,
+    not just hard coded values. The functions now try to pull values out of
+    the database, and fall back on the defaults. Also, environment 
+    DEBIAN_FRONTEND always works for specifying a frontend now, overriding
+    all else.
+  * Changed a myriad of other files that use Config.pm to call the new
+    functions.
+  * The Priority module is no longer used to set priority, Config.pm can
+    handle that now.
+  * Added showold to Config.pm, you can always see old questions now, if
+    you like.
+  * Renamed the entire Line frontend to Text. Line really doesn't make as
+    much sense. If you're following long in CVS, I also probably broke your
+    repository again; a clean checkout is reccommended. Sorry.
 
  -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 12:56:43 -0700
 

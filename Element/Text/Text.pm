@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Line::Text - show text to the user
+Debian::DebConf::Element::Text::Text - show text to the user
 
 =cut
 
@@ -12,7 +12,7 @@ This is a peice of text to output to the user.
 
 =cut
 
-package Debian::DebConf::Element::Line::Text;
+package Debian::DebConf::Element::Text::Text;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Line::Select - select from a list of values
+Debian::DebConf::Element::Text::Select - select from a list of values
 
 =cut
 
@@ -12,7 +12,7 @@ This lets the user pick from a number of values, using a plain text interface.
 
 =cut
 
-package Debian::DebConf::Element::Line::Select;
+package Debian::DebConf::Element::Text::Select;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;

@@ -15,17 +15,15 @@ General:
   the user.
 * Make debhelper support it. (easy)
 * When a package is purged, all items in the db it owns and other packages
-  don't should be purged.
-* The Config.pm should not be a symlink. Make it set defaults, and then
-  source /etc/debconf.cfg to override them. This is less fragile, and doesn't
-  die if the config file is removed. Better yet, kill the conffile and read
-  out of the debconf db!
+  don't share with it should be purged.
+* Provide a default title, perhaps "<Package> Configuration"
 
-Line at a time frontend:
+Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
   doesn't seem to be the default.
-* Add some way to go back in the Line.pm front end. I don't know how to
-  let the user signal it, which makes it hard to do.
+* Add some way to go back in the Text.pm front end. I don't know how to
+  let the user signal it, which makes it hard to do. One suggestion is to use
+  pageup and pagedown -- but I dunnow how to catch those keys in readline.
 * If you are entering text, they're no way to enter "" because it is
   interpreted as "use default"
 

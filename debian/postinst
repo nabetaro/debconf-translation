@@ -1,4 +1,9 @@
 #!/bin/sh -e
+
+# Source the debconf library only because it ensures our config script is
+# run.
+. /usr/share/debconf/confmodule.sh
+
 touch /etc/apt/apt.conf
 echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
 echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf

@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/sh -e
 # This lets debconf configure itself.
 
 . /usr/share/debconf/confmodule.sh
 
 # Establish the preliminaries.
 db_version
-db_capb 'can_backup'
+db_capb 'backup'
 db_title 'Debconf Configuration'
 
 # Ask about frontend and priority.
@@ -30,7 +30,7 @@ ask_1 () {
 # with it unless they pick low priority.
 ask_2 () {
 	db_input low debconf/showold
-	go
+	db_go
 	if [ "$RET" = 'back' ]; then
 		# Back to block 1
 		ask_1

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Line::Boolean - Yes/No question
+Debian::DebConf::Element::Text::Boolean - Yes/No question
 
 =cut
 
@@ -13,7 +13,7 @@ interface.
 
 =cut
 
-package Debian::DebConf::Element::Line::Boolean;
+package Debian::DebConf::Element::Text::Boolean;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;
