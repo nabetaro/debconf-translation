@@ -44,7 +44,7 @@ if (exists $ENV{PRIORITY}) {
 # Start up the FrontEnd and ConfModule.
 my $frontend=eval "Debian::DebConf::FrontEnd::$type->new()";
 die $@ if $@;
-my $confmodule=eval 'Debian::DebConf::ConfModule::'.$type.'->new($script, $frontend)';
+my $confmodule=eval 'Debian::DebConf::ConfModule::'.$type.'->new($frontend, $script)';
 die $@ if $@;
 
 # Talk to it until it is done.

@@ -57,16 +57,29 @@ $|=1;
 
 Ensure that a FrontEnd is running. This is only for use by external programs
 that still want to use a FrontEnd. It's a little hackish. If DEBIAN_FRONTEND
-is set, a frontend is assumed to be running. If not this program _becomes_ the
-FrontEnd, sets the variable, and spawns another copy of itself to take over
-where it left off.
+is set, a frontend is assumed to be running. If not, one is started up
+automatically and stdin and out are connected to it. A name of a FrontEnd to
+start can be passed in as a parameter, it defaults to using the Base 
+(non-interactive) FrontEnd.
 
 =cut
 
 sub start_frontend {
+	my $frontend=ucfirst(shift);
+
 	unless ($ENV{DEBIAN_FRONTEND}) {
-		$ENV{DEBIAN_FRONTEND}=1;
-		exec("start-frontend", $0) || die $!;
+		pipe(KIDREAD, PARENTWRITE);
+		pipe(PARENTREAD, KIDWRITE);
+		if (my $pid=fork) {
+			# Parent process. This is the FrontEnd now.
+			close PARENTREAD;
+			close PARENTWRITE;
+			
+			exit;
+		}
+		close KIDREAD;
+		close KIDWRITE;
+		
 	}
 }
 

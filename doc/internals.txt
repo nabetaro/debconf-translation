@@ -97,10 +97,12 @@ launch a confmodule script and communicate with it using the protocol
 detailed in the configuration management specification. This is based on
 standard input and output. The following methods exist in a ConfModule:
 
-	new(confmodule, frontend)
-		Create a new ConfModule. You must specify the confmodule script
-		to run and communicate with. You must also pass a FrontEnd
-		object. The ConfModule will later call methods of that object.
+	new(frontend [, confmodule])
+		Create a new ConfModule. You must specify a FrontEnd
+		object. If you specify a confmodule script to run and
+		communicate with then that script will automatically be
+		started and used (if not, you can later set the read_handle,
+		write_handle, and pid properties of the ConfModule by hand).
 	communicate()
 		Read one command from the confmodule, process it, and respond
 		to it. Returns true unless there were no more commands to read.

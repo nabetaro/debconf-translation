@@ -69,7 +69,7 @@ foreach my $deb (@ARGV) {
 	Debian::DebConf::ConfigDb::makequestions();
 
 	# Start up the confmodule.
-	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($script, $frontend)';
+	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($frontend, $script)';
 	die $@ if $@;
 
 	# Talk to it until it is done.

@@ -18,23 +18,26 @@ use FileHandle;
 use Debian::DebConf::ConfigDb;
 use vars qw($AUTOLOAD);
 
-# Pass the filename of the configuration module to start and pass in the
-# FrontEnd it should use to ask questions.
+# Pass in the FrontEnd it should use to ask questions.
+# If you also pass in a filename of a confmodule to run, the confmodule
+# will be started up.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self = {};
 	bless ($self, $class);
 	
-	# Start up the script.
-	$self->{confmodule} = shift;
 	$self->{frontend} = shift;
 	$self->{version} = "1.0";
 	$self->{capb} = '';
-	$self->{read_handle} = FileHandle->new;
-	$self->{write_handle} = FileHandle->new;
-	$self->{pid} = open2($self->{read_handle}, $self->{write_handle},
-		             $self->{confmodule}) || die $!;
+
+	if ($_[0] ne '') {
+		$self->{confmodule} = shift;
+		$self->{read_handle} = FileHandle->new;
+		$self->{write_handle} = FileHandle->new;
+		$self->{pid} = open2($self->{read_handle}, $self->{write_handle},
+			$self->{confmodule}) || die $!;
+	}
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_FRONTEND}=1;
@@ -151,7 +154,9 @@ sub DESTROY {
 	
 	$this->{read_handle}->close;
 	$this->{write_handle}->close;
-	kill 'TERM', $this->{pid};
+	if ($this->{pid} > 1) {
+		kill 'TERM', $this->{pid};
+	}
 }
 
 1
