@@ -149,6 +149,23 @@ sub save {
 	$this->{format}->endfile;
 	close $fh;
 	rename("$file-new", $file) or $this->error("rename failed: $!");
+
+	# Unlock database.
+	delete $this->{lock}
+}
+
+=sub shutdown
+
+All this function needs to do is unlcok the database. Saving happens
+whenever something is saved.
+
+=cut
+
+sub shutdown {
+	my $this=shift;
+	
+	delete $this->{lock};
+	return 1;
 }
 
 =head2 filename(itemname)

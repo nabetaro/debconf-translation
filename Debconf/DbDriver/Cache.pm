@@ -187,7 +187,7 @@ sub cached {
 	return $this->{cache}->{$item};
 }
 
-=head2 savedb
+=head2 shutdown
 
 Synchronizes the underlying database with the cache.
 
@@ -201,7 +201,7 @@ Returns true unless any of the operations fail.
 
 =cut
 
-sub savedb {
+sub shutdown {
 	my $this=shift;
 	
 	return if $this->{readonly};

@@ -1,25 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Debian e Debian-BR: por um Debian mais universal =)
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Gustavo Noronha Silva <kov@debian.org>, 2001.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.9.73\n"
-"POT-Creation-Date: 2001-09-13 22:01-0400\n"
-"PO-Revision-Date: 2001-07-02 22:13-0300\n"
+"Project-Id-Version: debconf 1.0.0\n"
+"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:65
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "falha ao inicializar frontend: %s"
+msgstr "tentando com frontend: %s"
 
 #: ../Debconf/AutoSelect.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "falha ao inicializar frontend: %s"
 
@@ -77,6 +77,10 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+msgid "Help"
+msgstr "Ajuda"
+
 #: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "Salvar Nota"
@@ -88,9 +92,8 @@ msgstr ""
 "você."
 
 #: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "A nota foi enviada ao root."
+msgstr "A nota foi enviada por email."
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
@@ -146,10 +149,6 @@ msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
-
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-msgid "Help"
-msgstr "Ajuda"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."

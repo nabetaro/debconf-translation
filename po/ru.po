@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-09-13 22:01-0400\n"
+"POT-Creation-Date: 2001-09-22 12:30-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -72,6 +72,10 @@ msgid ""
 msgstr ""
 "Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
 "случиться. Возможно, шаблоны были неправильно переведены."
+
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+msgid "Help"
+msgstr "Подсказка"
 
 #: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
@@ -143,10 +147,6 @@ msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr ""
 "Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
-
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-msgid "Help"
-msgstr "Подсказка"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."

@@ -116,13 +116,13 @@ sub init {
 	}
 }
 
-=sub savedb
+=sub shutdown
 
 Save the entire cache out to the file, then close the file.
 
 =cut
 
-sub savedb {
+sub shutdown {
 	my $this=shift;
 
 	return if $this->{readonly};
@@ -132,6 +132,10 @@ sub savedb {
 	}
 	else {
 		debug "db $this->{name}" => "no database changes, not saving";
+
+		# But do drop the lock.
+		delete $this->{_fh};
+
 		return 1;
 	}
 

@@ -77,9 +77,9 @@ Save the databases, and shutdown the drivers.
 =cut
 
 sub save {
-	$config->savedb if $config;
+	$config->shutdown if $config;
 	# FIXME: if debconf is killed right here, the db is inconsistent.
-	$templates->savedb if $templates;
+	$templates->shutdown if $templates;
 	$config='';
 	$templates='';
 }

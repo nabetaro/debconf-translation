@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-09-13 22:01-0400\n"
+"POT-Creation-Date: 2001-09-22 12:30-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -74,6 +74,10 @@ msgstr ""
 "輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的. 或許樣板受到不正確的本"
 "地化."
 
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+msgid "Help"
+msgstr "求助"
+
 #: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "儲存備忘"
@@ -136,10 +140,6 @@ msgstr "已經完成"
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "在您想選擇的項目中輸入, 以空格分開."
-
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-msgid "Help"
-msgstr "求助"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."

@@ -1,3 +1,17 @@
+debconf (1.0.02) unstable; urgency=low
+
+  * Removed overoptimization in File DbDriver that made it not unlock the
+    file if the db was saved and there were no changes to save. This was
+    breaking dpkg-reconfgigure of non-debconf packages. Closes: #113140
+  * Implemented savedb menthod in the Directory driver (just unlocks the
+    database), which is needed to make dpkg-reconfigure of
+    non-debconfiscated stuff work.
+  * Renamed savedb to shutdown, which more clearly indicates what that
+    method is supposed to do.
+  * pt_BR updates. Closes: #112336
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 22 Sep 2001 11:15:13 -0400
+
 debconf (1.0.01) unstable; urgency=low
 
   * dpkg-preconfigure: deal with horrendous numbers of packages

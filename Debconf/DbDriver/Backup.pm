@@ -77,17 +77,17 @@ sub copy {
 	$this->SUPER::copy($item, $this->{db}, $this->{backupdb});
 }
 
-=item savedb
+=item shutdown
 
 Saves both databases.
 
 =cut
 
-sub savedb {
+sub shutdown {
 	my $this=shift;
 	
-	$this->{backupdb}->savedb(@_);
-	$this->{db}->savedb(@_);
+	$this->{backupdb}->shutdown(@_);
+	$this->{db}->shutdown(@_);
 }
 
 # From here on out, the methods are of two types, as explained in

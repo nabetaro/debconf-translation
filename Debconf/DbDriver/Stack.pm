@@ -99,19 +99,19 @@ sub iterator {
 	});
 }
 
-=head2 savedb
+=head2 shutdown
 
-Calls savedb on the entire stack. If any savedb call returns undef, returns
+Calls shutdown on the entire stack. If any shutdown call returns undef, returns
 undef too, but only after calling them all.
 
 =cut
 
-sub savedb {
+sub shutdown {
 	my $this=shift;
 
 	my $ret=1;
 	foreach my $driver (@{$this->{stack}}) {
-		$ret=undef if not defined $driver->savedb(@_);
+		$ret=undef if not defined $driver->shutdown(@_);
 	}
 	return $ret;
 }

@@ -239,7 +239,7 @@ each item in the db, and return it.
 
 Each subclass must implement this method.
 
-=head2 savedb
+=head2 shutdown
 
 Save the entire database state, and closes down the driver's access to the
 database.

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-09-13 22:01-0400\n"
+"POT-Creation-Date: 2001-09-22 12:30-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -75,6 +75,10 @@ msgstr ""
 "C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
 "야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
 
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+msgid "Help"
+msgstr "도움말"
+
 #: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "주의 저장"
@@ -138,10 +142,6 @@ msgstr "위에 있는 것 중에 없음"
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
-
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-msgid "Help"
-msgstr "도움말"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."

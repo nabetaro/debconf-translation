@@ -26,7 +26,7 @@ use Debconf::Template;
 use Debconf::Question;
 use strict;
 use base qw(Exporter);
-our @EXPORT_OK = qw(registertemplates disownquestion disownall savedb loaddb);
+our @EXPORT_OK = qw(registertemplates disownquestion disownall shutdown loaddb);
 our %templates;
 our %questions;
 
@@ -135,7 +135,7 @@ sub disownall {
 	}
 }
 
-=head2 savedb
+=head2 shutdown
 
 Save the current state to disk. This is a quick hack, there is a whole
 backend db in the spec that this ignores. Pass the directory to save to,
@@ -144,7 +144,7 @@ two files will be created in it.
 =cut
 
 use Data::Dumper;
-sub savedb {
+sub shutdown {
 	my $dir=shift;
 
 	my $dumper=Data::Dumper->new([\%questions], ['*questions']);

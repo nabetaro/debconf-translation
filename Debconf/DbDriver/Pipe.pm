@@ -92,14 +92,14 @@ sub init {
 	}
 }
 
-=sub savedb
+=sub shutdown
 
 Save the entire cache out to the fd. Always writes the cache, even if it's
 not dirty, for consitency's sake.
 
 =cut
 
-sub savedb {
+sub shutdown {
 	my $this=shift;
 
 	return if $this->{readonly};
