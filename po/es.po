@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-09-30 01:20+0200\n"
+"PO-Revision-Date: 2005-01-23 19:51+0100\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Está usando el interfaz de debconf basado en editor para configurar el "
+"Está usando la interfaz «debconf» basada en editor para configurar el "
 "sistema. Encontrará instrucciones detalladas al final de este documento."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -33,7 +33,7 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"El interfaz de debconf basado en editor le muestra uno o más ficheros de "
+"La interfaz de debconf basado en editor le muestra uno o más ficheros de "
 "texto para que los edite. Éste es uno de esos ficheros de texto. Si está "
 "familiarizado con los ficheros de configuración estándar de Unix, este "
 "fichero le resultará familiar; contiene comentarios intercalados con "
@@ -68,19 +68,23 @@ msgstr "Más"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM no establecido, así que el interfaz Dialog no se puede usar."
+msgstr ""
+"La variable TERM no está establecida, por lo que no se puede utilizar la "
+"interfaz «dialog»."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "El interfaz Dialog es incompatible con buffers de shell de emacs"
+msgstr ""
+"La interfaz «Dialog» es incompatible con buffers de intérprete de órdenes de "
+"emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"El interfaz de Dialog no funcionará en un terminal tonto, un buffer de shell "
-"de emacs, o sin una terminal controladora."
+"La interfaz «dialog» no funcionará en un terminal tonto, un buffer de "
+"intérprete de órdenes de emacs, o sin una terminal controladora."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
@@ -88,14 +92,14 @@ msgid ""
 "cannot be used."
 msgstr ""
 "No hay ningún programa tipo dialog instalado, así que no se puede usar la "
-"interfaz basada en dialog."
+"interfaz basada en «dialog»."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"El interfaz Dialog necesita una pantalla de al menos 13 líneas de alto y 31 "
-"columnas de ancho."
+"Necesita una pantalla de al menos 13 líneas de alto y 31 columnas de ancho "
+"para la interfaz «dialog»."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -103,37 +107,39 @@ msgstr "Configuración de Debian"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Este interfaz requiere una tty controladora."
+msgstr "Esta interfaz requiere un terminal que la controle."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU es incompatible con buffers de shell de emacs."
+msgstr ""
+"Term::ReadLine::GNU es incompatible con buffers de intérprete de órdenes de "
+"emacs."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr "probando ahora el interfaz: %s"
+msgstr "probando ahora la interfaz: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
-msgstr "no se pudo inicializar el interfaz: %s"
+msgstr "no se pudo inicializar la interfaz: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "No se puede arrancar un interfaz: %s"
+msgstr "No se puede arrancar una interfaz: %s"
 
 #: ../Debconf/Config.pm:128
 msgid "Config database not specified in config file."
 msgstr ""
-"La base de datos de configuración no está especificada en el fichero de "
+"No se ha especificado una base de datos de configuración en el fichero de "
 "configuración."
 
 #: ../Debconf/Config.pm:132
 msgid "Template database not specified in config file."
 msgstr ""
-"La base de datos de plantillas no está especificada en el fichero de "
+"No se ha especificado una base de datos de plantillas en el fichero de "
 "configuración."
 
 #: ../Debconf/Config.pm:137
@@ -288,14 +294,14 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"¡El valor introducido, \"%s\" no se encontró en la opciones C! Esto no "
+"¡No se encontró el valor introducido «%s» dentro de la opciones C! Esto no "
 "debería suceder nunca. Tal vez las plantillas estaban localizadas "
 "incorrectamente."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "No se pudo cargar Debconf::Element::%s. Error porque: %s"
+msgstr "No se pudo cargar Debconf::Element::%s. Fallo debido a: %s"
 
 #: ../Debconf/FrontEnd.pm:203
 #, c-format
@@ -320,11 +326,11 @@ msgstr ""
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "fallo al ejecutar «apt-extracttemplates»: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Preconfigurando paquetes ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -332,9 +338,9 @@ msgid "template parse error: %s"
 msgstr "Error procesando plantilla: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Configuración de %s"
+msgstr "preconfiguración de %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format

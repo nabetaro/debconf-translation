@@ -1,23 +1,21 @@
 # translation of debconf.po to Ukrainian
-# translation of uk.po to Ukrainian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Eugeniy Meshcheryakov <eugen@univ.kiev.ua>, 2004.
+# Eugeniy Meshcheryakov <eugen@univ.kiev.ua>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-09-05 14:44+0300\n"
+"PO-Revision-Date: 2005-01-23 19:18+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
@@ -307,7 +305,7 @@ msgstr "не вдалося заново відкрити stdin: %s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr "для перед-конфігурації необхідно вказати які-небудь deb-файли"
+msgstr "для передналаштування необхідно вказати які-небудь deb-файли"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -316,11 +314,11 @@ msgstr "оскільки apt-utils не встановлені, налаштув
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "помилка при виконанні apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Передналаштування пакунків...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -328,9 +326,9 @@ msgid "template parse error: %s"
 msgstr "помилка при розборі шаблону: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Налаштування %s"
+msgstr "Передналаштування %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -340,7 +338,7 @@ msgstr "debconf: не можу змінити права доступу: %s"
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "не вдалося перед-конфігурувати пакет %s, код помилки %s"
+msgstr "не вдалося передналаштувати пакунок %s, код помилки %s"
 
 #: ../dpkg-reconfigure:104
 #, c-format

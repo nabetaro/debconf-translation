@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-09-18 11:48+0400\n"
-"Last-Translator: Yuri Kozlov <yuray@id.ru>\n"
+"PO-Revision-Date: 2005-01-23 12:21+0100\n"
+"Last-Translator: Nikolai Prokoschenko <nikolai@prokoschenko.de>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,11 +309,11 @@ msgstr "так как не установлен apt-utils, настройка п
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "Не удалось запустить apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Идёт настройка пакетов...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -321,9 +321,9 @@ msgid "template parse error: %s"
 msgstr "ошибка разбора шаблона: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Идет настройка пакета %s"
+msgstr "идёт настройка пакета %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format

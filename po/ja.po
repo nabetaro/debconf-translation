@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-08-16 12:32+0900\n"
+"PO-Revision-Date: 2005-01-24 08:38+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -313,11 +313,11 @@ msgstr ""
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates に失敗しました: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "パッケージを事前設定しています ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -325,9 +325,9 @@ msgid "template parse error: %s"
 msgstr "テンプレートの解析に失敗しました: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "%s を設定しています"
+msgstr "%s を事前設定しています (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format

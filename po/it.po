@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the debconf package.
 # Stefano Canepa <sc@linux.it> e 
 # Danilo Piazzalunga <danilopiazza@libero.it>, 2004.
+# Stefano Canepa <sc@linux.it>, 2005
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-09-21 20:50+0200\n"
+"PO-Revision-Date: 2005-01-23 23:11+0100\n"
 "Last-Translator: Stefano Canepa <sc@linux.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -309,11 +310,11 @@ msgstr "configurazione rimandata perché apt-utils non è installato"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates fallito: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Preconfigurazione dei pacchetti in corso\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -321,9 +322,9 @@ msgid "template parse error: %s"
 msgstr "errori analizzando il template: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Configurazione in corso di %s"
+msgstr "Preconfigurazione di %s in corso di (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -387,4 +388,4 @@ msgstr "%s è obsoleto"
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s è superato; il template sarà completamente omesso"
+msgstr "%s è obsoleto; il template sarà completamente omesso!"
