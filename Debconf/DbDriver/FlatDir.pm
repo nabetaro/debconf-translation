@@ -9,6 +9,7 @@ Debconf::DbDriver::FlatDir - debconf db driver that stores items in files
 package Debconf::DbDriver::FlatDir;
 use strict;
 use Debconf::Log qw{:all};
+use Fcntl qw(:flock);
 use Debconf::Iterator;
 use base 'Debconf::DbDriver::Cache';
 
@@ -38,7 +39,7 @@ An optional extention to tack on the end of each filename.
 
 =cut
 
-use fields qw(directory extention);
+use fields qw(directory extention lock);
 
 =head2 init
 
@@ -59,10 +60,16 @@ sub init {
 	if (not -d $this->{directory}) {
 		$this->error($this->{directory}." does not exist");
 	}
-	# TODO: lock the directory too, for read, or write. (Fctrnl
-	# locking?)
-
 	debug "DbDriver $this->{name}" => "started; directory is $this->{directory}";
+	
+	# Now lock the directory. I use a lockfile named '.lock' in the
+	# directory, and flock locking. I don't wait on locks, just error
+	# out. Since I open a lexical filehandle, the lock is dropped when
+	# this object is destoryed.
+	open ($this->{lock}, ">".$this->{directory}."/.lock") or
+		$this->error("could not lock directory: $!");
+	flock($this->{lock}, LOCK_EX | LOCK_NB) or
+		$this->error("database directory is locked by another process");
 }
 
 =head2 filename(itemname)
@@ -97,6 +104,7 @@ sub iterator {
 		do {
 			$ret=readdir($handle);
 			closedir($handle) if not defined $ret;
+			next if $ret eq '.lock'; # ignore lock file
 		} while defined $ret and -d $this->filename($ret);
 		$ret=~tr#:#/#;
 		return $ret;
