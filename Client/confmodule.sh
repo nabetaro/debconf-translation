@@ -24,6 +24,7 @@ if [ -z "$DEBCONF_REDIR" ]; then
 	# To actually send something to standard output, send it to fd 3.
 	exec 3>&1 1>&2
 	DEBCONF_REDIR=1
+	export DEBCONF_REDIR
 fi
 
 # For internal use, send text to the frontend.
