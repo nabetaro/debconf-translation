@@ -1,3 +1,11 @@
+debconf (0.1.21) unstable; urgency=low
+
+  * All the sigchld counting and handling stuff was making debconf segfault
+    and making it fragile in various ways. Removed it. Instead, I have
+    modified update-menus to DTRT, and I depend on that version.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 16 Sep 1999 17:10:06 -0700
+
 debconf (0.1.20) unstable; urgency=low
 
   * Fixed Line::Boolean default stuff, last time, I hope.

@@ -56,15 +56,6 @@ sub new {
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
 
-	# This works around a bug in update-menus that makes postinsts
-	# hang if they call it and use debconf.
-	$SIG{CHLD}=sub {
-		$self->{write_handle}->close;
-		$self->{read_handle}->close;
-		# Wait for the child to get around to exiting.
-		waitpid $self->{pid}, 0;
-	};
-
 	if (@_) {
 		$self->{confmodule} = shift;
 		$self->{read_handle} = FileHandle->new;

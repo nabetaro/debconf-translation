@@ -213,11 +213,6 @@ sub showdialog {
 	my $this=shift;
 	my $title=shift;
 
-	# Part of the update-menus workaround -- ignore sigchld's when we're
-	# running other programs.
-	my $sigchld=$SIG{CHLD};
-	$SIG{CHLD}='';
-
 	# Clear the screen if clearscreen is set.
 	if ($this->{clearscreen}) {
 		$this->{clearscreen}='';
@@ -251,9 +246,6 @@ sub showdialog {
 	# Restore stdout, stderr.
 	open(STDOUT, ">&SAVEOUT");
 	open(STDERR, ">&SAVEERR");
-
-	# More update-menus workaround -- restore signal handler.
-	$SIG{CHLD}=$sigchld;
 
 	return ($? >> 8), $stderr;
 }
