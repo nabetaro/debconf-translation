@@ -292,9 +292,9 @@ msgid "debconf: can't chmod: %s"
 msgstr "debconf: Impossible de changer le mode : %s"
 
 #: ../dpkg-preconfigure:203
-#, fuzzy, c-format
+#, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "Échec de la configuration de %s avec le code d'erreur %s"
+msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"
 
 #: ../dpkg-reconfigure:14
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
@@ -315,6 +315,3 @@ msgstr "%s n'est pas totalement installé"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
-
-#~ msgid "Unable to make element of type %s. Failed because: %s"
-#~ msgstr "Impossible de créer un élément de type %s. Cause de l'échec : %s."

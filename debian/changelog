@@ -1,3 +1,11 @@
+debconf (0.5.63) unstable; urgency=low
+
+  * debconf-communicate now accepts piped input, or you can just run
+    it and talk with debconf on the fly over stdin.
+  * use debhelper v3.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 17 Feb 2001 21:36:33 -0800
+
 debconf (0.5.62) unstable; urgency=low
 
   * Fix compilation with apt 0.4. Closes: #86417 

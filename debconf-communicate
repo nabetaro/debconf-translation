@@ -15,13 +15,15 @@ use Debconf::AutoSelect qw(:all);
 
  debconf-communicate "command" "command args"
 
+ cat file-of-commands | debconf-communicate 
+
 =head1 DESCRIPTION
 
 B<debconf-communicate> allows you to communicate with debconf on the fly,
 from the command line. It accepts any number of arguments, each of which
-contains a single debconf command to run along with any parameters. For
-documentation on the available commands and their usage, see Appendix A
-of the Debconf Tutorial.
+contains a single debconf command to run along with any parameters. If no
+arguments are passed, it reads commands from stdin. For documentation on
+the available commands and their usage, see Appendix A of the Debconf Tutorial.
 
 The commands are executed in sequence. The textual return code of each is
 printed out to standard output.
@@ -52,15 +54,29 @@ L<debconf-loadtemplate(8)>
 
 =cut
 
+
 loaddb(dbdir());
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();
 my $code=127;
-my $text;
-foreach (@ARGV) {
-	($code, $text)=split(/ /, $confmodule->process_command($_), 2);
-	print $text if defined $text;
-	print "\n";
+
+sub sendline {
+	my $line=shift;
+	
+	my $ret=$confmodule->process_command($line);
+	($code, undef)=split(/ /, $ret, 2);
+	print "$ret\n";
+}
+
+if (@ARGV) {
+	foreach (@ARGV) {
+		sendline($_);
+	}
+}
+else {
+	while (<>) {
+		sendline($_);
+	}
 }
 $frontend->shutdown;
 savedb(dbdir());
