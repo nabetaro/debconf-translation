@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -67,7 +67,6 @@ msgstr ""
 "per e-post."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -155,6 +154,10 @@ msgstr ""
 "filen och ändra de poster som behövs, och spara och avsluta sedan. Vid den "
 "tidpunkten kommer debconf läsa den redigerade filen, och använda de värden "
 "du angivit för att konfigurera systemet."
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

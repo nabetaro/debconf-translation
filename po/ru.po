@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -71,7 +71,6 @@ msgstr ""
 "было вам отправлено по почте."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -158,6 +157,10 @@ msgstr ""
 "этот файл в соответствии с вашими потребностями, сохранить его и выйти из "
 "редактора. Затем программа debconf прочитает измененный файл и использует "
 "введенные вами параметры для настройки системы."
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

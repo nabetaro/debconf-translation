@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -67,7 +67,6 @@ msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -154,6 +153,10 @@ msgstr ""
 "イルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了\n"
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -68,7 +68,6 @@ msgstr ""
 "você."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -159,6 +158,10 @@ msgstr ""
 "necessessários e então salve-no e saia. Nesse ponto o debconf irá ler o "
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

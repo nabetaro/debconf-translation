@@ -69,7 +69,8 @@ sub init {
 	$this->win(Gtk::Window->new("toplevel"));
 	$this->win->set_position(1);
 	$this->win->set_default_size(600, 400);
-	$this->win->set_title(gettext("Debconf"));
+	my $hostname = `hostname`;
+	$this->win->set_title(gettext("Debconf on $hostname"));
 	$this->win->signal_connect("delete_event", sub { exit });
 	
 	$this->logo(Gtk::Gdk::ImlibImage->load_image(

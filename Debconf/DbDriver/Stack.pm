@@ -71,8 +71,8 @@ sub init {
 
 	$this->error("no stack set") if ! ref $this->{stack};
 	$this->error("stack is empty") if ! @{$this->{stack}};
-	$this->error("topmost driver not writable")
-		if $this->{stack}->[0]->{readonly} && ! $this->{readonly};
+	#$this->error("topmost driver not writable")
+	#	if $this->{stack}->[0]->{readonly} && ! $this->{readonly};
 }
 
 =head2 iterator

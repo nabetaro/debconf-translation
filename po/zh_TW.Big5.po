@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -62,7 +62,6 @@ msgid ""
 msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -142,6 +141,10 @@ msgstr ""
 "設定檔案, 這個檔案會是很簡單的 --這個檔案 包含了不同的設定項目. 修改檔案, 更"
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
 "而且會使用您的設定值設定系統. "
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

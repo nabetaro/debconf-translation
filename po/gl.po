@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -66,7 +66,6 @@ msgstr ""
 "Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -156,6 +155,10 @@ msgstr ""
 "Edite o ficheiro, cambiando os elementos que sexan necesarios, e despois "
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configura-lo sistema."
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-08-25 17:17-0400\n"
+"POT-Creation-Date: 2002-09-03 12:25-0400\n"
 "PO-Revision-Date: 2002-01-16 14:07+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -67,7 +67,6 @@ msgstr ""
 "enviat per correu."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -156,6 +155,10 @@ msgstr ""
 "Editeu el fitxer, canviant qualsevol element com siga necessari, i després "
 "salveu i sortiu. En aquest moment, debconf llegirà el fitxer editat, i "
 "utilitzarà els valors que vau introduir per configurar el sistema."
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+msgid "Debconf on $hostname"
+msgstr ""
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
