@@ -340,7 +340,7 @@ substitution. This is useful if you need to display some message to the
 user that you can't hard-code in the templates file.
 .IP
 Do not try to use SUBST to change the default value of a question; it won't
-work since there is a SET command explicielt for that purpose.
+work since there is a SET command explicitely for that purpose.
 .TP
 .B FGET question flag
 Questions can have flags associated with them. The flags can have a value
@@ -448,7 +448,7 @@ ask questions using debconf, so that pre-configuration will work.
 .B *
 Always source /usr/share/debconf/confmodule at the top of your postinst,
 even if you won't be running any db_* commands in it.
-This is required to make sure the config script gets a change to run
+This is required to make sure the config script gets a chance to run
 (see HACKS for details).
 .TP
 .B *
