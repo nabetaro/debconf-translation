@@ -162,7 +162,8 @@ the UI agent.
 sub go {
 	my $this = shift;
 
-	foreach my $element (@{$this->elements}) {
+	my @elements=grep $_->visible, @{$this->elements};
+	foreach my $element (@elements) {
 		my $question = $element->question;
 		my $tag = $question->template->template;
 		my $type = $question->template->type;
@@ -197,12 +198,12 @@ sub go {
 
 	# Tell the agent to display the question(s), and check
 	# for a back button.
-	if ((scalar($this->talk('GO')) eq "30") && $this->{capb_backup}) {
+	if (@elements && (scalar($this->talk('GO')) eq "30") && $this->{capb_backup}) {
 		return;
 	}
 	
 	# Retrieve the answers.
-	foreach my $element (@{$this->elements}) {
+	foreach my $element (@elements) {
 		my $tag = $element->question->template->template;
 
 		my ($ret, $val)=$this->talk('GET', $tag);
