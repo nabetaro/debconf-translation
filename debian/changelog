@@ -1,3 +1,14 @@
+debconf (0.1.37) unstable; urgency=low
+
+  * Fixed a problem if perl failed to configure and dpkg-preconfig then
+    bombed out on the next apt run, users would have an unusable apt and not
+    be able to fix their system. Now dpkg-preconfigure detects a broken perl
+    and exits sanely, allowing apt to continue and fix things. 
+    (Closes: #45927)
+  * Fixed a dpkg-preconfig type introduced last version.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 15:55:51 -0700
+
 debconf (0.1.36) unstable; urgency=low
 
   * Added fallback frontend support. If the frontend the user selects is not

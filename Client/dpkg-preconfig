@@ -5,14 +5,28 @@
 # from them and asks any necessary questions, storing the results in the
 # database for later use.
 
-use strict;
-use lib '.';
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Config;
-use Debian::DebConf::AutoSelect;
-use Getopt::Long;
-use Fcntl;
-use POSIX qw(tmpnam);
+# This program may be running from apt. If so, if it fails, apt is going to
+# fail as well, which will make it hard for people to fix whatever the failure
+# was. One thing someone encountered was perl failing to install. Apt then
+# was re-run with perl unpacked and not configured, and lib.pm wasn't able
+# to be loaded. As a sanity check, detect that case. If found, exit with
+# an error message, but a return code of 0 so apt continues.
+BEGIN {
+	eval qq{
+		use strict;
+		use lib '.';
+		use Getopt::Long;
+		use Fcntl;
+		use POSIX qw(tmpnam);
+		use Debian::DebConf::ConfigDb;
+		use Debian::DebConf::Config;
+		use Debian::DebConf::AutoSelect;
+	};
+	if ($@) {
+		print STDERR "Warning: Perl may be unconfigured ($@)\n";
+		exit 0;
+	}
+}
 
 my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);
@@ -76,7 +90,7 @@ foreach my $deb (@debs) {
 	$frontend->default_title($packages{$deb});
 
 	# Start up the confmodule.
-	my $condmodule=Debian::DebConf::AutoSelect::confmodule($script);
+	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script);
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});
