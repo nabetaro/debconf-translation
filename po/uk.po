@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: debconf_uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-19 15:43+0100\n"
-"PO-Revision-Date: 2004-03-30 16:18+0300\n"
+"PO-Revision-Date: 2004-09-05 14:44+0300\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
@@ -24,7 +24,7 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Ви використовуєте текстовий редактор для налаштовування вашої системи. "
+"Ви використовуєте текстовий редактор для налаштування вашої системи. "
 "Докладну інформацію ви знайдете в кінці цього документу."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -42,7 +42,7 @@ msgstr ""
 "знайомо -- він містить коментарі разом з параметрами та їх значеннями. Ви "
 "повинні змінити цей файл у відповідності з вашими вподобаннями, зберегти "
 "його та вийти з редактора. Після цього debconf прочитає змінений файл та "
-"використає введені параметри для налаштовування системи."
+"використає введені параметри для налаштування системи."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
@@ -67,7 +67,7 @@ msgstr "Далі"
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
-msgstr "Далі"
+msgstr "Більше"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -77,14 +77,14 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Діалогова оболонка не сумісна з буфером emacs."
+msgstr "Діалогова оболонка не сумісна з буфером emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Діалогова оболонка не буде працювати на не налаштованому (dumb) терміналі, в "
+"Діалогова оболонка не буде працювати на неналаштованому (dumb) терміналі, в "
 "буфері emacs або без керуючого терміналу."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
@@ -92,23 +92,22 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Не встановлено жодної програми, подібної до dialog, отже діалогова оболонка "
+"Не встановлена жодна програма, подібна до dialog, отже діалогова оболонка "
 "не може бути застосована."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Для діалогового інтерфейсу потрібний термінал не менше 13 рядків в висоту та "
+"Для діалогового інтерфейсу потрібен термінал не менше 13 рядків в висоту та "
 "31 стовпчиків в ширину."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
-msgstr "Налаштовування пакетів Debian"
+msgstr "Налаштування пакунків Debian"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Для цієї оболонки потрібний керуючий термінал."
+msgstr "Для цієї оболонки потрібен керуючий термінал."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
@@ -148,18 +147,17 @@ msgstr ""
 #: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Виникла проблема при настроюванні бази даних, визначеної в строфі %s з %s."
+msgstr "Виникла проблема при налаштуванні бази даних, визначеної в строфі %s з %s."
 
 #: ../Debconf/Config.pm:276
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr ""
+msgstr "Ігнорується невірний пріоритет \"%s\""
 
 #: ../Debconf/Config.pm:277
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr ""
+msgstr "Вірні пріоритети: \"%s\""
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -209,7 +207,7 @@ msgstr "Зберегти повідомлення"
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Сценарій налаштовування запросив збереження повідомлення, тому воно було "
+"Сценарій налаштування запросив збереження повідомлення, тому воно було "
 "відправлене поштою."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
@@ -218,7 +216,7 @@ msgstr "Інформація"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
-msgstr "Повідомлення було відіслано."
+msgstr "Повідомлення було відіслане."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
@@ -235,8 +233,7 @@ msgid "Choices"
 msgstr "Варіанти"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Вкажіть необхідну кількість параметрів, розділяючи їх комою з пробілом (', "
 "').)"
@@ -256,8 +253,7 @@ msgid "no"
 msgstr "ні"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf був налаштований не відображувати це повідомлення, тому воно було "
 "відправлене поштою."
@@ -277,8 +273,7 @@ msgstr "жоден з перерахованих"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
+msgstr "Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
@@ -297,7 +292,7 @@ msgstr "Не вдалося завантажити Debconf::Element::%s. При�
 #: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
-msgstr "Налаштовування %s"
+msgstr "Налаштування %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -310,8 +305,7 @@ msgstr "для перед-конфігурації необхідно вказа
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"оскільки apt-utils не встановлені, налаштовування пакетів відкладається"
+msgstr "оскільки apt-utils не встановлені, налаштування пакунків відкладається"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -335,17 +329,17 @@ msgstr "%s повинна виконуватись з правами корис�
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
-msgstr "вкажіть пакет, який потрібно переконфігурувати"
+msgstr "вкажіть пакунок, який потрібно переконфігурувати"
 
 #: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
-msgstr "Пакет %s не встановлений"
+msgstr "Пакунок %s не встановлений"
 
 #: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr "Пакет %s встановлений не повністю чи пошкоджений"
+msgstr "Пакунок %s встановлений не повністю чи пошкоджений"
 
 #: ../dpkg-reconfigure:238
 #, c-format
@@ -375,9 +369,10 @@ msgstr "%s нечіткий біля байту %s: %s; кидаю це"
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr "Пакет %s застарів"
+msgstr "Пакунок %s застарів"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "Пакет %s застарів; кидаю весь шаблон!"
+msgstr "Пакунок %s застарів; кидаю весь шаблон!"
+
