@@ -465,6 +465,14 @@ sub AUTOLOAD {
 # Do nothing.
 sub DESTROY {}
 
+# Overload stringification so metaget of a question's template field
+# returns the template name.
+use overload
+	'""' => sub {
+		my $template=shift;
+		$template->template;
+	};
+
 =head1 AUTHOR
 
 Joey Hess <joeyh@debian.org>
