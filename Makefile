@@ -16,8 +16,7 @@ clean:
 install-common:
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf \
-		$(prefix)/usr/share/debconf/templates \
-		$(prefix)/usr/sbin $(prefix)/usr/share/man/man8
+		$(prefix)/usr/share/debconf/templates
 	chmod 700 $(prefix)/var/lib/debconf
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client Element FrontEnd -type d | grep -v CVS | \
@@ -37,7 +36,7 @@ install: install-common
 	# Install bins
 	install -d $(prefix)/usr/bin
 	find Client -perm +1 -type f | grep -v frontend | \
-		xargs -i_ install _ $(prefix)/usr/bin
+		xargs -i_ install _ $(prefix)/usr/sbin
 
 # This target installs a minimal debconf.
 tiny-install: install-common
@@ -46,9 +45,12 @@ tiny-install: install-common
 	# Strip out POD documentation and all other comments
 	# from all .pm files in it.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.pm' | \
-	xargs perl -i.bak -ne ' \
-		$$cutting=!$$cutting if /^=/; \
-		next if $$cutting; \
-		print $$_ unless /^(=|\s*#)/ \
-	'
+		xargs perl -i.bak -ne ' \
+			$$cutting=!$$cutting if /^=/; \
+			next if $$cutting; \
+			print $$_ unless /^(=|\s*#)/ \
+		'
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.bak' | xargs rm -f
+	install -d $(prefix)/usr/bin $(prefix)/usr/share/man/man1
+	install Client/dpkg-reconfigure $(prefix)/usr/bin
+	cp Client/dpkg-reconfigure.1 $(prefix)/usr/share/man/man1

@@ -40,7 +40,7 @@ binary-indep: install
 	dh_installexamples samples/*
 	dh_installmenu
 	dh_installcron
-	dh_installmanpages -p debconf dpkg-frontend.1
+	dh_installmanpages -p debconf
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
