@@ -1,3 +1,11 @@
+debconf (1.4.44) unstable; urgency=low
+
+  * Fix a rogue quotation mark intorduced in the translatable string patch
+    in the previous version. Closes: #293666 (and approximatly 2e5 other bugs
+    that will be filed before dinstall tomorrow).
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  4 Feb 2005 17:39:04 -0500
+
 debconf (1.4.43) unstable; urgency=low
 
   * Christian Perrier
