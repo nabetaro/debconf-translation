@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Noninteractive::Note -- noninteractive note Element
+Debian::DebConf::Element::Noninteractive::Note - noninteractive note Element
 
 =cut
 

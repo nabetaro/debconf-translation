@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Noninteractive::Select -- dummy select Element
+Debian::DebConf::Element::Noninteractive::Select - dummy select Element
 
 =cut
 

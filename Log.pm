@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Log -- debconf log module
+Debian::DebConf::Log - debconf log module
 
 =cut
 
