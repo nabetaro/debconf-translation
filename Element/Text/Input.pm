@@ -50,7 +50,7 @@ sub ask {
 		}
 		$this->frontend->ui_display("\n");
 	}
-	elsif ($type eq 'list') {
+	elsif ($type eq 'text') {
 		$pdefault=$default;
 	}
 	else {
@@ -88,7 +88,7 @@ sub ask {
 				last;
 			}
 		}
-		elsif ($type eq 'list') {
+		elsif ($type eq 'text') {
 			$value=$_;
 			last;
 		}

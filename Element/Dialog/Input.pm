@@ -22,7 +22,8 @@ sub ask {
 	my $default=$question->value || $question->template->default;
 	my @params=();
 	if ($type eq 'boolean') {
-		@params=('--yesno');
+		@params=('--yesno', $question->template->extended_description,
+		         16, 75);
 		if ($default eq 'false') {
 			push @params, '--defaultno';
 		}
@@ -30,14 +31,16 @@ sub ask {
 	elsif ($type eq 'select') {
 		my @choices=@{$question->template->choices};
 	}
-	elsif ($type eq 'list') {
+	elsif ($type eq 'text') {
+		@params=('--inputbox', 
+			 $question->template->extended_description, 16, 75, 
+			 $default);
 	}
 	else {
 		die "Unsupported data type \"$type\"";
 	}
 
-	$this->frontend->show_dialog($question->template->description, @params, 
-		$question->template->extended_description, 16, 75);
+	$this->frontend->show_dialog($question->template->description, @params);
 
 #	$question->value($value);
 }
