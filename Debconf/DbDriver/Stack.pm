@@ -127,11 +127,18 @@ sub _query {
 	
 	debug "DbDriver $this->{name}" => "trying to $command ..";
 	foreach my $driver (@{$this->{stack}}) {
-		my $ret=$driver->$command(@_);
-		debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
-		return $ret if defined $ret;
+		if (wantarray) {
+			my @ret=$driver->$command(@_);
+			debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if @ret;
+			return @ret if @ret;
+		}
+		else {
+			my $ret=$driver->$command(@_);
+			debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
+			return $ret if defined $ret;
+		}
 	}
-	return undef; # all failed
+	return; # faulure
 }
 
 sub _change {
@@ -310,7 +317,7 @@ sub setflag	{ $_[0]->_change('setflag', @_) }
 sub flags	{ $_[0]->_query('flags', @_) }
 sub getvariable { $_[0]->_query('getvariable', @_) }
 sub setvariable { $_[0]->_change('setvariable', @_) }
-sub variables	{ $_[0]->_query('vaiables', @_) }
+sub variables	{ $_[0]->_query('variables', @_) }
 
 =head1 AUTHOR
 
