@@ -1,3 +1,14 @@
+debconf (0.9.25) unstable; urgency=low
+
+  * Branden is able to trigger the most obscure cases. :-)
+    Fixed a bug where a question was unregistered and removed, then
+    the confmodule tried to access the question again in the same run, and
+    Debconf::Question has a question object by that name cached, so it used
+    it, and the results were ugly. The fix is simple: when a question is
+    unregistered, remove the object from the cache. Closes: #89262
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 14 Mar 2001 15:24:08 -0800
+
 debconf (0.9.24) unstable; urgency=low
 
   * Changed how I disable echo in password prompts in the text frontend.

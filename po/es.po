@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2001-03-13 13:35-0800\n"
+"POT-Creation-Date: 2001-03-14 15:27-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -41,23 +41,6 @@ msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:202
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Error al procesar la plantilla, cerca de `%s'"
-
-#: ../Debconf/Template.pm:208
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "La plantilla con contiene una línea `Template:'"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -247,6 +230,23 @@ msgstr ""
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Nota: Debconf está ejecutándose en modo web. Vaya a http://localhost:%i/"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Error al procesar la plantilla, cerca de `%s'"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "La plantilla con contiene una línea `Template:'"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

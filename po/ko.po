@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-03-13 13:35-0800\n"
+"POT-Creation-Date: 2001-03-14 15:27-0800\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -40,26 +40,6 @@ msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "%s를 설정중"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"%2$s의 template #%1$s는 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"를 가지고 "
-"있습니다. 아마도 두 template이 긴 개행문자로 정확하게 분리되지 않은 것 "
-"같습니다.\n"
-
-#: ../Debconf/Template.pm:202
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 template parse 에러, %3$s의 #%2$s절\n"
-
-#: ../Debconf/Template.pm:208
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s의` template #%1$s이 `Template:' 줄을 담고 있지 않습니다\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -243,6 +223,26 @@ msgstr "이 frontend는 제어 tty를 필요로 합니다."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "주의: Debconf는 웹 모드에서 실행중입니다. http://localhost:%i/로 가세요"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s의 template #%1$s는 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"를 가지고 "
+"있습니다. 아마도 두 template이 긴 개행문자로 정확하게 분리되지 않은 것 "
+"같습니다.\n"
+
+#: ../Debconf/Template.pm:202
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%1$s' 주위에서 template parse 에러, %3$s의 #%2$s절\n"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "%2$s의` template #%1$s이 `Template:' 줄을 담고 있지 않습니다\n"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

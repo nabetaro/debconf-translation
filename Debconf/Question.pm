@@ -299,10 +299,11 @@ sub removeowner {
 	my $template=$Debconf::Db::config->getfield($this->{name}, 'template');
 	return unless $Debconf::Db::config->removeowner($this->{name}, shift);
 	# If that made the question go away, the question no longer owns
-	# the template.
+	# the template, and remove this object from the class's cache.
 	if (length $template and 
 	    not $Debconf::Db::config->exists($this->{name})) {
 		$Debconf::Db::templates->removeowner($template, $this->{name});
+		delete $question{$this->{name}};
 	}
 }
 
