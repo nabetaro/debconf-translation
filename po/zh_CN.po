@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-23 23:07+1300\n"
+"POT-Creation-Date: 2005-04-02 08:49+0200\n"
+"PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,10 +43,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf 运行于 %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "更多"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -59,6 +55,10 @@ msgstr "返回"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "下一步"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "更多"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -98,6 +98,99 @@ msgstr "这个界面要求可控制的 tty。"
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU 与 Emacs shell 缓存不兼容。"
 
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "返回前端界面：%s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "无法初始化前端界面：%s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "无法开启前端界面：%s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "配置文件中没有指定配置数据库。"
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "配置文件中没有指定模板数据库。"
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "配置文件中的 Sigils 和 Smileys 选项已不再被使用，请删除他们。"
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "在设定由 %2$s 第 %1$s 部分所定义的数据库时出错。"
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\t指定 debconf 前端界面。\n"
+"  -p,  --priority\t\t指定要显示的问题的最优先级。\n"
+"       --terse\t\t\t开启简要模式。\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "忽略无效的优先级“%s”"
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "有效的优先级为：%s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "警告：数据库可能已被损坏。将会尝试修复缺失的项目 %s。"
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s 中的第 %1$s 模板有一个重复字段“%3$s”，其中新值为“%4$s”。造成问题的原因可"
+"能是两个模板没有以正确地用换行符分隔开。\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "%3$s 中第 %2$s 部分有未知的模板字段“%1$s”\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "%3$s 中第 %2$s 部分“%1$s”附近的模板解析出错\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "%2$s 中第 %1$s 模板未包含“Template:”行\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "帮助"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "保存(信件)备忘"
@@ -123,8 +216,8 @@ msgid "Unable to save note."
 msgstr "不能保存备忘。"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "选择"
 
@@ -177,96 +270,6 @@ msgid ""
 msgstr ""
 "没有在 C 选择中找到输入值“%s”！这是不应该发生的，可能是因为模板被错误的本地"
 "化。"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "帮助"
-
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "返回前端界面：%s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "无法初始化前端界面：%s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "无法开启前端界面：%s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "配置文件中没有指定配置数据库。"
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "配置文件中没有指定模板数据库。"
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr "配置文件中的 Sigils 和 Smileys 选项已不再被使用，请删除他们。"
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "在设定由 %2$s 第 %1$s 部分所定义的数据库时出错。"
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "忽略无效的优先级“%s”"
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "有效的优先级为：%s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr "警告：数据库可能已被损坏。将会尝试修复缺失的项目 %s。"
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"%2$s 中的第 %1$s 模板有一个重复字段“%3$s”，其中新值为“%4$s”。造成问题的原因可"
-"能是两个模板没有以正确地用换行符分隔开。\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "%3$s 中第 %2$s 部分有未知的模板字段“%1$s”\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "%3$s 中第 %2$s 部分“%1$s”附近的模板解析出错\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s 中第 %1$s 模板未包含“Template:”行\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -324,6 +327,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"用法：dpkg-reconfigure [选项] 软件包\n"
+"  -a,  --all\t\t\t重配置所有软件包。\n"
+"  -u,  --unseen-only\t\t仅显示未提过的问题。\n"
+"       --default-priority\t使用默认优先级，而非“低”级。\n"
+"       --force\t\t\t强迫重配置受损软件包。"
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -351,17 +359,19 @@ msgstr "不能读取状态文件：%s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "用法：debconf-communicate [选项] [软件包]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate：本工具已被废弃。您应该改用 po-debconf 的 po2debconf 程"
+"序。"
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "用法：debconf-mergetemplate [选项] [templates.ll ...] 模板"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -369,6 +379,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\t合并过时的翻译。\n"
+"\t--drop-old-templates\t取消整个过时的模板。"
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -402,13 +415,15 @@ msgstr "%s 已经过时；弃用整个模板！"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "用法：debconf [选项] 命令 [参数]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=软件包\t\t设定拥有该命令的软件包。"
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "正在预设定 %s (%s)"

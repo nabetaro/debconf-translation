@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-24 10:30-0200\n"
+"POT-Creation-Date: 2005-04-02 08:49+0200\n"
+"PO-Revision-Date: 2005-04-01 08:04-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,10 +47,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Mais"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -63,6 +59,10 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Mais"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -108,6 +108,107 @@ msgstr "Esse frontend requer um tty controlador."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "A Term::ReadLine::GNU é incompatível com buffers shell do Emacs."
 
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "tentando com frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "falha ao inicializar frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Impossível iniciar um frontend: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr ""
+"Banco de dados de configuração não especificado no arquivo de configuração."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr ""
+"Banco de dados de templates não especificado no arquivo de configuração."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"As opções Sigils e Smileys no arquivo de configuração não são mais usadas. "
+"Por favor, removas as mesmas."
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f   --frontend\t\tEspecifica o frontend a ser utilizado.\n"
+"  -p   --priority\t\tEspecifica a prioridade mínima das "
+"questões                      a serem exibidas.\n"
+"       --terse\t\tHabilita modo resumido.\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignorando prioridade \"%s\" inválida"
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Prioridades válidas são : %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"aviso: possível corrupção da base de dados. Vou tentar consertar adicionando "
+"a questão %s que está faltando de volta."
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
+"Provavelmente dois templates não estão separados apropriadamente por uma "
+"única linha.\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Campo de template desconhecido '%s', na stanza #%s de %s\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "Aj_uda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Ajuda"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Salvar Nota (enviar por email)"
@@ -135,8 +236,8 @@ msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "Escolhas"
 
@@ -194,103 +295,6 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "Aj_uda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "tentando com frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "falha ao inicializar frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "Impossível iniciar um frontend: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr ""
-"Banco de dados de configuração não especificado no arquivo de configuração."
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr ""
-"Banco de dados de templates não especificado no arquivo de configuração."
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"As opções Sigils e Smileys no arquivo de configuração não são mais usadas. "
-"Por favor, removas as mesmas."
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignorando prioridade \"%s\" inválida"
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "Prioridades válidas são : %s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"aviso: possível corrupção da base de dados. Vou tentar consertar adicionando "
-"a questão %s que está faltando de volta."
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
-"Provavelmente dois templates não estão separados apropriadamente por uma "
-"única linha.\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Campo de template desconhecido '%s', na stanza #%s de %s\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
-
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
@@ -347,6 +351,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Uso: dpkg-reconfigure [opções] pacotes\n"
+"  -a  --all\t\tReconfigura todos os pacotes.\n"
+"  -u  --unseen-only\t\tExibe somente perguntas ainda não exibidas.\n"
+"      --default-priority\tUse a prioridade padrão ao invés de baixa.\n"
+"      --force\t\t\tForça reconfiguração de pacotes quebrados."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -374,17 +383,19 @@ msgstr "Impossível ler o estado do arquivo: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Uso: debconf-communicate [opções] [pacote]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Este utilitátio é obsoleto. Você deveria migrar para "
+"a utilização do program po2debconf do po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Uso: debconf-mergetemplate [opções] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -392,6 +403,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tUne traduções desatualizadas.\n"
+"\t--drop-old-templates\tRemove inteiramente traduções antigas."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -425,13 +439,15 @@ msgstr "%s está desatualizado; desistindo do template!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Uso: debconf [opções] comando [argumentos]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o   --owner=pacote\t\tDefine o pacote proprietário do comando."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "pré-configurando %s (%s)"

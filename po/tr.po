@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2004-08-10 06:26+0300\n"
+"PO-Revision-Date: 2005-04-01 19:30+0300\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -242,6 +242,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tKullanılacak debconf önyüzünü belirt.\n"
+"  -p,  --priority\t\tGösterilecek soruların asgari önceliklerini belirt.\n"
+"       --terse\t\t\tÖzet kipi etkinleştir.\n"
 
 #: ../Debconf/Config.pm:277
 #, perl-format
@@ -314,11 +317,11 @@ msgstr "apt-utils kurulu olmadığından paket yapılandırması erteleniyor"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates başarısız: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Paketler önyapılandırılıyor ...\n"
 
 #: ../dpkg-preconfigure:179
 #, perl-format
@@ -343,6 +346,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Kullanım: dpkg-reconfigure [seçenekler] paketler\n"
+"  -a,  --all\t\t\tBütün paketleri tekrar yapılandır.\n"
+"  -u,  --unseen-only\t\tSadece henüz gösterilmemiş soruları göster.\n"
+"       --default-priority\tDüşük öncelik yerine öntanımlı önceliği kullan.\n"
+"       --force\t\t\tBozuk durumdaki paketleri tekrar yapılandırmaya zorla."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -370,17 +378,20 @@ msgstr "Durum dosyası okunamıyor: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Kullanım: debconf-communicate [seçenekler] [paket]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Bu araç tavsiye edilmez. Bunun yerine po2debconf'a "
+"ait po-debconf programını kullanmalısınız."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Kullanım: debconf-mergetemplate [seçenekler] "
+"[templates.ll ...] şablonlar"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -388,6 +399,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tÇeviriler güncelliğini yitirmiş olsa bile birleştir.\n"
+"\t--drop-old-templates\tGüncelliğini yitirmiş şablonların hepsini kaldır."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -402,12 +416,12 @@ msgstr "%s eksik; %s kullanılmayacak"
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s, %s byte'ında bulanık: %s"
+msgstr "%s, %s bayt'ında bulanık: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s, %s byte'ında bulanık: %s, kullanılmayacak"
+msgstr "%s, %s bayt'ında bulanık: %s, kullanılmayacak"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
@@ -421,14 +435,12 @@ msgstr "%s güncelliğini yitirmiş; şablon kullanılmayacak!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Kullanım: debconf [seçenekler] komut [değişkenler]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
-#, fuzzy
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "%s yapılandırılıyor"
+"\n"
+"  -o,  --owner=paket\t\tKomutun sahibi olan paketi belirt."

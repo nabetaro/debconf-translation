@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-24 08:38+0900\n"
+"POT-Creation-Date: 2005-04-02 08:49+0200\n"
+"PO-Revision-Date: 2005-04-01 21:31+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "%s の Debconf"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "移動"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -64,6 +60,10 @@ msgstr "戻る"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "次へ"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "移動"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -112,6 +112,106 @@ msgstr ""
 "Term::ReadLine::GNU フロントエンドは emacs のシェルバッファと互換性がありませ"
 "ん。"
 
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "フロントエンドをフォールバックします: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "フロントエンドの初期化に失敗しました: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "フロントエンドの起動ができませんでした: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "設定データベースが設定ファイルで指定されていません。"
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "テンプレートデータベースが設定ファイルで指定されていません。"
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"設定ファイルの Sigils と Smileys オプションは使われなくなりました。削除してく"
+"ださい。"
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+"%2$s の %1$s で定義されたデータベースを設定するのに問題が発生しました。"
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\t利用する debconf フロントエンドを指定する。\n"
+"  -p,  --priority\t\t表示する最小優先度を指定する。\n"
+"       --terse\t\t\t簡潔モードを有効にする。\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "不正なプロパティ \"%s\" を無視します"
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "有効なプロパティは次のとおりです: %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"警告: データベースが破壊されている恐れがあります。足りない質問 %s を追加する"
+"ことにより修正しようと試みます。"
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s のテンプレート #%1$s に、新しい値 \"%4$s\" が \"%3$s\" のフィールドに重"
+"複してあります。2つのテンプレートが1つの改行により正しく分割されていないのか"
+"もしれません。\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "不明なテンプレートフィールド '%1$s' が %3$s の #%2$s にあります\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr ""
+"%3$s のスタンザ %2$s の `%1$s' 付近でテンプレートの解析に失敗しました\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "%2$s のテンプレート #%1$s に `Template:' 行がありません\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "ヘルプ(_H)"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "ヘルプ"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "注意を保存 (メール) する"
@@ -138,8 +238,8 @@ msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "選択"
 
@@ -195,103 +295,6 @@ msgid ""
 msgstr ""
 "入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないことで"
 "す。テンプレートファイルが正しくローカライズされていない恐れがあります。"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "ヘルプ(_H)"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "ヘルプ"
-
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "フロントエンドをフォールバックします: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "フロントエンドの初期化に失敗しました: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "フロントエンドの起動ができませんでした: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "設定データベースが設定ファイルで指定されていません。"
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "テンプレートデータベースが設定ファイルで指定されていません。"
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"設定ファイルの Sigils と Smileys オプションは使われなくなりました。削除してく"
-"ださい。"
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"%2$s の %1$s で定義されたデータベースを設定するのに問題が発生しました。"
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "不正なプロパティ \"%s\" を無視します"
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "有効なプロパティは次のとおりです: %s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"警告: データベースが破壊されている恐れがあります。足りない質問 %s を追加する"
-"ことにより修正しようと試みます。"
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"%2$s のテンプレート #%1$s に、新しい値 \"%4$s\" が \"%3$s\" のフィールドに重"
-"複してあります。2つのテンプレートが1つの改行により正しく分割されていないのか"
-"もしれません。\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "不明なテンプレートフィールド '%1$s' が %3$s の #%2$s にあります\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"%3$s のスタンザ %2$s の `%1$s' 付近でテンプレートの解析に失敗しました\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s のテンプレート #%1$s に `Template:' 行がありません\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -350,6 +353,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Usage: dpkg-reconfigure [オプション] パッケージ\n"
+"  -a,  --all\t\t\tすべてのパッケージを再設定する。\n"
+"  -u,  --unseen-only\t\tまだ示していない質問のみを表示する。\n"
+"       --default-priority\tlow の代わりにデフォルトの優先度を使う。\n"
+"       --force\t\t\t壊れたパッケージの再設定を強制的に行う。"
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -377,17 +385,21 @@ msgstr "ステータスファイルを読み込めません: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "使い方: debconf-communicate [オプション] [パッケージ]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: このユーティリティは古いものです。po-debconf の "
+"po2debconf プログラムに切り替えるべきです。"
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
 msgstr ""
+"使い方: debconf-mergetemplate [オプション] [テンプレート.言語 ...] テンプレー"
+"ト"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -395,6 +407,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\t時代遅れの翻訳でもマージする。\n"
+"\t--drop-old-templates\tすべての時代遅れのテンプレートを破棄する。"
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -428,13 +443,12 @@ msgstr "%s は古いものです。全テンプレートを無視します!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "使い方: debconf [オプション] コマンド [引数]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "%s を事前設定しています (%s)"
+"\n"
+"  -o,  --owner=パッケージ\t\tコマンドを所有するパッケージを設定する。"
