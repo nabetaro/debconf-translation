@@ -57,6 +57,12 @@ that the user has indicated they want to back up.
 
 =cut
 
+=head2 capb_backup
+
+This will be set if the confmodule states it has the backup capability.
+
+=cut
+
 =head1 METHODS
 
 =cut
@@ -154,7 +160,7 @@ sub go {
 	debug 2, "preparing to ask questions";
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
-		if ($this->backup) {
+		if ($this->backup && $this->capb_backup) {
 			$this->elements([]);
 			$this->backup('');
 			return;
