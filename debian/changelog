@@ -1,3 +1,14 @@
+debconf (1.3.20) unstable; urgency=low
+
+  * The locations of debconf-get-selectons and debconf-set-selections are
+    swapped. The former should move to debconf, while the latter moves to
+    debconf-utils. Since dpkg is broken and doesn't allow me to move them
+    at all, I have removed both of them from the binary packages for now.
+    Closes: #218648, #218698, #218712, #218661, #218685, #218683, #218658
+    Closes: #218667, #218646, #218676, #218644 (Well, I hope that's all!)
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  2 Nov 2003 10:42:52 -0500
+
 debconf (1.3.19) unstable; urgency=low
 
   * Added debconf-get-selections and debconf-set-selections, based
