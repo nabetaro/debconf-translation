@@ -27,6 +27,7 @@ use Term::Stool::HelpBar;
 use Term::Stool::Panel;
 use Term::Stool::Button;
 use Term::Stool::Text;
+use Term::Stool::WrappedText;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
@@ -67,7 +68,18 @@ sub new {
 			$this->yoffset(int(($this->container->height - 6) / 2 + 4));
 			$this->height(int(($this->container->height - 6) / 2));
 		},
-	));	
+	));
+	$this->desctext(Term::Stool::WrappedText->new(
+		xoffset => 1,
+		yoffset => 0,
+		resize_hook => sub {
+			my $this=shift;
+
+			# Resize to fit the container its in.
+			$this->width($this->container->width - 4);
+			$this->height($this->container->height - 2);
+		},
+	));
 	$this->button_next(Term::Stool::Button->new(
 		text => "Next",
 		width => 8,
@@ -103,9 +115,18 @@ sub new {
 
 			$this->fillpanel;
 		},
+		deactivate_hook => sub {
+			my $panel=shift;
+
+			# Clear out any showing description when the focus
+			# leaves the panel.
+			$this->desctext->text('');
+			$this->desctext->display;
+		},
 	));
 	$this->mainwindow->add($this->panel, $this->button_next,
 		$this->button_back);
+	$this->descwindow->add($this->desctext);
 	$this->screen->add($this->titlebar, $this->mainwindow,
 		$this->descwindow, $this->helpbar);
 
@@ -145,7 +166,7 @@ sub go {
 	# Make sure slang is up and running, and the screen size is known.
 	$this->screen->slang_init;
 
-	# Create and lay out all the widgets in the panel.
+	# Create all the widgets in the panel.
 	$this->panel->clear;
 	my $firstwidget='';
 	foreach my $element (@elements) {
@@ -154,11 +175,19 @@ sub go {
 		# Make the widget call the element's resize method when it
 		# is resized.
 		$element->widget->resize_hook(sub { $element->resize });
-		# Set up the widget so when it is activated, it makes sure
-		# that the text describing it is also visible.
 		$element->widget->activate_hook(sub {
 			my $this=shift;
+
+			# Make sure the text describing this widget is
+			# also visible.
 			$this->container->scrollto($this->description);
+
+			# Show the element's description. My, this is
+			# nasty. We get $element from the closure we're
+			# in..
+			$element->frontend->desctext->text(
+				$element->question->extended_description);
+			$element->frontend->desctext->display;
 		});
 		$element->widget->description(Term::Stool::Text->new(
 			text => $element->question->description,
