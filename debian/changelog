@@ -1,3 +1,11 @@
+debconf (0.2.16) unstable; urgency=low
+
+  * Made frontend fallback message less scary.
+  * Split the template data out of the main debconf database and into
+    templates.db. This reduces the chances of it getting corrupted.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri,  5 Nov 1999 11:19:49 -0800
+
 debconf (0.2.15) unstable; urgency=low
 
   * The last changelog lies: it's actually not possible to do any debconf

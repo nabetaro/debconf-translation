@@ -25,7 +25,7 @@ install:
 	install Client/frontend $(prefix)/usr/share/debconf/
 
   # Modify config module to use correct db location.
-	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/debconf.db":' \
+	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 
   # Generate man pages from POD docs.

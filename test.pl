@@ -16,9 +16,7 @@ my $template=shift;
 my $script=shift;
 
 # Load up previous state information.
-if (-e Debian::DebConf::Config::dbfn()) {
-	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
-}
+Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 
 # Load up templates.
 Debian::DebConf::ConfigDb::loadtemplatefile($template, $script);
@@ -38,4 +36,4 @@ $confmodule->owner($script);
 1 while ($confmodule->communicate);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());

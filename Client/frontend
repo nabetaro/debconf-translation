@@ -11,9 +11,7 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 
 # Load up previous state information.
-if (-e Debian::DebConf::Config::dbfn()) {
-	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
-}
+Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 
 my $frontend=Debian::DebConf::AutoSelect::frontend();
 
@@ -71,6 +69,6 @@ $confmodule->owner($package);
 1 while ($confmodule->communicate);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 
 exit $confmodule->exitcode;

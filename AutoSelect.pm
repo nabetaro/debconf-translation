@@ -55,13 +55,19 @@ sub frontend {
 			Debian::DebConf::FrontEnd::$type->new();
 		};
 		last if defined $frontend;
-		$type=$fallback{$type};
 		
-		print STDERR "Debconf: failed to initialize frontend: $@\n";
+		print STDERR "Debconf: failed to initialize $type frontend.\n";
+		if ($ENV{DEBCONF_DEBUG}) {
+			print STDERR "(Error: $@)"
+		}
+		
+		$type=$fallback{$type};
 
 		# Prevent loops; only try each frontend once.
 		last if $seen{$type};
 		$seen{$type}=1;
+		
+		print STDERR "Falling back to $type frontend.\n";
 	}
 	
 	if (! $frontend) {

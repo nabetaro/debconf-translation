@@ -1,6 +1,6 @@
 #!/bin/sh -e
 if [ "$1" = "purge" ]; then
-	rm -f /var/lib/debconf/debconf.db
+	rm -f /var/lib/debconf/debconf.db /var/lib/debconf/templates.db
 fi
 if [ -e /etc/apt/apt.conf ]; then
 	cp /etc/apt/apt.conf /etc/apt/apt.conf.old

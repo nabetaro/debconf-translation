@@ -208,18 +208,31 @@ sub disownall {
 =head2 savedb
 
 Save the current state to disk. This is a quick hack, there is a whole
-backend db in the spec that this ignores. Pass the filename to save to.
+backend db in the spec that this ignores. Pass the directory to save to,
+two files will be created in it.
 
 =cut
 
 use Data::Dumper;
 sub savedb {
-	my $fn=shift;
+	my $dir=shift;
 
-	my $dumper=Data::Dumper->new([\%templates, \%questions],
-		[qw{*templates *questions}]);
+	my $dumper=Data::Dumper->new([\%questions], ['*questions']);
+	my %seen;
+	foreach (keys %templates) {
+		$seen{"\$templates{'$_'}"}=$templates{$_};
+	}
+	$dumper->Seen({%seen});
 	$dumper->Indent(1);
-	open (OUT, ">$fn") || die "$fn: $!";
+	open (OUT, ">$dir/debconf.db") || die "$dir/debconf.db: $!";
+	print OUT $dumper->Dump;
+	print OUT "\n1;\n"; # Return a true value so require works.
+	close OUT;
+	
+	$dumper=Data::Dumper->new([\%templates],
+		[qw{*templates}]);
+	$dumper->Indent(1);
+	open (OUT, ">$dir/templates.db") || die "$dir/templates.db: $!";
 	print OUT $dumper->Dump;
 	print OUT "\n1;\n"; # Return a true value so require works.
 	close OUT;
@@ -227,13 +240,21 @@ sub savedb {
 
 =head2 loaddb
 
-Loads the current state from disk. Again, a quick hack. Pass the filename
-to load.
+Loads the current state from disk. Again, a quick hack. Pass the directory
+the database is in.
 
 =cut
 
 sub loaddb {
-	require shift;
+	my $dir=shift;
+
+	if (-e "$dir/templates.db") {
+		require "$dir/templates.db";
+	}
+
+	if (-e "$dir/debconf.db") {
+		require "$dir/debconf.db";
+	}
 }
 
 =head1 AUTHOR

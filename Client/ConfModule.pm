@@ -78,10 +78,8 @@ sub import {
 	# a child to continue.
 	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
 		# Load up previous state information.
-		if (-e Debian::DebConf::Config::dbfn()) {
-			Debian::DebConf::ConfigDb::loaddb(
-				Debian::DebConf::Config::dbfn());
-		}
+		Debian::DebConf::ConfigDb::loaddb(
+			Debian::DebConf::Config::dbdir());
 
 		my $frontend=Debian::DebConf::AutoSelect::frontend();
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule();
@@ -144,7 +142,7 @@ sub import {
 			1 while ($confmodule->communicate);
 			
 			# Save state.
-			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 			
 			exit $confmodule->exitcode;
 		}

@@ -14,12 +14,10 @@ my $template=shift || die "Must specify a template to load";
 my $owner=shift || 'unknown';
 
 # Load up previous state information.
-if (-e Debian::DebConf::Config::dbfn()) {
-	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
-}
+Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 
 # Load up templates.
 Debian::DebConf::ConfigDb::loadtemplatefile($template, $owner);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());

@@ -22,14 +22,14 @@ use Debian::DebConf::ConfigDb;
 
 =cut
 
-=head2 dbfn
+=head2 dbdir
 
 Where to store the database. 
 
 =cut
 
-sub dbfn {
-	"./debconf.db" # CHANGE THIS AT INSTALL TIME
+sub dbdir {
+	"./" # CHANGE THIS AT INSTALL TIME
 }
 
 =head2 frontend
