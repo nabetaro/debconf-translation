@@ -6,13 +6,28 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2000-11-21 23:45-0800\n"
+"POT-Creation-Date: 2000-11-22 23:24-0800\n"
 "PO-Revision-Date: 2000-10-19 12:43+02:00\n"
 "Last-Translator: Vincent Renardias <vincent@debian.org>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Commande `%s' non supportée."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Avertissement : Retour à la ligne présent dans les paramètres passés à "
+"debconf."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "Cela peut provoquer des résultats bizarres !"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -55,21 +70,6 @@ msgstr "Erreur d'analyse de modèle vers `%s'"
 #, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Le modèle #%s de %s contient pas la ligne `Template:'\n"
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Commande `%s' non supportée."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Avertissement : Retour à la ligne présent dans les paramètres passés à "
-"debconf."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "Cela peut provoquer des résultats bizarres !"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
