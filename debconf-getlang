@@ -187,7 +187,7 @@ sub getlang {
 				$value=~s/^\s+//gm;
 				$value=~s/\s+$//gm;
 				$value=~tr/ \t\n/ /s;
-				$lvalue=~s/^s+//gm;
+				$lvalue=~s/^\s+//gm;
 				$lvalue=~s/\s+$//gm;
 				$lvalue=~tr/ \t\n/ /s;
 
