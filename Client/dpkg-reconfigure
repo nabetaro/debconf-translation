@@ -133,24 +133,6 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
-<<<<<<< dpkg-reconfigure
-
-# Returns a list of all packages.
-sub allpackages {
-	my @ret;
-	local $/="\n\n";
-	
-	open (STATUS, "</var/lib/dpkg/status")
-		|| die "Cannot read status file: $!";
-	while (<STATUS>) {
-		push @ret, $1
-			if m/Status:\s*.*installed\n/ && m/Package:\s*(.*)\n/;
-	}
-	close STATUS;
-
-	return sort @ret;
-}
-=======
 
 # Returns a list of all installed packages.
 sub allpackages {
@@ -167,4 +149,3 @@ sub allpackages {
 
 	return sort @ret;
 }
->>>>>>> 1.21.2.2
