@@ -9,7 +9,7 @@ Debconf::Question - Question object
 package Debconf::Question;
 use strict;
 use Debconf::Db;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 use Debconf::Log qw(:all);
 
 =head1 DESCRIPTION
@@ -329,7 +329,7 @@ sub template {
 			$Debconf::Db::templates->addowner($newtemplate, $this->{name});
 		}
 	}
-	return Debconf::Template::Persistent->get(
+	return Debconf::Template->get(
 		$Debconf::Db::config->getfield($this->{name}, 'template'));
 }
 

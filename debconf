@@ -29,7 +29,7 @@ sub usage {
 
 use strict;
 use Debconf::Db;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
@@ -64,7 +64,7 @@ $frontend->default_title($package);
 # Load templates.
 foreach my $fn (@templates) {
 	debug developer => "loading templates from $fn";
-	Debconf::Template::Persistent->load($fn, $package);
+	Debconf::Template->load($fn, $package);
 }
 
 # Start up the confmodule we were asked to run.

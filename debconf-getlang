@@ -7,7 +7,7 @@ debconf-getlang - extract a language from a templates file
 =cut
 
 use strict;
-use Debconf::Template;
+use Debconf::Template::Transient;
 use Getopt::Long;
 
 =head1 SYNOPSIS
@@ -77,7 +77,7 @@ EOF
 }
 
 # Ignore the users locale settings.
-Debconf::Template::i18n(0);
+Debconf::Template::Transient->i18n(0);
 
 my $stats=0;
 GetOptions(
@@ -106,8 +106,8 @@ sub getlang {
 	# First read in the master file.
 	my %master;
 	my @out;
-	foreach my $in (Debconf::Template->load($fn)) {
-		my $out=Debconf::Template->new($in->template);
+	foreach my $in (Debconf::Template::Transient->load($fn)) {
+		my $out=Debconf::Template::Transient->new($in->template);
 		
 		foreach my $field ($in->fields) {
 			next if $field eq 'template';
@@ -129,7 +129,7 @@ sub getlang {
 	# Now read in the localized file, if there is one.
 	my %localized;
 	if ($lfn) {
-		foreach my $in (Debconf::Template->load($lfn)) {
+		foreach my $in (Debconf::Template::Transient->load($lfn)) {
 			$localized{$in->template}=$in;
 		}
 	}
@@ -232,7 +232,7 @@ sub getlang {
 	}
 	
 	if (! $stats) {
-		print Debconf::Template->stringify(@out) unless $stats;
+		print Debconf::Template::Transient->stringify(@out) unless $stats;
 	}
 	else {
 		print "$lang: ".join(', ', grep { $_ ne "" } 

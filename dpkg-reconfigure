@@ -68,7 +68,7 @@ Display usage help.
 use strict;
 use Debconf::Db;
 use Debconf::Gettext;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 use Debconf::Config qw(frontend priority showold);
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
@@ -159,7 +159,7 @@ foreach my $pkg (@packages) {
 	}
 	
 	# Load up templates just in case they arn't already.
-	Debconf::Template::Persistent->load("$infodir/$pkg.templates", $pkg)
+	Debconf::Template->load("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
 	# Run config, and postinst scripts in sequence, with args.

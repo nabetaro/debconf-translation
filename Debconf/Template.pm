@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::Template - Template object
+Debconf::Template - Template object with persistence.
 
 =cut
 
@@ -13,8 +13,13 @@ use FileHandle;
 use Debconf::Gettext;
 use Text::Wrap;
 use Text::Tabs;
+use Debconf::Question;
+use Debconf::Db;
+use fields qw(template);
 
-use fields qw(template _fields);
+# Class data
+our %template;
+$Debconf::Template::i18n=1;
 
 =head1 DESCRIPTION
 
@@ -35,21 +40,65 @@ variable is set, and you request a field from a template, it will see if
 
 =head1 CLASS METHODS
 
-=item new(template)
+=item new(template, owner)
 
 The name of the template to create must be passed to this function.
+
+When a new template is created, a question is created with the same name
+as the template. This is to ensure that the template has at least
+one owner -- the question, and to make life easier for debcofn users -- so
+they don't have to manually register that question.
+
+The owner field, then, is actually used to set the owner of the question.
 
 =cut
 
 sub new {
 	my Debconf::Template $this=shift;
-	my $template=shift;
+	my $template=shift || die "no template name specified";
+	my $owner=shift || 'unknown';
+	
+	# See if we can use an existing template.
+	return $template{$template} if exists $template{$template};
+	if ($Debconf::Db::templates->exists($template)) {
+		$this = fields::new($this);
+		$this->{template}=$template;
+		return $template{$template}=$this;
+	}
+
+	# Really making a new template.
 	unless (ref $this) {
 		$this = fields::new($this);
 	}
 	$this->{template}=$template;
-	$this->{_fields}={};
-	return $this;
+	# Create a question in the db to go with it, unless
+	# one with the same name already exists.
+	unless ($Debconf::Db::config->exists($template)) {
+		my $q=Debconf::Question->new($template, $owner);
+		$q->template($template);
+	}
+	# This is what actually creates the template in the db.
+	return unless $Debconf::Db::templates->addowner($template, $template);
+
+	return $template{$template}=$this;
+}
+
+=head2 get(templatename)
+
+Get an existing template (it may be pulled out of the database, etc).
+
+=cut
+
+sub get {
+	my Debconf::Template $this=shift;
+	my $template=shift;
+	return $template{$template} if exists $template{$template};
+	if ($Debconf::Db::templates->exists($template)) {
+		$this = fields::new($this);
+		$this->{template}=$template;
+		return $template{$template}=$this;
+	}
+	return undef;
 }
 
 =head2 i18n
@@ -59,8 +108,6 @@ templates. Sometimes it may be necessary to get at the C values of fields,
 bypassing internationalization. To enable this, set i18n to a false value.
 
 =cut
-
-$Debconf::Template::i18n=1;
 
 sub i18n {
 	my $class=shift;
@@ -95,17 +142,19 @@ sub load {
 	while (<$fh>) {
 		# Parse the data into a hash structure.
 		my %data;
-
-		# Sets a field to a value in the hash, with sanity checking.
+		
+		# Sets a field to a value in the hash, with sanity
+		# checking.
 		my $save = sub {
 			my $field=shift;
 			my $value=shift;
 			my $extended=shift;
 			my $file=shift;
-	
+
 			# Make sure there are no blank lines at the end of
 			# the extended field, as that causes problems when 
-			# stringifying and elsewhere, and is pointless anyway.
+			# stringifying and elsewhere, and is pointless
+			# anyway.
 			$extended=~s/\n+$//;
 
 			if ($field ne '') {
@@ -117,7 +166,7 @@ sub load {
 					if length $extended;
 			}
 		};
-		
+
 		# Ignore any number of leading and trailing newlines.
 		s/^\n+//;
 		s/\n+$//;
@@ -156,11 +205,13 @@ sub load {
 		$save->($field, $value, $extended, $file);
 
 		# Sanity checks.
-		die sprintf(gettext("Template #%s in %s does not contain a `Template:' line\n"), $., $file)
+		die sprintf(gettext("Template #%s in %s does not contain a 'Template:' line\n"), $., $file)
 			unless $data{template};
-	
+
 		# Create and populate template from hash.
 		my $template=$this->new($data{template}, @_);
+		# Ensure template is empty.
+		$template->clearall;
 		foreach my $key (keys %data) {
 			next if $key eq 'template';
 			$template->$key($data{$key});
@@ -170,8 +221,7 @@ sub load {
 
 	return @ret;
 }
-
-
+					
 =head1 METHODS
 
 =head2 template
@@ -194,8 +244,22 @@ Returns a list of all fields that are present in the object.
 
 sub fields {
 	my $this=shift;
-	
-	return keys %{$this->{_fields}};
+
+	return $Debconf::Db::templates->fields($this->{template});
+}
+
+=head2 clearall
+
+Clears all the fields of the object.
+
+=cut
+
+sub clearall {
+	my $this=shift;
+
+	foreach my $field ($this->fields) {
+		$this->field('');
+	}
 }
 
 =head2 merge
@@ -224,15 +288,15 @@ and returns a string containing the data.
 =cut
 
 sub stringify {
-	my $proto=shift;
+	my $this=shift;
 
 	my @templatestrings;
-	foreach (ref $proto ? $proto : @_) {
+	foreach (ref $this ? $this : @_) {
 		my $data='';
 		# Order the fields with Template and Type the top and the
 		# rest sorted.
 		foreach my $key ('template', 'type',
-		                 (grep { $_ ne 'template' && $_ ne 'type'} sort $_->fields)) {
+			(grep { $_ ne 'template' && $_ ne 'type'} sort $_->fields)) {
 			next if $key=~/^extended_/;
 			# Support special case of -ll_LL items.
 			if ($key =~ m/-[a-z]{2}_[a-z]{2}$/) {
@@ -248,8 +312,8 @@ sub stringify {
 			if (defined $ext) {
 				# Add extended field.
 				my $extended=expand(wrap(' ', ' ', $ext));
-				# The word wrapper sometimes outputs multiple " \n" lines, so 
-				# collapse those into one.
+				# The word wrapper sometimes outputs multiple
+				# " \n" lines, so collapse those into one.
 				$extended=~s/(\n )+\n/\n .\n/g;
 				$data.=$extended."\n" if length $extended;
 			}
@@ -259,12 +323,20 @@ sub stringify {
 	return join("\n", @templatestrings);
 }
 
+=head2 AUTOLOAD
+
+Creates and calls accessor methods to handle fields.
+This supports internationalization, but not lvalues.
+It pulls data out of the backend db.
+
+=cut
+
 # Helper for AUTOLOAD; calculate the current locale, with aliases expanded,
 # and normalized. May also generate a fallback. Returns both.
 sub _getlangs {
-	# I really dislike hard-coding 5 here, but the POSIX module sadly does
-	# not let us get at the value of LC_MESSAGES in locale.h in a more 
-	# portable way.
+	# I really dislike hard-coding 5 here, but the POSIX module sadly
+	# does not let us get at the value of LC_MESSAGES in locale.h in a
+	# more portable way.
 	my $language=setlocale(5); # LC_MESSAGES
 	if ($language eq 'C' || $language eq 'POSIX') {
 		return;
@@ -276,13 +348,6 @@ sub _getlangs {
 	return $language;
 }
 
-=head2 AUTOLOAD
-
-Creates and calls accessor methods to handle fields. 
-This supports internationalization, but not lvalues.
-
-=cut
-
 {
 	my @langs=_getlangs();
 
@@ -292,26 +357,27 @@ This supports internationalization, but not lvalues.
 		*$AUTOLOAD = sub {
 			my $this=shift;
 
-			return $this->{_fields}->{$field}=shift if @_;
+			if (@_) {
+				return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
+			}
 		
 			# Check to see if i18n should be used.
 			if ($Debconf::Template::i18n && @langs) {
 				foreach my $lang (@langs) {
 					# Lower-case language name because
 					# fields are stored in lower case.
-					return $this->{_fields}->{$field.'-'.lc($lang)}
-						if exists $this->{_fields}->{$field.'-'.lc($lang)};
+					my $ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.lc($lang));
+					return $ret if defined $ret;
 				}
 			}
-			return $this->{_fields}->{$field};
+			return $Debconf::Db::templates->getfield($this->{template}, $field);
 		};
 		goto &$AUTOLOAD;
 	}
 }
 
 # Do nothing.
-sub DESTROY {
-}
+sub DESTROY {}
 
 =head1 AUTHOR
 

@@ -20,7 +20,7 @@ all this.
 
 use strict;
 use Debconf::Db;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
@@ -56,7 +56,7 @@ else {
 		debug developer => "Trying $fn";
 		if (-e $fn) {
 			debug developer => "I guess it is $fn";
-			Debconf::Template::Persistent->load($fn, $package);
+			Debconf::Template->load($fn, $package);
 			return 1;
 		}
 		else {
@@ -93,7 +93,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 
 	# Load templates, if any.
 	my $templates=$base."templates";
-	Debconf::Template::Persistent->load($templates, $package)
+	Debconf::Template->load($templates, $package)
 		if -e $templates;
 
 	# Run config script, if any.

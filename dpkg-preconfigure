@@ -71,7 +71,7 @@ BEGIN {
 		use strict;
 		use FileHandle;
 		use Debconf::Db;
-		use Debconf::Template::Persistent;
+		use Debconf::Template;
 		use Debconf::Config qw(frontend priority showold);
 		use Debconf::AutoSelect qw(:all);
 		use Debconf::Gettext;
@@ -175,7 +175,7 @@ foreach (@buffer) {
 	# Load templates if any.
 	if (defined $template && length $template) {
 		eval q{
-			Debconf::Template::Persistent->load($template, $package)
+			Debconf::Template->load($template, $package)
 		};
 		unlink $template;
 		if ($@) {

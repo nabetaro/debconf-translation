@@ -198,7 +198,7 @@ sub accept {
 	}
 
 	if (exists $this->{accept_type} || exists $this->{reject_type}) {
-		my $template=Debconf::Template::Persistent->get($name);
+		my $template=Debconf::Template->get($name);
 		return 1 unless $template; # no type to act on
 		my $type=$template->type || '';
 		return if exists $this->{accept_type} && $name!~/$this->{accept_type}/;
@@ -219,7 +219,7 @@ sub ispassword {
 	my $this=shift;
 	my $item=shift;
 
-	my $template=Debconf::Template::Persistent->get($item);
+	my $template=Debconf::Template->get($item);
 	return unless $template;
 	my $type=$template->type || '';
 	return 1 if $type eq 'password';

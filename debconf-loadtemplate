@@ -8,7 +8,7 @@ debconf-loadtemplate - load template file into debconf database
 
 use strict;
 use Debconf::Db;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 
 =head1 SYNOPSIS
 
@@ -40,7 +40,7 @@ sub usage {
 my $owner=shift || usage();
 usage() unless @ARGV;
 
-Debconf::Template::Persistent->load($_, $owner) foreach @ARGV;
+Debconf::Template->load($_, $owner) foreach @ARGV;
 Debconf::Db->save;
 
 =head1 AUTHOR

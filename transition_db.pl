@@ -4,7 +4,7 @@
 use strict;
 use Debconf::Db;
 use Debconf::Question;
-use Debconf::Template::Persistent;
+use Debconf::Template;
 
 my $dir = shift || '/var/lib/debconf';
 
@@ -44,24 +44,29 @@ foreach my $item (keys %questions) {
 # Now that all the Question objects are made, we can fill them in.
 # Have to do it in two passes to prevent duplicate questions trying to 
 # be made.
+my %seen_templates;
 foreach my $item (keys %questions) {
 	my $question=Debconf::Question->get($item);
 	# Make sure that the template used by this item exists.
 	my $tname=$questions{$item}->{template}->{_name};
-	my $template=Debconf::Template::Persistent->get($tname);
+	my $template=Debconf::Template->get($tname);
 	unless (defined $template) {
 		# Template does not exist yet, so we have to pull it out of
 		# the %templates hash.
-		$template=Debconf::Template::Persistent->new($tname, $item);
+		$template=Debconf::Template->new($tname, $item);
 	}
-	# Simply copy every field into it. I do this even if it already
-	# exists, because for all I know a db is being imported over top of
-	# a failed import or a different db.
-	foreach my $field (keys %{$templates{$tname}}) {
-		next if $field=~/^_name/; # except this one we added above.
-		$template->$field($templates{$tname}->{$field});
+	unless ($seen_templates{$template}) {
+		# Delete every existing field, and then copy every field into
+		# it. I do this even if it already exists, because for all I
+		# know a db is being imported over top of a failed import or
+		# a different db.
+		$template->clearall;
+		foreach my $field (keys %{$templates{$tname}}) {
+			next if $field=~/^_name/; # except this one we added above.
+			$template->$field($templates{$tname}->{$field});
+		}
 	}
-
+	
 	# Copy over all significant values to the question.
 
 	# This old flag morphes into the seen flag, inverting meaning.
