@@ -1,3 +1,13 @@
+debconf (0.3.64) unstable; urgency=low
+
+  * Switched to using links to convert html to text, since it
+    a) handles tables ok
+    b) doesn't omit link references
+  * Long-overdue fix to the specification -- added the list of commands to
+    it -- they were removed when it was converted to xml.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 12 Aug 2000 02:06:39 -0700
+
 debconf (0.3.63) unstable; urgency=low
 
   * Make a nice non-scary message if Term::Stool is not installed and one

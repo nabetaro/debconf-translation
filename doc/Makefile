@@ -11,8 +11,7 @@ all: $(FILES) spec
 	-tidy -i -m -f /dev/null $@
 
 %.txt: %.html
-	w3m -dump $< > $@
-#	lynx -dump $< > $@
+	links -dump $< | perl -pe 's/[\r\0]//g' > $@
 
 clean: spec
 	rm -f $(FILES) hierarchy.txt *.css *.html

@@ -124,6 +124,11 @@ sub AUTOLOAD {
 
 =back
 
+=head1 SEE ALSO
+
+The debconf specification (/usr/share/doc/debconf-doc/specification.html),
+and tutorial (/usr/share/doc/debconf-doc/tutorial.html).
+
 =head1 AUTHOR
 
 Joey Hess <joey@kitenet.net>
