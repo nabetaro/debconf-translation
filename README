@@ -1,17 +1,10 @@
-This is a demo frontend for the Debian Configuration Management system.
+This is a demo frontend for the Debian Configuration Management system. To
+test it, try these 4 commands. (The Line frontend works best if
+libterm-readline-gnu-perl is installed, but it does not depend on it.)
 
-Currently, only a simple line-at-a-time text interface is available, but the
-framework is there for more complicated interfaces. The most notable missing
-feature in the line-at-a-time interface is the ability to back up to a
-previous question. Better interfaces will have that ability.
-
-The current interface works best if libterm-readline-gnu-perl is installed,
-but does not depend on it.
-
-'make test' will demo the frontend. To demo it with a few more unimportant
-questions, try 'make DEBIAN_PRIORITY=low'. And for only the most critical
-questons, try 'make DEBIAN_PRIORITY=critical'.
-
-Another demo is available via 'make test2'.
+make FRONTEND=Dialog PACKAGE=demo
+make FRONTEND=Line PACKAGE=demo
+make FRONTEND=Dialog PACKAGE=cvs
+make FRONTEND=Line PACKAGE=cvs
 
 The copyright of this is GPL, by Joey Hess <joey@kitenet.net>

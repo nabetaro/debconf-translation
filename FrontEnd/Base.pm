@@ -1,40 +1,21 @@
 #!/usr/bin/perl -w
 #
-# Base frontend. 
-# This inherits from the generic ConfModule and just defines some methods to
-# handle commands.
+# Base frontend.
 
 package FrontEnd::Base;
-use ConfModule;
 use Priority;
 use strict;
-use vars qw(@ISA);
-@ISA=qw(ConfModule);
+use vars qw($AUTOLOAD);
 
-############################################
-# Communication with the configuation module
-
-sub capb {
-	my $this=shift;
-	$this->{capb}=[@_];
-	return;
+sub new {
+	my $proto = shift;
+	my $class = ref($proto) || $proto;
+	my $self = {};
+	bless ($self, $class);
+	return $self
 }
 
-# Just store the title.
-sub title {
-	my $this=shift;
-	$this->{'title'}=join(' ',@_);
-
-	return;
-}
-
-# Don't handle blocks.
-sub beginblock {}
-sub endblock {}
-
-# Print out the elements we have pending one at a time and
-# get responses from the user for them. You should override this
-# if your frontend supports blocks.
+# This is called when it is time for the frontend to display questions.
 sub go {
 	my $this=shift;
 	
@@ -46,17 +27,16 @@ sub go {
 		$elt->ask;
 	}
 	$this->{elements}=[];
-	return;
 }
 
-# Pull a value out of a question.
-sub get {
+# Set/get property.
+sub AUTOLOAD {
 	my $this=shift;
-	my $question=shift;
-	
-	$question=ConfigDb::getquestion($question);
-	return $question->value if $question->value ne '';
-	return $question->template->default;
+	my $property = $AUTOLOAD;
+	$property =~ s|.*:||; # strip fully-qualified portion
+			
+	$this->{$property}=shift if @_;
+	return $this->{$property};
 }
 
 1

@@ -4,9 +4,6 @@
 
 package FrontEnd::Line;
 use FrontEnd::Base;
-use Element::Line::Input;
-use Element::Line::Text;
-use Element::Line::Note;
 use Priority;
 use strict;
 use vars qw(@ISA);
