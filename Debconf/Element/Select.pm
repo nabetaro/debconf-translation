@@ -31,7 +31,16 @@ sub visible {
 	my $this=shift;
 	
 	my @choices=$this->question->choices_split;
-	return ($#choices > 0);
+
+	if (@choices > 1) {
+		return 1;
+	}
+	else {
+		debug 'developer' => 'Not displaying select list '.
+		                     $this->question->name.' with '.
+				     (@choices+0).' choice'.((@choices == 0) ? 's' : '');
+		return 0;
+	}
 }
 
 =item translate_default
