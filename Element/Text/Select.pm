@@ -20,12 +20,14 @@ use vars qw(@ISA);
 
 sub show {
 	my $this=shift;
-	my %selectindfromlet = ();
+
+	return unless $this->SUPER::show(@_);
 
 	# Display the question's long desc first.
 	$this->frontend->display($this->question->extended_description."\n");
 	
 	my $prompt;
+	my %selectindfromlet = ();
 	my $type=$this->question->type;
 	my $default=$this->question->value;
 	my $pdefault='';

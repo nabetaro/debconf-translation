@@ -64,6 +64,8 @@ sub set {
 	my $this=shift;
 	my $value=shift;
 
+	return unless $this->SUPER::show(@_);
+
 	my @choices=$this->question->choices_split;
 	$value=$choices[$value];
 

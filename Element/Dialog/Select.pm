@@ -22,6 +22,8 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
+	return unless $this->SUPER::show(@_);
+
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);

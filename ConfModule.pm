@@ -245,6 +245,7 @@ sub command_get {
 	my $question_name=shift;
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
+
 	if (defined $question->value) {
 		return $codes{success}, $question->value;
 	}

@@ -1,3 +1,11 @@
+debconf (0.2.7) unstable; urgency=low
+
+  * Select Elements are not shown if they have less than 2 choices. However,
+   for conistency, even if not shown, the value of the Question they represent
+   is changed as if they were shown.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 31 Oct 1999 21:28:40 -0800
+
 debconf (0.2.6) unstable; urgency=low
 
   * Expanded and fixed up the Debian::DebConf::Client::ConfModule.2pm

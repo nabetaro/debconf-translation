@@ -66,7 +66,7 @@ sub makeelement {
 Add a Question to the list to be displayed to the user. Pass the Question and
 text indicating the priority of the Question. This creates an Element and adds
 it to the array in the elements property. Returns the created element, or
-faluse if no element was made.
+false if no element was made.
 
 =cut
 
