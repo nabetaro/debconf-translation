@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-19 15:43+0100\n"
-"PO-Revision-Date: 2004-03-03 19:40+1300\n"
+"POT-Creation-Date: 2004-08-17 20:50+0100\n"
+"PO-Revision-Date: 2004-10-20 21:41+1300\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -125,22 +125,22 @@ msgstr "配置文件中没有指定模板数据库。"
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr ""
+msgstr "配置文件中的 Sigils 和 Smileys 选项已不再被使用，请删除他们。"
 
 #: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "在设定由 %2$s 第 %1$s 部分所定义的数据库时出错。"
 
-#: ../Debconf/Config.pm:276
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr ""
+msgstr "忽略无效的优先级“%s”"
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr ""
+msgstr "有效的优先级为：%s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -304,21 +304,21 @@ msgstr "预设定 %s 失败，退出状态为 %s"
 msgid "%s must be run as root"
 msgstr "%s 必须以 root 身份执行"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "请指定要重新设定的软件包"
 
-#: ../dpkg-reconfigure:157
+#: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
 msgstr "%s 未安装"
 
-#: ../dpkg-reconfigure:161
+#: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s 已被损坏或未完成安装"
 
-#: ../dpkg-reconfigure:238
+#: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能读取状态文件：%s"
