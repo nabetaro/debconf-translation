@@ -1,7 +1,5 @@
 I18N:
-* I should "use locale" -- but it's not in the base perl package.
-  Get it in, or I could hack together my own locale enabler, it's one line
-  -- see locale.pm. This is necessary for proper sorting, and other stuff.
+* I should "use locale" here and there.
 * "n. najwy¿szy  w. wysoki  a. ¶redni  b. niski"
   Notice that it did not use ¶ as a letter here. Perhaps it should. OTOH,
   doing so might cause problems with wide character sets, if the first half
