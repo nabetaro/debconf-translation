@@ -14,7 +14,7 @@ use base qw(Debian::DebConf::Base);
 
 =head1 DESCRIPTION
 
-This isa an object that represents a Question. Each Question has some
+This is a an object that represents a Question. Each Question has some
 associated data. To get at this data, just use $question->fieldname
 to read a field, and  $question->fieldname(value) to write a field. Any
 field names at all can be used, the convention is to lower-case their names,
@@ -30,20 +30,17 @@ the Question is mapped to, the value of that field will be returned instead.
 
 =cut
 
-=head2 new
+=head2 init
 
-Returns a new Question object.
+Sets a few defaults.
 
 =cut
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
 	
 	$this->flag_isdefault('true');
 	$this->variables({});
-	return $this;
 }
 
 # This is a helper function that expands variables in a string.

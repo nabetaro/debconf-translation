@@ -18,7 +18,7 @@ use Term::Stool::Password;
 use Debian::DebConf::Element::Slang; # perlbug
 use base qw(Debian::DebConf::Element::Slang);
 
-sub makewidget {
+sub init {
 	my $this=shift;
 
 	$this->widget(Term::Stool::Password->new);

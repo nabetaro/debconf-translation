@@ -76,7 +76,7 @@ sub init {
 			my $this=shift;
 
 			# Resize to fit the container its in.
-			$this->width($this->container->width - 4);
+			$this->width($this->container->width - 3);
 			$this->height($this->container->height - 2);
 		},
 	));

@@ -15,6 +15,16 @@ server ever. It only accpets one client at a time!
 
 =cut
 
+=head1 FIELDS
+
+=cut
+
+=head2 port
+
+The port to bind to.
+
+=cut
+
 =head1 METHODS
 
 =cut
@@ -27,20 +37,19 @@ use strict;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
-=head2 new
+=head2 init
 
-Creates and returns an object of this class. The object binds to port 8001, or
-any port number passed as a parameter to this function.
+Bind to the port.
 
 =cut
 
 # Pass in the port to bind to, 8001 is default.
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
+
+	$this->SUPER::init(@_);
 	
-	$this->port(shift || 8001);
+	$this->port(8001) unless defined $this->port;
 	$this->formid(0);
 	$this->interactive(1);
 	$this->capb('backup');
@@ -55,8 +64,6 @@ sub new {
 	)) || die "Can't bind to ".$this->port.": $!";
 
 	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$this->port."/\n";
-
-	return $this;
 }
 
 =head2 client

@@ -26,11 +26,11 @@ use base qw(Debian::DebConf::FrontEnd::Tty);
 
 local $|=1;
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
-	
+sub init {
+	my $this=shift;
+
+	$this->SUPER::init(@_);
+
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
 	$this->readline(Term::ReadLine->new('debian'));
 	$this->readline->ornaments(1);
@@ -42,8 +42,6 @@ sub new {
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
 		$this->promptdefault(1);
 	}
-	
-	return $this;
 }
 
 =head2 screenwidth

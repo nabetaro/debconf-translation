@@ -25,13 +25,13 @@ use vars '@ISA';
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
+
+	$this->SUPER::init(@_);
+
 	$this->resize; # Get current screen size.
 	$SIG{'WINCH'}=sub { $this->resize };
-	return $this;
 }
 
 =head2 resize

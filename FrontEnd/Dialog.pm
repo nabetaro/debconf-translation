@@ -30,19 +30,18 @@ use IPC::Open3;
 use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
 
-=head2 new
+=head2 init
 
-Creates and returns a new FrontEnd::Dialog object. It will look to see if
-whiptail, or dialog, or gdialog are available, in that order. To make it use
-dialog, set FORCE_DIALOG in the environment. To make it use gdialog, set
-FORCE_GDIALOG in the environment.
+Checks to see if whiptail, or dialog, or gdialog are available, in that
+order. To make it use dialog, set FORCE_DIALOG in the environment. To make
+it use gdialog, set FORCE_GDIALOG in the environment.
 
 =cut
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
+
+	$this->SUPER::init(@_);
 
 	$this->interactive(1);
 	$this->capb('backup');
@@ -78,8 +77,6 @@ sub new {
 		die "Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.";
 #		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
 	}
-
-	return $this;
 }
 
 =head2 sizetext

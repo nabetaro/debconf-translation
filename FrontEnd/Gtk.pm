@@ -24,16 +24,10 @@ use Gtk::Atoms;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
-=head2 new
+sub init {
+	my $this=shift;
 
-Creates and returns a new FrontEnd::Gtk object.
-
-=cut
-
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+	$this->SUPER::init(@_);
 
 	$this->{interactive}=1;
 	$this->{capb} = 'backup';
@@ -128,8 +122,6 @@ sub new {
 	$this->{window} = $window;
 	$this->{questionframe} = $questionframe;
 	$this->{result} = "uninitialized";
-
-	return $this;
 }
 
 =head2 newques
