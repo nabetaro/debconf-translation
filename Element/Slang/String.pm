@@ -26,7 +26,6 @@ sub makewidget {
 	$default=$this->question->value if defined $this->question->value;
 	$this->widget(Term::Stool::Input->new(
 		text => $default,
-		resize_hook => sub { $this->resize },
 	));
 }
 

@@ -22,9 +22,7 @@ sub makewidget {
 	my $this=shift;
 	my $yoffset=shift;
 
-	$this->widget(Term::Stool::Password->new(
-		resize_hook => sub { $this->resize },
-	));
+	$this->widget(Term::Stool::Password->new);
 }
 
 =head2 value

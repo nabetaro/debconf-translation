@@ -151,6 +151,9 @@ sub go {
 	foreach my $element (@elements) {
 		$element->makewidget;
 		$firstwidget=$element->widget unless $firstwidget;
+		# Make the widget call the element's resize method when it
+		# is resized.
+		$element->widget->resize_hook(sub { $element->resize });
 		# Set up the widget so when it is activated, it makes sure
 		# that the text describing it is also visible.
 		$element->widget->activate_hook(sub {
