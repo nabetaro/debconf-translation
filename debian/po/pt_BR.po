@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_1.2.31\n"
+"Project-Id-Version: debconf_1.2.32\n"
 "POT-Creation-Date: 2003-03-07 12:15-0500\n"
-"PO-Revision-Date: 2003-03-03 17:46+0300\n"
+"PO-Revision-Date: 2003-03-15 21:59-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "crítica, alta, média, baixa"
 #. Description
 #: ../templates:19
 msgid "See only questions that are of what priority and higher?"
-msgstr ""
+msgstr "Ver somente perguntas que sejam de qual prioridade ou superior ?"
 
 #. Description
 #: ../templates:19
@@ -73,16 +73,24 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"O Debconf dá prioridade às perguntas que faz. Escolha a menor "
+"prioridade das questões que você deseja ver :\n"
+"  - 'crítica' somente pergunta algo caso o sistema possa sofrer danos. "
+"     Escolhe essa caso você seja iniciante ou esteja com pressa.\n"
+"  - 'alta' é para perguntas importantes.\n"
+"  - 'média' é para perguntas normais\n"
+"  - 'baixa' é para malucos por controle que desejam ver todas as "
+"     perguntas"
 
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Note que, independete do que você escolher aqui, você pode ver perguntas "
-"antigas novamente usando o programa dpkg-reconfigure."
+"Note que, independente do que você escolher aqui, você poderá ver todas "
+"as perguntas caso você reconfigure o pacote com o comando "
+"dpkg-reconfigure."
 
 #. Description
 #: ../templates:34
