@@ -1,0 +1,25 @@
+#!/usr/bin/perl -w
+#
+# Just loads up a template file. Pass it the template file and the owner of the
+# loaded templates.
+
+use strict;
+use lib '.';
+use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
+
+Debian::DebConf::Config::frontend('base');
+my $template=shift;
+my $owner=shift;
+
+# Load up previous state information.
+if (-e Debian::DebConf::Config::dbfn()) {
+	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
+}
+
+# Load up templates.
+Debian::DebConf::ConfigDb::loadtemplatefile($template, $owner);
+
+# Save state.
+Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
