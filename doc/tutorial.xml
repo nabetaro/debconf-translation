@@ -245,11 +245,16 @@ Template: ....
         Later, you might want to add translations to your templates file.
 	This is accomplished by adding more fields, with translated text in
 	them. Any of the fields can be translated. For example, you might
-	want to translate the description into spanish. Just make a field
-	named <literal>Description-es</literal> that holds the translation.
-	Debconf will display that field to users who have set
-	<literal>LANG=es</literal>. Of course, if a translated field is not
-	available, it falls back to the English fields.
+	want to translate the description into Spanish. Just make a field
+	named <literal>Description-es</literal>
+	<footnote>
+	  <para>
+	    Actually, <literal>Description-es_ES</literal> (or es_MX, or
+	    whatever) will be checked first.
+	  </para>
+	</footnote>
+	that holds the translation. Of course, if a translated field is not
+	available, it falls back to the normal field names.
       </para>
       <para>
         Note that you can (and should) even translate the

@@ -28,6 +28,7 @@ variable is set, and you request a field from a template, it will see if
 
 package Debian::DebConf::Template;
 use strict;
+use POSIX;
 use Debian::DebConf::Base;
 use vars qw(@ISA $AUTOLOAD);
 @ISA=qw{Debian::DebConf::Base};
@@ -109,26 +110,47 @@ sub parse {
 		unless $this->{template};
 }
 
-=head2 any_other_method
+# Calculate the current locale, with aliases expanded, and normalized.
+# May also generate a fallback.
+sub _getlangs {
+	# I really dislike hard-hoding 5 here, but the POSIX module sadly does
+	# not let us get at the value of LC_MESSAGES in locale.h in a more 
+	# portable way.
+	my $language=setlocale(5); # LC_MESSAGES
+	if ($language eq 'C' || $language eq 'POSIX') {
+		return;
+	}
+	# Try to do one level of fallback.
+	elsif ($language=~m/^(\w\w)_/) {
+		return $language, $1;
+	}
+	return $language;
+}
+
+=head2 any other method
 
 Set/get a property. This supports internationalization.
 
 =cut
 
 {
-	# Only calculate this once..
-	my $language=($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LC_MESSAGE} || $ENV{LANG});
+	my @langs=_getlangs();
 
 	sub AUTOLOAD {
 		my $this=shift;
 		my $property = $AUTOLOAD;
 		$property =~ s|.*:||; # strip fully-qualified portion
-				
+		
 		$this->{$property}=shift if @_;
-	
+		
 		# Check to see if i18n should be used.
-		if (defined $language && exists $$this{$property.'-'.$language}) {
-			$property.='-'.$language;
+		if (@langs) {
+			foreach my $lang (@langs) {
+				if (exists $$this{$property.'-'.$lang}) {
+					$property.='-'.$lang;
+					last;
+				}
+			}
 		}
 		
 		return $this->{$property};

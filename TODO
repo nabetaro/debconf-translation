@@ -6,7 +6,7 @@ Before freeze:
     values.
   - when the user enters stuff into a [multi]select element, it then
     translates back to english, and sets Default: to the english values(s)
-    they selected. So all the backend code n the confmodule just deals with
+    they selected. So all the backend code in the confmodule just deals with
     the english values.
 
 I18N:
@@ -34,7 +34,8 @@ General:
 * Something I see frequently is a select list that needs lots of explination
   for each option. It'd be neat if the explination could be added as a
   parallell list with the select list, to keep the actual tokens that the
-  confmodule script gets back short.
+  confmodule script gets back short. See modconf for how such a list could
+  display in whiptail.
 * Select elements still arn't consitent. If a select element is not shown,
   it is set to the first item on the list of possibilities. However, if it is
   shown, but has one item on it, which is not the default value, the default 
