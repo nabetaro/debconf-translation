@@ -1,0 +1,17 @@
+.TH DPKG-PRECONFIG 1
+.SH NAME
+dpkg-preconfig \- let packages ask questions prior to their installation
+.SH SYNOPSIS
+.B dpkg-preconfig [--frontend=type] file.deb [file.deb ..]
+.SH DESCRIPTION
+.BR dpkg-preconfig
+lets packages ask questions before they are installed. It operates on a set
+of debian packages, and all packages that use debconf will have thier config
+script run so they can examine the system and ask questions.
+.SH OPTIONS
+.TP
+.I "\-ftype, \-\-frontend=type"
+Select the frontend to use. Default is to use the dialog based frontend.
+Currently avaialble frontends are dialog, line, and web.
+.SH AUTHOR
+Joey Hess <joey@kitenet.net>
