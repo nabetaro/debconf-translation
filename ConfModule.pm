@@ -143,6 +143,22 @@ sub communicate {
 	my $r=$this->read_handle;
 	$_=<$r> || return $this->_finish;
 	chomp;
+	my $ret=$this->process_command($_);
+	my $w=$this->write_handle;
+	print $w $ret."\n";
+	return '' unless length $ret;
+	return 1;
+}
+
+=item process_command
+
+Pass in a raw command, and it will be processed and handled.
+
+=cut
+
+sub process_command {
+	my $this=shift;
+	
 	debug 1, "<-- $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
@@ -150,20 +166,18 @@ sub communicate {
 	# Make sure $command is a valid perl function name so the autoloader
 	# will catch it if nothing else.
 	$command=~s/[^a-zA-Z0-9_]/_/g;
-	my $w=$this->write_handle;
 	if (lc($command) eq "stop") {
 		return $this->_finish;
 	}
 	$command="command_".lc($command);
 	my $ret=join(' ', $this->$command(@params));
 	debug 1, "--> $ret";
-	print $w $ret."\n";
-	return 1;
+	return $ret;
 }
 
 =item _finish
 
-This is an internal helper function for communicate. It just waits for the
+This is an internal helper function for process_command. It just waits for the
 child process to finish so its return code can be examined. The return code
 is stored in the exitcode field of the object.
 
@@ -241,7 +255,12 @@ sub command_input {
 	}
 
 	$this->frontend->add($element);
-	return $element->visible ? $codes{success} : $codes{input_invisible};
+	if ($element->visible) {
+		return $codes{success}, "question will be asked";
+	}
+	else {
+		return $codes{input_invisible}, "question skipped";
+	}
 }
 
 =item command_clear
@@ -335,8 +354,8 @@ its go method. Returns whatever the FrontEnd returns.
 sub command_go {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
-	return $codes{go_back} unless $this->frontend->go;
-	return $codes{success};
+	return $codes{go_back}, "backup" unless $this->frontend->go;
+	return $codes{success}, "ok";
 }
 
 =item command_get

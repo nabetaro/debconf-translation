@@ -1,3 +1,12 @@
+debconf (0.3.11) unstable; urgency=low
+
+  * Added dpkg-debconf. This is a program that lets you send commands to
+    debconf directly from the command line. Will probably be quite useful
+    for debugging purposes. (We used to have something like this a long,
+    long time ago, but I like this new design better.)
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Mar 2000 16:26:19 -0800
+
 debconf (0.3.10) unstable; urgency=low
 
   * Added dpkg-loadtemplate, a simple program that loads templates into the

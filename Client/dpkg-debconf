@@ -1,0 +1,73 @@
+#!/usr/bin/perl -w
+
+=head1 NAME
+
+dpkg-debconf - communicate with debconf
+
+=cut
+
+use strict;
+use Debian::DebConf::Config qw(dbdir);
+use Debian::DebConf::ConfigDb qw(loaddb savedb);
+use Debian::DebConf::AutoSelect;
+
+=head1 SYNOPSIS
+
+ dpkg-debconf "command" "command args"
+
+=head1 DESCRIPTION
+
+B<dpkg-debconf> allows you to communicate with debconf on the fly, from the
+command line. It accepts any number of arguments, each of which contains a
+single debconf command to run along with any parameters. For documentation on
+the available commands and their usage, see Appendix A of the Debconf Tutorial.
+
+The commands are executed in sequence. The textual return code of each is
+printed out to standard output.
+
+The return value of this program is the numeric return code of the last
+executed command.
+
+=head1 EXAMPLES
+
+ dpkg-debconf "get debconf/frontend"
+
+Print out the value of the debconf/frontend question.
+
+ dpkg-debconf "fset debconf/frontend isdefault false" \
+              "input medium debconf/frontend" go
+
+This asks debconf to display the debconf/frontend question, even if it has
+been seen before.
+
+=head1 WARNING
+
+This program should never be used from a maintainer script of a package
+that uses debconf! It may however, be useful in debugging.
+
+=head1 SEE ALSO
+
+L<dpkg-loadtemplate(8)|dpkg-loadtemplate>
+
+=cut
+
+loaddb(dbdir());
+my $frontend=Debian::DebConf::AutoSelect::frontend();
+my $confmodule=Debian::DebConf::AutoSelect::confmodule();
+my $code=127;
+my $text;
+foreach (@ARGV) {
+	($code, $text)=split(/ /, $confmodule->process_command($_), 2);
+	print $text if defined $text;
+	print "\n";
+}
+$frontend->shutdown;
+savedb(dbdir());
+exit $code;
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
+

@@ -27,6 +27,10 @@ This program should never be used from a maintainer script of a package
 that uses debconf! It may however, be useful in debugging, or to seed the
 debconf database.
 
+=head1 SEE ALSO
+
+L<dpkg-debconf(8)|dpkg-debconf>
+
 =cut
 
 my $owner=shift;
