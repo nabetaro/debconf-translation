@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-09-17 13:12-0400\n"
+"POT-Creation-Date: 2002-09-19 18:20-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -269,12 +269,17 @@ msgstr "需要由 root 的執行"
 msgid "please specify a package to reconfigure"
 msgstr "請指定要再設定的包件"
 
-#: ../dpkg-reconfigure:144
-#, c-format
-msgid "%s is not fully installed"
+#: ../dpkg-reconfigure:145
+#, fuzzy, c-format
+msgid "%s is not installed"
 msgstr "%s 並未完全安裝"
 
-#: ../dpkg-reconfigure:217
+#: ../dpkg-reconfigure:149
+#, fuzzy, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s 並未完全安裝"
+
+#: ../dpkg-reconfigure:223
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"

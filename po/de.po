@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-09-17 13:12-0400\n"
+"POT-Creation-Date: 2002-09-19 18:20-0400\n"
 "PO-Revision-Date: 2002-01-18 08:51+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -292,12 +292,17 @@ msgstr "muß als root ausgeführt werden"
 msgid "please specify a package to reconfigure"
 msgstr "bitte geben Sie ein Paket an, das Sie neu konfigurieren wollen"
 
-#: ../dpkg-reconfigure:144
-#, c-format
-msgid "%s is not fully installed"
+#: ../dpkg-reconfigure:145
+#, fuzzy, c-format
+msgid "%s is not installed"
 msgstr "%s ist nicht komplett installiert"
 
-#: ../dpkg-reconfigure:217
+#: ../dpkg-reconfigure:149
+#, fuzzy, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s ist nicht komplett installiert"
+
+#: ../dpkg-reconfigure:223
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kann die Status-Datei nicht lesen: %s"
