@@ -21,8 +21,10 @@ while [ "$STATE" != stop ]; do
 	case "$STATE" in
 	1)
 		# Ask about frontend and priority.
+		db_beginblock
 		db_input medium debconf/frontend || true
 		db_input medium debconf/priority || true
+		db_endblock
 		if ! db_go && [ $? -eq 30 ]; then
 			# Going back at this point is up to the frontend,
 			# since it involves jumping out of this configmodule.
@@ -38,7 +40,10 @@ while [ "$STATE" != stop ]; do
 		# Ask if old questions should be shown only after
 		# asking about priority, because I don't want to bother people
 		# with it unless they pick low priority.
+		db_beginblock
+		db_input low debconf/preconfig || true
 		db_input low debconf/showold || true
+		db_endblock
 		if ! db_go; then
 		echo backup hit
 			# Back button

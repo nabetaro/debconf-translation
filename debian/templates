@@ -32,6 +32,15 @@ Description: Ignore questions with a priority less than..
  If you are new to the Debian GNU/Linux system choose `critical' now,
  so you only see the most important questions.
 
+Template: debconf/preconfig
+Type: boolean
+Default: true
+Description: Pre-configure packages before they are installed?
+ One of debconf's features is that it can be used to configure packages before
+ they are installed by apt. This lets you answer most questions a package
+ would ask at the beginning of the install, so you do not need to be around
+ to answer questions during the rest of the install.
+
 Template: debconf/showold
 Type: boolean
 Default: false

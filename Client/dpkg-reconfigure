@@ -55,38 +55,29 @@ foreach my $pkg (@ARGV) {
 	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
-	if (-x "/var/lib/dpkg/info/$pkg.config") {
-		# Start up the confmodule, passing in package version.
+	# If this doesn't exist, the package probably doesn't use debconf,
+	# so skip it, becuase a normal package may misbehave when run here.
+	next unless -x "/var/lib/dpkg/info/$pkg.config";
+
+	# Run postrm, config, and postinst scripts in sequence, with args.
+	foreach my $info (['postrm',   'remove'		      ],
+			  ['config',   'reconfigure', $version],
+			  ['postinst', 'configure',   $version]) {
+		my $script=shift @$info;
+		next unless -x "$infodir/$pkg.$script";
 		
+		# Start up the confmodule.
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
-			"$infodir/$pkg.config", "reconfigure", $version);
-		
-		# Make sure any questions the confmodule registers are owned 
+			"$infodir/$pkg.$script", @$info);
+
+		# Make sure any questions the confmodule registers are owned
 		# by this package.
 		$confmodule->owner($pkg);
-		
+	
 		# Talk to it until it is done.
 		1 while ($confmodule->communicate);
-		
+	
 		exit $confmodule->exitcode if $confmodule->exitcode > 0;
-
-		if (-x "/var/lib/dpkg/info/$pkg.postinst") {
-			# Run the postinst as a confmodule. First, get the
-			# version of this package that is installed to pass
-			# to it.
-			(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
-			my $confmodule=Debian::DebConf::AutoSelect::confmodule(
-				"$infodir/$pkg.postinst configure $1");
-
-			# Make sure any questions the confmodule registers are
-			# owned by this package.
-			$confmodule->owner($pkg);
-
-			# Talk to it until it is done.
-	        	1 while ($confmodule->communicate);
-		
-			exit $confmodule->exitcode if $confmodule->exitcode > 0;
-		}
 	}
 }
 

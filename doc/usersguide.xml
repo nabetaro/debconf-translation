@@ -92,18 +92,7 @@
       all packages apt installes, just before it installs them.
     </para>
     <para>
-      Sometimes, you might not want this preconfiguring to happen.
-      <footnote>
-        <para>
-	  Perhaps debconf should ask if you want it enabled?
-	</para>
-      </footnote>
-      To turn it off, you can edit <filename>/etc/apt/apt.conf</filename>,
-      find the line that contains <literal>dpkg-preconfigure</literal>, and
-      comment it out with two <literal>/</literal> characters.
-    </para>
-    <para>
-      On the other hand, sometimes you might want to preconfigure a package
+      Sometimes you might want to preconfigure a package
       by hand, when you're not installing it with apt. You can use the
       <command>dpkg-preconfigure</command> command to do that, just pass it
       the filenames of the packages you want to preconfigure.

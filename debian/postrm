@@ -8,5 +8,9 @@ if [ -e /etc/apt/apt.conf ]; then
 		grep -iv "// (Automatically added by debconf.)" | \
 		grep -iv dpkg-preconfig > /etc/apt/apt.conf) || true
 	rm -f /etc/apt/apt.conf.old
+	if [ ! -s /etc/apt/apt.conf ]; then
+		rm -f /etc/apt/apt.conf
+		rmdir --ignore-fail-on-non-empty -p /etc/apt/
+	fi
 fi
 #DEBHELPER#
