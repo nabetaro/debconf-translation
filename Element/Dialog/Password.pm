@@ -33,8 +33,10 @@ sub show {
 	# first in a series of message boxes.
         if ($lines > ($ENV{LINES} || 25) - 2) {
 		$this->frontend->showtext($text);
-		$text='';
-		$lines=6;
+		# Now make sure the short description is displayed in the
+                # dialog they actually enter info into.
+		($text, $lines, $columns)=$this->frontend->sizetext(
+			$this->question->description);
 	}
 
 	my $default=$this->question->value;

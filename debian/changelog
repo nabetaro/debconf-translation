@@ -1,3 +1,16 @@
+debconf (0.1.41) unstable; urgency=low
+
+  * Applied patch from Peter Vreman <pfv@cooldown.demon.nl> to correct dialog
+    size guessing code. Did some additional fixes for whiptail. 
+    (Closes: 46060)
+  * Fixed a really silly formatting bug in FrontEnd::Dialog that was
+    probably leading to what looked like corrupted displays for some people.
+  * When breaking a question up over multiple screens with dialog, it makes
+    sure to always show the short description when it actually prompts for
+    input. This is a lot less disorienting.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 27 Sep 1999 14:41:57 -0700
+
 debconf (0.1.40) unstable; urgency=low
 
   * gdialog will soon support --defaultno, added versionsed conflicts

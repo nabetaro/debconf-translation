@@ -29,12 +29,16 @@ sub show {
 		$this->question->description
 	);
 
+	my $screen_lines=($ENV{LINES} || 25) - $this->frontend->spacer;
+
 	# If it is more than will fit on the screen, just display the prompt
 	# first in a series of message boxes.
-        if ($lines > ($ENV{LINES} || 25) - 2) {
+        if ($lines > $screen_lines - 2) {
 		$this->frontend->showtext($text);
-		$text='';
-		$lines=6;
+		# Now make sure the short description is displayed in the
+		# dialog they actually enter info into.
+		($text, $lines, $columns)=$this->frontend->sizetext(
+			$this->question->description);
 	}
 
 	my $default=$this->question->value;
@@ -46,7 +50,6 @@ sub show {
 	# we have after putting the description at the top. If there's
 	# too little, the list will need to scroll.
 	my $menu_height=$#choices + 1;
-	my $screen_lines=($ENV{COLUMNS} || 80) - $this->frontend->borderwidth;
 	if ($lines + $#choices + 1 > $screen_lines) {
 		$menu_height = $screen_lines - $lines;
 	}
@@ -62,6 +65,7 @@ sub show {
 			@params=($c++, $_, @params);
 		}
 	}
+	
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);

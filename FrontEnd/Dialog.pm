@@ -61,15 +61,15 @@ sub new {
 		$self->{borderheight}=6;
 		$self->{spacer}=1;
 		$self->{titlespacer}=10;
-		$self->{clearscreen}=1;
+		$self->{columnspacer}=3;
 	}
 #	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 #		$self->{program}='dialog';
-#		$self->{borderwidth}=4;
-#		$self->{borderheight}=4;
-#		$self->{spacer}=3;
+#		$self->{borderwidth}=7;
+#		$self->{borderheight}=6;
+#		$self->{spacer}=4;
 #		$self->{titlespacer}=4;
-#		$self->{clearscreen}=1;
+#		$self->{columnspacer}=2;
 #	}
 	elsif (-x "/usr/bin/gdialog") {
 		$self->{program}='gdialog';
@@ -77,6 +77,7 @@ sub new {
 		$self->{borderheight}=6;
 		$self->{spacer}=1;
 		$self->{titlespacer}=10;
+		$self->{columnspacer}=0;
 	}
 	else {
 		die "Whiptail is not installed, so the dialog based frontend cannot be used.";
@@ -148,7 +149,7 @@ sub sizetext {
 	# This is difficult because long lines are wrapped. So what I'll do
 	# is pre-wrap the text and then just look at the number of lines it
 	# takes up.
-	$columns = ($ENV{COLUMNS} || 80) - $this->borderwidth;
+	$columns = ($ENV{COLUMNS} || 80) - $this->borderwidth - $this->columnspacer;
 	$text=wrap('', '', $text);
 	my @lines=split(/\n/, $text);
 	
@@ -174,9 +175,10 @@ sub showtext {
 
 	my $lines = ($ENV{LINES} || 25);
 	my ($text, $height, $width)=$this->sizetext($intext);
+
 	my @lines = split(/\n/, $text);
 	my $num;
-	my @args=('--msgbox', join(",", @lines));
+	my @args=('--msgbox', join("\n", @lines));
 	if ($lines - 4 - $this->borderheight <= $#lines) {
 		$num=$lines - 4 - $this->borderheight;
 		if ($this->program eq 'whiptail') {
@@ -218,13 +220,7 @@ The second, anything it outputs to stderr.
 sub showdialog {
 	my $this=shift;
 
-	print STDERR "Preparing to show dialog ".(join " ", @_)."\n" if $ENV{DEBCONF_DEBUG};
-
-	# Clear the screen if clearscreen is set.
-	if ($this->clearscreen) {
-		$this->clearscreen('');
-#		system 'clear';
-	}
+	print STDERR "Preparing to show dialog ".(join "\n", @_)."\n" if $ENV{DEBCONF_DEBUG};
 
 	# Save stdout, stderr, the open3 below messes with them.
 	use vars qw{*SAVEOUT *SAVEERR};
