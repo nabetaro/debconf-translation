@@ -16,35 +16,48 @@ Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Set the default title.
-my $package=$ARGV[0];
-$package=~s/\.(?:postinst|postrm|prerm)$//;
-$package=~s:.*/::;
+my $package;
+if ($ARGV[0]=~m!^.*/(.*?)\.(?:postinst|postrm|prerm)$!) {
+	$package=$1;
+}
+else {
+	# The preinst is running, presumably. Now it gets really ugly, because
+	# I have to parse the control file.
+	open (CONTROL, "< /var/lib/dpkg/tmp.ci/control")
+		|| die "Debconf: unable to open control file: $!";
+	while (<CONTROL>) {
+		if (/^Package: (.*)/) {
+			$package=$1;
+			last;
+		}
+	}
+	close CONTROL;
+}
+
 $frontend->default_title($package);
 
-# See if the postinst of the package is being run, and if there is a
-# config script associated with this package. If so, run it first as a
+# See if the preinst or postinst of the package is being run, and if there
+# is a config script associated with this package. If so, run it first as a
 # confmodule (also loading the templates). This is a bit of a nasty hack, that
 # lets you dpkg -i somepackage.deb and have its config script be run first.
-if ($ARGV[0] =~/\.postinst$/) {
+#
+# If it is the preinst, everything is in this weird directory deep in
+# /var/lib/dpkg.
+if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
+	my $base=$1;
+
 	# Load templates, if any.
-	my $templates=$ARGV[0];
-	$templates=~s/\.(?:postinst|prerm|postrm)$/.templates/;
+	my $templates=$base."templates";
 	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 		if -e $templates;
 
 	# Run config script, if any.
-	my $config=$ARGV[0];
-	$config=~s/\.(?:postinst|prerm|postrm)$/.config/;
+	my $config=$base."config";
 	if (-e $config) {
-		# If it is set, I assume that the third argument passed to this
+		# I assume that the third argument passed to this
 		# program (which should be the second argument passed to the
-		# postinst that ran it), is the package version.
+		# preinst or postinst that ran it), is the package version.
 		my $version=$ARGV[2];
-		if ($version eq '') {
-			$_=`dpkg --status $package`;
-			($version)=m/Version: (.*)\n/;
-		}
-		
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config,
 			"configure", $version);
 

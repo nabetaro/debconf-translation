@@ -1,3 +1,15 @@
+debconf (0.2.17) unstable; urgency=low
+
+  * So it is possible to use debconf from the preinst of a package, after
+    all. Added sundry nasty hacks to make it work. (Also talked with BenC
+    and Wichert about doing this right in dpkg.)
+  * When a package is installed for the first time, the config script now
+    gets "" as its second parameter, as it should.
+  * ConfModule.pm now just execs a frontend, instead of turning into one. Not
+    quite as cool, but a lot easier to maintain.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri,  5 Nov 1999 12:36:13 -0800
+
 debconf (0.2.16) unstable; urgency=low
 
   * Made frontend fallback message less scary.

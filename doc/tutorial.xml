@@ -89,8 +89,8 @@
       debconf. (Output to stderr can be left as is.)
       <note>
       <para>
-      Unfortunatly, it is currently not possible for your preinst to
-      use debconf.
+      If your preinst uses debconf, you must make your package Pre-Depend on
+      <literal>debconf (>= 0.2.17)</literal>.
       </para>
       </note>
     </para>
@@ -302,11 +302,12 @@ Template: ....
       config script is passed 2 parameters.  The first is either
       "<literal>configure</literal>" or "<literal>reconfigure</literal>". The
       latter occurs only if a package is being reconfigured by
-      dpkg-reconfig. The second parameter is the version of the package
-      that is currently installed
+      dpkg-reconfig. The second parameter is the last version of the package
+      that was configured.
       <footnote>
-      <para>Not necessarily the version that is being configured, but
-      whatever happens to be installed right now.
+      <para>
+      This is very similar to the arguments that are passed to the postinst
+      script.
       </para>
       </footnote>.
     </para>
