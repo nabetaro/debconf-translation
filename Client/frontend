@@ -8,28 +8,20 @@ use strict;
 use lib ".";
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
 
 # Load up previous state information.
 if (-e Debian::DebConf::Config::dbfn()) {
 	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
 
-my $type=Debian::DebConf::Config::frontend();
-
-my $frontend=eval qq{
-	use Debian::DebConf::FrontEnd::$type;
-	use Debian::DebConf::ConfModule::$type;
-	Debian::DebConf::FrontEnd::$type->new();
-};
-die $@ if $@;
+my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Set the default title.
 my $package=$ARGV[0];
 $package=~s/\.(?:postinst|prerm)$//;
 $package=~s:.*/::;
 $frontend->default_title($package);
-
-my $confmodule;
 
 # See if the postinst or prerm of the package is being run, and if there is a
 # config script associated with this package. If so, run it first as a
@@ -46,10 +38,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	my $config=$ARGV[0];
 	$config=~s/\.(?:postinst|prerm)$/.config/;
 	if (-e $config) {
-		$confmodule=eval qq{
-			Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
-		};
-		die $@ if $@;
+		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config);
 
 		# Make sure any questions the confmodule generates
 		# are owned by this package.
@@ -63,10 +52,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 }
 
 # Start up the confmodule we were asked to run.
-$confmodule=eval qq{
-	Debian::DebConf::ConfModule::$type->new(\$frontend, join " ",\@ARGV);
-};
-die $@ if $@;
+my $confmodule=Debian::DebConf::AutoSelect::confmodule(join " ",@ARGV);
 
 # Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);

@@ -9,6 +9,7 @@ use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
 use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
@@ -38,15 +39,7 @@ if (-e Debian::DebConf::Config::dbfn()) {
 	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
 
-my $frontend_type=Debian::DebConf::Config::frontend();
-
-# Load up appropriate modules and start up the FrontEnd.
-my $frontend=eval qq{
-	use Debian::DebConf::ConfModule::$frontend_type;
-	use Debian::DebConf::FrontEnd::$frontend_type;
-	Debian::DebConf::FrontEnd::$frontend_type->new()
-};	
-die $@ if $@;
+my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Caches package names so they are only looked up once.
 my %packages;
@@ -58,7 +51,7 @@ foreach my $deb (@debs) {
 	$packages{$deb}=$package;
 
 	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|", $package);
+	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates 2>/dev/null |", $package);
 }
 
 foreach my $deb (@debs) {
@@ -83,8 +76,7 @@ foreach my $deb (@debs) {
 	$frontend->default_title($packages{$deb});
 
 	# Start up the confmodule.
-	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($frontend, $script)';
-	die $@ if $@;
+	my $condmodule=Debian::DebConf::AutoSelect::confmodule($script);
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});

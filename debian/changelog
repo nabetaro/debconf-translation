@@ -1,3 +1,16 @@
+debconf (0.1.36) unstable; urgency=low
+
+  * Added fallback frontend support. If the frontend the user selects is not
+    available, or fails to initialize (say DISPLAY is unset for Gtk), it will
+    fall back intelligently to another frontend.
+  * This means debconf doesn't really depend on much at all except perl.
+    Moved most stuff to suggests.
+  * The Gtk frontend was dying in a way not catchable by eval (!!) if DISPLAY
+    was unset; added a fix to that so it falls back instead.
+  * Removed some dpkg-preconfig spam.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 13:25:12 -0700
+
 debconf (0.1.35) unstable; urgency=low
 
   * Mappings. What good are they? None, that I could see, so I completely

@@ -9,6 +9,7 @@ use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
 
 Debian::DebConf::Config::frontend(shift);
 my $type=Debian::DebConf::Config::frontend();
@@ -28,21 +29,8 @@ if (exists $ENV{PRIORITY}) {
 	Debian::DebConf::Config::priority($ENV{PRIORITY});
 }
 
-# Load modules and start up the FrontEnd and ConfModule.
-my $frontend=eval qq{
-	use Debian::DebConf::FrontEnd::$type;
-	Debian::DebConf::FrontEnd::$type->new();
-};
-die $@ if $@;
-
-# Set default title.
-$frontend->default_title($script);
-
-my $confmodule=eval qq{
-	use Debian::DebConf::ConfModule::$type;
-	Debian::DebConf::ConfModule::$type->new(\$frontend, \$script);
-};
-die $@ if $@;
+my $frontend=Debian::DebConf::AutoSelect::frontend();
+my $confmodule=Debian::DebConf::AutoSelect::confmodule($script);
 
 # Make sure any questions that are created are owned by this script.
 $confmodule->owner($script);

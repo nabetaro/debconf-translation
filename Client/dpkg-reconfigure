@@ -10,6 +10,7 @@ use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
 use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
@@ -27,15 +28,7 @@ if (-e Debian::DebConf::Config::dbfn()) {
 	Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
 }
 
-my $frontend_type=Debian::DebConf::Config::frontend();
-
-# Load up appropriate modules and start up the FrontEnd.
-my $frontend=eval qq{
-	use Debian::DebConf::ConfModule::$frontend_type;
-	use Debian::DebConf::FrontEnd::$frontend_type;
-	Debian::DebConf::FrontEnd::$frontend_type->new()
-};	
-die $@ if $@;
+my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Make the frontend show questions even if the user has already seen them.
 # Since this is a reconfigure program, they may want to change their choices.
@@ -46,15 +39,14 @@ foreach my $pkg (@ARGV) {
 	# Set default title.
 	$frontend->default_title($pkg);
 
-# This should not be neccessary.
-#	# Load up templates.
-#	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
-#		if -e "$infodir/$pkg.templates";
+	# Load up templates just in case they arn't already.
+	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
+		if -e "$infodir/$pkg.templates";
 
 	if (-x "/var/lib/dpkg/info/$pkg.config") {
 		# Start up the confmodule.
-		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.config')";
-		die $@ if $@;
+		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
+			"$infodir/$pkg.config");
 		
 		# Make sure any questions the confmodule registers are owned 
 		# by this package.
@@ -70,8 +62,8 @@ foreach my $pkg (@ARGV) {
 		# Run the postinst as a confmodule. First, get the version
 		# of this package that is installed to pass to it.
 		(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
-		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.postinst configure $1')";
-		die $@ if $@;
+		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
+			"$infodir/$pkg.postinst configure $1");
 
 		# Make sure any questions the confmodule registers are owned
 		# by this package.

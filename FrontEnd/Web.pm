@@ -36,8 +36,8 @@ use vars qw(@ISA);
 
 =head2 new
 
-Creates and returns an object of this class. The object binds to port 8001, or any
-port number passed as a parameter to this function.
+Creates and returns an object of this class. The object binds to port 8001, or
+any port number passed as a parameter to this function.
 
 =cut
 

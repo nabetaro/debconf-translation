@@ -35,6 +35,7 @@ A few functions have special features, as documented below:
 package Debian::DebConf::Client::ConfModule;
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
+use Debian::DebConf::AutoSelect;
 use strict;
 use lib '.';
 use Exporter;
@@ -73,29 +74,19 @@ sub import {
 	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
 		# Load up previous state information.
 		if (-e Debian::DebConf::Config::dbfn()) {
-			Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbfn());
+			Debian::DebConf::ConfigDb::loaddb(
+				Debian::DebConf::Config::dbfn());
 		}
 
-		my $type=Debian::DebConf::Config::frontend();
+		my $frontend=Debian::DebConf::AutoSelect::frontend();
+		my $confmodule=Debian::DebConf::AutoSelect::confmodule();
 
-		my $frontend=eval qq{
-			use Debian::DebConf::FrontEnd::$type;
-			Debian::DebConf::FrontEnd::$type->new();
-		};
-		die $@ if $@;
-		
 		# Set the default title.
 		my $package=$0;
 		$package=~s/\.(?:postinst|prerm)$//;
 		$package=~s:.*/::;
 		$frontend->default_title($package);
 		
-		my $confmodule=eval qq{
-			use Debian::DebConf::ConfModule::$type;
-			Debian::DebConf::ConfModule::$type->new(\$frontend);
-		};
-		die $@ if $@;
-
 		# Make sure that any questions confmodule registers are
 		# owned by the current package.
 		$confmodule->owner($package);
@@ -125,10 +116,7 @@ sub import {
 			my $config=$0;
 			$config=~s/\.(?:postinst|prerm)$/.config/;
 			if (-e $config) {
-				my $confmodule=eval qq{
-					Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
-				};
-				die $@ if $@;
+				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config);
 				
 				# Make sure that any questions the confmodule
 				# registers are owned by the current package.
