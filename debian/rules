@@ -39,7 +39,7 @@ binary-indep: build
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
 
 	install -m 0644 debian/apt.conf \
-		debian/debconf/etc/apt/apt.conf.d/debconf
+		debian/debconf/etc/apt/apt.conf.d/70debconf
 
 	# Don't modify postrm, I purge differently than normal packages
 	# using me
