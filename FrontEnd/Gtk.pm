@@ -29,14 +29,6 @@ use Gtk::Atoms;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd::Base);
 
-my @debianlogo_xpm=();
-while (<DATA>) {
-	chomp;
-	push @debianlogo_xpm, $_
-}	
-
-print $debianlogo_xpm[10];
-
 use strict;
 
 =head2 new
@@ -87,7 +79,7 @@ sub new {
 
 	# process the xpm that's in the DATA section at the end of this file.
 	my @debianlogo_xpm=();
-	seek DATA, 0, 0;
+	my $pos=tell DATA;
 	<DATA>;
 	<DATA>;
 	while (<DATA>) {
@@ -97,6 +89,7 @@ sub new {
 		s/",$//;
 		push @debianlogo_xpm, $_;
 	}
+	seek DATA, 0, $pos;
 	my ($debianlogo, $debianlogo_mask) = 
 		Gtk::Gdk::Pixmap->create_from_xpm_d(
 			$window->window,
