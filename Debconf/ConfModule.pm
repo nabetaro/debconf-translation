@@ -211,7 +211,7 @@ shown as seen.
 sub _finish {
 	my $this=shift;
 
-	waitpid $this->pid, 0;
+	waitpid $this->pid, 0 if defined $this->pid;
 	$this->exitcode($this->caught_sigpipe || ($? >> 8));
 
 	foreach (@{$this->seen}) {
@@ -501,15 +501,18 @@ sub command_register {
 	my $template=shift;
 	my $name=shift;
 	
+	if (! Debconf::Question->get($template)) {
+		return $codes{badparams}, "No such template, \"$template\"";
+	}
 	my $question=Debconf::Question->get($name) || 
-	             Debconf::Question::Perisstent->new($name, $this->owner);
+	             Debconf::Question->new($name, $this->owner);
 	if (! $question) {
 		return $codes{internalerror}, "Internal error";
 	}
 	if (! $question->addowner($this->owner)) {
 		return $codes{internalerror}, "Internal error";
 	}
-	if ($question->template($template) eq undef) {
+	if (! $question->template($template)) {
 		return $codes{internalerror}, "Internal error";
 	}
 
@@ -606,7 +609,7 @@ sub command_fset {
 	my $flag=shift;
 	my $value=(join ' ', @_);
 	
-	my $question=Debconf::Question::Perisistent->get($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	return $codes{success}, $question->flag($flag, $value);
 }
