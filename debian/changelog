@@ -1,3 +1,10 @@
+debconf (0.2.81) unstable; urgency=low
+
+  * Added checks for wrong number of parameters in all command_* subs in
+    ConfModule.pm. If the check fails, error 20 is returned (syntax error).
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  7 Feb 2000 16:24:27 -0800
+
 debconf (0.2.80) frozen unstable; urgency=low
 
   * Adjusted debconf dependancy to perl-5.005, not perl5. As Raphael points

@@ -142,9 +142,10 @@ the list of elements in our associated FrontEnd.
 
 sub command_input {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $priority=shift;
 	my $question_name=shift;
-
+	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 
@@ -159,7 +160,8 @@ Clears out the list of elements in our accociated FrontEnd.
 
 sub command_clear {
 	my $this=shift;
-	
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 0;
+
 	$this->frontend->clear;
 	return $codes{success};
 }
@@ -173,6 +175,7 @@ ConfModule is sent to the client.
 
 sub command_version {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 1;
 	my $version=shift;
 	if (defined $version) {
 		return $codes{version_bad}, "Version too low ($version)"
@@ -239,6 +242,7 @@ its go method. Returns whatever the FrontEnd returns.
 
 sub command_go {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
 	return $codes{go_back} unless $this->frontend->go;
 	return $codes{success};
 }
@@ -252,6 +256,7 @@ set in it and returns that to the confmodule
 
 sub command_get {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
@@ -266,12 +271,13 @@ sub command_get {
 
 =head2 command_set
 
-This must be passed a question name and a value. It sets the questions value.
+This must be passed a question name and a value. It sets the question's value.
 
 =cut
 
 sub command_set {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 1;
 	my $question_name=shift;
 	my $value=join(" ", @_);
 
@@ -289,6 +295,7 @@ Reset a question to its default value.
 
 sub command_reset {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
@@ -308,6 +315,7 @@ substitutions on the questions description so all instances of the key
 
 sub command_subst {
 	my $this = shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 2;
 	my $question_name = shift;
 	my $variable = shift;
 	my $value = (join ' ', @_);
@@ -327,6 +335,7 @@ question that uses the template.
 
 sub command_register {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $template=shift;
 	my $name=shift;
 	
@@ -343,6 +352,7 @@ which typically causes it to be removed.
 
 sub command_unregister {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $name=shift;
 	
 	Debian::DebConf::ConfigDb::disownquestion($name, $this->owner);
@@ -357,6 +367,7 @@ This will give up ownership of all questions.
 
 sub command_purge {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
 	
 	Debian::DebConf::ConfigDb::disownall($this->owner);
 	return $codes{success};
@@ -371,6 +382,7 @@ specified field of the question.
 
 sub command_metaget {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $question_name=shift;
 	my $field=shift;
 	
@@ -389,6 +401,7 @@ a Question that start with "flag_" are flags.
 
 sub command_fget {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $question_name=shift;
 	my $flag="flag_".shift;
 	
@@ -406,6 +419,7 @@ the specified flag in the specified question.
 
 sub command_fset {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 2;
 	my $question_name=shift;
 	my $flag="flag_".shift;
 	my $value=(join ' ', @_);
@@ -423,6 +437,7 @@ Deprecated.
 
 sub command_visible {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $priority=shift;
 	my $question_name=shift;
 	
@@ -439,6 +454,7 @@ Deprecated.
 
 sub command_exist {
 	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 	
 	return $codes{success}, 
