@@ -1,0 +1,109 @@
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or
+ reinstall a package that asks them. 
+ .
+ Note that no matter what you choose here, you can see old questions again
+ by using the dpkg-reconfigure program. 
+Description-pt_BR: Mostrar as perguntas antigas sempre?
+ O Debconf normalmente só faz uma pergunta uma vez. Ele então se lembra
+ da sua resposta e nunca mais faz a mesma pergunta. Se você preferir,
+ o debconf pode perguntar toda vez que você atualizar ou reinstalar um
+ pacote que que tem perguntas.
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-featured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now. 
+Description-pt_BR: Mudar para o novo front-end completo slang?
+ Você está atualmente usando o frontend dialog. Esse frontend foi ultrapassado
+ por um novo frontend, chamado de slang, que faz tudo que o dialog faz
+ e mais. Ele permite a você responder múltiplas perguntas de uma vez e é
+ normalmente mais flexível e agradável de usar. Se quiser pode mudar para
+ esse frontend agora.
+
+Template: debconf/priority
+Type: select
+Choices: critical, high, medium, low
+Choices-pt_BR: crítica, alta, média, baixa
+Default: medium
+Description: Ignore questions with a priority less than..
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are
+ actually shown to you; all less important questions are skipped. 
+ .
+ You can select the lowest priority of question you want to see:  
+   - `critical' is for items that will probably break the system
+     without user intervention.
+   - `high' is for items that don't have reasonable defaults.
+   - `medium' is for normal items that have reasonable defaults.
+   - `low' is for trivial items that have defaults that will work in the
+     vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority
+ were  already `high' or `critical', you wouldn't see this question. 
+ .
+ If you are new to the Debian GNU/Linux system choose `critical' now, so
+ you only see the most important questions. 
+Description-pt_BR: Ignorar perguntas com prioridade menor que...
+ Os pacotes que usam o debconf para configuração priorizam as perguntas
+ que podem fazer a você. Apenas as perguntas com uma certa prioridade
+ ou maior são realmente mostradas a você; todas as perguntas menos 
+ importantes são deixadas.
+ .
+ Você pode selecionar a menor prioridade de perguntas que você quer ver:
+   - `crítica' é para itens que irão provavelmente quebrar seu sistema
+     sem intervenção do usuário.
+   - `alta' é para itens que não tem padrões razoáveis.
+   - `média' é para itens normais que têm padrões razoáveis.
+   - `baixa' é para itens triviais que tem padrões que funcionarão na
+     vasta maioria dos casos.
+ .
+ Se você é novo no Debian GNU/Linux escolha `crítica' agora, para ver
+ apenas as perguntas mais importantes.
+
+Template: debconf/frontend
+Type: select
+Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices-pt_BR: Slang, Texto, Editor, Dialog, Não-interativo
+Default: Slang
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use. 
+ .
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions. The dialog frontend is a primitive frontend that is being
+ phased out. 
+Description-pt_BR: Que interface deve ser usada para configurar os pacotes?
+ Pacotes que usam o debconf para configuração têm um visual comum.
+ Você pode selecionar o tipo de interface de usuário que eles verão.
+ .
+ O frontend slang provê uma interface de janelas baseadas em caracteres
+ em tela cheia, colorida, enquanto o frontend texto usa uma interface 
+ mais padrão de texto. O frontend editor permite que você configure as
+ coisas com seu editor favorito. O frontend não interativo nunca pergunta
+ nada. O frontend dialog é um frontend primitivo que está acabando.
+
+Template: debconf/helpvisible
+Type: boolean
+Default: true
+Description: Should debconf display extended help for questions?
+ Debconf can display extended help for questions. Some frontends allow this
+ display to be turned off, which may make them run a bit faster, or be less
+ cluttered. This is mostly useful for experts. 
+Description-pt_BR: O Debconf deve mostrar ajuda extendida para as pergunas?
+ O Debconf pode mostrar ajuda extendida para as perguntas. Alguns frontends
+ permitem que isso esteja desligado, o que pode fazê-los rodar um pouco mais
+ rápido. Isso é útil para experts.
