@@ -117,11 +117,8 @@ sub makeelement {
 			return;
 		}
 	}
-	
-	my $element="Debconf::Element::$type"->new(question => $question);
 
-	warn sprintf(gettext("Unable to make element of type %s. Failed because: %s"), $type, $@)
-		if $@ && ! $nodebug;
+	my $element="Debconf::Element::$type"->new(question => $question);
 	return if ! ref $element;
 	return $element;
 }

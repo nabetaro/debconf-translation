@@ -41,7 +41,7 @@ sub init {
 
 	# Detect all the ways people have managed to screw up their
 	# terminals (so far...)
-	if (! exists $ENV{TERM} || ! defined $ENV{TERM}) { 
+	if (! exists $ENV{TERM} || ! defined $ENV{TERM} || $ENV{TERM} eq '') { 
 		die gettext("TERM is not set, so the Dialog frontend is not usable.")."\n";
 	}
 	elsif ($ENV{TERM} =~ /emacs/i) {

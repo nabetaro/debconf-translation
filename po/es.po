@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
@@ -314,6 +309,9 @@ msgstr "%s no está instalado totalmente"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No puedo leer el fichero de estado: %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "Comando `%s' no soportado."

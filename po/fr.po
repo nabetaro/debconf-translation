@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "Impossible de créer un élément de type %s. Cause de l'échec : %s."
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
@@ -320,3 +315,6 @@ msgstr "%s n'est pas totalement installé"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "Impossible de créer un élément de type %s. Cause de l'échec : %s."

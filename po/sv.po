@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
@@ -315,6 +310,9 @@ msgstr "%s är inte helt installerat"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "Kommandot \"%s\" stöds ej."

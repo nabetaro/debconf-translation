@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -36,12 +36,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "%s를 설정중"
@@ -309,6 +304,9 @@ msgstr "%s는 완전히 설치되지 않았습니다"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
 
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "지원되지 않는 멍령 `%s'."

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
@@ -306,6 +301,9 @@ msgstr "%s nie jest w pe³ni zainstalowany"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "Nieobs³ugiwana komenda `%s'."

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-02-07 13:51-0800\n"
+"POT-Creation-Date: 2001-02-14 14:26-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -37,12 +37,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Не удалось создать элемент типа %s. Причина: %s"
 
-#: ../Debconf/FrontEnd.pm:123
-#, c-format
-msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "Не удалось создать элемент типа %s. Причина: %s"
-
-#: ../Debconf/FrontEnd.pm:190
+#: ../Debconf/FrontEnd.pm:187
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
@@ -316,6 +311,9 @@ msgstr "Пакет %s установлен не полностью"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#~ msgid "Unable to make element of type %s. Failed because: %s"
+#~ msgstr "Не удалось создать элемент типа %s. Причина: %s"
 
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "Команда `%s' не поддерживается."
