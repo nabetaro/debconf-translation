@@ -23,6 +23,12 @@ my $frontend=eval qq{
 };
 die $@ if $@;
 
+# Set the default title.
+my $title=$ARGV[0];
+$title=~s/\.(?:postinst|prerm)$//;
+$title=~s:.*/::;
+$frontend->default_title($title);
+
 my $confmodule;
 
 # See if the postinst or prerm of the package is being run, and if there is a

@@ -83,12 +83,19 @@ sub import {
 			Debian::DebConf::FrontEnd::$type->new();
 		};
 		die $@ if $@;
+		
+		# Set the default title.
+		my $title=$0;
+		$title=~s/\.(?:postinst|prerm)$//;
+		$title=~s:.*/::;
+		$frontend->default_title($title);
+		
 		my $confmodule=eval qq{
 			use Debian::DebConf::ConfModule::$type;
 			Debian::DebConf::ConfModule::$type->new(\$frontend);
 		};
 		die $@ if $@;
-		
+
 		# Set up the pipes the two processes will use to communicate.
 		pipe($confmodule->read_handle(FileHandle->new), \*CHILD_STDOUT);
 		pipe(\*CHILD_STDIN, $confmodule->write_handle(FileHandle->new));
@@ -105,9 +112,9 @@ sub import {
 		# templates). This is a bit of a nasty hack, that lets you
 		# dpkg -i somepackage.deb and have its config script be run
 		# first.
-		if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
+		if ($0 =~/\.(?:postinst|prerm)$/) {
 			# Load templates, if any.
-			my $templates=$ARGV[0];
+			my $templates=$0;
 			$templates=~s/\.(?:postinst|prerm)$/.templates/;
 			Debian::DebConf::ConfigDb::loadtemplatefile($templates)
 				if -e $templates;
@@ -116,7 +123,7 @@ sub import {
 			Debian::DebConf::ConfigDb::makequestions();
 			
 			# Run config script, if any.
-			my $config=$ARGV[0];
+			my $config=$0;
 			$config=~s/\.(?:postinst|prerm)$/.config/;
 			if (-e $config) {
 				$confmodule=eval qq{

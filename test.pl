@@ -37,6 +37,10 @@ my $frontend=eval qq{
 	Debian::DebConf::FrontEnd::$type->new();
 };
 die $@ if $@;
+
+# Set default title.
+$frontend->default_title('$script');
+
 my $confmodule=eval qq{
 	use Debian::DebConf::ConfModule::$type;
 	Debian::DebConf::ConfModule::$type->new(\$frontend, \$script);

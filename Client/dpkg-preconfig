@@ -23,7 +23,7 @@ my $ret=GetOptions(
 
 my @debs=@ARGV;
 
-# If running from apt, read package names on stdin.
+# If running from apt, read package filenames on stdin.
 if ($apt) {
 	while (<>) {
 		chomp;
@@ -66,6 +66,12 @@ foreach my $deb (@debs) {
 	close OUT;
 	chmod(0755, $script) or 
 		die "Can't chmod: $!";
+
+	# Set the default title.
+	my $title=$deb;
+	$title=~s/_.*//;
+	$title=~s:.*/::;
+	$frontend->default_title($title);
 
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|");

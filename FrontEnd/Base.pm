@@ -107,6 +107,19 @@ sub clear {
 	return '';
 }
 
+=head2 default_title
+
+This sets the title property to a default. Pass in the name of the
+package that is being configured.
+
+=cut
+
+sub default_title {
+	my $this=shift;
+	
+	$this->title("Configuring ".ucfirst(shift));
+}
+
 # Set/get property.
 sub AUTOLOAD {
 	my $this=shift;

@@ -43,6 +43,9 @@ Debian::DebConf::Config::showold('true');
 
 TOP:
 foreach my $pkg (@ARGV) {
+	# Set default title.
+	$frontend->default_title($pkg);
+
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
 		if -e "$infodir/$pkg.templates";

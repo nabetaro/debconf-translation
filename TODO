@@ -1,22 +1,17 @@
-To Do Before Release:
-*
-
 General:
 * Make sure my spec changes are accepted by Wichert.
 * Make messages really be saved to root's mailbox.
 * Proper backend database, but that's a whole other ball of wax.
+* Config db browser, with AJ's config2 stuff.
 * Other frontends.
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be sorta nice to have, but think it through
-  first -- is it really necessary?
-* I need to have a debconf configuraton script for debconf itself. This would
-  set question importance to display, and frontend type. There shgould be a
-  way to jump to that set of questions whenever debconf is interacting with
+  first -- is it really necessary? Do we wlays want config scripts to run
+  locally? Etc.
+* Should be able to jump to debconf config when debconf is interacting with
   the user.
-* Make debhelper support it. (easy)
 * When a package is purged, all items in the db it owns and other packages
   don't share with it should be purged.
-* Provide a default title, perhaps "<Package> Configuration"
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
@@ -37,7 +32,7 @@ Dialog frontend:
 
 Web based frontend:
 * Well, a little security would be nice! Make sure it only allows connections
-  from localhost, but even that isn't really good enough.
+  from localhost, but even that isn't good enough at all.
 * It has the same password problem dialog has, too.
 * It can support blocks, so add them. I guess they could be used for
   arranging questions into tables or something.
@@ -49,3 +44,5 @@ Web based frontend:
 GTK:
 * block support
 * The buttons don't quite work right.
+* Lots of room here for UI improvements and really showing off everything
+  decbonf can do.
