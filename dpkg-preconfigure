@@ -140,15 +140,36 @@ my ($package, $version, $template, $config);
 # Note that it also handles making sure the current version of debconf can
 # deal with the package.
 unless (open(INFO, "-|")) {
-	# TODO: handle case where params overflow kernel command line limit.
-	# a-la-xargs
-	exec "apt-extracttemplates", @debs or
-		print STDERR "debconf: exec of apt-extracttemplates failed: $!";
+	# The kernel can accept command lines up to 20k worth of
+	# characters. It has happened that the list of packages to
+	# configure is more than that, which requires splitting it up into
+	# multiple apt-extracttemplates runs.
+	my $command_max=20000; # LINUX SPECIFIC!!
+		# I could use POSIX::ARG_MAX, but that would be slow.
+	my $static_len=length("apt-extracttemplates");
+	my $len=$static_len;
+	my @collect;
+	foreach my $deb (@debs) {
+		$len += length($deb) + 1;
+		if ($len < $command_max) {
+			push @collect, $deb;
+		}
+		else {
+			if (system("apt-extracttemplates", @collect) != 0) {
+				print STDERR "debconf: apt-extracttemplates failed: $!";
+			}
+				
+			@collect=($deb);
+			$len=$static_len + length($deb) + 1;
+		}
+	}
+	exec "apt-extracttemplates", @collect or
+		print STDERR "debconf: apt-extracttemplates failed: $!";
 }
 # Why buffer here? Well, suppose 300 packages are being installed, and
 # only the first and last use debconf. The first is preconfigured. Then
-# the user watches their ui lock up until it scans all the way to the last..
-# Blowing a bit of memory on abuffer seems like a saner approach.
+# the user watches their UI lock up until it scans all the way to the last..
+# Blowing a bit of memory on a buffer seems like a saner approach.
 my @buffer=<INFO>;
 if ($apt && @buffer) {
 	print "Preconfiguring packages ...\n";

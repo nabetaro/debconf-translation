@@ -1,3 +1,27 @@
+Template: debconf/frontend
+Type: select
+Choices: Dialog, Text, Gnome, Editor, Noninteractive
+Choices-fi: Dialog, Teksti, Gnome, Editori, Automaattinen
+Default: Dialog
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use.
+ .
+ The dialog frontend is a full-screen, character based interface, while the
+ text frontend uses a more traditional plain text interface, and the gnome
+ frontend is a modern X interface. The editor frontend lets you configure
+ things using your favorite text editor. The noninteractive frontend never
+ asks you any questions.
+Description-fi: Mit‰ k‰yttˆliittym‰‰ pakkausten asetusten s‰‰tˆˆn k‰ytet‰‰n?
+ Debconf yhdenmukaistaa sit‰ k‰ytt‰vien pakettien asetusk‰yttˆliittym‰n.
+ Voit itse valita mieluisesi liittym‰n muutamasta vaihtoehdosta. 
+ .
+ Dialog on ruudun t‰ytt‰v‰ p‰‰tteell‰ n‰kyv‰ liittym‰. Teksti on
+ perinteisempi pelkk‰‰ teksti‰ k‰ytt‰v‰ liittym‰. Gnome tarjoaa
+ nykyaikaisen X-pohjaisen liittym‰n. Editori k‰ytt‰‰ asetusten
+ s‰‰tˆˆn lempieditoriasi. Automaattinen liittym‰ ei koskaan kysy
+ kysymyksi‰.
+
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -6,9 +30,9 @@ Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
  might ask you. Only questions with a certain priority or higher are
- actually shown to you; all less important questions are skipped. 
+ actually shown to you; all less important questions are skipped.
  .
- You can select the lowest priority of question you want to see:  
+ You can select the lowest priority of question you want to see: 
    - `critical' is for items that will probably break the system
      without user intervention.
    - `high' is for items that don't have reasonable defaults.
@@ -17,10 +41,10 @@ Description: Ignore questions with a priority less than..
      vast majority of cases.
  .
  For example, this question is of medium priority, and if your priority
- were  already `high' or `critical', you wouldn't see this question. 
+ were  already `high' or `critical', you wouldn't see this question.
  .
  If you are new to the Debian GNU/Linux system choose `critical' now, so
- you only see the most important questions. 
+ you only see the most important questions.
 Description-fi: Kuinka t‰rke‰t kysymykset haluat n‰hd‰?
  Debconf:ia k‰ytt‰v‰t paketit m‰‰ritt‰v‰t kunkin kysym‰ns‰ kysymyksen
  t‰rkeyden. Sinulle n‰ytet‰‰n vain valitsemasi tasoiset ja niit‰ t‰rke‰mm‰t
@@ -47,10 +71,10 @@ Description: Show all old questions again and again?
  Debconf normally only asks you any given question once. Then it remembers
  your answer and never asks you that question again. If you prefer, debconf
  can ask you questions over and over again, each time you upgrade or
- reinstall a package that asks them. 
+ reinstall a package that asks them.
  .
  Note that no matter what you choose here, you can see old questions again
- by using the dpkg-reconfigure program. 
+ by using the dpkg-reconfigure program.
 Description-fi: N‰ytet‰‰nkˆ vanhat kysymykset aina uudelleen?
  Yleens‰ debconf kysyy kunkin kysymyksen vain kerran, muistaa antamasi
  vastauksen eik‰ en‰‰ kysy samaa kysymyst‰ uudestaan. Jos haluat, debconf

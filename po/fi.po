@@ -4,21 +4,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.9.25\n"
-"POT-Creation-Date: 2001-08-30 17:36-0400\n"
-"PO-Revision-Date: 2001-03-18 20:10+0200\n"
+"Project-Id-Version: debconf 1.0.00\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
+"PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:65
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "liittymän alustus epäonnistui: %s"
+msgstr "siirryn vaihtoehtoiseen liittymään: %s"
 
 #: ../Debconf/AutoSelect.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "liittymän alustus epäonnistui: %s"
 
@@ -29,11 +29,11 @@ msgstr "Liittymän käynnistys epäonnistui: %s"
 
 #: ../Debconf/Config.pm:84
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 
 #: ../Debconf/Config.pm:88
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
 #: ../Debconf/FrontEnd.pm:114
 #, c-format
@@ -71,7 +71,7 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Arvoa \"%s\" ei löytynyt C-valinnoista! Tätä ei pitäisi koskaan sattua. "
+"Arvoa \"%s\" ei löytynyt C-valinnoista! Näin ei pitäisi koskaan käydä. "
 "Kyselypohjien paikallistamisessa saattaa olla vikaa."
 
 #: ../Debconf/Element/Gnome/Note.pm:47
@@ -84,9 +84,8 @@ msgstr ""
 "Tämä ilmoitus postitettiin, koska debconfia pyydettiin tallentamaan se."
 
 #: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "Ilmoitus on lähetetty root:lle."
+msgstr "Ilmoitus on lähetetty."
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
@@ -116,19 +115,19 @@ msgstr ""
 "(Syötä nolla tai useampia pilkulla ja välilyönnillä (', ') erotettuja "
 "arvoja.)"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
+#: ../Debconf/Element/Noninteractive/Note.pm:39
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Tämä ilmoitus postitettiin, koska debconf on asetettu olemaan näyttämättä "
 "sitä."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Note.pm:61
 #: ../Debconf/FrontEnd/Gnome.pm:65
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:79
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf koneella %s"
@@ -223,17 +222,17 @@ msgid "Next"
 msgstr "Seuraava"
 
 #: ../dpkg-preconfigure:113
-#, fuzzy, c-format
+#, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "dpkg-reconfigure: vakiosyötteen uudelleenavaus epäonnistui: %s"
+msgstr "vakiosyötteen uudelleenavaus epäonnistui: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "esiasetukseen on määritettävä paketteja"
 
 #: ../dpkg-preconfigure:131
 msgid "(not preconfiguring packages since apt-utils is not installed)"
-msgstr ""
+msgstr "(pakettien esiasetusta ei tehdä, koska apt-utils:ia ei ole asennettu)"
 
 #: ../dpkg-preconfigure:166
 #, c-format
@@ -256,7 +255,7 @@ msgstr "on ajettava root-oikeuksilla"
 
 #: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "tarvitsen käsiteltävän paketin nimen"
 
 #: ../dpkg-reconfigure:131
 #, c-format
@@ -267,53 +266,3 @@ msgstr "%s ei ole täysin asennettu"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Tilatiedoston luku epäonnistui: %s"
-
-#~ msgid "TERM is not set, so the Slang frontend is not usable."
-#~ msgstr "Slang-liittymää ei voi käyttää, koska TERM:iä ei ole asetettu."
-
-#~ msgid "Slang frontend is incompatible with emacs shell buffers"
-#~ msgstr "Slang-liittymää ei voi käyttää emacsin komentotulkkiympäristössä"
-
-#~ msgid ""
-#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
-#~ "or without a controlling terminal."
-#~ msgstr ""
-#~ "Slang-liittymä ei toimi tyhmällä päätteellä, emacsin "
-#~ "komentotulkkiympäristössä tai ohjaavan päätteen puuttuessa."
-
-#~ msgid "Hide Help"
-#~ msgstr "Piilota avustus"
-
-#~ msgid "Show Help"
-#~ msgstr "Näytä avustus"
-
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr "Tabilla ja nuolinäppäimillä liikutaan; välilyönti avaa listat."
-
-#~ msgid "Working, please wait..."
-#~ msgstr "Toimin, odota hetki..."
-
-#, fuzzy
-#~ msgid "The note has been mailed to root"
-#~ msgstr "Ilmoitus on lähetetty root:lle."
-
-#~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a "
-#~ "bug report, and include the stack trace below"
-#~ msgstr ""
-#~ "debconf: confmodule:n alustuksessa havaittiin määrittelemättömiä arvoja! "
-#~ "Tekisitkö vikailmoituksen, johon liität alla olevan kutsupinon"
-
-#~ msgid ""
-#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
-#~ msgstr ""
-#~ "Käyttö: dpkg-preconfigure [--frontend=tyyppi] [--priority=arvo] deb-"
-#~ "tiedostot"
-
-#~ msgid "Unknown option: %s"
-#~ msgstr "Tuntematon valitsin %s"
-
-#~ msgid ""
-#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-#~ msgstr ""
-#~ "Käyttö: dpkg-reconfigure [--frontend=tyyppi] [--priority=arvo] paketit"

@@ -37,10 +37,17 @@ sub init {
 	open(TESTTY, "/dev/tty") || die gettext("This frontend requires a controlling tty.")."\n";
 
 	$this->resize; # Get current screen size.
-	$SIG{'WINCH'}=sub { $this->resize };
+	$SIG{'WINCH'}=sub {
+		# There is a short period during global destruction where
+		# $this may have been destroyed but the handler still
+		# operative.
+		if (defined $this) {
+			$this->resize;
+		}
+	};
 }
 
-=item resize
+=bitem resize
 
 This method is called whenever the tty is resized, and probes to determine the
 new screen size.

@@ -1,3 +1,14 @@
+debconf (1.0.01) unstable; urgency=low
+
+  * dpkg-preconfigure: deal with horrendous numbers of packages
+    Closes: #110894
+  * Make SIGWINCH handler deal with being called in the middle of global
+    destuction (not as bad as it sounds..). Closes: #111149
+  * Minor French update, Finnish update Closes: #110897, and Galician
+    update.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  3 Sep 2001 00:49:35 -0400
+
 debconf (1.0.00) unstable; urgency=low
 
   * Let's call it 1.0, folks!

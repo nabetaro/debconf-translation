@@ -7,22 +7,20 @@ Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
  .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface, and the gnome frontend is a modern X interface. The editor
- frontend lets you configure things using your favorite text editor. The
- noninteractive frontend never asks you any questions. The dialog frontend
- is a primitive frontend that is being phased out.
+ The dialog frontend is a full-screen, character based interface, while the
+ text frontend uses a more traditional plain text interface, and the gnome
+ frontend is a modern X interface. The editor frontend lets you configure
+ things using your favorite text editor. The noninteractive frontend never
+ asks you any questions.
 Description-fr: Quelle interface utiliser pour configurer les paquets ?
  Les paquets utilisant debconf pour leur configuration partagent la même
  apparence et ergonomie. Vous pouvez choisir leur interface utilisateur.  
  .
- 'Dialogue' est une interface couleur en plein écran basée sur une interface 
- fenêtrée en mode caractère. 'Texte' est une interface en mode texte, plus
- traditionnelle et sans fioriture. 'Gnome' est une interface X moderne.
- L'interface 'Éditeur' vous permet de faire vos configurations depuis votre
- éditeur favori. Si vous choisissez 'Non-interactif', le système ne vous 
- posera jamais de question.
+ «Dialogue» est une interface couleur en plein écran  en mode caractère.
+ «Texte» est une interface plus traditionelle en mode texte. «Gnome» est 
+ une interface X  moderne. L'interface «Éditeur» vous permet de faire vos
+ configurations depuis votre éditeur favori. Si vous choisissez 
+ «Non-interactif», le système ne vous  posera jamais de question.
 
 Template: debconf/priority
 Type: select
@@ -55,21 +53,21 @@ Description-fr: Ignorer les questions de priorité inférieure à...
  .
  Vous pouvez choisir la priorité la plus basse des questions que vous 
  souhaitez voir :  
-  - les points `critiques' risquent de casser le système si l'utilisateur 
+  - les points «critiques» risquent de casser le système si l'utilisateur 
     n'intervient pas.
-  - les points de priorité `haute' ont des valeur par défaut inacceptable
+  - les points de priorité «haute» ont des valeur par défaut inacceptable
     dans la plupart des cas.
-  - les points de priorité `moyenne' sont standards, et ont des valeurs
+  - les points de priorité «moyenne» sont standards, et ont des valeurs
     par défaut généralement acceptables.
-  - les questions de priorité `base' sont triviales, et ont des valeurs par
+  - les questions de priorité «basse» sont triviales, et ont des valeurs par
     défaut fonctionnelles dans la grande majorité des cas.
  .
  Par exemple, cette question est de priorité moyenne, et si votre seuil
- était déjà règlé à `critique' ou `haut', cette question ne vous aurait pas
+ était déjà règlé à «critique» ou «haut», cette question ne vous aurait pas
  été posée.  
  .
  Si vous faites vos premiers pas dans le monde Debian GNU/Linux, choisissez
- `critique' afin de ne voir que les questions les plus importantes.  
+ «critique» afin de ne voir que les questions les plus importantes.  
 
 Template: debconf/showold
 Type: boolean

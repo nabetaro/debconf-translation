@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2001-08-30 17:36-0400\n"
-"PO-Revision-Date: 2001-03-26 00:43+02:00\n"
+"POT-Creation-Date: 2001-09-04 00:16+0200\n"
+"PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:65
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "non se puido inicializa-la interface: %s"
+msgstr "emprégase a interface: %s"
 
 #: ../Debconf/AutoSelect.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "non se puido inicializa-la interface: %s"
 
@@ -88,9 +88,8 @@ msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
 
 #: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "Envióuselle a nota a root."
+msgstr "Enviouse a nota por correo."
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
@@ -226,17 +225,17 @@ msgid "Next"
 msgstr "Seguinte"
 
 #: ../dpkg-preconfigure:113
-#, fuzzy, c-format
+#, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: non se puido volver abri-la entrada estándar: %s"
+msgstr "non se puido volver abri-la entrada estándar: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "débense especificar algúns paquetes para preconfigurar"
 
 #: ../dpkg-preconfigure:131
 msgid "(not preconfiguring packages since apt-utils is not installed)"
-msgstr ""
+msgstr "(non se preconfiguran os paquetes porque apt-utils non está instalado)"
 
 #: ../dpkg-preconfigure:166
 #, c-format
@@ -259,7 +258,7 @@ msgstr "débese executar coma root"
 
 #: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "especifique un paquete a reconfigurar"
 
 #: ../dpkg-reconfigure:131
 #, c-format
@@ -296,7 +295,6 @@ msgstr "Non se puido le-lo ficheiro de estado: %s"
 #~ msgid "Working, please wait..."
 #~ msgstr "Traballando, agarde..."
 
-#, fuzzy
 #~ msgid "The note has been mailed to root"
 #~ msgstr "Envióuselle a nota a root."
 
