@@ -130,7 +130,7 @@ sub value {
 	}
 }
 
-=head2 owner
+=head2 owners
 
 This method allows you to get/set the owners of a Question. The owners are
 returned in a comma and space delimited list, a similar list should be
@@ -139,7 +139,7 @@ owners are stored quite differently..)
 
 =cut
 
-sub owner {
+sub owners {
 	my $this=shift;
 	
 	if (@_) {

@@ -83,7 +83,7 @@ sub import {
 
 		# Set the default title.
 		my $package=$0;
-		$package=~s/\.(?:postinst|prerm)$//;
+		$package=~s/\.(?:postinst|postrm|preinst|prerm)$//;
 		$package=~s:.*/::;
 		$frontend->default_title($package);
 		
@@ -105,16 +105,16 @@ sub import {
 		# templates). This is a bit of a nasty hack, that lets you
 		# dpkg -i somepackage.deb and have its config script be run
 		# first.
-		if ($0 =~/\.(?:postinst|prerm)$/) {
+		if ($0 =~/\.(?:postinst|postrm|preinst|prerm)$/) {
 			# Load templates, if any.
 			my $templates=$0;
-			$templates=~s/\.(?:postinst|prerm)$/.templates/;
+			$templates=~s/\.(?:postinst|postrm|preinst|prerm)$/.templates/;
 			Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 				if -e $templates;
 			
 			# Run config script, if any.
 			my $config=$0;
-			$config=~s/\.(?:postinst|prerm)$/.config/;
+			$config=~s/\.(?:postinst|postrm|preinst|prerm)$/.config/;
 			if (-e $config) {
 				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config);
 				

@@ -215,9 +215,10 @@ becomes:
 There is one other alteration you need to make to the postrm script. When
 your package is purged, it should get rid of all the questions and templates
 it was using in the database. Accomplishing this is simple; use the "purge"
-command:
+command (make sure you don't fail if debconf has already been removed,
+though):
 
-  if [ "$1" = "purge" ]; then
+  if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule.sh ]; then
   	# Source debconf library.
 	. /usr/share/debconf/confmodule.sh
 	# Remove my changes to the db.

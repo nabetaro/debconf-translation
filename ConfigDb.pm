@@ -124,7 +124,6 @@ sub disownquestion {
 	$questions{$name}->removeowner($owner);
 	if ($questions{$name}->owners eq '') {
 		my $template=$questions{$name}->template;
-		delete $questions{$name};
 		# Does the template go away too?
 		my $users=0;
 		foreach my $question (keys %questions) {
@@ -134,6 +133,8 @@ sub disownquestion {
 		if ($users == 0) {
 			delete $templates{$template};
 		}
+		
+		delete $questions{$name};
 	}
 }
 
