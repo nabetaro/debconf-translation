@@ -49,6 +49,7 @@ sub init {
 		text => "Debian Configuration",
 	));
 	$this->helpbar(Term::Stool::HelpBar->new);
+	
 	$this->descwindow(Term::Stool::Window->new(
 		title => "Help",
 		resize_hook => sub {
@@ -61,7 +62,6 @@ sub init {
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));
-	
 	$this->desctext(Term::Stool::WrappedText->new(
 		xoffset => 1,
 		yoffset => 0,
@@ -73,6 +73,7 @@ sub init {
 			$this->height($this->container->height - 2);
 		},
 	));
+	
 	$this->button_next(Term::Stool::Button->new(
 		text => "Next",
 		width => 8,
@@ -103,7 +104,6 @@ sub init {
 			$this->desctext->display;
 		},
 	));
-
 	$this->mainwindow(Term::Stool::Dialog->new(
 		inside => $this->panel,
 		resize_hook => sub {

@@ -128,7 +128,8 @@ sub makeelement {
 =head2 add
 
 Adds an Element to the list to be displayed to the user. Just pass the
-Element to add.
+Element to add. Note that it detects multiple Elements that point to the
+same Question and only adds the first.
 
 =cut
 
@@ -136,6 +137,10 @@ sub add {
 	my $this=shift;
 	my $element=shift;
 
+	foreach (@{$this->elements}) {
+		return if $element->question == $_->question;
+	}
+	
 	$element->frontend($this);
 	push @{$this->elements}, $element;
 }

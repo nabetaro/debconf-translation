@@ -3,7 +3,9 @@ debconf (0.3.0) unstable; urgency=low
   * New custom slang frontend. Give it a try!
   * Build-depend on w3m, Closes: #60815
   * Added links in confmodule man page, Closes: #60780
-  * Ifnore backups if the client does not support them.
+  * Ignore backups if the client does not support them.
+  * If asked to present the same question twice in a single block,
+    skips the second time.
   * Fairly large reorganization of code throughout debconf, and more
     internal module documentation.
 
