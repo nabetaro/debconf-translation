@@ -337,6 +337,21 @@ sub command_purge {
 	Debian::DebConf::ConfigDb::disownall($this->owner);
 }
 
+
+=head2 command_exist
+
+Test if a question exists.  Returns "true" of "false".
+
+=cut
+
+sub command_exist {
+	my $this=shift;
+	my $question_name=shift;
+
+	return Debian::DebConf::ConfigDb::getquestion($question_name) ?
+		"true" : "false";
+}
+
 =head2 command_metaget
 
 Pass this a question name and a field name. It returns the value of the

@@ -1,3 +1,11 @@
+debconf (0.1.65) unstable; urgency=low
+
+  * Applied patch from Rafael Laboissiere to add an "exists" command.
+    Be warned that this command is probably only temporary, I am looking
+    for a better solution. (Closes: #46927)
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 12 Oct 1999 13:52:43 -0700
+
 debconf (0.1.64) unstable; urgency=low
 
   * Slighly better handing of select element in text frontend if it has more

@@ -94,8 +94,8 @@
 	read like
 	case "$like" in
 	n*|N*)
-	echo "Poor misguided one. Why are you installing this package, then?"
-	/etc/init.d/subliminal_messages start "I like debian."
+		echo "Poor misguided one. Why are you installing this package, then?"
+		/etc/init.d/subliminal_messages start "I like debian."
 	;;
 	esac
       </programlisting>
@@ -323,9 +323,9 @@
 	# Check their answer.
 	db_get foo/like_debian
 	if [ "$RET" = "false" ]; then
-	# Poor misguided one..
-	db_input high foo/why_debian_is_great
-	db_go
+		# Poor misguided one..
+		db_input high foo/why_debian_is_great
+		db_go
 	fi
       </programlisting>
     </para>
@@ -372,8 +372,8 @@
 	read like
 	case "$like" in
 	n*|N*)
-	echo "Poor misguided one. Why are you installing this package, then?"
-	/etc/init.d/subliminal_messages start "I like debian."
+		echo "Poor misguided one. Why are you installing this package, then?"
+		/etc/init.d/subliminal_messages start "I like debian."
 	;;
 	esac
       </programlisting>
@@ -402,9 +402,9 @@
       (make sure you don't fail if debconf has already been removed, though):
       <programlisting>
 	if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule.sh ]; then
-	# Source debconf library.
-	. /usr/share/debconf/confmodule.sh
-	# Remove my changes to the db.
+		# Source debconf library.
+		. /usr/share/debconf/confmodule.sh
+		# Remove my changes to the db.
 	db_purge
 	fi
       </programlisting>
@@ -503,7 +503,7 @@
 
 	  db_get foo/bar
 	  if [ "$RET" ]; then
-	  ok=1
+		  ok=1
 	  fi
 	  done
 	</programlisting>
@@ -554,8 +554,8 @@
 	  Type: select
 	  Choices: ${choices}
 	  Description: Select the default window manager.
-	  Select the window manager that will be started by default when X
-	  starts.
+	   Select the window manager that will be started by default when X
+	   starts.
 	</programlisting>
       </para>
       <para>
@@ -568,10 +568,10 @@
 	  CHOICES=$RET
 	  
 	  if [ "$OWNERS" != "$CHOICES" ]; then
-	  db_subst shared/window-manager choices $OWNERS
-	  db_fset shared/window-manager isdefault true
-	  db_input medium shared/window-manager
-	  db_go
+		  db_subst shared/window-manager choices $OWNERS
+		  db_fset shared/window-manager isdefault true
+		  db_input medium shared/window-manager
+		  db_go
 	  fi
 	</programlisting>
       </para>
@@ -594,10 +594,34 @@
 	the list of owners, and ask the question.
       </para>
       <para>
-	One thing this doesn't deal with is what happens if the
-	package selected as the default is removed. If that happens
-	you probably want to make some other package the
-	default. Doing so is left as an excercise for the reader.
+        When a package is removed, you probably want to see if that package
+	is the currently selected choice, and if so, prompt the user to
+	select a different package to replace it. 
+      </para>
+      <para>
+        This can be accomplished by adding something like this to the
+	prerm scripts of all related packages (replacing &lt;package&gt; with
+	the package name):
+	<programlisting>
+	if [ -e /usr/share/debconf/confmodule.sh ]; then
+		. /usr/share/debconf/confmodule.sh
+		# I no longer claim this variable.
+		db_unregister shared/window-manager
+		
+		# See if the shared variable still exists.
+		db_exist shared/window-manager
+		if [ $RET = true ]; then
+			db_metaget shared/window-manager owners
+			db_subst shared/window-manager choices $RET
+			db_metaget shared/window-manager value
+			if [ "&lt;package&gt;" = "$RET" ] ; then
+				db_fset shared/window-manage isdefault true
+				db_input critical shared/window-manager
+				db_go
+			fi
+		fi
+	fi
+	</programlisting>
       </para>
     </sect2>
   </sect1>
@@ -887,6 +911,16 @@
 	    </para>
 	    <para>
 	      This removes a variable from the database.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      exist
+	      <parameter>variable</parameter>
+	    </para>
+	    <para>
+	       This tests whether a variable exists or not.  Returns "true" or
+	       "false".
 	    </para>
 	  </listitem>
 	  <listitem id="db_purge">
