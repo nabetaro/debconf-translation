@@ -30,14 +30,14 @@ order is important. The options are processed in the order given, and many
 of the options cause commands to be sent to the FrontEnd.
 .SH OPTIONS
 .TP
-.I "\-h, \-\-help"
+.B "\-h\fR,\fP \-\-help"
 Output usage help
 .TP
-.I "\-P, \-\-print"
+.B "\-P\fR,\fP \-\-print"
 Print out (to standard error) the return code of the last command sent to
 the FrontEnd. See the EXAMPLES section below for a demo of how to use this.
 .TP
-.I "\-pvalue, \-\-priority=value"
+.I "\fB\-p\fPvalue\fR,\fP \fB\-\-priority=\fPvalue"
 Set the priority of the next question, note, or test displayed to the
 specified value. The default priority is "medium". The new priority remains
 in effect until it is changed or until
@@ -48,52 +48,52 @@ These options cause
 .BR dpkg-frontend
 to communicate with the FrontEnd.
 .TP
-.I "\-I, \-\-init"
+.B "\-I\fR,\fP \-\-init"
 Initialize communication with the FrontEnd. This causes protocol version
 numbers and capability information to be exchanged. It is reccommended that
 this be called before you do anything else. The FrontEnd returns the
 protocol version it supports.
 .TP
-.I "\-B, \-\-can\-backup"
+.B "\-B\fR,\fP \-\-can\-backup"
 This lets the FrontEnd know that you are capable of backing up to previous
 questions or other items. It will cause the FrontEnd to provide the user
 with a "Back" button of some kind. If the user clicks on the button,
 .BR dpkg-frontend
-will return 1. You can test for trhis in your program and handle it
-appropriatly. The FrontEnd returns the capabilities it supports.
+will return 1. You can test for this in your program and handle it
+appropriately. The FrontEnd returns the capabilities it supports.
 .TP
-.I "\-Ttitle, \-\-title=title"
+.I "\fB\-T\fPtitle\fR,\fP \fB\-\-title=\fPtitle"
 Set the title displayed by the FrontEnd.
 .TP
-.I "\-s, \-\-stop"
+.B "\-s\fR,\fP \-\-stop"
 Tell the FrontEnd we are finished.
 .TP
-.I "\-iquestion, \-\-input=question"
+.I "\fB\-i\fPquestion\fR,\fP \fB\-\-input=\fPquestion"
 Tell the frontend to present a question to the user.
 .TP
-.I "\-gquestion, \-\-get=question"
+.I "\fB\-g\fPquestion\fR,\fP \fB\-\-get=\fPquestion"
 Makes the FrontEnd return the value the user answered for a question. This
 automatically causes --print to be set so the value is printed out.
 .TP
-.I "[, --beginblock"
+.B "[\fR,\fP --beginblock"
 Begin a block. A block can hold a number of questions and texts and will be
 displayed to the user all at once by many FrontEnds. Blocks can be nested.
 .TP
-.I "], --endblock"
+.B "]\fR,\fP --endblock"
 End a block.
 .TP
-.I "\-G, \-\-go"
+.B "\-G\fR,\fP \-\-go"
 Tell the FrontEnd to present all questions, notes, text, etc to the user.
 Prints "backup" if the user hits the Back button and --print was specified.
 Some FrontEnds will just buffer everything and not display any of these items
 until you use --go.
 .TP
-.I "\-rtemplate:question, \-\-register=template:question"
+.I "\fB\-r\fPtemplate\fB:\fPquestion\fR,\fP \fB\-\-register=\fPtemplate\fB:\fPquestion"
 Add a mapping for the specified question to the specified template. This
 makes the description, type, default values, etc, in the template be used
 when the question is displayed.
 .TP
-.I "\-u, \-\-unregister=question"
+.I "\fB\-u\fP\fR,\fP \fB\-\-unregister=\fPquestion"
 Remove the mapping for the specified question.
 .SH "RETURN CODES"
 A code of 1 is returned if the user hits the Back button on the FrontEnd.
@@ -108,7 +108,7 @@ Makes the Frontend prompt for the user to answer the question named "foo".
 .PP
 Gets the value of the variable named "foo" and saves it in the shell
 variable $VALUE while letting the standard output of
-.BR dpkg-frountend
+.BR dpkg-frontend
 pass through unchanged, as it must.
 .SH AUTHOR
 Joey Hess <joey@kitenet.net>

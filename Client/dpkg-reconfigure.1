@@ -2,18 +2,18 @@
 .SH NAME
 dpkg-reconfigure \- reconfigure an already installed package
 .SH SYNOPSIS
-.B dpkg-reconfigure [--frontend=type] [--priority=value] package [package ..]
+.B dpkg-reconfigure [--frontend=\fItype\fP] [--priority=\fIvalue\fP] \fIpackage\fP [\fIpackage\fP ..]
 .SH DESCRIPTION
 .BR dpkg-reconfigure
 reconfigures packages after they have already been installed. Pass it the
 names of a package or packages to reconfigure.
 .SH OPTIONS
 .TP
-.I "\-ftype, \-\-frontend=type"
+.I "\fB\-f\fPtype\fR,\fP \fB\-\-frontend=\fPtype"
 Select the frontend to use. Default is to use the dialog based frontend.
 Currently avaialble frontends are dialog, text, and web.
 .TP
-.I "\-pvalue, \-\-priority=value"
+.I "\fB\-p\fPvalue\fR,\fP \fB\-\-priority=\fPvalue"
 Set the lowest priority of questions you are interested in. Valid priorities
 are currently low, medium, high, and critical. Default is medium. Any
 questions with a priority below the selected priority will be ignored and

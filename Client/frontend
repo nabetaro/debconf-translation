@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 # This is a helper program for confmodule.sh. It expects to be passed
 # the name of the confmodule script to run, and any parameters for it.
-# This whole thing is really as hack, in an ideal world, dpkg would hhandle
+# This whole thing is really a hack; in an ideal world, dpkg would handle
 # all this.
 
 use strict;
@@ -33,7 +33,7 @@ my $confmodule;
 
 # See if the postinst or prerm of the package is being run, and if there is a
 # config script associated with this package. If so, run it first as a
-# confmodule (alos loading the templates). This is a bit of a nasty hack, that
+# confmodule (also loading the templates). This is a bit of a nasty hack, that
 # lets you dpkg -i somepackage.deb and have its config script be run first.
 if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	# Load templates, if any.

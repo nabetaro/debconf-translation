@@ -39,7 +39,7 @@ my $frontend=eval qq{
 die $@ if $@;
 
 # Set default title.
-$frontend->default_title('$script');
+$frontend->default_title($script);
 
 my $confmodule=eval qq{
 	use Debian::DebConf::ConfModule::$type;

@@ -27,9 +27,9 @@ you do want to send a command directly to the FrontEnd, you must output it
 to file descriptor 3, like this:
   echo GET foo/bar >&3
 .P
-The library checks to make sure it is actually speacking to a FrontEnd by
+The library checks to make sure it is actually speaking to a FrontEnd by
 examining the DEBIAN_HAS_FRONTEND variable. If it is set, a FrontEnd is
-assummed to be running. If not, the library turns into one, and runs a copy
+assumed to be running. If not, the library turns into one, and runs a copy
 of the script that loaded the library connected to it. This means that if you
 source this library, you should do so very near to the top of your script,
 because everything before the sourcing of the library may well be run again.

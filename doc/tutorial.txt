@@ -12,7 +12,7 @@ frontend. The frontend also talks to a special config script in the control
 section of a debian package, and it can talk to postinst scripts and other
 scripts as well, all using a special protocol. These scripts tell the
 frontend what values they need from the database, and the frontend asks the
-user questions to get those values if they arn't set.
+user questions to get those values if they aren't set.
 
 Debconf should be used whenever your package needs to output something to
 the user, or ask a question of the user. I'll assume you already have a
@@ -84,7 +84,7 @@ A short description of the data types:
   text
 	This template is a scrap of text that can be displayed to the user.
 
-Following laong in our example, we create a templates file with two
+Following along in our example, we create a templates file with two
 templates in it:
 
   Template: foo/like_debian
@@ -126,7 +126,7 @@ communicate with the frontend:
 
   other:
   
-  	You'll have to comminucate with the frontend directly via standard
+        You'll have to communicate with the frontend directly via standard
   	input and standard output. This isn't hard; read the protocol
   	specification for details.
 
@@ -163,7 +163,7 @@ the message about that.
 
 Note that the debian/config script is run before the package is unpacked. It
 should only use commands that are in the base system. Also, it shouldn't
-actually edit files on the system, or effect it in any other way.
+actually edit files on the system, or affect it in any other way.
 
 Modifying Existing Maintainer Scripts
 -------------------------------------
@@ -263,7 +263,7 @@ version <number>
 
 	This exchanges with the frontend the protocol version number that is
 	being used. The current version is 1.0. Versions in the 1.x series
-	will be backwards-compatable. You can specify the protocol version
+	will be backwards-compatible. You can specify the protocol version
 	number you are speaking, but note that the perl and shell libraries
 	specify a good default for you. The frontend will return the version
 	of the protocol it speaks.
@@ -279,8 +279,8 @@ title <string>
 
 	You can use this command to set a title in the frontend. This
 	in different ways, depending on the frontend being used, for example
-	it might change the title of the frontend's window. If you don't specify
-	anything, a title will automatically be generated.
+	it might change the title of the frontend's window. If you don't
+	specify anything, a title will automatically be generated.
 
 stop
 
@@ -297,8 +297,8 @@ input <priority> <variable>
 			Use this for very trivial items that have defaults that
 		        will work in the vast majority of cases.
 		medium 
-			Use this for normal items that have a reasonable 
-			default.      
+			Use this for normal items that have reasonable
+			defaults.
 		high
 			Use this for items that don't have a reasonable
 			default.
@@ -345,7 +345,7 @@ reset <variable>
 
 subst <variable> <key> <value>
 
-	Variables can have sibstitutions embedded in their descritions.
+	Variables can have substitutions embedded in their descriptions.
 	These substitutions look like "${key}". When the description
 	is displayed, the substitutions are replaced with their values.
 	This command can be used to set the value of a substitution.
@@ -356,7 +356,7 @@ fget <variable> <flag>
 	a value of "true" or "false". This command returns the value
 	of a flag.
 
-fget <variable> <flag> <value>
+fset <variable> <flag> <value>
 
 	This sets the value of a flag on a variable. Valid values for the
 	flag are "true" and "false". One common flag is the "isdefault"
@@ -365,12 +365,12 @@ fget <variable> <flag> <value>
 	only display questions to users if they have the isdefault flag set.
 	Sometimes you want the user to see a question again -- in these cases
 	you can set the isdefault flag to true to force the frontend to
-	reddisplay it.
+	redisplay it.
 
 register <template> <variable>
 
 	This creates a new variable that is bound to a template. By default
-	each template has an accociated variable with the same name. However,
+	each template has an associated variable with the same name. However,
 	any number of variables can really be associated with a template, and
 	this lets you create more such variables.
 

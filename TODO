@@ -6,12 +6,15 @@ General:
 * Other frontends.
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be sorta nice to have, but think it through
-  first -- is it really necessary? Do we wlays want config scripts to run
+  first -- is it really necessary? Do we always want config scripts to run
   locally? Etc.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
 * When a package is purged, all items in the db it owns and other packages
   don't share with it should be purged.
+* It looks like if you upgrade a package and it has changed text in the
+  template, the new text does not make it into the db. Some kind of merge
+  problem?
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
@@ -45,4 +48,5 @@ GTK:
 * block support
 * The buttons don't quite work right.
 * Lots of room here for UI improvements and really showing off everything
-  decbonf can do.
+  debconf can do.
+* segfaults on exit

@@ -12,8 +12,8 @@ Usage: dpkg-frontend [options]
 	-h, --help		 Display this help message.
 	-P, --print		 Print to standard error the last return code
 	                         the FrontEnd sends.
-	-p, --priority value	 Sets the priority of following questions to the
-				 specified value.
+	-p, --priority value	 Sets the priority of following questions to
+				 the specified value.
 				
 	-I, --init		 Initialize communications with FrontEnd.
 	-N, --can-backup	 Tell the frontend your ConfModule supports
@@ -30,7 +30,8 @@ Usage: dpkg-frontend [options]
 	-G, --go		 Present all built up items to the user.
 	-rtemplate:question,
 	--register template:question
-				 Add a mapping for the question to the template.
+				 Add a mapping for the question to the 
+				 template.
 	-uquestion,
 	--unregister question	 Remove mapping for the question.
 eof

@@ -6,6 +6,10 @@ Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
  .
+ The dialog fontend provides a full-screen, character based interface using
+ the ncurses library. The gtk frontend requires the X window system. The
+ web frontend can be accessed using your favorite browser.
+ .
  Note that the gtk and web frontends still need some work; use them at your
  own risk.
 
@@ -15,25 +19,29 @@ Choices: critical, high, medium, low
 Default: low
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
- might ask you. Only questions with a certian priority or higher are actually
+ might ask you. Only questions with a certain priority or higher are actually
  shown to you; all less important questions are skipped and the defaults are
  used for them.
  .
- You can select the lowest priority of question you want to see. For example,
- this question is of medium priority, and if your priority was already 'high'
- or 'critical', you wouldn't see this question.
+ You can select the lowest priority of question you want to see: `low' is for
+ trivial items that have defaults that will work in the vast majority of
+ cases.  `medium' is for normal items that have reasonable defaults.  `high'
+ is for items that don't have reasonable defaults. `critical' is for items
+ that will probably break the system without user intervention. For example,
+ this question is of medium priority, and if your priority were already
+ `high' or `critical', you wouldn't see this question.
  .
- If you're a newbie, pick "critical" now, so you only see the most important
+ If you're a newbie, pick `critical' now, so you only see the most important
  questions.
 
 Template: debconf/showold
 Type: boolean
 Default: false
 Description: Show all old question again and again?
- Debconf normally only askes you any given question once. Then it remembers
+ Debconf normally only asks you any given question once. Then it remembers
  your answer and never asks you that question again. If you prefer, debconf
  can ask you questions over and over again, each time you upgrade or reinstall
  a package that asks them.
  .
  Note that no matter what you choose here, you can see old questions again by
- using the dpkg--reconfigure program.
+ using the dpkg-reconfigure program.
