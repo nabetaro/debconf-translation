@@ -214,8 +214,9 @@ Finishing Up
 ------------
 
 Now you have a config script and a templates file. Install both into
-debian/tmp/DEBIAN. Make sure to make the config script executable. Your
-package now uses debconf!
+debian/tmp/DEBIAN. Make sure to make the config script executable. (If you
+use debhelper, this will all be done automatically.) Your package now uses
+debconf!
 
 Advanced Topics
 ---------------

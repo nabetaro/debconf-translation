@@ -1,0 +1,16 @@
+Questions and templates both exist in a hierarchical namespace. It can be
+arbitrarily deep, and is separated by '/' characters, like a unix directory
+hierarchy. Here are the conventions we're using so far to divide up the
+namespace.
+
+package/*	- This is the property of a single package, and can be
+		  subdivided however that package wants to.
+
+shared/foo/*	- This holds items that are shared between several packages.
+		  "foo" is replaced by a name that relates to all of them. For
+		  example, news grabbers and readers all can use 
+		  shared/news/server to store the news server they use.
+
+Currently the following shared templates and question exist:
+
+shared/news/server	- Hostname of the news server.

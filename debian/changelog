@@ -1,3 +1,12 @@
+debconf (0.1.30) unstable; urgency=low
+
+  * Debhelper now supports debconf, amended turorial to note this.
+  * More spelling fixes.
+  * Added doc/namespace.ttx, which explains the variable namespace.
+  * First upload to unstable.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 12:28:14 -0700
+
 debconf (0.1.29) unstable; urgency=low
 
   * Patch from James R. Van Zandt <jrv@vanzandt.mv.com> with:
@@ -74,6 +83,7 @@ debconf (0.1.22) unstable; urgency=low
 
  -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 17:48:12 -0700
 
+>>>>>>> 1.44
 debconf (0.1.21) unstable; urgency=low
 
   * All the sigchld counting and handling stuff was making debconf segfault
