@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-09-16 14:04-0400\n"
+"POT-Creation-Date: 2002-09-17 13:12-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -201,14 +201,14 @@ msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 msgid "Configuring %s"
 msgstr "正設定 %s"
 
-#: ../Debconf/Template.pm:84
+#: ../Debconf/Template.pm:85
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:195
+#: ../Debconf/Template.pm:196
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -217,17 +217,17 @@ msgstr ""
 "樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
 "的新行分格.\n"
 
-#: ../Debconf/Template.pm:220
+#: ../Debconf/Template.pm:221
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 
-#: ../Debconf/Template.pm:246
+#: ../Debconf/Template.pm:247
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 
-#: ../Debconf/Template.pm:252
+#: ../Debconf/Template.pm:253
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"

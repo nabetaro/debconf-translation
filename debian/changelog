@@ -1,3 +1,20 @@
+debconf (1.2.0) unstable; urgency=low
+
+  * Added support for encoding specification in translated templates. Use
+    field names of the form "Field-ll_LL.charset". Example:
+    Description-de_DE.UTF-8
+  * The reccommended encoding of all debconf templates files is UTF-8.
+    Whenever it is possible, do not use other encodings. The possibility to
+    support non-UTF-8 encodings is provided just in case.
+  * Prefer a field matching the user's charset and language. If one is
+    not found, look for one matching the user's language, and use iconv to
+    convert to their charset.
+  * Suggest libtext-iconv-perl, without which the above will not work.
+  * This is all experimental, untested, and undocumented.
+  * Closes: #148490
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 17 Sep 2002 14:22:02 -0400
+
 debconf (1.1.33) unstable; urgency=low
 
   * Add question when loading a template if the question is gone and the

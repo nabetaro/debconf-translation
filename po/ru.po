@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2002-09-16 14:04-0400\n"
+"POT-Creation-Date: 2002-09-17 13:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -219,31 +219,31 @@ msgstr "Не удалось создать элемент типа %s. Причина: %s"
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
 
-#: ../Debconf/Template.pm:84
+#: ../Debconf/Template.pm:85
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:195
+#: ../Debconf/Template.pm:196
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
 
-#: ../Debconf/Template.pm:220
+#: ../Debconf/Template.pm:221
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Debconf/Template.pm:246
+#: ../Debconf/Template.pm:247
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Debconf/Template.pm:252
+#: ../Debconf/Template.pm:253
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон не содержит строки `Template:'"

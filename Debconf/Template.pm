@@ -18,6 +18,7 @@ use Debconf::Iterator;
 use Debconf::Question;
 use fields qw(template);
 use Debconf::Log q{:all};
+use Debconf::Encoding;
 
 # Class data
 our %template;
@@ -371,44 +372,61 @@ sub _getlangs {
 	# hits testing, and I will need to (pre?)depend on it then.
 	my $language=setlocale(5); # LC_MESSAGES
 	if ($language eq 'C' || $language eq 'POSIX') {
-		return;
+		return "";
 	}
-	# Try to do one level of fallback.
+	elsif ($language=~m/^(\w\w)_(\w\w)\./) {
+		return $language, "$1_$2", $1
+	}
 	elsif ($language=~m/^(\w\w)_/) {
 		return $language, $1;
 	}
 	return $language;
 }
 
-{
-	my @langs=_getlangs();
+# Lower-case language name because fields are stored in lower case.
+my @langs=map { lc $_ } _getlangs();
 
-	sub AUTOLOAD {
-		(my $field = our $AUTOLOAD) =~ s/.*://;
-		no strict 'refs';
-		*$AUTOLOAD = sub {
-			my $this=shift;
-
+sub AUTOLOAD {
+	(my $field = our $AUTOLOAD) =~ s/.*://;
+	no strict 'refs';
+	*$AUTOLOAD = sub {
+		my $this=shift;
 			if (@_) {
-				return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
-			}
+			return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
+		}
 		
-			my $ret;
-			# Check to see if i18n should be used.
-			if ($Debconf::Template::i18n && @langs) {
-				foreach my $lang (@langs) {
-					# Lower-case language name because
-					# fields are stored in lower case.
-					$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.lc($lang));
-					return $ret if defined $ret;
+		my $ret;
+		# Check to see if i18n and/or charset encoding should
+		# be used.
+		if ($Debconf::Template::i18n && @langs) {
+			my @fields = grep /^\Q$field\E/, $Debconf::Db::templates->fields($this->{template});
+			foreach my $lang (@langs) {
+				# First check for a field that matches the
+				# language and the encoding. No charset
+				# conversion is needed. This also takes care
+				# of the old case where encoding is
+				# not specified.
+				$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.$lang);
+				return $ret if defined $ret;
+				
+				# Failing that, look for a field that matches
+				# the language, and do charset conversion.
+				if ($Debconf::Encoding::charmap) {
+					foreach my $f (@fields) {
+						if ($f =~ /^\Q$field-$lang\E\.(.+)/) {
+							my $encoding = $1;
+							$ret = Debconf::Encoding::convert($encoding, $Debconf::Db::templates->getfield($this->{template}, lc($f)));
+							return $ret if defined $ret;
+						}
+					}
 				}
 			}
-			$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
-			return $ret if defined $ret;
-			return '';
-		};
-		goto &$AUTOLOAD;
-	}
+		}
+		$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
+		return $ret if defined $ret;
+		return '';
+	};
+	goto &$AUTOLOAD;
 }
 
 # Do nothing.
