@@ -1,3 +1,13 @@
+debconf (0.3.22) unstable; urgency=low
+
+  * Catch undefined value returned if a package that is not installed is
+    preconfigured, and use '' instead. This clears up the undefined value
+    warning people have been seeing for months. 
+    Closes: #55498, #57792, #62263, #53657
+  * Fixed for a while: Closes: #48816
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 13 Apr 2000 15:40:48 -0700
+
 debconf (0.3.21) unstable; urgency=low
 
   * Corrected bug in slang frontend -- if the last item in a dropdown

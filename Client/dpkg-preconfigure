@@ -253,7 +253,8 @@ foreach my $deb (@debs) {
 	$frontend->default_title($packages{$deb});
 
 	# Start up the confmodule, passing in the package version.
-	my $confmodule=make_confmodule($script, 'configure', getversion($packages{$deb}));
+	my $confmodule=make_confmodule($script, 'configure',
+		getversion($packages{$deb}));
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});
@@ -275,7 +276,8 @@ $frontend->shutdown;
 # Save state.
 savedb(dbdir());
 
-# Pass a package name, and the version of that package is returned.
+# Pass a package name, and the version of that package that is currently
+# installed is returned.
 #
 # The function in this block deals with the dpkg status file and is
 # memoized. I parse the dpkg status file the first time it's called and
@@ -290,7 +292,11 @@ savedb(dbdir());
 	sub getversion {
 		my $package=shift;
 		
-		return $versions{$package} if $haveversions;
+		if ($haveversions) {
+			return $versions{$package} if defined $versions{$package};
+			return ''; # not installed
+		}
+
 		{
 			local $/="\n\n";
 			open (STATUS, "</var/lib/dpkg/status");
@@ -302,9 +308,10 @@ savedb(dbdir());
 				}
 			}
 			close STATUS;
-		}	
+		}
 		$haveversions=1;
-		return $versions{$package};
+		return $versions{$package} if defined $versions{$package};
+		return ''; # not installed
 	}
 }
 
