@@ -276,4 +276,15 @@
       DEBIAN_PRIORITY environment variable.
     </para>
   </sect1>
+  <sect1>
+    <title>Backend Database</title>
+    <para>
+      Debconf uses a rather flexible and potentially complicated backend
+      database for storing data such as the answers to questions. The file
+      <literal>/etc/debconf.conf</literal> is used to configure this
+      database. If you need to set up something complicated, like make
+      debconf read a remote database to get defaults, with local overrides,
+      read the debconf.conf(5) man page for all the gory details.
+    </para>
+  </sect1>
 </article>
