@@ -11,6 +11,7 @@ sub usage {
 Usage: debconf-set-selections [-vc] [file]
   -v, --verbose     verbose output
   -c, --checkonly   only check the input file format
+  -u, --unseen      do not set the 'seen' flag
 EOF
 	exit(1);
 }
@@ -68,7 +69,7 @@ use Debconf::Db;
 use Debconf::Template;
 use Getopt::Long;
 
-use vars qw(%opts $filename $debug $error $checkonly);
+use vars qw(%opts $filename $debug $error $checkonly $unseen);
 
 sub info {
 	my $msg = shift;
@@ -108,7 +109,9 @@ sub load_answer {
 	}
 	$question->addowner($owner, $type);
 	$question->value($content);
-	$question->flag("seen", "true");
+	if (! $unseen) {
+		$question->flag("seen", "true");
+	}
 }
 
 my @knowntypes = qw(select boolean string multiselect note password text title);
@@ -126,6 +129,7 @@ sub ok_format {
 GetOptions(
 	"verbose|v" => \$debug,
 	"checkonly|c" => \$checkonly,
+	"unseen|u" => \$unseen,
 ) || usage();
 
 Debconf::Db->load;
