@@ -15,10 +15,10 @@ This is an input field element on the debconf dialog box.
 package Debian::DebConf::Element::Gtk::String;
 use Gtk;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element);
 
 sub show {
 	my $self = shift;

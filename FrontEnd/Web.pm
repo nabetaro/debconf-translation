@@ -8,7 +8,7 @@ DebConf::FrontEnd::Web - web FrontEnd
 
 =head1 DESCRIPTION
 
-This is a FrontEnd that acts as a small, stupid web server. It's worth noting
+This is a FrontEnd that acts as a small, stupid web server. It is worth noting
 that this doesn't worry about security at all, so it really isn't ready for
 use. It's a proof-of-concept only. In fact, it's probably the crappiest web
 server ever. It only accpets one client at a time!
@@ -20,7 +20,7 @@ server ever. It only accpets one client at a time!
 =cut
 
 package Debian::DebConf::FrontEnd::Web;
-use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::FrontEnd;
 use Debian::DebConf::Element::Web::String;
 use Debian::DebConf::Element::Web::Boolean;
 use Debian::DebConf::Element::Web::Select;
@@ -33,7 +33,7 @@ use IO::Select;
 use CGI;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd);
 
 =head2 new
 

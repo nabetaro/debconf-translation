@@ -18,7 +18,7 @@ uses ReadLine to make the user interface just a bit nicer.
 =cut
 
 package Debian::DebConf::FrontEnd::Text;
-use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::FrontEnd;
 use Debian::DebConf::Element::Text::String;
 use Debian::DebConf::Element::Text::Boolean;
 use Debian::DebConf::Element::Text::Select;
@@ -29,7 +29,7 @@ use Text::Wrap;
 use Term::ReadLine;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd);
 
 local $|=1;
 

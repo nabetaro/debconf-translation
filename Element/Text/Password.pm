@@ -1,15 +1,25 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Text::Password is a password input field.
+
+=head1 NAME
+
+Debian::DebConf::Element::Text::Password - password input field
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a password input field, presented to the user using a plain text
+interface.
+
+=cut
 
 package Debian::DebConf::Element::Text::Password;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

@@ -18,10 +18,10 @@ This element handles a password input field on a web form.
 
 package Debian::DebConf::Element::Web::Password;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element);
 
 =head2 show
 

@@ -21,7 +21,7 @@ It currently uses only whiptail of gdialog, because dialog lacks --defaultno.
 =cut
    
 package Debian::DebConf::FrontEnd::Dialog;
-use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::FrontEnd;
 use Debian::DebConf::Element::Dialog::String;
 use Debian::DebConf::Element::Dialog::Boolean;
 use Debian::DebConf::Element::Dialog::Select;
@@ -35,7 +35,7 @@ use Fcntl;
 use POSIX qw(tmpnam);
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd);
 
 =head2 new
 

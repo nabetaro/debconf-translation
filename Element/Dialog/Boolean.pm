@@ -15,10 +15,10 @@ on it.
 
 package Debian::DebConf::Element::Dialog::Boolean;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

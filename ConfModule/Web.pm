@@ -16,10 +16,10 @@ capability to backup, and so its capb property is set appropriatly.
 =cut
 
 package Debian::DebConf::ConfModule::Web;
-use Debian::DebConf::ConfModule::Base;
+use Debian::DebConf::ConfModule;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::ConfModule::Base);
+@ISA=qw(Debian::DebConf::ConfModule);
 
 sub new {
 	my $proto = shift;

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::FrontEnd::Base - base FrontEnd
+Debian::DebConf::FrontEnd - base FrontEnd
 
 =cut
 
@@ -21,9 +21,9 @@ in some obscure situations.)
 
 =cut
 
-package Debian::DebConf::FrontEnd::Base;
+package Debian::DebConf::FrontEnd;
 use Debian::DebConf::Priority;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use Debian::DebConf::Config;
 use strict;
 use vars qw($AUTOLOAD);
@@ -55,7 +55,7 @@ sub makeelement {
 	my $this=shift;
 	my $question=shift;
 
-	return Debian::DebConf::Element::Base->new($question);
+	return Debian::DebConf::Element->new($question);
 }
 
 =head2 add

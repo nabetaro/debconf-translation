@@ -18,7 +18,7 @@ same lines as the Wizards in Microsoft Windows. (Be afraid..)
 =cut
 
 package Debian::DebConf::FrontEnd::Gtk;
-use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::FrontEnd;
 use Debian::DebConf::Element::Gtk::String;
 use Debian::DebConf::Element::Gtk::Boolean;
 use Debian::DebConf::Element::Gtk::Select;
@@ -28,7 +28,7 @@ use Debian::DebConf::Element::Gtk::Password;
 use Gtk;
 use Gtk::Atoms;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd);
 
 use strict;
 

@@ -15,10 +15,10 @@ Currently, this is identical to the Base ConfModule.
 =cut
 
 package Debian::DebConf::ConfModule::Text;
-use Debian::DebConf::ConfModule::Base;
+use Debian::DebConf::ConfModule;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::ConfModule::Base);
+@ISA=qw(Debian::DebConf::ConfModule);
 
 =head1 AUTHOR
 

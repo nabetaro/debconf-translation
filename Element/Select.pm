@@ -17,11 +17,11 @@ This is a base Select input element.
 =cut
 
 package Debian::DebConf::Element::Select;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element;
 use strict;
 use vars qw($AUTOLOAD);
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element);
 
 =head2 visible
 
