@@ -6,12 +6,7 @@ libgtk-perl.)
 make test DEBIAN_FRONTEND=Dialog PACKAGE=demo
 make test DEBIAN_FRONTEND=Text PACKAGE=demo
 make test DEBIAN_FRONTEND=Gtk PACKAGE=demo
-make test DEBIAN_FRONTEND=Dialog PACKAGE=cvs
+make test DEBIAN_FRONTEND=Web PACKAGE=demo
 make test DEBIAN_FRONTEND=Text PACKAGE=tutorial
 make test DEBIAN_FRONTEND=Gtk PACKAGE=tutorial
-make test DEBIAN_FRONTEND=Dialog PACKAGE=exim
-make test DEBIAN_FRONTEND=Text PACKAGE=exim
-make test DEBIAN_FRONTEND=Gtk PACKAGE=exim
-make test DEBIAN_FRONTEND=Web PACKAGE=demo
-make test DEBIAN_FRONTEND=Web PACKAGE=cvs
-make test DEBIAN_FRONTEND=Web PACKAGE=exim
+

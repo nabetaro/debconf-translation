@@ -1,3 +1,11 @@
+debconf (0.2.103) unstable; urgency=low
+
+  * Removed quite obsolete exim samples. I don't want to maintain samples
+    anymore past those needed by the tutorial and a regression test script.
+    There is quite enough real debconf code out there.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 29 Feb 2000 17:10:11 -0800
+
 debconf (0.2.102) unstable; urgency=low
 
   * Corrected three ways badly written packages could make 
