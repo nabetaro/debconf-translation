@@ -31,7 +31,7 @@ binary-indep: build
 
 	# Don't modify postrm, I purge differently than normal packages
 	# using me
-	PATH=.:$(PATH) dh_installdebconf -n
+	dh_installdebconf -n
 	
 	dh_installdocs
 	dh_installdirs etc/apt/apt.conf.d/
