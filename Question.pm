@@ -11,6 +11,7 @@ use strict;
 use Debian::DebConf::ConfigDb;
 use vars qw($AUTOLOAD);
 use base qw(Debian::DebConf::Base);
+use Debian::DebConf::Log qw(:all);
 
 =head1 DESCRIPTION
 
@@ -256,7 +257,9 @@ sub AUTOLOAD {
 		$this->{$field}=shift if @_;
 		return $this->{$field} if (defined $this->{$field});
 		# Fall back to template values.
-		return $this->{template}->$field();
+		return $this->{template}->$field() if defined $this->{template};
+		# Woah, should never get here.
+		warn("Question ".$this->{name}." has no template. This should never happen; please file a bug report.");
 	};
 	goto &$AUTOLOAD;
 }

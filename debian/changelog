@@ -1,3 +1,14 @@
+debconf (0.3.15) unstable; urgency=low
+
+  * Don't crash if a question has no associated template. That should never
+    happen, but I have one report of it happening. I suspect that some
+    rather old version of debconf caused the problem. It's also possible
+    that deleting the templates.db file might cause similar problems. I've
+    made debconf ask for bug reports in this case, so I can gather more
+    data.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  3 Apr 2000 15:18:33 -0700
+
 debconf (0.3.14) unstable; urgency=low
 
   * Tightended up regexp that pareses Template: lines, so spaces are not
