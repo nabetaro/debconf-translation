@@ -9,7 +9,6 @@ Debconf::Element::Slang::Boolean - check box widget
 package Debconf::Element::Slang::Boolean;
 use strict;
 use Term::Stool::CheckBox;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Slang);
 
 =head1 DESCRIPTION

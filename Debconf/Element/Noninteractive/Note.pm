@@ -10,7 +10,6 @@ package Debconf::Element::Noninteractive::Note;
 use strict;
 use Text::Wrap;
 use Debconf::Gettext;
-use Debconf::Element::Noninteractive; # perlbug
 use base qw(Debconf::Element::Noninteractive);
 
 =head1 DESCRIPTION
@@ -55,7 +54,7 @@ sub sendmail {
 	my $this=shift;
 	my $footer=shift;
 
-	if (-x '/usr/bin/mail' && $this->question->flag_isdefault ne 'false') {
+	if (-x '/usr/bin/mail' && $this->question->flag_seen ne 'true') {
 	    	my $title=gettext("Debconf").": ".$this->frontend->title." -- ".
 		   $this->question->description;
 		$title=~s/'/\'/g;
@@ -78,9 +77,9 @@ sub sendmail {
 
 		$Text::Wrap::columns=$old_columns;
 	
-		# Mark this note as shown. The frontend doesn't do this for us,
+		# Mark this note as seen. The frontend doesn't do this for us,
 		# since we are marked as not visible.
-		$this->question->flag_isdefault('false');
+		$this->question->flag_seen('true');
 
 		return 1;
 	}

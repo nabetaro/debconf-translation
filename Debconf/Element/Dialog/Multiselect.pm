@@ -8,7 +8,6 @@ Debconf::Element::Dialog::Multiselect - a check list in a dialog box
 
 package Debconf::Element::Dialog::Multiselect;
 use strict;
-use Debconf::Element::Multiselect; # perlbug
 use base qw(Debconf::Element::Multiselect);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Dialog::Select - A list of choices in a dialog box
 
 package Debconf::Element::Dialog::Select;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION

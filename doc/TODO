@@ -16,10 +16,6 @@ General:
   debconf), to come up with a new shell interface that is so much cooler
   people will want to migrate to it, and make it not use the hack,
   or to decide with Wichert that debconf should not ursurp stdin/out.
-* Once perlbug ID 20000212.001 is fixed and the fix in in debian, grep -v 
-  "perlbug" throughout the source to remove bug workaruond code. I think
-  this is fixed in perl 5.6, but I'd have to depend on that version to use
-  it, so not quite yet (23 may 00)
 * Proper backend database.
 * Config db browser, with AJ's config2 stuff.
 * Should be able to jump to debconf config when debconf is interacting with
@@ -44,13 +40,6 @@ General:
   Dialog frontend couldn't support this, but the rest could.
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
-* isdefault flag is horrobly misnamed. It should be called "hasbeenseen"
-  or something like that. But how to rename it now, when lots of code
-  already uses it?
-
-  I could add some special case code that makes accesses to isdefault act
-  on hasbeenseen. Then encourage people to switch to using it, and making
-  their packages depend on the new version of debconf if they do.
 
 Slang frontend:
 * The buttons should have help text associated with them too.

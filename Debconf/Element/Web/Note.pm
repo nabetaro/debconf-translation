@@ -8,7 +8,6 @@ Debconf::Element::Web::Note - A paragraph on a form
 
 package Debconf::Element::Web::Note;
 use strict;
-use Debconf::Element::Web::Text; # perlbug
 use base qw(Debconf::Element::Web::Text);
 
 =head1 DESCRIPTION

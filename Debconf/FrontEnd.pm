@@ -93,6 +93,7 @@ sub makeelement {
 	# Figure out what type of frontend this is.
 	my $frontend_type;
 	if (ref $this) {
+		# Called as object method.
 		($frontend_type)=ref($this)=~m/Debconf::FrontEnd::(.*)/;
 	}
 	else {
@@ -135,8 +136,7 @@ sub add {
 
 =item go
 
-Display accumulated Elements to the user. The Elements are in the elements
-field, and that field is cleared after the Elements are presented.
+Display accumulated Elements to the user.
 
 The return value of each element's show() method is used to set the value
 of the question associated with that element.
@@ -148,39 +148,13 @@ back up, it returns false.
 
 sub go {
 	my $this=shift;
-
-	# Keep track of whether the backup field was set last time.
-	my $oldbackup=$this->backup;
 	$this->backup('');
-
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
-		if ($this->backup && $this->capb_backup) {
-			$this->clear;
-			return;
-		}
+		return if $this->backup && $this->capb_backup;
 		$element->question->value($value);
-		if ($element->visible) {
-			# It doesn't matter if the backup field was set
-			# last time; an element was sucesfully shown.
-			$oldbackup='';
-			# Only set isdefault if the element was visible, 
-			# because we don't want to do it when showing 
-			# noninteractive select elements and so on.
-			$element->question->flag_isdefault('false');
-		}
 	}
-	$this->clear;
-
-	# If $oldbackup is still set then we had nothing to display this
-	# time, and we backed up last time. So continue backing up.
-	if ($oldbackup && $this->capb_backup) {
-		$this->backup($oldbackup);
-		return;
-	}
-	else {
-		return 1;
-	}
+	return 1;
 }
 
 =item clear

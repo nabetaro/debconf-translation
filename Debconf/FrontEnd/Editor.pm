@@ -11,7 +11,6 @@ use strict;
 use Text::Wrap;
 use Debconf::Gettext;
 use Debconf::Config qw{tmpdir};
-use Debconf::FrontEnd::Tty; # perlbug
 use base qw(Debconf::FrontEnd::Tty);
 
 =head1 DESCRIPTION
@@ -105,18 +104,12 @@ sub go {
 	$this->filecontents('');
 	foreach my $element (@elements) {
 		$element->show;
-		# Only set isdefault if the element was visible, because we
-		# don't want to do it when showing noninteractive select 
-		# elements and so on.
-		$element->question->flag_isdefault('false')
-			if $element->visible;
 	}
 
 	# Only proceed if something interesting was actually written to the
 	# file.
 	if (! $this->filecontents) {
 		unlink $tmpfile;
-		$this->clear;
 		return 1;
 	}
 	
@@ -154,7 +147,6 @@ sub go {
 	closedir TMPDIR;
 	rmdir $tmpdir;
 
-	$this->clear;
 	return 1;
 }
 

@@ -35,7 +35,7 @@ executed command.
 
 Print out the value of the debconf/frontend question.
 
- debconf-communicate "fset debconf/frontend isdefault false" \
+ debconf-communicate "fset debconf/frontend seen false" \
                      "input medium debconf/frontend" go
 
 This asks debconf to display the debconf/frontend question, even if it has

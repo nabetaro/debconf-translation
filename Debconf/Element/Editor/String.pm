@@ -8,7 +8,6 @@ Debconf::Element::Editor::String - String question
 
 package Debconf::Element::Editor::String;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

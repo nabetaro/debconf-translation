@@ -13,11 +13,11 @@ fi
 
 # Establish the preliminaries.
 db_version 2.0
-db_capb 'backup'
+db_capb backup
 
 # Use a state machine to allow jumping back to previous questions.
 STATE=1
-while [ "$STATE" != stop ]; do
+while [ "$STATE" != 0 && "$STATE" != 3 ]; do
 	case "$STATE" in
 	1)
 		# Ask about frontend and priority.
@@ -25,15 +25,6 @@ while [ "$STATE" != stop ]; do
 		db_input medium debconf/frontend || true
 		db_input medium debconf/priority || true
 		db_endblock
-		if ! db_go; then
-			# Going back at this point is up to the frontend,
-			# since it involves jumping out of this configmodule.
-			# This is just a placeholder for something not in the
-			# spec.
-			exit
-		else
-			STATE=2
-		fi
 	;;
 	
 	2)
@@ -44,16 +35,12 @@ while [ "$STATE" != stop ]; do
 		db_input low debconf/preconfig || true
 		db_input low debconf/showold || true
 		db_endblock
-		if ! db_go; then
-			# Back button
-			STATE=1
-			db_fset debconf/frontend isdefault true
-			db_fset debconf/priority isdefault true
-			db_fset debconf/showold isdefault true 
-		else
-			# Done.
-			STATE=stop
-		fi
 	;;
 	esac
+
+	if db_go; then
+		STATE=`expr $STATE + 1`
+	else
+		STATE=`expr $STATE - 1`
+	fi
 done

@@ -8,7 +8,6 @@ Debconf::Element::Dialog::Text - A message in a dialog box
 
 package Debconf::Element::Dialog::Text;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

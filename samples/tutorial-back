@@ -8,38 +8,26 @@ db_version 2.0
 db_capb backup
 
 STATE=1 
-while [ "$STATE" != stop ]; do
+while [ "$STATE" != 0 && "$STATE" != 3 ]; do
 	case "$STATE" in
 	1)
 		# Do you like debian?
 		db_input medium foo/like_debian || true
-		db_go
-		
-		# Check their answer.
-		db_get foo/like_debian
-		if [ "$RET" = "false" ]; then
-			# Proceed to second question.
-			STATE=2
-		else
-			# All done.
-			STATE=stop
-	        fi
 	;;
 	
 	2)
- 		# Poor misguided one..
-		db_input high foo/why_debian_is_great || true
-		if ! db_go; then
-			# Back button -- go back to first question.
-			STATE=1
-			# But first, ensure that all questions asked
-			# so far will be asked again.
-			db_fset foo/like_debian isdefault true
-			db_fset foo/why_debian_is_great isdefault true
-		else
-			# All done.
-			STATE=stop
+		# Check to see if they like debian.
+		db_get foo/like_debian
+		if [ "$RET" = "false" ]; then
+			# Poor misguided one..
+			db_input high foo/why_debian_is_great || true
 		fi
 	;;
 	esac
+
+	if db_go; then
+		STATE=`expr $STATE + 1`
+	else
+		STATE=`expr $STATE - 1`
+	fi
 done

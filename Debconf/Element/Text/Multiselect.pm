@@ -9,8 +9,6 @@ Debconf::Element::Text::Multiselect - select multiple items
 package Debconf::Element::Text::Multiselect;
 use strict;
 use Debconf::Gettext;
-use Debconf::Element::Multiselect; # perlbug
-use Debconf::Element::Text::Select; # perlbug
 use base qw(Debconf::Element::Multiselect Debconf::Element::Text::Select);
 
 =head1 DESCRIPTION

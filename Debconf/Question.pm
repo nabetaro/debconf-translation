@@ -29,15 +29,15 @@ the Question is mapped to, the value of that field will be returned instead.
 
 =item init
 
-Sets a few defaults. New questions default to having their isdefault flag
-set to "true".
+Sets a few defaults. New questions default to having their seen flag
+set to "false".
 
 =cut
 
 sub init {
 	my $this=shift;
 	
-	$this->flag_isdefault('true');
+	$this->flag_seen('false');
 	$this->variables({});
 }
 
@@ -113,6 +113,22 @@ sub choices_split {
 	my $this=shift;
 	
 	return split(/,\s+/, $this->choices);
+}
+
+=item flag_isdefault
+
+This deprecated flag is now automatically mapped to the inverse of the
+"seen" flag.
+
+=cut
+
+sub flag_isdefault {
+	my $this=shift;
+
+	debug developer => "The isdefault flag is deprecated, use the seen flag instead";
+
+	$this->flag_seen(shift() eq "true" ? "false" : "true") if @_;
+	return $this->flag_seen eq "true" ? "false" : "true";
 }
 
 =item variables

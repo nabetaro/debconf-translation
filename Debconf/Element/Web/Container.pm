@@ -8,7 +8,6 @@ Debconf::Element::Web::Container - A group of releated questions
 
 package Debconf::Element::Web::Container;
 use strict;
-use Debconf::Element::Container; # perlbug
 use base qw(Debconf::Element::Container);
 
 =head1 DESCRIPTION

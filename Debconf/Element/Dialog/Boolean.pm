@@ -8,7 +8,6 @@ Debconf::Element::Dialog::Boolean - Yes/No dialog box
 
 package Debconf::Element::Dialog::Boolean;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Noninteractive::Select - dummy select Element
 
 package Debconf::Element::Noninteractive::Select;
 use strict;
-use Debconf::Element::Noninteractive; # perlbug
 use base qw(Debconf::Element::Noninteractive);
 
 =head1 DESCRIPTION

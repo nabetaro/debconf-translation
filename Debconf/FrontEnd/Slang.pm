@@ -10,7 +10,6 @@ package Debconf::FrontEnd::Slang;
 use strict;
 use Debconf::Gettext;
 use Debconf::Config;
-use Debconf::FrontEnd; # perlbug
 use base qw(Debconf::FrontEnd);
 
 # Catch this so it doesn't confuse the poor users if Term::Stool is
@@ -178,10 +177,6 @@ sub go {
         my $this=shift;
 	my @elements=@{$this->elements};
 
-	# Keep track of whether the backup field was set last time.
-	my $oldbackup=$this->backup;
-	$this->backup('');
-
 	# Set up all the widgets to be displayed on the panel.
 	$this->panel->clear;
 	my $firstwidget='';
@@ -269,6 +264,7 @@ sub go {
 		# See which button is active (and thus was pressed), and
 		# deactivate it.
 		if ($this->button_next->active) {
+			$this->backup('');
 			$this->button_next->deactivate;
 			$this->button_next->display;
 		}
@@ -284,41 +280,24 @@ sub go {
 		$this->screen->refresh;
 	}
 
+	# Display all elements. This does nothing for slang
+	# elements, but it causes noninteractive elements to do
+	# their thing.
+	foreach my $element (@elements) {
+		$element->show;
+	}
+	
 	if (! $this->backup) {
-		# Display all elements. This does nothing for slang
-		# elements, but it causes noninteractive elements to do
-		# their thing.
-		foreach my $element (@elements) {
-			$element->show;
-			if ($element->visible) {
-				# It doesn't matter if the backup field was
-				# set last time; an element was sucesfully
-				# shown.
-				$oldbackup='';
-			}
-		}
-		
-		# Run through slang the elements, and get the values that
+		# Run through the slang elements, and get the values that
 		# were entered and shove them into the questions.
 		foreach my $element (@elements) {
 			next unless $element->widget;
 			
 			$element->question->value($element->value);
-			$element->question->flag_isdefault('false');
 		}
 	}
 
-	$this->clear;
-
-	# If $oldbackup is still set then we had nothing to display this
-	# time, and we backed up last time. So continue backing up.
-	if ($oldbackup && $this->capb_backup) {
-		$this->backup($oldbackup);
-		return;
-	}
-	else {
-		return ! $this->backup;
-	}
+	return ! $this->backup;
 }
 
 =item fillpanel

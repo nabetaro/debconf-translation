@@ -15,9 +15,9 @@ db_capb backup
 db_title Demo
 
 # This implements a simple state machine so the back button can be handled.
-stage=1
-while [ "$stage" != 0 -a "$stage" != 6 ]; do
-	case $stage in
+STATE=1
+while [ "$STATE" != 0 -a "$STATE" != 6 ]; do
+	case $STATE in
 	1)
 		db_input high demo/boolean || true
 	;;
@@ -25,14 +25,13 @@ while [ "$stage" != 0 -a "$stage" != 6 ]; do
 		db_input low demo/multiselect || true
 	;;
 	3)
-		db_subst demo/select colors red, Yellow, green
 		db_input critical demo/string || true
 		db_input low demo/password || true
 		db_input low demo/text || true
+		db_subst demo/select colors red, Yellow, green
 		db_input low demo/select || true
 	;;
 	4)
-		db_get demo/select
 		db_beginblock
 		db_input low demo/boolean || true
 		db_input low demo/boolean || true
@@ -40,17 +39,17 @@ while [ "$stage" != 0 -a "$stage" != 6 ]; do
 	;;
 	5)
 		db_input low demo/note || true
-		db_fset demo/boolean isdefault true
-		db_input high demo/boolean || true
+		# Will be displayed again.
+		db_input high demo/password || true
 	;;
 	esac
 	
 	if db_go; then
-		stage=`expr $stage + 1`
+		STATE=`expr $STATE + 1`
 	else
-		stage=`expr $stage - 1`
+		STATE=`expr $STATE - 1`
 	fi
-	echo "ON STAGE: $stage"
+	echo "ON STATE: $STATE"
 done
 
 # This is EVIL, never echo in your own config scripts!
@@ -61,3 +60,4 @@ echo $RET
 db_get demo/multiselect
 echo $RET
 
+db_stop

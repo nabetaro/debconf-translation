@@ -10,7 +10,6 @@ package Debconf::Element::Select;
 use strict;
 use Debconf::Log ':all';
 use Debconf::Gettext;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -238,6 +238,15 @@ sub loaddb {
 	if (-e "$dir/debconf.db") {
 		eval qq{require "$dir/debconf.db"};
 	}
+
+	# This code is here to handle the transition from the isdefault
+	# flag to the seen flag.
+	foreach (values %questions) {
+		if (exists $_->{flag_isdefault}) {
+			$_->flag_seen = $_->{flag_isdefault} eq "true" ? "false" : "true";
+			delete $_->{flag_isdefault};
+		}
+	}
 }
 
 =head1 AUTHOR

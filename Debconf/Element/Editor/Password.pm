@@ -8,7 +8,6 @@ Debconf::Element::Editor::String - Password input
 
 package Debconf::Element::Editor::Password;
 use strict;
-use Debconf::Element::Editor::String; # perlbug
 use base qw(Debconf::Element::Editor::String);
 
 =head1 DESCRIPTION

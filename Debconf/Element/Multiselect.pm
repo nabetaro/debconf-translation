@@ -8,7 +8,6 @@ Debconf::Element::Multiselect - Base multiselect input element
 
 package Debconf::Element::Multiselect;
 use strict;
-use Debconf::Element::Select; # perlbug
 use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION

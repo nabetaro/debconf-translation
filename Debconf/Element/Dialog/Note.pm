@@ -8,7 +8,6 @@ Debconf::Element::Dialog::Note - A note in a dialog box
 
 package Debconf::Element::Dialog::Note;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

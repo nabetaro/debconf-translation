@@ -8,7 +8,6 @@ Debconf::Element::Web::Boolean - A check box on a form
 
 package Debconf::Element::Web::Boolean;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

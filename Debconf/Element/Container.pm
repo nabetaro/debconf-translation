@@ -11,7 +11,6 @@ use Debconf::Gettext;
 use Debconf::ConfigDb;
 use strict;
 use UNIVERSAL qw(isa);
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Text::String - string input field
 
 package Debconf::Element::Text::String;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -9,7 +9,6 @@ Debconf::Element::Slang::Select - drop down select box widget
 package Debconf::Element::Slang::Select;
 use strict;
 use Term::Stool::DropDown;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Select Debconf::Element::Slang);
 
 =head1 DESCRIPTION

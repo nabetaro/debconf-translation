@@ -9,7 +9,6 @@ Debconf::Element::Editor::Boolean - Yes/No question
 package Debconf::Element::Editor::Boolean;
 use strict;
 use Debconf::Gettext;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

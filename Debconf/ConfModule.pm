@@ -68,6 +68,11 @@ field should be returned, rather than the normal exit code.
 An array reference. If set, it will hold the capabilities the confmodule
 reports.
 
+=item seen
+
+An array reference. If set, it will hold a list of all questions that have
+ever been shown to the user in this confmodule run.
+
 =back
 
 =head1 METHODS
@@ -103,6 +108,8 @@ sub init {
 	# (eg, because it was dealing earlier with a confmodule that could),
 	# tell it otherwise.
 	$this->frontend->capb_backup('');
+
+	$this->seen([]);
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -194,9 +201,10 @@ sub process_command {
 
 =item _finish
 
-This is an internal helper function for process_command. It just waits for the
-child process to finish so its return code can be examined. The return code
-is stored in the exitcode field of the object.
+This is an internal helper function. It just waits for the child process
+to finish so its return code can be examined. The return code is stored
+in the exitcode field of the object. It also marks all questions that were
+shown as seen.
 
 =cut
 
@@ -205,6 +213,12 @@ sub _finish {
 
 	waitpid $this->pid, 0;
 	$this->exitcode($this->caught_sigpipe || ($? >> 8));
+
+	foreach (@{$this->seen}) {
+		$_->flag_seen('true');
+	}
+	$this->seen([]);
+	
 	return '';
 }
 
@@ -238,9 +252,8 @@ sub command_input {
 	# Don't show items that are unimportant.
 	$visible='' unless high_enough($priority);
 
-	# Unless showold is set, don't re-show already seen questions. 
-	$visible='' if showold() eq 'false' &&
-		$question->flag_isdefault eq 'false';
+	# Unless showold is set, don't re-show already seen questions.
+	$visible='' if showold() eq 'false' && $question->flag_seen eq 'true';
 
 	my $element;
 	if ($visible) {
@@ -364,15 +377,37 @@ sub command_endblock {
 =item command_go
 
 Tells the associated FrontEnd to display items to the user, by calling
-its go method. Returns whatever the FrontEnd returns.
+its go method. That method should return false if the user asked to back
+up, and true otherwise. If it returns true, then all of the questions that
+were displayed are added to the seen array.
 
 =cut
 
 sub command_go {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
-	return $codes{go_back}, "backup" unless $this->frontend->go;
-	return $codes{success}, "ok";
+
+	my $ret=$this->frontend->go;
+	# If no elements were shown, and we backed up last time, back up again
+	# even if the user didn't indicate they want to back up. This
+	# causes invisible elements to be skipped over in multi-stage backups.
+	if ($ret && (! $this->backed_up ||
+	             grep { $_->visible } @{$this->frontend->elements})) {
+		foreach (@{$this->frontend->elements}) {
+			if ($_->visible) {
+				print STDERR "!!! ".$_->question."\n";
+			}
+			push @{$this->seen}, $_->question if $_->visible && $_->question;
+		}
+		$this->frontend->clear;
+		$this->backed_up('');
+		return $codes{success}, "ok"
+	}
+	else {
+		$this->frontend->clear;
+		$this->backed_up(1);
+		return $codes{go_back}, "backup";
+	}
 }
 
 =item command_get
@@ -429,7 +464,7 @@ sub command_reset {
 	my $question=getquestion($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	$question->value($question->default);
-	$question->flag_isdefault('true');
+	$question->flag_seen('false');
 	return $codes{success};
 }
 
@@ -625,7 +660,8 @@ sub AUTOLOAD {
 =item DESTROY
 
 When the object is destroyed, the filehandles are closed and the confmodule
-script stopped.
+script stopped. All questions that have been displayed during the lifetime
+of the confmodule are marked as seen.
 
 =cut
 
@@ -634,6 +670,7 @@ sub DESTROY {
 	
 	$this->read_handle->close if $this->read_handle;
 	$this->write_handle->close if $this->write_handle;
+	
 	if (defined $this->pid && $this->pid > 1) {
 		kill 'TERM', $this->pid;
 	}

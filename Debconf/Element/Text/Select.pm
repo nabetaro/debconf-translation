@@ -9,7 +9,6 @@ Debconf::Element::Text::Select - select from a list of values
 package Debconf::Element::Text::Select;
 use strict;
 use POSIX qw(ceil);
-use Debconf::Element::Select; # perlbug
 use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION

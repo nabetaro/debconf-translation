@@ -1,12 +1,39 @@
-debconf (0.4.12) unstable; urgency=low
+debconf (0.5.00) unstable; urgency=low
 
-* NOT READY FOR RELEASE
   * Modified all the frontends to deal with this scenario:
         A config scripts asks questions a, b, and c. a and c are asked at
         priorities that make them visible, b is not. The user gets to c, 
 	and backs up.
     Previously, debconf would loop back to b, skip it again, and return the
     user to c. Now it is smart enough to go back to a once b is skipped.
+  * Changed how debconf keeps track of what questions have been seen
+    before. Now it tracks this info on a per confmodule basis, and when a
+    confmodule terminates, sets the "seen" flag on (almost) all questions
+    that were displayed. Questions that are shown multiple times during the
+    same confmodule run will indeed appear multiple times[1]. This makes
+    supporting backing up trivial; it means that people have no excuse to
+    play around with the isdefault flag anymore, which they almost always
+    got wrong anyway; and it renames that flag to the much clearer "seen".
+  * It is possible that this change breaks confmodules that expect to be able
+    to display the same question twice with impunity.
+  * NOTE NOTE NOTE if you use this new behavior, make sure to depend on
+    debconf (>= 0.5)!
+  * The isdefault flag will continue to work, it is just mapped to the
+    inverse of the "seen" flag now, and deprecated.
+  * All the frontends were reworked to various degrees to make this work,
+    and I got rid of a fair bit of redundant code too.
+  * Modified debconf's own config script to use these features and sure
+    enough, it looks quite clean and simple now.
+  * Updated all docs.
+  * Added nasty code to transition from the isdefault flag to the new flag.
+  * Fixed backup in dialog frontend, 255 == -1
+  * Just to make life more interesting, I made debconf depend on perl-base 5.6;
+    which allows me to remove all my crud working around bugs in perl
+    5.005, and lets me use lots of nifty 5.6-specific features, especially 
+    lvalue methods.
+  * Probability of all this breaking something: 99.99%
+  .
+  [1] Unless they are to be displayed in the same block.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 14 Nov 2000 21:07:19 -0800
 
@@ -45,7 +72,7 @@ debconf (0.4.09) unstable; urgency=low
 
 debconf (0.4.08) unstable; urgency=low
 
-  * Randomph updated apt-extracttemplates to use the new libapt.
+  * Randolph updated apt-extracttemplates to use the new libapt.
 
  -- Joey Hess <joeyh@debian.org>  Sat,  4 Nov 2000 20:42:07 -0800
 

@@ -10,7 +10,6 @@ package Debconf::Element::Slang::Note;
 use strict;
 use Debconf::Gettext;
 use Term::Stool::Button;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Slang
 	    Debconf::Element::Noninteractive::Note);
 

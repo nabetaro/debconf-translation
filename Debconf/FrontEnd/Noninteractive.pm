@@ -8,7 +8,6 @@ Debconf::FrontEnd::Noninteractive - non-interactive FrontEnd
 
 package Debconf::FrontEnd::Noninteractive;
 use strict;
-use Debconf::FrontEnd; # perlbug
 use base qw(Debconf::FrontEnd);
 
 =head1 DESCRIPTION

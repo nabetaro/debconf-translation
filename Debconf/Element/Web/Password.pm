@@ -8,7 +8,6 @@ Debconf::Element::Web::Password - A password input field on a form
 
 package Debconf::Element::Web::Password;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -9,7 +9,6 @@ Debconf::Element::Slang::String - text input widget
 package Debconf::Element::Slang::String;
 use strict;
 use Term::Stool::Input;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Slang);
 
 =head1 DESCRIPTION

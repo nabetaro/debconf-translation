@@ -9,7 +9,6 @@ Debconf::Element::Editor::Select - select from a list of choices
 package Debconf::Element::Editor::Select;
 use strict;
 use Debconf::Gettext;
-use Debconf::Element::Select; # perlbug
 use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Dialog::String - A text input field in a dialog box
 
 package Debconf::Element::Dialog::String;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

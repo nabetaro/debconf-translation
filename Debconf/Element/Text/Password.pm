@@ -8,7 +8,6 @@ Debconf::Element::Text::Password - password input field
 
 package Debconf::Element::Text::Password;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

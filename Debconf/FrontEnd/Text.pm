@@ -11,7 +11,6 @@ use strict;
 use Text::Wrap;
 use Term::ReadLine;
 use Debconf::Gettext;
-use Debconf::FrontEnd::Tty; # perlbug
 use base qw(Debconf::FrontEnd::Tty);
 
 local $|=1;

@@ -8,7 +8,6 @@ Debconf::Element::Text::Note - A note to the user
 
 package Debconf::Element::Text::Note;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Web::String - A text input field on a form
 
 package Debconf::Element::Web::String;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

@@ -8,7 +8,6 @@ Debconf::Element::Slang - element containing a slang widget
 
 package Debconf::Element::Slang;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

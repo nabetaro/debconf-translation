@@ -8,7 +8,6 @@ Debconf::Element::Web::Multiselect - A multi select box on a form
 
 package Debconf::Element::Web::Multiselect;
 use strict;
-use Debconf::Element::Multiselect; # perlbug
 use base qw(Debconf::Element::Multiselect);
 
 =head1 DESCRIPTION

@@ -9,7 +9,6 @@ Debconf::Element::Slang::Text - a bit of text to show to the user.
 package Debconf::Element::Slang::Text;
 use strict;
 use Term::Stool::Widget;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Slang);
 
 =head1 DESCRIPTION

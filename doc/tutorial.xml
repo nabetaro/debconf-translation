@@ -741,13 +741,6 @@ done
 	If it is <literal>30</literal> then the user is not being shown the
 	question you asked them, and you should break out of the loop.
       </para>
-      <para>
-	Now, consider what happens if the user does see the question, but 
-        answers with something that fails the test. It loops and shows the
-        question again, right? <emphasis>Wrong!</emphasis> Debconf doesn't
-        display a question every time you ask it to be input; it only displays
-        questions once, ever, unless you reset the is_default flag to true. 
-      </para> 
     </sect2>
     <sect2>
       <title>
@@ -788,7 +781,7 @@ CHOICES=$RET
 	  
 if [ "$OWNERS" != "$CHOICES" ]; then
 	db_subst shared/window-manager choices $OWNERS
-	db_fset shared/window-manager isdefault true
+	db_fset shared/window-manager seen false
 	db_input medium shared/window-manager || true
 	db_go || true
 fi
@@ -833,7 +826,7 @@ if [ -e /usr/share/debconf/confmodule ]; then
 		db_subst shared/window-manager choices $RET
 		db_metaget shared/window-manager value
 		if [ "&lt;package&gt;" = "$RET" ] ; then
-			db_fset shared/window-manage isdefault true
+			db_fset shared/window-manage seen false
 			db_input critical shared/window-manager || true
 			db_go || true
 		fi

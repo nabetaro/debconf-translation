@@ -15,7 +15,6 @@ use Debconf::Config qw(tmpdir);
 use Text::Wrap qw(wrap $columns);
 use Text::Tabs;
 use IPC::Open3;
-use Debconf::FrontEnd::Tty; # perlbug
 use base qw(Debconf::FrontEnd::Tty);
 
 =head1 DESCRIPTION
@@ -242,16 +241,17 @@ sub showdialog {
 	open(STDOUT, ">&SAVEOUT") || die $!;
 	open(STDIN, "<&SAVEIN") || die $!;
 
-	# Now check dialog's return code to see if escape (-1) or
+	# Now check dialog's return code to see if escape (255 (really -1)) or
 	# Cancel (1) were hit. If so, make a note that we should back up.
 	#
 	# To complicate things, a return code of 1 also means that yes was
 	# selected from a yes/no dialog, so we must parse the parameters
 	# to see if such a dialog was displayed.
 	my $ret=$? >> 8;
-	if ($ret == -1 || ($ret == 1 && join(' ', @_) !~ m/--yesno\s/)) {
+	if ($ret == 255 || ($ret == 1 && join(' ', @_) !~ m/--yesno\s/)) {
 		$this->backup(1);
 	}
+
 	if (wantarray) {
 		return $ret, $stderr;
 	}

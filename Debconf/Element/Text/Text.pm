@@ -8,7 +8,6 @@ Debconf::Element::Text::Text - show text to the user
 
 package Debconf::Element::Text::Text;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

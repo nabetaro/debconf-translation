@@ -8,7 +8,6 @@ Debconf::Element::Editor::Text - Just test to display to user.
 
 package Debconf::Element::Editor::Text;
 use strict;
-use Debconf::Element; # perlbug
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION

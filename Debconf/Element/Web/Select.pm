@@ -8,7 +8,6 @@ Debconf::Element::Web::Select - A select box on a form
 
 package Debconf::Element::Web::Select;
 use strict;
-use Debconf::Element::Select; # perlbug
 use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION

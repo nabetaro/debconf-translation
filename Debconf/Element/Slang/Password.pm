@@ -9,7 +9,6 @@ Debconf::Element::Slang::Password - password input widget
 package Debconf::Element::Slang::Password;
 use strict;
 use Term::Stool::Password;
-use Debconf::Element::Slang; # perlbug
 use base qw(Debconf::Element::Slang);
 
 =head1 DESCRIPTION
