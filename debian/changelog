@@ -1,3 +1,9 @@
+debconf (0.1.11) unstable; urgency=low
+
+  * Added db_set command to confmodule.sh
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 16:05:25 -0700
+
 debconf (0.1.10) unstable; urgency=low
 
   * Uh oh. "set" is a shell builtin, so you cannot access the set command

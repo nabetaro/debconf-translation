@@ -14,6 +14,9 @@ General:
   building a whole package, for testing. Adapt test.pl?
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be nice to have.
+* I need a flag that makes all isdefault flags be assummed to be on. Then
+  dpkg-reconfig will use that, and so the user gets to re-answer all
+  questions. Otherwise dpkg-reconfig is often a no-op.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which

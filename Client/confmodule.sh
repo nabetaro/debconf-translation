@@ -64,7 +64,7 @@ _command () {
 # Doing that saves us a lot of calls to tr at load time. I just wish shell had
 # an upper-case function.
 old_opts="$@"
-for i in "capb CAPB" "stop STOP" "reset RESET" "title TITLE" \
+for i in "capb CAPB" "stop STOP" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET"; do
