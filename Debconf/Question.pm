@@ -334,7 +334,7 @@ commas followed by spaces.
 sub owners {
 	my $this=shift;
 
-	return join(", ", $Debconf::Db::config->owners($this->{name}));
+	return join(", ", sort($Debconf::Db::config->owners($this->{name})));
 }
 
 =item template
