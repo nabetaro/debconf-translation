@@ -1,18 +1,22 @@
 To Do Before Release:
-* Slrn
+* The slrn and slrnpull postinst segfault, but only if the dialog frontend
+  is used (and I mean used -- if it doesn't throw up any dialogs, it's ok).
+  Weird stuff I need to look into. I've tracked the problem down to being
+  in Client/frontend, near "# Start up the confmodule we were asked to run."
 
 General:
 * Make sure my spec changes are accepted by Wichert.
-* Element/* needs to be POD documented.
 * Make messages really be saved to root's mailbox.
 * Proper backend database, but that's a whole other ball of wax.
 * Other frontends.
 * The apt mods don't allow you to predepend on something and then use it in
-  a config script. That would be nice to have.
+  a config script. That would be sorta nice to have, but think it through
+  first -- is it really necessary?
 * I need to have a debconf configuraton script for debconf itself. This would
   set question importance to display, and frontend type. There shgould be a
   way to jump to that set of questions whenever debconf is interacting with
   the user.
+* Make debhelper support it. (easy)
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which

@@ -31,11 +31,11 @@ sub show {
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";
-		$default='y';
+		$default='n';
 	}
 	elsif ($default eq 'false') {
 		$prompt="yN";
-		$default='n';
+		$default='u';
 	}
 	else {
 		$prompt="yn";
@@ -46,7 +46,7 @@ sub show {
 	while (1) {
 		# Prompt for input.
 		$_=$this->frontend->prompt($this->question->description.
-			" [$prompt] ", $default);
+			" [$prompt] ", '');
 		
 		# Handle defaults.
 		if ($_ eq '' && defined $default) {
