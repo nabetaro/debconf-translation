@@ -6,26 +6,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-11-16 16:37-0800\n"
+"POT-Creation-Date: 2000-11-17 21:13-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -69,6 +56,19 @@ msgstr "B³±d w szablonie w pobli¿u `%s'"
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
 
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Nieobs³ugiwana komenda `%s'."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -80,13 +80,13 @@ msgstr ""
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:34 ../Debconf/Element/Text/Boolean.pm:57
+#: ../Debconf/Element/Text/Boolean.pm:14
 msgid "yes"
 msgstr "tak"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:37 ../Debconf/Element/Text/Boolean.pm:58
+#: ../Debconf/Element/Text/Boolean.pm:15
 msgid "no"
 msgstr "nie"
 
@@ -219,7 +219,7 @@ msgstr "Przesuwanie klawiszami tab i strza³ek"
 msgid "Working, please wait..."
 msgstr "Proszê czekaæ"
 
-#: ../Debconf/FrontEnd/Text.pm:187
+#: ../Debconf/FrontEnd/Text.pm:197
 msgid "More"
 msgstr "Dalej"
 

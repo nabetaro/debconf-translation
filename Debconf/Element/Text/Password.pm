@@ -27,8 +27,21 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
+	# Turn off completion, since it is a stupid thing to do when entering
+	# a password.
+	$this->frontend->readline->Attribs->{completion_entry_function} = sub {
+		my $text=shift;
+		my $state=shift;
+
+		return '' if $state == 0;
+		return;
+	};
+	# Don't add trailing spaces after completion.
+	$this->frontend->readline->Attribs->{completion_append_character} = '';
+
 	# Prompt for input using the short description.
-	my $value=$this->frontend->prompt_password($this->question->description." ", $default);
+	my $value=$this->frontend->prompt_password($this->question->description." ", $default,
+		sub { $this->complete(@_) });
 	return unless defined $value;
 
 	# Handle defaults.

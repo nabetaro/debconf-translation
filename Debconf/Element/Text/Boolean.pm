@@ -11,6 +11,9 @@ use strict;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
 
+my $y=gettext("yes");
+my $n=gettext("no");
+
 =head1 DESCRIPTION
 
 This is a yes or no question, presented to the user using a plain text
@@ -31,14 +34,31 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 	if ($default eq 'true') {
-		$default=gettext("yes");
+		$default=$y;
 	}
 	elsif ($default eq 'false') {
-		$default=gettext("no");
+		$default=$n;
 	}
 
 	my $value='';
 
+	# Set up tab completion.
+	my @matches;
+	$this->frontend->readline->Attribs->{completion_entry_function} = sub {
+		my $text=shift;
+		my $state=shift;
+
+		if ($state == 0) {
+			@matches=();
+			push @matches, $y if $y=~/^\Q$text\E/i;
+			push @matches, $n if $n=~/^\Q$text\E/i;
+		}
+
+		return pop @matches;
+	};
+	# Don't add trailing spaces after completion.
+	$this->frontend->readline->Attribs->{completion_append_character} = '';
+	
 	while (1) {
 		# Prompt for input.
 		$_=$this->frontend->prompt($this->question->description, $default);
@@ -51,16 +71,16 @@ sub show {
 
 		# Validate the input. Check to see if the first letter
 		# matches the start of "yes" or "no". Internationalization
-		# makes this harder, because there may be some lanage where
+		# makes this harder, because there may be some language where
 		# "yes" and "no" both start with the same letter.
-		# Special-case that in too.
-		my $y=gettext("yes");
-		my $n=gettext("no");
-		if ($y ne $n) {
+		if (substr($y, 0, 1) ne substr($n, 0, 1)) {
 			# When possible, trim to first letters.
 			$y=substr($y, 0, 1);
 			$n=substr($n, 0, 1);
 		}
+		# I suppose this would break in a language where $y is a
+		# anchored substring of $n. Any such language should be taken
+		# out and shot.
 		if (/^\Q$y\E/i) {
 			$value='true';
 			last;

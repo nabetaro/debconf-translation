@@ -73,6 +73,7 @@ install-rest:
 				if m:^#!/usr/bin/perl:; 		\
 	     		$$cutting=1 if /^=/; 				\
 	     		$$cutting="" if /^=cut/; 			\
+			next if /use lib/;				\
 			next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";\
 			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { 	\
 				$$what=$$2; \

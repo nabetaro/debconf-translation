@@ -17,12 +17,21 @@ local $|=1;
 
 =head1 DESCRIPTION
 
-This FrontEnd is for a simple user interface that uses plain text output. It
-uses ReadLine to make the user interface just a bit nicer.
+This FrontEnd is for a traditional unix command-line like user interface.
+It features completion if you're using Gnu readline.
 
 =head1 FIELDS
 
 =over 4
+
+=item readline
+
+An object of type Term::ReadLine, that is used to do the actual prompting.
+
+=item promptdefault
+
+Set if the varient of readline being used is so lame that it cannot display
+defaults, so the default must be part of the prompt instead.
 
 =back
 
@@ -42,7 +51,8 @@ sub init {
 	$this->readline->ornaments(1);
 
 	# Ctrl-u or pageup backs up, while ctrl-v or pagedown moves
-	# forward. These key bindings are only supported by Gnu ReadLine.
+	# forward. These key bindings and history completion are only
+	# supported by Gnu ReadLine.
 	if (Term::ReadLine->ReadLine =~ /::Gnu$/) {
 		$this->readline->add_defun('previous-question',	
 			sub {
@@ -72,7 +82,7 @@ sub init {
 		$this->readline->parse_and_bind('"\e[6~": next-question');
 		$this->capb('backup');
 	}
-
+	
 	$this->interactive(1);
 	$this->linecount(0);
 	
@@ -234,7 +244,6 @@ sub prompt {
 	$this->linecount(0);
 	my $ret;
 	if (! $noshowdefault && $this->promptdefault && $default ne '') {
-		# Dumb readline.
 		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
 	else {

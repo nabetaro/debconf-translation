@@ -50,7 +50,18 @@ Slang frontend:
 
 Text frontend:
 * If you are entering text, they're no way to enter "" because it is
-  interpreted as "use default"
+  interpreted as "use default". I should be able to make this not be an issue
+  if GNU Readline is being used anyway, and probably perl readline as well, 
+  just not the really dumb version.
+* I have a start at completion, but it probably needs to be redesigned before
+  I make all the elements use it. Issues:
+    - completion needs to be disabled for [more] prompts, but then
+      re-enabled after
+    - all the elements should not have to reset values to
+       defaults, that may have been modified in other elements
+    Probably ->prompt needs to be passed a hashref containing the values to
+    feed into Attribs; then I can save and restore state, and later wipe out
+    all the changes it made.
 
 Dialog frontend:
 * It'd be nice if the Dialog stuff could catch text that was to be

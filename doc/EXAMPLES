@@ -3,9 +3,9 @@ commands. (The Text frontend works best if libterm-readline-gnu-perl is
 installed, but it does not depend on it. The Gtk frontend requires
 libgtk-perl.)
 
-DEBIAN_FRONTEND=Slang samples/demo
-DEBIAN_FRONTEND=Dialog samples/demo
-DEBIAN_FRONTEND=Text samples/demo
-DEBIAN_FRONTEND=Web samples/demo
-DEBIAN_FRONTEND=Text samples/demo
+DEBIAN_FRONTEND=Slang ./frontend samples/demo
+DEBIAN_FRONTEND=Dialog ./frontend samples/demo
+DEBIAN_FRONTEND=Text ./frontend samples/demo
+DEBIAN_FRONTEND=Web ./frontend samples/demo
+DEBIAN_FRONTEND=Text ./frontend samples/demo
 

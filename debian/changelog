@@ -1,3 +1,13 @@
+debconf (0.5.21) unstable; urgency=low
+
+  * The stuff the postinst adds to apt.conf now doesn't return a error
+    code and make the apt run fail even if peices of the system like perl
+    are broken, as they are now for so many people. I had held off on this
+    change for a long time, but enough is enough.    
+  * Also some not-yet-ready copletion stuff in the text frontend.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Nov 2000 21:22:26 -0800
+
 debconf (0.5.20) unstable; urgency=low
 
   * The text frontend now supports backing up! It's now probably the
