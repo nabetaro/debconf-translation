@@ -1,3 +1,9 @@
+debconf (0.2.96) unstable; urgency=low
+
+  * Catch SIGPIPEs from confmodules and handle them. Closes: #58847, #58818
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 24 Feb 2000 10:34:29 -0800
+
 debconf (0.2.95) unstable; urgency=low
 
   * dpkg-reconfigure: Now forces priority to low when reconfiguring
