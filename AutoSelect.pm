@@ -69,8 +69,8 @@ sub make_frontend {
 
 		# Only try each type once to prevent loops.
 		$seen{$type}=1;
-		$type=$fallback{$type};
-		last if $seen{$type};
+		$type=$fallback{$type} || 'Text';
+		last if exists $seen{$type};
 
 		warn sprintf(gettext("falling back to frontend: %s"), $type)
 			if $type ne '';
