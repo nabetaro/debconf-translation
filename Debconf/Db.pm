@@ -73,7 +73,8 @@ sub load {
 	my $cf=shift;
 	
 	if (! $cf) {
-		for my $file ("$ENV{HOME}/.debconfrc", "/etc/debconf.conf") {
+		for my $file ("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
+		              "/usr/share/debconf/debconf.conf") {
 			$cf=$file, last if -e $file;
 		}
 	}

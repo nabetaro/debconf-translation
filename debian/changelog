@@ -1,3 +1,14 @@
+debconf (0.9.19) unstable; urgency=low
+
+  * Made Db.pm read /usr/share/debconf/debconf.conf if no other config file
+    is found, so it will have sensible defaults in two situations:
+     1) user decides to delete file in /etc
+     2) upgrade from pre-conffile version, and debconf is asked to do
+        something before it is configured
+    Closes: #88840
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Mar 2001 18:25:28 -0800
+
 debconf (0.9.18) unstable; urgency=low
 
   * Renamed Copy driver to Backup, and renamed its fields too -- if you
