@@ -133,7 +133,7 @@ sub savedb {
 	$dumper->Indent(1);
 	open (OUT, ">$fn") || die "$fn: $!";
 	print OUT $dumper->Dump;
-	print OUT "\n1\n"; # Return a true value.
+	print OUT "\n1;\n"; # Return a true value.
 	close OUT;
 }
 

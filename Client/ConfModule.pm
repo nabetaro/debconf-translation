@@ -34,6 +34,7 @@ A few functions have special features, as documented below:
 
 package Debian::DebConf::Client::ConfModule;
 use strict;
+use lib '.';
 use Exporter;
 use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
@@ -53,34 +54,73 @@ map { $commands{uc $_}=1; } @EXPORT_OK;
 # Unbuffered output is required.
 $|=1;
 
-=head2 start_frontend
+=head2 import
 
-Ensure that a FrontEnd is running. This is only for use by external programs
-that still want to use a FrontEnd. It's a little hackish. If DEBIAN_FRONTEND
-is set, a frontend is assumed to be running. If not, one is started up
-automatically and stdin and out are connected to it. A name of a FrontEnd to
-start can be passed in as a parameter, it defaults to using the Base 
-(non-interactive) FrontEnd.
+Ensure that a FrontEnd is running.  It's a little hackish. If
+DEBIAN_HAS_FRONTEND is set, a FrontEnd is assumed to be running.
+If not, one is started up automatically and stdin and out are
+connected to it. A name of a FrontEnd to start can be passed in
+DEBIAN_FRONTEND, it defaults to using the base (non-interactive)
+FrontEnd.
 
 =cut
 
-sub start_frontend {
-	my $frontend=ucfirst(shift);
+sub import {
+	my $type=ucfirst($ENV{DEBIAN_FRONTEND} || 'base' );
 
-	unless ($ENV{DEBIAN_FRONTEND}) {
-		pipe(KIDREAD, PARENTWRITE);
-		pipe(PARENTREAD, KIDWRITE);
-		if (my $pid=fork) {
-			# Parent process. This is the FrontEnd now.
-			close PARENTREAD;
-			close PARENTWRITE;
-			
-			exit;
-		}
-		close KIDREAD;
-		close KIDWRITE;
+	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
+		my $frontend=eval qq{
+			use Debian::DebConf::FrontEnd::$type;
+			Debian::DebConf::FrontEnd::$type->new();
+		};
+		die $@ if $@;
+		my $confmodule=eval qq{
+			use Debian::DebConf::ConfModule::$type;
+			Debian::DebConf::ConfModule::$type->new(\$frontend);
+		};
+		die $@ if $@;
 		
+		# Set up the pipes the two processes will use to communicate.
+		pipe($confmodule->read_handle(FileHandle->new), \*CHILD_STDOUT);
+		pipe(\*CHILD_STDIN, $confmodule->write_handle(FileHandle->new));
+		
+		# Prevent deadlocks.
+		autoflush CHILD_STDOUT 1;
+		$confmodule->write_handle->autoflush;
+		
+		if ($confmodule->pid(fork)) {
+			# Parent process. This is the FrontEnd now.
+			# More modules a FrontEnd needs.
+			eval q{
+				use Debian::DebConf::ConfigDb;
+				use Debian::DebConf::Config;
+			};
+			die $@ if $@;
+			
+			# Load up previous state information.
+			if (-e $Debian::DebConf::Config::dbfn) {
+				Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+			}
+			
+			# Talk to my child until it is done. Reading from the child actually
+			# blocks when the child exits, so to tell if it's done, I'll use a
+			# SIGCHLD handler.
+			$SIG{CHLD}=sub {
+				# Save state.
+				Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+				exit;
+			};
+			1 while ($confmodule->communicate);
+		}
+		
+		# Child process. Continue on as before. First, set STDIN and
+		# OUT to communicate with our parent.
+		*STDIN=\*CHILD_STDIN;
+		*STDOUT=\*CHILD_STDOUT;
 	}
+
+	# Make the Exporter still work.
+	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
 }
 
 =head2 version

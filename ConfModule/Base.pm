@@ -31,16 +31,16 @@ sub new {
 	$self->{version} = "1.0";
 	$self->{capb} = '';
 
-	if ($_[0] ne '') {
+	# Let clients know a FrontEnd is actually running.
+	$ENV{DEBIAN_HAS_FRONTEND}=1;
+
+	if (@_) {
 		$self->{confmodule} = shift;
 		$self->{read_handle} = FileHandle->new;
 		$self->{write_handle} = FileHandle->new;
-		$self->{pid} = open2($self->{read_handle}, $self->{write_handle},
-			$self->{confmodule}) || die $!;
+		$self->{pid} = open2($self->{read_handle}, 
+			$self->{write_handle}, $self->{confmodule}) || die $!;
 	}
-
-	# Let clients know a FrontEnd is actually running.
-	$ENV{DEBIAN_FRONTEND}=1;
 	return $self;
 }
 
@@ -49,9 +49,10 @@ sub communicate {
 	my $this=shift;
 	
 	my $r=$this->{read_handle};
-	return if eof($r);
 	$_=<$r> || die $!;
-	return unless defined && ! /^\s*#/; # Skip blank lines, comments.
+	return unless defined;
+	chomp;
+	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
 	$command="command_".lc($command);
@@ -91,6 +92,12 @@ sub command_title {
 sub command_beginblock {}
 sub command_endblock {}
 
+# Skip all this, so this Base module can really be used as a functioning,
+# non-interactive ConfModule.
+sub command_text {}
+sub command_note {}
+sub command_input {}
+
 # Tell the frontend to display items to the user. Anything
 # the frontend returns is our return value.
 sub command_go {
@@ -102,7 +109,6 @@ sub command_go {
 sub command_get {
 	my $this=shift;
 	my $question=shift;
-	
 	$question=Debian::DebConf::ConfigDb::getquestion($question);
 	return $question->value if defined $question->value;
 	return $question->template->default || '';
