@@ -10,12 +10,14 @@
 package ConfModule;
 use strict;
 use Exporter;
-use vars qw($AUTOLOAD @ISA @EXPORT_OK);
+use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title text input beginblock endblock go
 		   note unset set get register unregister previous_module);
+# Import :all to get everything.		   
+%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 # Set up valid command lookup hash.
 my %commands;
