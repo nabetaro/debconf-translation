@@ -1,3 +1,11 @@
+debconf (0.1.75) unstable; urgency=low
+
+  * Fixed confmodule.sh reentrancy problem.
+  * Fixed a problem with empty text input fields in the Dialog frontend
+    setting the value of the question back to default instead of to ''
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 28 Oct 1999 12:41:41 -0700
+
 debconf (0.1.74) unstable; urgency=low
 
   * Added a very important note to the tutorial.
