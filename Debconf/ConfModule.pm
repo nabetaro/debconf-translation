@@ -265,15 +265,22 @@ sub command_input {
 	# not.
 	my $visible=1;
 
-	# Noninteractive frontends never show anything.
-	$visible='' if ! $this->frontend->interactive;
-
 	# Don't show items that are unimportant.
 	$visible='' unless high_enough($priority);
 
 	# Don't re-show already seen questions, unless reconfiguring.
 	$visible='' if ! Debconf::Config->reshow &&
 	               $question->flag('seen') eq 'true';
+
+	# We may want to set the seen flag on noninteractive questions
+	# even though they aren't shown.
+	my $markseen=$visible;
+
+	# Noninteractive frontends never show anything.
+	if ($visible && ! $this->frontend->interactive) {
+		$visible='';
+		$markseen='' unless Debconf::Config->noninteractive_seen eq 'true';
+	}
 
 	my $element;
 	if ($visible) {
@@ -303,6 +310,8 @@ sub command_input {
 		# If that failed, the question is just not visible.
 		return $codes{input_invisible}, "question skipped" unless $element;
 	}
+
+	$element->markseen($markseen);
 
 	push @{$this->busy}, $question_name;
 	
@@ -438,7 +447,7 @@ sub command_go {
 	             grep { $_->visible } @{$this->frontend->elements})) {
 		foreach (@{$this->frontend->elements}) {
 			$_->question->value($_->value);
-			push @{$this->seen}, $_->question if $_->visible && $_->question;
+			push @{$this->seen}, $_->question if $_->markseen && $_->question;
 		}
 		$this->frontend->clear;
 		$this->busy([]);

@@ -15,7 +15,8 @@ use Debconf::Log qw(warn);
 use Debconf::Db;
 
 use fields qw(config templates frontend frontend_forced priority terse reshow
-              admin_email log debug nowarnings smileys sigils);
+              admin_email log debug nowarnings smileys sigils
+              noninteractive_seen);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("/etc/debconf.conf", "/usr/share/debconf/debconf.conf");
@@ -346,6 +347,20 @@ sub admin_email {
 	return $ENV{DEBCONF_ADMIN_EMAIL} if exists $ENV{DEBCONF_ADMIN_EMAIL};
 	return $config->{admin_email} if exists $config->{admin_email};
 	return 'root';
+}
+
+=item noninteractive_seen
+
+Set to cause the seen flag to be set for questions asked in the
+noninteractive frontend.
+
+=cut
+
+sub noninteractive_seen {
+	my $class=shift;
+	return $ENV{DEBCONF_NONINTERACTIVE_SEEN} if exists $ENV{DEBCONF_NONINTERACTIVE_SEEN};
+	return $config->{noninteractive_seen} if exists $config->{noninteractive_seen};
+	return 'false';
 }
 
 =back

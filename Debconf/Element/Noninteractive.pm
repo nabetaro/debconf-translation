@@ -31,6 +31,20 @@ sub visible {
 	return;
 }
 
+=item show
+
+Set the value to the default, or blank if no default is available.
+
+=cut
+
+sub show {
+	my $this=shift;
+
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
+	$this->value($default);
+}
+
 =back
 
 =head1 AUTHOR

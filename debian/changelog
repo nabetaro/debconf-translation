@@ -1,5 +1,9 @@
 debconf (1.4.40) UNRELEASED; urgency=low
 
+  * Colin Watson
+    - Set the seen flag on questions asked in the noninteractive frontend if
+      DEBCONF_NONINTERACTIVE_SEEN is set to true. This allows debootstrap to
+      behave better (partly fixes #238301).
   * Translations:
     - Indonesian added (programs). Closes: #275981
     - Traditional Chinese renamed from zh_TW.Big5.po to zh_TW.po
