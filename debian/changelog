@@ -1,3 +1,10 @@
+debconf (0.2.20) unstable; urgency=low
+
+  * Fixed the text frontend to not lower-case choices in a select list.
+    (Closes: #49650)
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue,  9 Nov 1999 15:18:15 -0800
+
 debconf (0.2.19) unstable; urgency=low
 
   * People just don't seem to get it -- NEVER use dh_input in a postinst!

@@ -39,7 +39,7 @@ sub show {
 	my %selectletfromind;
 	%selectindfromlet = ();
 	foreach (0..$#choices) {
-		my $let = lc substr($choices[$_], 0, 1);
+		my $let=lc substr($choices[$_], 0, 1);
 		$uniquelet = 0 if (defined $selectindfromlet{$let});
 		$selectindfromlet{$let}=$_;
 	}
@@ -59,7 +59,7 @@ sub show {
 	}
 	%selectletfromind = reverse %selectindfromlet;
 	foreach (0..$#choices) {
-		$this->frontend->display_nowrap("\t". lc $selectletfromind{$_}.". $choices[$_]");
+		$this->frontend->display_nowrap("\t". $selectletfromind{$_}.". $choices[$_]");
 		if (defined $default && $choices[$_] eq $default) {
 			$prompt .= uc $selectletfromind{$_};
 		} else {
