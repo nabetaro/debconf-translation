@@ -10,8 +10,8 @@ Debian::DebConf::ConfModule::Web - ConfModule that interfaces to the web FrontEn
 
 This is a ConfModule that interfaces to the web FrontEnd.
 
-Currently, this is identical to the Base ConfModule, except it has the capability to
-backup, and so its capb property is set appropriatly.
+Currently, this is identical to the Base ConfModule, except it has the
+capability to backup, and so its capb property is set appropriatly.
 
 =cut
 

@@ -114,6 +114,24 @@ sub command_input {
 	return;
 }
 
+=head2 command_visible
+
+Figure out if a question would be displayed if we're told to display it.
+Simply asks my frontend what it would do.
+
+=cut
+
+sub command_visible {
+	my $this=shift;
+	my $priority=shift;
+	my $question_name=shift;
+	
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
+
+	return $this->frontend->visible($question, $priority) ? "true" : "false";
+}
+
 =head2 command_clear
 
 Clears out the list of elements in our accociated FrontEnd.

@@ -47,7 +47,9 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	
+
+	$self->{interactive}=1;
+
 	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
 	    ! defined $ENV{FORCE_GDIALOG}) {

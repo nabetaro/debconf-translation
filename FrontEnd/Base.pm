@@ -39,6 +39,7 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $self = {};
 	$self->{elements}=[];
+	$self->{interactive}='';
 	bless ($self, $class);
 	return $self
 }
@@ -70,14 +71,36 @@ sub add {
 	my $question=shift || die "\$question is undefined";
 	my $priority=shift;
 
-	# Skip items that the user has seen or that are unimportant.
-	return unless Debian::DebConf::Priority::high_enough($priority);
-	# Set showold to make it ask even default questions.
-	return if Debian::DebConf::Config::showold() eq 'false' && 
-		  $question->flag_isdefault eq 'false';
+	return unless $this->visible($question, $priority);
 
 	# Pass in the frontend to use as well, some elements need it.
 	push @{$this->{elements}}, $this->makeelement($question);
+}
+
+=head2 visible
+
+Pass a question and a priority. Returns true if the question would be shown
+to the user if the frontend is told to show it.
+
+=cut
+
+sub visible {
+	my $this=shift;
+	my $question=shift;
+	my $priority=shift;
+
+	# Noninteractive FrontEnds never show anyything.
+	return '' if ! $this->interactive;
+
+	# Skip items are unimportant.
+	return '' unless Debian::DebConf::Priority::high_enough($priority);
+
+	# Set showold to make it ask even default questions.
+	return '' if Debian::DebConf::Config::showold() eq 'false' &&
+		     $question->flag_isdefault eq 'false';
+
+	# It will be shown.
+	return 1
 }
 
 =head2 go

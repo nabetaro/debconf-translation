@@ -36,8 +36,9 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->{'readline'}=Term::ReadLine->new('debian');
-	$self->{'readline'}->ornaments(1);
+	$self->{readline}=Term::ReadLine->new('debian');
+	$self->{readline}->ornaments(1);
+	$self->{interactive}=1;
 	return $self;
 }
 

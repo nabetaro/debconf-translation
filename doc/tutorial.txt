@@ -249,9 +249,8 @@ of foo/bar is set to something that will pass the test in the loop. So for
 example if the default value of foo/bar is "1", then "db_reset" can just be
 called before entering the loop.
 
-Future versions of debconf may have a command that lets you figure out if
-the user will see a question, which would allow for more intelligent
-workarounds.
+Another fix is to use the "visible" command to test if the user will be
+prompted, and skip the loop if not.
 
 Appendix A.
 -----------
@@ -312,6 +311,11 @@ input <priority> <variable>
 	not asked it again even if input is called again. And if the user is
 	ignoring low priority items, they will not see them.
 
+visible <priority> <variable>
+
+	Ask the frontend if it would actually show a question to the user if
+	you ran "input <priority> <variable>". Returns "true" or "false".
+
 beginblock
 endblock
 
@@ -339,7 +343,7 @@ get <variable>
 set <variable> <value>
 
 	Ask the frontend to set a variable to a value.
-	
+
 reset <variable>
 
 	Reset the variable to its default value.

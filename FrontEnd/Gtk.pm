@@ -42,6 +42,8 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
 
+	$self->{interactive}=1;
+
 	# create the window
 	init Gtk;
 

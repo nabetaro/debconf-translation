@@ -48,6 +48,7 @@ sub new {
 	my $self  = bless $proto->SUPER::new(@_), $class;
 	$self->{port}=shift || 8001;
 	$self->{formid}=0;
+	$self->{interactive}=1;
 
 	# Bind to the port.
 	$self->{server}=IO::Socket::INET->new(
