@@ -9,7 +9,7 @@ Debian::DebConf::Client::ConfModule - client module for ConfModules
 =head1 SYNOPSIS
 
 	use Debian::DebConf::Client::ConfModule ':all';
-	version;
+	version('2.0');
 	my $capb=capb('backup');
 	input("foo/bar");
 	go;
@@ -47,7 +47,7 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister previous_module
-	      start_frontend fset fget subst purge metaget);
+	      start_frontend fset fget subst purge metaget visible exist);
 
 # Import :all to get everything.		   
 %EXPORT_TAGS = (all => [@EXPORT_OK]);
