@@ -1,3 +1,27 @@
+debconf (0.9.91) unstable; urgency=low
+
+  * Added debian logo for gnome frontend. It looks like crap, but at least
+    the frontend runs now. Anyone want to come up with a version of the
+    debian logo that looks good on a blue background (or come up with a new
+    color scheme for this frontend -- if you know how to make a gnome driud
+    use some color other than white for the foreground title color ), is
+    the right size (64x64 I think), and doesn't eat 200+ colors?
+  * Other gnome frontend fixups:
+    - Fixed help dialog; run_and_close doesn't work, so first run and then
+      close.
+    - Gnome elements are now responsible for packing in the label and help
+      buttons. This makes it cleaner for text and notes to not include help
+      buttons, and it lets booleans not pack in a label. Instead, the
+      checkbox itself has the text of the question after it, which is much
+      nicer. Also, text type questions are displayed as unadorned labels,
+      which is the Right Thing.
+    - Make the overall window title be "Debconf", while the druid title
+      varies.
+    - Fixed multiselect questions so the defaults are auto-selected.
+    - Removed sigsegv handler thing. It seems to not be needed any more?
+ 
+ -- Joey Hess <joeyh@debian.org>  Fri, 27 Jul 2001 18:34:23 -0400
+
 debconf (0.9.90) unstable; urgency=low
 
   * Merged in Progeny's gnome frontend.

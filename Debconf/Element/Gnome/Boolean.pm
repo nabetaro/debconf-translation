@@ -9,8 +9,7 @@ Debconf::Element::Gnome::Boolean - check box widget
 package Debconf::Element::Gnome::Boolean;
 use strict;
 use Gtk;
-use Gnome;
-use base qw(Debconf::Element);
+use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
 
@@ -21,9 +20,13 @@ This is a check box widget.
 sub init {
 	my $this=shift;
 
-	$this->widget(Gtk::CheckButton->new);
+	$this->SUPER::init(@_);
+
+	$this->widget(Gtk::CheckButton->new($this->question->description));
 	$this->widget->show;
 	$this->widget->set_active(($this->question->value eq 'true') ? 1 : 0);
+	$this->addwidget($this->widget);
+	$this->addbutton;
 }
 
 =item value

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-07-26 22:14-0400\n"
+"POT-Creation-Date: 2001-07-27 20:26-0400\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -47,6 +47,23 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:219
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s'"
+
+#: ../Debconf/Template.pm:225
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nie zawiera linii `Template:'"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -55,24 +72,6 @@ msgid ""
 msgstr ""
 "Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
 "siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
-
-#: ../Debconf/Element/Gnome/Note.pm:45 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Zapisz uwagê"
-
-#: ../Debconf/Element/Gnome/Note.pm:48 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
-
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "Uwaga zosta³a przes³ana do administratora"
-
-#: ../Debconf/Element/Gnome/Note.pm:52 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "Nie uda³o siê zapisaæ uwagi."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -105,6 +104,7 @@ msgstr ""
 "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:61
+#: ../Debconf/FrontEnd/Gnome.pm:65
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -113,9 +113,22 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Zapisz uwagê"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
+
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "Uwaga zosta³a przes³ana do administratora"
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Nie uda³o siê zapisaæ uwagi."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -125,6 +138,16 @@ msgstr "¿adna z powy¿ych"
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "Wpisz, oddzielone przecinkami, litery pozycji, które chcesz zaznaczyæ."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "Uwaga zosta³a przes³ana do administratora"
+
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/FrontEnd/Slang.pm:72
+msgid "Help"
+msgstr "Pomoc"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
@@ -191,10 +214,6 @@ msgid ""
 "without a controlling terminal."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Slang.pm:72
-msgid "Help"
-msgstr "Pomoc"
-
 #: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Dalej"
@@ -232,23 +251,6 @@ msgstr ""
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Uwaga: Debconf dzia³a w trybie www. Patrz http://localhost:%i/"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:219
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
-
-#: ../Debconf/Template.pm:225
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
@@ -297,11 +299,11 @@ msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
 
 #~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a "
-#~ "bug report, and include the stack trace below"
+#~ "debconf: Undefined values detected at confmodule startup! Please file a bug "
+#~ "report, and include the stack trace below"
 #~ msgstr ""
-#~ "debconf: wykryto niezdefiniowane warto¶ci przy starcie modu³u "
-#~ "konfiguracji! Proszê zg³osiæ b³±d i za³±czyæ poni¿szy zrzut stosu"
+#~ "debconf: wykryto niezdefiniowane warto¶ci przy starcie modu³u konfiguracji! "
+#~ "Proszê zg³osiæ b³±d i za³±czyæ poni¿szy zrzut stosu"
 
 #~ msgid ""
 #~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
@@ -342,12 +344,12 @@ msgstr "Nie mo¿na czytaæ pliku stanu: %s"
 #~ msgstr "Wywo³ano metodê pytania przed ustawieniem nak³adki."
 
 #~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw "
-#~ "it, but Debconf was running in noninteractive mode, or you have told it "
-#~ "to not pause and show you unimportant notes. Here is the text of the note:"
+#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
+#~ "but Debconf was running in noninteractive mode, or you have told it to not "
+#~ "pause and show you unimportant notes. Here is the text of the note:"
 #~ msgstr ""
-#~ "Ta uwaga zosta³a do Ciebie wys³ana, poniewa¿ Debconf zosta³ poproszony o "
-#~ "to, aby Ci j± pokazaæ, ale by³ uruchomiony w trybie nieinteraktywnym lub "
+#~ "Ta uwaga zosta³a do Ciebie wys³ana, poniewa¿ Debconf zosta³ poproszony o to, "
+#~ "aby Ci j± pokazaæ, ale by³ uruchomiony w trybie nieinteraktywnym lub "
 #~ "kaza³e¶/kaza³a¶ mu nie zatrzymywaæ siê ani nie pokazywaæ niewa¿nych uwag. "
 #~ "Oto jej tre¶æ:"
 

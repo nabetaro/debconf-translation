@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::FrontEnd::Slang - Nice GUI Slang frontend
+Debconf::FrontEnd::Slang - GUI Slang frontend
 
 =cut
 

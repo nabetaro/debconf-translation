@@ -10,7 +10,7 @@ package Debconf::Element::Gnome::String;
 use strict;
 use Gtk;
 use Gnome;
-use base qw(Debconf::Element);
+use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
 
@@ -21,6 +21,8 @@ This is a text input widget.
 sub init {
 	my $this=shift;
 
+	$this->SUPER::init(@_);
+
 	$this->widget(Gtk::Entry->new);
 	$this->widget->show;
 
@@ -28,6 +30,10 @@ sub init {
 	$default=$this->question->value if defined $this->question->value;
 
 	$this->widget->set_text($default);
+
+	$this->adddescription;
+	$this->addwidget($this->widget);
+	$this->addbutton;
 }
 
 =item value

@@ -10,7 +10,7 @@ package Debconf::Element::Gnome::Password;
 use strict;
 use Gtk;
 use Gnome;
-use base qw(Debconf::Element);
+use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
 
@@ -27,9 +27,14 @@ This is a password input widget.
 sub init {
 	my $this=shift;
 
+	$this->SUPER::init(@_);
+	$this->adddescription;
+
 	$this->widget(Gtk::Entry->new);
 	$this->widget->show;
 	$this->widget->set_visibility(0);
+	$this->addwidget($this->widget);
+	$this->addbutton;
 }
 
 =item value

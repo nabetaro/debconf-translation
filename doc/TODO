@@ -66,11 +66,13 @@ Dialog frontend:
   when it prompts for an input that is in the same block.
 
 Gnome frontend:
-* Track down the segfault at exit thing that it currently works around by
-  catching the signal.
 * Make it use a multiselect box instead of all the check boxes
 * Add support for blocks and containers, both of which should let multiple
   questions be grouped together in nice ways on the screen.
+* Fix the damn logo
+* It seems that text elements hang around on each page dispalyed after the
+  one they should be on. Actually, the Elements are not hanging around, but
+  the gtk label widgets are, and I don't know why.
 
 Web based frontend:
 * Well, a little security would be nice! It only allows connections

@@ -10,25 +10,33 @@ package Debconf::Element::Gnome::Multiselect;
 use strict;
 use Gtk;
 use Gnome;
-use base qw(Debconf::Element);
+use base qw(Debconf::Element::Gnome Debconf::Element::Multiselect);
 
 sub init {
 	my $this=shift;
 	my @choices = $this->question->choices_split;
+        my %default=map { $_ => 1 } $this->translate_default;
+
+	$this->SUPER::init(@_);
+	$this->adddescription;
 
 	$this->widget(Gtk::VBox->new(0, 0));
 	$this->widget->show;
-
+	
 	# TODO: isn't there a gtk multiselct list box that could be used
 	# instead of all these checkboxes?
 	my @buttons;
 	for (my $i=0; $i <= $#choices; $i++) {
 	    $buttons[$i] = Gtk::CheckButton->new($choices[$i]);
 	    $buttons[$i]->show;
+	    $buttons[$i]->set_active($default{$choices[$i]} ? 1 : 0);
 	    $this->widget->pack_start($buttons[$i], 0, 0, 0);
 	}
 
 	$this->buttons(\@buttons);
+	
+	$this->addwidget($this->widget);
+	$this->addbutton;
 }
 
 =item value

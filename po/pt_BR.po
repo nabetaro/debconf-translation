@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.73\n"
-"POT-Creation-Date: 2001-07-26 22:14-0400\n"
+"POT-Creation-Date: 2001-07-27 20:26-0400\n"
 "PO-Revision-Date: 2001-07-02 22:13-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -48,6 +48,26 @@ msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
+"Provavelmente dois templates não estão separados apropriadamente por uma "
+"única linha.\n"
+
+#: ../Debconf/Template.pm:219
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+
+#: ../Debconf/Template.pm:225
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -56,25 +76,6 @@ msgid ""
 msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
-
-#: ../Debconf/Element/Gnome/Note.pm:45 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Salvar Nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:48 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
-"você."
-
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "A nota foi enviada ao root."
-
-#: ../Debconf/Element/Gnome/Note.pm:52 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -108,6 +109,7 @@ msgstr ""
 "você."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:61
+#: ../Debconf/FrontEnd/Gnome.pm:65
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -116,9 +118,23 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, rodando em %s"
 
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Salvar Nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
+"você."
+
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "A nota foi enviada ao root."
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -129,6 +145,16 @@ msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "A nota foi enviada ao root."
+
+#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/FrontEnd/Slang.pm:72
+msgid "Help"
+msgstr "Ajuda"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
@@ -200,10 +226,6 @@ msgstr ""
 "O frontend Slang não vai funcionar em um terminal burro, em um buffer shell "
 "do emacs ou sem um terminal controlador."
 
-#: ../Debconf/FrontEnd/Slang.pm:72
-msgid "Help"
-msgstr "Ajuda"
-
 #: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
@@ -240,26 +262,6 @@ msgstr "Esse frontend requer um tty controlador."
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Nota: O Debconf está rodando em modo web. Vá para http://localhost:%i/"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
-"Provavelmente dois templates não estão separados apropriadamente por uma "
-"única linha.\n"
-
-#: ../Debconf/Template.pm:219
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
-
-#: ../Debconf/Template.pm:225
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -10,7 +10,7 @@ package Debconf::Element::Gnome::Select;
 use strict;
 use Gtk;
 use Gnome;
-use base qw(Debconf::Element::Select);
+use base qw(Debconf::Element::Gnome Debconf::Element::Select);
 
 =head1 DESCRIPTION
 
@@ -23,6 +23,8 @@ sub init {
 
 	my $default=$this->translate_default;
 	my @choices=$this->question->choices_split;
+
+	$this->SUPER::init(@_);
 
 	$this->widget(Gtk::Combo->new);
 	$this->widget->show;
@@ -37,6 +39,10 @@ sub init {
 	else {
 		$this->widget->entry->set_text($choices[0]);
 	}
+
+	$this->adddescription;
+	$this->addwidget($this->widget);
+	$this->addbutton;
 }
 
 =item value

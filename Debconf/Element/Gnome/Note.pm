@@ -11,7 +11,7 @@ use strict;
 use Debconf::Gettext;
 use Gtk;
 use Gnome;
-use base qw(Debconf::Element::Noninteractive::Note);
+use base qw(Debconf::Element::Gnome Debconf::Element::Noninteractive::Note);
 
 =head1 DESCRIPTION
 
@@ -22,6 +22,8 @@ that can be pressed to save the note.
 
 sub init {
 	my $this=shift;
+
+	$this->SUPER::init(@_);
 
 	$this->widget(Gtk::VBox->new(0, 0));
 
@@ -63,6 +65,9 @@ sub init {
 	$this->widget->pack_start($hbox, 0, 0, 0);
 
 	$this->widget->show;
+	$this->adddescription;
+	$this->addwidget($this->widget);
+	# No button is added since the widget is the description.
 }
 
 =head1 AUTHOR
