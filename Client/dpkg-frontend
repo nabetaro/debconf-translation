@@ -52,11 +52,11 @@ sub nonoption {
 
 # Do version number exchange.
 sub init {
-	$ret=Debian::DebConf::ConfModule::version();
+	$ret=Debian::DebConf::Client::ConfModule::version();
 }
 
 sub can_backup {
-	$ret=Debian::DebConf::ConfModule::capb('backup');
+	$ret=Debian::DebConf::Client::ConfModule::capb('backup');
 }
 
 # Just turn on $do_print.
@@ -88,10 +88,10 @@ sub AUTOLOAD {
 	shift;
 	if ($command eq 'input' || $command eq 'note' || $command eq 'text') {
 		# These need a priority.
-		$ret=eval "Debian::DebConf::ConfModule::$command".'($priority, @_)';
+		$ret=eval "Debian::DebConf::Client::ConfModule::$command".'($priority, @_)';
 	}
 	else {
-		$ret=eval "Debian::DebConf::ConfModule::$command".'(@_)';
+		$ret=eval "Debian::DebConf::Client::ConfModule::$command".'(@_)';
 	}
 }
 

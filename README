@@ -12,9 +12,9 @@ make test FRONTEND=Line PACKAGE=exim
 The cvs demo is actually skipping some questions of low priority. To see
 them, try:
 
-make test FRONTEND=Dialog PACKAGE=cvs DEBIAN_PRIORITY=low
+make test FRONTEND=Dialog PACKAGE=cvs PRIORITY=low
 
-You can also use DEBIAN_PRIORITY=high to skip even more questions.
+You can also use PRIORITY=high to skip even more questions.
 
 You can also try the web frontend, just run one of these 3 commands, and
 connect to localhost port 8001:

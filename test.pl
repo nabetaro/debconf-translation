@@ -13,6 +13,7 @@ use Debian::DebConf::FrontEnd::Web;
 use Debian::DebConf::ConfModule::Dialog;
 use Debian::DebConf::ConfModule::Line;
 use Debian::DebConf::ConfModule::Web;
+use Debian::DebConf::Priority;
 
 my $type=shift;
 my $template=shift;
@@ -27,6 +28,11 @@ Debian::DebConf::ConfigDb::loadmappingfile($mapping);
 
 # Instantiate all questions that have mappings.
 Debian::DebConf::ConfigDb::makequestions();
+
+# Set priority.
+if (exists $ENV{PRIORITY}) {
+	Debian::DebConf::Priority::set($ENV{PRIORITY});
+}
 
 # Start up the FrontEnd and ConfModule.
 my $frontend=eval "Debian::DebConf::FrontEnd::$type->new()";

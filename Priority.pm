@@ -12,16 +12,29 @@ my %priorities=(
 	'critical' => 3,
 );
 
-# Returns true if the passed priority is high enough to be displayed under
-# the current priority level.
-sub high_enough {
-	my $priority=shift;
+{
+
+	my $priority_level='medium';
+
+	# Set the priority level.
+	sub set {
+		my $new=shift;
+		
+		die "Unknown priority $new" unless exists $priorities{$new};
 	
-	my $current=($ENV{DEBIAN_PRIORITY} || 'medium');
+		$priority_level=$new;
+	}
 
-	die "Unknown priority $priority" unless exists $priorities{$priority};
-
-	return $priorities{$priority} >= $priorities{$current};
-}
+	# Returns true if the passed priority is high enough to be displayed under
+	# the current priority level.
+	sub high_enough {
+		my $priority=shift;
+	
+		die "Unknown priority $priority" unless exists $priorities{$priority};
+	
+		return $priorities{$priority} >= $priorities{$priority_level};
+	}
+}	
 
 1
+
