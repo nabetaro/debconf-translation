@@ -1,10 +1,21 @@
-debconf (0.2.77) frozen unstable; urgency=low
+debconf (0.2.78) frozen unstable; urgency=low
 
   * Woops, I forgot to let the CLEAR command be executed in any of the
     confmodule libraries!
   * base-config needs that command, so this must go to frozen.
 
  -- Joey Hess <joeyh@debian.org>  Mon, 17 Jan 2000 16:14:38 -0800
+
+debconf (0.2.77) frozen unstable; urgency=low
+
+  * debconf proper depends on perl5 (not -base), because some utilities
+    do use Getopt::Long. debconf-tiny continues to just depend on
+    perl-5.005-base, because everything in it will work without debconf.
+    Closes: #55381 (important)
+  * Added --all option to dpkg-reconfigure, for use by the boot-floppies
+    inittab.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 16 Jan 2000 18:11:12 -0800
 
 debconf (0.2.76) frozen unstable; urgency=low
 

@@ -2,7 +2,7 @@
 .SH NAME
 dpkg-reconfigure \- reconfigure an already installed package
 .SH SYNOPSIS
-.B dpkg-reconfigure [--frontend=\fItype\fP] [--priority=\fIvalue\fP] \fIpackage\fP [\fIpackage\fP ..]
+.B dpkg-reconfigure [--frontend=\fItype\fP] [--priority=\fIvalue\fP] [--all] [\fIpackage\fP [\fIpackage\fP ..]
 .SH DESCRIPTION
 .BR dpkg-reconfigure
 reconfigures packages after they have already been installed. Pass it the
@@ -26,5 +26,9 @@ permanently changed by:
 
 Any questions with a priority below the selected priority will be ignored and
 their default answers will be used.
+.TP
+.I --all
+Reconfigure all installed packages that use debconf. Warning: this may take
+a long time.
 .SH AUTHOR
 Joey Hess <joey@kitenet.net>

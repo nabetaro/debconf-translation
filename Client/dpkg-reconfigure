@@ -21,23 +21,27 @@ if ($> != 0) {
 my $infodir="/var/lib/dpkg/info";
 
 # Parse command line if GetOpt::Long is available, else just throw out all
-# options.
+# options except --all.
+my $all='';
 eval qq{
 	use Getopt::Long;
 };
 if ($@) {
+	$all=1 if grep { $_ eq '--all' } @ARGV;
 	@ARGV=grep { ! /^-/ } @ARGV;
 }
 else {
-	eval qq{
+	eval q{
 		Getopt::Long::config qw(bundling no_ignore_case permute);
 		GetOptions(
+			"all" => \$all,
 			"frontend|f=s" => 
 				sub { shift; Debian::DebConf::Config::frontend(shift) },
 			"priority|p=s" =>
 				sub { shift; Debian::DebConf::Config::priority(shift) },
 		);
-	}
+	};
+	die $@ if $@;
 }
 
 # Load up previous state information.
@@ -50,10 +54,14 @@ my $frontend=Debian::DebConf::AutoSelect::frontend();
 Debian::DebConf::Config::showold('true');
 
 TOP:
-foreach my $pkg (@ARGV) {
+foreach my $pkg ($all ? allpackages() : @ARGV) {
+	# If this doesn't exist, the package probably doesn't use debconf,
+	# so skip it, becuase a normal package may misbehave when run here.
+	next unless -x "/var/lib/dpkg/info/$pkg.config";
+
 	# Set default title.
 	$frontend->default_title($pkg);
-	
+
 	# Get the package version. Also check to make sure it is installed.
 	$_=`dpkg --status $pkg`;
 	my ($version)=m/Version: (.*)\n/;
@@ -66,10 +74,6 @@ foreach my $pkg (@ARGV) {
 	# Load up templates just in case they arn't already.
 	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
-
-	# If this doesn't exist, the package probably doesn't use debconf,
-	# so skip it, becuase a normal package may misbehave when run here.
-	next unless -x "/var/lib/dpkg/info/$pkg.config";
 
 	# Run postrm, config, and postinst scripts in sequence, with args.
 	foreach my $info (['postrm',   'remove'		      ],
@@ -95,3 +99,19 @@ foreach my $pkg (@ARGV) {
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+
+# Returns a list of all packages.
+sub allpackages {
+	my @ret;
+	local $/="\n\n";
+	
+	open (STATUS, "</var/lib/dpkg/status")
+		|| die "Cannot read status file: $!";
+	while (<STATUS>) {
+		push @ret, $1
+			if m/Status:\s*.*installed\n/ && m/Package:\s*(.*)\n/;
+	}
+	close STATUS;
+
+	return sort @ret;
+}
