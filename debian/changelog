@@ -1,3 +1,12 @@
+debconf (0.3.14) unstable; urgency=low
+
+  * Tightended up regexp that pareses Template: lines, so spaces are not
+    allowed in the name of a template. As a side effect, this just ignores
+    trailing space on all fields in a templates file. I hope this has no
+    bad side effects..
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  3 Apr 2000 14:37:37 -0700
+
 debconf (0.3.13) unstable; urgency=low
 
   * Minor doc updates.

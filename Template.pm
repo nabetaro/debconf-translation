@@ -82,19 +82,20 @@ sub parse {
 	my ($field, $value, $extended)=('', '', '');
 	foreach (split "\n", $text) {
 		chomp;
-		if (/^([-_.A-Za-z0-9]*): (.*)/) {
-			# Beginning of new item.
+		if (/^([-_.A-Za-z0-9]*):\s+(.*)/) {
+			# Beginning of new field.
 			$this->_savefield($field, $value, $extended);
 			$field=lc $1;
 			$value=$2;
+			$value=~s/\s*$//;
 			$extended='';
 		}
 		elsif (/^\s+\.$/) {
-			# Continuation of item that contains only a blank line.
+			# Continuation of field that contains only a blank line.
 			$extended.="\n\n";
 		}
 		elsif (/^\s+(.*)/) {
-			# Continuation of item.
+			# Continuation of field.
 			$extended.=$1." ";
 		}
 		else {
