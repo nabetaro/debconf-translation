@@ -67,6 +67,25 @@ sub sizetext {
 	       $window_columns + $this->borderwidth;
 }
 
+# Pass this a title and some text and it will display the text to the user in
+# a dialog. If the text is too long to fit in one dialog, it will use as many
+# as are required, with "(continued)" after the title.
+sub showtext {
+	my $this=shift;
+	my $title=shift;
+	my $intext=shift;
+
+	my $lines = ($ENV{LINES} || 25);
+	my ($text, $height, $width)=$this->sizetext($intext);
+	my @lines = split(/\n/, $text);
+	for (my $c = 0; $c <= $#lines;  $c += $lines - 4 - $this->borderheight) {
+		my $text=join("\n", @lines[$c..($c + $lines - 4 - $this->borderheight)]);
+		$this->show_dialog($title. ($c > 0 ? " (continued)" : ''), "--msgbox",
+			$text, scalar split(/\n/, $text) + $this->borderheight,
+			$width);
+	}
+}
+
 # Shows a dialog. The first parameter is the dialog title (not to be
 # confused with the frontend's main title). The remainder are passed to
 # whiptail/dialog.

@@ -11,7 +11,7 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$this->frontend->display($this->text.$this->SUPER::show(@_));
+	$this->frontend->display($this->SUPER::show(@_).$this->text);
 }
 
 1

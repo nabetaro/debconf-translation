@@ -14,7 +14,7 @@ sub show {
 	
 	# TODO
 	
-	return "\n\n(This information has been saved to your mailbox.)\n";
+	return "(This information has been saved to your mailbox.)\n\n";
 }
 
 1

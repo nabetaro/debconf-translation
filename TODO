@@ -19,7 +19,6 @@ Dialog frontend:
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
-* It also really needs to detect when the text it should display is far too
-  long, and in that case, display several dialogs in sequence to get rid of
-  it. (Breaking at paragrpahs if possible?) This even needs to be done for the
-  Input element. It is done for only Text elements so far.
+* As the demo shows, I need to take title size into account when sizing a
+  dialog. Just make ->sizetext take a title too.
+* See that the demo repleats "several" on the list dialog message boxes.

@@ -21,6 +21,14 @@ sub show {
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
 		$question->template->extended_description);
 
+	# If it is more than will fit on the screen, just display the prompt first
+	# in a series of message boxes.
+        if ($lines > ($ENV{LINES} || 25) - 2) {
+		$this->frontend->showtext($question->template->description, $text);
+		$text='';
+		$lines=0;
+	}
+
 	# How dialog is called depends on what type of question this is.
 	my $type=$question->template->type;
 	my $default=$question->value || $question->template->default;
