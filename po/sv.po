@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -54,16 +54,24 @@ msgstr ""
 "Indatavärde, \"%s\" hittades inte i C-val! Detta skall inte inträffa. Kanske "
 "översattes mallarna felaktigt."
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Hjälp"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Spara notis"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Debconf ombads spara denna notis, så den har sänts till dig per e-post."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Debconf ombads spara denna notis, så den har sänts till dig per e-post."
 
@@ -72,7 +80,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "Notisen har sänts till root per e-post."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "Kan inte spara notis."
 

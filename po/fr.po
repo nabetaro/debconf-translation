@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -58,16 +58,25 @@ msgstr ""
 "La valeur \"%s\" ne se trouve pas parmi les choix possibles ! Cela ne "
 "devrait jamais se produire. Peut être que les modèles ont été mal traduits."
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Aide"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Enregistrer note"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
+"envoyée par email."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
 "envoyée par email."
@@ -76,7 +85,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "La note a été envoyé par mail."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "Impossible d'enregistrer la note."
 

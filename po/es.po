@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2001-08-29 04:20+02:00\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -61,16 +61,25 @@ msgstr ""
 "debiera suceder nunca. Tal vez las plantillas estaban localizadas "
 "incorrectamente."
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Grabar Nota"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Se solicitó a Debconf que guardase esta nota, así que se la ha enviado por "
+"correo."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Se solicitó a Debconf que guardase esta nota, así que se la ha enviado por "
 "correo."
@@ -79,7 +88,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "La nota ha sido enviada por correo."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "No pude grabar la nota."
 

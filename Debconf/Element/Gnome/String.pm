@@ -33,7 +33,7 @@ sub init {
 
 	$this->adddescription;
 	$this->addwidget($this->widget);
-	$this->addbutton;
+	$this->addhelp;
 }
 
 =item value

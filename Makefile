@@ -17,11 +17,13 @@ install-man:
 	install -d $(prefix)/usr/share/man/man3
 	install -d $(prefix)/usr/share/man/man8
 	install -d $(prefix)/usr/share/man/man5
+	install -d $(prefix)/usr/share/man/pt_BR/man8
 	$(pod2man) --section=3 Debconf/Client/ConfModule.pm \
 		> $(prefix)/usr/share/man/man3/Debconf::Client::ConfModule.3pm
 	install -m 0644 confmodule.3 $(prefix)/usr/share/man/man3/
 	install -m 0644 debconf.8 $(prefix)/usr/share/man/man8/
 	install -m 0644 debconf.conf.5 $(prefix)/usr/share/man/man5/
+	install -m 0644 debconf.pt_BR.8 $(prefix)/usr/share/man/pt_BR/man8/debconf.8
 
 # Anything that goes in the debconf-utils package.
 install-utils:

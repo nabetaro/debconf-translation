@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -57,16 +57,25 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Salvar Nota"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
+"você."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
 "você."
@@ -75,7 +84,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "A nota foi enviada por email."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 

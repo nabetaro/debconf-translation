@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "MIME-Version: 1.0\n"
@@ -54,16 +54,24 @@ msgstr ""
 "Arvoa \"%s\" ei löytynyt C-valinnoista! Näin ei pitäisi koskaan käydä. "
 "Kyselypohjien paikallistamisessa saattaa olla vikaa."
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Avustus"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Tallenna ilmoitus"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Tämä ilmoitus postitettiin, koska debconfia pyydettiin tallentamaan se."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Tämä ilmoitus postitettiin, koska debconfia pyydettiin tallentamaan se."
 
@@ -71,7 +79,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "Ilmoitus on lähetetty."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "Ilmoituksen tallennus epäonnistui."
 

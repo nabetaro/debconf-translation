@@ -18,6 +18,8 @@ sub init {
         my %default=map { $_ => 1 } $this->translate_default;
 
 	$this->SUPER::init(@_);
+	$this->multiline(1);
+
 	$this->adddescription;
 
         $this->widget(Gtk::ScrolledWindow->new);
@@ -40,7 +42,12 @@ sub init {
 	$this->buttons(\@buttons);
 	
 	$this->addwidget($this->widget);
-	$this->addbutton;
+	$this->addhelp;
+
+	# we want to be both expanded and filled
+	$this->fill(1);
+	$this->expand(1);
+
 }
 
 =item value

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2001-11-06 19:44-0500\n"
+"POT-Creation-Date: 2001-11-25 21:07-0500\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "MIME-Version: 1.0\n"
@@ -52,16 +52,24 @@ msgstr ""
 "Input værdi, \"%s\" fandtes ikke i C valg! Dette burde aldrig ske. Måske "
 "blev skabelonerne initialiseret forkert"
 
-#: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
 msgstr "Hjælp"
 
-#: ../Debconf/Element/Gnome/Note.pm:47
-msgid "Save Note"
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
 msgstr "Gem Note"
 
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "Debconf was asked to save this note, so it mailed it to you."
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr ""
+"Debconf blev spurgt om at gemme denne note, så den mailede den til dig."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
 msgstr ""
 "Debconf blev spurgt om at gemme denne note, så den mailede den til dig."
 
@@ -69,7 +77,7 @@ msgstr ""
 msgid "The note has been mailed."
 msgstr "Noten er blevet mailet."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
 msgstr "Kunne ikke gemme note."
 

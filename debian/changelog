@@ -1,3 +1,21 @@
+debconf (1.0.20) unstable; urgency=low
+
+  * Documented that debconf-getlang runs descriptions through a word-wrapper.
+    Closes: #97049
+  * When parsing a template description, if there is a " \n", don't turn that
+    into "  " when collapsing newlines, and instead go with just a single
+    space.
+  * From Federico Di Gregorio <fog@debian.org>, a patch to the Gtk frontend
+    that makes it more usable with packages with a large multiselect widget,
+    or with lots of concurent questions. The main change is that the window
+    now scrolls. Closes: #113801
+  * Federico also sent a patch that moves widgets in the gtk frontend around
+    for better cosmetics.
+  * Added a debconf.8 man page translated to pt_BR by Andre Luis Lopes
+    <andrelop@ig.com.br>, Closes: #121155
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 17 Nov 2001 21:47:23 -0500
+
 debconf (1.0.19) unstable; urgency=low
 
   * Updated pt_BR debconf translation thanks to Gustavo Noronha Silva and

@@ -72,7 +72,8 @@ sub init {
 	$this->win->set_title(gettext("Debconf"));
 	$this->win->signal_connect("delete_event", sub { exit });
 	
-	$this->logo(Gtk::Gdk::ImlibImage->load_image("/usr/share/pixmaps/debian-logo.xpm"));
+	$this->logo(Gtk::Gdk::ImlibImage->load_image(
+	    "/usr/share/pixmaps/debian-logo.xpm"));
 	
 	$this->druid(Gnome::Druid->new);
 	$this->druid->show;
@@ -96,11 +97,13 @@ sub init {
 	$this->druid_page->signal_connect("cancel", sub { exit });
 	$this->druid_page->show;
 	$this->druid->append_page($this->druid_page);
-	$this->mainbox(Gtk::HBox->new(0, 0));
+	$this->mainbox(Gtk::ScrolledWindow->new);
+	$this->mainbox->set_policy(1, 1);
 	$this->mainbox->show;
-	$this->vbox(Gtk::VBox->new(0, 0));
+	$this->vbox(Gtk::VBox->new(0, 10));
+	$this->vbox->set_border_width(10);
 	$this->vbox->show;
-	$this->mainbox->pack_start($this->vbox, 1, 1, 5);
+	$this->mainbox->add_with_viewport($this->vbox);
 	$this->druid_page->vbox->pack_start($this->mainbox, 1, 1, 0);
 }
 
@@ -121,7 +124,8 @@ sub go {
 		next unless $element->hbox;
 
 		$interactive=1;
-		$this->vbox->pack_start($element->hbox, 1, 0, 5);
+		$this->vbox->pack_start($element->hbox, 
+					$element->expand, $element->fill, 5);
 	}
 
 	if ($interactive) {
