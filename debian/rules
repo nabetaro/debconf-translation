@@ -39,7 +39,7 @@ binary-indep: install
 	dh_installdebconf -n
 	dh_installdocs doc/CREDITS doc/*.txt doc/*.html \
 		doc/spec/*.txt doc/spec/*.html \
-		README TODO
+		README TODO debian/Debian.bugtemplate
 	dh_installexamples samples/*
 	dh_installmenu
 	dh_installcron

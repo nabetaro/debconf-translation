@@ -13,7 +13,7 @@ configuration management system. It can launch a configuration module
 script (hereafter called a "confmodule") and communicate with it. Each
 instance of a ConfModule is connected to a separate, running confmodule.
 
-There are a number of stub methods that are called in response to commands
+There are a number of methods that are called in response to commands
 from the client. Each has the same name as the command, with "command_"
 prepended, and is fed in the parameters given after the command (split on
 whitespace), and whatever it returns is passed back to the configuration
@@ -30,6 +30,8 @@ use strict;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Priority;
+use Debian::DebConf::FrontEnd::Noninteractive;
 use Debian::DebConf::Log ':all';
 use vars qw($AUTOLOAD);
 use base qw(Debian::DebConf::Base);
@@ -42,6 +44,7 @@ my %codes = (
 	input_invisible => 30,
 	version_bad => 30,
 	go_back => 30,
+	internalerror => 100,
 );
 
 =head2 new
@@ -153,9 +156,57 @@ sub command_input {
 	my $question_name=shift;
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badquestion}, "\"$question_name\" doesn't exist";
 
-	return $this->frontend->add($question, $priority) ? $codes{success} : $codes{input_invisible};
+	if (! Debian::DebConf::Priority::valid($priority)) {
+		return $codes{syntaxerror}, "\"$priority\" is not a valid priority";
+	}
+
+	# Figure out if the question should be displayed to the user or
+	# not.
+	my $visible=1;
+
+	# Noninteractive frontends never show anything.
+	$visible='' if ! $this->frontend->interactive;
+
+	# Don't show items that are unimportant.
+	$visible='' unless Debian::DebConf::Priority::high_enough($priority);
+
+	# Unless showold is set, don't re-show already seen questions. 
+	$visible='' if Debian::DebConf::Config::showold() eq 'false' &&
+		$question->flag_isdefault eq 'false';
+
+	my $element;
+	if ($visible) {
+		# Create an input Element of the type associated with
+		# the frontend.
+		$element=$this->frontend->makeelement($question);
+		# If that failed, quit now. This should never happen.
+		unless ($element) {
+			return $codes{internalerror},
+			       "unable to make an input element";
+		}
+
+		# Ask the Element if it thinks it is visible. If not,
+		# fall back below to making a noninteractive element.
+		#
+		# This last check is useful, because for example, select
+		# Elements are not really visible if they have less than
+		# two choices.
+		$visible=$element->visible;
+	}
+
+	if (! $visible) {
+		# Create a noninteractive element. Supress debug messages
+		# because they generate FAQ's and are harmless.
+		$element=Debian::DebConf::FrontEnd::Noninteractive->makeelement($question, 1);
+
+		# If that failed, the question is just not visible.
+		return $codes{input_invisible} unless $element;
+	}
+
+	$this->frontend->add($element);
+	return $element->visible ? $codes{success} : $codes{input_invisible};
 }
 
 =head2 command_clear

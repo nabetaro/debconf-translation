@@ -38,7 +38,7 @@ sub question {
 	if (@_) {
 		# This shouldn't happen..
 		if (! $this->frontend) {
-			die "Container element question medthod called before frontend was set.";
+			die "Container element question method called before frontend was set.";
 		}
 	
 		$this->{'question'}=shift;

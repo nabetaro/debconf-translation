@@ -141,15 +141,20 @@ foreach my $x (0..$#debs) {
 		close INFO;
 	
 		if ($ok) {
-			# There are templates, so we need to continue
-			# with other expensive stuff.
-			$todo{$debs[$x]}=1;
 			# Process the templates.
 			# I want to slurp whole templates.
 			local $/="\n\n";
 			while (<TEMPLATES>) {
-				Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});
+				eval q{
+					Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});
+				};
+				if ($@) {
+					print STDERR "$debs[$x] template parse error: $@\n";
+					next;
+				}
 			}
+
+			$todo{$debs[$x]}=1;
 		}
 	}	
 	close TEMPLATES;

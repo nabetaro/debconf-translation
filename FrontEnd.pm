@@ -44,84 +44,59 @@ sub new {
 
 =head2 makeelement
 
-This helper function creates an Element. Pass in the type of Frontend the
-Element is for, and the Question that will be bound to the Element. It returns
-the generated Element, or false if it was unable to make an Element of the given
-type.
+This helper function creates an Element of the type used by this FrontEnd.
+Pass in the question that will be bound to the Element. It returns the
+generated Element, or false if it was unable to make an Element of the given 
+type. 
+
+This may be called as either a class or an object method. 
+
+Normally, it outputs debug codes if creating the Element fails. If failure
+is expected, a second pasrameter can be passed with a true value to turn
+off those debug messages.
 
 =cut
 
 sub makeelement {
 	my $this=shift;
-	my $frontend_type=shift;
 	my $question=shift;
-	
+	my $nodebug=shift;
+
+	# Figure out what type of frontend this is.
+	my $frontend_type;
+	if (ref $this) {
+		($frontend_type)=ref($this)=~m/DebConf::FrontEnd::(.*)/;
+	}
+	else {
+		# Called as class method.
+		($frontend_type)=$this=~m/DebConf::FrontEnd::(.*)/;
+	}
 	my $type=$frontend_type.'::'.ucfirst($question->template->type);
+
 	debug 2, "Trying to make element of type $type";
 	my $element=eval qq{
 		use Debian::DebConf::Element::$type;
 		Debian::DebConf::Element::$type->new;
 	};
-	debug 2, "Failed with $@" if $@;
-	if (! ref $element) {
-		return;
-	}
-	$element->frontend($this);
+	debug 2, "Failed with $@" if $@ && ! $nodebug;
+	return if ! ref $element;
 	$element->question($question);
 	return $element;
 }
 
 =head2 add
 
-Add a Question to the list to be displayed to the user. Pass the Question and
-text indicating the priority of the Question. This creates an Element and adds
-it to the array in the elements property. Returns true if the created Element
-is visible.
+Adds an Element to the list to be displayed to the user. Just pass the
+Element to add.
 
 =cut
 
 sub add {
 	my $this=shift;
-	my $question=shift || die "\$question is undefined";
-	my $priority=shift;
+	my $element=shift;
 
-	# Figure out if the question should be displayed to the user or not.
-	my $visible=1;
-
-	# Noninteractive frontends never show anything.
-	$visible='' if ! $this->interactive;
-	
-	# Don't show items that are unimportant.
-	$visible='' unless Debian::DebConf::Priority::high_enough($priority);
-	
-	# Set showold to ask even default questions.
-	$visible='' if Debian::DebConf::Config::showold() eq 'false' &&
-		$question->flag_isdefault eq 'false';
-	
-	my $element;
-	if ($visible) {
-		# Create an input Element of the type associated with
-		# this frontend. This requires some nastiness.
-		my ($frontend_type)=ref($this)=~m/DebConf::FrontEnd::(.*)/;
-		$element=$this->makeelement($frontend_type, $question) ||
-			 die "Unknown type of element";
-
-		# Ask the Element if it thinks it is visible. If not,
-		# fall back below to making a noninteractive element.
-		#
-		# This last check is useful, because for example, select
-		# Elements are not really visible if they have less than two
-		# choices.
-		$visible=$element->visible;
-	}
-	if (! $visible) {
-		# Create a noninteractive element.
-		$element=$this->makeelement('Noninteractive', $question) ||
-			return; # no noninteractive element of this type.
-	}
-	
+	$element->frontend($this);
 	push @{$this->{elements}}, $element;
-	return $element->visible;
 }
 
 =head2 go

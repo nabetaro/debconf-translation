@@ -40,17 +40,29 @@ my %priorities=(
 
 =head1 high_enough
 
-Returns true iff the passed value is greater than or equal to
-the current priority level.
+Returns true iff the passed value is greater than or equal to the current
+priority level. Note that if an inknown pririty is passed in, it is assumed
+to be higher.
 
 =cut
 
 sub high_enough {
 	my $priority=shift;
 
-	die "Unknown priority $priority" unless exists $priorities{$priority};
-
+	return 1 if ! exists $priorities{$priority};
 	return $priorities{$priority} >= $priorities{Debian::DebConf::Config::priority()};
+}
+
+=head1 valid
+
+Returns true if the passed text is a valid priority.
+
+=cut
+
+sub valid {
+	my $priority=shift;
+
+	return exists $priorities{$priority};
 }
 
 =head1 AUTHOR

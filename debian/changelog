@@ -1,3 +1,24 @@
+debconf (0.2.102) unstable; urgency=low
+
+  * Corrected three ways badly written packages could make 
+    dpkg-preconfigure die:
+     - They could try to ask questions that didn't exist.
+     - They could try to ask questions using garbage priority values.
+     - They could have garbage template files that lack required fields.
+    All three are now handled sanely, and debconf even tells the client
+    what stupid thing it has done in the first 2 cases. To make that work,
+    I made FrontEnd::add much simpler, and moved a lot of the failure-prone
+    code into Confmodule::command_input, and did some other
+    reorganizations.
+  * Checked and I don't think any more cases like this exist in debconf.
+  * While I was at it, I shut up messages about failing to make
+    noninteractive elements in debug 2 mode. A common FAQ causer.
+  * Added a Debian.bugtemplate file, in an attempt to get people to report
+    bugs that are actually useful. This is used by newer reportbug
+    packages.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 29 Feb 2000 14:08:03 -0800
+
 debconf (0.2.101) unstable; urgency=low
 
   * Fixed another stupid typo, that messed up text select and multiselect
