@@ -70,7 +70,7 @@
   </para>
   <para>
     This command tells the frontend you're done talking to it.
-    If transactions are used, changes to variables will be stored
+    If transactions are used, changes to the database will be stored
     only when this command is called.
   </para>
 </listitem>
@@ -78,20 +78,19 @@
   <para>
     input
     <parameter>priority</parameter>
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
   </para>
   <para>
-    This tells the frontend you are interested in the value of
-    a variable. <parameter>variable</parameter> is the name of the
-    variable, all other information about the variable is retrieved
-    from the templates described previously. 
+    This tells the frontend to display a question (or other type of
+    item) to the user. <parameter>question</parameter> is the name of the
+    item to display, all other information about the item is retrieved
+    from the templates described previously.
     <parameter>priority</parameter> is how important it is that the
-    user be prompted for the variable. The frontend need  
-    only ask this question if the priority is high enough. The
-    question is not displayed until a go command is given. This
-    allows us to ask multiple questions in a single screen. Once a
-    question has been displayed to the user and the user has
-    provided input, the frontend will clear the 
+    user be prompted. The frontend need only ask this question if the
+    priority is high enough. The question is not displayed until a go
+    command is given. This allows us to ask multiple questions in a single
+    screen. Once a question has been displayed to the user and the user has
+    provided input, the frontend will clear the
     <literal>isdefault</literal> flag.
     &priority_table;
   </para>
@@ -144,44 +143,44 @@
 </listitem>
 <listitem id="command_get">
   <para>
-    get <parameter>variable</parameter>
+    get <parameter>question</parameter>
   </para>
   <para>
-    Ask the frontend to tell you the value of a variable. The
+    Ask the frontend to tell you how the user answered a question. The
     value is returned to you.
   </para>
 </listitem>
 <listitem id="command_set">
   <para>
     set
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
     <parameter>value</parameter>
   </para>
   <para>
-    Ask the frontend to set a variable to a value.
+    Set the answer of a question to a value.
   </para>
 </listitem>
 <listitem id="command_reset">
   <para>
     reset
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
   </para>
   <para>
-    Reset the variable to its default value. This includes
+    Reset the question to its default value. This includes
     resetting flags to their defaults.
   </para>
 </listitem>
 <listitem id="command_subst">
   <para>
       subst
-      <parameter>variable</parameter>
+      <parameter>question</parameter>
       <parameter>key</parameter>
       <parameter>value</parameter>
   </para>
   <para>
-    Variables can have substitutions embedded in their
+    Questions (and other items) can have substitutions embedded in their
     descriptions. These substitutions look like
-    "<literal>${key}</literal>". When the description is displayed,
+    "<literal>${key}</literal>". When the question is displayed,
     the substitutions are replaced with their values. This
     command can be used to set the value of a substitution.
   </para>
@@ -189,12 +188,12 @@
 <listitem id="command_fget">
   <para>
     fget
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
     <parameter>flag</parameter>
   </para>
   <para>
-    Variables can have flags associated with them. The flags
-    have a value of "<literal>true</literal>" or 
+    Questions (and other items) can have flags associated with them. The
+    flags have a value of "<literal>true</literal>" or 
     "<literal>false</literal>". This command returns
     the value of a flag.
   </para>
@@ -202,12 +201,12 @@
 <listitem id="command_fset">
   <para>
     fset
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
     <parameter>flag</parameter>
     <parameter>value</parameter>
   </para>
   <para>
-    This sets the state of a flag on a variable. Valid
+    This sets the state of a flag on a question. Valid
     states for the flag are "<literal>true</literal>" and 
     "<literal>false</literal>".
   </para>
@@ -230,34 +229,35 @@
 <listitem id="command_metaget">
   <para>
     metaget 
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
     <parameter>field</parameter>
   </para>
   <para>
-    This returns the value of any field of a variable.
+    This returns the value of any field of a question (the description, for
+    example).
   </para>
 </listitem>
 <listitem id="command_register">
   <para>
     register
     <parameter>template</parameter>
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
   </para>
   <para>
-    This creates a new variable that is bound to a
+    This creates a new question that is bound to a
     template. By default each template has an associated
-    variable with the same name. However, any number of
-    variables can really be associated with a template, and
-    this lets you create more such variables.
+    question with the same name. However, any number of
+    questions can really be associated with a template, and
+    this lets you create more such questions.
   </para>
 </listitem>
 <listitem id="command_unregister">
   <para>
     unregister
-    <parameter>variable</parameter>
+    <parameter>question</parameter>
   </para>
   <para>
-    This removes a variable from the database.
+    This removes a question from the database.
   </para>
 </listitem>
 <listitem id="command_purge">
@@ -266,7 +266,7 @@
   </para>
   <para>
     Call this in your postinst when your package is
-    purged. It removes all templates and variables your
+    purged. It removes all templates and questions your
     package has generated.
   </para>
 </listitem>

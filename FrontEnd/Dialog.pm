@@ -13,6 +13,7 @@ use Debian::DebConf::Priority;
 use Debian::DebConf::Log qw(:all);
 use Debian::DebConf::Config qw(tmpdir);
 use Text::Wrap qw(wrap $columns);
+use Text::Tabs;
 use IPC::Open3;
 use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
@@ -102,7 +103,10 @@ sub sizetext {
 	# is pre-wrap the text and then just look at the number of lines it
 	# takes up.
 	$columns = $this->screenwidth - $this->borderwidth - $this->columnspacer;
-	$text=wrap('', '', $text);
+	# Why call expand? Well, wrap gratuitously calls unexpand. However,
+	# unexpand puts in tabs dialog does not deal with the way one would
+	# expect. Bleagh.
+	$text=expand(wrap('', '', $text));
 	my @lines=split(/\n/, $text);
 	
 	# Now figure out what's the longest line. Look at the title size too.

@@ -72,9 +72,9 @@
     </para>
     <para>
       Debconf should be used whenever your package needs to output
-      something to the user, or ask a question of the user. I'll
-      assume you already have a package that does this and you want to
-      convert it to use debconf.
+      something to the user, or ask a question. I'll assume you already 
+      have a package that does this and you want to convert it to use
+      debconf.
     </para>
   </sect1>
   
@@ -369,14 +369,14 @@ Template: ....
       "<literal><link linkend="command_go">go</link></literal>", and 
       "<literal><link linkend="command_get">get</link></literal>".
       Briefly, "<literal>input <parameter>priority</parameter> 
-      <parameter>variable</parameter></literal>" 
-      asks the frontend to make sure it has asked the user for the value
-      of a variable, specifying how important it is the user be asked
-      this. The variable names normally correspond to the names of the
+      <parameter>question</parameter></literal>" 
+      asks the frontend to make sure it has asked the user a question,
+      specifying how important it is the user be asked. The 
+      question names normally correspond to the names of the
       templates in the template files. "<literal>go</literal>" tells the
       frontend to display all accumulated input commands to the user. And
-      "<literal>get <parameter>variable</parameter></literal>" asks the
-      frontend to return to you what value a variable is set to.
+      "<literal>get <parameter>question</parameter></literal>" asks the
+      frontend to return to you the answer to a question.
     </para>
     <para>
       Some other notes about config scripts: Just like other
@@ -817,10 +817,10 @@ fi
 	<programlisting>
 if [ -e /usr/share/debconf/confmodule ]; then
 	. /usr/share/debconf/confmodule
-	# I no longer claim this variable.
+	# I no longer claim this question.
 	db_unregister shared/window-manager
 		
-	# See if the shared variable still exists.
+	# See if the shared question still exists.
 	if db_get shared/window-manager; then
 		db_metaget shared/window-manager owners
 		db_subst shared/window-manager choices $RET

@@ -12,6 +12,7 @@ use POSIX;
 use FileHandle;
 use Debian::DebConf::Gettext;
 use Text::Wrap;
+use Text::Tabs;
 use vars qw($AUTOLOAD);
 use base qw(Debian::DebConf::Base);
 
@@ -102,7 +103,7 @@ sub stringify {
 			$data.=ucfirst($key).": ".$_->{$key}."\n";
 			if (exists $_->{"extended_$key"}) {
 				# Add extended field.
-				my $extended=wrap(' ', ' ', $_->{"extended_$key"});
+				my $extended=expand(wrap(' ', ' ', $_->{"extended_$key"}));
 				# The word wrapper sometimes outputs
 				# multiple " \n" lines, so collapse those
 				# into one.
