@@ -1,3 +1,11 @@
+debconf (0.4.05) unstable; urgency=low
+
+  * Ignore any number of leading and trailing newlines around templates,
+    since the spec doesn't really say There Must Be Only One, and it can be
+    useful to have more. Closes: #75420
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 23 Oct 2000 16:32:09 -0700
+
 debconf (0.4.04) unstable; urgency=low
 
   * confmodule: Properly quote arguments to frontend, just in case. 

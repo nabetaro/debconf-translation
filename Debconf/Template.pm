@@ -162,6 +162,10 @@ sub parse {
 	my $text=shift;
 	my $file=shift || gettext("unknown file");
 	
+	# Ignore any number of leading and trailing newlines.
+	$text=~s/^\n+//;
+	$text=~s/\n+$//;
+	
 	my ($field, $value, $extended)=('', '', '');
 	foreach (split "\n", $text) {
 		chomp;
