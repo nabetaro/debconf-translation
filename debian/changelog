@@ -1,3 +1,13 @@
+debconf (0.5.36) unstable; urgency=low
+
+  * The "I didn't get a fixed perl for $MAJOR_WINTER_HOLIDAY" release.
+  * Conflicts with every perl-*-base package before perl-5.6-base, because
+    perl's alternatives system has been known to make /usr/bin/perl point
+    at some old version of perl, even though debconf depends on 5.6, which
+    breaks things pretty badly.
+
+ -- Joey Hess <joey@kitenet.net>  Mon, 25 Dec 2000 23:28:04 -0800
+
 debconf (0.5.35) unstable; urgency=low
 
   * Both dialog and whiptail now support --nocancel, which the dialog
