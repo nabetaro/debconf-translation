@@ -21,7 +21,7 @@ if (-e Debian::DebConf::Config::dbfn()) {
 }
 
 # Load up templates.
-Debian::DebConf::ConfigDb::loadtemplatefile($template);
+Debian::DebConf::ConfigDb::loadtemplatefile($template, $script);
 
 # Instantiate all questions.
 Debian::DebConf::ConfigDb::makequestions();

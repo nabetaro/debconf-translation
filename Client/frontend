@@ -24,10 +24,10 @@ my $frontend=eval qq{
 die $@ if $@;
 
 # Set the default title.
-my $title=$ARGV[0];
-$title=~s/\.(?:postinst|prerm)$//;
-$title=~s:.*/::;
-$frontend->default_title($title);
+my $package=$ARGV[0];
+$package=~s/\.(?:postinst|prerm)$//;
+$package=~s:.*/::;
+$frontend->default_title($package);
 
 my $confmodule;
 
@@ -39,7 +39,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	# Load templates, if any.
 	my $templates=$ARGV[0];
 	$templates=~s/\.(?:postinst|prerm)$/.templates/;
-	Debian::DebConf::ConfigDb::loadtemplatefile($templates)
+	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 		if -e $templates;
 
 	# Instantiate all questions.
@@ -53,7 +53,11 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 			Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
 		};
 		die $@ if $@;
-		
+
+		# Make sure any mappings the confmodule generates
+		# are owned by this package.
+		$confmodule->owner($package);
+
 		# Talk to it until it is done.
 		1 while ($confmodule->communicate);
 		
@@ -66,6 +70,9 @@ $confmodule=eval qq{
 	Debian::DebConf::ConfModule::$type->new(\$frontend, join " ",\@ARGV);
 };
 die $@ if $@;
+
+# Make sure any mappings the confmodule generates are owned by this package.
+$confmodule->owner($package);
 
 # Talk to it until it is done.
 1 while ($confmodule->communicate);

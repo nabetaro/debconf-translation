@@ -41,22 +41,30 @@ die $@ if $@;
 # Since this is a reconfigure program, they may want to change their choices.
 Debian::DebConf::Config::showold('true');
 
+# Instantiate all questions.
+Debian::DebConf::ConfigDb::makequestions();
+
 TOP:
 foreach my $pkg (@ARGV) {
 	# Set default title.
 	$frontend->default_title($pkg);
 
-	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
-		if -e "$infodir/$pkg.templates";
-
-	# Instantiate all questions.
-	Debian::DebConf::ConfigDb::makequestions();
+# This should not be neccessary.
+#	# Load up templates.
+#	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
+#		if -e "$infodir/$pkg.templates";
+#
+#	# Instantiate all questions.
+#	Debian::DebConf::ConfigDb::makequestions();
 
 	if (-x "/var/lib/dpkg/info/$pkg.config") {
 		# Start up the confmodule.
 		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.config')";
 		die $@ if $@;
+		
+		# Make sure any mappings the confmodule registers are owned by 
+		# this package.
+		$confmodule->owner($pkg);
 		
 		# Talk to it until it is done.
 		1 while ($confmodule->communicate);
@@ -70,6 +78,10 @@ foreach my $pkg (@ARGV) {
 		(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
 		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.postinst configure $1')";
 		die $@ if $@;
+
+		# Make sure any mappings the confmodule registers are owned by
+		# this package.
+		$confmodule->owner($pkg);
 
 		# Talk to it until it is done.
 	        1 while ($confmodule->communicate);

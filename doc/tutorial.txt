@@ -382,3 +382,8 @@ register <template> <variable>
 unregister <variable>
 
 	This removes a variable from the database.
+
+purge
+
+	Call this in your postinst when your package is purged. It removes all
+	templates, mappings and variables your package has generated.

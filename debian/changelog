@@ -1,6 +1,35 @@
+debconf (0.1.35) unstable; urgency=low
+
+  * Added the concept that each template and mapping is owned by one or
+    more packages. When the number of owners goes to zero, the object is
+    removed (along with all mappings and questions that use it). Lots of
+    changes everywhere to implement this.
+  * What this lets us do is it allows packages to give up ownership of the
+    templates and mappings they created when they are purged.
+  * Added a "purge" command that can be called when a package is purged that
+    makes the package give up ownership of everything it owned.
+  * Modifed dpkg-preconfig so all the templates in all the packages that
+    are being installed are read first, and then all the config scripts are
+    run.
+  * The changes above have an intriguing side benefit that fixes a vexing
+    problem. There is now a field in each and template (and mapping) called
+    "owners", that is a list of the packages that have registered ownership.
+    This list is up to date as soon as all the templates are loaded. A set of
+    related packages can all provide the same template in them; and their
+    config scripts can then look at the owners field to get the list of all
+    related packages that is/will be installed. Then they can do things like
+    turn that into a list of choices of window managers, or ispell
+    dictionaries, etc, and prompt the user to pick one. This feels only a
+    little hackish.
+  * Upgrading to this version will make most of the questions you've already
+    ansered disappear. I'm not worrying about back-compatability to that
+    degree, yet..
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 23 Sep 1999 12:52:14 -0700
+
 debconf (0.1.34) unstable; urgency=low
 
-  * Fixed dpkg-reconfigure, whgich was broken since yesterday.
+  * Fixed dpkg-reconfigure, which was broken since yesterday.
 
  -- Joey Hess <joeyh@master.debian.org>  Wed, 22 Sep 1999 15:48:57 -0700
 

@@ -85,16 +85,20 @@ sub import {
 		die $@ if $@;
 		
 		# Set the default title.
-		my $title=$0;
-		$title=~s/\.(?:postinst|prerm)$//;
-		$title=~s:.*/::;
-		$frontend->default_title($title);
+		my $package=$0;
+		$package=~s/\.(?:postinst|prerm)$//;
+		$package=~s:.*/::;
+		$frontend->default_title($package);
 		
 		my $confmodule=eval qq{
 			use Debian::DebConf::ConfModule::$type;
 			Debian::DebConf::ConfModule::$type->new(\$frontend);
 		};
 		die $@ if $@;
+
+		# Make sure that any mappings the confmodule registers are
+		# owned by the current package.
+		$confmodule->owner($package);
 
 		# Set up the pipes the two processes will use to communicate.
 		pipe($confmodule->read_handle(FileHandle->new), \*CHILD_STDOUT);
@@ -114,7 +118,7 @@ sub import {
 			# Load templates, if any.
 			my $templates=$0;
 			$templates=~s/\.(?:postinst|prerm)$/.templates/;
-			Debian::DebConf::ConfigDb::loadtemplatefile($templates)
+			Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 				if -e $templates;
 
 			# Instantiate all questions.
@@ -128,6 +132,10 @@ sub import {
 					Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
 				};
 				die $@ if $@;
+				
+				# Make sure that any mappings the confmodule
+				# registers are owned by the current package.
+				$confmodule->owner($package);
 				
 				# Talk to it until it is done.
 				1 while ($confmodule->communicate);

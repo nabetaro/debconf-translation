@@ -35,7 +35,7 @@ use vars qw($AUTOLOAD);
 =head2 new
 
 Create a new ConfModule. You must specify a FrontEnd
-object that this COnfModule can use. If you specify a
+object that this ConfModule can use. If you specify a
 confmodule script to run and communicate with then that
 script will automatically be started and used (if not,
 you can later set the read_handle, write_handle, and pid
@@ -303,7 +303,7 @@ sub command_register {
 	my $template=shift;
 	my $location=shift;
 	
-	Debian::DebConf::ConfigDb::addmapping($template, $location);
+	Debian::DebConf::ConfigDb::addmapping($template, $location, $this->owner);
 }
 
 =head2 command_unregister
@@ -317,7 +317,7 @@ sub command_unregister {
 	my $this=shift;
 	my $location=shift;
 	
-	Debian::DebConf::ConfigDb::removemapping($location);
+	Debian::DebConf::ConfigDb::removemapping($location, $this->owner);
 }
 
 =head2 command_fget

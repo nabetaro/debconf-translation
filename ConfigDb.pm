@@ -13,6 +13,8 @@ backend databases. It keeps track of Questions, Mappings, and Templates.
 This is a simple perl module, not a full-fledged object. It's a bit of a
 catchall, and perhaps the ugliest part of debconf.
 
+It will probably need to be rewritten when we actually get a backend db.
+
 =cut
 
 =head1 METHODS
@@ -40,14 +42,14 @@ sub getquestion {
 =head2 loadtemplatefile
 
 Loads up a file containing templates (pass the filename to load). Creates
-Template objects and corresponding Mapping objects.
+Template objects and corresponding Mapping objects. The second parameter is
+the name of the owner of the created templates and mappings.
 
 =cut
 
 sub loadtemplatefile {
 	my $fn=shift;
-	
-	die "No filename to load specified" unless $fn;
+	my $owner=shift;
 	
 	my $collect;
 	open (TEMPLATE_IN, $fn) || die "$fn: $!";
@@ -59,7 +61,7 @@ sub loadtemplatefile {
 			# Have to be careful here to ensure that if a template
 			# already exists in the db and we load it up, the
 			# changes replace the old template without
-			# instantiating# a new template.
+			# instantiating a new template.
 			my $template=Debian::DebConf::Template->new();
 			$template->parse($collect);
 			
@@ -72,9 +74,17 @@ sub loadtemplatefile {
 				$templates{$template->template}=$template;
 			}
 
-			my $mapping=Debian::DebConf::Mapping->new();
+			$templates{$template->template}->addowner($owner);
+
+			# If a mapping by this name exists, just use it.
+			# Else make a new one.
+			my $mapping=$mappings{$template->template};
+			if (! $mapping) {
+				$mapping=Debian::DebConf::Mapping->new();
+			}
 			$mapping->question($template->template);
 			$mapping->template($template->template);
+			$mapping->addowner($owner);
 			$mappings{$template->template}=$mapping;
 			
 			$collect='';
@@ -108,25 +118,38 @@ sub makequestions {
 =head2 addmapping
 
 Create a Mapping and add it to the database. Pass the name of the template and
-the name of the question it is mapped to.
+the name of the question it is mapped to, and also the name of the owner of
+the new mapping.
 
 =cut
 
 sub addmapping {
 	my $template_text=shift;
 	my $location=shift;
+	my $owner=shift;
 
 	my $template=$templates{$template_text};
+
+	# One might think that I need to make the template this new mapping
+	# points to be owned by $owner, so the template doesn't accidentually
+	# go away any time soon while it's still being used. However, doing
+	# that causes a different problem: If this mapping is removed later,
+	# how will we know if the template should remained owned by $owner
+	# or not? After all, other mappings may still use it, or they may not.
+	# So instead, I added some code to removetemplate() to handle
+	# these cases, and I do not set the ownership of the template here.
 
 	# Instantiate or change the mapping to point to the right question.
 	my $mapping;
 	if (exists $mappings{$location}) {
 		$mapping=$mappings{$location};
-		# Short circuit; no change necessary.
+		$mapping->addowner($owner);
+		# Short circuit; no question change necessary.
 		return if $mapping->template eq $template_text;
 	}
 	else {
 		$mapping=Debian::DebConf::Mapping->new();
+		$mapping->addowner($owner);
 	}
 	$mapping->question($location);
 	$mapping->template($template_text);
@@ -149,15 +172,45 @@ sub addmapping {
 
 =head2 removemapping
 
-Removes a given mapping from the database. Pass the name of the mapping.
+Give up ownership of a given mapping. Pass the name of the mapping and the
+owner that is giving it up. When the number of owners reaches 0, the mapping
+itself is removed as is the question associated with it.
 
 =cut
 
-# Remove a mapping.
 sub removemapping {
 	my $location=shift;
+	my $owner=shift;
 	
-	delete $mappings{$location};
+	$mappings{$location}->removeowner($owner);
+	if ($mappings{$location}->owners eq '') {
+		delete $mappings{$location};
+		delete $questions{$location}
+	}
+}
+
+=head2 removetemplate
+
+Give up ownership of a given template. Pass the name of the template and the
+owner that is giving it up. When the number of owners reaches 0, the template
+itself is removed as are any mappings that use it, and any questions that use
+them.
+
+=cut
+
+sub removetemplate {
+	my $location=shift;
+	my $owner=shift;
+	
+	$templates{$location}->removeowner($owner);
+	if ($templates{$location}->owners eq '') {
+		foreach my $maploc (keys %mappings) {
+			if ($mappings{$maploc}->template eq $location) {
+				removemapping($maploc, $owner);
+			}
+		}
+		delete $templates{$location};
+	}
 }
 
 =head2 savedb

@@ -48,10 +48,26 @@ my $frontend=eval qq{
 };	
 die $@ if $@;
 
+# Caches package names so they are only looked up once.
+my %packages;
+
+# Make two passes -- first load all templates, then run all confmodules.
+foreach my $deb (@debs) {
+	my $package=`dpkg-deb -f $deb Package`;
+	chomp $package;
+	$packages{$deb}=$package;
+
+	# Load up templates.
+	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|", $package);
+}
+
+# Instantiate all questions.
+Debian::DebConf::ConfigDb::makequestions();
+
 foreach my $deb (@debs) {
 	# Check to see if this deb has a confmodule in it. If not,
 	# we will skip it. If so, we need to save the confmodule
-	# to be run later.
+	# to disk so it can be run.
 	open (IN, "dpkg --info $deb config 2>/dev/null |") or
 		die "Unable to spawn dpkg: $!";
 	my @config=<IN>;
@@ -67,21 +83,14 @@ foreach my $deb (@debs) {
 	chmod(0755, $script) or 
 		die "Can't chmod: $!";
 
-	# Set the default title.
-	my $title=$deb;
-	$title=~s/_.*//;
-	$title=~s:.*/::;
-	$frontend->default_title($title);
-
-	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|");
-
-	# Instantiate all questions.
-	Debian::DebConf::ConfigDb::makequestions();
+	$frontend->default_title($packages{$deb});
 
 	# Start up the confmodule.
 	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($frontend, $script)';
 	die $@ if $@;
+
+	# Make sure any mappings created are owned by the correct package.
+	$confmodule->owner($packages{$deb});
 
 	# Talk to it until it is done.
 	1 while ($confmodule->communicate);
