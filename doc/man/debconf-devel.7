@@ -664,8 +664,10 @@ And the postinst will look something like this:
 
  # If the admin deleted or commented some variables but then set
  # them via debconf, (re-)add them to the conffile.
- test -z "$FOO" || grep -Eq '^ *FOO=' || echo "FOO=" >> $CONFIGFILE
- test -z "$BAR" || grep -Eq '^ *BAR=' || echo "BAR=" >> $CONFIGFILE
+ test -z "$FOO" || grep -Eq '^ *FOO=' $CONFIGFILE || \\
+ 	echo "FOO=" >> $CONFIGFILE
+ test -z "$BAR" || grep -Eq '^ *BAR=' $CONFIGFILE || \\
+ 	echo "BAR=" >> $CONFIGFILE
 
  sed -e "s/^ *FOO=.*/FOO=\\"$FOO\\"/" \\
      -e "s/^ *BAR=.*/BAR=\\"$BAR\\"/" \\
