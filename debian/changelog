@@ -1,3 +1,11 @@
+debconf (0.2.12) unstable; urgency=low
+
+  * dpkg-preconfig is now more robust: If a config script fails, it
+    outputs an error message, but continues so as much as possible of the
+    install can still complete.
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue,  2 Nov 1999 13:08:07 -0800
+
 debconf (0.2.11) unstable; urgency=low
 
   * Fixed spelling error, Closes: #49032, which was filed on base for

@@ -151,7 +151,11 @@ foreach my $deb (@debs) {
 	# Talk to it until it is done.
 	1 while ($confmodule->communicate);
 
-	exit $confmodule->exitcode if $confmodule->exitcode > 0;
+	# I could just exit, but it's good to be robust so 
+	# other packages can still be configured and installed.
+	if ($confmodule->exitcode > 0) {
+		print STDERR "$packages{$deb} failed to configure, with exit code ".$confmodule->exitcode."\n";
+	}
 
 	unlink $script;
 }
