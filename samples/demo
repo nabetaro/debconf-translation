@@ -15,6 +15,7 @@ db_capb
 db_title Demo
 db_input critical demo/string || true
 db_input low demo/password || true
+db_input low demo/boolean || true
 db_go || true
 db_get demo/select
 echo single item select color is: $RET
