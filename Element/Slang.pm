@@ -90,8 +90,14 @@ sub resize {
 
 Return the value the user entered.
 
+Defaults to returning nothing.
+
 =cut
 
-sub value {}
+sub value {
+	my $this=shift;
+
+	return '';
+}
 
 1
