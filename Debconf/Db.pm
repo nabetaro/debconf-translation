@@ -24,69 +24,6 @@ do that.
 
 The config file format is a series of stanzas. The first stanza configures
 the debconf as a whole, and then each of the rest sets up a database driver.
-For example:
-
-  # This stanza is used for general debconf setup.
-  Config: main
-  Templates: templates
-
-  # This is my own local database.
-  Name: mydb
-  Driver: Text
-  Directory: /var/lib/debconf/config
-
-  # This is another database that I use to hold only X server configuration.
-  Name: X
-  Driver: Text
-  Directory: /etc/X11/debconf/
-  # It's sorta hard to work out what questions belong to X; it
-  # should be using a deeper tree structure so I could just match on ^X/
-  # Oh well.
-  Accept-Name: xserver|xfree86|xbase
-  
-  # This is our company's global, read-only (for me!) debconf database.
-  Name: company
-  Driver: SQL
-  Server: debconf.foo.com
-  Readonly: true
-  Username: foo
-  Password: bar
-  # I don't want any passwords that might be floating around in there.
-  Reject-Type: password
-  Force-Flag-Seen: false
-  # If this db is not accessible for whatever reason, carry on anyway.
-  Required: false
-
-  # This special driver provides a few items from dhcp.
-  Name: dhcp
-  Driver: DHCP
-  Required: false
-  Reject-Type: password
-
-  # And I use this database to hold passwords safe and secure.
-  Name: passwords
-  Driver: FlatFile
-  File: /etc/debconf/passwords
-  Mode: 600
-  Owner: root
-  Group: root
-  Accept-Type: password
-
-  # Let's put them all together in a database stack.
-  Name: main
-  Driver: Stack
-  Stack: passwords, X, mydb, company, dhcp
-  # So, all passwords go to the password database. Most X configuration
-  # stuff goes to the x database, and anything else goes to my main
-  # database. Values are looked up in each of those in turn, and if none has 
-  # a particular value, it is looked up in the company-wide database 
-  # or maybe dhcp (unless it's a password).
-
-  # A database is also used to hold templates. We don't need to make this
-  # as fancy.
-  Name: templates
-  Driver: text
-  Directory: /var/lib/debconf/templates
 
 This lacks the glorious nested bindish beauty of Wichert's original idea,
 but it captures the essence of it.
