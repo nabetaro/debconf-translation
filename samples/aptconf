@@ -15,8 +15,15 @@ MIRRORLIST=$VARDIR/methods/$GROUP/Mirrors.masterlist
 
 . /usr/share/debconf/confmodule
 
-# Set APTETC to the directory apt's config files are in.
-eval `apt-config shell APTETC Dir::Etc`
+# Get the configuration from /etc/apt/apt.conf
+APTGET="/usr/bin/apt-get"
+APTETC="/etc/apt/apt.conf"
+APTCDROM="/usr/bin/apt-cdrom"
+RES=`apt-config shell \
+	APTGET Dir::Bin::apt-get \
+	APTETC Dir::Etc APTCDROM \
+	Dir::Bin::apt-cdrom`
+eval $RES
 
 # Pass in a URI type; this function returns a list of countries
 # that have mirrors in them that match the type.
@@ -69,7 +76,7 @@ mirror_dir () {
 scan_cd () {
 	clear
 	echo "Scanning CD, this will take a minute."
-	if apt-cdrom add --no-mount; then
+	if $APTCDROM add --no-mount; then
 		return 0
 	else
 		# Apt didn't like the cdrom for some reason.
@@ -328,7 +335,7 @@ while [ "$MAINLOOP" ] || add_another; do
 		tempfile=`tempfile`
 		clear
 		echo "Testing apt sources ..."
-		if ! apt-get -o APT::Get::List-Cleanup=false -o Dir::Etc::sourcelist=$tmpsources update 2>$tempfile; then
+		if ! $APTGET -o APT::Get::List-Cleanup=false -o Dir::Etc::sourcelist=$tmpsources update 2>$tempfile; then
 			# Show the user the error message, remove the bad
 			# entry, and loop.
 			db_subst aptconf/badsource apt_error `tr '\n' ' ' < $tempfile`
