@@ -60,7 +60,7 @@ sub show {
 		}
 	}
 	
-	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
+	@params=('--menu', $text, $lines, $columns, $menu_height, '--', @params);
 
 	my $value=$this->frontend->showdialog(@params);
 	if (defined $value) {
