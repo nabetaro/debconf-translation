@@ -10,7 +10,7 @@ package Debconf::Config;
 use strict;
 use Debconf::Question;
 use base qw(Exporter);
-our @EXPORT_OK = qw(dbdir tmpdir frontend priority helpvisible showold);
+our @EXPORT_OK = qw(tmpdir frontend priority helpvisible showold);
 
 =head1 DESCRIPTION
 
@@ -21,16 +21,6 @@ database itself.
 =head1 METHODS
 
 =over 4
-
-=item dbdir
-
-Where to store the database. 
-
-=cut
-
-sub dbdir {
-	"./" # CHANGE THIS AT INSTALL TIME
-}
 
 =item tmpdir
 
