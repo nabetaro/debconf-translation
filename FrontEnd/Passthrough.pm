@@ -42,7 +42,7 @@ sub init {
 	$this->{thepipe} = IO::Socket::UNIX->new(
 		Type => SOCK_STREAM,
 		Peer => $DEBCONFPIPE
-	) || carp "Cannot connect to $DEBCONFPIPE: $!";
+	) || croak "Cannot connect to $DEBCONFPIPE: $!";
 
 	$this->{thepipe}->autoflush(1);
 	
@@ -62,7 +62,7 @@ sub talk {
 	my $command=join(' ', @_);
 	my $reply;
 	
-	my $fh = $this->{thepipe} || carp "Broken pipe";
+	my $fh = $this->{thepipe} || croak "Broken pipe";
 	
 	debug developer => "----> $command";
 	print $fh $command."\n";
