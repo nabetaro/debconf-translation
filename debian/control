@@ -21,8 +21,8 @@ Description: Debian configuration management system
 
 Package: debconf-i18n
 Priority: important
-Conflicts: debconf-english, debconf-utils (<< 1.1.0)
-Replaces: debconf (<< 1.3.0), debconf-utils (<< 1.1.0)
+Conflicts: debconf-english, debconf-utils (<< 1.3.22)
+Replaces: debconf (<< 1.3.0), debconf-utils (<< 1.3.22)
 Architecture: all
 Depends: debconf, liblocale-gettext-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtext-charwidth-perl
 Description: full internationalization support for debconf
