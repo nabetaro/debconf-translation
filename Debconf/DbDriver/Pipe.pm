@@ -23,7 +23,9 @@ and stdout are used.
 
 =item infd
 
-File descriptor number to read from. Defaults to reading from stdin.
+File descriptor number to read from. Defaults to reading from stdin. If
+it's set to "none", the db won't bother to try to read in an initial
+database.
 
 =item outfd
 
@@ -66,9 +68,11 @@ sub init {
 	}
 
 	my $fh;
-	if (defined $this->{outfd}) {
-		open ($fh, "<&=$this->{outfd}") or
-			$this->error("could not open file descriptor #$this->{outfd}: $!");
+	if (defined $this->{infd}) {
+		if ($this->{infd} ne 'none') {
+			open ($fh, "<&=$this->{infd}") or
+				$this->error("could not open file descriptor #$this->{infd}: $!");
+		}
 	}
 	else {	
 		open ($fh, '-');
@@ -79,11 +83,13 @@ sub init {
 	debug "db $this->{name}" => "loading database";
 
 	# Now read in the whole file using the Format object.
-	while (! eof $fh) {
-		my ($item, $cache)=$this->{format}->read($fh);
-		$this->{cache}->{$item}=$cache;
+	if (defined $fh) {
+		while (! eof $fh) {
+			my ($item, $cache)=$this->{format}->read($fh);
+			$this->{cache}->{$item}=$cache;
+		}
+		close $fh;
 	}
-	close $fh;
 }
 
 =sub savedb
@@ -100,12 +106,13 @@ sub savedb {
 
 	my $fh;
 	if (defined $this->{outfd}) {
-		open ($fh, ">&=$this->{infd}") or
+		open ($fh, ">&=$this->{outfd}") or
 			$this->error("could not open file descriptor #$this->{outfd}: $!");
 	}
 	else {
 		open ($fh, '>-');
 	}
+	
 	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item}; # skip deleted

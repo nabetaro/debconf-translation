@@ -13,8 +13,8 @@ use base 'Debconf::DbDriver::Copy';
 
 =head1 DESCRIPTION
 
-This driver passes all reads and writes on to another database. But it 
-backs up of all writes are sent to a second database, too.
+This driver passes all reads and writes on to another database. But
+copies of all writes are sent to a second database, too.
 
 =cut
 
@@ -28,7 +28,7 @@ The database to pass reads and writes to.
 
 In the config file, the name of the database can be used.
 
-=item backup
+=item backupdb
 
 The database to write the backup to.
 
@@ -38,7 +38,7 @@ In the config file, the name of the database can be used.
 
 =cut
 
-use fields qw(db backup);
+use fields qw(db backupdb);
 
 =head1 METHODS
 
@@ -52,7 +52,7 @@ sub init {
 	my $this=shift;
 
 	# Handle values from config file.
-	foreach my $f (qw(db backup)) {
+	foreach my $f (qw(db backupdb)) {
 		if (! ref $this->{$f}) {
 			my $db=$this->driver($this->{$f});
 			unless (defined $f) {
@@ -74,7 +74,7 @@ sub copy {
 	my $this=shift;
 	my $item=shift;
 
-	$this->SUPER::copy($item, $this->{db}, $this->{backup});
+	$this->SUPER::copy($item, $this->{db}, $this->{backupdb});
 }
 
 =item savedb
@@ -86,7 +86,7 @@ Saves both databases.
 sub savedb {
 	my $this=shift;
 	
-	$this->{backup}->savedb(@_);
+	$this->{backupdb}->savedb(@_);
 	$this->{db}->savedb(@_);
 }
 
@@ -109,7 +109,7 @@ sub _change {
 
 	my $ret=$this->{db}->$command(@_);
 	if (defined $ret) {
-		$this->{backup}->$command(@_);
+		$this->{backupdb}->$command(@_);
 	}
 	return $ret;
 }

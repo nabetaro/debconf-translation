@@ -70,17 +70,23 @@ to seperate stanzas in debconf.conf, this program will assume that
 
   debconf-copydb configdb backup
 
-Copy all of configdb to backup.
+Copy all of configdb to backup, assuming you already have the backup
+database defined in debconf.conf.
 
-  debconf-copydb configdb newdb --pattern '^slrn/' \
+  debconf-copydb configdb newdb --pattern='^slrn/' \
   	--config=Name:newdb --config=Driver:File \
 	--config=Filename:newdb.dat
 
 Copy slrn's data out of configdb, and into newdb. newdb is not defined in
 the rc file, so the --config switches set up the database on the fly.
 
-  debconf-copydb configdb pipe 
-  		--config=Name:pipe --config=Driver:Pipe </dev/null | \
+  debconf-copydb configdb stdout -c Name:stdout -c Driver:Pipe \
+  	--InFd:none --pattern='^foo/'
+
+Spit out all the items in the debconf datapase related to package foo.
+
+  debconf-copydb configdb pipe --config=Name:pipe \
+                --config=Driver:Pipe --config=InFd:none | \
   	ssh remotehost debconf-copydb pipe configdb \
 		--config=Name:pipe --config=Driver:Pipe
 
@@ -137,14 +143,14 @@ die "$0: destination database, \"$destname\" does not exist\n" unless ref $dest;
 
 # Set up a copier to handle copying from one to the other.
 my $copier=Debconf::DbDriver::Backup->new(
-	db => $src, backup => $dest, name => 'copier');
+	db => $src, backupdb => $dest, name => 'copier');
 
 # Now just iterate over all items in src that patch the pattern, and tell
 # the copier to make a copy of them.
 my $i=$copier->iterator;
 while (my $item=$i->iterate) {
 	next unless $item =~ /$pattern/;
-	$copier->copy($item);
+	$copier->copy($item, $src, $dest);
 }
 
 $copier->savedb;

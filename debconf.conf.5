@@ -204,7 +204,8 @@ The format to read and write. See FORMATS below. Defaults to using a rfc-822
 like format.
 .TP
 .B Infd
-File descriptor number to read from. Defaults to reading from stdin.
+File descriptor number to read from. Defaults to reading from stdin. If set
+to "none", the database will not read any data on startup.
 .TP
 .B Outfd
 File descriptor number to write to. Defaults to writing to stdout.
@@ -268,7 +269,7 @@ You must specify the following fields to set up this driver:
 .B Db
 The database to read from and write to.
 .TP
-.B Backup
+.B Backupdb
 The name of the database to send copies of writes to.
 .RE
 .P
@@ -276,7 +277,7 @@ For example:
 .P
   Name: backup
   Driver: Backup
-  Db: mydb
+  Backupdb: mydb
   Backup: mybackupdb
 .RE
 .P

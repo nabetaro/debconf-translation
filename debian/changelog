@@ -1,3 +1,15 @@
+debconf (0.9.95) unstable; urgency=low
+
+  * Fixed an overloaded field problem in the Backup DbDriver.
+  * Fixed the InFd field of the Pipe DbDriver so it actually works, and
+    it may now be set to "none" to stop it from reading a db on startup.
+    This allows use of stuff like this, to get a partial debconf db dump, 
+    which developers may find useful when getting info on bugs:
+      debconf-copydb configdb out -c Name:out -c Driver:Pipe \
+                                  -c InFd:none --pattern='^slrn/'
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  8 Aug 2001 20:17:09 -0400
+
 debconf (0.9.94) unstable; urgency=low
 
   * New logo from Jared Johnson <solomon@futureks.net>, quite nice too.
