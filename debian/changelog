@@ -1,3 +1,11 @@
+debconf (0.9.17) unstable; urgency=low
+
+  * Made dpkg-preconfigure drop a user-level debug item including the name
+    of the package and its version as the package is preconfigured.
+    Closes: #88855
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Mar 2001 11:08:30 -0800
+
 debconf (0.9.16) unstable; urgency=low
 
   * Updated transition_db.pl to fix skipping of items with no owner.

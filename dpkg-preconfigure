@@ -199,6 +199,7 @@ foreach my $line (@buffer) {
 
 	# Run config script if any.
 	if (defined $config && length $config) {
+		debug user => "preconfiguring $package ($version)";
 		chmod(0755, $config) or
 			die sprintf(gettext("debconf: can't chmod: %s"), $!);
 		$frontend->default_title($package);
