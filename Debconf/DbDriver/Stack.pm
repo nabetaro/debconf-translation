@@ -302,22 +302,22 @@ sub _nochange {
 	return undef;
 }
 
-sub exists	{ $_[0]->_query('exists', @_) }
-sub addowner	{ $_[0]->_change('addowner', @_) }
+sub exists	{ $_[0]->_query('exists', @_)		}
+sub addowner	{ $_[0]->_change('addowner', @_)	}
 # Note that if the last owner of an item is removed, it next item
 # down in the stack is unshadowed and becomes active. May not be
 # the right behavior.
-sub removeowner { $_[0]->_change('removeowner', @_) }
-sub owners	{ $_[0]->_query('owners', @_) }
-sub getfield	{ $_[0]->_query('getfield', @_) }
-sub setfield	{ $_[0]->_change('setfield', @_) }
-sub fields	{ $_[0]->_query('fields', @_) }
-sub getflag	{ $_[0]->_query('getflag', @_) }
-sub setflag	{ $_[0]->_change('setflag', @_) }
-sub flags	{ $_[0]->_query('flags', @_) }
-sub getvariable { $_[0]->_query('getvariable', @_) }
-sub setvariable { $_[0]->_change('setvariable', @_) }
-sub variables	{ $_[0]->_query('variables', @_) }
+sub removeowner { $_[0]->_change('removeowner', @_)	}
+sub owners	{ $_[0]->_query('owners', @_)		}
+sub getfield	{ $_[0]->_query('getfield', @_)		}
+sub setfield	{ $_[0]->_change('setfield', @_)	}
+sub fields	{ $_[0]->_query('fields', @_)		}
+sub getflag	{ $_[0]->_query('getflag', @_)		}
+sub setflag	{ $_[0]->_change('setflag', @_)		}
+sub flags	{ $_[0]->_query('flags', @_)		}
+sub getvariable { $_[0]->_query('getvariable', @_)	}
+sub setvariable { $_[0]->_change('setvariable', @_)	}
+sub variables	{ $_[0]->_query('variables', @_)	}
 
 =head1 AUTHOR
 
