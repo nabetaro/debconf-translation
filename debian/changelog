@@ -1,3 +1,27 @@
+debconf (0.9.74) unstable; urgency=low
+
+  * Introducing terse mode. You know what you're doing, and so you're using
+    the text frontend (of course!) as you do a remote upgrade from rexx over
+    a 30 hop, 95% packet loss link to another continent. Every byte hurts. 
+    You don't need all those touchy-feely verbose help screens. Terse mode is
+    for you. (Well, for me anyway. Damn this wireless link.)
+       # dpkg-reconfigure debconf --terse
+       What interface should be used for configuring packages? Text
+       Ignore questions with a priority less than.. low
+       Show all old questions again and again? no
+  * Added DEBCONF_TERSE variable.
+  * Added terse support to text frontend.
+  * Renamed debconf/helpvisible to debconf/terse.
+  * Terse can be configured in debconfrc and with --terse too.
+  * Finally tracked down the mysterious text frontend title printing bug --
+    it happened if nothing was displayed, but a note was mailed.
+  * Updated korean translation from Eungkyu Song <eungkyu@sparcs.org>
+    Closes: #103260
+  * Added brazillian portuguese po file from Gustavo Noronha Silva
+    <kov@debian.org>, Closes: #103253
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  3 Jul 2001 00:22:15 -0400
+
 debconf (0.9.73) unstable; urgency=low
 
   * Added debconf-show, which displays all questinos belonging to a

@@ -47,7 +47,7 @@ Description-ru: Показывать вопросы, ответ на которые был уже получен?
  Заметьте, что независимо от значения этого параметра, вы можете увидеть все
  вопросы, запустив программу dpkg-reconfigure.
 
-Template: debconf/helpvisible
+Template: debconf/terse
 Type: boolean
 Default: true
 Description-ru: Показывать дополнительную информацию о вопросах?

@@ -18,6 +18,18 @@ db_capb backup
 # Remove old question.
 db_unregister debconf/preconfig || true
 
+# debconf/helpvisible was renamed, and the value inverted
+if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.74; then
+	# It may not be present, if upgrading from long ago
+	db_get debconf/helpvisible || true
+	if [ "$RET" = true ]; then
+		db_set debconf/terse false
+	else
+		db_set debconf/terse true
+	fi
+	db_unregister debconf/helpvisible || true
+fi
+
 # Use a state machine to allow jumping back to previous questions.
 STATE=1
 while [ "$STATE" != 0 -a "$STATE" != 3 ]; do

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-06-09 23:27-0400\n"
+"POT-Creation-Date: 2001-07-03 01:59-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -21,25 +21,25 @@ msgstr "frontend를 초기화할 수 없음: %s"
 #: ../Debconf/AutoSelect.pm:69
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "frontend를 시작할 수 없습니다: %s"
+msgstr "Frontend를 시작할 수 없습니다: %s"
 
 #: ../Debconf/Config.pm:84
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
 
 #: ../Debconf/Config.pm:88
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
 
 #: ../Debconf/FrontEnd.pm:114
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
+msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
 
 #: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
-msgstr "%s를 설정중"
+msgstr "%s 설정중"
 
 #: ../Debconf/Template.pm:164
 #, c-format
@@ -47,19 +47,19 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"%2$s의 template #%1$s는 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"를 가지고 있습"
-"니다. 아마도 두 template이 긴 개행문자로 정확하게 분리되지 않은 것 같습니"
+"%2$s의 템플릿 #%1$s은(는) 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"을(를) 가지"
+"고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
 "다.\n"
 
 #: ../Debconf/Template.pm:207
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 template parse 에러, %3$s의 #%2$s절\n"
+msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
 
 #: ../Debconf/Template.pm:213
-#, fuzzy, c-format
+#, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s의` template #%1$s이 `Template:' 줄을 담고 있지 않습니다\n"
+msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -68,7 +68,7 @@ msgid ""
 "Perhaps the templates were incorrectly localized."
 msgstr ""
 "C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
-"야 합니다. Perhaps the tamplates were incorrectly localized."
+"야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -92,17 +92,17 @@ msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(컴마와 빈칸(', ')으로 분리된 0개 이상의 항목을 입력하세요.)"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:37
+#: ../Debconf/Element/Noninteractive/Note.pm:39
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:60
+#: ../Debconf/Element/Noninteractive/Note.pm:61
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:78
+#: ../Debconf/Element/Noninteractive/Note.pm:79
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
@@ -123,21 +123,20 @@ msgstr "이 주의는 root에게 메일로 보냈습니다."
 msgid "Unable to save note."
 msgstr "주의를 저장할 수 없습니다."
 
-#: ../Debconf/Element/Text/Multiselect.pm:26
+#: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
-msgstr "위에 있는 것이 아님"
+msgstr "위에 있는 것 중에 없음"
 
-#: ../Debconf/Element/Text/Multiselect.pm:37
+#: ../Debconf/Element/Text/Multiselect.pm:47
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
-msgstr "선택하려고 하는 항목의 글자를 space로 분리해서 입력하세요."
+msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
-msgstr "TERM이 정해지지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
+msgstr "TERM이 설정되지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
-#, fuzzy
 msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "대화상자 frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
 
@@ -154,8 +153,8 @@ msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Whiptail과 dialog 모두가 설치되지 않았으므로, 대화상자 기반의 frontend는 사용"
-"할 수 없습니다."
+"Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
+"용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
@@ -180,17 +179,16 @@ msgid ""
 msgstr ""
 "편집기 기반의 debconf frontend는 편집해야 할 하나 이상의 텍스트 파일과 함께 "
 "나타납니다. 이것도 그러한 텍스트 파일입니다. 표준적인 유닉스 설정 파일에 익숙"
-"하다면, 이 파일은 익숙하게 보일 것입니다 -- 이것은 설정 항목 사이에 주석을 담"
+"하다면, 이 파일은 편하게 보일 것입니다 -- 이것은 설정 항목 사이에 주석을 담"
 "고 있습니다. 파일을 편집해서 필요한 항목을 모두 바꾼 다음 저장하고 나오세요. "
-"그 시점에, debconf는 편집되 파일을 읽을 것이고, 시스템을 설정하기 위해 입력"
-"한 값을 사용할 것입니다."
+"그 시점에, debconf는 편집된 파일을 읽고, 시스템을 설정하기 위해 입력한 값을 "
+"사용할 것입니다."
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
 msgstr "TERM이 정해지지 않았으므로, Slang frontend는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Slang.pm:54
-#, fuzzy
 msgid "Slang frontend is incompatible with emacs shell buffers"
 msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
 
@@ -199,8 +197,8 @@ msgid ""
 "Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Slang frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이는 "
-"사용할 수 없습니다."
+"Slang frontend는 벙어리 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
+"는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
@@ -230,7 +228,7 @@ msgstr "Tab과 방향 키로 움직임; space는 목록을 보여줌."
 msgid "Working, please wait..."
 msgstr "수행중, 기다리세요..."
 
-#: ../Debconf/FrontEnd/Text.pm:198
+#: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "계속"
 
@@ -245,22 +243,22 @@ msgstr ""
 "주의: Debconf는 웹 모드에서 실행중입니다. http://localhost:%i/로 가세요"
 
 #: ../dpkg-preconfigure:107
-#, fuzzy, c-format
+#, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: 표준입력을 다시 열 수 없음: %s"
+msgstr "표준입력을 다시 열 수 없음: %s"
 
 #: ../dpkg-preconfigure:120
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "미리 설정할 deb를 지정해야 합니다"
 
 #: ../dpkg-preconfigure:125
 msgid "(not preconfiguring packages since apt-utils is not installed)"
-msgstr ""
+msgstr "(apt-utils가 설치되지 않았기 때문에 패키지를 미리 설정하지 않습니다)"
 
 #: ../dpkg-preconfigure:160
 #, c-format
 msgid "template parse error: %s"
-msgstr "template parse 에러: %s"
+msgstr "템플릿 parse 에러: %s"
 
 #: ../dpkg-preconfigure:174
 #, c-format
@@ -268,9 +266,9 @@ msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod할 수 없음: %s"
 
 #: ../dpkg-preconfigure:184
-#, fuzzy, c-format
+#, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s 설정 실패, 코드 %s와 함께 종료함"
+msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
 
 #: ../dpkg-reconfigure:72
 msgid "must be run as root"
@@ -278,12 +276,12 @@ msgstr "root로 실행해야 합니다"
 
 #: ../dpkg-reconfigure:113
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "다시 설정할 패키지를 지정하세요"
 
 #: ../dpkg-reconfigure:127
 #, c-format
 msgid "%s is not fully installed"
-msgstr "%s는 완전히 설치되지 않았습니다"
+msgstr "%s은(는) 완전히 설치되지 않았습니다"
 
 #: ../dpkg-reconfigure:200
 #, c-format

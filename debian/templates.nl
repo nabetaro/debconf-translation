@@ -86,7 +86,7 @@ Description-nl: Welke interface moet gebruikt worden bij het instellen van pakke
  'noninteractive' interface stelt u in het geheel geen vragen. De
  'dialog' schil is een primitieve schil en wordt binnenkort verwijderd.
 
-Template: debconf/helpvisible
+Template: debconf/terse
 Type: boolean
 Description: Should debconf display extended help for questions?
  Debconf can display extended help for questions. Some frontends allow

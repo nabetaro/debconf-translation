@@ -82,8 +82,8 @@ Debconf::Db->load;
 my $apt=0;
 Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
 qq{Syntax: dpkg-reconfigure [options] [debs]
-       --apt		Apt mode.},
-	"apt"		=> \$apt,
+       --apt			Apt mode.},
+	"apt"			=> \$apt,
 );
 
 # In apt mode, need unbuffered output. Let's just enable it.

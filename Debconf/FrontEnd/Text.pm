@@ -11,6 +11,7 @@ use strict;
 use Text::Wrap;
 use Term::ReadLine;
 use Debconf::Gettext;
+use Debconf::Config;
 use base qw(Debconf::FrontEnd::Tty);
 
 local $|=1;
@@ -165,6 +166,9 @@ Displays text wrapped to fit on the screen. If too much text is displayed at
 once, it will page it. If a title has been set and has not yet been displayed,
 displays it first.
 
+The important flag, if set, will make it always be shown. If unset, the
+text will not be shown in terse mode,
+
 =cut
 
 sub display {
@@ -184,14 +188,21 @@ displayed, displays it first.
 sub display_nowrap {
 	my $this=shift;
 	my $text=shift;
-	my $notitle=shift;
 
-	# Display any pending title.
-	$this->title unless $notitle;
+	# Terse mode skips all this stuff.
+	return if Debconf::Config->terse eq 'true';
 
-	my @lines=split(/\n/, $text);
 	# Silly split elides trailing null matches.
+	my @lines=split(/\n/, $text);
 	push @lines, "" if $text=~/\n$/;
+	
+	# Add to the display any pending title.
+	my $title=$this->title;
+	if (length $title) {
+		unshift @lines, $title, ('-' x length $title), '';
+		$this->title('');
+	}
+
 	foreach (@lines) {
 		if ($this->linecount($this->linecount+1) > $this->screenheight - 2) {
 			$this->prompt(
@@ -202,28 +213,6 @@ sub display_nowrap {
 		}
 		print "$_\n";
 	}
-}
-
-=item title
-
-Display a title. Only do so once per title. The title is stored in the title
-field of the object. If a value is passed in, this will set the title
-instead.
-
-=cut
-
-sub title {
-	my $this=shift;
-
-	if (@_) {
-		return $this->{title}=shift;
-	}
-
-	my $title=$this->{title};
-	if ($title) {
-		$this->display_nowrap($title."\n".('-' x length($title)). "\n", 1);
-	}
-	$this->{title}='';
 }
 
 =item prompt
@@ -322,13 +311,13 @@ sub prompt_password {
 		$ret=<STDIN>;
 		chomp $ret;
 		# Their newline won't have registered, so simulate it.
-		$this->display_nowrap("\n");
+		print "\n";
 	}
 	else {
 		$ret=$this->prompt(@_, noshowdefault => 1, completions => []);
 	}
 	system('stty sane');
-	$this->display_nowrap("\n");
+	print "\n";
 	return $ret;
 }
 

@@ -86,7 +86,7 @@ Description-sv: Visa alla gamla frågor igen och igen?
  Observera: oavsett vad du väljer här kan du se gamla frågor igen genom att
  använda programmet dpkg-reconfigure. 
 
-Template: debconf/helpvisible
+Template: debconf/terse
 Type: boolean
 Default: true
 Description: Should debconf display extended help for questions?

@@ -84,7 +84,7 @@ Description-es: ¿Mostrar las preguntas antiguas una y otra vez?
  Observe que independiente de lo que escoja aquí, puede ver las preguntas
  antiguas de nuevo usando dpkg-reconfigure .
 
-Template: debconf/helpvisible
+Template: debconf/terse
 Type: boolean
 Default: true
 Description: Should debconf display extended help for questions?

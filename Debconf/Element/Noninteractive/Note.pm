@@ -10,6 +10,8 @@ package Debconf::Element::Noninteractive::Note;
 use strict;
 use Text::Wrap;
 use Debconf::Gettext;
+use Debconf::Config;
+use Debconf::Log ':all';
 use base qw(Debconf::Element::Noninteractive);
 
 =head1 DESCRIPTION
@@ -53,10 +55,9 @@ explain why the note was sent.
 sub sendmail {
 	my $this=shift;
 	my $footer=shift;
-
 	return unless length Debconf::Config->admin_email;
-
 	if (-x '/usr/bin/mail' && $this->question->flag('seen') ne 'true') {
+		debug user => "mailing a note";
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".
 			$this->question->description;

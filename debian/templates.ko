@@ -1,8 +1,8 @@
 Template: debconf/frontend
 Type: select
 Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-ko: Slang, 텍스트, 편집기, 대화상자, Noninteractive
-Default: Slang
+Choices-ko: Slang, 텍스트, 편집기, 대화상자, 상호작용없음
+Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
@@ -11,20 +11,22 @@ Description: What interface should be used for configuring packages?
  windowing interface, while the text frontend uses a more traditional plain
  text interface. The editor frontend lets you configure things using your
  favorite text editor. The noninteractive frontend never asks you any
- questions.
-Description-ko: 패키지를 설정하기 위해 어떤 인터페이스를 사용할까요?
- debconf를 사용하여 설정하는 패키지는 공통의 겉모습과 느낌을 공유합니다.
- 그것이 사용할 사용자 인터페이스의 유형을 선택할 수 있습니다.
+ questions. The dialog frontend is a primitive frontend that is being
+ phased out.
+Description-ko: 패키지를 설정할 때 어떤 인터페이스를 사용할까요?
+ 설정하기 위해 debconf를 사용하는 패키지를 공통된 모습과 느낌을 공유합니다.
+ 그것이 사용할 사용자 인터페이스의 종류를 선택할 수 있습니다.
  .
- slang frontend는 화려하고 전체화면인 문자 기반의 창 인터페이스인 반면,
- text frontend는 좀 더 전통적인 일반 텍스트 인터페이스를 사용합니다.
- editor frontend는 선호하는 텍스트 편집기를 사용해서 설정할 수 있게
- 해줍니다. noninteractive frontend는 어떠한 질문도 묻지 않습니다.
+ Slang frontend는 색깔이 있고, 전체화면인 문자 기반의 창 인터페이스인 반면,
+ 텍스트 forntend는 좀 더 전통적인 일반 텍스트 인터페이스를 사용합니다. 편집기
+ 인터페이스는 당신이 선호하는 텍스트 편집기로 설정할 수 있게 합니다.
+ 상호작용없음은 어떤 질문도 묻지 않습니다. 대화상자 frontend는 단계적으로
+ 폐지되고 있는 초기의 frontend입니다.
 
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
-Choices-ko: 중요, 높음, 보통, 낮음
+Choices-ko: 중요함, 높음, 중간, 낮음
 Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
@@ -44,24 +46,24 @@ Description: Ignore questions with a priority less than..
  .
  If you are new to the Debian GNU/Linux system choose `critical' now,
  so you only see the most important questions.
-Description-ko: 선택한 것 보다 낮은 우선순위의 질문은 무시합니다.
- debconf를 사용하여 설정하는 패키지는 질문에 우선순위를 부여합니다.
- 오직 특정한 우선순위 이상의 질문만이 보일 것입니다; 덜 중요한 모든
- 질문은 건너 뜁니다.
+Description-ko: 더 낮은 우선순위의 질문은 무시합니다.
+ 설정하기 위해 debconf를 사용하는 패키지는 당신에게 물을 질문에 우선순위를
+ 매깁니다. 정해진 우선순위 또는 그보다 높은 질문만이 실제로 당신이 볼 수
+ 있습니다; 덜 중요한 질문은 모두 건너뜁니다.
  .
- 보고 싶은 질문의 최소 우선순위를 선택할 수 있습니다:
-   - `중요'는 사용자의 조정 없이는 시스템이 망가질 수도 있는 항목에
-     대한 것입니다.
-   - `높음'은 적당한 기본값이 없는 항목에 대한 것입니다.
-   - `보통'은 적당한 기본값이 있는 보통의 항목에 대한 것입니다.
-   - `낮음'은 대부분의 경우에 잘 작동하는 기본값을 가지고 있는 사소한
+ 당신은 볼 질문의 가장 낮은 우선순위를 선택할 수 있습니다:
+   - `중요함'은 사용자의 조정 없이는 시스템이 망가질 수도 있는
      항목에 대한 것입니다.
+   - `높음'은 정당한 기본값이 없는 항목에 대한 것입니다.
+   - `중간'은 정당한 기본값을 가지고 있는 보통 항목에 대한 것입니다.
+   - `낮음'은 대부분의 경우에 동작하는 기본값을 가지고 있는 평범한
+     항목에 대한 갓입니다.
  .
- 예를 들어, 이 질문은 보통의 우선순위이기 때문에, 만약 이전에 선택한
- 우선순위가 `높음'이나 `중요'였다면, 이 질문은 보지 못했을 것입니다.
+ 예를 들어, 이 질문은 중간의 우선순위이므로, 당신의 우선순위가 이미 `높음'
+ 또는 `중간'이었다면, 이 질문을 볼 수 없었을 것입니다.
  .
- 만약 데비안 GNU/Linux 시스템에 처음이라면 `중요'를 선택하세요, 그러면
- 가장 중요한 질문만 볼 것입니다.
+ 만약 데비안 GNU/리눅스 시스템에 처음이라면 지금 `중요함'을 선택하세요,
+ 그러면 가장 중요한 질문만 보게 될 것입니다.
 
 Template: debconf/showold
 Type: boolean
@@ -80,10 +82,10 @@ Description-ko: 예전의 질문 모두를 반복해서 보여줄까요?
  반복해서 질문을 하도록 할 수 있습니다. 그러면 패키지를 업그레이드하거나 다시
  설치할 때마다 질문을 할 것입니다.
  .
- 여기에서 어떤 것을 선택하더라도, dpkg-reconfigure 프로그램을 사용해서 예전의
- 질문을 다시 볼 수 있다는 것을 알아두세요.
+ 여기에서 어떤 것을 선택하든 상관없이, dpkg-reconfigure 프로그램을 사용해서
+ 예전의 질문을 다시 볼 수 있다는 것을 알아두세요.
 
-Template: debconf/helpvisible
+Template: debconf/terse
 Type: boolean
 Default: true
 Description: Should debconf display extended help for questions?

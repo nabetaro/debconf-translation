@@ -16,6 +16,18 @@ This is a note to the user, presented using a plain text interface.
 
 =cut
 
+=item show
+
+Notes are not shown in terse mode.
+
+=cut
+
+sub visible {
+        my $this=shift;
+
+	return (Debconf::Config->terse eq 'false');
+}
+
 sub show {
 	my $this=shift;
 

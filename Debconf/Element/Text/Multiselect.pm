@@ -9,6 +9,7 @@ Debconf::Element::Text::Multiselect - select multiple items
 package Debconf::Element::Text::Multiselect;
 use strict;
 use Debconf::Gettext;
+use Debconf::Config;
 use base qw(Debconf::Element::Multiselect Debconf::Element::Text::Select);
 
 =head1 DESCRIPTION
@@ -30,21 +31,34 @@ sub show {
 	if ($this->frontend->promptdefault && $this->question->value ne '') {
 		push @choices, $none_of_the_above;
 	}
+	my @completions=@choices;
+	my $i=1;
+	my %choicenum=map { $_ => $i++ } @choices;
 	
 	# Print out the question.
 	$this->frontend->display($this->question->extended_description."\n");
-	$this->printlist(@choices);
-	$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
+	
+	# If this is not terse mode, we want to print out choices, and
+	# add numbers to the completions, and use numbers in the default
+	# prompt.
+	my $default;
+	if (Debconf::Config->terse eq 'false') {
+		$this->printlist(@choices);
+		$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
+		push @completions, 1..@choices;
+		$default=join(" ", map { $choicenum{$_} }
+		                   grep { $value{$_} } @choices);
+	}
+	else {
+		$default=join(" ", grep { $value{$_} } @choices);
+	}
 
 	# Prompt until a valid answer is entered.
-	my $i=1;
-	my %choicenum=map { $_ => $i++ } @choices;
 	while (1) {
 		$_=$this->frontend->prompt(
 			prompt => $this->question->description,
-		 	default => join(" ", map { $choicenum{$_} }
-			                     grep { $value{$_} } @choices),
-			completions => [@choices, 1..@choices],
+		 	default => $default,
+			completions => [@completions],
 			completion_append_character => " ",
 		);
 		return unless defined $_;

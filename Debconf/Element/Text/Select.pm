@@ -8,6 +8,7 @@ Debconf::Element::Text::Select - select from a list of values
 
 package Debconf::Element::Text::Select;
 use strict;
+use Debconf::Config;
 use POSIX qw(ceil);
 use base qw(Debconf::Element::Select);
 
@@ -34,8 +35,10 @@ sub expandabbrev {
 	my $input=shift;
 	my @choices=@_;
 
-	# Check for (valid) numbers.
-	if ($input=~m/^[0-9]+$/ and $input ne '0' and $input <= @choices) {
+	# Check for (valid) numbers, unless in terse mode, when they were
+	# never shown any numbers to pick from.
+	if (Debconf::Config->terse eq 'false' and 
+	    $input=~m/^[0-9]+$/ and $input ne '0' and $input <= @choices) {
 		return $choices[$input - 1];
 	}
 	
@@ -129,7 +132,7 @@ COLUMN:	for ($num_cols = $max_cols; $num_cols > 0; $num_cols--) {
 		}
 	}
 
-	map { print "$_\n" } @output;
+	map { $this->frontend->display_nowrap($_) } @output;
 }
 
 sub show {
@@ -137,28 +140,36 @@ sub show {
 	
 	my $default=$this->translate_default;
 	my @choices=$this->question->choices_split;	
-
-	# Get number of default in choices list.
-	my $default_num=0;
-	for (my $choice=0; $choice <= $#choices; $choice++) {
-		if ($choices[$choice] eq $default) {
-			$default_num=$choice + 1;
-			last;
-		}
-	}
+	my @completions=@choices;
 
 	# Print out the question.
 	$this->frontend->display($this->question->extended_description."\n");
-	$this->printlist(@choices);
-	$this->frontend->display("\n");
+	
+	# Change default to number of default in choices list
+	# except in terse mode.
+	if (Debconf::Config->terse eq 'false') {
+		for (my $choice=0; $choice <= $#choices; $choice++) {
+			if ($choices[$choice] eq $default) {
+				$default=$choice + 1;
+				last;
+			}
+		}
+		
+		# Rather expensive, and does nothing in terse mode.
+		$this->printlist(@choices);
+		$this->frontend->display("\n");
+
+		# Add choice numbers to completion list in terse mode.
+		push @completions, 1..@choices;
+	}
 
 	# Prompt until a valid answer is entered.
 	my $value;
 	while (1) {
 		$value=$this->frontend->prompt(
 			prompt => $this->question->description,
-			default => $default_num ? $default_num : '',
-			completions => [@choices, 1..@choices],
+			default => $default ? $default : '',
+			completions => [@completions],
 		);
 		return unless defined $value;
 		$value=$this->expandabbrev($value, @choices);

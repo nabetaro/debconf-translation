@@ -12,7 +12,7 @@ use Debconf::Question;
 use Debconf::Gettext;
 use Debconf::Db;
 
-use fields qw(config templates frontend priority helpvisible
+use fields qw(config templates frontend priority terse
               showold admin_email log debug);
 our $config=fields::new('Debconf::Config');
 
@@ -123,6 +123,7 @@ sub getopt {
   -f,  --frontend		Specify debconf frontend to use.
   -p,  --priority		Specify minimum priority question to show.
   -s,  --showold		Redisplay old, already seen questions.
+       --terse			Enable terse mode.
 EOF
 		exit 1;
 	};
@@ -133,6 +134,7 @@ EOF
 		'frontend|f=s',	sub { shift; $config->{frontend} = shift },
 		'priority|p=s',	sub { shift; $config->{priority} = shift },
 		'showold|s',	sub { $config->{showold} = 'true' },
+		'terse',	sub { $config->{terse} = 'true' },
 		'help|h',	$showusage,
 		@_,
 	) || $showusage->();
@@ -190,24 +192,20 @@ sub priority {
 	return $ret;
 }
 
-=item helpvisible
+=item terse
 
-Whether extended help should be displayed in some frontends. Looks first at
-the config file, then at the database, and if both fail, defaults to true.
-
-If a value is passed to this function, it changes it permanantly in the
-database and for the lifetime of the program overrides anything that might
-be in the config file.
+The behavior in terse mode varies by frontend.
 
 =cut
 
-sub helpvisible {
+sub terse {
 	my $class=shift;
-	$config->{helpvisible}=$_[0] if @_;
-	return $config->{helpvisible} if exists $config->{helpvisible};
+	return $ENV{DEBCONF_TERSE} if exists $ENV{DEBCONF_TERSE};
+	$config->{terse}=$_[0] if @_;
+	return $config->{terse} if exists $config->{terse};
 
-	my $ret='true';
-	my $question=Debconf::Question->get('debconf/helpvisible');
+	my $ret='false';
+	my $question=Debconf::Question->get('debconf/terse');
 	if ($question) {
 		return $question->value || $ret;
 	}
@@ -261,7 +259,7 @@ variable. If neither is set, it defaults to root.
 
 =cut
 
-sub admin_mail {
+sub admin_email {
 	my $class=shift;
 	return $ENV{DEBCONF_ADMIN_EMAIL} if exists $ENV{DEBCONF_ADMIN_EMAIL};
 	return $config->{admin_email} if exists $config->{admin_email};
