@@ -220,13 +220,19 @@ sub go {
 	}
 	
 	# Retrieve the answers.
-	foreach my $element (@elements) {
-		my $tag = $element->question->template->template;
+	foreach my $element (@{$this->elements}) {
+		if ($element->visible) {
+			my $tag = $element->question->template->template;
 
-		my ($ret, $val)=$this->talk('GET', $tag);
-		if ($ret eq "0") {
-			$element->value($val);
-			debug developer => "Got \"$val\" for $tag";
+			my ($ret, $val)=$this->talk('GET', $tag);
+			if ($ret eq "0") {
+				$element->value($val);
+				debug developer => "Got \"$val\" for $tag";
+			}
+		} else {
+			my $default='';
+			$default=$element->question->value if defined $element->question->value;
+			$element->value($default);
 		}
 	}
 

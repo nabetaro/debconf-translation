@@ -1,6 +1,13 @@
 debconf (1.4.43) UNRELEASED; urgency=low
 
-  * Mark more strings as translatable. Closes: #225463
+  * Christian Perrier
+    - Mark more strings as translatable. Closes: #225463
+  * Colin Watson
+    - The passthrough frontend sets the value of visible questions by
+      getting the value from the UI agent, but it didn't set the value of
+      invisible questions as the confmodule expects it to. It now sets the
+      value of invisible questions in the same way as the noninteractive
+      frontend.
   * Translations:
     - French updated
     - Italian updated. Closes: #291797
