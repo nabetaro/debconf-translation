@@ -24,7 +24,7 @@ sub init {
 	# The widget can be focused, but that's about it..
 	$this->widget(Term::Stool::Text->new(
 		sameline => 1,
-		disabled => 0,
+		can_focus => 1,
 		xoffset => 1,
 		text => ' ',
 		preferred_width => 0,
