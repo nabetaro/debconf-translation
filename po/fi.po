@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 14:50-0500\n"
-"PO-Revision-Date: 2004-01-09 13:34+0200\n"
+"POT-Creation-Date: 2004-08-17 20:50+0100\n"
+"PO-Revision-Date: 2004-11-11 10:07+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -122,35 +122,35 @@ msgstr "liittymän alustus epäonnistui: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Liittymän käynnistys epäonnistui: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr ""
+msgstr "Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa ne."
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr ""
+msgstr "Ohitetaan virheellinen prioriteetti \"%s\""
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr ""
+msgstr "Kelvolliset prioriteetit ovat: %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -188,9 +188,8 @@ msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
 #: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
 msgid "_Help"
-msgstr "Ohje"
+msgstr "_Ohje"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
@@ -206,7 +205,7 @@ msgstr "Debconf tallensi tämän ilmoituksen postittamalla sen sinulle."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr ""
+msgstr "Tiedot"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
@@ -214,7 +213,7 @@ msgstr "Ilmoitus on lähetetty."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
-msgstr ""
+msgstr "Virhe"
 
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
@@ -323,21 +322,21 @@ msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
 msgid "%s must be run as root"
 msgstr "%s on ajettava root-oikeuksilla"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "tarvitsen käsiteltävän paketin nimen"
 
-#: ../dpkg-reconfigure:157
+#: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
 msgstr "%s ei ole täysin asennettu"
 
-#: ../dpkg-reconfigure:161
+#: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s on rikki tai ei ole täysin asennettu"
 
-#: ../dpkg-reconfigure:238
+#: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Tilatiedoston luku epäonnistui: %s"
