@@ -29,13 +29,14 @@ map { $commands{uc $_}=1; } @EXPORT_OK;
 $|=1;
 
 # Ensure that a FrontEnd is running. This is only for use by external programs
-# that still want to use a FrontEnd. It's a little hackish. If DEBIAN_FRONTEND is
-# set, a frontend is assumed to be running. If not, the frontend will actually be
-# started up and told to run this program again, with the variable set.
+# that still want to use a FrontEnd. It's a little hackish. If DEBIAN_FRONTEND
+# is set, a frontend is assumed to be running. If not, the frontend will
+# actually be started up and told to run this program again, with the variable
+# set.
 sub start_frontend {
-	if ($ENV{DEBIAN_FRONTEND}) {
+	unless ($ENV{DEBIAN_FRONTEND}) {
 		$ENV{DEBIAN_FRONTEND}=1;
-		exec("/usr/lib/debconf/frontend.pl", $0);
+		exec("client/start-frontend", $0) || die $!;
 	}
 }
 
