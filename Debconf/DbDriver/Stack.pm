@@ -223,10 +223,6 @@ sub _change {
 				last;
 			}
 		}
-		if (! $driver->{readonly} and $driver->accept($item)) {
-			$writer=$driver;
-			last;
-		}
 	}
 	
 	unless ($writer) {

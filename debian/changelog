@@ -1,3 +1,12 @@
+debconf (1.1.5) unstable; urgency=low
+
+  * Fixed something to do with propigation of template types through database
+    stack driver into accept method when setting up a brand-new template with;
+    clearly broken at version 1.1.0. Looks like I recoded it properly but forgot
+    to delete the old code. Closes: #147576, #147684, #147620
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 22 May 2002 02:28:48 -0400
+
 debconf (1.1.4) unstable; urgency=low
 
   * Tighthened up the version number in the dbeconf-utils conflicts.
