@@ -31,7 +31,9 @@ sub show {
 		$lines + $this->frontend->spacer, 
 		$columns, $default);
 
-	return $this->frontend->showdialog(@params);
+	my $ret=$this->frontend->showdialog(@params);
+	$ret='' unless defined $ret;
+	return $ret;
 }
 
 1

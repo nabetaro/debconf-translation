@@ -1,3 +1,14 @@
+debconf (0.3.73) unstable; urgency=low
+
+  * My night for stupid debconf bugs. It turns out that the
+    string element in the dialog frontend was causinng the
+    default from the template to be used if the a text input
+    line was returned empty. Now "" is returned as it should
+    be. I know one package bitten by this is cvs, in its
+    repository directory selection question.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 12 Sep 2000 21:27:20 -0700
+
 debconf (0.3.72) unstable; urgency=low
 
   * Fixed a really stupid typo in the editor and text frontends
