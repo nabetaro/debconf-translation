@@ -2,14 +2,22 @@
 # Apt configurator.
 # GPL 199 by Joey Hess
 
+# Options passed from dselect
 VARDIR=$1
 GROUP=$2
 METHOD=$3
 
+# Pass something as parameter 4 to enable cd autoprobing on startup.
+CDPROBE=$4
+
 # Where is the mirrors master list?
+#MIRRORLIST=/home/joey/debian/webwml/english/mirror/Mirrors.masterlist
 MIRRORLIST=$VARDIR/methods/$GROUP/Mirrors.masterlist
 
 . /usr/share/debconf/confmodule
+
+# Set APTETC to the directory apt's config files are in.
+eval `apt-config shell APTETC Dir::Etc`
 
 # Pass in a URI type; this function returns a list of countries
 # that have mirrors in them that match the type.
@@ -116,15 +124,15 @@ add_another () {
 	db_get aptconf/another
 	if [ "$RET" = true ]; then
 		# Before looping, make a new backup.
-		cp -f /etc/apt/sources.list /etc/apt/sources.list.bak
+		cp -f $APTETC/sources.list $APTETC/sources.list.bak
 		return 0
 	fi
 	return 1
 }
 
 # Make sure the file exists, and back it up.
-touch /etc/apt/sources.list
-cp -f /etc/apt/sources.list /etc/apt/sources.list.bak
+touch $APTETC/sources.list
+cp -f $APTETC/sources.list $APTETC/sources.list.bak
 
 # Establish the preliminaries.
 db_version 2.0
@@ -144,7 +152,7 @@ if [ -e /dev/cdrom ]; then
 fi
 # TODO: other probing here.
 
-if [ "$CDDEV" ]; then
+if [ "$CDPROBE" -a "$CDDEV" ]; then
 	umount /cdrom 2>/dev/null || true
 	# Try mounting the detected cd rom.
 	if [ "$CDDEV" ] && mount $CDDEV /cdrom -o ro -t iso9660 && scan_cd; then
@@ -308,11 +316,11 @@ while [ "$MAINLOOP" ] || add_another; do
 				SEP=//
 			fi
 	
-			echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
-			echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
+			echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $APTETC/sources.list
+			echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $APTETC/sources.list
 		else
 			db_get aptconf/wholeline
-			echo $RET >> /etc/apt/sources.list
+			echo $RET >> $APTETC/sources.list
 			echo 
 		fi
 
@@ -330,7 +338,7 @@ while [ "$MAINLOOP" ] || add_another; do
 			db_input critical aptconf/badsource || true
 			db_go
 			rm -f $tempfile
-			cp /etc/apt/sources.list.bak /etc/apt/sources.list
+			cp $APTETC/sources.list.bak $APTETC/sources.list
 			MAINLOOP=1
 		fi
 	fi
