@@ -1,3 +1,17 @@
+debconf (0.1.44) unstable; urgency=low
+
+  * Added the metaget command. I did this mainly to let one get a list of
+    the owners of a question, though it might have other uses later.
+  * Substitutions now take effect on the choices field as well as the
+    description field.
+  * Put these two changes together and it's now possible to install several
+    related packages (ispell dictionaries, say), and get a list of what
+    dictionaries are available when the config scripts run, and only prompt
+    the user once for which one they want. Added a section to the tutorial
+    about this.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 29 Sep 1999 15:52:14 -0700
+
 debconf (0.1.43) unstable; urgency=low
 
   * Fixed the problems with the purge command, which were really package

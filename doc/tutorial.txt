@@ -225,6 +225,9 @@ though):
 	db_purge
   fi
 
+Note that debhelper will do this for you if you use the dh_installdebconf
+command.
+
 Finishing Up
 ------------
 
@@ -237,6 +240,9 @@ Advanced Topics
 ---------------
 
 Now I'll move on to some more complicated areas of debconf.
+
+Infinite Loop Prevention
+- - - - - - - - - - - - -
 
 One gotcha with debconf comes up if you have a loop in your config script.
 Suppose you're asking for input and validating it, and looping if it's not
@@ -266,6 +272,57 @@ called before entering the loop.
 
 Another fix is to use the "visible" command to test if the user will be
 prompted, and skip the loop if not.
+
+Choosing amoung related packages
+- - - - - - - - - - - - - - - - -
+
+Sometimes a set of related packages can be installed, and you want to prompt
+the user which of the set should be used by default. Examples of such sets
+are window managers, or ispell dictionary files. While it would be possible
+for each package in the set to simply prompt "Should this package be
+default?", this leads to a lot of repetative questions if several of the
+packages are installed. It's possible with debconf to present a list of all
+the packages in the set and allow the user to choose between them. Here's how.
+
+Make all the packages in the set use a shared template. Something like this:
+
+  Template: shared/window-manager
+  Type: select
+  Choices: ${choices}
+  Description: Select the default window manager.
+   Select the window manager that will be started by default when X
+   starts.
+
+Each package should include a copy of the template. Then it should include
+some code like this in its config script:
+
+  db_metaget shared/window-manager owners
+  OWNERS=$RET
+  db_metaget shared/window-manager choices
+  CHOICES=$RET
+  
+  if [ "$OWNERS" != "$CHOICES" ]; then
+  	db_subst shared/window-manager choices $OWNERS
+	db_fset shared/window-manager isdefault false
+	db_input medium shared/window-manager
+	db_go
+  fi
+
+A bit of an explination is called for. By the time your config script runs,
+debconf has already read in all the templates for the packages that are
+being installed. Since the set of packages share a question, debconf records
+that fact in the owners field. By a strange cooincidence, the format of the
+owners field is the same as that of the choices field (a comma and space
+delimited list of values).
+
+The "metaget" command can be used to get the list of owners and the list of
+chocies. If they are differnet, then a new package has been installed. So
+use the "subst" command to change the list of choices to be the same as the
+list of owners, and ask the question.
+
+One thing this doesn't deal with is what happens if the package selected as
+the default is removed. If that happens you probably want to make some other
+package the default. Doing so is left as an excercise for the reader.
 
 Appendix A.
 -----------
@@ -386,6 +443,10 @@ fset <variable> <flag> <value>
 	Sometimes you want the user to see a question again -- in these cases
 	you can set the isdefault flag to true to force the frontend to
 	redisplay it.
+
+metaget <variable> <field>
+
+	This returns the value of any field of a variable.
 
 register <template> <variable>
 

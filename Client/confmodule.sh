@@ -37,7 +37,7 @@ for i in "capb CAPB" "stop STOP" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
-	 "visible VISIBLE" "purge PURGE"; do
+	 "visible VISIBLE" "purge PURGE" "metaget METAGET"; do
 	# Break string up into words.
 	set -- $i
 	eval "db_$1 () { _command \"$2 \$@\" ; read RET; }"

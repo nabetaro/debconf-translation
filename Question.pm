@@ -75,7 +75,7 @@ sub description {
 	return $this->_expand_vars($this->template->description);
 }
 
-=head2 description
+=head2 extended_description
 
 Returns the extended description of this Question. This value is taken from the
 Template the Question is mapped to, and then any substitutions in the extended
@@ -86,6 +86,19 @@ description are expanded.
 sub extended_description {
 	my $this=shift;
 	return $this->_expand_vars($this->template->extended_description);
+}
+
+=head2 choices
+
+Returns the choices field of this Question. This value is taken from the
+Template the Question is mapped to, and then any substitutions in the extended
+description are expanded.
+
+=cut
+
+sub choices {
+	my $this=shift;
+	return $this->_expand_vars($this->template->choices);
 }
 
 =head2 variables

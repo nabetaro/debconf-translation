@@ -291,7 +291,7 @@ sub command_subst {
 	my $this = shift;
 	my $question_name = shift;
 	my $variable = shift;
-	my $value = join ' ', @_;
+	my $value = (join ' ', @_);
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		die "$question_name doesn't exist";
@@ -339,6 +339,23 @@ sub command_purge {
 	Debian::DebConf::ConfigDb::disownall($this->owner);
 }
 
+=head2 command_metaget
+
+Pass this a question name and a field name. It returns the value of the
+specified field of the question.
+
+=cut
+
+sub command_metaget {
+	my $this=shift;
+	my $question_name=shift;
+	my $field=shift;
+	
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
+	return $question->$field();
+}
+
 =head2 command_fget
 
 Pass this a question name and a flag name. It returns the value of the
@@ -368,7 +385,7 @@ sub command_fset {
 	my $this=shift;
 	my $question_name=shift;
 	my $flag="flag_".shift;
-	my $value=shift;
+	my $value=(join ' ', @_);
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		die "$question_name doesn't exist";
