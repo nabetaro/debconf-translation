@@ -1,3 +1,16 @@
+debconf (0.9.67) unstable; urgency=low
+
+  * Let's make the templates cache mode 644. There's nothing sentative in
+    there. (Modified the debconf.conf file.)
+  * Convert Mode field to octal on the fly to precent confusion.
+  * Spell checked debconf.conf.5. Along the way, I discovered that a field
+    name in the debconf db was mispelled. So, "Extention" should really be
+    "Extension". Update your debconf.conf. Since this is not used in the
+    stock config file, and I've never seen it used, I did just rename the
+    field, breaking backwards compatability.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 14 Jun 2001 20:27:52 -0400
+
 debconf (0.9.66) unstable; urgency=low
 
   * Prevent Editor::Note's from feeding undef values into the db, 

@@ -31,9 +31,9 @@ files can be of any format.
 
 The directory to put the files in.
 
-=item extention
+=item extension
 
-An optional extention to tack on the end of each filename.
+An optional extension to tack on the end of each filename.
 
 =item format
 
@@ -48,7 +48,7 @@ be specified. Default is 822.
 
 =cut
 
-use fields qw(directory extention lock format);
+use fields qw(directory extension lock format);
 
 =head2 init
 
@@ -59,7 +59,7 @@ On initialization, we ensure that the directory exists.
 sub init {
 	my $this=shift;
 
-	$this->{extention} = "" unless exists $this->{extention};
+	$this->{extension} = "" unless exists $this->{extension};
 	$this->{format} = "822" unless exists $this->{format};
 
 	$this->error("No format specified") unless $this->{format};
@@ -161,7 +161,7 @@ sub filename {
 	my $this=shift;
 	my $item=shift;
 	$item =~ tr#/#:#;
-	return $item.$this->{extention};
+	return $item.$this->{extension};
 }
 
 =head2 iterator
@@ -184,8 +184,8 @@ sub iterator {
 			$ret=readdir($handle);
 			closedir($handle) if not defined $ret;
 			next if $ret eq '.lock'; # ignore lock file
-			next if length $this->{extention} and
-			        not $ret=~s/$this->{extention}//;
+			next if length $this->{extension} and
+			        not $ret=~s/$this->{extension}//;
 		} while defined $ret and -d "$this->{directory}/$ret";
 		$ret=~tr#:#/#;
 		return $ret;

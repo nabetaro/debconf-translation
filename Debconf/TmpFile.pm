@@ -23,7 +23,7 @@ they're safe, if /tmp is not on NFS.
 =item open
 
 Open a temporary file for writing. Returns an open file descriptor.
-Optionally a file extention may be passed to it.
+Optionally a file extension may be passed to it.
 
 =cut
 

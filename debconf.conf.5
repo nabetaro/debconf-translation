@@ -21,9 +21,10 @@ can be combined in various ways.
 
   Name: templatedb
   Driver: File
+  Mode: 644
   Filename: /var/cache/debconf/templates.dat
 .SH "FILE FORMAT"
-The format of this file is a series of stanzas, each seperated by at least
+The format of this file is a series of stanzas, each separated by at least
 one wholly blank line. Comment lines beginning with a "#" character are
 ignored.
 .P
@@ -60,14 +61,14 @@ the fly with the DEBCONF_ADMIN_EMAIL environment variable.
 If set, this will cause debconf to output debugging information to standard
 error. The value it is set to can be something like "user", "developer",
 "db", or a regular expression. Typically, rather than setting it
-perminantly in a config file, you will only want to temporarily turn on
+permanently in a config file, you will only want to temporarily turn on
 debugging, and the DEBCONF_DEBUG environment variable can be set instead to
 accomplish that.
 .TP
 .B Log
 Makes debconf log debugging information as it runs, to the syslog. The
 value it is set to controls that is logged. See Debug, above for an
-explination of the values that can be set to control what is logged.
+explanation of the values that can be set to control what is logged.
 .RE
 .P
 For example, the first stanza of a file might look like this:
@@ -125,7 +126,7 @@ The file to use as the database. This is a required field.
 .TP
 .B Mode
 The permissions to create the file with if it does not exist. Defaults to
-600, since the file could contian passwords in some circumstances.
+600, since the file could contain passwords in some circumstances.
 .TP
 .B Format
 The format of the file. See FORMATS below. Defaults to using a rfc-822
@@ -159,8 +160,8 @@ The following things are configurable for this driver.
 .B Directory
 The directory to put the files in. Required.
 .TP
-.B Extention
-An extention to prefix the files with. Must be set to a non-empty string;
+.B Extension
+An extension to prefix the files with. Must be set to a non-empty string;
 defaults to ".dat"
 .TP
 .B Format
@@ -173,14 +174,14 @@ As example stanza setting up a database using this driver:
   Name: mydb
   Driver: DirTree
   Directory: /var/cache/debconf/mydb
-  Extention: .txt
+  Extension: .txt
 .RE
 .TP
 .B Directory
 .RS
 This database driver is the same as the DirTree driver, except all the
 files are put in one directory. It is intended mainly for future
-compatability with cdebconf. Also, unlike with DirTree, the Extention field
+compatibility with cdebconf. Also, unlike with DirTree, the Extension field
 is not required for this driver.
 .RE
 .P
@@ -188,7 +189,7 @@ is not required for this driver.
 .B Pipe
 .RS
 This special-purpose database driver reads and writes the database from
-stdandard input/output. It may be useful for people with special needs.
+standard input/output. It may be useful for people with special needs.
 .P
 The following things are configurable for this driver.
 .RS
@@ -214,7 +215,7 @@ them to be accessed as one. When debconf asks for a value, the first
 database on the stack that contains the value returns it. If debconf writes
 something to the database, the write normally goes to the first driver on
 the stack that has the item debconf is modifying, and if none do, the new
-item is added to the first writeable database on the stack.
+item is added to the first writable database on the stack.
 .P
 Things become more interesting if one of the databases on the stack is
 readonly. Consider a stack of the databases foo, bar, and baz, where foo
@@ -298,7 +299,7 @@ database readonly. Debconf will read values from it, but will never write
 anything to it.
 .TP
 .B Accept-Name
-The text in this field is a perl-compatabile regular expression that is
+The text in this field is a perl-compatible regular expression that is
 matched against the names of items as they are requested from the
 database. Only if an items name matches the regular expression, will the
 database allow debconf to access or modify it.
@@ -399,6 +400,7 @@ Feel free to write them!
   # need to make this as fancy.
   Name: templates
   Driver: File
+  Mode: 644
   Format: db
   Directory: /var/cache/debconf/templates
 .SH NOTES
@@ -406,13 +408,13 @@ If you use something like ${HOME} in this file, it will be replaced with
 the value of the named environment variable.
 .P
 The field names (the part of the line before the colon) is
-case-insensative. The values, though, are case sensative.
+case-insensitive. The values, though, are case sensitive.
 .SH "PLANNED ENHANCEMENTS"
 More drivers and formats. Some ideas include:
 A SQL driver, with the capability to access a remote database.
 A LDAP driver.
 A driver that pulls values out of public DNS records TXT fields.
-A format that is compatable with the output of cdebconf.
+A format that is compatible with the output of cdebconf.
 An override driver, which can override the value field or flags of
 all requests that pass through it.
 .SH FILES

@@ -13,7 +13,7 @@ use base 'Debconf::DbDriver::Directory';
 
 =head1 DESCRIPTION
 
-This is an extention to the Directory driver that uses a deeper directory
+This is an extension to the Directory driver that uses a deeper directory
 tree. I find such a tree easier to navigate, and it will also scale better
 for huge databases on ext2. It does use a little more disk space/inodes
 though.
@@ -22,7 +22,7 @@ though.
 
 =over 4
 
-=item extention
+=item extension
 
 This field is mandatory for this driver. If it is not set, it will be set
 to ".dat" by default.
@@ -31,15 +31,15 @@ to ".dat" by default.
 
 =head1 METHODS
 
-Note that the extention field is mandatory for this driver, so it checks
+Note that the extension field is mandatory for this driver, so it checks
 that on initialization.
 
 =cut
 
 sub init {
 	my $this=shift;
-	if (! defined $this->{extention} or ! length $this->{extention}) {
-		$this->{extention}=".dat";
+	if (! defined $this->{extension} or ! length $this->{extension}) {
+		$this->{extension}=".dat";
 	}
 	$this->SUPER::init(@_);
 }
@@ -88,7 +88,7 @@ sub accept {
 
 We actually use the item name as the filename, subdirs and all.
 
-We also still append the extention to the item name. And the extention is
+We also still append the extension to the item name. And the extension is
 _mandatory_ here; otherwise this would try to use filenames and directories
 with the same names sometimes.
 
@@ -98,7 +98,7 @@ sub filename {
 	my $this=shift;
 	my $item=shift;
 	$item =~ s/\.\.//g;
-	return $item.$this->{extention};
+	return $item.$this->{extension};
 }
 
 =head2 iterator
@@ -139,8 +139,8 @@ sub iterator {
 				}
 				next;
 			}
-			# Ignore files w/o our extention, and strip it.
-			next unless $i=~s/$this->{extention}$//;
+			# Ignore files w/o our extension, and strip it.
+			next unless $i=~s/$this->{extension}$//;
 			return $currentdir.$i;
 		}
 		return undef;

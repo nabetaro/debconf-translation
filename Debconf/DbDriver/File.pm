@@ -31,8 +31,8 @@ The file to use as the database
 
 =item mode
 
-The permissions to create the file with if it does not exist. Defaults to
-600, since the file could contian passwords in some circumstances.
+The (octal) permissions to create the file with if it does not exist.
+Defaults to 600, since the file could contain passwords in some circumstances.
 
 =item format
 
@@ -58,7 +58,13 @@ On initialization, load the entire file into memory and populate the cache.
 sub init {
 	my $this=shift;
 
-	$this->{mode} = 0600 unless exists $this->{mode};
+	if (exists $this->{mode}) {
+		# Convert user input to octal.
+		$this->{mode} = oct($this->{mode});
+	}
+	else {
+		$this->{mode} = 0600;
+	}
 	$this->{format} = "822" unless exists $this->{format};
 	$this->{backup} = 1 unless exists $this->{backup};
 
