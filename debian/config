@@ -25,7 +25,7 @@ while [ "$STATE" != stop ]; do
 		db_input medium debconf/frontend || true
 		db_input medium debconf/priority || true
 		db_endblock
-		if ! db_go && [ $? -eq 30 ]; then
+		if ! db_go; then
 			# Going back at this point is up to the frontend,
 			# since it involves jumping out of this configmodule.
 			# This is just a placeholder for something not in the

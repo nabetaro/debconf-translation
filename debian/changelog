@@ -1,3 +1,17 @@
+debconf (0.2.93) unstable; urgency=low
+
+  * Fixed minor back problem in debconf's own config script, and some
+    documentation fixes.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 17 Feb 2000 11:56:02 -0800
+
+debconf (0.2.92) unstable; urgency=low
+
+  * Important fix: don't accidentially delete Dialog/Text.pm from
+    debconf-tiny.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 15 Feb 2000 13:16:56 -0800
+
 debconf (0.2.91) unstable; urgency=low
 
   * dpkg-preconfigure: It turns out that the trick of reading from stdin

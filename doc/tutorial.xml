@@ -680,7 +680,7 @@ fi
 ok=''
 do while [ ! "$ok" ];
 	db_input low foo/bar || true
-	db_go
+	db_go || true
 
 	db_get foo/bar
 	if [ "$RET" ]; then
@@ -760,7 +760,7 @@ if [ "$OWNERS" != "$CHOICES" ]; then
 	db_subst shared/window-manager choices $OWNERS
 	db_fset shared/window-manager isdefault true
 	db_input medium shared/window-manager || true
-	db_go
+	db_go || true
 fi
 	</programlisting>
       </para>
@@ -805,7 +805,7 @@ if [ -e /usr/share/debconf/confmodule ]; then
 		if [ "&lt;package&gt;" = "$RET" ] ; then
 			db_fset shared/window-manage isdefault true
 			db_input critical shared/window-manager || true
-			db_go
+			db_go || true
 		fi
 	fi
 fi
