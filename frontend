@@ -57,6 +57,7 @@ else {
 	debug developer => 'Trying to find a templates file..';
 	sub trytemplate {
 		my $fn=shift;
+		debug developer => "Trying $fn";
 		if (-e $fn) {
 			debug developer => "I guess it is $fn";
 			registertemplates($package, Debconf::Template->load($fn));
