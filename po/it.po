@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-18 09:46-0600\n"
+"POT-Creation-Date: 2004-10-10 15:20-0400\n"
 "PO-Revision-Date: 2004-09-21 20:50+0200\n"
 "Last-Translator: Stefano Canepa <sc@linux.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -20,7 +20,10 @@ msgstr ""
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
-msgstr "Si sta usando il frontend di debconf basato su editor di testo per configurare il proprio sistema. Per istruzioni dettagliate, vedere la fine di questo documento."
+msgstr ""
+"Si sta usando il frontend di debconf basato su editor di testo per "
+"configurare il proprio sistema. Per istruzioni dettagliate, vedere la fine "
+"di questo documento."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -30,7 +33,14 @@ msgid ""
 "comments interspersed with configuration items. Edit the file, changing any "
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
-msgstr "Il frontend di debconf basato su editor di testo presenta uno o più file di testo da modificare. Questo è uno dei suddetti file. Se si ha familiarità con i file di configurazione standard di unix, questo file risulterà familiare, contiene direttive di configurazione corredate di commenti. Modificare il file cambiando ogni elemento in base a quanto si desidera, quindi salvare e uscire; a questo punto, debconf leggerà il file modificato e userà i valori specificati per configurare il sistema."
+msgstr ""
+"Il frontend di debconf basato su editor di testo presenta uno o più file di "
+"testo da modificare. Questo è uno dei suddetti file. Se si ha familiarità "
+"con i file di configurazione standard di unix, questo file risulterà "
+"familiare, contiene direttive di configurazione corredate di commenti. "
+"Modificare il file cambiando ogni elemento in base a quanto si desidera, "
+"quindi salvare e uscire; a questo punto, debconf leggerà il file modificato "
+"e userà i valori specificati per configurare il sistema."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
@@ -57,7 +67,8 @@ msgstr "Ancora"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM non è impostata per cui il frontend a dialoghi non può essere usato."
+msgstr ""
+"TERM non è impostata per cui il frontend a dialoghi non può essere usato."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -67,18 +78,24 @@ msgstr "Il frontend a dialoghi è incompatibile con i buffer di shell di emacs"
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "Il frontend a dialoghi non funziona su dumb terminal, un buffer di shell di emacs o senza un terminale di controllo"
+msgstr ""
+"Il frontend a dialoghi non funziona su dumb terminal, un buffer di shell di "
+"emacs o senza un terminale di controllo"
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr "Non è installato nessun programma di gestione di dialoghi utilizzabile, pertanto non può essere usato nessun fontend a dialoghi."
+msgstr ""
+"Non è installato nessun programma di gestione di dialoghi utilizzabile, "
+"pertanto non può essere usato nessun fontend a dialoghi."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "Il frontend a dialoghi richiede uno schermo che misuri almeno 13 righe in altezza e 31 colonne in larghezza."
+msgstr ""
+"Il frontend a dialoghi richiede uno schermo che misuri almeno 13 righe in "
+"altezza e 31 colonne in larghezza."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -119,7 +136,9 @@ msgstr "Database dei template non specificato nel file config."
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr "Le opzioni «sigils» e «smileys» nel file config non sono più usate e pertanto vanno rimosse."
+msgstr ""
+"Le opzioni «sigils» e «smileys» nel file config non sono più usate e "
+"pertanto vanno rimosse."
 
 #: ../Debconf/Config.pm:147
 #, c-format
@@ -141,14 +160,19 @@ msgstr "Le priorità valide sono: %s"
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr "attenzione: probabile corruzione del database. Tentativo di ripristino aggiungendo la domanda mancante %s."
+msgstr ""
+"attenzione: probabile corruzione del database. Tentativo di ripristino "
+"aggiungendo la domanda mancante %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
-msgstr "Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s\". Probabilmente due template non sono separati in modo corretto da un solo carattere di newline.\n"
+msgstr ""
+"Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s\". "
+"Probabilmente due template non sono separati in modo corretto da un solo "
+"carattere di newline.\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
@@ -158,7 +182,8 @@ msgstr "Campo «%s» sconosciuto nel template, nella stanza n°%s di %s\n"
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
+msgstr ""
+"Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
@@ -179,7 +204,8 @@ msgstr "Salvare (spedire) la nota"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "È stato chiesto a debconf di salvare questa nota, così è stata spedita a voi."
+msgstr ""
+"È stato chiesto a debconf di salvare questa nota, così è stata spedita a voi."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -206,7 +232,9 @@ msgstr "Scelte"
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "Inserire zero o più elementi separati da una virgola seguita da uno spazio («, »)"
+msgstr ""
+"Inserire zero o più elementi separati da una virgola seguita da uno spazio "
+"(«, »)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -225,7 +253,9 @@ msgstr "no"
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf non è stato configurato per mostrare questa nota, così ve l'ha spedita."
+msgstr ""
+"Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
+"spedita."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -249,7 +279,9 @@ msgstr "Inserire gli elementi che si vuole scegliere, separati da spazi."
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
-msgstr "Valore di input «%s» non trovato nelle scelte C! Questo non dovrebbe succedere mai. Forse i template sono stati tradotti in modo errato."
+msgstr ""
+"Valore di input «%s» non trovato nelle scelte C! Questo non dovrebbe "
+"succedere mai. Forse i template sono stati tradotti in modo errato."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

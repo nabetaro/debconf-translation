@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-02 03:46-0600\n"
+"POT-Creation-Date: 2004-10-10 15:20-0400\n"
 "PO-Revision-Date: 2004-10-05 21:57+0200\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
@@ -24,7 +24,9 @@ msgstr ""
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
-msgstr "Du brukar den redigeringsbaserte debconf-grenseflata for å setja opp systemet ditt. Sjå slutten av dette dokumentet for detaljerte instruksjonar."
+msgstr ""
+"Du brukar den redigeringsbaserte debconf-grenseflata for å setja opp "
+"systemet ditt. Sjå slutten av dette dokumentet for detaljerte instruksjonar."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -34,7 +36,14 @@ msgid ""
 "comments interspersed with configuration items. Edit the file, changing any "
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
-msgstr "Den redigeringsbaserte debconf-grenseflata presenterer deg for ei eller fleire tekstfiler som skal redigerast. Dette er ei slik tekstfil. Vis du er van med standard unix oppsettsfiler, vil denne fila sjå kjent ut for deg. Ho inneheld kommentarar innimellom oppsettselementa. Rediger fila, endra dei elementa som trengst, lagra ho og avslutt. Ved det tidspunktet vil debconf lesa den redigerte fila og bruka dei verdiane du har skrive inn for å setja opp systemet."
+msgstr ""
+"Den redigeringsbaserte debconf-grenseflata presenterer deg for ei eller "
+"fleire tekstfiler som skal redigerast. Dette er ei slik tekstfil. Vis du er "
+"van med standard unix oppsettsfiler, vil denne fila sjå kjent ut for deg. Ho "
+"inneheld kommentarar innimellom oppsettselementa. Rediger fila, endra dei "
+"elementa som trengst, lagra ho og avslutt. Ved det tidspunktet vil debconf "
+"lesa den redigerte fila og bruka dei verdiane du har skrive inn for å setja "
+"opp systemet."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
@@ -61,27 +70,36 @@ msgstr "Fleire"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM er ikkje sett, så den dialogbaserte grenseflata er ikkje brukande."
+msgstr ""
+"TERM er ikkje sett, så den dialogbaserte grenseflata er ikkje brukande."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Den dialogbaserte grenseflata er ikkje kompatibel med emacs skal-buffer"
+msgstr ""
+"Den dialogbaserte grenseflata er ikkje kompatibel med emacs skal-buffer"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "Den dialogbaserte grenseflata vil ikkje fungera på ein dum terminal, eit emacs skal-buffer eller utan ein kontrollerande terminal."
+msgstr ""
+"Den dialogbaserte grenseflata vil ikkje fungera på ein dum terminal, eit "
+"emacs skal-buffer eller utan ein kontrollerande terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr "Ingen brukbare dialogprogram er installert, så den dialogbaserte grenseflata kan ikkje brukast."
+msgstr ""
+"Ingen brukbare dialogprogram er installert, så den dialogbaserte grenseflata "
+"kan ikkje brukast."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "Den dialogbaserte grenseflata krev eit skjermvindauge på minst 13 linjer og 31 kolonner."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Den dialogbaserte grenseflata krev eit skjermvindauge på minst 13 linjer og "
+"31 kolonner."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -122,7 +140,8 @@ msgstr "Maldatabase er ikkje oppgjeve i oppsettsfila."
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr "Vala Sigils og Smileys er ikkje i bruk i oppsettsfila lenger. Fjern dei."
+msgstr ""
+"Vala Sigils og Smileys er ikkje i bruk i oppsettsfila lenger. Fjern dei."
 
 #: ../Debconf/Config.pm:147
 #, c-format
@@ -144,14 +163,18 @@ msgstr "Gyldige prioriteringar er: %s"
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr "åtvaring: mogleg øydelagd database. Vil freista å reparera ved å leggja til igjen manglande spørsmål %s."
+msgstr ""
+"åtvaring: mogleg øydelagd database. Vil freista å reparera ved å leggja til "
+"igjen manglande spørsmål %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
-msgstr "Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to malar ikkje skikkeleg skilde med ei tom linje.\n"
+msgstr ""
+"Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to "
+"malar ikkje skikkeleg skilde med ei tom linje.\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
@@ -182,7 +205,9 @@ msgstr "Lagra (e-post) merknad"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf blei spurd om å lagra denne merknaden, so det sendte han til deg på e-post."
+msgstr ""
+"Debconf blei spurd om å lagra denne merknaden, so det sendte han til deg på "
+"e-post."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -207,8 +232,10 @@ msgid "Choices"
 msgstr "Val"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(Skriv inn null eller fleire element avskilt med komma og mellomrom (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Skriv inn null eller fleire element avskilt med komma og mellomrom (', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -225,8 +252,11 @@ msgid "no"
 msgstr "nei"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf var ikkje sett opp til å visa denne merknaden, så han vart sendt deg på e-post."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf var ikkje sett opp til å visa denne merknaden, så han vart sendt deg "
+"på e-post."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -250,7 +280,9 @@ msgstr "Skriv inn dei elementa du vil velja, skilde med mellomrom."
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
-msgstr "Inngangsverdi, «%s» ikkje funne i C val! Dette skal aldri henda. Kanskje malen var plassert feil."
+msgstr ""
+"Inngangsverdi, «%s» ikkje funne i C val! Dette skal aldri henda. Kanskje "
+"malen var plassert feil."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
@@ -343,4 +375,3 @@ msgstr "%s er utdatert"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s er utdatert; droppar heile malen!"
-
