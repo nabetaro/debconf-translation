@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.3.6\n"
+"Project-Id-Version: debconf 1.3.12\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-08-21 17:15-0400\n"
-"PO-Revision-Date: 2003-07-26 12:05+0200\n"
+"PO-Revision-Date: 2003-08-30 09:45+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "non"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 msgid "Save (mail) Note"
-msgstr "Enregistrer la note (dans un courrier)"
+msgstr "Enregistrer la note (dans un courriel)"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 msgid "Debconf was asked to save this note, so it mailed it to you."
@@ -219,11 +219,13 @@ msgstr ""
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
+"Problème pendant la configuration de la base de données définie au "
+"paragraphe %s sur %s."
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
+msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
@@ -252,7 +254,7 @@ msgstr ""
 #: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Erreur champ de message « %s » inconnu, dans la partie #%s de %s\n"
+msgstr "Champ de message « %s » inconnu, dans la partie #%s de %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
