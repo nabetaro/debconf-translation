@@ -7,8 +7,7 @@ sub MY::libscan {
 	$_ = $_[1];
 
 	return '' if m/\/(RCS|CVS|SCCS)\// ||
-	   	     m/[~%]$/ || m/\.(orig|rej)$/ ||
-		     m/graph\.pl/;
+	   	     m/[~%]$/ || m/\.(orig|rej)$/;
 	return $_;
 }
 
