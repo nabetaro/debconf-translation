@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2002-01-16 13:59-0500\n"
+"POT-Creation-Date: 2002-02-19 12:23-0500\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -166,7 +166,12 @@ msgstr ""
 "대화상자 frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
 "는 사용할 수 없습니다."
 
-#: ../Debconf/FrontEnd/Dialog.pm:88
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:95
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -174,7 +179,7 @@ msgstr ""
 "Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
 "용할 수 없습니다."
 
-#: ../Debconf/FrontEnd/Dialog.pm:240
+#: ../Debconf/FrontEnd/Dialog.pm:247
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
-"POT-Creation-Date: 2002-01-16 13:59-0500\n"
+"POT-Creation-Date: 2002-02-19 12:23-0500\n"
 "PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "Language-Team: none\n"
@@ -172,7 +172,12 @@ msgstr ""
 "Dialog-liittym‰ ei toimi tyhm‰ll‰ p‰‰tteell‰, emacsin "
 "komentotulkkiymp‰ristˆss‰ tai ohjaavan p‰‰tteen puuttuessa."
 
-#: ../Debconf/FrontEnd/Dialog.pm:88
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:95
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -180,7 +185,7 @@ msgstr ""
 "Dialog-liittym‰‰ ei voi k‰ytt‰‰, koska sek‰ whiptail ett‰ dialog puuttuvat "
 "j‰rjestelm‰st‰."
 
-#: ../Debconf/FrontEnd/Dialog.pm:240
+#: ../Debconf/FrontEnd/Dialog.pm:247
 msgid "Debian Configuration"
 msgstr "Debianin asetusten s‰‰tˆ"
 

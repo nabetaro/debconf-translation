@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2002-01-16 13:59-0500\n"
+"POT-Creation-Date: 2002-02-19 12:23-0500\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -175,7 +175,12 @@ msgstr ""
 "O frontend Dialog não vai funcionar em um terminal burro, num buffer shell "
 "do emacs ou sem um terminal controlador."
 
-#: ../Debconf/FrontEnd/Dialog.pm:88
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:95
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -183,7 +188,7 @@ msgstr ""
 "Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
 "dialog não pode ser usado"
 
-#: ../Debconf/FrontEnd/Dialog.pm:240
+#: ../Debconf/FrontEnd/Dialog.pm:247
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 

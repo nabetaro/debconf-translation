@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-01-16 13:59-0500\n"
+"POT-Creation-Date: 2002-02-19 12:23-0500\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -166,7 +166,12 @@ msgid ""
 "without a controlling terminal."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:88
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:95
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -174,7 +179,7 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:240
+#: ../Debconf/FrontEnd/Dialog.pm:247
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 

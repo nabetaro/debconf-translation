@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2002-01-16 13:59-0500\n"
+"POT-Creation-Date: 2002-02-19 12:23-0500\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "Language-Team: none <>\n"
@@ -168,7 +168,12 @@ msgstr ""
 "Dialog grænsefladen vil ikke virke på en 'dum' termainal, en emacs skal "
 "buffer eller uden en kontrollerende terminal."
 
-#: ../Debconf/FrontEnd/Dialog.pm:88
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:95
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -176,7 +181,7 @@ msgstr ""
 "Whiptail og dialog er ikke installeret, så den dialog baserede grænseflade "
 "kan ikke bruges."
 
-#: ../Debconf/FrontEnd/Dialog.pm:240
+#: ../Debconf/FrontEnd/Dialog.pm:247
 msgid "Debian Configuration"
 msgstr "Debian Konfiguration"
 

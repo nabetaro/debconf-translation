@@ -191,6 +191,79 @@ is not required for this driver.
 .RE
 .P
 .TP
+.B LDAP
+.RS
+WARNING: This database driver is currently experimental. Use with caution.
+.P
+This database driver accesses a LDAP directory for debconf configuration
+data.Due to the nature of the beast, LDAP directories should typically be
+accessed in read-only mode.  This is because multiple accesses can take
+place, and it's generally better for data consistency if nobody tries to
+modify the data while this is happening.  Of course, write access is
+supported for those cases where you do want to update the config data in
+the directory.
+.P
+For information about setting up a LDAP server for debconf, read
+/usr/share/doc/debconf-doc/README.LDAP (from the debconf-doc package).
+.P
+To use this database driver, you must have the libnet-ldap-perl package
+installed. Debconf suggests that package, but does not depend on it.
+.P
+Please carefully consider the security implications of using a remote
+debconf database. Unless you trust the source, and you trust the
+intervening network, it is not a very safe thing to do.
+.P
+The following things are configurable for this driver.
+.RS
+.TP
+.B server
+The host name or IP address of an LDAP server to connect to.
+.TP
+.B port
+The port on which to connect to the LDAP server.  If none is given, the
+default of 389 is used (or 686 if using SSL).
+.TP
+.B basedn
+The DN under which all config items will be stored.  Each config item will
+be assumed to live in a DN of cn=<item name>,<Base DN>.  If this structure
+is not followed, all bets are off.
+.TP
+.B binddn
+The DN to bind to the directory as. Anonymous bind will be used if none is
+specified.
+.TP
+.B bindpasswd
+The password to use in an authenticated bind (used with binddn, above).  If
+not specified, anonymous bind will be used.
+.P
+.RS
+This option should not be used in the general case.  Anonymous binding
+should be sufficient most of the time for read-only access.  Specifying a
+bind DN and password should be reserved for the occasional case where you
+wish to update the debconf configuration data.
+.RE
+.RE
+.P
+An example stanza setting up a database using this driver, assuming the
+remote database is on example.com and can be accessed anonymously:
+.P
+  Name: ldapdb
+  Driver: LDAP
+  Readonly: true
+  Server: example.com
+  BaseDN: cn=debconf,dc=example,dc=com
+.P
+Another example, this time the LDAP database is on localhost, and can be
+written to:
+.P
+  Name: ldapdb
+  Driver: LDAP
+  Server: localhost
+  BaseDN: cn=debconf,dc=domain,dc=com
+  BaseDN: cn=debconf,dc=domain,dc=com
+  BindPasswd: secret
+.RE
+.TP
 .B Pipe
 .RS
 This special-purpose database driver reads and writes the database from
@@ -332,8 +405,7 @@ This is a file format loosely based upon the rfc-822 format for email
 message headers. Similar formats are used throughout Debian; in the dpkg
 status file, and so on.
 .SH EXAMPLE
-Note that some of the drivers and formats in this example do not exist.
-Feel free to write them!
+Here is a more complicated example of a debconf.conf file.
 .P
   # This stanza is used for general debconf setup.
   Config: stack
@@ -361,11 +433,12 @@ Feel free to write them!
   # This is our company's global, read-only
   # (for me!) debconf database.
   Name: company
-  Driver: SQL
+  Driver: LDAP
   Server: debconf.foo.com
+  BaseDN: cn=debconf,dc=foo,dc=com
+  BindDN: uid=admin,dc=foo,dc=com
+  BindPasswd: secret
   Readonly: true
-  Username: foo
-  Password: bar
   # I don't want any passwords that might be
   # floating around in there.
   Reject-Type: password
@@ -373,14 +446,7 @@ Feel free to write them!
   # reason, carry on anyway.
   Required: false
 
-  # This special driver provides a few items
-  # from dhcp.
-  Name: dhcp
-  Driver: DHCP
-  Required: false
-  Reject-Type: password
-
-  # And I use this database to hold
+  # I use this database to hold
   # passwords safe and secure.
   Name: passwords
   Driver: File
@@ -390,20 +456,21 @@ Feel free to write them!
   Group: root
   Accept-Type: password
 
-  # Let's put them all together in a database stack.
+  # Let's put them all together
+  # in a database stack.
   Name: stack
   Driver: Stack
-  Stack: passwords, X, mydb, company, dhcp
-  # So, all passwords go to the password database. Most
-  # X configuration stuff goes to the x database, and
-  # anything else goes to my main database. Values are
-  # looked up in each of those in turn, and if none has
-  # a particular value, it is looked up in the
-  # company-wide database or maybe dhcp (unless it's
-  # a password).
+  Stack: passwords, X, mydb, company
+  # So, all passwords go to the password database.
+  # Most X configuration stuff goes to the X
+  # database, and anything else goes to my main
+  # database. Values are looked up in each of those
+  # in turn, and if none has a particular value, it
+  # is looked up in the company-wide LDAP database
+  # (unless it's a password).
 
-  # A database is also used to hold templates. We don't
-  # need to make this as fancy.
+  # A database is also used to hold templates. We 
+  # don't need to make this as fancy.
   Name: templates
   Driver: File
   Mode: 644
@@ -418,7 +485,8 @@ case-insensitive. The values, though, are case sensitive.
 .SH "PLANNED ENHANCEMENTS"
 More drivers and formats. Some ideas include:
 A SQL driver, with the capability to access a remote database.
-A LDAP driver.
+A DHCP driver, that makes available some special things like hostname, IP
+address, and DNS servers.
 A driver that pulls values out of public DNS records TXT fields.
 A format that is compatible with the output of cdebconf.
 An override driver, which can override the value field or flags of

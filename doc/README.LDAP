@@ -1,0 +1,29 @@
+This is an experimental database driver to provide LDAP support for
+debconf.  It is not, generally speaking, production level, and I would not
+suggest using it for your mission critical cluster config just yet.
+
+That being said, I would welcome any hardy souls who wish to help with
+testing this module - the more eyes, the quicker the bugs get found and
+stomped.
+
+At present, it is not recommended that you use this module to store
+templates.  Multilingual templates will most certainly not work, and I
+haven't tested default templates either.  You Have Been Warned.
+
+To get this to work, you need to do the following:
+
+1) Get /usr/share/doc/debconf-doc/debconf.schema into your DS.
+
+2) Configure debconf to use the LDAP database in some fashion. The
+debconf.conf(5) man page has documentation and examples.
+
+3) Make sure that any templates which don't have associated config items
+anymore are removed from the templates DB.  This is important - if debconf
+can find the template but not the config item, it has a fit.  Easiest
+solution is to use a new templates DB file.
+
+4) Configure your packages as you see fit.
+
+--
+Matthew Palmer
+<mpalmer@ieee.org>

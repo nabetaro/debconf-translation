@@ -131,8 +131,9 @@ sub iterator {
 =head2 exists(itemname)
 
 Derived classes should override this method. Be sure to call
-SUPER::exists(itemname) first, returns thatever it returns *unless* it
-returns 0, to check if the item exists in the cache first!
+SUPER::exists(itemname) first, and return whatever it returns
+*unless* it returns 0, to check if the item exists in the cache
+first!
 
 This method returns one of three values:
 
