@@ -222,8 +222,8 @@ sub remove {
 
 	return if $this->{readonly} or not $this->accept($name);
 	debug "DbDriver $this->{name}" => "removing $name";
-	my $file=$this->{directory}.'/'.$this->filename($name);
-	unlink $file or return undef;
+	unlink $this->{directory}.'/'.$this->filename($name) or return undef;
+	return 1;
 }
 
 =head1 AUTHOR

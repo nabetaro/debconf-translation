@@ -102,6 +102,8 @@ sub init {
 	# Protcol version.
 	$this->version("2.0");
 	
+	$this->owner('unknown') if ! defined $this->owner;
+	
 	# If my frontend thought the client confmodule could backup
 	# (eg, because it was dealing earlier with a confmodule that could),
 	# tell it otherwise.
@@ -534,7 +536,7 @@ sub command_unregister {
 
 =item command_purge
 
-This will give up ownership of all questions.
+This will give up ownership of all questions a confmodule owns.
 
 =cut
 
@@ -544,7 +546,7 @@ sub command_purge {
 	
 	my $iterator=Debconf::Question->iterator;
 	while (my $q=$iterator->iterate) {
-		Debconf::Question->get($q)->removeowner($this->owner);
+		$q->removeowner($this->owner);
 	}
 
 	return $codes{success};

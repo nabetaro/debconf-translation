@@ -11,11 +11,12 @@ debconf (0.9.00) experimental; urgency=low
   * Db reloads inside the same perl invocation (dpkg-reconfigure needs to
     do this sometimes) are no longer a problem, Closes: #85873
   * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
-    Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question;
+    Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question
     as there is no reason to configure this during debconf install time,
     and no good reason to use debconf to ask a question about it.
   * Removed various outdated database transition code.
   * Added new transition code.
+  * Changed interface of debconf-communicate.
 
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
 

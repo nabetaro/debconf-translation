@@ -160,12 +160,14 @@ sub remove {
 	my $this=shift;
 	my $item=shift;
 
-	my $ret=$this->SUPER::unlink($item);
+	# Do actual remove.
+	my $ret=$this->SUPER::remove($item);
 	return $ret unless $ret;
 
+	# Clean up.
 	my $dir=$this->filename($item);
-	while ($dir=~s:.*/[^/]*:$1: and length $dir) {
-		rmdir $dir or last; # not empty, I presume
+	while ($dir=~s:(.*)/[^/]*:$1: and length $dir) {
+		rmdir "$this->{directory}/$dir" or last; # not empty, I presume
 	}
 	return $ret;
 }

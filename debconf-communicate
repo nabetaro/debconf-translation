@@ -12,17 +12,18 @@ use Debconf::AutoSelect qw(:all);
 
 =head1 SYNOPSIS
 
- debconf-communicate "command" "command args"
+ echo command | debconf-communicate [package]
 
- cat file-of-commands | debconf-communicate 
+ cat file-of-commands | debconf-communicate [package]
 
 =head1 DESCRIPTION
 
 B<debconf-communicate> allows you to communicate with debconf on the fly,
-from the command line. It accepts any number of arguments, each of which
-contains a single debconf command to run along with any parameters. If no
-arguments are passed, it reads commands from stdin. For documentation on
-the available commands and their usage, see Appendix A of the Debconf Tutorial.
+from the command line. The sole argument is the name of the package
+which you are pretending to be as you communicate with debconf, and it may
+be omitted if you are lazy. It reads commands in the form used by the debconf
+protocol from stdin. For documentation on the available commands and their
+usage, see the debconf specification.
 
 The commands are executed in sequence. The textual return code of each is
 printed out to standard output.
@@ -30,17 +31,11 @@ printed out to standard output.
 The return value of this program is the numeric return code of the last
 executed command.
 
-=head1 EXAMPLES
+=head1 EXAMPLE
 
- debconf-communicate "get debconf/frontend"
+ echo get debconf/frontend | debconf-communicate
 
 Print out the value of the debconf/frontend question.
-
- debconf-communicate "fset debconf/frontend seen false" \
-                     "input medium debconf/frontend" go
-
-This asks debconf to display the debconf/frontend question, even if it has
-been seen before.
 
 =head1 WARNING
 
@@ -57,26 +52,15 @@ Debconf::Db->load;
 
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();
+$confmodule->owner(shift) if @ARGV;
 my $code=127;
 
-sub sendline {
-	my $line=shift;
-	
-	my $ret=$confmodule->process_command($line);
+while (<>) {
+	my $ret=$confmodule->process_command($_);
 	($code, undef)=split(/ /, $ret, 2);
 	print "$ret\n";
 }
 
-if (@ARGV) {
-	foreach (@ARGV) {
-		sendline($_);
-	}
-}
-else {
-	while (<>) {
-		sendline($_);
-	}
-}
 $frontend->shutdown;
 Debconf::Db->save;
 exit $code;

@@ -10,6 +10,7 @@ package Debconf::Question;
 use strict;
 use Debconf::Db;
 use Debconf::Template;
+use Debconf::Iterator;
 use Debconf::Log qw(:all);
 
 =head1 DESCRIPTION
@@ -87,25 +88,21 @@ sub get {
 	return undef;
 }
 
-=item iterate
+=item iterator
 
-Iterate over all existing questions. If called without parameters, returns
-an iterator object. If called with the iterator, returns the next question,
-or undef if all have been iterated over.
+Returns an iterator object that will iterate over all existing questions,
+returning a new question object each time it is called.
 
 =cut
 
-sub iterate {
+sub iterator {
 	my $this=shift;
-	
-	if (! @_) {
-		return $Debconf::Db::config->iterate;
-	}
-	else {
-		my $name=$Debconf::Db::config->iterate(@_);
-		return unless defined $name;
+
+	my $real_iterator=$Debconf::Db::config->iterator;
+	return Debconf::Iterator->new(callback => sub {
+		return unless my $name=$real_iterator->iterate;
 		return $this->get($name);
-	}
+	});
 }
 
 =back
@@ -298,7 +295,14 @@ to remove.
 sub removeowner {
 	my $this=shift;
 
-	return $Debconf::Db::config->removeowner($this->{name}, shift);
+	my $template=$Debconf::Db::config->getfield($this->{name}, 'template');
+	return unless $Debconf::Db::config->removeowner($this->{name}, shift);
+	# If that made the question go away, the question no longer owns
+	# the template.
+	if (length $template and 
+	    not $Debconf::Db::config->exists($this->{name})) {
+		$Debconf::Db::templates->removeowner($template, $this->{name});
+	}
 }
 
 =item template

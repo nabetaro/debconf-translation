@@ -202,14 +202,16 @@ sub savedb {
 
 	my $ret=1;
 	foreach my $item (keys %{$this->{cache}}) {
-		if ($this->{cache}->{$item}->{dirty}) {
-			if (defined $this->{cache}->{$item}) {
-				$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
-			}
-			else {
-				$ret=undef unless defined $this->remove($item);
-			}
+		if (not defined $this->{cache}->{$item}) {
+			# Remove item, then remove marker in cache.
+			$ret=undef unless defined $this->remove($item);
+			delete $this->{cache}->{$item};
 		}
+		elsif ($this->{cache}->{$item}->{dirty}) {
+			$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
+			$this->{cache}->{$item}->{dirty}=0;
+		}
+		
 	}
 	return $ret;
 }
@@ -260,8 +262,10 @@ sub removeowner {
 	return if $this->{readonly};
 	return unless $this->cached($item);
 
-	delete $this->{cache}->{$item}->{owners}->{$owner};
-	$this->{cache}->{$item}->{dirty}=1;
+	if (exists $this->{cache}->{$item}->{owners}->{$owner}) {
+		delete $this->{cache}->{$item}->{owners}->{$owner};
+		$this->{cache}->{$item}->{dirty}=1;
+	}
 	unless (keys %{$this->{cache}->{$item}->{owners}}) {
 		$this->{cache}->{$item}=undef;
 	}
