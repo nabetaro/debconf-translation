@@ -24,6 +24,7 @@ use Debian::DebConf::Element::Text::Boolean;
 use Debian::DebConf::Element::Text::Select;
 use Debian::DebConf::Element::Text::Text;
 use Debian::DebConf::Element::Text::Note;
+use Debian::DebConf::Element::Text::Password;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
@@ -71,6 +72,9 @@ sub makeelement {
 	}
 	elsif ($type eq 'note') {
 		$elt=Debian::DebConf::Element::Text::Note->new;
+	}
+	elsif ($type eq 'password') {
+		$elt=Debian::DebConf::Element::Text::Password->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";
@@ -167,6 +171,26 @@ sub prompt {
 	local $_=$this->{'readline'}->readline($prompt, $default);
 	$this->{'readline'}->addhistory($_);
 	return $_;
+}
+
+=head2 prompt_password
+
+Same as prompt, except what the user enters is not echoed to the screen.
+
+=cut
+
+sub prompt_password {
+	my $this=shift;
+	my $prompt=shift;
+	my $default=shift;
+	
+	my $attribs=$this->{'readline'}->Attribs;
+	my $oldfunc=$attribs->{redisplay_function};
+	$attribs->{redisplay_function} = $attribs->{shadow_redisplay};
+	my $ret=$this->prompt($prompt, $default);
+	$attribs->{redisplay_function} = $oldfunc;
+
+	return $ret;
 }
 
 =head1 AUTHOR

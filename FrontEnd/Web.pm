@@ -26,6 +26,7 @@ use Debian::DebConf::Element::Web::Boolean;
 use Debian::DebConf::Element::Web::Select;
 use Debian::DebConf::Element::Web::Text;
 use Debian::DebConf::Element::Web::Note;
+use Debian::DebConf::Element::Web::Password;
 use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
@@ -90,6 +91,9 @@ sub makeelement {
 	}
 	elsif ($type eq 'note') {
 		$elt=Debian::DebConf::Element::Web::Note->new;
+	}
+	elsif ($type eq 'password') {
+		$elt=Debian::DebConf::Element::Web::Password->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";

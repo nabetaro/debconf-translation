@@ -10,6 +10,7 @@ install: clean
   # Install libs
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf $(prefix)/usr/share/debconf
+	chmod 700 $(prefix)/var/lib/debconf
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client ConfModule Element FrontEnd -type d | grep -v CVS | \
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_

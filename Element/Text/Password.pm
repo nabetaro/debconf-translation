@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 #
-# Each Element::Text::String is a text input field.
+# Each Element::Text::Password is a password input field.
 
-package Debian::DebConf::Element::Text::String;
+package Debian::DebConf::Element::Text::Password;
 use strict;
 use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;
@@ -18,10 +18,11 @@ sub show {
 		$this->question->extended_description."\n");
 	
 	my $default=$this->question->value;
-	
+
 	# Prompt for input using the short description.
-	$_=$this->frontend->prompt($this->question->description." ", $default);
-	
+	$_=$this->frontend->prompt_password($this->question->description." ",
+		$default);
+
 	# Handle defaults.
 	if ($_ eq '' && defined $default) {
 		$_=$default;

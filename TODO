@@ -26,7 +26,8 @@ Text frontend:
 Dialog frontend:
 * Input.pm has too many magic numbers in it.
 * there is no good way to make it prompt for a password, because defaults are
-  passed in in cleartext. There should probably be a CAPB setting for this.
+  passed in in cleartext. I may need to write a custom password prompter in
+  C/slang.
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
@@ -34,7 +35,7 @@ Dialog frontend:
 Web based frontend:
 * Well, a little security would be nice! Make sure it only allows connections
   from localhost, but even that isn't good enough at all.
-* It has the same password problem dialog has, too.
+* Passwords are completly insecure.
 * It can support blocks, so add them. I guess they could be used for
   arranging questions into tables or something.
 * It should have a config screen. In it, you configure the frontend itself.

@@ -7,4 +7,8 @@
 touch /etc/apt/apt.conf
 echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
 echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
+
+# Make sure the directory has safe permissions.
+chmod 700 /var/lib/debconf
+
 #DEBHELPER#

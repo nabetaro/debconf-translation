@@ -54,7 +54,7 @@ or a question, add it to the file as a new template. The format of this file
 is simple and quite similar to a Debian control file:
 
   Template: <packagename>/<something>
-  Type: <select,string,boolean,note,text>
+  Type: <select,string,boolean,note,text,password>
   Default: <an optional default value>
   Description: Blah blah blah?
    Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah blah blah. Blah
@@ -83,6 +83,8 @@ A short description of the data types:
 	saved to a log file or mailbox for them to see later.
   text
 	This template is a scrap of text that can be displayed to the user.
+  password
+  	Prompts for a password (with no echoing).
 
 Following along in our example, we create a templates file with two
 templates in it:

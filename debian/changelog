@@ -1,3 +1,13 @@
+debconf (0.1.38) unstable; urgency=low
+
+  * Added password data type. Currently supported by the Text frontend
+    (though it has problems displaying right in an xterm), the Gtk frontend, 
+    and the Web frontend (though you'd be insane to use it!).
+  * Fixed a nasty bug in the fallback code.
+  * Read-protected the debconf db directory.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 20:13:20 -0700
+
 debconf (0.1.37) unstable; urgency=low
 
   * Fixed a problem if perl failed to configure and dpkg-preconfig then

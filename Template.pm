@@ -120,7 +120,8 @@ sub parse {
 	$this->_savefield($field, $value, $extended);
 
 	# Sanity checks.
-	die "Template does not contain a Template: line" unless $this->{template};
+	die "Template does not contain a Template: line"
+		unless $this->{template};
 }
 
 # Set/get property.
