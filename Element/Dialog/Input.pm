@@ -19,7 +19,8 @@ sub show {
 
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$question->template->extended_description);
+		$question->template->extended_description,
+		$question->template->description);
 
 	# If it is more than will fit on the screen, just display the prompt first
 	# in a series of message boxes.

@@ -24,12 +24,14 @@ sub new {
 		$self->{borderwidth}=5;
 		$self->{borderheight}=6;
 		$self->{spacer}=1;
+		$self->{titlespacer}=10;
 	}
 	elsif (-x "/usr/bin/dialog") {
 		$self->{program}='dialog';
 		$self->{borderwidth}=4;
 		$self->{borderheight}=4;
 		$self->{spacer}=3;
+		$self->{titlespacer}=4;
 	}
 	else {
 		die "Neither whiptail nor dialog is installed, so the dialog based frontend cannot be used.";
@@ -44,12 +46,13 @@ sub new {
 
 # Dialog and whiptail have an annoying property of requiring you specify
 # their dimentions explicitly. This function handles doing that. Just pass in
-# the text that will be displayed in the dialog, and it will spit out new
-# text, formatted nicely, then the height for the dialog, and then the width
-# for the dialog.
+# the text that will be displayed in the dialog and then the title of the
+# dialog, and it will spit out new text, formatted nicely, then the height for
+# the dialog, and then the width for the dialog.
 sub sizetext {
 	my $this=shift;
 	my $text=shift;
+	my $title=shift;
 	
 	# Try to guess how many lines the text will take up in the dialog.
 	# This is difficult because long lines are wrapped. So what I'll do
@@ -59,8 +62,8 @@ sub sizetext {
 	$text=wrap('', '', $text);
 	my @lines=split(/\n/, $text);
 	
-	# Now figure out what's the longest line.
-	my $window_columns=0;
+	# Now figure out what's the longest line. Look at the title size too.
+	my $window_columns=length($title) + $this->titlespacer;
 	map { $window_columns=length if length > $window_columns } @lines;
 	
 	return $text, $#lines + 1 + $this->borderheight,
@@ -69,20 +72,27 @@ sub sizetext {
 
 # Pass this a title and some text and it will display the text to the user in
 # a dialog. If the text is too long to fit in one dialog, it will use as many
-# as are required, with "(continued)" after the title.
+# as are required.
 sub showtext {
 	my $this=shift;
 	my $title=shift;
 	my $intext=shift;
 
 	my $lines = ($ENV{LINES} || 25);
-	my ($text, $height, $width)=$this->sizetext($intext);
+	my ($text, $height, $width)=$this->sizetext($intext, $title);
 	my @lines = split(/\n/, $text);
-	for (my $c = 0; $c <= $#lines;  $c += $lines - 4 - $this->borderheight) {
-		my $text=join("\n", @lines[$c..($c + $lines - 4 - $this->borderheight)]);
-		$this->show_dialog($title. ($c > 0 ? " (continued)" : ''), "--msgbox",
-			$text, scalar split(/\n/, $text) + $this->borderheight,
-			$width);
+	for (my $c = 0; $c <= $#lines; $c += $lines - 4 - $this->borderheight) {
+		my ($text, $num);
+		if ($c + $lines - 4 - $this->borderheight <= $#lines) {
+			$num=$lines - 4 - $this->borderheight;
+			$text=join("\n", @lines[$c..$c + $num]);
+		}
+		else {
+			$num=$#lines - $c + 1;
+			$text=join("\n", @lines[$c..$#lines]);
+		}
+		$this->show_dialog($title, "--msgbox", $text,
+			$num + $this->borderheight, $width);
 	}
 }
 
