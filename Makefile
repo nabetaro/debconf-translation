@@ -21,3 +21,19 @@ install: clean
   # Install bins
 	install -d $(prefix)/usr/bin
 	find Client -perm +1 -type f | xargs -i_ install _ $(prefix)/usr/bin
+
+# This is for local use - it tags the current code with the devian version
+# number, then commits the current code using the contents of the changelog
+# as the cvs changelog, then uncrements the version number
+commit: clean
+	cvs -Q commit -m "dpkg-parsechangelog | grep '^  '"
+	cvs -Q tag rel-`dpkg-parsechangelog | grep ^Version: \
+		|cut -d " " -f 2 |tr '.' '-'`
+	$(MAKE) new
+	
+new:
+	# Update w/o editing.
+	EDITOR=true dch -i 2>/dev/null
+	# Dch has to change the bloody directory name. Feh.
+	mv . ../perlmoo
+	
