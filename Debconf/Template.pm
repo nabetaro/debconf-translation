@@ -174,7 +174,7 @@ sub load {
 		my ($field, $value, $extended)=('', '', '');
 		foreach my $line (split "\n", $_) {
 			chomp $line;
-			if ($line=~/^([-_.A-Za-z0-9]*):\s+(.*)/) {
+			if ($line=~/^([-_.A-Za-z0-9]*):\s?(.*)/) {
 				# Beginning of new field. First, save the
 				# old one.
 				$save->($field, $value, $extended, $file);
@@ -192,12 +192,13 @@ sub load {
 				# Continuation of a field, with a doubly
 				# indented bit that should not be wrapped.
 				my $bit=$1;
-				$extended.="\n" unless $extended=~/\n$/;
+				$extended.="\n" unless $extended =~ /\n$/;
 				$extended.=$bit."\n";
 			}
 			elsif ($line=~/^\s(.*)/) {
 				# Continuation of field.
-				$extended.=$1." ";
+				$extended.=' ' if length $extended;
+				$extended.=$1;
 			}
 			else {
 				die sprintf(gettext("Template parse error near `%s', in stanza #%s of %s\n"), $line, $., $file);
