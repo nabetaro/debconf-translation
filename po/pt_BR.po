@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-10-22 19:15-0400\n"
+"POT-Creation-Date: 2001-10-24 19:30-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -235,7 +235,8 @@ msgid "must specify some debs to preconfigure"
 msgstr "é necessário especificar debs para preconfigurar"
 
 #: ../dpkg-preconfigure:131
-msgid "(not preconfiguring packages since apt-utils is not installed)"
+#, fuzzy
+msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "(não preconfigurando pacotes já que o apt-utils não está instalado)"
 
 #: ../dpkg-preconfigure:187

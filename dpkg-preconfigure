@@ -128,7 +128,7 @@ elsif (! @debs) {
 }
 
 if (! -x "/usr/bin/apt-extracttemplates") {
-	warn gettext("(not preconfiguring packages since apt-utils is not installed)");
+	warn gettext("delaying package configuration, since apt-utils is not installed");
 	exit;
 }
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-10-22 19:15-0400\n"
+"POT-Creation-Date: 2001-10-24 19:30-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -217,7 +217,8 @@ msgid "must specify some debs to preconfigure"
 msgstr "需要指定deb檔為預設定"
 
 #: ../dpkg-preconfigure:131
-msgid "(not preconfiguring packages since apt-utils is not installed)"
+#, fuzzy
+msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "(在 apt-utils 未安裝前不會預設定包件)"
 
 #: ../dpkg-preconfigure:187

@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
 Standards-Version: 3.5.6.0
-Build-Depends: perl, debhelper (>= 3.0.5), gettext, html2text (>= 1.2.4-7), jade, sp, docbook-xml, docbook-dsssl, sgml-data (>= 1.2), tidy
+Build-Depends-Indep: perl, debhelper (>= 3.0.5), gettext, html2text (>= 1.2.4-7), jade, sp, docbook-xml, docbook-dsssl, sgml-data (>= 1.2), tidy
 
 Package: debconf
 Priority: important

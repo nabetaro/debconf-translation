@@ -8,19 +8,19 @@ Description: What interface should be used for configuring packages?
  You can select the type of user interface they use.
  .
  The dialog frontend is a full-screen, character based interface, while the
- text frontend uses a more traditional plain text interface, and the gnome
- frontend is a modern X interface. The editor frontend lets you configure
- things using your favorite text editor. The noninteractive frontend never
- asks you any questions.
+ readline frontend uses a more traditional plain text interface, and the
+ gnome frontend is a modern X interface. The editor frontend lets you
+ configure things using your favorite text editor. The noninteractive
+ frontend never asks you any questions.
 Description-fr: Quelle interface utiliser pour configurer les paquets ?
  Les paquets utilisant debconf pour leur configuration partagent la même
  apparence et ergonomie. Vous pouvez choisir leur interface utilisateur.  
  .
- «Dialogue» est une interface couleur en plein écran  en mode caractère.
- «Readline» est une interface plus traditionelle en mode texte. «Gnome» est 
+ «Dialogue» est une interface couleur en plein écran en mode caractère.
+ «Readline» est une interface plus traditionelle en mode texte. «Gnome» est
  une interface X  moderne. L'interface «Éditeur» vous permet de faire vos
  configurations depuis votre éditeur favori. Si vous choisissez 
- «Non-interactif», le système ne vous  posera jamais de question.
+ «Non-interactif», le système ne vous posera jamais de question.
 
 Template: debconf/priority
 Type: select
@@ -59,7 +59,8 @@ Description-fr: Ignorer les questions de priorité inférieure à...
     dans la plupart des cas.
   - les points de priorité «moyenne» sont standards, et ont des valeurs
     par défaut généralement acceptables.
-  - les questions de priorité «basse» sont triviales, et ont des valeurs par
+  - les questions de priorité «basse» sont triviales, et ont des valeurs
+ par
     défaut fonctionnelles dans la grande majorité des cas.
  .
  Par exemple, cette question est de priorité moyenne, et si votre seuil
