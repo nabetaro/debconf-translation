@@ -1,6 +1,7 @@
 all: Version.pm
 	$(MAKE) -C doc
 	$(MAKE) -C po
+	$(MAKE) -C Client/preconfigure
 
 VERSION=$(shell expr "`dpkg-parsechangelog 2>/dev/null |grep Version:`" : '.*Version: \(.*\)')
 Version.pm:
@@ -17,6 +18,7 @@ clean:
 	rm -f *.db Version.pm
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
+	$(MAKE) -C Client/preconfigure clean
 
 install-man:
 	install -d $(prefix)/usr/share/man/man3
@@ -37,7 +39,8 @@ install:
 	$(MAKE) -C po install
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf \
-		$(prefix)/usr/share/debconf/templates
+		$(prefix)/usr/share/debconf/templates \
+		$(prefix)/usr/lib/debconf
 	chmod 700 $(prefix)/var/lib/debconf
 	# Install modules.
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
@@ -45,9 +48,10 @@ install:
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	find Client Element FrontEnd -type f | grep .pm\$$ | \
 		xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
-	# Other libs.
+	# Other libs and helper stuff.
 	install -m 0644 Client/confmodule.sh Client/confmodule $(prefix)/usr/share/debconf/
 	install Client/frontend $(prefix)/usr/share/debconf/
+	install -s Client/preconfigure/apt-extracttemplates $(prefix)/usr/lib/debconf/
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm

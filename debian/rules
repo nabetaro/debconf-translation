@@ -22,7 +22,7 @@ install: build
 	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 
-binary-indep: install
+binary-arch: install
 	# Make sure debhelper is going to install the config and templates.
 	dh_testversion 2.0.98
 	dh_testdir
@@ -43,15 +43,17 @@ binary-indep: install
 	echo "See /usr/share/doc/debconf-doc/changelog.gz for the" >> debian/debconf.changelog
 	echo "remainder of this changelog." >> debian/debconf.changelog
 	dh_installchangelogs
+	dh_strip
 	dh_compress
 	dh_fixperms
 	dh_suidregister
 	dh_installdeb
+	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
 
-binary-arch: build install
+binary-indep: build install
 # Nothing to do.
 
 binary: binary-indep binary-arch

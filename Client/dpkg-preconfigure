@@ -150,173 +150,65 @@ if ($apt) {
 	showold('false');
 }
 
-# Load up previous state information.
+# Load up previous state information and start the frontend.
 loaddb(dbdir());
-
 my $frontend=make_frontend();
 
-# Caches package names so they are only looked up once.
-my %packages;
-
-# Packages that have templates
-my %todo;
-
-# Make two passes -- first load all templates, then run all             
-# confmodules. 
-
-foreach my $x (0..$#debs) {
-	# Display a little progress indicator similar to what apt uses.
-	# This is mostly for showing something is going on during huge
-	# upgrades.
-	if ($apt) {
-		print "\r".(int( ($x+1) / ($#debs+1) * 100)).
-			"% [Scanning packages]";
-	}
-
-	# See if there are any templates in this deb.
-	my $fh=FileHandle->new("dpkg --info $debs[$x] templates 2>/dev/null |");
-	if (! $fh->eof) {
-		# Now a sanity check: does this package depend
-		# on a newer version of debconf than the current
-		# version? If so, do nothing to prevent upgrade breaks.
-		# The configuration of the package will still happen
-		# when its postinst runs.
-		#
-		# This will also figure out the package name, since
-		# that information is needed later.
-		my $ok=1;
-		open (INFO, "dpkg --info $debs[$x] |");
-		while (<INFO>) {
-			# Check for versioned debconf dependancy or
-			# pre-dependancy, store relation in $1, depended-upon
-			# version in $2.
-			#
-			# NOTE: if there are two debconf dependancies on a
-			# line, this only looks at the first
-			if (/^ (?:Pre-)?Depends:\s+.*?debconf\s+\(\s*([><=]*)\s+(.*?)\s*\)/i) {
-				if (system('dpkg', '--compare-versions', $Debian::DebConf::Version::version, $1, $2) / 256 != 0) {
-					$ok='';
-				}
-			}
-			elsif (/^ Package:\s+(.*)/i) {
-				$packages{$debs[$x]}=$1;
-			}
-		}
-		close INFO;
-	
-		if ($ok) {
-			eval q{
-				loadtemplatefile($fh, $packages{$debs[$x]});
-			};
-			if ($@) {
-				print STDERR "$debs[$x] ".sprintf(gettext("template parse error: %s"), $@)."\n";
-				next;
-			}
-
-			$todo{$debs[$x]}=1;
-		}
-	}	
+# Use the external package scanner for speed. It takes a list of debs
+# and outputs to stdout a table with these fields separated by spaces:
+my ($package, $version, $template, $config);
+# Note that it also handles making sure the current version of debconf can
+# deal with the package.
+unless (open(INFO, "-|")) {
+	# TODO: handle case where params overflow kernel command line limit.
+	# a-la-xargs
+	exec "/usr/lib/debconf/apt-extracttemplates", @debs or
+		print STDERR "debconf: exec of /usr/lib/debconf/apt-extracttemplates failed: $!";
 }
-
-# Clear progress output.
-if ($apt) {
-	print "\r". ' ' x 30 . "\r";
-}
-my $runconfig='';
-
-foreach my $deb (@debs) {
-	# Check to see if this deb had any templates. If not, we skip
-	# it as an optimization. (It's very unlikely it has any config
-	# and if it does, the postinst will run it.)
-	next unless $todo{$deb};
-
-	# Check to see if this deb has a confmodule in it. If not,
-	# we will skip it. If so, we need to save the confmodule
-	# to disk so it can be run.
-	open (IN, "dpkg --info $deb config 2>/dev/null |") or
-		die sprintf(gettext("Unable to spawn dpkg: %s"), $!);
+# Why buffer here? Well, suppose 300 packages are being installed, and
+# only the first and last use debconf. The first is preconfigured. Then
+# the user watches their ui lock up until it scans all the way to the last..
+# Blowing a bit of memory on abuffer seems like a saner approach.
+my @buffer=<INFO>;
+while (@buffer) {
+	($package, $version, $template, $config)=split ' ';
 	
-	next if eof(IN);
-	
-	if ($apt && ! $runconfig) {
-		$runconfig=1;
-		print gettext("Configuring packages ...")."\n";
+	# Load templates if any.
+	if (defined $template && length $template) {
+		eval q{
+			loadtemplatefile($template, $package);
+		};
+		unlink $template;
+		if ($@) {
+			print STDERR "$package ".sprintf(gettext("template parse error: %s"), $@)."\n";
+			next;
+		}
 	}
 
-	my $script=tmpdir()."/config.$$";
-	open (OUT, ">$script") or die "$script: $!";
-	print OUT <IN>; # TODO: optimize.
-	close IN;
-	close OUT;
-	chmod(0755, $script) or 
-		die sprintf(gettext("Can't chmod: %s"), $!);
-
-	$frontend->default_title($packages{$deb});
-
-	# Start up the confmodule, passing in the package version.
-	my $confmodule=make_confmodule($script, 'configure',
-		getversion($packages{$deb}));
-
-	# Make sure any questions created are owned by the correct package.
-	$confmodule->owner($packages{$deb});
-
-	# Talk to it until it is done.
-	1 while ($confmodule->communicate);
-
-	# I could just exit, but it's good to be robust so 
-	# other packages can still be configured and installed.
-	if ($confmodule->exitcode > 0) {
-		print STDERR sprintf(
-			gettext("%s failed to configure, with exit code %s"),
-			$packages{$deb}, $confmodule->exitcode)."\n";
+	# Run config script if any.
+	if (defined $config && length $config) {
+		chmod(0755, $config) or
+			die sprintf(gettext("debconf: can't chmod: %s"), $!);
+		$frontend->default_title($package);
+		my $confmodule=make_confmodule($config, 'configure', $version);
+		# Make sure any questions created are owned by the correct package.
+		$confmodule->owner($package);
+		1 while ($confmodule->communicate);
+		# I could just exit, but it's good to be robust so
+		# other packages can still be configured and installed.
+		if ($confmodule->exitcode > 0) {
+			print STDERR sprintf(
+				gettext("%s failed to configure, with exit code %s"),
+				$package, $confmodule->exitcode)."\n";
+		}
+		unlink $config;
 	}
-
-	unlink $script;
 }
 
 $frontend->shutdown;
 
 # Save state.
 savedb(dbdir());
-
-# Pass a package name, and the version of that package that is currently
-# installed is returned.
-#
-# The function in this block deals with the dpkg status file and is
-# memoized. I parse the dpkg status file the first time it's called and
-# return all else from a cache. I probably need to know the versions of
-# several packages that are being installed, and calling dpkg -s for each
-# would be unbearably slow. Since this program should be in dpkg anyway,
-# I have few compunctions about parsing the file directly.
-{
-	my $haveversions='';
-	my %versions;
-	
-	sub getversion {
-		my $package=shift;
-		
-		if ($haveversions) {
-			return $versions{$package} if defined $versions{$package};
-			return ''; # not installed
-		}
-
-		{
-			local $/="\n\n";
-			open (STATUS, "</var/lib/dpkg/status");
-			while (<STATUS>) {
-				my ($package)=m/Package:\s*(.*?)\n/;
-				($versions{$package})=m/Version:\s*(.*?)\n/;
-				if (! defined $versions{$package}) {
-					$versions{$package}='';
-				}
-			}
-			close STATUS;
-		}
-		$haveversions=1;
-		return $versions{$package} if defined $versions{$package};
-		return ''; # not installed
-	}
-}
 
 =head1 AUTHOR
 
