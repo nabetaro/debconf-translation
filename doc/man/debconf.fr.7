@@ -344,6 +344,9 @@ configuration du système.
 .B DEBCONF_FORCE_DIALOG
 Si cette variable d'environnement est fixée, debconf utilisera de préférence
 dialog à whiptail pour l'interface dialog.
+.TP
+Si cette variable d'environnement est fixée, debconf utilisera de préférence
+Xdialog à whiptail pour l'interface dialog.
 .SH BOGUES
 Probablement beaucoup, il y a beaucoup de code ici.
 .P
@@ -362,6 +365,7 @@ faites-le avec DEBCONF_DEBUG='.*' fixée et exportée. Cela accélère beaucoup le
 débogage.
 .SH VOIR AUSSI
 .BR debconf.conf (5),
+.BR debconf-devel (7),
 .BR dpkg-preconfigure (8),
 .BR dpkg-reconfigure (8),
 .BR debconf (1),
