@@ -43,12 +43,6 @@ The height of the element.
 
 =head2
 
-=head2 container
-
-The container the element is inside, if any.
-
-=cut
-
 =head2 contents
 
 If this element is a container, this property will contain a list of its
@@ -112,10 +106,9 @@ This method causes any elements contained inside this one to be resized.
 sub resize {
 	my $this=shift;
 
-	if (ref $this->resize_hook eq 'SUB') {
-		&{$this->resize_hook}(@_);
+	if (ref $this->resize_hook eq 'CODE') {
+		$this->resize_hook->($this, @_);
 	}
-
 	map { $_->resize(@_) } @{$this->contents};
 }
 

@@ -35,12 +35,12 @@ sub new {
 	$self->screen->frontend($self);
 	$self->screen->xoffset(0);
 	$self->screen->yoffset(0);
-	$self->resize_hook(sub {
+	$self->screen->resize_hook(sub {
 		my $this=shift;
 
 		# Just resize to fit the passed parameters.
-		$this->width(shift);
 		$this->height(shift);
+		$this->width(shift);
 	});
 	# Create the two main windows and put them in the screen.
 	my $qwin=Debian::DebConf::Element::Slang::Internal::Window->new;
@@ -60,6 +60,15 @@ sub new {
 	$dwin->frontend($self);
 	$dwin->title("Description");
 	$dwin->container($self->screen);
+	$dwin->xoffset(2);
+	$dwin->resize_hook(sub {
+		my $this=shift;
+
+		# Take up the bottom half of the screen.
+		$this->width($this->container->width - 4);
+		$this->yoffset(($this->container->height - 4) / 2 + 1);
+		$this->height($this->container->height - $this->yoffset - 1);
+	});
 	$self->resize;
 	return $self;
 }
