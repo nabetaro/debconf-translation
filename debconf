@@ -38,7 +38,21 @@ Select the frontend to use.
 
 Specify the minimum priority of question that will be displayed.
 
+=item B<-s>, B<--showold>
+
+Redisplay old, already seen questions.
+
 =back
+
+=head1 EXAMPLES
+
+To debug a shell script that uses debconf, you might use:
+
+ DEBCONF_DEBUG=developer debconf my-shell-prog
+
+Or, you might use this:
+
+ debconf --frontend=readline sh -x my-shell-prog
 
 =head1 SEE ALSO
 
@@ -51,19 +65,36 @@ use Debconf::Db;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Config;
 
+# FInd the end of the options for this command, and the beginning of the
+# command to run, which may have arguments. Break those arguments out.
+my (@argv, @command);
+for (my $x=0; $x <= $#ARGV; $x++) {
+	if ($ARGV[$x] =~ /^-(o|f|p|-(owner|frontend|priority))$/) {
+		push @argv, $ARGV[$x++];
+		push @argv, $ARGV[$x]; # skip option argument
+		next;
+	}
+	elsif ($ARGV[$x] =~ /^-/) {
+		push @argv, $ARGV[$x];
+	}
+	else {
+		# end of arguments, start of command
+		@command=@ARGV[$x..$#ARGV];
+		last;
+	}
+}
+@ARGV=@argv;
 my $usage = "Usage: debconf [options] command [args]";
 my $owner='';
 Debconf::Config->getopt($usage.qq{
   -o,  --owner=package		Set the package that owns the command.},
         "o|owner=s"		=> \$owner,
 );
-if (! @ARGV) {
-	die "$usage\n";
-}
+die "$usage\n" unless @command;
 
 Debconf::Db->load;
 my $frontend=make_frontend();
-my $confmodule=make_confmodule(@ARGV);
+my $confmodule=make_confmodule(@command);
 $confmodule->owner($owner) if length $owner;
 
 1 while ($confmodule->communicate);

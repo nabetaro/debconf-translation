@@ -229,6 +229,7 @@ sub nowarnings {
 	return $config->{nowarnings} if exists $config->{nowarnings};
 	return 'false';
 }
+
 =item showold
 
 If true, then old questions the user has already seen are shown to them again.
@@ -244,6 +245,7 @@ file.
 sub showold {
 	my $class=shift;
 	$config->{showold}=shift if @_;
+	return $ENV{DEBCONF_SHOWOLD} if exists $ENV{DEBCONF_SHOWOLD};
 	return $config->{showold} if exists $config->{showold};
 	
 	my $ret='false';

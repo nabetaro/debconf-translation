@@ -46,7 +46,7 @@ install-rest:
 	install -d $(prefix)/usr/sbin $(prefix)/usr/bin
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i install {} $(prefix)/usr/sbin
-	find . -maxdepth 1 -perm +100 -type f -name debconf-show -or -name debconf-copydb | \
+	find . -maxdepth 1 -perm +100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb | \
 		xargs -i install {} $(prefix)/usr/bin
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\

@@ -48,6 +48,10 @@ UNRE
     The future hope is that dpkg becomes smart enough to run postinst scripts
     that use debconf by means of this program. Closes: #75578, #119338
     This means a conflict with cdebconf.
+  * This command is the best way to debug debconf-using scripts, you can run
+    a command like debconf sh -x my-script. Documented that, Closes: #84864
+  * And the debconf command has a --showold option. I added a DEBCONF_SHOWOLD
+    variable for good measure. Closes: #130072
   * Settled on one email address.
   * Some s/Syntax:/Usage:/
   * Uses debhelper v4.
