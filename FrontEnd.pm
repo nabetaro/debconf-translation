@@ -76,8 +76,8 @@ sub add {
 
 =head2
 
-Pass this a question and a priority, it determines if the question is visible.
-If so, it returns an input element to use to ask the question.
+Pass this a Question and a priority, it determines if the Question is visible.
+If so, it returns an input element to use to ask the Question.
 
 =cut
 
