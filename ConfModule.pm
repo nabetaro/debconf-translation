@@ -77,10 +77,10 @@ and write_handle properties of this object to it.
 sub startup {
 	my $this=shift;
 	my $confmodule=shift;
-	
+
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
-			 $this->confmodule($confmodule, @_))) || die $!;
+			 $this->confmodule($confmodule), @_)) || die $!;
 }
 
 =head2 communicate

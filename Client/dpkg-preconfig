@@ -95,7 +95,7 @@ my %todo;
 			# Figure out the package name.
 			$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
 			chomp $packages{$debs[$x]};
-			
+
 			# Process the templates.
 			while (<TEMPLATES>) {
 				Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});

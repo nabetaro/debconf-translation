@@ -1,3 +1,12 @@
+debconf (0.2.8) unstable; urgency=low
+
+  * Fixed xml stylesheet to include legalnotice.
+  * Fixed a stupid error that was making parameters never get passed into
+    confmodules. Closes: #48824, #48853
+  * Closes: 47458 (been fixed for a while)
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 11:31:28 -0800
+
 debconf (0.2.7) unstable; urgency=low
 
   * Select Elements are not shown if they have less than 2 choices. However,

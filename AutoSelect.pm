@@ -80,6 +80,7 @@ arguments to pass to it) and this creates and returns a ConfModule.
 
 sub confmodule {
 	my $confmodule=Debian::DebConf::ConfModule->new($frontend);
+
 	$confmodule->startup(@_) if @_;
 	
 	return $confmodule;

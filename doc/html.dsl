@@ -9,6 +9,17 @@
 (define %generate-article-toc% #t)
 (define %generate-article-titlepage% #t)
 (define %generate-legalnotice-link% #t)
+(define (article-titlepage-recto-elements)
+	(list (normalize "title")
+	(normalize "subtitle")
+	(normalize "authorgroup")
+	(normalize "author")
+	(normalize "releaseinfo")
+	(normalize "copyright")
+	(normalize "pubdate")
+	(normalize "revhistory")
+	(normalize "legalnotice")
+	(normalize "abstract")))
 
 </style-specification-body>
 </style-specification>
