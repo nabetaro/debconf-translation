@@ -12,10 +12,6 @@ This FrontEnd is a Slang UI for DebConf.
 
 =cut
 
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::FrontEnd::Slang;
 use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
@@ -31,6 +27,16 @@ use Term::Stool::WrappedText;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
+=head1 METHODS
+
+=cut
+
+=head2 init
+
+Set up most of the GUI.
+
+=cut
+
 sub init {
 	my $this=shift;
 
@@ -38,7 +44,6 @@ sub init {
 
 	$this->interactive(1);
 
-	# Set up the basic UI.
 	$this->screen(Term::Stool::Screen->new);
 	$this->titlebar(Term::Stool::TitleBar->new(
 		text => "Debian Configuration",
@@ -118,7 +123,7 @@ sub init {
 		deactivate_hook => sub {
 			my $panel=shift;
 
-			# Clear out any showing description when the focus
+			# Clear out any visible description when the focus
 			# leaves the panel.
 			$this->desctext->text('');
 			$this->desctext->display;
@@ -147,7 +152,7 @@ sub go {
 	# Make sure slang is up and running, and the screen size is known.
 	$this->screen->slang_init;
 
-	# Create all the widgets in the panel.
+	# Set up all the widgets to be displayed on the panel.
 	$this->panel->clear;
 	my $firstwidget='';
 	foreach my $element (@elements) {
@@ -197,8 +202,14 @@ sub go {
 
 	# Now set it all in motion, with the first widget focused.
 	$this->helpbar->push("Tab and arrow keys move.");
+	$this->panel->display;
 	$this->screen->run($firstwidget);
 	$this->helpbar->pop;
+	
+	$this->button_next->deactivate;
+	$this->button_next->display;
+	$this->button_back->deactivate;
+	$this->button_next->display;
 
 	$this->clear;
 	return 1;
@@ -225,6 +236,18 @@ sub fillpanel {
 		$element->widget->yoffset($y++);
 		$y++; # a blank line between widget groups.
 	}
+}
+
+=head2 shutdown
+
+Reset the screen on shutdown.
+
+=cut
+
+sub shutdown {
+	my $this=shift;
+
+	$this->screen->reset;
 }
 
 =head1 AUTHOR

@@ -24,6 +24,7 @@ db_go || true
 db_beginblock
 db_input low demo/multiselect || true
 db_input low demo/boolean || true
+db_input low demo/boolean || true
 db_endblock
 db_go || true
 db_get demo/select
