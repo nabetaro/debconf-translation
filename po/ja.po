@@ -1,223 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Keita Maehara <maehara@debian.org>
-# Junichi Uekawa <dancer@debian.org>, 2002
+# Junichi Uekawa <dancer@debian.org>, 2002, 3003
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-19 20:50-0400\n"
-"PO-Revision-Date: 2002-09-25 20:01+0900\n"
+"POT-Creation-Date: 2003-07-11 00:16+0900\n"
+"PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "選択"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "はい"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "いいえ"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-msgid "Save (mail) Note"
-msgstr "注意を保存(メール)する"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
-
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "The note has been mailed."
-msgstr "この注意はメールされました。"
-
-#: ../Debconf/Element/Gnome/Note.pm:54
-msgid "Unable to save note."
-msgstr "この注意を保存できません。"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"この注意を表示するようには設定されていないので、debconf があなたにメールを送"
-"りました。"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:83
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, %s にて実行"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "上記以外"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "空白で区切りながら、選択したい項目を入力してください。"
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "ヘルプ"
-
-#: ../Debconf/Element/Select.pm:94
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないこ\n"
-"とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
-"ます。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERMが設定されていません，dialogフロントエンドを利用する事はできません"
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Dialogフロントエンドはemacsのシェルバッファと互換性がありません"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Dialogフロントエンドはダムターミナル，emacsのシェルバッファ，もしくはユーザが"
-"制御しているターミナルではない場合には動きません."
-
-#: ../Debconf/FrontEnd/Dialog.pm:63
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
-
-#: ../Debconf/FrontEnd/Dialog.pm:104
-msgid ""
-"Neither whiptail nor dialog are installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"whiptail、dialog のいずれもインストールされていないため、\n"
-"ダイアログ形式のフロントエンドは使用できません。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Debian の設定"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
-"しています。詳しい説明はこのドキュメントの最後を見てください。"
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"エディタベースの debconf フロントエンドは、1 つ以上のテキストファイルを\n"
-"編集用に提供します。これはその編集用ファイルの 1 つです。あなたが標準的\n"
-"な UNIX の設定ファイルに慣れていれば、このファイルはわかりやすいでしょう。\n"
-"このファイルには、設定項目とともにところどころにコメントがあります。ファ\n"
-"イルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了\n"
-"して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
-"値をシステムの設定に利用します。"
-
-#: ../Debconf/FrontEnd/Gnome.pm:73
-#, c-format
-msgid "Debconf on %s"
-msgstr "%s のDebconf"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "このフロントエンドはユーザが操作しているttyを必要とします"
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Dialogフロントエンドはemacsのシェルバッファと互換性がありません"
-
-#: ../Debconf/FrontEnd/Teletype.pm:109
-msgid "More"
-msgstr "移動"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, c-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"注意: Debconf はウェブモードで動作しています。\n"
-"http://localhost:%i/ をご覧ください。"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "戻る"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "次へ"
-
-#: ../Debconf/AutoSelect.pm:75
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "フロントエンドをフォールバックします: %s"
-
-#: ../Debconf/AutoSelect.pm:83
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "フロントエンドの初期化に失敗しました: %s"
-
-#: ../Debconf/AutoSelect.pm:89
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "フロントエンドの起動ができませんでした: %s"
-
-#: ../Debconf/Config.pm:126
-msgid "Config database not specified in config file."
-msgstr "設定データベースが設定ファイルで指定されていません"
-
-#: ../Debconf/Config.pm:130
-msgid "Template database not specified in config file."
-msgstr "テンプレートデータベースが設定ファイルで指定されていません"
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "%s を設定しています"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -253,6 +48,210 @@ msgstr ""
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "%s を設定しています"
+
+#: ../Debconf/Config.pm:126
+msgid "Config database not specified in config file."
+msgstr "設定データベースが設定ファイルで指定されていません"
+
+#: ../Debconf/Config.pm:130
+msgid "Template database not specified in config file."
+msgstr "テンプレートデータベースが設定ファイルで指定されていません"
+
+#: ../Debconf/AutoSelect.pm:75
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "フロントエンドをフォールバックします: %s"
+
+#: ../Debconf/AutoSelect.pm:83
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "フロントエンドの初期化に失敗しました: %s"
+
+#: ../Debconf/AutoSelect.pm:89
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "フロントエンドの起動ができませんでした: %s"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"注意: Debconf はウェブモードで動作しています。\n"
+"http://localhost:%i/ をご覧ください。"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "戻る"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "次へ"
+
+#: ../Debconf/FrontEnd/Teletype.pm:109
+msgid "More"
+msgstr "移動"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "このフロントエンドはユーザが操作しているttyを必要とします"
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU フロントエンドはemacsのシェルバッファと互換性がありません"
+
+#: ../Debconf/FrontEnd/Gnome.pm:73
+#, c-format
+msgid "Debconf on %s"
+msgstr "%s のDebconf"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
+"しています。詳しい説明はこのドキュメントの最後を見てください。"
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"エディタベースの debconf フロントエンドは、1 つ以上のテキストファイルを\n"
+"編集用に提供します。これはその編集用ファイルの 1 つです。あなたが標準的\n"
+"な UNIX の設定ファイルに慣れていれば、このファイルはわかりやすいでしょう。\n"
+"このファイルには、設定項目とともにところどころにコメントがあります。ファ\n"
+"イルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了\n"
+"して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
+"値をシステムの設定に利用します。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:51
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERMが設定されていません，dialogフロントエンドを利用する事はできません"
+
+#: ../Debconf/FrontEnd/Dialog.pm:54
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialogフロントエンドはemacsのシェルバッファと互換性がありません"
+
+#: ../Debconf/FrontEnd/Dialog.pm:57
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Dialogフロントエンドはダムターミナル，emacsのシェルバッファ，もしくはユーザが"
+"制御しているターミナルではない場合には動きません."
+
+#: ../Debconf/FrontEnd/Dialog.pm:64
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
+
+#: ../Debconf/FrontEnd/Dialog.pm:105
+msgid ""
+"Neither whiptail nor dialog are installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"whiptail、dialog のいずれもインストールされていないため、\n"
+"ダイアログ形式のフロントエンドは使用できません。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:282
+msgid "Debian Configuration"
+msgstr "Debian の設定"
+
+#: ../Debconf/Element/Select.pm:94
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないこ\n"
+"とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
+"ます。"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "ヘルプ"
+
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+msgid "yes"
+msgstr "はい"
+
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+msgid "no"
+msgstr "いいえ"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "上記以外"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "空白で区切りながら、選択したい項目を入力してください。"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"この注意を表示するようには設定されていないので、debconf があなたにメールを送"
+"りました。"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:83
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, %s にて実行"
+
+#: ../Debconf/Element/Gnome/Note.pm:45
+msgid "Save (mail) Note"
+msgstr "注意を保存(メール)する"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
+
+#: ../Debconf/Element/Gnome/Note.pm:50
+msgid "The note has been mailed."
+msgstr "この注意はメールされました。"
+
+#: ../Debconf/Element/Gnome/Note.pm:54
+msgid "Unable to save note."
+msgstr "この注意を保存できません。"
+
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+msgid "Choices"
+msgstr "選択"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
 
 #: ../dpkg-preconfigure:113
 #, c-format
