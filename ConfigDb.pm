@@ -65,7 +65,12 @@ sub loadmappingfile {
 # Instantiate Questions from templates and question mapping data.
 sub makequestions {
 	foreach my $mapping (values %mappings) {
+		# Is this question already instantiated?
 		my $template=$templates{$mapping->template};
+		
+		# Is this question already instantiated?
+		next if exists $questions{$template->template};
+
 		my $question=Debian::DebConf::Question->new;
 		$question->name($template->template);
 		$question->template($template);
@@ -115,6 +120,25 @@ sub removemapping {
 	my $location=shift;
 	
 	delete $mappings{$location};
+}
+
+# Save the current state to disk. This is a quick hack, there is a whole
+# backend db in the spec that this ignores.
+use Data::Dumper;
+sub savedb {
+	my $fn=shift;
+
+	$Data::Dumper::Indent=1;
+	open (OUT, ">$fn") || die "$fn: $!";
+	print OUT Data::Dumper->Dump([\%mappings], [qw{*mappings}]);
+	# This saves the templates too.
+	print OUT Data::Dumper->Dump([\%questions], [qw{*questions}]);
+	close OUT;
+}
+
+# Load the current state from disk. Again, a quick hack.
+sub loaddb {
+	require shift;
 }
 
 1

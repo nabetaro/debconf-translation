@@ -20,6 +20,11 @@ my $template=shift;
 my $mapping=shift;
 my $script=shift;
 
+# Load up previous state information.
+if (-e 'debconf.db') {
+	Debian::DebConf::ConfigDb::loaddb('debconf.db');
+}
+
 # Load up templates.
 Debian::DebConf::ConfigDb::loadtemplatefile($template);
 
@@ -42,3 +47,6 @@ die $@ if $@;
 
 # Talk to it until it is done.
 1 while ($confmodule->communicate);
+
+# Save state.
+Debian::DebConf::ConfigDb::savedb('debconf.db');

@@ -25,6 +25,15 @@ my $ret=GetOptions(
 );
 $frontend_type=ucfirst($frontend_type);
 
+# Load up previous state information.
+if (-e 'debconf.db') {
+	Debian::DebConf::ConfigDb::loaddb('debconf.db');
+}
+
+# Start up the FrontEnd.
+my $frontend=eval "Debian::DebConf::FrontEnd::$frontend_type->new()";
+die $@ if $@;
+
 foreach my $deb (@ARGV) {
 	# Check to see if this deb has a confmodule in it. If not,
 	# we will skip it. If so, we need to save the confmodule
@@ -51,9 +60,7 @@ foreach my $deb (@ARGV) {
 	# Instantiate all questions that have mappings.
 	Debian::DebConf::ConfigDb::makequestions();
 
-	# Start up the FrontEnd and ConfModule.
-	my $frontend=eval "Debian::DebConf::FrontEnd::$frontend_type->new()";
-	die $@ if $@;
+	# Start up the confmodule.
 	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($script, $frontend)';
 	die $@ if $@;
 
@@ -62,6 +69,9 @@ foreach my $deb (@ARGV) {
 	
 	unlink $script;
 }
+
+# Save state.
+Debian::DebConf::ConfigDb::savedb('debconf.db');
 
 use Fcntl;
 use POSIX qw(tmpnam);

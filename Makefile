@@ -4,6 +4,7 @@ test:
 
 clean:
 	find . -name \*~ | xargs rm -f
+	rm -f *.db
 
 install: clean
   # Install libs
