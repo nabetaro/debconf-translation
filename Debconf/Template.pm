@@ -17,6 +17,7 @@ use Debconf::Db;
 use Debconf::Iterator;
 use Debconf::Question;
 use fields qw(template);
+use Debconf::Log q{:all};
 
 # Class data
 our %template;

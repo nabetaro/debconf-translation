@@ -45,8 +45,7 @@ sub init {
 	$this->addbutton(gettext("Save (mail) Note"), sub {
 	    my $msg;
 	    if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext(
-                   "Debconf was asked to save this " .
-		   "note, so it mailed it to you."))) {
+			"Debconf was asked to save this note, so it mailed it to you."))) {
 		$msg = Gnome::MessageBox->new(gettext(
                     "The note has been mailed."), "info", "Button_Ok");
 	    }

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -47,19 +47,15 @@ msgstr "Gravar Nota"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 #, fuzzy
-msgid "Debconf was asked to save this "
-msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "The note has been mailed."
 msgstr "Enviouse a nota por correo."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Non se puido grava-la nota."
 
@@ -219,7 +215,7 @@ msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -229,17 +225,17 @@ msgstr ""
 "É posible que dous patróns non estén correctamente separados cun retorno de "
 "carro.\n"
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
@@ -274,7 +270,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Non se puido preconfigurar %s, co estado de saída %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "débese executar coma root"
 
 #: ../dpkg-reconfigure:125
@@ -292,28 +289,44 @@ msgid "Cannot read status file: %s"
 msgstr "Non se puido le-lo ficheiro de estado: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s non está completamente instalado"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Debconf was asked to save this "
+#~ msgstr ""
+#~ "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
+
+#, fuzzy
+#~ msgid "note, so it mailed it to you."
+#~ msgstr ""
+#~ "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

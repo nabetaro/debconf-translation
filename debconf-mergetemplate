@@ -111,11 +111,11 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 				if (! defined $t_val) {
 					if ($outdated) {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     gettext("$basefield is missing")."\n";
+						     sprintf(gettext("%s is missing"), $basefield)."\n";
 					}
 					else {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     gettext("$basefield is missing; dropping $field")."\n";
+						     sprintf(gettext("%s is missing; dropping %s"), $basefield,  $field)."\n";
 						     next;
 					}
 				}
@@ -129,11 +129,11 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 				if (defuzz($t_val) ne defuzz($m_val)) {
 				    	if ($outdated) {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     gettext("$field is fuzzy")."\n";
+						     sprintf(gettext("%s is fuzzy"), $field)."\n";
 					}
 					else {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     gettext("$field is fuzzy; dropping it")."\n";
+						     sprintf(gettext("%s is fuzzy; dropping it"), $field)."\n";
 						next;
 					}
 				}
@@ -148,13 +148,13 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 	}
 	else {
 		if (! $dropold) {
-			warn "debconf-mergetemplate: ".$template->template." ".
-			     gettext("is outdated")."\n";
+			warn "debconf-mergetemplate: ".
+			     sprintf(gettext("%s is outdated"), $template->template)."\n";
 			$templates{$template->template}=$template;
 		}
 		else {
-			warn "debconf-mergetemplate: ".$template->template." ".
-			     gettext("is outdated; dropping whole template!")."\n";
+			warn "debconf-mergetemplate: ".
+			     sprintf(gettext("%s is outdated; dropping whole template!"), $template->template)."\n";
 		}
 	}
 }

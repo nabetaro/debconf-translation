@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -47,22 +47,16 @@ msgstr "Zapisz uwagê"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 #, fuzzy
-msgid "Debconf was asked to save this "
+msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "Uwaga zosta³a przes³ana do administratora"
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Nie uda³o siê zapisaæ uwagi."
 
@@ -215,24 +209,24 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "B³±d w szablonie w pobli¿u `%s'"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "B³±d w szablonie w pobli¿u `%s'"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
@@ -266,7 +260,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "musi byæ uruchamiany jako root"
 
 #: ../dpkg-reconfigure:125
@@ -284,28 +279,44 @@ msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s nie jest w pe³ni zainstalowany"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Debconf was asked to save this "
+#~ msgstr ""
+#~ "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
+
+#, fuzzy
+#~ msgid "note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
 #~ msgid "Hide Help"
 #~ msgstr "Ukryj pomoc"

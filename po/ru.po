@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -48,24 +48,17 @@ msgstr "Сохранить сообщение"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 #, fuzzy
-msgid "Debconf was asked to save this "
+msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
 "было вам отправлено по почте."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr ""
-"Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
-"было вам отправлено по почте."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "Сообщение было отправлено пользователю root."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Сообщение сохранить не удалось."
 
@@ -222,24 +215,24 @@ msgstr "Не удалось создать элемент типа %s. Причина: %s"
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон не содержит строки `Template:'"
@@ -273,7 +266,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "не удалось настроить пакет %s, код ошибки %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "должна выполняться с правами пользователя root"
 
 #: ../dpkg-reconfigure:125
@@ -291,28 +285,46 @@ msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "Пакет %s установлен не полностью"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Debconf was asked to save this "
+#~ msgstr ""
+#~ "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому "
+#~ "оно было вам отправлено по почте."
+
+#, fuzzy
+#~ msgid "note, so it mailed it to you."
+#~ msgstr ""
+#~ "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому "
+#~ "оно было вам отправлено по почте."
 
 #~ msgid "Hide Help"
 #~ msgstr "Убрать подсказку"

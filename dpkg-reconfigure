@@ -78,7 +78,7 @@ use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
 if ($> != 0) {
-	print STDERR "$0 ".gettext("must be run as root")."\n";
+	print STDERR sprintf(gettext("%s must be run as root"), $0)."\n";
 	exit 1;
 }
 

@@ -1,3 +1,10 @@
+debconf (1.1.8) unstable; urgency=low
+
+  * Have Debconf::Log override die and print a stack trace.
+  * Denis Barbier sent in a nice patch to clean up gettext strings. Thanks!
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 23 May 2002 22:18:13 -0400
+
 debconf (1.1.7) unstable; urgency=low
 
   * dpkg-reconfigure now sets DEBCONF_RECONFIGURE=1 before running postinst

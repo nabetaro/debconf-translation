@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2002-04-16 14:38-0400\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -46,18 +46,17 @@ msgid "Save (mail) Note"
 msgstr "Enregistrer (mailer) la note"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-msgid "Debconf was asked to save this "
-msgstr "Il a été demandé a Debconf d'enregistrer cette "
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf n'a pas été configuré pour montrer cette note, il vous l'a donc "
+"envoyée par courrier électronique."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-msgid "note, so it mailed it to you."
-msgstr "note, il vous l'a donc envoyé par courriel."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "The note has been mailed."
 msgstr "La note a été envoyé par courrier électronique."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Impossible d'enregistrer la note."
 
@@ -216,7 +215,7 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -226,17 +225,17 @@ msgstr ""
 "valeur. Il manque probablement la ligne vide de séparation entre deux "
 "modèles.\n"
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Erreur champ de modèle « %s » inconnu, dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers « %s », dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le modèle #%s de %s contient pas de ligne « Template: »\n"
@@ -270,7 +269,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "doit être lancé par le super-utilisateur"
 
 #: ../dpkg-reconfigure:125
@@ -288,25 +288,37 @@ msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, fuzzy, c-format
+msgid "%s is missing"
 msgstr "$basefield est manquant"
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, fuzzy, c-format
+msgid "%s is missing; dropping %s"
 msgstr "$basefield est manquant ; abandon de $field"
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, fuzzy, c-format
+msgid "%s is fuzzy"
 msgstr "$field est flou"
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, fuzzy, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr "$field est flou ; ce champ a été abandonné"
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
+#, fuzzy, c-format
+msgid "%s is outdated"
 msgstr "est hors d'âge"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, fuzzy, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr "est hors d'âge ; abandon de tout le modèle !"
+
+#~ msgid "Debconf was asked to save this "
+#~ msgstr "Il a été demandé a Debconf d'enregistrer cette "
+
+#~ msgid "note, so it mailed it to you."
+#~ msgstr "note, il vous l'a donc envoyé par courriel."

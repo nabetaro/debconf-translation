@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -45,18 +45,17 @@ msgid "Save (mail) Note"
 msgstr "Spara (e-post-)notis"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-msgid "Debconf was asked to save this "
-msgstr "Debconf ombads spara denna "
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
+"per e-post."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-msgid "note, so it mailed it to you."
-msgstr "notis, så den har sänts till dig per e-post."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "The note has been mailed."
 msgstr "Notisen har sänts per e-post."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Kan inte spara notis."
 
@@ -210,7 +209,7 @@ msgstr "Kan inte ladda Debconf::Element::%s. Misslyckades eftersom: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -220,17 +219,17 @@ msgstr ""
 "beror troligen på att två mallar inte avdelats korrekt med en ensam "
 "radbrytning.\n"
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
@@ -264,7 +263,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s misslyckades med förkonfigurering, med slutkod %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "måste köras som root"
 
 #: ../dpkg-reconfigure:125
@@ -282,28 +282,40 @@ msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s är inte helt installerat"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#~ msgid "Debconf was asked to save this "
+#~ msgstr "Debconf ombads spara denna "
+
+#~ msgid "note, so it mailed it to you."
+#~ msgstr "notis, så den har sänts till dig per e-post."
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

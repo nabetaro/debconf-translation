@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -46,22 +46,16 @@ msgstr "注意を保存する"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 #, fuzzy
-msgid "Debconf was asked to save this "
+msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr ""
-"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "この注意は root にメールされました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
@@ -217,24 +211,24 @@ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"
@@ -268,7 +262,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で設定に失敗しました。"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "root で実行する必要があります"
 
 #: ../dpkg-reconfigure:125
@@ -286,28 +281,46 @@ msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s は完全にインストールされていません"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Debconf was asked to save this "
+#~ msgstr ""
+#~ "この注意を保存するよう要求されたので、debconf があなたにメールを送りまし"
+#~ "た。"
+
+#, fuzzy
+#~ msgid "note, so it mailed it to you."
+#~ msgstr ""
+#~ "この注意を保存するよう要求されたので、debconf があなたにメールを送りまし"
+#~ "た。"
 
 #~ msgid "Hide Help"
 #~ msgstr "ヘルプを非表示"

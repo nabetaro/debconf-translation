@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -45,20 +45,16 @@ msgstr "주의 저장"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 #, fuzzy
-msgid "Debconf was asked to save this "
-msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "이 주의는 root에게 메일로 보냈습니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "주의를 저장할 수 없습니다."
 
@@ -212,7 +208,7 @@ msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
 msgid "Configuring %s"
 msgstr "%s 설정중"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -222,17 +218,17 @@ msgstr ""
 "고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
 "다.\n"
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
@@ -267,7 +263,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "root로 실행해야 합니다"
 
 #: ../dpkg-reconfigure:125
@@ -285,28 +282,44 @@ msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s은(는) 완전히 설치되지 않았습니다"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Debconf was asked to save this "
+#~ msgstr ""
+#~ "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
+
+#, fuzzy
+#~ msgid "note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

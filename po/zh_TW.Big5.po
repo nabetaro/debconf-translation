@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-05-23 14:31-0400\n"
+"POT-Creation-Date: 2002-05-26 19:57-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -44,18 +44,15 @@ msgid "Save (mail) Note"
 msgstr "儲存備忘"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-msgid "Debconf was asked to save this "
-msgstr "Debconf 要求儲存這個 "
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 
-#: ../Debconf/Element/Gnome/Note.pm:49
-msgid "note, so it mailed it to you."
-msgstr "備忘, 並且郵寄給您."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "The note has been mailed."
 msgstr "這個備忘已經郵寄了."
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "不能儲存備忘."
 
@@ -199,7 +196,7 @@ msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 msgid "Configuring %s"
 msgstr "正設定 %s"
 
-#: ../Debconf/Template.pm:181
+#: ../Debconf/Template.pm:182
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -208,17 +205,17 @@ msgstr ""
 "樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
 "的新行分格.\n"
 
-#: ../Debconf/Template.pm:206
+#: ../Debconf/Template.pm:207
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 
-#: ../Debconf/Template.pm:232
+#: ../Debconf/Template.pm:233
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 
-#: ../Debconf/Template.pm:238
+#: ../Debconf/Template.pm:239
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
@@ -252,7 +249,8 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預設定 %s 失敗, 中止狀態 %s"
 
 #: ../dpkg-reconfigure:81
-msgid "must be run as root"
+#, fuzzy, c-format
+msgid "%s must be run as root"
 msgstr "需要由 root 的執行"
 
 #: ../dpkg-reconfigure:125
@@ -270,25 +268,37 @@ msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"
 
 #: ../debconf-mergetemplate:114
-msgid "$basefield is missing"
+#, c-format
+msgid "%s is missing"
 msgstr ""
 
 #: ../debconf-mergetemplate:118
-msgid "$basefield is missing; dropping $field"
+#, c-format
+msgid "%s is missing; dropping %s"
 msgstr ""
 
 #: ../debconf-mergetemplate:132
-msgid "$field is fuzzy"
+#, c-format
+msgid "%s is fuzzy"
 msgstr ""
 
 #: ../debconf-mergetemplate:136
-msgid "$field is fuzzy; dropping it"
+#, c-format
+msgid "%s is fuzzy; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:152
-msgid "is outdated"
-msgstr ""
+#, fuzzy, c-format
+msgid "%s is outdated"
+msgstr "%s 並未完全安裝"
 
 #: ../debconf-mergetemplate:157
-msgid "is outdated; dropping whole template!"
+#, c-format
+msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#~ msgid "Debconf was asked to save this "
+#~ msgstr "Debconf 要求儲存這個 "
+
+#~ msgid "note, so it mailed it to you."
+#~ msgstr "備忘, 並且郵寄給您."
