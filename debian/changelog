@@ -1,3 +1,33 @@
+debconf (0.3.79) unstable; urgency=low
+
+  * Copyright change: debconf is now licensed under the terms of the BSD
+    copyright, minus the advertising clause. I have contacted all
+    contributors and they agree with this license change. This also changes
+    the license of the Configuration Management spec. The sole exception to
+    this change is some libapt code in Client/preconfigure that is part of
+    the /usr/lib/debconf/apt-extracttemplates binary. That code remains
+    under the GPL, as it is part of libapt. It will hopefully be moved back
+    into libapt one day. apt-extracttemplates is not necessary for the 
+    proper functioning of debconf; it is just a binary used in an
+    optimization.
+  * Motivations for this change were various. I want programs to be able to
+    use debconf even if they are not licensed under the GPL, and it could
+    be argued debconf serves as a library (with varying degrees of
+    correctness depending which part you were talking about). I would like
+    debconf to be available to others, including the BSD community, some of
+    whom I know are looking at issues that could possibly be solved by
+    debconf.
+  * Several reogranaizations for this. Deleted doc/COPYING. Added a README.
+    Included the text of the copyright into debian/copyright, since it is a
+    slightly modified BSD license (minus point 3). Modified numerous files
+    for the new copyright. Removed Client/preconfigure/README, and included
+    the text that was in it (expended) indo debian/copyright. Added
+    doc/COPYING to Client/preconfigure/ (how many copies of the GPL do
+    _you_ have in your cvs repository? ;-) Caused debian/copyright to be
+    linked to doc/COPYRIGHT in the source tarball.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 27 Sep 2000 09:02:59 -0700
+
 debconf (0.3.78) unstable; urgency=low
 
   * Let's just say that you really don't want to install version 0.3.77.

@@ -1,15 +1,38 @@
-Debconf is a debian native package. Debconf is copyright by Joey Hess
-<joey@kitenet.net> and VA Linux Systems under the terms of the GNU GPL,
-version 2, or at your option, any later version. Parts also copyright 
-Wichert Akkerman <wakkerma@debian.org>, Jason Gunthorpe <jgg@debian.org>, 
-and Randolph Chung <tausq@debian.org>.
+Note:
 
-Though the source for this package can be found on any debian mirror,
-development work happens in CVS. You can get a snapshot of the current
-development release via CVS, but you'll have to read this page first:
-	http://kitenet.net/programs/sshcvs/?debconf
+  The AR and TAR extraction classes in the Client/preconfigure/ direcotry of
+  Debian's source archive are written by Jason Gunthorpe <jgg@debian.org> and
+  are copyright under the terms of the GNU GPL. The full text of that license
+  is included in the file COPYING in either /usr/share/common-licenses/ on a
+  Debian system, or in Client/preconfigure/ in the Debconf source archive. 
 
-Or you can browse the CVS archives here:
-	http://cvs.kitenet.net/joey-cvs/public/packages/debconf/
+  Specifically, the following files are GPL'd: arfile.cc, dirstream.cc,
+  extracttar.cc, arfile.h, dirstream.h, extracttar.h
 
-Debconf's home page is at http://kitenet.net/programs/debconf/
+  The remainder of the files in the Client/preconfigure/ directory are 
+  written by Randolph Chung <tausq@debian.org>, and are copyrighted under the 
+  same license as the rest of Debconf, which follows:
+
+Debconf is Copyright (c) Joey Hess <joey@kitenet.net>, VA Linux Systems,
+Wichert Akkerman <wakkerma@debian.org>, and Randolph Chung <tausq@debian.org>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY AUTHORS AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.

@@ -34,6 +34,8 @@ clean:
 	rm -f build-arch-stamp build-indep-stamp
 	$(MAKE) clean
 	dh_clean debian/debconf.changelog
+	# Just so non-debian folks will know where to find it.
+	ln -sf ../debian/copyright doc/COPYRIGHT
 
 # Build architecture-independent files here.
 # Pass -i to all debhelper commands in this target to reduce clutter.
@@ -51,7 +53,7 @@ binary-indep: build-indep
 	dh_installdocs doc/namespace.txt \
 		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
 		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
-		doc/passthrough.txt
+		doc/passthrough.txt doc/README
 	dh_installexamples samples/*
 	dh_installchangelogs
 	dh_link
