@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2002-09-27 14:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -207,19 +207,19 @@ msgstr "no s'ha pogut iniciar l'interfície: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "No s'ha pogut iniciar una interfície: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr ""
 "La base de dades de configuracions no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr ""
 "La base de dades de plantilles no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -273,26 +273,26 @@ msgstr "La plantilla #%s en %s no conté una línia \"Template:\"\n"
 msgid "unable to re-open stdin: %s"
 msgstr "no s'ha pogut reobrir stdin: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "teniu que especificar algún deb a preconfigurar"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "retrasant la configuració dels paquets ja que apt-utils no està instal·lat"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "error d'analisi de plantilla: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: no es pot fer chmod: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ha fallat al preconfigurar, amb estat de sortida %s"

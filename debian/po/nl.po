@@ -14,7 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"POT-Creation-Date: 2003-06-23 11:10-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2003-08-10 19:10+0100\n"
 "Last-Translator: Bart Cornelis <cobaco@linux.be>\n"
 "Language-Team: dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -34,17 +35,28 @@ msgstr "Welke interface wilt u gebruiken voor het configureren van pakketten?"
 
 #. Description
 #: ../templates:5
-msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
-msgstr "Alle pakketten die gebruik maken van debconf voor configuratie werken hetzelfde. U kan hier het interface-type dat zij gebruiken instellen."
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Alle pakketten die gebruik maken van debconf voor configuratie werken "
+"hetzelfde. U kan hier het interface-type dat zij gebruiken instellen."
 
 #. Description
 #: ../templates:5
-msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and the gnome frontend is a modern X interface. The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and the "
+"gnome frontend is a modern X interface. The editor frontend lets you "
+"configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
 msgstr ""
-"De dialoog frontend is een niet-grafische (karaktergebazeerde) interface die het volledige scherm overneemt.\n"
+"De dialoog frontend is een niet-grafische (karaktergebazeerde) interface die "
+"het volledige scherm overneemt.\n"
 "De LeesRegel interface is de meer tradionele tekst interface.\n"
 "De Gnome interface is een moderne grafische interface.\n"
-"De editor interface laat toe om dingen in te stellen met behulp van uw favoriete tekst-editor.\n"
+"De editor interface laat toe om dingen in te stellen met behulp van uw "
+"favoriete tekst-editor.\n"
 "De niet-interactieve interface vraagt gewoon helemaal niks"
 
 #. Choices
@@ -60,15 +72,18 @@ msgstr "Laat enkel vragen zien met een prioriteit die groter of gelijk is aan?"
 #. Description
 #: ../templates:19
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf vragen zijn geordend volgens prioriteit. Kies de laagste prioriteit die u wilt zien:\n"
-"  - 'kritiek' vragen met deze prioriteit dienen beantwoord te worden om uw systeem in werkbare staat te houden.\n"
+"Debconf vragen zijn geordend volgens prioriteit. Kies de laagste prioriteit "
+"die u wilt zien:\n"
+"  - 'kritiek' vragen met deze prioriteit dienen beantwoord te worden om uw "
+"systeem in werkbare staat te houden.\n"
 "    Kies dit alles nieuw voor u is, of wanneer u haast heeft.\n"
 "  - 'hoog' is voor relatief belangrijke vragen\n"
 "  - 'medium' is voor normale vragen\n"
@@ -76,21 +91,30 @@ msgstr ""
 
 #. Description
 #: ../templates:19
-msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
-msgstr "Merk op dat u met dpkg-reconfigure in staat bent om elke vraag te zien, onafhankelijk van wat u hier kiest."
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Merk op dat u met dpkg-reconfigure in staat bent om elke vraag te zien, "
+"onafhankelijk van wat u hier kiest."
 
-#. Description
-#: ../templates:34
-msgid "Show all old questions again and again?"
-msgstr "Reeds gestelde vragen steeds opnieuw tonen?"
+#~ msgid "Show all old questions again and again?"
+#~ msgstr "Reeds gestelde vragen steeds opnieuw tonen?"
 
-#. Description
-#: ../templates:34
-msgid "Debconf normally only asks you any given question once. Then it remembers your answer and never asks you that question again. If you prefer, debconf can ask you questions over and over again, each time you upgrade or reinstall a package that asks them."
-msgstr "Normaal wordt elke vraag slechts eenmaal door Debconf gesteld. Debconf onthoud uw antwoord en vraagt u de vraag daarna nooit meer. Indien u dit verkiest kunt u debconf opdracht geven die vragen bij elke actualizatie en reinstallatie opnieuw te stellen."
+#~ msgid ""
+#~ "Debconf normally only asks you any given question once. Then it remembers "
+#~ "your answer and never asks you that question again. If you prefer, "
+#~ "debconf can ask you questions over and over again, each time you upgrade "
+#~ "or reinstall a package that asks them."
+#~ msgstr ""
+#~ "Normaal wordt elke vraag slechts eenmaal door Debconf gesteld. Debconf "
+#~ "onthoud uw antwoord en vraagt u de vraag daarna nooit meer. Indien u dit "
+#~ "verkiest kunt u debconf opdracht geven die vragen bij elke actualizatie "
+#~ "en reinstallatie opnieuw te stellen."
 
-#. Description
-#: ../templates:34
-msgid "Note that no matter what you choose here, you can see old questions again by using the dpkg-reconfigure program."
-msgstr "Merk op dat u, onafhankelijk van wat u hir kiest, via dpkg-reconfigure oude vragen opnieuw kunt beantwoorden."
-
+#~ msgid ""
+#~ "Note that no matter what you choose here, you can see old questions again "
+#~ "by using the dpkg-reconfigure program."
+#~ msgstr ""
+#~ "Merk op dat u, onafhankelijk van wat u hir kiest, via dpkg-reconfigure "
+#~ "oude vragen opnieuw kunt beantwoorden."

@@ -79,7 +79,7 @@ commands like this:
 	DATA <tag> <item> <value>
 
    where: 
-	<tag> is the name of the template, e.g. debconf/showold
+	<tag> is the name of the template, e.g. debconf/frontend
 	<item> is one of {"description", "extended-description", "choices"}
 	<value> is the value of the <item>, with all newlines converted to 
 	        "\\n" (i.e. 0x2F 0x6E)

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "Language-Team: none\n"
@@ -206,15 +206,15 @@ msgstr "liittym‰n alustus ep‰onnistui: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Liittym‰n k‰ynnistys ep‰onnistui: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "Asetustietokantaa ei ole m‰‰ritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "Kyselypohjatietokantaa ei ole m‰‰ritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -266,26 +266,26 @@ msgstr "`Template:'-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 msgid "unable to re-open stdin: %s"
 msgstr "vakiosyˆtteen uudelleenavaus ep‰onnistui: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "esiasetukseen on m‰‰ritett‰v‰ paketteja"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 #, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "(pakettien esiasetusta ei tehd‰, koska apt-utils:ia ei ole asennettu)"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "kyselypohjan j‰sennysvirhe: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: en voi muuttaa oikeuksia: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s:n esiasetus ep‰onnistui; paluukoodi oli %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -201,15 +201,15 @@ msgstr "フロントエンドの初期化に失敗しました: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "設定データベースが設定ファイルで指定されていません"
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "テンプレートデータベースが設定ファイルで指定されていません"
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -264,26 +264,26 @@ msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"
 msgid "unable to re-open stdin: %s"
 msgstr "標準入力を再オープンできません: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "preconfigureするdebファイルを指定してください"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "apt-utilsがインストールされていないため，パッケージの設定を遅らせます．"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "テンプレートの解析に失敗しました: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "chmod できません: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で前設定に失敗しました。"

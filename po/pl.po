@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2002-09-09 13:50+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -201,15 +201,15 @@ msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -261,27 +261,27 @@ msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
 msgid "unable to re-open stdin: %s"
 msgstr "nie uda³o siê ponownie otworzyæ stdin: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "nale¿y podaæ pakiety do skonfigurowania"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "opó¼nienie konfiguracji pakietu poniewa¿ pakiet apt-utils nie jest "
 "zainstalowany"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "b³±d w szablonie: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nie uda³o siê zmieniæ uprawnieñ: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"

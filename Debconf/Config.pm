@@ -12,9 +12,8 @@ use Debconf::Question;
 use Debconf::Gettext;
 use Debconf::Db;
 
-use fields qw(config templates frontend priority terse
-              showold admin_email log debug nowarnings
-	      smileys sigils);
+use fields qw(config templates frontend priority terse reshow
+              admin_email log debug nowarnings smileys sigils);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("/etc/debconf.conf", "/usr/share/debconf/debconf.conf");
@@ -190,7 +189,6 @@ sub getopt {
 		print STDERR <<EOF;
   -f,  --frontend		Specify debconf frontend to use.
   -p,  --priority		Specify minimum priority question to show.
-  -s,  --showold		Redisplay old, already seen questions.
        --terse			Enable terse mode.
 EOF
 		exit 1;
@@ -204,7 +202,6 @@ EOF
 	Getopt::Long::GetOptions(
 		'frontend|f=s',	sub { shift; $config->{frontend} = shift },
 		'priority|p=s',	sub { shift; $config->{priority} = shift },
-		'showold|s',	sub { $config->{showold} = 'true' },
 		'terse',	sub { $config->{terse} = 'true' },
 		'help|h',	$showusage,
 		@_,
@@ -291,32 +288,6 @@ sub nowarnings {
 	$config->{nowarnings}=$_[0] if @_;
 	return $config->{nowarnings} if exists $config->{nowarnings};
 	return 'false';
-}
-
-=item showold
-
-If true, then old questions the user has already seen are shown to them again.
-A value is pulled out of the config file or database if possible, otherwise a
-default of false is used.
-
-If a value is passed to this function, it changes it temporarily (for
-the lifetime of the program) to override what's in the database or config
-file.
-
-=cut
-
-sub showold {
-	my $class=shift;
-	$config->{showold}=shift if @_;
-	return $ENV{DEBCONF_SHOWOLD} if exists $ENV{DEBCONF_SHOWOLD};
-	return $config->{showold} if exists $config->{showold};
-	
-	my $ret='false';
-	my $question=Debconf::Question->get('debconf/showold');
-	if ($question) {
-		$ret=$question->value || $ret;
-	}
-	return $ret;
 }
 
 =item debug

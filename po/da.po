@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2001-12-05 18:04+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -196,15 +196,15 @@ msgstr "kunne ikke klargøre grænseflade: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kunne ikke starte en grænseflade: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "Opsætningsdatabase ikke specificeret i opsætningsfil"
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "Skabelondatabase ikke specificeret i opsætningsfil"
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -258,25 +258,25 @@ msgstr "Skabelon nr. %s i %s indeholder ikke en 'Template:'-linje\n"
 msgid "unable to re-open stdin: %s"
 msgstr "kunne ikke genåbne stdin: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "er nødt til at angive nogle debianpakker for at forudopsætte"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "forsinker pakkeopsætning, eftersom apt-utils ikke er installeret"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "Fortolkningsfejl i skabelon: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kan ikke chmod: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s fejlede i forudopsætning med afslutningsstatus %s"

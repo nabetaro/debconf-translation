@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf-1.2.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2003-O1-17 22:07+0300\n"
 "Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -208,17 +208,17 @@ msgstr "falha ao inicializar frontend: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr ""
 "Banco de dados de configuração não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -270,26 +270,26 @@ msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 msgid "unable to re-open stdin: %s"
 msgstr "Impossível reabrir o stdin: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "é necessário especificar debs para preconfigurar"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 #, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "(não preconfigurando pacotes já que o apt-utils não está instalado)"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "erro na análise de template: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: impossível fazer chmod: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou na preconfiguração com estado de saída %s"

@@ -271,8 +271,8 @@ sub command_input {
 	# Don't show items that are unimportant.
 	$visible='' unless high_enough($priority);
 
-	# Unless showold is set, don't re-show already seen questions.
-	$visible='' if Debconf::Config->showold() eq 'false' &&
+	# Don't re-show already seen questions, unless reconfiguring.
+	$visible='' if ! Debconf::Config->reshow &&
 	               $question->flag('seen') eq 'true';
 
 	my $element;

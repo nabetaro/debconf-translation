@@ -1,3 +1,10 @@
+debconf (1.3.11) unstable; urgency=low
+
+  * Removed the showold question, and all showold support except what's
+    necessary for dpkg-reconfigure. Closes: #129666, #184142
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 21 Aug 2003 19:28:56 -0400
+
 debconf (1.3.10) unstable; urgency=low
 
   * Dutch templates po file translaton. Closes: #204916

@@ -123,7 +123,7 @@ unless ($unseen_only) {
 	# Make the frontend show questions even if the user has already seen
 	# them. Since this is a reconfigure program, they may want to change
 	# their choices.
-	Debconf::Config->showold('true');
+	Debconf::Config->reshow(1);
 }
 
 my @packages;

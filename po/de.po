@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2002-01-18 08:51+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -210,15 +210,15 @@ msgstr "kann Frontend nicht initialisieren: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kann das Frontend nicht starten: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "Konfigurationsdatenbank in der Konfigurationsdatei nicht angegeben."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "Templatedatenbank in der Konfigurationsdatei nicht angegeben."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -270,26 +270,26 @@ msgstr "Template Nr. %s in %s enthält keine »Template:« Zeile.\n"
 msgid "unable to re-open stdin: %s"
 msgstr "kann stdin nicht wieder öffnen: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "es müssen debs zum Vorkonfigurieren angegeben werden"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "Schiebe die Paket-Konfiguration auf, da apt-utils nicht installiert ist"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, fuzzy, c-format
 msgid "template parse error: %s"
 msgstr "Template-Analysefehler: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, fuzzy, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kann nicht chmod: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s konnte nicht vorkonfiguriert werden, Exit-Status %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-06-23 11:10-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Debian Description Translation Project <debconf@ddtp.debian."
 "org>\n"
@@ -101,34 +101,22 @@ msgstr ""
 "Beachten Sie, daß Sie unabhängig von der hier gewählten Stufe jede Frage "
 "sehen können, wenn Sie ein Paket mit dpkg-reconfigure neu konfigurieren."
 
-#  Template: debconf/showold
-#  ddtp-prioritize: 54
 #
-#. Description
-#: ../templates:34
-msgid "Show all old questions again and again?"
-msgstr "Zeige alle alten Fragen wieder und wieder?"
+#~ msgid ""
+#~ "Debconf normally only asks you any given question once. Then it remembers "
+#~ "your answer and never asks you that question again. If you prefer, "
+#~ "debconf can ask you questions over and over again, each time you upgrade "
+#~ "or reinstall a package that asks them."
+#~ msgstr ""
+#~ "Debconf fragt normal jede Frage nur einmal. Danach erinnert es sich an "
+#~ "Ihre Antwort und fragt Sie diese Frage nie mehr. Wenn Sie es vorziehen, "
+#~ "kann debconf Sie die Fragen immer wieder stellen wenn das entsprechende "
+#~ "Paket installiert oder erneuert wird."
 
 #
-#. Description
-#: ../templates:34
-msgid ""
-"Debconf normally only asks you any given question once. Then it remembers "
-"your answer and never asks you that question again. If you prefer, debconf "
-"can ask you questions over and over again, each time you upgrade or "
-"reinstall a package that asks them."
-msgstr ""
-"Debconf fragt normal jede Frage nur einmal. Danach erinnert es sich an Ihre "
-"Antwort und fragt Sie diese Frage nie mehr. Wenn Sie es vorziehen, kann "
-"debconf Sie die Fragen immer wieder stellen wenn das entsprechende Paket "
-"installiert oder erneuert wird."
-
-#
-#. Description
-#: ../templates:34
-msgid ""
-"Note that no matter what you choose here, you can see old questions again by "
-"using the dpkg-reconfigure program."
-msgstr ""
-"Beachten Sie: egal was Sie hier auswählen, Sie können alte Fragen mit den "
-"Programm dpkg-reconfigure erneut stellen lassen."
+#~ msgid ""
+#~ "Note that no matter what you choose here, you can see old questions again "
+#~ "by using the dpkg-reconfigure program."
+#~ msgstr ""
+#~ "Beachten Sie: egal was Sie hier auswählen, Sie können alte Fragen mit den "
+#~ "Programm dpkg-reconfigure erneut stellen lassen."

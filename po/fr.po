@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2003-07-26 12:05+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -203,19 +203,19 @@ msgstr "Impossible d'initialiser l'interface : %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossible de démarrer l'interface : %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des réglages."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des messages (« templates »)."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -269,26 +269,26 @@ msgstr "Le message #%s de %s ne contient pas de ligne « Template: »\n"
 msgid "unable to re-open stdin: %s"
 msgstr "impossible de ré-ouvrir stdin : %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "Vous devez indiquer des paquets à pré-configurer"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "la configuration des paquets est reportée, car apt-utils n'est pas installé"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "erreur d'analyse de message : %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf : impossible de changer le mode : %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"

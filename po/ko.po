@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-03 17:03-0400\n"
+"POT-Creation-Date: 2003-08-21 17:15-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -201,15 +201,15 @@ msgstr "frontend를 초기화할 수 없음: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
 
-#: ../Debconf/Config.pm:126
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
 
-#: ../Debconf/Config.pm:130
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
 
-#: ../Debconf/Config.pm:142
+#: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -261,26 +261,26 @@ msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
 msgid "unable to re-open stdin: %s"
 msgstr "표준입력을 다시 열 수 없음: %s"
 
-#: ../dpkg-preconfigure:126
+#: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
 msgstr "미리 설정할 deb를 지정해야 합니다"
 
-#: ../dpkg-preconfigure:131
+#: ../dpkg-preconfigure:121
 #, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "(apt-utils가 설치되지 않았기 때문에 패키지를 미리 설정하지 않습니다)"
 
-#: ../dpkg-preconfigure:189
+#: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "템플릿 parse 에러: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod할 수 없음: %s"
 
-#: ../dpkg-preconfigure:213
+#: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
