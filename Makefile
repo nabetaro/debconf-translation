@@ -30,5 +30,5 @@ install: clean
 
   # Install bins
 	install -d $(prefix)/usr/bin
-	find Client -perm +1 -type f | grep -v dpkg-frontend \
+	find Client -perm +1 -type f | grep -v frontend \
 		| xargs -i_ install _ $(prefix)/usr/bin
