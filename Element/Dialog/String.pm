@@ -25,6 +25,9 @@ sub show {
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);	
 
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
+
 	my @params=('--inputbox', $text, 
 		$lines + $this->frontend->spacer, 
 		$columns, $this->question->value);
@@ -33,11 +36,8 @@ sub show {
 	
 	exit $ret if $ret != 0;
 
-	# The || '' is necessary, because $value may be undefined.
-	# if it is, we still want to set the value of the question, to
-	# ''. Otherwise, hitting enter in an empty text box will
-	# make the default be set, which is not what you expected.
-	$this->question->value($value || '');
+	if (! defined $value) { $value='' }
+	$this->question->value($value);
 	$this->question->flag_isdefault('false');
 }
 

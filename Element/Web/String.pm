@@ -35,7 +35,8 @@ sub show {
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	my $default=$this->question->value;
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	my $id=$this->id;
 	$_.="<b>".$this->question->description."</b><input name=\"$id\" value=\"$default\">\n";
 

@@ -245,8 +245,12 @@ sub command_get {
 	my $question_name=shift;
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
-	return $codes{success}, $question->value if defined $question->value;
-	return $codes{success}, ($question->template->default || '');
+	if (defined $question->value) {
+		return $codes{success}, $question->value;
+	}
+	else {
+		return $codes{success}, '';
+	}
 }
 
 =head2 command_set

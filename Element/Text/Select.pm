@@ -58,7 +58,7 @@ sub show {
 	%selectletfromind = reverse %selectindfromlet;
 	foreach (0..$#choices) {
 		$this->frontend->display_nowrap("\t". lc $selectletfromind{$_}.". $choices[$_]");
-		if ($choices[$_] eq $default) {
+		if (defined $default && $choices[$_] eq $default) {
 			$prompt .= uc $selectletfromind{$_};
 		} else {
 			$prompt .= lc $selectletfromind{$_};

@@ -1,3 +1,16 @@
+debconf (0.2.6) unstable; urgency=low
+
+  * Expanded and fixed up the Debian::DebConf::Client::ConfModule.2pm
+    man page. Closes: #48809
+  * Moved that man page to man section 3. Closes: #48810
+  * Corrected Question->value to return undef if there is no default set.
+    This Closes: #48829, and is the right thing to do. It does, however,
+    break slews of debconf code that never expected to get an undef there.
+    So I dug around and fixed it all, I think.
+  * Fixed entering of '0' into text box in dialog frontend, which was broken.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 31 Oct 1999 12:11:44 -0800
+
 debconf (0.2.5) unstable; urgency=low
 
   * Removed stupid debugging code. (oops)

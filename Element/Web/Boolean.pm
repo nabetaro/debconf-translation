@@ -36,7 +36,8 @@ sub show {
 	$_.="\n<p>\n";
 
 	my $type=$this->question->type;
-	my $default=$this->question->value;
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	my $id=$this->id;
 	$_.="<input type=checkbox name=\"$id\"". ($default eq 'true' ? ' checked' : ''). ">\n<b>".
 		$this->question->description."</b>";

@@ -25,7 +25,8 @@ sub show {
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);
 
-	my $default=$this->question->value;
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	my @params=('--passwordbox', $text, 
 		$lines + $this->frontend->spacer, 
 		$columns, $default);

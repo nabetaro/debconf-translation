@@ -65,7 +65,8 @@ sub radio {
 				$self->{unchanged} = 0;
 				$self->{newvalue} = $opt;
 			});
-		$radio->set_active(1) if ($opt eq $self->question->value);
+		$radio->set_active(1) 
+			if ((defined $self->question->value) && ($opt eq $self->question->value));
 		$vbox->pack_start($radio, 0,0,0);
 		$radio->show();
 	}
@@ -89,13 +90,13 @@ sub dropdown {
 				$self->{newvalue} = $opt;
 			});
 		$menuitem->set_active(1), $hist = $n
-			if ($opt eq $self->question->value);
+			if ((defined $self->question->value) && ($opt eq $self->question->value));
 		$menuitem->show();
 		$n++;
 	}
 
 	$optmenu->set_menu($menu);
-	$optmenu->set_history($hist); 
+	$optmenu->set_history($hist);
 	$optmenu->show;
 	$vbox->pack_start($optmenu, 0,0,0);
 }

@@ -62,7 +62,7 @@ sub new {
 		LocalAddr => '127.0.0.1',
 	) || die "Can't bind to ".$self->{port}.": $!";
 
-	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->{port}."\n";
+	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->{port}."/\n";
 
 	return $self;
 }

@@ -25,14 +25,15 @@ sub show {
 	# Display the question's long desc first.
 	$this->frontend->display(
 		$this->question->extended_description."\n");
-	
-	my $default=$this->question->value;
-	
+
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
+
 	# Prompt for input using the short description.
 	$_=$this->frontend->prompt($this->question->description." ", $default);
 	
 	# Handle defaults.
-	if ($_ eq '' && defined $default) {
+	if ($_ eq '') {
 		$_=$default;
 	}
 

@@ -26,7 +26,8 @@ sub show {
 	$this->frontend->display(
 		$this->question->extended_description."\n");
 
-	my $default=$this->question->value;
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";

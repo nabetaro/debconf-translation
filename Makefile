@@ -29,8 +29,8 @@ install:
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 
   # Generate man pages from POD docs.
-	install -d $(prefix)/usr/share/man/man2/
-	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man2/Debian::Debconf::Client::ConfModule.2pm
+	install -d $(prefix)/usr/share/man/man3/
+	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
 
   # Install bins
 	install -d $(prefix)/usr/bin

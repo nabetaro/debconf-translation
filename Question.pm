@@ -152,7 +152,7 @@ sub value {
 	
 	if (@_ == 0) {
 		return $this->{value} if (defined $this->{value});
-		return $this->template->default || '';
+		return $this->template->default;
 	} else {
 		return $this->{value} = shift;
 	}

@@ -8,11 +8,16 @@ Debian::DebConf::Client::ConfModule - client module for ConfModules
 
 =head1 SYNOPSIS
 
-	use Debian::DebConf::Client::ConfModule ':all';
-	version('2.0');
-	my $capb=capb('backup');
-	input("foo/bar");
-	go;
+ 	use Debian::DebConf::Client::ConfModule ':all';
+ 	version('2.0');
+ 	my $capb=capb('backup');
+ 	input("foo/bar");
+ 	my @ret=go();
+ 	if ($ret[0] == 30) {
+ 		# Back button pressed.
+ 		...
+ 	}
+ 	...
 
 =cut
 
@@ -23,14 +28,12 @@ management system. It can communicate with a FrontEnd via the ConfModule
 protocol. The design is that each command in the protocol is represented by
 one function in this module (with the name lower-cased). Call the function and
 pass in any parameters you want to follow the command. If the function is
-called in scalar context, any it will return any textual return code. If it is
-called in scalar context, an array consiting of the numeric return code and the
+called in scalar context, it will return any textual return code. If it is
+called in list context, an array consiting of the numeric return code and the
 textual return code will be returned.
 
 This module uses Exporter to export all functions it defines. To import
 everything, simply import ":all".
-
-A few functions have special features, as documented below:
 
 =cut
 

@@ -27,7 +27,8 @@ sub show {
 		$this->frontend->makeprompt($this->question);
 
 	my $screen_lines=($ENV{LINES} || 25) - $this->frontend->spacer;
-	my $default=$this->question->value;
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	my @params=();
 	my @choices=$this->question->choices_split;
 		

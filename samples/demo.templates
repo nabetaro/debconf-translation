@@ -1,10 +1,10 @@
 Template: demo/boolean
 Type: boolean
-Default: true
+Default: false
 Description: Do you like Linux?
  This a demo boolean item.
  .
- Just select yes or no. Yes should be default.
+ Just select yes or no. No should be default.
 
 Template: demo/string
 Type: string
@@ -64,6 +64,5 @@ Description: This is a much longer test text.
 Template: demo/select
 Type: select
 Choices: ${colors}
-Default: orange
 Description: What is your favorite color?
  This is a demo select list item. The list is generated on the fly.
