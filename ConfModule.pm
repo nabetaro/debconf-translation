@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::ConfModule - base ConfModule
+Debian::DebConf::ConfModule - communicates with a ConfModule
 
 =cut
 
@@ -96,7 +96,13 @@ Called when a ConfModule is created.
 sub init {
 	my $this=shift;
 
+	# Protcol version.
 	$this->version("2.0");
+	
+	# If my frontend thought the client confmodule could backup
+	# (eg, because it was dealing earlier with a confmodule that could),
+	# tell it otherwise.
+	$this->frontend->capb_backup('');
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -132,6 +138,7 @@ sub startup {
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
 			 @args)) || die $!;
+	
 	
 	# Catch sigpipes so they don't kill us, and return 128 for them.
 	$this->caught_sigpipe('');
@@ -309,10 +316,10 @@ sub command_version {
 
 =item command_capb
 
-Sets the client_capb field of the ConfModule to the confmodules
-capb string, and also sets the capb_backup field of the ConfModules
-associated FrontEnd if the confmodule can backup. Sends the capb field
-of the associated FrontEnd to the confmodule.
+Sets the client_capb field to the confmodules capb string, and also
+sets the capb_backup field of the ConfModules associated FrontEnd if
+the confmodule can backup. Sends the capb field of the associated
+FrontEnd to the confmodule.
 
 =cut
 

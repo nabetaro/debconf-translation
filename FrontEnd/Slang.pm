@@ -39,6 +39,14 @@ Set up most of the GUI.
 sub init {
 	my $this=shift;
 
+        # Running in emacs shell buffers does horrible things. Don't.
+	if ($ENV{TERM} =~ /emacs/i) {
+		die "Slang frontend is incompatable with emacs shell buffers.\n";
+	}
+	elsif ($ENV{TERM} eq 'dumb') {
+		die "Slang frontend will not work on a dumb terminal or an emacs shell buffer.\n";
+	}
+
 	$this->SUPER::init(@_);
 
 	$this->interactive(1);
@@ -230,7 +238,11 @@ sub go {
 
 		# Unless the confmodule can backup, disable the back
 		# button.
-		$this->button_back->disabled(! $this->capb_backup);
+		if (($this->button_back->disabled && $this->capb_backup) ||
+		    (! $this->button_back->disabled && ! $this->capb_backup)) {
+			$this->button_back->disabled(! $this->capb_backup);
+			$this->button_back->display;
+		}
 
 		# Now set it all in motion, with the first widget focused.
 		$this->helpbar->push(gettext("Tab and arrow keys move."));

@@ -33,7 +33,8 @@ binary-arch: install
 	dh_installdocs
 	dh_installdocs -p debconf-doc doc/namespace.txt doc/hierarchy.txt \
 		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
-		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif
+		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
+		doc/passthrough.txt
 	dh_installexamples -p debconf-doc samples/*
 	dh_installmenu
 	dh_installcron

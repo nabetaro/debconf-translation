@@ -26,13 +26,13 @@ progressivly falls back to other types.
 =cut
 
 my %fallback=(
-	# preferred frontend		# fall back to
-	'Web'			=>	'Slang',
-	'Dialog'		=>	'Slang',
-	'Gtk'			=>	'Slang',
-	'Text'			=>	'Slang',
-	'Slang'			=>	'Dialog',
-	'Editor'		=>	'Text',
+	# preferred frontend		# fall back to (list ref)
+	'Web'			=>	['Slang', 'Dialog', 'Text'],
+	'Dialog'		=>	['Slang', 'Text'],
+	'Gtk'			=>	['Slang', 'Dialog', 'Text'],
+	'Text'			=>	['Slang', 'Dialog'],
+	'Slang'			=>	['Dialog', 'Text'],
+	'Editor'		=>	['Text'],
 );
 
 my $frontend;
@@ -46,47 +46,28 @@ my $type;
 
 Creates and returns a FrontEnd object. The type of FrontEnd used varies. It
 will try the preferred type first, and if that fails, fall back through
-other types.
+other types, all the way to a Noninteractive frontend if all else fails.
 
 =cut
 
 sub make_frontend {
 	my $script=shift;
+	my $starttype=($type || frontend());
 
-	$type=frontend() unless $type;
-
-	my %seen;
-	while ($type ne '') {
+	foreach $type ($starttype, @{$fallback{$starttype}}, 'Noninteractive') {
 		debug user => "trying frontend $type";
 		$frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
 			Debian::DebConf::FrontEnd::$type->new();
 		};
-		last if defined $frontend;
-		
+		return $frontend if defined $frontend;
+
 		warn sprintf(gettext("failed to initialize frontend: %s"), $type);
-		debug user => "(Error: $@)";
-
-		# Only try each type once to prevent loops.
-		$seen{$type}=1;
-		$type=$fallback{$type} || 'Text';
-		last if exists $seen{$type};
-
-		warn sprintf(gettext("falling back to frontend: %s"), $type)
-			if $type ne '';
-	}
-	
-	if (! defined $frontend) {
-		# Fallback to noninteractive as a last resort.
-		$frontend=eval qq{
-			use Debian::DebConf::FrontEnd::Noninteractive;
-			Debian::DebConf::FrontEnd::Noninteractive->new();
-		};
-		die sprintf(gettext("Unable to start a frontend: %s"), $@)
-			unless defined $frontend;
+		$@=~s/\n//s;
+		warn "($@)\n";
 	}
 
-	return $frontend;
+	die sprintf(gettext("Unable to start a frontend: %s"), $@);
 }
 
 =item make_confmodule

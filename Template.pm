@@ -150,7 +150,7 @@ sub load {
 =head2 parse
 
 This method parses a string containing a template and stores all the
-information in the Template object.
+information in the Template object. It returns the object.
 
 =cut
 
@@ -187,6 +187,8 @@ sub parse {
 	# Sanity checks.
 	die gettext("Template does not contain a `Template:' line")
 		unless $this->template;
+	
+	return $this;
 }
 
 # Helper for parse, sets a field to a value.
