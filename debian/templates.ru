@@ -38,7 +38,6 @@ Description: Ignore questions with a priority less than..
  If you are new to the Debian GNU/Linux system choose 'critical' now, so
  you only see the most important questions.
 Choices-ru: критичный, высокий, средний, низкий
-Default-ru: средний
 Description-ru: Игнорировать вопросы с приоритетом меньше, чем..
  Пакеты,  которые  используют  debconf,  используют систему приоритетов
  вопросов,  которые  они вам задают. Вам будут показаны только вопросы,
@@ -74,7 +73,6 @@ Description: What interface should be used for configuring packages?
  configure things using your favorite text editor. The noninteractive
  frontend never asks you any questions.
 Choices-ru: диалог, строка ввода, Gnome, редактор, неинтерактивный
-Default-ru: диалог
 Description-ru: Какой интерфейс нужно использовать для настройки пакетов?
  Пакеты,  которые  используют debconf, для настройки будут использовать
  единый интерфейс. Вы можете выбрать наиболее подходящий.

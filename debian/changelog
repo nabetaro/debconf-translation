@@ -1,3 +1,12 @@
+debconf (1.0.31) unstable; urgency=low
+
+  * Versioned conflicts with debconf-tiny, see #137019
+  * Corrected some wording in the German translation. Closes: #137005
+  * Removed translated default fields in the Russian template (don't do that,
+    folks).
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  5 Mar 2002 19:54:40 -0500
+
 debconf (1.0.30) unstable; urgency=low
 
   * Matthew Palmer <mjp16@ieee.uow.edu.au> contributed a LDAP backend
