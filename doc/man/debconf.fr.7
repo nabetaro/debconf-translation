@@ -67,12 +67,12 @@ configuration Debian classique\ : une série de questions, imprimées sur la
 console en mode texte et des invites affichées avec la bibliothèque readline.
 Elle reconnaît même le complètement avec « tab ». Le paquet
 libterm-readline-gnu-perl est fortement recommandé si vous choisissez d'utiliser
-cette interface\ ; le module readline par défaut a vraiment des lacunes.
+cette interface\ ; le module readline par défaut a vraiment des lacunes. Pour
+utiliser cette interface, vous aurez besoin d'installer le paquet perl-modules.
 .P
 Cette interface a quelques commandes spéciales. Pageup (ou ctrl-u)
 reviendra à la question précédente (si cela est supporté par le paquet utilisant
-debconf) et pagedown (ou
-ctrl-v) passera à la question suivante.
+debconf) et pagedown (ou ctrl-v) passera à la question suivante.
 .P
 C'est la meilleure interface pour les administrateurs à distance travaillant par
 une connexion lente, ou pour ceux qui sont à l'aise avec unix.
@@ -344,6 +344,10 @@ même manière que pour DEBCONF_DB_FALLBACK.
 Si cette variable d'environnement est fixée, debconf ignorera le fichier
 ~/.debconfrc de l'utilisateur et utilisera à la place le fichier de
 configuration du système.
+.TP
+.B DEBCONF_FORCE_DIALOG
+Si cette variable d'environnement est fixée, debconf utilisera de préférence
+dialog à whiptail pour l'interface dialog.
 .SH BOGUES
 Probablement beaucoup, il y a beaucoup de code ici.
 .P
