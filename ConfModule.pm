@@ -117,7 +117,7 @@ Pass this name name of a confmodule program, and it is started up. Any
 further options are parameters to pass to the confmodule. You enerally need
 to do this before trying to use any of the rest of this object. The
 alternative is to launch a confmodule manually, and connect the read_handle
-and write_handle properties of this object to it.
+and write_handle fields of this object to it.
 
 =cut
 
@@ -174,7 +174,7 @@ sub communicate {
 
 This is an internal helper function for communicate. It just waits for the
 child process to finish so its return code can be examined. The return code
-is stored in the exitcode property of the object.
+is stored in the exitcode field of the object.
 
 =cut
 
@@ -269,7 +269,7 @@ sub command_clear {
 
 =head2 command_version
 
-Compares protocol versions with the confmodule. The version property of the
+Compares protocol versions with the confmodule. The version field of the
 ConfModule is sent to the client.
 
 =cut
@@ -289,9 +289,9 @@ sub command_version {
 
 =head2 command_capb
 
-Sets the client_capb property of the ConfModule to the confmodules
-capb string, and also sets the capb_backup property of the ConfModules
-associated FrontEnd if the confmodule can backup. Sends the capb property
+Sets the client_capb field of the ConfModule to the confmodules
+capb string, and also sets the capb_backup field of the ConfModules
+associated FrontEnd if the confmodule can backup. Sends the capb field
 of the associated FrontEnd to the confmodule.
 
 =cut
@@ -310,7 +310,7 @@ sub command_capb {
 
 =head2 title
 
-Stores the specified title in the associated FrontEnds title property.
+Stores the specified title in the associated FrontEnds title field.
 
 =cut
 
@@ -495,7 +495,7 @@ sub command_metaget {
 =head2 command_fget
 
 Pass this a question name and a flag name. It returns the value of the
-specified flag on the question. Note that internally, any properties of
+specified flag on the question. Note that internally, any fields of
 a Question that start with "flag_" are flags.
 
 =cut
@@ -563,16 +563,22 @@ sub command_exist {
 }
 
 sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
-	if ($property=~/^command_(.*)/) {
+	my $field;
+	($field = $AUTOLOAD) =~ s/.*://;
+
+	if ($field=~/^command_(.*)/) {
 		return $codes{syntaxerror},
 		       "Unsupported command \"$1\" received from confmodule.";
 	}
 	else {
-		$this->{$property}=shift if @_;
-		return $this->{$property};
+		no strict 'refs';
+		*$AUTOLOAD = sub {
+			my $this=shift;
+			
+			$this->{$field}=shift if @_;
+			return $this->{$field};
+		};
+		goto &$AUTOLOAD;
 	}
 }
 

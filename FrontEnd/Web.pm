@@ -71,7 +71,7 @@ sub init {
 This method ensures that a client is connected to the web server and waiting for
 input. If there is no client, it blocks until one connects. As a side affect, when
 a client connects, this also reads in any HTTP commands it has for us and puts them
-in the commands property.
+in the commands field.
 
 =cut
 

@@ -48,7 +48,7 @@ sub _savefield {
 
 =head2 merge
 
-Pass this another Template and all properties of the object you
+Pass this another Template and all fields of the object you
 call this method on will be copied over onto the other Template
 and any old values in the other Template will be removed.
 
@@ -110,9 +110,9 @@ sub parse {
 }
 
 # Calculate the current locale, with aliases expanded, and normalized.
-# May also generate a fallback.
+# May also generate a fallback. Returns both.
 sub _getlangs {
-	# I really dislike hard-hoding 5 here, but the POSIX module sadly does
+	# I really dislike hard-coding 5 here, but the POSIX module sadly does
 	# not let us get at the value of LC_MESSAGES in locale.h in a more 
 	# portable way.
 	my $language=setlocale(5); # LC_MESSAGES
@@ -126,9 +126,10 @@ sub _getlangs {
 	return $language;
 }
 
-=head2 any other method
+=head2 AUTOLOAD
 
-Set/get a property. This supports internationalization.
+Creates and calls accessor methods to handle fields. 
+This supports internationalization.
 
 =cut
 
@@ -136,23 +137,28 @@ Set/get a property. This supports internationalization.
 	my @langs=_getlangs();
 
 	sub AUTOLOAD {
-		my $this=shift;
-		my $property = $AUTOLOAD;
-		$property =~ s|.*:||; # strip fully-qualified portion
+		my $field;
+		($field = $AUTOLOAD) =~ s/.*://;
+
+		no strict 'refs';
+		*$AUTOLOAD = sub {
+			my $this=shift;
 		
-		$this->{$property}=shift if @_;
+			$this->{$field}=shift if @_;
 		
-		# Check to see if i18n should be used.
-		if (@langs) {
-			foreach my $lang (@langs) {
-				if (exists $$this{$property.'-'.$lang}) {
-					$property.='-'.$lang;
-					last;
+			# Check to see if i18n should be used.
+			if (@langs) {
+				foreach my $lang (@langs) {
+					if (exists $$this{$field.'-'.$lang}) {
+						$field.='-'.$lang;
+						last;
+					}
 				}
 			}
-		}
 		
-		return $this->{$property};
+			return $this->{$field};
+		};
+		goto &$AUTOLOAD;
 	}
 }
 

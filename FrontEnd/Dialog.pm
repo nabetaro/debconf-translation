@@ -81,7 +81,7 @@ sub init {
 
 =head2 sizetext
 
-Dialog and whiptail have an annoying property of requiring you specify
+Dialog and whiptail have an annoying field of requiring you specify
 their dimentions explicitly. This function handles doing that. Just pass in
 the text that will be displayed in the dialog, and it will spit out new text,
 formatted nicely, then the height for the dialog, and then the width for the

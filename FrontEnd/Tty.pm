@@ -9,9 +9,9 @@ DebConf::FrontEnd::Tty - Tty FrontEnd
 =head1 DESCRIPTION
 
 This FrontEnd is not useful by itself. It serves as a parent for any FrontEnds
-that have a user interface that runs in a tty. The screenheight property of
-this FrontEnd is always set to the current height of the tty, while the
-screenwidth property is always set to its width.
+that have a user interface that runs in a tty. The screenheight field is
+always set to the current height of the tty, while the screenwidth field is
+always set to its width.
 
 =cut
 

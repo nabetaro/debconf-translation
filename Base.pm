@@ -12,16 +12,12 @@ use vars qw($AUTOLOAD);
 
 =head1 DESCRIPTION
 
-Objects of this class may have any number of properties. These properties can
-be read by calling the method with the same name as the property. If a
-parameter is passed into the method, the property is set.
+Objects of this class may have any number of fields. These fields can
+be read by calling the method with the same name as the field. If a
+parameter is passed into the method, the field is set.
 
-Properties can be made up and used on the fly; I don't care what you call
+Fields can be made up and used on the fly; I don't care what you call
 them.
-
-Something similar to this should be a generic perl object in the base perl
-distribution, since this is the most simple type of perl object. Until it is,
-I'll use this. (Sigh)
 
 =cut
 
@@ -53,19 +49,25 @@ having to write your own new() method.
 
 sub init {}
 
-=head2 *
+=head2 AUTOLOAD
 
-Set/get a property.
+Handles all fields, by creating accessor methods for them the first time
+they are accessed.
 
 =cut
 
 sub AUTOLOAD {
-	my $this=shift;
-	my $field = $AUTOLOAD;
-	$field =~ s|.*:||; # strip fully-qualified portion
-	
-	return $this->{$field} unless @_;
-	return $this->{$field}=shift;
+	my $field;
+	($field = $AUTOLOAD) =~ s/.*://;
+
+	no strict 'refs';
+	*$AUTOLOAD = sub {
+		my $this=shift;
+
+		return $this->{$field} unless @_;
+		return $this->{$field}=shift;
+	};
+	goto &$AUTOLOAD;
 }
 
 =head1 AUTHOR

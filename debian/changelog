@@ -1,3 +1,11 @@
+debconf (0.3.01) unstable; urgency=low
+
+  * AUTOLOAD function now creates field accessor functions on the fly.
+    Slight speedup.
+  * s/property/field/g
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 26 Mar 2000 18:42:28 -0800
+
 debconf (0.3.0) unstable; urgency=low
 
   * New custom slang frontend. Give it a try!

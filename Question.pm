@@ -210,7 +210,7 @@ sub addowner {
 	my $owner=shift;
 
 	# I must be careful to access the real hash, bypassing the 
-	# method that stringifiys the owners property.
+	# method that stringifiys the owners field.
 	my %owners;
 	if ($this->{'owners'}) {
 		%owners=%{$this->{'owners'}};
@@ -231,7 +231,7 @@ sub removeowner {
 	my $owner=shift;
 	
 	# I must be careful to access the real hash, bypassing the
-	# method that stringifiys the owners property.
+	# method that stringifiys the owners field.
 	my %owners;
 	if ($this->{'owners'}) {
 		%owners=%{$this->{'owners'}};
@@ -240,16 +240,28 @@ sub removeowner {
 	$this->{'owners'}=\%owners;
 }
 
-# Set/get property.
-sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
+=head2 AUTLOAD
 
-	$this->{$property}=shift if @_;
-	return $this->{$property} if (defined $this->{$property});
-	# Fall back to template values.
-	return $this->{template}->$property();
+Handles all fields, by creating accessor methods for them the first time
+they are accessed. Fields are first looked for in this object, and failing
+that, the associated Template is queried for fields.
+
+=cut
+
+sub AUTOLOAD {
+	my $field;
+	($field = $AUTOLOAD) =~ s/.*://;
+
+	no strict 'refs';
+	*$AUTOLOAD = sub {
+		my $this=shift;
+
+		$this->{$field}=shift if @_;
+		return $this->{$field} if (defined $this->{$field});
+		# Fall back to template values.
+		return $this->{template}->$field();
+	};
+	goto &$AUTOLOAD;
 }
 
 =head1 AUTHOR

@@ -78,35 +78,49 @@ sub import {
 	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
 }
 
-# The frontend doesn't send a return code here, so we cannot try to read it
-# or we'll block.
+=head2 stop
+
+The frontend doesn't send a return code here, so we cannot try to read it
+or we'll block.
+
+=cut
+
 sub stop {
 	print "STOP\n";
 	return;
 }
 
-# Default command handler.
+=head2 AUTOLOAD
+
+Creates handler functions for commands on the fly.
+
+=cut
+
 sub AUTOLOAD {
 	my $command = uc $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 
 	die "Unsupported command \"$command\"." unless $commands{$command};
 	
-	my $c=join (' ', $command, @_);
+	no strict 'refs';
+	*$AUTOLOAD = sub {
+		my $c=join (' ', $command, @_);
 	
-	# Newlines in input can really badly confuse the protocol, so detect
-	# and warn.
-	if ($c=~m/\n/) {
-		warn "Warning: Newline present in parameters passwd to debconf.\n";
-		warn "         This will probably cause strange things to happen!\n";
-	}
+		# Newlines in input can really badly confuse the protocol, so
+		# detect and warn.
+		if ($c=~m/\n/) {
+			warn "Warning: Newline present in parameters passwd to debconf.\n";
+			warn "         This will probably cause strange things to happen!\n";
+		}
 
-	print "$c\n";
-	my $ret=<STDIN>;
-	chomp $ret;
-	my @ret=split(/ /, $ret, 2);
-	return @ret if wantarray;
-	return $ret[1];
+		print "$c\n";
+		my $ret=<STDIN>;
+		chomp $ret;
+		my @ret=split(/ /, $ret, 2);
+		return @ret if wantarray;
+		return $ret[1];
+	}
+	goto &$AUTOLOAD;
 }
 
 =head1 AUTHOR

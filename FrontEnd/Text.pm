@@ -101,7 +101,7 @@ sub display_nowrap {
 =head2 title
 
 Display a title. Only do so once per title. The title is stored in the title
-property of the object. If a value is passed in, this will set the title
+field of the object. If a value is passed in, this will set the title
 instead.
 
 =cut

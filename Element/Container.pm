@@ -26,7 +26,7 @@ use base qw(Debian::DebConf::Element);
 
 =head2 question
 
-This function sets/gets a Container's question property, as usual.
+This function sets/gets a Container's question field, as usual.
 It also handles creating and setting up all the Elements inside the
 container.
 

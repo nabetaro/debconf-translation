@@ -148,9 +148,9 @@ sub add {
 =head2 go
 
 Display accumulated Elements to the user. The Elements are in the elements
-property, and that property is cleared after the Elements are presented.
+field, and that field is cleared after the Elements are presented.
 
-After showing each element, checks to see if the object's backup property has
+After showing each element, checks to see if the object's backup field has
 been set; if so, doen't display any of the other pending questions (remove them
 from the buffer), and returns false. The default is to return true.
 
@@ -195,7 +195,7 @@ sub clear {
 
 =head2 default_title
 
-This sets the title property to a default. Pass in the name of the
+This sets the title field to a default. Pass in the name of the
 package that is being configured.
 
 =cut
