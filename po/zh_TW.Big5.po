@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-08-30 17:36-0400\n"
+"POT-Creation-Date: 2001-09-13 22:01-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -220,17 +220,17 @@ msgstr "需要指定deb檔為預設定"
 msgid "(not preconfiguring packages since apt-utils is not installed)"
 msgstr "(在 apt-utils 未安裝前不會預設定包件)"
 
-#: ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:187
 #, c-format
 msgid "template parse error: %s"
 msgstr "樣板解讀錯誤: %s"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:201
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: 不能改變權限: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:211
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預設定 %s 失敗, 中止狀態 %s"

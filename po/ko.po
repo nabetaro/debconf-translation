@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-08-30 17:36-0400\n"
+"POT-Creation-Date: 2001-09-13 22:01-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -230,17 +230,17 @@ msgstr "미리 설정할 deb를 지정해야 합니다"
 msgid "(not preconfiguring packages since apt-utils is not installed)"
 msgstr "(apt-utils가 설치되지 않았기 때문에 패키지를 미리 설정하지 않습니다)"
 
-#: ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:187
 #, c-format
 msgid "template parse error: %s"
 msgstr "템플릿 parse 에러: %s"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:201
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod할 수 없음: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:211
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
