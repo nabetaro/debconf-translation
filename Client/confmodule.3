@@ -2,24 +2,24 @@
 .SH NAME
 confmodule \- communicate with Debian configuration system FrontEnd.
 .SH SYNOPSIS
-  source /usr/share/debconf/confmodule.sh
-  db_version
+  #!/bin/sh -e
+  source /usr/share/debconf/confmodule
+  db_version 2.0
   db_capb 'backup'
   CAPB=$RET
-  db_input 'foo/bar'
-  db_go
+  db_input 'foo/bar' || true
+  db_go || true
 .SH DESCRIPTION
 This is a library of shell functions that eases communication with Debian's
 configuration management system. It can communicate with a FrontEnd via the
 ConfModule protocol. The design is that each command in the protocol is
-represented by one function in this module. The function is the same as the
-command, except it is prefixed with "db_" and is lower-case. Call
+represented by one function in this module. The functionname  is the same as
+the command, except it is prefixed with "db_" and is lower-case. Call
 the function and pass in any parameters you want to follow the command. Any
-return code from the FrontEnd will be returned to you in the $RET variable.
+textual return code from the FrontEnd will be returned to you in the $RET
+variable, while the numeric return code from the FrontEnd will be returned
+as a return code (and so those return codes must be captured or ignored).
 .SH NOTES
-The 'db_version' command is special; if you do not pass a version to
-it, it will send the current protocol version to the FrontEnd.
-.P
 Once this library is loaded, any text you later output will go to standard
 error, rather than standard output. This is a good thing in general, because
 text send to standard output is interpreted by the FrontEnd as commands. If

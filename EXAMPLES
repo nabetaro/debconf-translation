@@ -7,8 +7,8 @@ make test FRONTEND=Dialog PACKAGE=demo
 make test FRONTEND=Text PACKAGE=demo
 make test FRONTEND=Gtk PACKAGE=demo
 make test FRONTEND=Dialog PACKAGE=cvs
-make test FRONTEND=Text PACKAGE=cvs
-make test FRONTEND=Gtk PACKAGE=cvs
+make test FRONTEND=Text PACKAGE=tutorial
+make test FRONTEND=Gtk PACKAGE=tutorial
 make test FRONTEND=Dialog PACKAGE=exim
 make test FRONTEND=Text PACKAGE=exim
 make test FRONTEND=Gtk PACKAGE=exim

@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE article PUBLIC "-//Norman Walsh//DTD DocBk XML V3.1//EN"
-     "dtd/docbook-xml/docbookx.dtd">
+     "dtd/docbook-xml/docbookx.dtd" [
+<!ENTITY tutorial_config SYSTEM "../samples/tutorial.config">
+<!ENTITY tutorial_back_config SYSTEM "../samples/tutorial-back.config">
+<!ENTITY tutorial_templates SYSTEM "../samples/tutorial.templates">
+]>
 <article>
   <artheader>
     <title>
@@ -89,20 +93,20 @@
     <para>
       For example, a hypothetical package "foo" has the following postinst:
       <programlisting>
-	#!/bin/sh -e
-	echo -n "Do you like debian? [yn] "
-	read like
-	case "$like" in
-	n*|N*)
-		echo "Poor misguided one. Why are you installing this package, then?"
-		/etc/init.d/subliminal_messages start "I like debian."
-	;;
-	esac
+#!/bin/sh -e
+echo -n "Do you like debian? [yn] "
+read like
+case "$like" in
+n*|N*)
+	echo "Poor misguided one. Why are you installing this package, then?"
+	/etc/init.d/subliminal_messages start "I like debian."
+;;
+esac
       </programlisting>
     </para>
     <para>
       It's clear that it asks a question and sometimes outputs a
-      message. We will need to use debconf to do both.
+      message. In this tutorial, we will make it use use debconf to do both.
     </para>
   </sect1>
 
@@ -116,85 +120,79 @@
       template. The format of this file is simple and quite similar to
       a Debian control file:
       <programlisting>
-	Template: <parameter>packagename</parameter>/<parameter>something</parameter>
-	Type: <parameter>[select,string,boolean,note,text,password]</parameter>
-	Default: <parameter>[an optional default value]</parameter>
-	Description: Blah blah blah?
-	 Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah
-	 blah blah blah. Blah blah blah. Blah blah.
-	 .
-	 Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah.
-	 blah.
-	
-	Template: ....
-	....
+Template: <parameter>packagename</parameter>/<parameter>something</parameter>
+Type: <parameter>[select,string,boolean,note,text,password]</parameter>
+Default: <parameter>[an optional default value]</parameter>
+Description: Blah blah blah?
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah
+ blah blah blah. Blah blah blah. Blah blah.
+ .
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah.
+ blah.
+
+Template: ....
+....
       </programlisting>
     </para>
     <para>
-      A short description of the data types:
-      <itemizedlist>
-	<listitem>
-	  <para>
-	    string
-	  </para>
-	  <para>
-	    Holds any arbitrary string of data.
-	  </para>
-	</listitem>
-	<listitem>
-	  <para>
-	    boolean
-	  </para>
-	  <para>
-	    Holds "<literal>true</literal>" or "<literal>false</literal>".
-	  </para>
-	</listitem>
-	<listitem>
-	  <para>
-	    select
-	  </para>
-	  <para>
-	    Holds one of a finite number of possible values. These
-	    values must be specified in a field named
-	    <literal>Choices:</literal>. Separate the possible values
-	    with commas and spaces, like this:
-	    <literal>
-	      Choices: yes, no, maybe
-	    </literal>
-	  </para>
-	</listitem>
-	<listitem>
-	  <para>
-	    note
-	  </para>
-	  <para>
-	    This template is a note that can be displayed to the user. As
-	    opposed to text, it is something important, that the user really
-	    should see. If debconf is not running interactively, it might be
-	    saved to a log file or mailbox for them to see later.
-	  </para>
-	</listitem>
-	<listitem>
-	  <para>
-	    text
-	  </para>
-	  <para>
-	    This template is a scrap of text that can be displayed to
-	    the user. It's intended to be used for mostly cosmetic
-	    reasons, touching up around other questions that are asked
-	    at the same time. Unlike a note, it isn't treated as
-	    something the user should definitly see.
-	  </para>
-	</listitem>
-	<listitem>
-	  <para>
-	    password
-	  </para>
-	  <para>
-	    Prompts for a password (with no echoing).
-	  </para>
-	</listitem>
-      </itemizedlist>
+      <table frame="all">
+        <title>Available data types</title>
+        <tgroup cols="2">
+	<thead>
+	  <row>
+	    <entry>Type</entry>
+	    <entry>Description</entry>
+	  </row>
+	</thead>
+	<tbody>
+	  <row>
+	    <entry>string</entry>
+	    <entry>Holds any arbitrary string of data.</entry>
+	  </row>
+	  <row>
+	    <entry>boolean</entry>
+	    <entry>
+	       Holds "<literal>true</literal>" or "<literal>false</literal>".
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>select</entry>
+	    <entry>
+	      Holds one of a finite number of possible values. These
+	      values must be specified in a field named
+	      <literal>Choices:</literal>. Separate the possible values
+	      with commas and spaces, like this:
+	      <literal>
+	        Choices: yes, no, maybe
+	      </literal>
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>note</entry>
+	    <entry>
+	      This template is a note that can be displayed to the user. As
+	      opposed to text, it is something important, that the user really
+	      should see. If debconf is not running interactively, it might be
+	      saved to a log file or mailbox for them to see later.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>text</entry>
+	    <entry>
+	      This template is a scrap of text that can be displayed to
+	      the user. It's intended to be used for mostly cosmetic
+	      reasons, touching up around other questions that are asked
+	      at the same time. Unlike a note, it isn't treated as
+	      something the user should definitly see.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>password</entry>
+	    <entry>Holds a password. Use with caution.</entry>
+	  </row>
+	</tbody>
+      </tgroup>
+      </table>
     </para>
     <para>
       Note that the Description field has two parts, a short
@@ -212,16 +210,7 @@
       Following along in our example, we create a templates file with two
       templates in it:
       <programlisting>
-	Template: foo/like_debian
-	Type: boolean
-	Description: Do you like Debian?
-	 We'd like to know if you like the Debian GNU/Linux system.
-
-	Template: foo/why_debian_is_great
-	Type: note
-	 Description: Poor misguided one. Why are you installing this package?
-	 Debian is great. As you continue using Debian, we hope you will
-	 discover the error in your ways.
+<![RCDATA[&tutorial_templates;]]>
       </programlisting>
     </para>
   </sect1>
@@ -244,12 +233,18 @@
 	    shell script
 	  </para>
 	  <para>  
-	    You can source <literal>/usr/share/debconf/confmodule.sh</literal>,
+	    You can source <literal>/usr/share/debconf/confmodule</literal>,
 	    which will make a number of shell functions available to you. Each
  	    shell function corresponds to a command in the protocol (with
             "<literal>db_</literal>" prefixed to its name). You pass parameters
 	    to it and get a result back in the <literal>$RET</literal>
-	    variable. For details, see  <literal>confmodule.3</literal>.
+	    variable.
+	    <note><para>
+	      Some commands also return a number exitcode, to
+              indicate failure and other unusual occurances, so you need to trap
+	      that to prevent <literal>set -e</literal> shell scripts from dying.
+	    </para></note>
+	    For details, see  <literal>confmodule.3</literal>.
 	  </para>
 	</listitem>
 	<listitem>
@@ -316,30 +311,17 @@
       first question, and if the user says they do not like debian, it
       should display the message about that.
       <programlisting id="config_example">
-	#!/bin/sh -e
-
-	# Source debconf library.
-	. /usr/share/debconf/confmodule.sh
-
-	# Do you like debian?
-	db_input medium foo/like_debian
-	db_go
-	
-	# Check their answer.
-	db_get foo/like_debian
-	if [ "$RET" = "false" ]; then
-		# Poor misguided one..
-		db_input high foo/why_debian_is_great
-		db_go
-	fi
+<![RCDATA[&tutorial_config;]]>
       </programlisting>
     </para>
+    <note>
     <para>
       Note that the config script is run before the package is
       unpacked. It should only use commands that are in the base
       system. Also, it shouldn't actually edit files on the system, or
       affect it in any other way.
     </para>
+    </note>
   </sect1>
 
   <sect1>
@@ -351,7 +333,7 @@
       move on to using the data your config script collects in other
       maintainer scripts of your package, like your postinst. Just
       like the config script, the postinst and other maintainer
-      scripts can use the <literal>confmodule.sh</literal> or
+      scripts can use the <literal>confmodule</literal> or
       <literal>Debian::DebConf::Client::ConfModule</literal> libraries, or
       they can speak directly to the frontend on standard output.
     </para>
@@ -373,30 +355,30 @@
     <para>
       In the example, before debconf, the package's postinst did this:
       <programlisting>
-	#!/bin/sh -e
-	echo -n "Do you like debian? [yn] "
-	read like
-	case "$like" in
-	n*|N*)
-		echo "Poor misguided one. Why are you installing this package, then?"
-		/etc/init.d/subliminal_messages start "I like debian."
-	;;
-	esac
+#!/bin/sh -e
+echo -n "Do you like debian? [yn] "
+read like
+case "$like" in
+n*|N*)
+	echo "Poor misguided one. Why are you installing this package, then?"
+	/etc/init.d/subliminal_messages start "I like debian."
+;;
+esac
       </programlisting>
     </para>
     <para>
       Our config script already handles most of this. After debconf,
       the postinst becomes:
       <programlisting>
-	#!/bin/sh -e
+#!/bin/sh -e
 
-	# Source debconf library.
-	. /usr/share/debconf/confmodule.sh  
+# Source debconf library.
+. /usr/share/debconf/confmodule
 
-	db_get foo/like_debian
-	if [ "$RET" = "false" ]; then
+db_get foo/like_debian
+if [ "$RET" = "false" ]; then
 	/etc/init.d/subliminal_messages start "I like debian."
-	fi
+fi
       </programlisting>
     </para>
     <para>
@@ -407,12 +389,12 @@
       "<literal><link linkend="db_purge">purge</link></literal>" command
       (make sure you don't fail if debconf has already been removed, though):
       <programlisting>
-	if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule.sh ]; then
-		# Source debconf library.
-		. /usr/share/debconf/confmodule.sh
-		# Remove my changes to the db.
+if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule ]; then
+	# Source debconf library.
+	. /usr/share/debconf/confmodule
+	# Remove my changes to the db.
 	db_purge
-	fi
+fi
       </programlisting>
     </para>
     <note>
@@ -466,7 +448,7 @@
 	    daemons are buggy, really). This makes debconf hang,
 	    because the debconf frontend waits for the daemon to close
 	    the fd's before continuing. Note that if you use
-	    confmodule.sh, the program probably needs to close fd's 0,
+	    confmodule, the program probably needs to close fd's 0,
 	    1, 2, and <emphasis>3</emphasis>.
 	  </para>
 	  <para>
@@ -544,18 +526,18 @@
 	command, you must test to see if the user hit the back button, and
 	if so jump back to the previous question. If the user hit the back
 	button, the <literal><link linkend="db_go">go</link></literal> command
-	will return <quote>back</quote>.
+	will return <literal>30</literal>.
       </para>
       <para>
-        There are two common ways to write the control scructures of your
-	program so it can jump back to previous questions when necessary:
-	using goto and using recursion. Since many people dislike goto, I will
-	give an example of the method that uses recursion, although the goto
-	method is often easier to implement. So let's take the 
+        There are several ways to write the control scructures of your program
+	so it can jump back to previous questions when necessary. You can
+	write goto-laden spaghetti code. Or you can create several functions
+	and use recursion. But perhaps the cleanest and easiest way is to
+	construct a state machine. So let's take the
 	<link linkend="config_example">example</link> config script developed
 	earlier in this tutorial, and make it support backing up. There is
 	only one place in that config script where the user might hit a back
-	button
+	button:
 	<footnote>
 	<para>
 	Actually, there are two. The other time a back button might be useful
@@ -568,38 +550,7 @@
 	question. Here is a new version of the script that handles the back
 	button:
 	<programlisting>
-	 #!/bin/sh -e
-
-	 # Source debconf library.
-	 . /usr/share/debconf/confmodule.sh
-
-	 # This conf script is capable of backing up
-	 db_capb backup
-
-	 question_2 () {
-	 	# Poor misguided one..
-		db_input high foo/why_debian_is_great
-		db_go
-		if [ "RET" = back ]; then
-			# Back button; go back to first question.
-			question_1
-		fi
-	 }
-
-	 question_1 () {
-	 	# Do you like debian?
-		db_input medium foo/like_debian
-		db_go
-		
-		# Check their answer.
-		db_get foo/like_debian
-		if [ "$RET" = "false" ]; then
-			question_2
-		fi
-	 }
-
-	 # Start asking questions.
-	 question_1
+<![RCDATA[&tutorial_back_config;]]>
 	</programlisting> 
       </para>
     </sect2>
@@ -612,16 +563,16 @@
 	config script.  Suppose you're asking for input and validating
 	it, and looping if it's not valid:
 	<programlisting>
-	  ok=''
-	  do while [ ! "$ok" ];
-	  db_input low foo/bar
-	  db_go
+ok=''
+do while [ ! "$ok" ];
+	db_input low foo/bar || true
+	db_go
 
-	  db_get foo/bar
-	  if [ "$RET" ]; then
-		  ok=1
-	  fi
-	  done
+	db_get foo/bar
+	if [ "$RET" ]; then
+		ok=1
+	fi
+done
 	</programlisting>
       </para>
       <para>
@@ -641,9 +592,10 @@
 	can just be called before entering the loop.
       </para>
       <para>
-	Another fix is to use the "<literal><link linkend="db_visible">
-	visible</link></literal>" command to test if the user will be prompted,
-	and skip the loop if not.
+	Another fix is to check the return code of the 
+	"<literal><link linkend="db_input">input</link></literal>" command.
+	If it is <literal>30</literal> then the user is not being shown the
+	question you asked them, and you should break out of the loop.
       </para>
     </sect2>
     <sect2>
@@ -666,29 +618,29 @@
 	Make all the packages in the set use a shared
 	template. Something like this:
 	<programlisting>
-	  Template: shared/window-manager
-	  Type: select
-	  Choices: ${choices}
-	  Description: Select the default window manager.
-	   Select the window manager that will be started by default when X
-	   starts.
+Template: shared/window-manager
+Type: select
+Choices: ${choices}
+Description: Select the default window manager.
+ Select the window manager that will be started by default when X
+ starts.
 	</programlisting>
       </para>
       <para>
 	Each package should include a copy of the template. Then it
 	should include some code like this in its config script:
 	<programlisting>
-	  db_metaget shared/window-manager owners
-	  OWNERS=$RET
-	  db_metaget shared/window-manager choices
-	  CHOICES=$RET
+db_metaget shared/window-manager owners
+OWNERS=$RET
+db_metaget shared/window-manager choices
+CHOICES=$RET
 	  
-	  if [ "$OWNERS" != "$CHOICES" ]; then
-		  db_subst shared/window-manager choices $OWNERS
-		  db_fset shared/window-manager isdefault true
-		  db_input medium shared/window-manager
-		  db_go
-	  fi
+if [ "$OWNERS" != "$CHOICES" ]; then
+	db_subst shared/window-manager choices $OWNERS
+	db_fset shared/window-manager isdefault true
+	db_input medium shared/window-manager || true
+	db_go
+fi
 	</programlisting>
       </para>
       <para>
@@ -719,24 +671,23 @@
 	prerm scripts of all related packages (replacing &lt;package&gt; with
 	the package name):
 	<programlisting>
-	if [ -e /usr/share/debconf/confmodule.sh ]; then
-		. /usr/share/debconf/confmodule.sh
-		# I no longer claim this variable.
-		db_unregister shared/window-manager
+if [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	# I no longer claim this variable.
+	db_unregister shared/window-manager
 		
-		# See if the shared variable still exists.
-		db_exist shared/window-manager
-		if [ $RET = true ]; then
-			db_metaget shared/window-manager owners
-			db_subst shared/window-manager choices $RET
-			db_metaget shared/window-manager value
-			if [ "&lt;package&gt;" = "$RET" ] ; then
-				db_fset shared/window-manage isdefault true
-				db_input critical shared/window-manager
-				db_go
-			fi
+	# See if the shared variable still exists.
+	if db_get shared/window-manager; then
+		db_metaget shared/window-manager owners
+		db_subst shared/window-manager choices $RET
+		db_metaget shared/window-manager value
+		if [ "&lt;package&gt;" = "$RET" ] ; then
+			db_fset shared/window-manage isdefault true
+			db_input critical shared/window-manager || true
+			db_go
 		fi
 	fi
+fi
 	</programlisting>
       </para>
     </sect2>
@@ -747,14 +698,55 @@
       Commands
     </title>
     <para>
-      Here is a complete list of the the commands you can use to
-      communicate with the frontend.
-      <footnote>
-	<para>
-	  Remember these are prefixed with "<literal>db_</literal>" if you are
-	  using  confmodule.sh.
-	</para>
-      </footnote>
+      The commands may return a textual value, but they always return a numeric
+      status code, which is in the following ranges:
+      <table frame="all">
+        <title>Numeric status codes</title>
+	<tgroup cols="2">
+        <thead>
+	  <row>
+            <entry>Range</entry>
+	    <entry>Description</entry>
+	  </row>
+        </thead>
+      	<tbody>
+	  <row>
+	    <entry>0</entry>
+	    <entry>success</entry>
+	  </row>
+	  <row>
+	    <entry>1-9</entry>
+	    <entry>reserved</entry>
+	  </row>
+	  <row>
+	    <entry>10-19</entry>
+	    <entry>invalid question</entry>
+	  </row>
+	  <row>
+	    <entry>20-29</entry>
+	    <entry>syntax errors</entry>
+	  </row>
+	  <row>
+	    <entry>30-99</entry>
+	    <entry>command-specific return codes</entry>
+	  </row>
+	  <row>
+	    <entry>100-255</entry>
+	    <entry>reserved</entry>
+	  </row>
+	</tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>
+      Here is a complete list of the the commands you can use to        
+      communicate with the frontend. 
+      <footnote>                                      
+        <para>   
+          Remember these are prefixed with "<literal>db_</literal>"
+          if you are using the shell library.
+        </para>                              
+      </footnote>        
       <itemizedlist>
 	<listitem id="db_version">
 	  <para>
@@ -764,11 +756,12 @@
 	  <para>
 	    This exchanges with the frontend the protocol version
 	    number that is being used. The current version is
-	    1.0. Versions in the 1.x series will be
-	    backwards-compatible. You can specify the protocol version
-	    number you are speaking, but note that the perl and shell
-	    libraries specify a good default for you. The frontend
-	    will return the version of the protocol it speaks.
+	    2.0. Versions in the 2.x series will be
+	    backwards-compatible. You must specify the protocol version
+	    number you are speaking. The frontend will return the version
+	    of the protocol it speaks. If the version you specify is too
+	    low, this command will return the numeric return code
+	    <literal>30</literal>.
 	  </para>
 	</listitem>
 	<listitem id="db_capb">
@@ -778,18 +771,26 @@
 	  </para>
 	  <para> 
 	    This exchanges with the frontend the capabilities
-	    that are supported.  Capabilities both the frontend and you
-	    send will be used. Currently supported capabilities:
-	    <itemizedlist>
-	      <listitem>
-		<para>
-		  backup
-		</para>
-		<para>
-		  Backing up to a previous step is supported.
-		</para>
-	      </listitem>
-	    </itemizedlist>
+	    that are supported. Capabilities both the frontend and your
+	    confmodule support will be used; the capabilities supported by
+	    the frontend are returned by this command.
+	    <table frame="all">
+	      <title>Currently supported capabilities</title>
+	      <tgroup cols="2">
+	      <thead>
+	        <row>
+	          <entry>capability</entry>
+		  <entry>description</entry>
+	        </row>
+	      </thead>
+	      <tbody>
+	        <row>
+	          <entry>backup</entry>
+ 		  <entry>Backing up to a previous step is supported.</entry>
+	        </row>
+	      </tbody>
+	      </tgroup>
+	    </table>
 	  </para>
 	</listitem>
 	<listitem id="db_title">
@@ -825,64 +826,56 @@
 	    variable, which should correspond to the Template: line of
 	    the template that defines this variable.
 	    <parameter>priority</parameter> is how important it is that the user
-	    be prompted for the variable. Supported priorities:
-	    <itemizedlist>
-	      <listitem>
-		<para>
-		  low
-		</para>
-		<para>
-		  Use this for very trivial items that have defaults that
-		  will work in the vast majority of cases.
-		</para>
-	      </listitem>
-	      <listitem>
-		<para>
-		  medium
-		</para>
-		<para>
-		  Use this for normal items that have reasonable defaults.
-		</para>
-	      </listitem>	
-	      <listitem>
-		<para>
-		  high
-		</para>
-		<para>
-		  Use this for items that don't have a reasonable 
-		  default.
-		</para>
-	      </listitem>
-	      <listitem>
-		<para>
-		  critical
-		</para>
-		<para>
-		  Use this only for items that will probably break
-		  the system without user intervention.
-		</para>
-	      </listitem>
-	    </itemizedlist>
+	    be prompted for the variable.
+	    <table frame="all">
+	      <title>Supported priorities</title>
+	      <tgroup cols="2">
+	      <thead>
+	        <row>
+		  <entry>Priority</entry>
+		  <entry>Description</entry>
+		</row>
+	      </thead>
+	      <tbody>
+	        <row>
+		  <entry>low</entry>
+		  <entry>
+		    Very trivial items that have defaults that
+		    will work in the vast majority of cases.
+		  </entry>
+		</row>
+		<row>
+		  <entry>medium</entry>
+		  <entry>
+		    Normal items that have reasonable defaults.
+		  </entry>
+		</row>
+		<row>
+		  <entry>high</entry>
+		  <entry>
+		    Items that don't have a reasonable 
+		    default.
+		  </entry>
+		</row>
+	        <row>
+		  <entry>critical</entry>
+		  <entry>
+		    Items that will probably break
+		    the system without user intervention.
+		  </entry>
+		</row>
+	      </tbody>
+	    </tgroup>
+	    </table>
 	  </para>
 	  <para>
 	    Note that the frontend decides if the user is actually
 	    prompted or not. If the user has already answered a
 	    question, they are normally not asked it again even if
 	    input is called again. And if the user is ignoring low
-	    priority items, they will not see them.
-	  </para>
-	</listitem>
-	<listitem id="db_visible">
-	  <para>
-	    visible
-	    <parameter>priority</parameter>
-	    <parameter>variable</parameter>
-	  </para>
-	  <para>
-	    Ask the frontend if it would actually show a question to
-	    the user if you ran "<literal>input <parameter>priority</parameter>
-	    <parameter>variable</parameter></literal>". Returns 
-	    "<literal>true</literal>" or "<literal>false</literal>".
+	    priority items, they will not see them. In either of
+	    these cases, this command returns the numeric return code
+	    <literal>30</literal>.
 	  </para>
 	</listitem>
 	<listitem id="db_beginblock">
@@ -908,7 +901,9 @@
 	  </para>
 	  <para>
 	    Shows the current set of accumulated items to the user and lets
-	    them fill in values, etc.
+	    them fill in values, etc. If the backup capability is supported
+	    and the user indicates they want to back up a step, this command
+	    returns the numeric return code <literal>30</literal>.
 	  </para>
 	</listitem>
 	<listitem id="db_clear">
@@ -1027,16 +1022,6 @@
 	    </para>
 	    <para>
 	      This removes a variable from the database.
-	    </para>
-	  </listitem>
-	  <listitem>
-	    <para>
-	      exist
-	      <parameter>variable</parameter>
-	    </para>
-	    <para>
-	       This tests whether a variable exists or not.  Returns "true" or
-	       "false".
 	    </para>
 	  </listitem>
 	  <listitem id="db_purge">

@@ -10,8 +10,8 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 
 Debian::DebConf::Config::frontend('base');
-my $template=shift;
-my $owner=shift;
+my $template=shift || die "Must specify a template to load";
+my $owner=shift || 'unknown';
 
 # Load up previous state information.
 if (-e Debian::DebConf::Config::dbfn()) {

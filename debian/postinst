@@ -2,7 +2,7 @@
 
 # Source the debconf library only because it ensures our config script is
 # run.
-. /usr/share/debconf/confmodule.sh
+. /usr/share/debconf/confmodule
 
 touch /etc/apt/apt.conf
 if ! grep -q "dpkg-preconfig --apt" /etc/apt/apt.conf; then

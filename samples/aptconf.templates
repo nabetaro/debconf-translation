@@ -1,0 +1,107 @@
+Template: aptconf/uri_type
+Type: select
+Choices: cdrom, http, ftp, nfs, filesystem
+Default: cdrom
+Description: Choose what method apt will use to access the Debian archive
+ Apt can access the Debian archive in a variety of ways. Choose the access
+ method apt should use. For example if you have a Debian cd, select "cdrom",
+ while if you plan to install via a Debian mirror, choose "ftp" or "http".
+ .
+ ${note}
+
+Template: aptconf/country
+Type: select
+Choices: ${countries}, enter information manually
+Default: US
+Description: Select your country
+ The first step in choosing what Debian mirror you use is selecting your
+ country. If your country is not on this list, select a neighboring
+ country. The goal is to find a mirror that is close to you on the network.
+ .
+ If you want to enter mirror information manually, select the last item on
+ the list.
+
+Template: aptconf/mirror
+Type: select
+Choices: ${mirrors}
+Description: Choose the Debian mirror to use
+ Select the Debian mirror apt should use. You should select a mirror that
+ is close to you on the net.
+
+Template: aptconf/hostname
+Type: string
+Description: Enter mirror hostname
+ Enter the hostname of the Debian mirror you want to use.
+
+Template: aptconf/directory
+Type: string
+Default: /debian
+Description: Enter mirror directory
+ Enter the directory the Debian mirror is located in.
+
+Template: aptconf/baddir
+Type: note
+Description: Mirror not found.
+ The directory you entered does not contain a subdirectory named "dists",
+ so it doesn't seem to be a Debian mirror.
+
+Template: aptconf/cd/dev
+Type: string
+Description: Enter CD ROM device file
+ This program was unable to auto-detect a CD ROM drive, or there is no CD
+ in the drive. Enter the device file to use to access your CD ROM, and place
+ a Debian CD in the drive.
+
+Template: aptconf/cd/bad
+Type: note
+Description: Bad CD
+ Your CD was detected, but it does not seem to be a Debian CD.
+
+Template: aptconf/cd/another
+Type: boolean
+Default: false
+Description: Scan another CD?
+ If you have another Debian CD (for example, the second in a two CD set),
+ you should scan it now.
+
+Template: aptconf/non-free
+Type: boolean
+Default: false
+Description: Use non-free software?
+ Debian makes available some non-free software. though this software is not
+ part of Debian proper, it can be installed with apt. This software has
+ limitations on its distribution, modification, and/or use. Do you wish to
+ use this software?
+
+Template: aptconf/contrib
+Type: boolean
+Default: false
+Description: Use contrib software?
+ Debian includes some software that, while free, does not work without other,
+ non-free software. Do you wish to use this software?
+
+Template: aptconf/distribution
+Type: select
+Choices: stable, unstable
+Default: stable
+Description: Select Debian distribution to use
+ Debian comes in two flavors. Stable is well-tested and rarely changes.
+ Unstable is untested and frequently changing. Which of the two do you wish
+ to install?
+
+Template: aptconf/badsource
+Type: note
+Description: Failed to access the Debian archive
+ When I tried to access the debian archive using the information you
+ provided, apt gave the following error. I will run through the
+ questions again, try to correct the error.
+ .
+ ${apt_error}
+
+Template: aptconf/another
+Type: boolean
+Default: false
+Description: Add another apt source?
+ Apt can optionally install from multiple Debian archives. You have just
+ successfully added a source to apt, and if you like, you can add another
+ one.

@@ -45,6 +45,7 @@ sub new {
 	my $self  = bless $proto->SUPER::new(@_), $class;
 
 	$self->{interactive}=1;
+	$self->{capb} = 'backup';
 
 	# create the window. If display isn't set, this dies with 
 	# an untrappable error. So first test that and exit sanely, so
@@ -141,7 +142,7 @@ sub new {
 
 =head2 go
 
-This overides the inherited go() method, to detech if the back button was hit
+This overides the inherited go() method, to detect if the back button was hit
 and inform the ConfModule about that.
 
 =cut
@@ -218,7 +219,7 @@ sub newques {
 
 	$self->{questionframe}->realize;
 
-	$self->{window}->set_title("Debian Configuration Guru -- $newtitle");
+	$self->{window}->set_title("Debian Configuration -- $newtitle");
 
 	Gtk->gc;
 	Gtk->main;
@@ -246,7 +247,7 @@ sub maketext {
 	$text->show();
 	$vscroller->show();
 
-2	return $hbox;
+	return $hbox;
 }
 
 sub Cancel {

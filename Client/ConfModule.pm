@@ -157,26 +157,6 @@ sub import {
 	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
 }
 
-=head2 version
-
-By default, the current protocol version is sent to the frontend. You can pass
-in a different version to override this.
-
-=cut
-
-sub version {
-	my $version=shift || '2.0';
-	print "VERSION $version\n";
-	my $ret=<STDIN>;
-	chomp $ret;
-	my @ret=split(/ /, $ret, 2);
-	
-	# TODO: check version?
-	
-	return @ret if wantarray;
-	return $ret[0];
-}
-
 # Default command handler.
 sub AUTOLOAD {
 	my $command = uc $AUTOLOAD;

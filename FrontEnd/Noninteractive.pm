@@ -22,6 +22,8 @@ use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd);
 
+print STDERR "Note: Debconf is running in non-interactive mode.\n";
+
 # Hm, that was easy. :-)
 
 =head1 AUTHOR

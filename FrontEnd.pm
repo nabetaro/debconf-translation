@@ -40,6 +40,7 @@ sub new {
 	$self->{elements}=[];
 	$self->{interactive}='';
 	$self->{capb}='';
+	$self->{title}="";
 	return $self
 }
 
@@ -113,7 +114,8 @@ sub visible {
 Display accumulated Elements to the user. The Elements are in the elements
 property, and that property is cleared after the Elements are presented.
 
-Returns true unless the user hits a back button.
+Returns true. (Children may override it to return false if the user
+hits a back button.)
 
 =cut
 

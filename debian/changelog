@@ -1,28 +1,45 @@
 debconf (0.2.0) unstable; urgency=low
 
-STILL TO DO: 
-
-	- cvs.config doesn't really handle back button right. This is 
-	  because when you go back, the question has already been seen
-	  and is not re-asked.
-	- I probably have to document the same thing in the tutorial
-	- update tutorial to document new return codes
-
   * Now uses version 2.0 of the configuration management protocol.
     - All commands in the protocol now return a numerical return code,
-      followed by a space and any text return code.
-  * confmodule.sh handles this by making each command it provides now return
-    the numerical return code. They continue to set $RET to the text return
-    code. This means that you now have to check the return codes of those
-    commands, or the set -e script you are running them in may exit if they
-    return an error code.
-  * ComfModule.pm handles this by making each of its commands, when called
+      optionally followed by a space and a text return code.
+  * confmodule is a new shell library that handles this by making each
+    command it provides now return the numerical return code. They continue
+    to set $RET to the text return code. This means that you now have to
+    check the return codes of those commands, or the set -e script you are
+    running them in may exit if they return an error code.
+  * confmodule.sh is now deprecated, but remains for backwards compatability,
+    and has special compatability code in it.
+  * ConfModule.pm handles this by making each of its commands, when called
     in list contect, return a list consiting of the numeric return code, and
     the string return code. When called in scalar context, it behaves
     in a backwards compatable way.
-  * Removed the VISIBLE command. Check to see if INPUT returns 30 instead.
-  * Removed the EXIST command. Check for return code 10 from commands that
+  * Deprecated the VISIBLE command. Check to see if INPUT returns 30 instead.
+  * Deprecated the EXIST command. Check for return code 10 from commands that
     try to use the question, instead.
+  * The GO command no longer returns "back"; instead, it returns 30.
+  * Documented all this.
+  * Hey, a state machine is the way to go if you want to support back buttons!
+    Converted the tutorial to reccommend this, and converted debconf's own
+    config script into a state machine.
+  * Used tables in several places in the tutorial where they make sense.
+  * Split the actual working templates and code out of the tutorial, and put
+    it in the samples direcotry. It is included inline so it is still
+    available in the tutorial, but now I can also debug it and make sure it
+    works..
+  * Added the noninteractive frontend to the list of choices you get when
+    configuring debconf.
+  * If the text frontend fails (this can really happen, if you run debconf
+    w/o a controlling tty in an autobuilder, say), falls back to the
+    noninteractive frontend. (Closes: #48644)
+  * The web frontend now only accepts connections from localhost.
+  * The web and noninteractive frontends now print out text saying they are
+    running.
+  * If a frontend fails, the failure message is always printed, not just in
+    debug mode.
+  * Fixed checkboxes in the web frontend so if they are unchecked, this
+    fact is noted.
+  * Added debconf-loadtemplate to the .deb.
 
  -- Joey Hess <joeyh@master.debian.org>  Thu, 28 Oct 1999 14:04:13 -0700
 

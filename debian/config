@@ -1,40 +1,48 @@
 #!/bin/sh -e
 # This lets debconf configure itself.
 
-. /usr/share/debconf/confmodule.sh
+. /usr/share/debconf/confmodule
 
 # Establish the preliminaries.
-db_version
+db_version 2.0
 db_capb 'backup'
 
-# Ask about frontend and priority.
-ask_1 () {
-	db_input medium debconf/frontend || true
-	db_input medium debconf/priority || true
-	if ! db_go && [ $? -eq 30 ]; then
-		# Going back at this point is up to the frontend,
-		# since it involves jumping out of this configmodule.
-		# This is just a placeholder for something not in the spec.
-		previous_module
-		exit
-	fi
 
-	# Proceed with next question block.
-	ask_2
-}
-
-# Ask if old questions should be shown only after
-# asking about priority, because I don't want to bother people
-# with it unless they pick low priority.
-ask_2 () {
-	db_input low debconf/showold
-	db_go
-	if [ "$RET" = 'back' ]; then
-		# Back to block 1
-		ask_1
-		exit
-	fi
-}
-
-# This launches the whole thing.
-ask_1
+# Use a state machine to allow jumping back to previous questions.
+STATE=1
+while [ "$STATE" != stop ]; do
+	case "$STATE" in
+	1)
+		# Ask about frontend and priority.
+		db_input medium debconf/frontend || true
+		db_input medium debconf/priority || true
+		if ! db_go && [ $? -eq 30 ]; then
+			# Going back at this point is up to the frontend,
+			# since it involves jumping out of this configmodule.
+			# This is just a placeholder for something not in the
+			# spec.
+			exit
+		else
+			STATE=2
+		fi
+	;;
+	
+	2)
+		# Ask if old questions should be shown only after
+		# asking about priority, because I don't want to bother people
+		# with it unless they pick low priority.
+		db_input low debconf/showold || true
+		if ! db_go; then
+		echo backup hit
+			# Back button
+			STATE=1
+			db_fset debconf/frontend isdefault true
+			db_fset debconf/priority isdefault true
+			db_fset debconf/showold isdefault true 
+		else
+			# Done.
+			STATE=stop
+		fi
+	;;
+	esac
+done

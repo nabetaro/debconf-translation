@@ -96,6 +96,7 @@ sub communicate {
 
 	my $r=$this->{read_handle};
 	$_=<$r> || return $this->_finish;
+	print STDERR "--> $_" if $ENV{DEBCONF_DEBUG};
 	chomp;
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
@@ -106,7 +107,9 @@ sub communicate {
 		return $this->_finish;
 	}
 	$command="command_".lc($command);
-	print $w join(' ', $this->$command(@params))."\n";
+	my $ret=join(' ', $this->$command(@params))."\n";
+	print STDERR "<-- $ret" if $ENV{DEBCONF_DEBUG};
+	print $w $ret;
 	return 1;
 }
 
@@ -168,7 +171,9 @@ sub command_version {
 	my $this=shift;
 	my $version=shift;
 	return $codes{version_bad}, "Version too low ($version)"
-		if $version < int($this->version);
+		if int($version) < int($this->version);
+	return $codes{version_bad}, "Version too high ($version)"	
+		if int($version) > int($this->version);
 	return $codes{success}, $this->version;
 }
 
@@ -395,12 +400,43 @@ sub command_fset {
 	return $codes{success}, $question->$flag($value);
 }
 
+=head2 command_visible
+
+Deprecated.
+
+=cut
+
+sub command_visible {
+	my $this=shift;
+	my $priority=shift;
+	my $question_name=shift;
+	
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		return $codes{badquestion}, "$question_name doesn't exist";
+	return $codes{success}, $this->frontend->visible($question, $priority) ? "true" : "false";
+}
+
+=head2 command_exist
+
+Deprecated.
+
+=cut
+
+sub command_exist {
+	my $this=shift;
+	my $question_name=shift;
+	
+	return $codes{success}, 
+		Debian::DebConf::ConfigDb::getquestion($question_name) ? "true" : "false";
+}
+
 sub AUTOLOAD {
 	my $this=shift;
 	my $property = $AUTOLOAD;
 	$property =~ s|.*:||; # strip fully-qualified portion
 	if ($property=~/^command_(.*)/) {
-		die "Unsupported command \"$1\" received from client configuration module.";
+		return $codes{syntaxerror},
+		       "Unsupported command \"$1\" received from confmodule.";
 	}
 	else {
 		$this->{$property}=shift if @_;

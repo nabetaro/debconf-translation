@@ -21,7 +21,7 @@ install:
 	find Client ConfModule Element FrontEnd -type f | grep .pm\$$ | \
 		xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	install -d $(prefix)/etc/
-	install -m 0644 Client/confmodule.sh $(prefix)/usr/share/debconf/
+	install -m 0644 Client/confmodule.sh Client/confmodule $(prefix)/usr/share/debconf/
 	install Client/frontend $(prefix)/usr/share/debconf/
 
   # Modify config module to use correct db location.
@@ -35,4 +35,4 @@ install:
   # Install bins
 	install -d $(prefix)/usr/bin
 	find Client -perm +1 -type f | grep -v frontend | \
-		grep -v loadtemplate | xargs -i_ install _ $(prefix)/usr/bin
+		xargs -i_ install _ $(prefix)/usr/bin

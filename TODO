@@ -7,9 +7,7 @@ General:
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
 * i8n
-* Debhelper should auto-add the purge stuff to the postrm when it detects a
-  package using debconf.
-* When Clinet::ConfModule launches a frontend, the frontend doesn't see
+* When Client::ConfModule launches a frontend, the frontend doesn't see
   stuff echo'd to stdout, if it is echo'd inside a system. A short program
   illistrating the problem:
 
@@ -18,15 +16,14 @@ General:
   system 'echo HI 2';
   
 * Regression tests.
-* It looks like making different types of confmodules based on frontend type
-  is stupid. All it's been used for is setting capabilities. If capabilities
-  are moved into the frontend, a lot of classes go away.
 * I need to implement the container template type. That's gonna be fun..
   I've mostly done it now, except it won't work at all with the web
   frontend. I need to make some architectural changes, probably.
 * The appendix should use a definition list. (maybe)
-* The exist and visible commands should be done away with, using return
-  codes from other commands to accomplish the same thing.
+* Something I see frequently is a select list that needs lost of explination
+  for each option. It'd be neat if the explination could be added as a
+  paralell list with the select list, to keep the actual tokens that the
+  confmodule script gets back short.
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
@@ -41,17 +38,12 @@ Text frontend:
 Dialog frontend:
 * It can't tell how high the screen is unless LINES is exported, which
   doesn't seem to be the default. I could use stty -a to get this info
-* Input.pm has too many magic numbers in it.
-* there is no good way to make it prompt for a password. I have a patch to
-  newt that allows this, and as soon as it gets in, I'll use it.
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
-* When reconfiguring slrn, with a 25 line display, note how it overlaps with
-  the back title; that needs to be fixed.
 
 Web based frontend:
-* Well, a little security would be nice! Make sure it only allows connections
+* Well, a little security would be nice! It only allows connections
   from localhost, but even that isn't good enough at all.
 * Passwords are completly insecure.
 * It can support blocks, so add them. I guess they could be used for
@@ -67,3 +59,4 @@ GTK:
 * Lots of room here for UI improvements and really showing off everything
   debconf can do.
 * segfaults on exit
+* I think it's currently completly broken right now. :-(

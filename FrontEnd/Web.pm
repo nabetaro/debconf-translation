@@ -58,8 +58,11 @@ sub new {
 		LocalPort => $self->{port},
 		Proto => 'tcp',
 		Listen => 1,
-		Reuse => 1
+		Reuse => 1,
+		LocalAddr => '127.0.0.1',
 	) || die "Can't bind to ".$self->{port}.": $!";
+
+	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->{port}."\n";
 
 	return $self;
 }
@@ -180,7 +183,7 @@ parses the client's response and uses that to set values on the Elements.
 sub go {
 	my $this=shift;
 
-	return unless @{$this->{elements}};
+	return 1 unless @{$this->{elements}};
 
 	# Each form sent out has a unique id.
 	my $formid=$this->formid(1 + $this->formid);
@@ -240,7 +243,15 @@ sub go {
 		next unless $idtoelt{$id};
 		
 		$idtoelt{$id}->set($query->param($id));
+		delete $idtoelt{$id};
 	}
+	# If there are any elements that did not get a result back, that in
+	# itself is significant. For example, an unchecked checkbox will not
+	# get anything back.
+	foreach my $elt (values %idtoelt) {
+		$elt->set('');
+	}
+	
 	return 1;
 }
 

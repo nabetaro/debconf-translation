@@ -24,7 +24,7 @@ my %fallback=(
 	'Web'			=>	'Gtk',
 	'Dialog'		=>	'Text',
 	'Gtk'			=>	'Dialog',
-	'Text'			=>	'Dialog',
+	'Text'			=>	'Noninteractive',
 );
 
 my $frontend;
@@ -57,9 +57,7 @@ sub frontend {
 		last if defined $frontend;
 		$type=$fallback{$type};
 		
-		if ($ENV{DEBCONF_DEBUG}) {
-			print STDERR "Debconf: failed to initialize: $@\n";
-		}
+		print STDERR "Debconf: failed to initialize frontend: $@\n";
 
 		# Prevent loops; only try each frontend once.
 		last if $seen{$type};
@@ -76,7 +74,7 @@ sub frontend {
 =head2 confmodule
 
 Pass the script (if any) the ConfModule will start up, (and optional
-arguments to pass to it and this creates and returns a ConfModule.
+arguments to pass to it) and this creates and returns a ConfModule.
 
 =cut
 
