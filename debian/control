@@ -31,7 +31,7 @@ Description: Debian configuration management system documentation
 
 Package: debconf-utils
 Section: devel
-Depends: debconf (>= 0.1.0)
+Depends: debconf (>= 0.1.0), ${misc:Depends}
 Conflicts: debconf (<< 1.1.0)
 Replaces: debconf (<< 0.1.0)
 Architecture: all

@@ -224,7 +224,10 @@ sub finish {
 	$SIG{PIPE} = sub {};
 	
 	foreach (@{$this->seen}) {
-		$_->flag('seen', 'true');
+		# Try to get the question again, because it's possible it
+		# was shown, and then unregistered.
+		my $q=Debconf::Question->get($_->name);
+		$_->flag('seen', 'true') if $q;
 	}
 	$this->seen([]);
 	

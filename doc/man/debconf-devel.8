@@ -313,6 +313,9 @@ look like "${key}". When the question is displayed, the substitutions are
 replaced with their values. This command can be used to set the value of a
 substitution. This is useful if you need to display some message to the
 user that you can't hard-code in the templates file.
+.P
+Do not try to use SUBST to change the default value of a question; it won't
+work since there is a SET command explicielt for that purpose.
 .TP
 .B FGET question flag
 Questions can have flags associated with them. The flags can have a value
