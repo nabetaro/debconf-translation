@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gnome, Editor, Noninteractive
-Choices-pt_BR: Dialog, Texto, Gnome, Editor, NãoInterativa
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
+Choices-pt_BR: Dialog, Readline, Gnome, Editor, NãoInterativa
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -18,7 +18,7 @@ Description-pt_BR: Que interface deve ser usada para configurar os pacotes?
  usuário que eles irão usar.
  .
  O frontend dialog é em tela cheia, baseado em texto enquanto o frontend
- texto usa uma interface mais tradicional de texto puro e o frontend
+ readline usa uma interface mais tradicional de texto puro e o frontend
  gnome é uma interface X moderna. O frontend editor permite que você
  configure os pacotes usando seu editor de textos favorito. O frontend
  não interativo nunca faz perguntas a você.

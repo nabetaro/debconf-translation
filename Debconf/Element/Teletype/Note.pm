@@ -2,17 +2,17 @@
 
 =head1 NAME
 
-Debconf::Element::Text::Note - A note to the user
+Debconf::Element::Teletype::Note - A note to the user
 
 =cut
 
-package Debconf::Element::Text::Note;
+package Debconf::Element::Teletype::Note;
 use strict;
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
-This is a note to the user, presented using a plain text interface.
+This is a note to the user, presented using a teletype.
 
 =cut
 

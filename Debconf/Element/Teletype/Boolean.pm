@@ -2,18 +2,18 @@
 
 =head1 NAME
 
-Debconf::Element::Text::Boolean - Yes/No question
+Debconf::Element::Teletype::Boolean - Yes/No question
 
 =cut
 
-package Debconf::Element::Text::Boolean;
+package Debconf::Element::Teletype::Boolean;
 use strict;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
-This is a yes or no question, presented to the user using a plain text
+This is a yes or no question, presented to the user using a teletype
 interface.
 
 =head1 METHODS

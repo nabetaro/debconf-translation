@@ -2,21 +2,21 @@
 
 =head1 NAME
 
-Debconf::Element::Text::Multiselect - select multiple items
+Debconf::Element::Teletype::Multiselect - select multiple items
 
 =cut
 
-package Debconf::Element::Text::Multiselect;
+package Debconf::Element::Teletype::Multiselect;
 use strict;
 use Debconf::Gettext;
 use Debconf::Config;
-use base qw(Debconf::Element::Multiselect Debconf::Element::Text::Select);
+use base qw(Debconf::Element::Multiselect Debconf::Element::Teletype::Select);
 
 =head1 DESCRIPTION
 
-This lets the user select multiple items from a list of values, using a plain
-text interface. (This is hard to do in plain text, and the UI I have made isn't
-very intuitive. Better UI designs welcomed.)
+This lets the user select multiple items from a list of values, using a
+teletype interface. (This is hard to do in plain text, and the UI I have made
+isn't very intuitive. Better UI designs welcomed.)
 
 =cut
 
@@ -44,7 +44,7 @@ sub show {
 	my $default;
 	if (Debconf::Config->terse eq 'false') {
 		$this->printlist(@choices);
-		$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
+		$this->frontend->display("\n(".gettext("Enter the items you want to select, separated by spaces.").")\n");
 		push @completions, 1..@choices;
 		$default=join(" ", map { $choicenum{$_} }
 		                   grep { $value{$_} } @choices);

@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gnome, Editor, Noninteractive
-Choices-es: Dialog, Texto, Gnome, Editor, No-interactivo
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
+Choices-es: Dialog, Readline, Gnome, Editor, No-interactivo
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -17,7 +17,7 @@ Description-es: ¿Qué interfaz quiere usar para configurar paquetes?
  Puede elegir el tipo de interfaz de usuario que quiere que usen.
  .
  Dialog és un interfaz de texto a pantalla completa, mientras que el de
- texto es más tradicional, de solo texto y gnome es un moderno interfaz
+ readline es más tradicional, de solo texto y gnome es un moderno interfaz
  para X. Editor le permite configurar el sistema usando su editor favorito.
  El interfaz no-interactivo no hace ninguna pregunta.
 

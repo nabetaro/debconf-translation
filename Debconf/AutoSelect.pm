@@ -26,15 +26,18 @@ progressivly falls back to other types.
 
 my %fallback=(
 	# preferred frontend		# fall back to (list ref)
-	'Gnome'			=>	['Dialog', 'Text'],
-	'Web'			=>	['Dialog', 'Text'],
-	'Dialog'		=>	['Text'],
-	'Gtk'			=>	['Dialog', 'Text'],
-	'Text'			=>	['Dialog'],
-	'Editor'		=>	['Text'],
+	'Gnome'			=>	['Dialog', 'Readline'],
+	'Web'			=>	['Dialog', 'Readline'],
+	'Dialog'		=>	['Readline'],
+	'Gtk'			=>	['Dialog', 'Readline'],
+	'Readline'		=>	['Teletype', 'Dialog'],
+	'Editor'		=>	['Readline'],
 	# Here to make upgrades clean for those who used to use the slang
 	# frontend.
 	'Slang'			=>	['Dialog'],
+	# And the Text frontend has become the Readline frontend.
+	'Text'			=> 	['Readline', 'Teletype', 'Dialog'],
+
 );
 
 my $frontend;

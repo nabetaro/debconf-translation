@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "emprégase a interface: %s"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "non se puido inicializa-la interface: %s"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Non se puido arrincar unha interface: %s"
@@ -40,12 +40,12 @@ msgstr ""
 "Non se especificou unha base de datos de patróns no ficheiro de "
 "configuración."
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
@@ -101,13 +101,13 @@ msgstr "Non se puido grava-la nota."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "si"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "non"
 
@@ -139,13 +139,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, executándose en %s"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "ningunha das anteriores"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Premas as letras dos elementos que quere seleccionar, separadas por espacios."
 
@@ -177,7 +177,12 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+#, fuzzy
+msgid "This frontend probably needs a controlling tty."
+msgstr "Esta interface precisa dun terminal de control."
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -185,7 +190,7 @@ msgstr ""
 "Está empregando a interface baseada en editores de debconf para configura-lo "
 "seu sistema. Vexa o final deste documento para obter instruccións detalladas."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -202,14 +207,6 @@ msgstr ""
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configura-lo sistema."
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "Máis"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr "Esta interface precisa dun terminal de control."
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -223,6 +220,14 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Seguinte"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Máis"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Esta interface precisa dun terminal de control."
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
@@ -36,12 +36,12 @@ msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
 msgid "Template database not specified in config file."
 msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "%s 설정중"
@@ -98,13 +98,13 @@ msgstr "주의를 저장할 수 없습니다."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "예"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "아니오"
 
@@ -134,13 +134,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "위에 있는 것 중에 없음"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
@@ -171,7 +171,12 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+#, fuzzy
+msgid "This frontend probably needs a controlling tty."
+msgstr "이 frontend는 제어 tty를 필요로 합니다."
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -179,7 +184,7 @@ msgstr ""
 "시스템을 설정하기 위해서 편집기 기반의 debconf frontend를 사용하고 있습니다. "
 "자세한 명령을 위해서는 이 문서의 끝부분을 보세요."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -195,14 +200,6 @@ msgstr ""
 "그 시점에, debconf는 편집된 파일을 읽고, 시스템을 설정하기 위해 입력한 값을 "
 "사용할 것입니다."
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "계속"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr "이 frontend는 제어 tty를 필요로 합니다."
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -216,6 +213,14 @@ msgstr "뒤로"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "다음"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "계속"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "이 frontend는 제어 tty를 필요로 합니다."
 
 #: ../dpkg-preconfigure:113
 #, c-format

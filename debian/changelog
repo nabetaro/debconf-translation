@@ -1,3 +1,33 @@
+debconf (1.0.10) unstable; urgency=low
+
+  * The "did someone mention a freeze?" release.
+  * Added 'Teletype' frontend, which should work on any teletype, no matter
+    how primative (yeah, even the ones with paper in them, or the one on
+    the s/390, or what you get when you ssh -T).
+  * Renamed the Text frontend to Readline, which better reflects what it's
+    all about. Of course, it's now derived from Teletype. And of course
+    I did this in a way that won't break anything that still tries to use a
+    frontend called Text..
+  * Added the elementtype field to FrontEnd, which lets closely related
+    frontends share elements without a lot of trouble; Readline uses this.
+  * Fixed a bug in the dialog frontend that made it display the same
+    infobox multiple times sometimes.
+  * Renamed Tty to ScreenSize to release confusion, and removed the
+    </dev/tty thing I put in long ago, since dpkg-preconfigure reopens
+    the tty, which should work around that ancient problem.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 29 Sep 2001 20:11:54 -0400
+
+debconf (1.0.03) unstable; urgency=low
+
+  * Corrected multiselect text frontend help line to make sense in terse
+    mode. This involved removing any mention of numbers or letters. 
+    Closes: #113416, #113414
+  * Quick and dirty gnome multiselect scrolling patch from Federico Di
+    Gregorio <fog@mixadlive.com>. Still looking for a better fix.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 24 Sep 2001 21:03:21 -0400
+
 debconf (1.0.02) unstable; urgency=low
 
   * Removed overoptimization in File DbDriver that made it not unlock the

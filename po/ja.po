@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
@@ -37,12 +37,12 @@ msgstr ""
 msgid "Template database not specified in config file."
 msgstr ""
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
@@ -98,13 +98,13 @@ msgstr "この注意を保存できません。"
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "はい"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "いいえ"
 
@@ -135,13 +135,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "上記以外"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
@@ -170,7 +170,11 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+msgid "This frontend probably needs a controlling tty."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -178,7 +182,7 @@ msgstr ""
 "システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
 "しています。詳しい説明はこのドキュメントの最後を見てください。"
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -195,14 +199,6 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "移動"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr ""
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -217,6 +213,14 @@ msgstr "戻る"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "次へ"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "移動"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr ""
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

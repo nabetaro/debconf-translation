@@ -20,19 +20,23 @@ sub init {
 	$this->SUPER::init(@_);
 	$this->adddescription;
 
-	$this->widget(Gtk::VBox->new(0, 0));
-	$this->widget->show;
+        $this->widget(Gtk::ScrolledWindow->new);
+        $this->widget->show;
+        $this->widget->set_policy('automatic', 'automatic');
 	
 	# TODO: isn't there a gtk multiselct list box that could be used
 	# instead of all these checkboxes?
 	my @buttons;
-	for (my $i=0; $i <= $#choices; $i++) {
+	my $vbox = Gtk::VBox->new(0, 0);
+        for (my $i=0; $i <= $#choices; $i++) {
 	    $buttons[$i] = Gtk::CheckButton->new($choices[$i]);
 	    $buttons[$i]->show;
 	    $buttons[$i]->set_active($default{$choices[$i]} ? 1 : 0);
-	    $this->widget->pack_start($buttons[$i], 0, 0, 0);
+	    $vbox->pack_start($buttons[$i], 0, 0, 0);
 	}
-
+        $vbox->show;
+        $this->widget->add_with_viewport($vbox);
+    
 	$this->buttons(\@buttons);
 	
 	$this->addwidget($this->widget);

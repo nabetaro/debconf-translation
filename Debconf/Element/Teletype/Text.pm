@@ -2,11 +2,11 @@
 
 =head1 NAME
 
-Debconf::Element::Text::Text - show text to the user
+Debconf::Element::Teletype::Text - show text to the user
 
 =cut
 
-package Debconf::Element::Text::Text;
+package Debconf::Element::Teletype::Text;
 use strict;
 use base qw(Debconf::Element);
 

@@ -57,14 +57,14 @@ or
 .B dialog (1)
 programs to display questions to you. It works in text mode.
 .TP
-.B text
+.B readline
 .RS
 The most traditional frontend, this looks quite similar
 to how Debian configuration always has been: a series of
-questions, printed out at the console using plain text. It
-includes readline support, and even supports tab completion.
-(Install the libterm-readline-gnu-perl package to make the most
-of the readline support.)
+questions, printed out at the console using plain text, and
+prompts done using the readline library. It even supports tab
+completion. (Install the libterm-readline-gnu-perl package to
+make the most of the readline support.)
 .P
 This frontend has some special hotkeys. Pageup (or ctrl-u)
 will go back to the previous question (if that is supported
@@ -117,7 +117,7 @@ You can change the default frontend debconf uses by reconfiguring
 debconf. On the other hand, if you just want to change the frontend
 for a minute, you can set the DEBIAN_FRONTEND environment variable to
 the name of the frontend to use. For example:
-  DEBIAN_FRONTEND=text apt-get install slrn
+  DEBIAN_FRONTEND=readline apt-get install slrn
 .P
 The 
 .B dpkg-reconfigure (8)

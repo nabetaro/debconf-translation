@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gnome, Editor, Noninteractive
-Choices-ca: Dialog, Text, Gnome, Editor, No-interactiu
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
+Choices-ca: Dialog, Readline, Gnome, Editor, No-interactiu
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -17,7 +17,7 @@ Description-ca: Quina interfície voleu fer servir per configurar paquets?
  aspecte comú.
  Pot triar el tipus d'interfície d'usuari que vol que utilitzen.
  .
- Dialog és un interfície de text a pantalla completa, mentre que el de text
+ Dialog és un interfície de text a pantalla completa, mentre que el de readline
  és més tradicional, de sols text i gnome és un modern interfície per X.
  Editor li permet configurar el sistema utilitzant el seu editor
  preferit. L'interfície no-interactiu no fa cap pregunta.

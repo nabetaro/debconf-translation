@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gnome, Editor, Noninteractive
-Choices-fi: Dialog, Teksti, Gnome, Editori, Automaattinen
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
+Choices-fi: Dialog, Readline, Gnome, Editori, Automaattinen
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -16,7 +16,7 @@ Description-fi: Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?
  Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän.
  Voit itse valita mieluisesi liittymän muutamasta vaihtoehdosta. 
  .
- Dialog on ruudun täyttävä päätteellä näkyvä liittymä. Teksti on
+ Dialog on ruudun täyttävä päätteellä näkyvä liittymä. Readline on
  perinteisempi pelkkää tekstiä käyttävä liittymä. Gnome tarjoaa
  nykyaikaisen X-pohjaisen liittymän. Editori käyttää asetusten
  säätöön lempieditoriasi. Automaattinen liittymä ei koskaan kysy

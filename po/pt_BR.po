@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "tentando com frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "falha ao inicializar frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"
@@ -38,12 +38,12 @@ msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
@@ -101,13 +101,13 @@ msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "sim"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "não"
 
@@ -140,13 +140,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, rodando em %s"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "nenhuma das acima"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
 
@@ -178,7 +178,12 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+#, fuzzy
+msgid "This frontend probably needs a controlling tty."
+msgstr "Esse frontend requer um tty controlador."
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -186,7 +191,7 @@ msgstr ""
 "Você está usando o frontend baseado em editor do debconf para configurar seu "
 "sistema. Veja o fim desse documento para instruções detalhadas."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -204,14 +209,6 @@ msgstr ""
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "Mais"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr "Esse frontend requer um tty controlador."
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -224,6 +221,14 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Mais"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Esse frontend requer um tty controlador."
 
 #: ../dpkg-preconfigure:113
 #, c-format

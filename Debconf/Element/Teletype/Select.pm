@@ -2,11 +2,11 @@
 
 =head1 NAME
 
-Debconf::Element::Text::Select - select from a list of values
+Debconf::Element::Teletype::Select - select from a list of values
 
 =cut
 
-package Debconf::Element::Text::Select;
+package Debconf::Element::Teletype::Select;
 use strict;
 use Debconf::Config;
 use POSIX qw(ceil);
@@ -14,7 +14,7 @@ use base qw(Debconf::Element::Select);
 
 =head1 DESCRIPTION
 
-This lets the user pick from a number of values, using a plain text interface.
+This lets the user pick from a number of values.
 
 =head1 METHODS
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "будет использован интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "не удалось инициализировать интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось использовать интерфейс: %s"
@@ -37,12 +37,12 @@ msgstr ""
 msgid "Template database not specified in config file."
 msgstr ""
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Не удалось создать элемент типа %s. Причина: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
@@ -98,13 +98,13 @@ msgstr "Сообщение сохранить не удалось."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "да"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "нет"
 
@@ -138,13 +138,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "ни один из предложенных"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
 
@@ -174,7 +174,11 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+msgid "This frontend probably needs a controlling tty."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -182,7 +186,7 @@ msgstr ""
 "Вы указали пакету debconf, что для настройки системы необходимо использовать "
 "текстовый редактор. Подробную информацию вы найдете в конце этого документа."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -199,14 +203,6 @@ msgstr ""
 "редактора. Затем программа debconf прочитает измененный файл и использует "
 "введенные вами параметры для настройки системы."
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "Далее"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr ""
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -221,6 +217,14 @@ msgstr "Возврат"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Далее"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Далее"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr ""
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

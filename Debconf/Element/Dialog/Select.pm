@@ -36,15 +36,6 @@ sub show {
 	my $menu_height=$#choices + 1;
 	if ($lines + $#choices + 2 >= $screen_lines) {
 		$menu_height = $screen_lines - $lines - 4;
-		if ($menu_height < 3 && $#choices + 1 >= 2) {
-			# Don't display a tiny menu.
-			$this->frontend->showtext($this->question->extended_description);
-			($text, $lines, $columns)=$this->frontend->sizetext($this->question->description);
-			$menu_height=$#choices + 1;
-			if ($lines + $#choices + 2 >= $screen_lines) {
-				$menu_height = $screen_lines - $lines - 4;
-			}
-		}
 	}
 	
 	$lines=$lines + $menu_height + $this->frontend->spacer;

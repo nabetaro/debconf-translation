@@ -23,6 +23,12 @@ communicating with Elements to form that FrontEnd.
 
 =over 4
 
+=item elementtype
+
+What type of elements this frontend uses. Defaults to being set (by init) 
+to the same name as the frontend, but tightly-linked frontends might want
+to share elements; if so, one can set this to the other's elementtype.
+
 =item elements
 
 A reference to an array that contains all the elements that the FrontEnd
@@ -68,6 +74,17 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
+
+	my $elementtype;
+	if (ref $this) {
+		# Called as object method.
+		($elementtype) = ref($this) =~ m/Debconf::FrontEnd::(.*)/;
+	}
+	else {
+		# Called as class method.
+		($elementtype) = $this =~ m/Debconf::FrontEnd::(.*)/;
+	}
+	$this->elementtype($elementtype);
 }
 
 =item makeelement
@@ -92,16 +109,7 @@ sub makeelement {
 	my $nodebug=shift;
 
 	# Figure out what type of frontend this is.
-	my $frontend_type;
-	if (ref $this) {
-		# Called as object method.
-		($frontend_type)=ref($this)=~m/Debconf::FrontEnd::(.*)/;
-	}
-	else {
-		# Called as class method.
-		($frontend_type)=$this=~m/Debconf::FrontEnd::(.*)/;
-	}
-	my $type=$frontend_type.'::'.ucfirst($question->type);
+	my $type=$this->elementtype.'::'.ucfirst($question->type);
 	$type=~s/::$//; # in case the question has no type..
 
 	# See if we need to load up the object class.. The eval

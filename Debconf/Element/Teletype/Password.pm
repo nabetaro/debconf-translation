@@ -2,18 +2,21 @@
 
 =head1 NAME
 
-Debconf::Element::Text::String - string input field
+Debconf::Element::Teletype::Password - password input field
 
 =cut
 
-package Debconf::Element::Text::String;
+package Debconf::Element::Teletype::Password;
 use strict;
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
-This is a string input field, presented to the user using a plain text
-interface.
+This is a password input field.
+
+=head1 show
+
+Prompts for a password, without displaying it or echoing keystrokes.
 
 =cut
 
@@ -23,16 +26,20 @@ sub show {
 	# Display the question's long desc first.
 	$this->frontend->display(
 		$this->question->extended_description."\n");
-
+	
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
-	# Prompt for input using the short description.
-	my $value=$this->frontend->prompt(
+	my $value=$this->frontend->prompt_password(
 		prompt => $this->question->description,
 		default => $default,
 	);
 	return unless defined $value;
+
+	# Handle defaults.
+	if ($value eq '') {
+		$value=$default;
+	}
 	
 	$this->frontend->display("\n");
 	$this->value($value);

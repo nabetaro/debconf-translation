@@ -1,13 +1,13 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gnome, Editor, Noninteractive
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
  .
  The dialog frontend is a full-screen, character based interface, while the
- text frontend uses a more traditional plain text interface, and the gnome
+ readline frontend uses a more traditional plain text interface, and the gnome
  frontend is a modern X interface. The editor frontend lets you configure
  things using your favorite text editor. The noninteractive frontend never
  asks you any questions.

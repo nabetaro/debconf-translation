@@ -43,6 +43,14 @@ if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.73; then
 	db_unregister debconf/switch-to-slang || true
 fi
 
+# The Text frontend became the Readline frontend.
+if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 1.0.10; then
+	db_get debconf/frontend || true
+	if [ "$RET" = Text ]; then
+		db_set debconf/frontend Readline || true
+	fi
+fi
+
 # This file is long obsolete, and was a conffile, so wasn't auto-removed.
 rm -f /etc/debconf.cfg
 

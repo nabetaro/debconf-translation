@@ -15,7 +15,7 @@ use Debconf::Log qw(:all);
 use Text::Wrap qw(wrap $columns);
 use Text::Tabs;
 use IPC::Open3;
-use base qw(Debconf::FrontEnd::Tty);
+use base qw(Debconf::FrontEnd::ScreenSize);
 
 =head1 DESCRIPTION
 

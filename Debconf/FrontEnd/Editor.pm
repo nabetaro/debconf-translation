@@ -11,7 +11,7 @@ use strict;
 use Text::Wrap;
 use Debconf::TmpFile;
 use Debconf::Gettext;
-use base qw(Debconf::FrontEnd::Tty);
+use base qw(Debconf::FrontEnd::ScreenSize);
 
 my $fh;
 
@@ -30,6 +30,14 @@ sub init {
 	my $this=shift;
 
 	$this->SUPER::init(@_);
+
+	# Ok, so this is wrong for X-based editors. But I must try to
+	# balance getting them right vs. getting it wrong for console-based
+	# editors and making debconf impossible to use as the editor begins
+	# to fail.
+	open(TESTTY, "/dev/tty") || die gettext("This frontend probably needs a controlling tty.")."\n";
+	close TESTTY;
+	
 	$this->interactive(1);
 }
 
@@ -147,7 +155,7 @@ changes, $Text::Wrap::columns is updated to match.
 
 sub screenwidth {
 	my $this=shift;
-	
+
 	$Text::Wrap::columns=$this->SUPER::screenwidth(@_);
 }
 

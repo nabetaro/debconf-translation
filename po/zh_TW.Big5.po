@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-09-22 12:30-0400\n"
+"POT-Creation-Date: 2001-09-29 23:28-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=Big5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:68
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
-#: ../Debconf/AutoSelect.pm:73
+#: ../Debconf/AutoSelect.pm:76
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
-#: ../Debconf/AutoSelect.pm:79
+#: ../Debconf/AutoSelect.pm:82
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "不能開啟前端介面: %s"
@@ -36,12 +36,12 @@ msgstr "設定檔中沒有指定的設定資料庫"
 msgid "Template database not specified in config file."
 msgstr "設定檔中沒有指定樣板資料庫"
 
-#: ../Debconf/FrontEnd.pm:114
+#: ../Debconf/FrontEnd.pm:122
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 
-#: ../Debconf/FrontEnd.pm:186
+#: ../Debconf/FrontEnd.pm:194
 #, c-format
 msgid "Configuring %s"
 msgstr "正設定 %s"
@@ -97,13 +97,13 @@ msgstr "不能儲存備忘."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Text/Boolean.pm:28
+#: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
 msgstr "是"
 
 #: ../Debconf/Element/Editor/Boolean.pm:38
 #: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Text/Boolean.pm:29
+#: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "否"
 
@@ -132,13 +132,13 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, 執行在 %s"
 
-#: ../Debconf/Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "已經完成"
 
-#: ../Debconf/Element/Text/Multiselect.pm:47
-msgid ""
-"Type in the letters of the items you want to select, separated by spaces."
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
 msgstr "在您想選擇的項目中輸入, 以空格分開."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
@@ -165,14 +165,19 @@ msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:38
+#, fuzzy
+msgid "This frontend probably needs a controlling tty."
+msgstr "這個介面需求可控制的tty."
+
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
 "您選擇了文字編輯器形式的debconf介面設定系統.留意這份文件最尾有關的方法."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:118
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -186,14 +191,6 @@ msgstr ""
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
 "而且會使用您的設定值設定系統."
 
-#: ../Debconf/FrontEnd/Text.pm:209
-msgid "More"
-msgstr "更多"
-
-#: ../Debconf/FrontEnd/Tty.pm:37
-msgid "This frontend requires a controlling tty."
-msgstr "這個介面需求可控制的tty."
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -206,6 +203,14 @@ msgstr "上一個"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "下一個"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "更多"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "這個介面需求可控制的tty."
 
 #: ../dpkg-preconfigure:113
 #, c-format
