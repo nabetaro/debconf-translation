@@ -1,18 +1,16 @@
 #!/usr/bin/perl -w
 #
-# FrontEnd that presents a simple line-at-a-time interface
-# This inherits from the generic ConfModule and just defines some methods to
-# handle commands.
+# FrontEnd that presents a simple line-at-a-time interface.
 
 package FrontEnd::Line;
-use ConfModule;
+use FrontEnd::Base;
 use Element::Line::Input;
 use Element::Line::Text;
 use Element::Line::Note;
 use Priority;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(ConfModule);
+@ISA=qw(FrontEnd::Base);
 
 $|=1;
 
@@ -27,27 +25,6 @@ sub new {
 
 ############################################
 # Communication with the configuation module
-
-sub capb {
-	my $this=shift;
-	$this->{capb}=[@_];
-
-	# I know how to handle back buttons.
-	return "backup";
-}
-
-# Just store the title, don't display it yet.
-sub title {
-	my $this=shift;
-	$this->{'title'}=join(' ',@_);
-
-	return;
-}
-
-# Luckily I don't need to worry about blocks much, since the interface
-# is line-at-a-time.
-sub beginblock {}	
-sub endblock {}
 
 # Add to the list of elements.
 sub input {
@@ -82,32 +59,6 @@ sub note {
 	$note->frontend($this);
 	$note->ask;
 	return;
-}
-
-# Print out the elements we have pending one at a time and
-# get responses from the user for them.
-sub go {
-	my $this=shift;
-	
-	foreach my $elt (@{$this->{elements}}) {
-		next unless Priority::high_enough($elt->priority);
-		# Some elements use helper functions in the frontend
-		# so thet need to know what frontend to use.
-		$elt->frontend($this);
-		$elt->ask;
-	}
-	$this->{elements}=[];
-	return;
-}
-
-# Pull a value out of a question.
-sub get {
-	my $this=shift;
-	my $question=shift;
-	
-	$question=ConfigDb::getquestion($question);
-	return $question->value if $question->value ne '';
-	return $question->template->default;
 }
 
 #####################################
