@@ -8,6 +8,9 @@ debconf-mergetemplate - fusionne plusieurs questionnaires debconf
 
 =head1 DESCRIPTION
 
+NoteE<nbsp>: Cet utiliaire est mis de côtéE<nbsp>; vous devriez vous tourner vers
+l'utilisation du programme po2debconf du paquet po-debconf.
+
 Ce programme est utile si vous avez de nombreux questionnaires debconf que
 vous voulez fusionner dans un seul gros fichier. Tous les fichiers spécifiés
 seront lus, fusionnés et affichés sur la sortie standard.
@@ -55,4 +58,3 @@ Joey Hess <joeyh@debian.org>
 =head1 TRADUCTION
 
 Julien Louis <leonptitlouis@ifrance.com>
-

@@ -9,6 +9,9 @@ debconf-getlang - extrait une langue depuis un questionnaire
 
 =head1 DESCRIPTION
 
+NoteE<nbsp>: Cet utilitaire est mis de côtéE<nbsp>; vous devriez vous tourner
+vers l'utilisation du paquet po-debconf.
+
 Ce programme aide à faire et à gérer les traductions des questions-modèles de
 debconf. À la base, il y a trois situations où ce programme peut être
 appeléE<nbsp>:
@@ -45,6 +48,7 @@ corrigent
 la traduction floue.
 
 =item Vérification du statut d'une traduction.
+
 Pour vérifier l'état d'une traduction, utilisez le drapeau --status, et
 passez-lui le questionnaire anglais comme premier paramètre et toutes les
 autres question-modèles traduites après. Il affichera les statistiques pour
