@@ -261,7 +261,7 @@ sub showdialog {
 	
 	my $sigil=$this->sigil->get($question->priority) if $this->sigil && $question;
 	
-	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
+	my $pid = open3('>&STDOUT', '<&STDIN', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
 		'--title', $sigil.$this->title, @_);
 	my $stderr;

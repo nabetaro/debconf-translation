@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
+set -e
 
 # This directory unexpectedly lingered around for two people, still
 # containing .pm files that broke debconf upgrades. I don't know why.

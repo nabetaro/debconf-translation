@@ -1,5 +1,6 @@
-#!/bin/sh -e
+#!/bin/sh 
 # This lets debconf configure itself.
+set -e
 
 # This is to handle upgrading from old versions of debconf. If the
 # file doesn't exist yet, this package is being preconfiged, and

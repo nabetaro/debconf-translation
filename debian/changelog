@@ -1,3 +1,10 @@
+debconf (1.1.30) unstable; urgency=low
+
+  * Fixed stdin/stdout inversion in call to open3 in dialog frontend.
+    Closes: #155682
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  5 Sep 2002 20:05:31 -0400
+
 debconf (1.1.29) unstable; urgency=low
 
   * Allow stacked dbdrivers with readonly databases on top.
