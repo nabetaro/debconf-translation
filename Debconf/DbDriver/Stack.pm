@@ -276,11 +276,11 @@ sub _nochange {
 	}
 	elsif ($command eq 'setflag') {
 		@list=$driver->flags($item);
-		my $get='getflag';
+		$get='getflag';
 	}
 	elsif ($command eq 'setvariable') {
 		@list=$driver->variables($item);
-		my $get='getvariable';
+		$get='getvariable';
 	}
 	else {
 		$this->error("internal error; bad command: $command");
