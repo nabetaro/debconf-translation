@@ -14,7 +14,7 @@ sub ask {
 	my $this=shift;
 
 	# TODO: auto-calc geometry.
-	$this->frontend->show_dialog('', "--msgbox", $this->text, 16, 75);
+	$this->frontend->show_dialog('Note', "--msgbox", $this->text, 16, 75);
 }
 
 1

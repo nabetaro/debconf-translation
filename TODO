@@ -1,3 +1,6 @@
+* Have the demo in the makefile somehow deal with the combinatorial
+  explosion of possible frontend/confmodules combos.
+
 * Frontend really shouldn't inherit from confmodule. It makes it too tied
   into communicating with modules when it could be used for other tasks.
 

@@ -29,7 +29,13 @@ sub ask {
 		}
 	}
 	elsif ($type eq 'select') {
-		my @choices=@{$question->template->choices};
+		@params=('--menu', 
+			 $question->template->extended_description,
+			 16, 75, 8);
+		my $c=0;			 
+		foreach (@{$question->template->choices}) {
+			push @params, $c++, $_;
+		}
 	}
 	elsif ($type eq 'text') {
 		@params=('--inputbox', 
