@@ -255,11 +255,11 @@ sub loaddb {
 	my $dir=shift;
 
 	if (-e "$dir/templates.db") {
-		require "$dir/templates.db";
+		eval qq{require "$dir/templates.db"};
 	}
 
 	if (-e "$dir/debconf.db") {
-		require "$dir/debconf.db";
+		eval qq{require "$dir/debconf.db"};
 	}
 }
 
