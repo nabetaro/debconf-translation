@@ -19,6 +19,7 @@ die "Unable to load Qt -- is libqt-perl installed?\n" if $@;
 use Debconf::FrontEnd::Kde::Wizard;
 use Debconf::Log ':all';
 use base qw{Debconf::FrontEnd};
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
@@ -53,9 +54,11 @@ sub init {
 	$this->win(Debconf::FrontEnd::Kde::Wizard(undef, undef, $this));
 	debug frontend => "QTF: setting size";
 	$this->win->resize(620, 430);
-	$this->hostname(`hostname`);
+	my $hostname = `hostname`;
+	chomp $hostname;
+	$this->hostname($hostname);
 	debug frontend => "QTF: setting title";
-	$this->win->setCaption(sprintf(gettext("Debconf on %s"), $this->hostname));
+	$this->win->setCaption(to_Unicode(sprintf(gettext("Debconf on %s"), $this->hostname)));
 	debug frontend => "QTF: initializing main widget";
 	$this->toplayout(Qt::HBoxLayout($this->win->mainFrame));
 	$this->page(Qt::ScrollView($this->win->mainFrame));
@@ -67,7 +70,7 @@ sub init {
 	$this->vbox(Qt::VBoxLayout($this->frame, 0, 6, "wizard-main-vbox"));
 	$this->win->show;
 	$this->space(Qt::SpacerItem(1, 1, 1, 5));
-	$this->win->setTitle(sprintf(gettext("Debconf on %s"), $this->hostname));
+	$this->win->setTitle(to_Unicode(sprintf(gettext("Debconf on %s"), $this->hostname)));
 }
 
 =item go

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-07 17:00-0500\n"
+"POT-Creation-Date: 2004-03-03 15:39-0500\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -38,8 +38,8 @@ msgstr ""
 "그 시점에, debconf는 편집된 파일을 읽고, 시스템을 설정하기 위해 입력한 값을 "
 "사용할 것입니다."
 
-#: ../Debconf/FrontEnd/Gnome.pm:95 ../Debconf/FrontEnd/Kde.pm:58
-#: ../Debconf/FrontEnd/Kde.pm:70
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:73
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf"
@@ -252,7 +252,7 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
 
-#: ../Debconf/Element/Select.pm:94
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "

@@ -34,7 +34,7 @@ sub create {
 	$this->widget->show;
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
-	$this->widget->setText($default);
+	$this->widget->setText(to_Unicode($default));
 	$this->widget->setSizePolicy(Qt::SizePolicy(1, 0, 0, 0));
 	$this->addhelp;
 	my $b = $this->addhbox;
@@ -51,6 +51,7 @@ Gets the text in the widget.
 
 sub value {
 	my $this=shift;
+	#FIXME encoding?
 	return $this->widget->text();
 }
 

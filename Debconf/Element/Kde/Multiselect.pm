@@ -10,6 +10,7 @@ package Debconf::Element::Kde::Multiselect;
 use strict;
 use Qt;
 use base qw(Debconf::Element::Kde Debconf::Element::Multiselect);
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
@@ -40,7 +41,7 @@ sub create {
 	my $vbox = Qt::VBoxLayout($this -> widget);
 	for (my $i=0; $i <= $#choices; $i++) {
 		$buttons[$i] = Qt::CheckBox($this->cur->top);
-		$buttons[$i]->setText($choices[$i]);
+		$buttons[$i]->setText(to_Unicode($choices[$i]));
 		$buttons[$i]->show;
 		$buttons[$i]->setChecked($default{$choices[$i]} ? 1 : 0);
 		$buttons[$i]->setSizePolicy(Qt::SizePolicy(1, 1, 0, 0,
@@ -61,13 +62,17 @@ The value is based on which boxes are checked..
 
 sub value {
 	my $this = shift;
-	my @choices = $this->question->choices_split;
 	my @buttons = @{$this->buttons};
 	my ($ret, $val);
 	my @vals;
+	# we need untranslated templates for this
+	$this->question->template->i18n('');
+	my @choices=$this->question->choices_split;
+	$this->question->template->i18n(1);
+	
 	for (my $i = 0; $i <= $#choices; $i++) {
 	if ($buttons [$i] -> isChecked()) {
-		push @vals, $this->translate_to_C($choices[$i]);
+		push @vals, $choices[$i];
 	}
 	}
 	return join(', ', $this->order_values(@vals));

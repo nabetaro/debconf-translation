@@ -10,6 +10,7 @@ package Debconf::Element::Kde::Select;
 use strict;
 use Qt;
 use base qw(Debconf::Element::Kde Debconf::Element::Select);
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
@@ -29,7 +30,7 @@ sub create {
 	my $this=shift;
 	
 	my $default=$this->translate_default;
-	my @choices=$this->question->choices_split;
+	my @choices=map { to_Unicode($_) } $this->question->choices_split;
 	
 	$this->SUPER::create(@_);
 	$this->startsect;
@@ -37,7 +38,7 @@ sub create {
 	$this->widget->show;
 	$this->widget->insertStringList(\@choices, 0);
 	if (defined($default) and length($default) != 0) {
-		$this->widget->setCurrentText($default);
+		$this->widget->setCurrentText(to_Unicode($default));
 	}
 	$this->addhelp;
 	my $b = $this->addhbox;
@@ -56,7 +57,7 @@ sub value {
 	my $this=shift;
 	
 	my @choices=$this->question->choices_split;
-	return $this->translate_to_C($this->widget->currentText());
+	return $this->translate_to_C_uni($this->widget->currentText());
 }
 
 =back

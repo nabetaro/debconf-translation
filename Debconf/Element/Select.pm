@@ -11,6 +11,7 @@ use strict;
 use Debconf::Log ':all';
 use Debconf::Gettext;
 use base qw(Debconf::Element);
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
@@ -95,6 +96,20 @@ sub translate_to_C {
 	return '';
 }
 
+sub translate_to_C_uni {
+	my $this=shift;
+	my $value=shift;
+	my @choices=$this->question->choices_split;
+	$this->question->template->i18n('');
+	my @choices_c=$this->question->choices_split;
+	$this->question->template->i18n(1);
+
+	for (my $x=0; $x <= $#choices; $x++) {
+		return $choices_c[$x] if to_Unicode($choices[$x]) eq $value;
+	}
+	debug developer => sprintf(gettext("Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."), $value);
+	return '';
+}
 =back
 
 =head1 AUTHOR

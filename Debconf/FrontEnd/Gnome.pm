@@ -92,6 +92,7 @@ sub init {
 	$this->win->set_position("center");
 	$this->win->set_default_size(600, 400);
 	my $hostname = `hostname`;
+	chomp $hostname;
 	$this->win->set_title(to_Unicode(sprintf(gettext("Debconf on %s"), $hostname)));
 	$this->win->signal_connect("delete_event", sub { exit });
 	

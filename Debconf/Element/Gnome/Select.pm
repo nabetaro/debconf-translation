@@ -60,19 +60,6 @@ sub value {
 	return $this->translate_to_C_uni($this->widget->entry->get_chars(0, -1));
 }
 
-sub translate_to_C_uni {
-	my $this=shift;
-	my $value=shift;
-	my @choices=$this->question->choices_split;
-	$this->question->template->i18n('');
-	my @choices_c=$this->question->choices_split;
-	$this->question->template->i18n(1);
-
-	for (my $x=0; $x <= $#choices; $x++) {
-		return $choices_c[$x] if to_Unicode($choices[$x]) eq $value;
-	}
-	return '';
-}
 =back
 
 =head1 AUTHOR

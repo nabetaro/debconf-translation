@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-07 17:00-0500\n"
+"POT-Creation-Date: 2004-03-03 15:39-0500\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -39,8 +39,8 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:95 ../Debconf/FrontEnd/Kde.pm:58
-#: ../Debconf/FrontEnd/Kde.pm:70
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:73
 #, c-format
 msgid "Debconf on %s"
 msgstr "%s のDebconf"
@@ -254,7 +254,7 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s にて実行"
 
-#: ../Debconf/Element/Select.pm:94
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "

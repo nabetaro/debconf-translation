@@ -135,6 +135,7 @@ use Qt;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
 use Debconf::Element::Kde::ElementWidget;
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
@@ -207,7 +208,7 @@ Sets up a label to display the description of the element's question.
 sub description {
 	my $this=shift;
 	my $label=Qt::Label($this->cur->top);
-	$label->setText($this->question->description);
+	$label->setText(to_Unicode($this->question->description));
 	$label->setSizePolicy(Qt::SizePolicy(1, 1, 0, 0, $label->sizePolicy()->hasHeightForWidth()));
 	$label->show;
 	return $label;
@@ -264,7 +265,7 @@ associated with this Element,
 sub addhelp {
 	my $this=shift;
     
-	my $help=$this->question->extended_description;
+	my $help=to_Unicode($this->question->extended_description);
 	return unless length $help;
 	my $label=Qt::Label($this->cur->top);
 	$label->setText($help);

@@ -1,18 +1,18 @@
-# debconf fr.po
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# Vincent Renardias <vincent@debian.org>, 2000
-# Martin Quinson <Martin.Quinson@tuxfamily.org>, 2000,2001,2002
+# debconf Simplified Chinese Translation
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Shell Hung <shell@debian.org>, 2001. (Traditional Chinese translation)
+# Carlos Z.F. Liu <carlos_liu@yahoo.com>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.8\n"
+"Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
-"PO-Revision-Date: 2004-02-06 23:26+0100\n"
-"Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
-"Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
+"POT-Creation-Date: 2004-03-03 18:20-0500\n"
+"PO-Revision-Date: 2004-03-03 19:40+1300\n"
+"Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
+"Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
@@ -20,9 +20,8 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Vous utilisez l'interface de debconf bas�e sur la modification de fichiers "
-"pour configurer votre syst�me. Veuillez consulter la fin de ce document pour "
-"obtenir des informations d�taill�es."
+"您正在使用基于编辑器形式的 debconf 界面设定系统。请留意本文件末尾有关的详细教"
+"程。"
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -33,122 +32,106 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Cette interface debconf vous pr�sente un ou plusieurs fichiers texte � "
-"modifier. Voici un exemple. Si vous �tes familier avec les fichiers de "
-"configuration d'Unix, ce fichier sera simple � comprendre. Il contient des "
-"�l�ments de configuration s�par�s par des commentaires. Veuillez modifier le "
-"fichier et changer tous les �l�ments n�cessaires, puis enregistrez-le et "
-"quittez. Debconf se servira alors des valeurs qui y sont indiqu�es pour "
-"configurer le syst�me."
+"基于编辑器形式的 debconf 会向您展示一个或多个的待修改文件。这是其中一个文件。"
+"如果您比较了解标准的 Unix 设置文件，这个文件对您来说将会是很熟悉的 -- 它包含"
+"一些注释和设定项目。请编辑此文件，更改任何必要的项目，然后保存并离开。同时，"
+"debconf 会读取已修改的文件，并使用您输入的值来配置系统。"
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:73
 #, c-format
 msgid "Debconf on %s"
-msgstr "Debconf sur %s"
+msgstr "Debconf 运行于 %s"
 
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
-msgstr "Suite"
+msgstr "更多"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Note�: debconf fonctionne en mode Web. Allez sur http://localhost:%i/"
+msgstr "注意：Debconf 正在以 web 模式执行。请浏览 http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr "Retour"
+msgstr "返回"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr "Suivant"
+msgstr "下一步"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"La variable TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
+msgstr "系统未设定 TERM 环境变量, 所以对话框界面将不可使用."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "L'interface dialog est incompatible avec les tampons shell d'Emacs"
+msgstr "对话框界面与 Emacs shell 缓存不兼容"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"L'interface dialog ne fonctionnera pas avec un terminal rustique (��dumb��), "
-"un tampon shell d'Emacs ou sans terminal de contr�le."
+"对话框界面将不能在哑终端上运行，例如 Emacs shell 缓存，或者没有控制终端。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr ""
-"Aucun programme de type dialog n'est install�, l'interface bas�e sur dialog "
-"ne peut donc pas �tre utilis�e."
+msgstr "没有安装任何可用的对话框类程序，所以无法使用基于此种形式的界面。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"L'interface dialog a besoin d'un �cran d'au moins 13 lignes sur 31 colonnes."
+msgstr "对话框界面要求屏幕画面必须为至少 13 行高及 31 列宽."
 
 #: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
-msgstr "Outil de configuration de Debian"
+msgstr "Debian 设置"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Cette interface a besoin d'un terminal de contr�le."
+msgstr "这个界面要求可控制的 tty。"
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU est incompatible avec les tampons shell d'Emacs"
+msgstr "Term::ReadLine::GNU 与 Emacs shell 缓存不兼容。"
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr "Utilisation de l'interface %s � la place"
+msgstr "返回前端界面：%s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
-msgstr "Impossible d'initialiser l'interface�: %s"
+msgstr "无法初始化前端界面：%s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Impossible de d�marrer l'interface�: %s"
+msgstr "无法开启前端界面：%s"
 
 #: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
-msgstr ""
-"Le fichier de configuration n'indique pas l'emplacement de la base de "
-"donn�es des r�glages."
+msgstr "配置文件中没有指定配置数据库。"
 
 #: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
-msgstr ""
-"Le fichier de configuration n'indique pas l'emplacement de la base de "
-"donn�es des messages (��templates��)."
+msgstr "配置文件中没有指定模板数据库。"
 
 #: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Probl�me pendant la configuration de la base de donn�es d�finie au "
-"paragraphe %s sur %s."
+msgstr "在设定由 %2$s 第 %1$s 部分所定义的数据库时出错。"
 
 #: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr ""
-"Attention�: corruption possible de la base de donn�es. Tentative de "
-"r�paration en rajoutant la question manquante %s."
+msgstr "警告：数据库可能已被损坏。将会尝试修复缺失的项目 %s。"
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -156,100 +139,93 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Dans le message (��template��) #%s de %s, le champ ��%s�� est dupliqu� avec "
-"��%s�� comme nouvelle valeur. Il manque probablement la ligne vide de "
-"s�paration entre deux messages.\n"
+"%2$s 中的第 %1$s 模板有一个重复字段“%3$s”，其中新值为“%4$s”。造成问题的原因可"
+"能是两个模板没有以正确地用换行符分隔开。\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Champ de message ��%s�� inconnu, dans la partie #%s de %s\n"
+msgstr "%3$s 中第 %2$s 部分有未知的模板字段“%1$s”\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erreur d'analyse de message vers ��%s��, dans la partie #%s de %s\n"
+msgstr "%3$s 中第 %2$s 部分“%1$s”附近的模板解析出错\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Le message #%s de %s ne contient pas de ligne ��Template:��\n"
+msgstr "%2$s 中第 %1$s 模板未包含“Template:”行\n"
 
 #: ../Debconf/Element/Gnome/Note.pm:49
 msgid "Save (mail) Note"
-msgstr "Enregistrer la note (dans un courriel)"
+msgstr "保存(信件)备忘"
 
 #: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Il a �t� demand� � debconf de sauver cette note, il vous l'a donc envoy�e "
-"par courrier �lectronique."
+msgstr "Debconf 要求保存这份备忘, 所以它将被寄给您。"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "The note has been mailed."
-msgstr "La note a �t� envoy�e par courrier �lectronique."
+msgstr "这份备忘已经寄出了。"
 
 #: ../Debconf/Element/Gnome/Note.pm:57
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: ../Debconf/Element/Gnome/Note.pm:58
 msgid "Unable to save note."
-msgstr "Impossible d'enregistrer la note."
+msgstr "不能保存备忘。"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
-msgstr "_Aide"
+msgstr "帮助(_H)"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
-msgstr "Aide"
+msgstr "帮助"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
-msgstr "Choix"
+msgstr "选择"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"Indiquez z�ro ou plusieurs �l�ments s�par�s par une virgule suivie d'un "
-"espace�: ', '."
+msgstr "(输入零个或以逗号加空格(“, ”)分隔的多个项目)。"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
 #: ../Debconf/Element/Editor/Boolean.pm:59
 #: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
-msgstr "oui"
+msgstr "是"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:39
 #: ../Debconf/Element/Editor/Boolean.pm:62
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
-msgstr "non"
+msgstr "否"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "aucun des �l�ments mentionn�s"
+msgstr "以上都不是"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Entrez les �l�ments que vous voulez choisir, s�par�s par des espaces."
+msgstr "输入您想选择的项目，各项目之间以空格分开。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf n'a pas �t� configur� pour montrer cette note, il vous l'a donc "
-"envoy�e par courrier �lectronique."
+msgstr "Debconf 并不显示这份备忘，所以它将被直接寄给您。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -258,7 +234,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Note.pm:87
 #, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, s'ex�cutant sur %s"
+msgstr "Debconf，正在 %s 上运行"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
@@ -266,98 +242,97 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"La valeur ��%s�� ne fait pas partie des choix disponibles�! Cela ne devrait "
-"jamais se produire. Les messages ont peut-�tre �t� mal traduits."
+"没有在 C 选择中找到输入值“%s”！这是不应该发生的，可能是因为模板被错误的本地"
+"化。"
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossible de charger Debconf::Element::%s. Cause de l'�chec�: %s"
+msgstr "不能载入 Debconf::Element::%s，失败原因：%s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
-msgstr "Configuration de %s"
+msgstr "正在设定 %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "impossible de r�-ouvrir stdin�: %s"
+msgstr "重新开启标准输入失败：%s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr "Vous devez indiquer des paquets � pr�-configurer"
+msgstr "必须指定要预设定的 deb 包"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"la configuration des paquets est report�e, car apt-utils n'est pas install�"
+msgstr "因为并未安装 apt-utils，所以软件包的设定过程将被推迟"
 
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
-msgstr "erreur d'analyse de message�: %s"
+msgstr "模板解读错误: %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf�: impossible de changer le mode�: %s"
+msgstr "debconf：无法改变权限：%s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "�chec de la pr�-configuration de %s, avec le code d'erreur %s"
+msgstr "预设定 %s 失败，退出状态为 %s"
 
 #: ../dpkg-reconfigure:105
 #, c-format
 msgid "%s must be run as root"
-msgstr "%s doit �tre lanc� par le super-utilisateur"
+msgstr "%s 必须以 root 身份执行"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
-msgstr "Veuillez indiquer un paquet � reconfigurer"
+msgstr "请指定要重新设定的软件包"
 
 #: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
-msgstr "%s n'est pas install�"
+msgstr "%s 未安装"
 
 #: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s est cass� ou partiellement install�"
+msgstr "%s 已被损坏或未完成安装"
 
 #: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr "Impossible de lire le fichier d'�tat�: %s"
+msgstr "不能读取状态文件：%s"
 
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr "%s est absent"
+msgstr "没有 %s"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "%s est absent�; abandon de %s"
+msgstr "没有 %s；弃用 %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s est approximatif � l'octet %s�: %s"
+msgstr "%s 是不正确的，位置在 %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s est approximatif � l'octet %s�: %s�; ce champ a �t� abandonn�"
+msgstr "%s 是不正确的，位置在 %s: %s；放弃之"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr "%s est obsol�te"
+msgstr "%s 已经过时"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s est obsol�te�; l'ensemble du message est abandonn�!"
+msgstr "%s 已经过时；弃用整个模板！"
