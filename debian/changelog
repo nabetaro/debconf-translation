@@ -1,3 +1,15 @@
+debconf (0.3.50) unstable; urgency=low
+
+  * Fixed FrontEnd::makeelement to not crash if a question has no
+    associated template. This should never happen, but a very old version
+    of debconf left behind databases with that problem. The fix is trivial:
+    just use $question->type instead of $question->template->type. This has
+    the exact same effect, with the side effect of catching undef'd
+    templates and not crashing. It goes on to not make an element in that
+    case, which is reasonable.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  6 Jul 2000 14:50:46 -0700
+
 debconf (0.3.49) unstable; urgency=low
 
   * s/dpkg-getlang/debconf-getlang/ # Closes: #65918

@@ -261,7 +261,7 @@ sub command_input {
 		$element=Debian::DebConf::FrontEnd::Noninteractive->makeelement($question, 1);
 
 		# If that failed, the question is just not visible.
-		return $codes{input_invisible} unless $element;
+		return $codes{input_invisible}, 'question skipped' unless $element;
 	}
 
 	$this->frontend->add($element);
@@ -405,7 +405,7 @@ sub command_set {
 	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->value($value);
-	return $codes{success};
+	return $codes{success}, "value set";
 }
 
 =item command_reset
