@@ -83,7 +83,7 @@ sub parse {
 	my ($field, $value, $extended)=('', '', '');
 	foreach (split "\n", $text) {
 		chomp;
-		if (/^([-A-Za-z0-9]*): (.*)/) {
+		if (/^([-_.A-Za-z0-9]*): (.*)/) {
 			# Beginning of new item.
 			$this->_savefield($field, $value, $extended);
 			$field=lc $1;
