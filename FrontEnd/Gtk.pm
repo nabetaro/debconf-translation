@@ -131,8 +131,6 @@ sub new {
 	$butts[1]->signal_connect("clicked", sub { $self->Next; });
 	$butts[2]->signal_connect("clicked", sub { $self->Back; });
 
-	$window->show();
-
 	$self->{window} = $window;
 	$self->{questionframe} = $questionframe;
 	$self->{result} = "uninitialized";
@@ -190,6 +188,9 @@ sub newques {
 	my $newtitle = shift; # string
 	my $newchild = shift; # Gtk widget
 
+	$self->{window}->show unless $self->{window_showing};
+	$self->{window_showing}=1;
+
 	$self->{questionframe}->remove($self->{child})
 		if (defined $self->{child});
 
@@ -232,8 +233,8 @@ sub maketext {
 
 sub Cancel {
 	my $self = shift;
-	$self->{result} = "cancel";
 	Gtk->main_quit;
+	exit 1;
 }
 
 sub Back {
@@ -241,9 +242,10 @@ sub Back {
 	$self->{result} = "back";
 	Gtk->main_quit;
 }
+
 sub Next {
 	my $self = shift;
-	$self->{result} = "change";
+	$self->{result} = "";
 	Gtk->main_quit;
 }
 

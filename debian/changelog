@@ -1,3 +1,14 @@
+debconf (0.1.59) unstable; urgency=low
+
+  * Guarded postinst code that modifies apt.conf to prevent dup entries.
+  * Started doing some cleanup of the gtk frontend:
+    - It no longer flashes the window up on the screen unless it really
+      has a question to ask this time around.
+    - Made cancel button work.
+    It still segfaults on exit though. 
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 18:21:35 -0700
+
 debconf (0.1.58) unstable; urgency=low
 
   * Allowed confmodule.sh to be loaded twice. Closes: #46843

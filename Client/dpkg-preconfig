@@ -107,7 +107,7 @@ foreach my $deb (@debs) {
 	
 	if ($apt && ! $runconfig) {
 		$runconfig=1;
-		print "Configuring packages..\n"
+		print "Configuring packages ...\n"
 	}
 
 	# Open a temp file safely and save the confmodule to it.

@@ -5,8 +5,10 @@
 . /usr/share/debconf/confmodule.sh
 
 touch /etc/apt/apt.conf
-echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
-echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
+if ! grep -q "dpkg-preconfig --apt" /etc/apt/apt.conf; then
+	echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
+	echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
+fi
 
 # Make sure the directory has safe permissions.
 chmod 700 /var/lib/debconf
