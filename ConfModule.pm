@@ -27,10 +27,12 @@ module. Each of them are described below.
 
 package Debian::DebConf::ConfModule;
 use strict;
+use Debian::DebConf::Base;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
-use vars qw($AUTOLOAD);
+use vars qw($AUTOLOAD @ISA);
+@ISA=qw(Debian::DebConf::Base);
 
 =head2 new
 
@@ -42,12 +44,9 @@ can use.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self = {};
-	bless ($self, $class);
-	
+	my $self  = bless $proto->SUPER::new(@_), $class;
 	$self->{frontend} = shift;
 	$self->{version} = "1.0";
-	$self->{capb} = '';
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -183,8 +182,8 @@ sub command_version {
 
 Sets the client_capb property of the ConfModule to the confmodules
 capb string, and also sets the capb_backup property of the ConfModules
-assosicated FrontEnd if the confmodule can backup. Sends the capb property
-of the ConfModule to the confmodule.
+associated FrontEnd if the confmodule can backup. Sends the capb property
+of the associated FrontEnd to the confmodule.
 
 =cut
 
@@ -193,7 +192,7 @@ sub command_capb {
 	$this->client_capb([@_]);
 	# Set capb_backup on the frontend if the client can backup.
 	$this->frontend->capb_backup(1) if grep { $_ eq 'backup' } @_;
-	return $this->capb;
+	return $this->frontend->capb;
 }
 
 =head2 title
@@ -404,7 +403,13 @@ sub AUTOLOAD {
 	}
 }
 
-# Close filehandles and stop the script.
+=head2 DESTROY
+
+When the object is destroyed, the filehandles are closed and the confmodule
+script stopped.
+
+=cut
+
 sub DESTROY {
 	my $this=shift;
 	

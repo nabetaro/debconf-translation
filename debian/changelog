@@ -1,3 +1,19 @@
+debconf (0.1.56) unstable; urgency=low
+
+  * Wrote a perl module dependancy grapher, and include output in the .deb
+    package. I need to clean up parts of the Element hierarchy. Running this
+    on all perl modules in /usr/lib/perl is amusing, too, though it needs
+    some more work to be of general utility. (And I suspect someone has
+    already written a better one I'm not aware of.)
+  * Made a new frontend -- the Noninteractive frontend.
+  * All objects in debconf now derive from a common base class, which saved
+    a few dozen lines of code at least.
+  * There is now only one ConfModule object, no more multiple derived
+    objects per FrontEnd type. To make this work, I had to move the capb
+    property into the FrontEnd.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 02:52:02 -0700
+
 debconf (0.1.55) unstable; urgency=low
 
   * Reorganized some modules. No user-visible changes.

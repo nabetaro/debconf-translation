@@ -9,6 +9,7 @@ fixlinks:
 	cd Debian && ln -sf .. DebConf
 
 build:
+	$(MAKE)
 	dh_testdir
 
 clean:
@@ -17,7 +18,7 @@ clean:
 	$(MAKE) clean
 	dh_clean
 
-install:
+install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
@@ -25,7 +26,7 @@ install:
 	$(MAKE) prefix=debian/tmp install
 
 # Build architecture-independent files here.
-binary-indep: build install
+binary-indep: install
 	# Make sure debhelper is going to install the config and templates.
 	dh_testversion 2.0.49
 	dh_testdir
@@ -33,7 +34,8 @@ binary-indep: build install
 	# Don't modify postrm, I purge differently than normal packages
 	# using me.
 	dh_installdebconf -n
-	dh_installdocs doc/* README TODO
+	dh_installdocs doc/CREDITS doc/INTRODUCTION doc/*.txt \
+		doc/packages-that-prompt doc/spec README TODO
 	dh_installexamples samples/*.* test.pl
 	dh_installmenu
 	dh_installcron

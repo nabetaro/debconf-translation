@@ -25,7 +25,7 @@ package Debian::DebConf::ConfigDb;
 use Debian::DebConf::Template;
 use Debian::DebConf::Question;
 use strict;
-use vars qw($AUTOLOAD %templates %questions);
+use vars qw(%templates %questions);
 
 =head2 getquestion
 

@@ -1,3 +1,6 @@
+all:
+	$(MAKE) -C doc
+
 test:
 	./test.pl $(FRONTEND) samples/$(PACKAGE).templates \
 		samples/$(PACKAGE).config
@@ -5,8 +8,9 @@ test:
 clean:
 	find . -name \*~ | xargs rm -f
 	rm -f *.db
+	$(MAKE) -C doc clean
 
-install: clean
+install:
   # Install libs
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf $(prefix)/usr/share/debconf

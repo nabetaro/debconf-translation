@@ -10,10 +10,7 @@ Debian::DebConf::FrontEnd - base FrontEnd
 
 This is the base of the FrontEnd class. Each FrontEnd presents a
 user interface of some kind to the user, and handles generating and
-communicating with Elements to form that FrontEnd. (It so happens that
-FrontEnd/Base.pm is a usable non-interactive FrontEnd -- it does not
-display any questions or anything else to the user. This may be useful
-in some obscure situations.)
+communicating with Elements to form that FrontEnd.
 
 =cut
 
@@ -25,8 +22,10 @@ package Debian::DebConf::FrontEnd;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Element;
 use Debian::DebConf::Config;
+use Debian::DebConf::Base;
 use strict;
-use vars qw($AUTOLOAD);
+use vars qw(@ISA);
+@ISA=qw(Debian::DebConf::Base);
 
 =head2 new
 
@@ -37,10 +36,10 @@ Creates a new FrontEnd object and returns it.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self = {};
+	my $self  = bless $proto->SUPER::new(@_), $class;
 	$self->{elements}=[];
 	$self->{interactive}='';
-	bless ($self, $class);
+	$self->{capb}='';
 	return $self
 }
 
@@ -144,16 +143,6 @@ sub default_title {
 	my $this=shift;
 	
 	$this->title("Configuring ".ucfirst(shift));
-}
-
-# Set/get property.
-sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
-			
-	$this->{$property}=shift if @_;
-	return $this->{$property};
 }
 
 =head1 AUTHOR

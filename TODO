@@ -12,13 +12,16 @@ General:
 * When Clinet::ConfModule launches a frontend, the frontend doesn't see
   stuff echo'd to stdout, if it is echo'd inside a system. A short program
   illistrating the problem:
-* I need to implement the container template type. That's gonna be fun..
 
   *STDOUT=\*NO_STDOUT;
   print "HI 1\n";
   system 'echo HI 2';
 * Regression tests.
-  
+* It looks like making different types of confmodules based on frontend type
+  is stupid. All it's been used for is setting capabilities. If capabilities
+  are moved into the frontend, a lot of classes go away.
+* I need to implement the container template type. That's gonna be fun..
+
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
   doesn't seem to be the default. I could use stty -a to get this info

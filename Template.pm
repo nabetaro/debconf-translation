@@ -24,21 +24,9 @@ named "extended_description" holds the extended description, if any.
 
 package Debian::DebConf::Template;
 use strict;
-use vars qw($AUTOLOAD);
-
-=head2 new
-
-Returns a new Template object.
-
-=cut
-
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $self  = {};
-	bless ($self, $class);
-	return $self;
-}
+use Debian::DebConf::Base;
+use vars qw(@ISA);
+@ISA=qw{Debian::DebConf::Base};
 
 # Helper for parse, sets a field to a value.
 sub _savefield {
@@ -118,16 +106,6 @@ sub parse {
 	# Sanity checks.
 	die "Template does not contain a Template: line"
 		unless $this->{template};
-}
-
-# Set/get property.
-sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
-	
-	$this->{$property}=shift if @_;
-	$this->{$property};
 }
 
 =head1 AUTHOR

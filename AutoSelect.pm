@@ -16,6 +16,7 @@ progressivly falls back to other types.
 
 package Debian::DebConf::AutoSelect;
 use strict;
+use Debian::DebConf::ConfModule;
 use Debian::DebConf::Config;
 
 my %fallback=(
@@ -75,22 +76,12 @@ sub frontend {
 =head2 confmodule
 
 Pass the script (if any) the ConfModule will start up, (and optional
-arguments to pass to it and this creates and returns a ConfModule to match
-the last FrontEnd returned by frontend()
+arguments to pass to it and this creates and returns a ConfModule.
 
 =cut
 
 sub confmodule {
-	# For some reason, if I don't reference $frontend here in some way, it
-	# doesn't make it into the eval. Odd.
-	my $a=$frontend;
-	
-	my $confmodule=eval qq{
-		use Debian::DebConf::ConfModule::$type;
-		Debian::DebConf::ConfModule::$type->new(\$frontend);
-	};
-	die $@ if $@;
-	
+	my $confmodule=Debian::DebConf::ConfModule->new($frontend);
 	$confmodule->startup(@_) if @_;
 	
 	return $confmodule;

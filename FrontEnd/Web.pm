@@ -50,6 +50,7 @@ sub new {
 	$self->{port}=shift || 8001;
 	$self->{formid}=0;
 	$self->{interactive}=1;
+	$self->{capb} = 'backup';
 
 	# Bind to the port.
 	$self->{server}=IO::Socket::INET->new(

@@ -19,7 +19,6 @@ This is a base Select input element.
 package Debian::DebConf::Element::Select;
 use Debian::DebConf::Element;
 use strict;
-use vars qw($AUTOLOAD);
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element);
 

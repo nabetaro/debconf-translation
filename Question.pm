@@ -25,7 +25,9 @@ the Question is mapped to, the value of that field will be returned instead.
 package Debian::DebConf::Question;
 use strict;
 use Debian::DebConf::ConfigDb;
-use vars qw($AUTOLOAD);
+use Debian::DebConf::Base;
+use vars qw($AUTOLOAD @ISA);
+@ISA=qw(Debian::DebConf::Base);
 
 =head2 new
 
@@ -36,10 +38,9 @@ Returns a new Question object.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = {};
+	my $self  = bless $proto->SUPER::new(@_), $class;
 	$self->{flag_isdefault}='true';
 	$self->{variables}={};
-	bless ($self, $class);
 	return $self;
 }
 
@@ -233,6 +234,7 @@ sub AUTOLOAD {
 
 	$this->{$property}=shift if @_;
 	return $this->{$property} if (defined $this->{$property});
+	# Fall back to template values.
 	return $this->{template}->$property();
 }
 

@@ -9,8 +9,7 @@ Debian::DebConf::Element - Base input element
 =head1 DESCRIPTION
 
 This is the base object on which many different types of input elements are
-built. Each element represents one user interface element in a FrontEnd. Elements
-can have associated values which are accessed and set in the usual way.
+built. Each element represents one user interface element in a FrontEnd. 
 
 =cut
 
@@ -20,21 +19,9 @@ can have associated values which are accessed and set in the usual way.
 
 package Debian::DebConf::Element;
 use strict;
-use vars qw($AUTOLOAD);
-
-=head2 new
-
-Returns a new object of this class.
-
-=cut
-
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $self  = {};
-	bless ($self, $class);
-	return $self;
-}
+use Debian::DebConf::Base;
+use vars qw(@ISA);
+@ISA=qw(Debian::DebConf::Base);
 
 =head2 show
 
@@ -56,16 +43,6 @@ sub visible {
 
 	# Will be shown.
 	return 1;
-}
-
-# Set/get property.
-sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
-	
-	$this->{$property}=shift if @_;
-	return $this->{$property};
 }
 
 =head1 AUTHOR
