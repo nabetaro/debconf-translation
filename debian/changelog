@@ -1,3 +1,11 @@
+debconf (0.2.38) unstable; urgency=low
+
+  * When processing what dialog returns after showing a multiselct, there
+    may be trailing space after the last double quote. Nodified to handle
+    that, Closes: #50471
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 17 Nov 1999 15:58:38 -0800
+
 debconf (0.2.37) unstable; urgency=low
 
   * Client/frontend: be less aggressive when trying to guess a template

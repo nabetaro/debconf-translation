@@ -71,7 +71,7 @@ sub show {
 	# in between. Parse that and change it into the style we use
 	# internally.
 	$value=~s/^"//;
-	$value=~s/"$//;
+	$value=~s/"\s*$//;
 	$value=~s/" "/, /g;
 
 	$this->question->value($value);

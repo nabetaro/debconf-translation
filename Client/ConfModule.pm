@@ -93,8 +93,7 @@ sub AUTOLOAD {
 	$command =~ s|.*:||; # strip fully-qualified portion
 
 	die "Unsupported command \"$command\"." unless $commands{$command};
-
-	# It's really quite simple..
+	
 	print join (' ', $command, @_)."\n";
 	my $ret=<STDIN>;
 	chomp $ret;
