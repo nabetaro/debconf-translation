@@ -14,9 +14,11 @@ install: install-utils install-docs install-rest
 # Man pages that go in the debconf-doc package.
 install-man:
 	install -d $(prefix)/usr/share/man/man3
+	install -d $(prefix)/usr/share/man/man8
 	pod2man --section=3 Debconf/Client/ConfModule.pm \
 		> $(prefix)/usr/share/man/man3/Debconf::Client::ConfModule.3pm
-	install -m 0644 confmodule.3 debconf.8 $(prefix)/usr/share/man/man3/
+	install -m 0644 confmodule.3 $(prefix)/usr/share/man/man3/
+	install -m 0644 debconf.8 $(prefix)/usr/share/man/man8/
 
 # Anything that goes in the debconf-utils package.
 install-utils:

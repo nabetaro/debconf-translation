@@ -6,27 +6,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2000-11-09 15:58-0800\n"
+"POT-Creation-Date: 2000-11-10 17:29-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Команда `%s' не поддерживается."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Предупреждение: в переданных параметрах обнаружен символ перевода строки."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "Это может привести к неожиданным результатам!"
 
 #: ../Debconf/AutoSelect.pm:65
 #, c-format
@@ -69,6 +55,20 @@ msgstr "Ошибка разбора шаблона около `%s'"
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Шаблон не содержит строки `Template:'"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Команда `%s' не поддерживается."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Предупреждение: в переданных параметрах обнаружен символ перевода строки."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "Это может привести к неожиданным результатам!"
 
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
