@@ -49,31 +49,32 @@ sub init {
 		text => "Debian Configuration",
 	));
 	$this->helpbar(Term::Stool::HelpBar->new(
-		helpstack => [ "Please wait.." ],
+		helpstack => [ "Working, please wait.." ],
 	));
 	$this->mainwindow(Term::Stool::Window->new(
-		xoffset => 2,
-		yoffset => 2,
 		resize_hook => sub {
 			my $this=shift;
 
 			# Resize to take up the top half of the screen.
+			$this->xoffset(2);
+			$this->yoffset(2);
 			$this->width($this->container->width - 4);
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));
 	$this->descwindow(Term::Stool::Window->new(
 		title => "Description",
-		xoffset => 2,
 		resize_hook => sub {
 			my $this=shift;
 		
 			# Resize to take up the bottom half of the screen.
+			$this->xoffset(2);
 			$this->width($this->container->width - 4);
 			$this->yoffset(int(($this->container->height - 6) / 2 + 4));
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));
+	
 	$this->desctext(Term::Stool::WrappedText->new(
 		xoffset => 1,
 		yoffset => 0,
@@ -155,7 +156,7 @@ sub go {
 	foreach my $element (@elements) {
 		# Noninteractive elemements have no widgets.
 		next unless $element->widget;
-
+		
 		unless ($firstwidget) {
 			$firstwidget=$element->widget;
 			
@@ -216,11 +217,10 @@ sub go {
 
 		# Now set it all in motion, with the first widget focused.
 		$this->helpbar->push("Tab and arrow keys move.");
+		$this->helpbar->display;
 		$this->panel->display;
 		$this->screen->run($firstwidget);
 
-		# User interaction is done for now; clean up.
-		$this->helpbar->pop;
 		# See which button is active (and thus was pressed).
 		if ($this->button_next->active) {
 			$this->button_next->deactivate;
@@ -231,6 +231,11 @@ sub go {
 			$this->button_back->deactivate;
 			$this->button_back->display;
 		}
+		# User interaction is done for now; clean up, and show
+		# please wait in helpbar again.
+		$this->helpbar->pop;
+		$this->helpbar->display;
+		$this->screen->refresh;
 	}
 
 	if ($ret) {
