@@ -1,3 +1,10 @@
+debconf (0.3.20) unstable; urgency=low
+
+  * debconf-doc conflicts with older versions of debconf that contained the
+    manpages. Closes: #62030
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  8 Apr 2000 14:34:14 -0700
+
 debconf (0.3.19) unstable; urgency=low
 
   * Added crazy new frontend: it just makes a pseudo-config file, and

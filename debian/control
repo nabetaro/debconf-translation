@@ -19,6 +19,7 @@ Description: Debian configuration management system
 
 Package: debconf-doc
 Architecture: all
+Conflicts: debconf (<< 0.3.10)
 Description: Debian configuration management system documentation
  This package contains lots of additional documentation for Debconf,
  including an introduction to Debconf, a user's guide, a programmer's
