@@ -4,10 +4,13 @@
 #include <arfile.h>
 
 #include <apt-pkg/pkgcache.h>
+
 #include "debfile.h"
 
-DebFile::DebFile(string debfile)
-	: File(debfile, FileFd::ReadOnly), Control(0), DepOp(0), PreDepOp(0), Config(0), Template(0), Which(None)
+pkgCache *DebFile::Cache = 0;
+
+DebFile::DebFile(const char *debfile)
+	: File(debfile, FileFd::ReadOnly), Control(0), Package(0), Version(0), DepVer(0), PreDepVer(0), DepOp(0), PreDepOp(0), Config(0), Template(0), Which(None)
 {
 }
 
@@ -16,6 +19,23 @@ DebFile::~DebFile()
 	delete [] Control;
 	delete [] Config;
 	delete [] Template;
+}
+
+char *DebFile::GetInstalledVer(const char *package)
+{
+	char *ver = 0;
+
+	pkgCache::PkgIterator Pkg = Cache->FindPkg(package);
+	if (Pkg.end() == false) 
+	{
+		pkgCache::VerIterator V = Pkg.CurrentVer();
+		if (V.end() == false) 
+		{
+			ver = strdup(V.VerStr());
+		}
+	}
+
+	return ver;
 }
 
 bool DebFile::Go()
@@ -97,24 +117,30 @@ bool DebFile::ParseInfo()
 	pkgTagSection Section;
 	Section.Scan(Control, ControlLen);
 
-	Package = Section.FindS("Package");
-	Version = Section.FindS("Version");
-	
-	const char *Start, *Stop;
+	const char *pkgtmp = Section.FindS("Package").c_str();
+	Package = CopyString(pkgtmp, strlen(pkgtmp));
+	Version = GetInstalledVer(Package);
 
+	const char *Start, *Stop;
 	if (Section.Find("Depends", Start, Stop) == true)
 	{
 		while (1)
 		{
-			string P, V;
+			char *P = 0, *V = 0;
 			unsigned int Op;
 			Start = ParseDepends(Start, Stop, P, V, Op);
 			if (Start == 0) return false;
-			if (P == "debconf")
+			if (strcmp(P, "debconf") == 0)
 			{
 				DepVer = V;
 				DepOp = Op;
+				delete[] P;
 				break;
+			}
+			else
+			{
+				delete[] P;
+				delete[] V;
 			}
 			if (Start == Stop) break;
 		}
@@ -124,15 +150,21 @@ bool DebFile::ParseInfo()
 	{
 		while (1)
 		{
-			string P, V;
+			char *P = 0, *V = 0;
 			unsigned int Op;
 			Start = ParseDepends(Start, Stop, P, V, Op);
 			if (Start == 0) return false;
-			if (P == "debconf")
+			if (strcmp(P, "debconf") == 0)
 			{
 				PreDepVer = V;
 				PreDepOp = Op;
+				delete[] P;
 				break;
+			}
+			else
+			{
+				delete[] P;
+				delete[] V;
 			}
 			if (Start == Stop) break;
 		}
@@ -141,9 +173,16 @@ bool DebFile::ParseInfo()
 	return true;
 }
 
+char *DebFile::CopyString(const char *start, unsigned int len)
+{
+	char *s = new char[len + 1];
+	s[len] = 0;
+	memcpy(s, start, len);
+	return s;
+}
 
 const char *DebFile::ParseDepends(const char *Start,const char *Stop,
-				string &Package,string &Ver,
+				char *&Package, char *&Ver,
 				unsigned int &Op)
 {
    // Strip off leading space
@@ -162,7 +201,7 @@ const char *DebFile::ParseDepends(const char *Start,const char *Stop,
       return 0;
    
    // Stash the package name
-   Package.assign(Start,I - Start);
+   Package = CopyString(Start, I - Start);
    
    // Skip white space to the '('
    for (;I != Stop && isspace(*I) != 0 ; I++);
@@ -240,12 +279,12 @@ const char *DebFile::ParseDepends(const char *Start,const char *Stop,
       const char *End = I;
       for (; End > Start && isspace(End[-1]); End--);
       
-      Ver = string(Start,End-Start);
+      Ver = CopyString(Start, End - Start);
       I++;
    }
    else
    {
-      Ver = string();
+      Ver = CopyString("", 0);
       Op = pkgCache::Dep::NoOp;
    }
    

@@ -7,10 +7,10 @@
 #include <wait.h>
 #include <fstream.h>
 
+#include <apt-pkg/pkgcache.h>
 #include <apt-pkg/configuration.h>
 #include <apt-pkg/init.h>
 #include <apt-pkg/progress.h>
-#include <apt-pkg/pkgcache.h>
 #include <apt-pkg/sourcelist.h>
 #include <apt-pkg/pkgcachegen.h>
 #include <apt-pkg/version.h>
@@ -50,47 +50,26 @@ void writeconfig(const DebFile &file)
 		return;
 	}
 	printf("%s %s %s %s\n",
-		file.Package.c_str(),	// Package
-		file.Version.c_str(),	// Version
+		file.Package,	// Package
+		file.Version,	// Version
 		templatefile,	// Template
 		configscript 	// Config
 	);
 }
 
-const char *getdebconfver(void)
+void init(MMap *&Map, pkgCache *&Cache)
 {
-	const char *ver = NULL;
-	// Initialize the apt cache, just to get the debconf version...
+	// Initialize the apt cache
 	if (pkgInitialize(*_config) == false)
 	{
 		fprintf(stderr, "Cannot initialize apt cache\n");
-		return NULL;
+		return;
 	}
 	pkgSourceList List;
 	List.ReadMainList();
 	OpProgress Prog;	
-	MMap *Map = pkgMakeStatusCacheMem(List,Prog);
-	pkgCache Cache(*Map);
-	pkgCache::PkgIterator Pkg = Cache.FindPkg("debconf");
-	if (Pkg.end() == false) 
-	{
-		pkgCache::VerIterator V = Pkg.CurrentVer();
-		if (V.end() == false) 
-		{
-			ver = strdup(V.VerStr());
-		}
-		else
-			fprintf(stderr, "no version\n");
-
-	}
-	else
-	{
-		fprintf(stderr, "no package\n");
-	}
-
-	delete Map;
-
-	return ver;
+	Map = pkgMakeStatusCacheMem(List,Prog);
+	Cache = new pkgCache(*Map);
 }
 
 int main(int argc, char **argv, char **env)
@@ -98,7 +77,17 @@ int main(int argc, char **argv, char **env)
 	int idx = 0;
 	char **debs = 0;
 	int numdebs = 0;
-	const char *debconfver = getdebconfver();
+	MMap *Map = 0;
+	const char *debconfver = NULL;
+
+	init(Map, DebFile::Cache);
+	if (Map == 0 || DebFile::Cache == 0)
+	{
+		fprintf(stderr, "Cannot initialize APT cache\n");
+		return 1;
+	}
+
+	debconfver = DebFile::GetInstalledVer("debconf");
 	
 	if (debconfver == NULL) 
 	{
@@ -122,12 +111,12 @@ int main(int argc, char **argv, char **env)
 		}
 		if (file.Template != 0 && file.ParseInfo() == true)
 		{
-			if (file.DepVer != "" &&
-			    pkgCheckDep(file.DepVer.c_str(), 
+			if (file.DepVer != 0 &&
+			    pkgCheckDep(file.DepVer, 
 			                debconfver, file.DepOp) == false) 
 				continue;
-			if (file.PreDepVer != "" &&
-			    pkgCheckDep(file.PreDepVer.c_str(), 
+			if (file.PreDepVer != 0 &&
+			    pkgCheckDep(file.PreDepVer, 
 			                debconfver, file.PreDepOp) == false) 
 				continue;
 
@@ -135,6 +124,9 @@ int main(int argc, char **argv, char **env)
 		}
 	}
 	
+
+	delete Map;
+	delete DebFile::Cache;
 
 	return 0;
 }
