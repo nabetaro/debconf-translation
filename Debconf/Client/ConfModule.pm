@@ -119,7 +119,7 @@ sub AUTOLOAD {
 		print "$c\n";
 		my $ret=<STDIN>;
 		chomp $ret;
-		my @ret=split(/ /, $ret, 2);
+		my @ret=split(/\s/, $ret, 2);
 		return @ret if wantarray;
 		return $ret[1];
 	};
