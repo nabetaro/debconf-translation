@@ -100,7 +100,7 @@ sub iterate {
 
 =head2 exists(itemname)
 
-Simply check for file existance.
+Simply check for file existance, after querying the cache.
 
 =cut
 
@@ -109,7 +109,8 @@ sub exists {
 	my $name=shift;
 	
 	# Check the cache first.
-	return 1 if $this->SUPER::exists($name);
+	my $incache=$this->SUPER::exists($name);
+	return if (!defined $incache or $incache);
 
 	return unless $this->accept($name);
 	return -e $this->filename($name);

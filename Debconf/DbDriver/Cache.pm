@@ -43,7 +43,7 @@ use fields qw(cache);
 
 Derived classes need to implement these methods.
 
-=head2 real_iterate(itemname)
+=head2 iterate(itemname)
 
 Iterate over all available items. If called with no arguments, it returns
 an itarator. If called with the iterator passed in, it retuns the next
@@ -168,12 +168,20 @@ sub savedb {
 
 Does an item exist in the cache?
 
+Actually returns one of three values:
+
+true  -- yes, it's in the cache
+undef -- marked as deleted in the cache
+0     -- not in the cache
+
 =cut
 
 sub exists {
 	my $this=shift;
 
-	return exists $this->{cache}->{shift()};
+	return $this->{cache}->{shift()}
+		if exists $this->{cache}->{shift()};
+	return 0;
 }
 
 =head2 addowner(itemname, ownername)
