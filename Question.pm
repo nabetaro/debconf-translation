@@ -19,7 +19,7 @@ sub AUTOLOAD {
 	my $this=shift;
 	my $property = $AUTOLOAD;
 	$property =~ s|.*:||; # strip fully-qualified portion
-	
+
 	$this->{$property}=shift if @_;
 	$this->{$property};
 }

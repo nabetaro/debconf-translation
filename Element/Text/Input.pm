@@ -93,7 +93,7 @@ sub ask {
 			last;
 		}
 	}
-	
+
 	$question->value($value);
 	
 	$this->frontend->ui_display("\n");

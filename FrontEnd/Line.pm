@@ -8,6 +8,7 @@ package FrontEnd::Line;
 use ConfModule;
 use Element::Line::Input;
 use Element::Line::Text;
+use Element::Line::Note;
 use Priority;
 use strict;
 use vars qw(@ISA);
@@ -71,6 +72,18 @@ sub text {
 	return;
 }
 
+# Display a note to the user, which will also make it be saved.
+sub note {
+	my $this=shift;
+	my $priority=shift;
+	my $text=join ' ', @_;
+
+	my $note=Element::Line::Note->new($priority, $text);
+	$note->frontend($this);
+	$note->ask;
+	return;
+}
+
 # Print out the elements we have pending one at a time and
 # get responses from the user for them.
 sub go {
@@ -84,6 +97,7 @@ sub go {
 		$elt->ask;
 	}
 	$this->{elements}=[];
+	return;
 }
 
 # Pull a value out of a question.

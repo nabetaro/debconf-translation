@@ -18,7 +18,9 @@ sub high_enough {
 	my $priority=shift;
 	
 	my $current=($ENV{DEBIAN_PRIORITY} || 'medium');
-	
+
+	die "Unknown priority $priority" unless exists $priorities{$priority};
+
 	return $priorities{$priority} >= $priorities{$current};
 }
 

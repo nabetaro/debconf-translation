@@ -6,7 +6,6 @@ package Element::Line::Text;
 use strict;
 use Element::Text;
 use ConfigDb;
-use Text::Wrap;
 use vars qw(@ISA);
 @ISA=qw(Element::Text);
 
@@ -14,7 +13,7 @@ use vars qw(@ISA);
 sub ask {
 	my $this=shift;
 
-	$this->frontend->ui_display("\n".wrap('','',$this->text)."\n\n");
+	$this->frontend->ui_display($this->text."\n\n");
 }
 
 1
