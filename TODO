@@ -1,13 +1,18 @@
 To Do Before Release:
-* Update all packages in the apt repository to work with changed text and
-  note stuff.
-* Make sure my spec changes are accepted by Wichert.
 * installing netbase_3.15-4.2_i386.deb hangs when the postinst exits :-(
   Same with my new debconf'd lynx package. Interestingly, if you run the
   postinst by hand, this doesn't happen. Could dpkg be messing up my 
   SIGCHLD handling?
+* Packages should detect when a config script hasn't been run yet, and run
+  it. This is useful in eg, postinsts, when you're just installing a package
+  that uses debconf, via dpkg and apt can't step in to preconfigure it. I
+  may need to keep a list of config scripts that have been run, and what
+  version of the package they came from, to allow for this, or I may just
+  run the config script each time -- after all, they are idempotent and won't
+  generate questions if they've ran before.
 
 General:
+* Make sure my spec changes are accepted by Wichert.
 * Element/* needs to be POD documented.
 * Make messages really be saved to root's mailbox.
 * Proper backend database, but that's a whole other ball of wax.
