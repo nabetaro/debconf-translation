@@ -1,3 +1,14 @@
+debconf (0.5.52) unstable; urgency=low
+
+  * Now that policy includes the debconf spec, I have removed the spec
+    from this source tree and debconf-doc. Since the version in policy is
+    canoical, I have removed the spec from cvs too. It will remain in the
+    Attic for historical purposes. I do still include a copy of the priority
+    table so it can go in the user's guide, and debconf-doc now suggests
+    debian-policy.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 29 Jan 2001 18:46:35 -0800
+
 debconf (0.5.51) unstable; urgency=low
 
   * debconf-getlang supports detection of fuzzy translations now,

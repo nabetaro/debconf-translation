@@ -52,7 +52,6 @@ binary-indep: build-indep
 	
 	dh_installdocs doc/namespace.txt \
 		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
-		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
 		doc/passthrough.txt doc/README
 	dh_installexamples samples/*
 	dh_installchangelogs

@@ -2,7 +2,7 @@ Source: debconf
 Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
-Standards-Version: 3.2.1.2
+Standards-Version: 3.5.0.0
 Build-Depends: perl-5.6-base, perl5, debhelper (>= 2.2.17), gettext, libapt-pkg-dev, g++
 Build-Depends-Indep: perl5, debhelper (>= 2), links (>= 0.92), jade, sp, docbook-xml, docbook-stylesheets, sgml-data (>= 1.2), tidy
 
@@ -22,6 +22,7 @@ Description: Debian configuration management system
 Package: debconf-doc
 Architecture: all
 Conflicts: debconf (<< 0.3.10)
+Suggests: debian-policy (>= 3.5)
 Description: Debian configuration management system documentation
  This package contains lots of additional documentation for Debconf,
  including an introduction to Debconf, a user's guide, a programmer's

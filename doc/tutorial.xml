@@ -4,9 +4,6 @@
 <!ENTITY tutorial_config SYSTEM "../samples/tutorial">
 <!ENTITY tutorial_back_config SYSTEM "../samples/tutorial-back">
 <!ENTITY tutorial_templates SYSTEM "../samples/tutorial.templates">
-<!ENTITY priority_table SYSTEM "spec/include/priorities.xml">
-<!ENTITY statuscodes_table SYSTEM "spec/include/statuscodes.xml">
-<!ENTITY command_list SYSTEM "spec/include/commands.xml">
 ]>
 <article>
   <artheader>
@@ -55,10 +52,8 @@
       Debian developer.
     </para>
     <para>
-      So, what is debconf? To save you reading the 
-      <ulink url="http://www.debian.org/~wakkerma/config6/">
-	spec
-      </ulink>,
+      So, what is debconf? To save you reading the specification (which is
+      in Debian policy if you're interested),
       debconf is a backend database, with a frontend that talks to it
       and presents an interface to the user. There can be many
       different types of frontends, from plain text to a web
@@ -361,8 +356,8 @@ Template: ....
 	  <para>
 	    You'll have to communicate with the frontend directly via standard
 	    input and standard output. This isn't hard; read the 
-	    <ulink url="http://www.debian.org/~wakkerma/config6/frontend.html">
-	    protocol specification</ulink> for details.
+	    protocol specification for details (the specification is in
+	    Debian policy).
 	  </para>
 	</listitem>
       </itemizedlist>
@@ -372,10 +367,9 @@ Template: ....
       to the frontend is in the
       <link linkend="commands" endterm="commands"/> appendix. The most common 
       commands you will use in the config script 
-      are "<literal><link linkend="command_input">input</link></literal>", 
-      "<literal><link linkend="command_go">go</link></literal>", and 
-      "<literal><link linkend="command_get">get</link></literal>".
-      Briefly, "<literal>input <parameter>priority</parameter> 
+      are "<literal>input</literal>", "<literal>go</literal>", and
+      "<literal>get</literal>". Briefly, 
+      "<literal>input <parameter>priority</parameter> 
       <parameter>question</parameter></literal>" 
       asks the frontend to make sure it has asked the user a question,
       specifying how important it is the user be asked. The 
@@ -439,7 +433,7 @@ Template: ....
     </para>
     <para>
       The only command postinsts normally use to communicate with the
-      frontend is "<literal><link linkend="command_get">get</link></literal>" 
+      frontend is "<literal>get</literal>" 
       <footnote><para>Though in reality they can use any commands, including
       "<literal>input</literal>", you are strongly encouraged not to do 
       so.</para></footnote>. Typically, the config script prompts the user
@@ -480,7 +474,7 @@ fi
       script. When your package is purged, it should get rid of all
       the questions and templates it was using in the
       database. Accomplishing this is simple; use the 
-      "<literal><link linkend="command_purge">purge</link></literal>" command
+      "<literal>purge</literal>" command
       (make sure you don't fail if debconf has already been removed, though):
       <programlisting>
 if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule ]; then
@@ -597,9 +591,8 @@ fi
 	      </listitem>
 	      <listitem>
 		<para>
-		  Or call the "<literal><link linkend="command_stop">stop</link>
-		  </literal>" command at the end of your postinst, to let the
-		  frontend know you're done.
+		  Or call the "<literal>stop</literal>" command at the end of
+		  your postinst, to let the frontend know you're done.
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -642,10 +635,10 @@ fi
 	if question b should only be asked if question a is true, you obviously
 	can't display them at the same time.</para>
 	</footnote>
-	Just wrap the <literal><link linkend="command_input">input</link></literal>
+	Just wrap the <literal>input</literal>
 	commands inside
-	<literal><link linkend="command_beginblock">beginblock</link></literal> and
-	<literal><link linkend="command_endblock">endblock</link></literal>
+	<literal>beginblock</literal> and
+	<literal>endblock</literal>
 	commands.
       </para>
     </sect2>
@@ -662,14 +655,14 @@ fi
       <para>
         The first step is to make your config script let debconf know it
 	is capable of handling the user pressing a back button. You use the
-	<literal><link linkend="command_capb">capb</link></literal> command to
+	<literal>capb</literal> command to
 	do this, passing <quote>backup</quote> as a parameter.
       </para>
       <para>
-        Then after each <literal><link linkend="command_go">go</link></literal>
+        Then after each <literal>go</literal>
 	command, you must test to see if the user hit the back button, and
 	if so jump back to the previous question. If the user hit the back
-	button, the <literal><link linkend="command_go">go</link></literal> command
+	button, the <literal>go</literal> command
 	will return <literal>30</literal>.
       </para>
       <para>
@@ -732,12 +725,12 @@ done
 	entered, the value of foo/bar is set to something that will
 	pass the test in the loop. So for example if the default value
 	of foo/bar is "<literal>1</literal>", then the
-	"<literal><link linkend="command_reset">reset</link></literal>" command
+	"<literal>reset</literal>" command
 	can just be called before entering the loop.
       </para>
       <para>
 	Another fix is to check the return code of the 
-	"<literal><link linkend="command_input">input</link></literal>" command.
+	"<literal>input</literal>" command.
 	If it is <literal>30</literal> then the user is not being shown the
 	question you asked them, and you should break out of the loop.
       </para>
@@ -798,11 +791,11 @@ db_go || true
 	and space delimited list of values).
       </para>
       <para>
-	The "<literal><link linkend="command_metaget">metaget</link></literal>"
+	The "<literal>metaget</literal>"
 	command can be used to get the list of owners and the list of
 	choices. If they are different, then a new package has been
 	installed. So use the 
-	"<literal><link linkend="command_subst">subst</link></literal>"
+	"<literal>subst</literal>"
 	command to change the list of choices to be the same as
 	the list of owners, and ask the question.
       </para>
@@ -866,22 +859,9 @@ fi
       Commands
     </title>
     <para>
-      The commands may return a textual value, but they always return a numeric
-      status code, which is in the following ranges:
-      &statuscodes_table;
-    </para>
-    <para>
-      Here is a complete list of the the commands you can use to        
-      communicate with the frontend. 
-      <footnote>                                      
-        <para>   
-          Remember these are prefixed with "<literal>db_</literal>"
-          if you are using the shell library.
-        </para>                              
-      </footnote>        
-      <itemizedlist>
-        &command_list;
-      </itemizedlist>
+      This appendix has been removed now that the debconf specification is
+      in Debian policy and is no longer built from the same tree as this
+      document. Please see policy for a full list of the commands.
     </para>
   </appendix>
 
