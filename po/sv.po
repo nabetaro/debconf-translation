@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.4.07\n"
-"POT-Creation-Date: 2001-01-19 16:12-0800\n"
+"POT-Creation-Date: 2001-01-29 13:36-0800\n"
 "PO-Revision-Date: 2000-11-12 23:28+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,39 +40,26 @@ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: ../Debconf/Template.pm:162
+#: ../Debconf/Template.pm:170
 msgid "unknown file"
 msgstr "okänd fil"
 
-#: ../Debconf/Template.pm:195
+#: ../Debconf/Template.pm:203
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
-#: ../Debconf/Template.pm:202
+#: ../Debconf/Template.pm:210
 #, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
-#: ../Debconf/Template.pm:223
+#: ../Debconf/Template.pm:231
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Kommandot \"%s\" stöds ej."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Varning: Nyradstecken i flagga given till debconf."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "Detta kommer troligen göra att konstiga saker händer!"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -315,6 +302,15 @@ msgstr "%s är inte helt installerat"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
+
+#~ msgid "Unsupported command `%s'."
+#~ msgstr "Kommandot \"%s\" stöds ej."
+
+#~ msgid "Warning: Newline present in parameters passed to debconf."
+#~ msgstr "Varning: Nyradstecken i flagga given till debconf."
+
+#~ msgid "This will probably cause strange things to happen!"
+#~ msgstr "Detta kommer troligen göra att konstiga saker händer!"
 
 #~ msgid "%s is not installed or does not use debconf"
 #~ msgstr "%s är inte installerat eller använder inte debconf"

@@ -99,7 +99,15 @@ sub stringify {
 		foreach my $key ('template', 'type',
 		                 (grep { $_ ne 'template' && $_ ne 'type'} sort keys %$_)) {
 			next if $key=~/^extended_/;
-			$data.=ucfirst($key).": ".$_->{$key}."\n";
+			# Support special case of -ll_LL items.
+			if ($key =~ m/-[a-z]{2}_[a-z]{2}$/) {
+				my $casekey=$key;
+				$casekey=~s/([a-z]{2})$/uc($1)/eg;
+				$data.=ucfirst($casekey).": ".$_->{$key}."\n";
+			}
+			else {
+				$data.=ucfirst($key).": ".$_->{$key}."\n";
+			}
 			if (exists $_->{"extended_$key"}) {
 				# Add extended field.
 				my $extended=expand(wrap(' ', ' ', $_->{"extended_$key"}));
@@ -282,8 +290,11 @@ This supports internationalization, but not lvalues.
 			# Check to see if i18n should be used.
 			if ($i18n && @langs) {
 				foreach my $lang (@langs) {
-					return $this->{$field.'-'.$lang}
-						if exists $this->{$field.'-'.$lang};
+					# Lower-case language name
+					# because fields are stored in
+					# lower case.
+					return $this->{$field.'-'.lc($lang)}
+						if exists $this->{$field.'-'.lc($lang)};
 				}
 			}
 		

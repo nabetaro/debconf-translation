@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-01-19 16:12-0800\n"
+"POT-Creation-Date: 2001-01-29 13:36-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -42,39 +42,26 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
 
-#: ../Debconf/Template.pm:162
+#: ../Debconf/Template.pm:170
 msgid "unknown file"
 msgstr ""
 
-#: ../Debconf/Template.pm:195
+#: ../Debconf/Template.pm:203
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "B³±d w szablonie w pobli¿u `%s'"
 
-#: ../Debconf/Template.pm:202
+#: ../Debconf/Template.pm:210
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
 
-#: ../Debconf/Template.pm:223
+#: ../Debconf/Template.pm:231
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -314,6 +301,16 @@ msgstr "%s nie jest w pe³ni zainstalowany"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid "Unsupported command `%s'."
+#~ msgstr "Nieobs³ugiwana komenda `%s'."
+
+#~ msgid "Warning: Newline present in parameters passed to debconf."
+#~ msgstr ""
+#~ "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#~ msgid "This will probably cause strange things to happen!"
+#~ msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #~ msgid "%s is not installed or does not use debconf"
 #~ msgstr "%s nie jest zainstalowany lub nie u¿ywa debconfa"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2001-01-19 16:12-0800\n"
+"POT-Creation-Date: 2001-01-29 13:36-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -42,40 +42,26 @@ msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: ../Debconf/Template.pm:162
+#: ../Debconf/Template.pm:170
 msgid "unknown file"
 msgstr ""
 
-#: ../Debconf/Template.pm:195
+#: ../Debconf/Template.pm:203
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Error al procesar la plantilla, cerca de `%s'"
 
-#: ../Debconf/Template.pm:202
+#: ../Debconf/Template.pm:210
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "La plantilla con contiene una línea `Template:'"
 
-#: ../Debconf/Template.pm:223
+#: ../Debconf/Template.pm:231
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Comando `%s' no soportado."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -323,6 +309,16 @@ msgstr "%s no está instalado totalmente"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No puedo leer el fichero de estado: %s"
+
+#~ msgid "Unsupported command `%s'."
+#~ msgstr "Comando `%s' no soportado."
+
+#~ msgid "Warning: Newline present in parameters passed to debconf."
+#~ msgstr ""
+#~ "Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
+
+#~ msgid "This will probably cause strange things to happen!"
+#~ msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #~ msgid "%s is not installed or does not use debconf"
 #~ msgstr "%s no está instalado o no usa debconf"
