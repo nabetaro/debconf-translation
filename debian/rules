@@ -5,9 +5,12 @@
 #export DH_VERBOSE=1
 
 fixlinks:
-	cd Debian && ln -sf .. DebConf
+	ln -sf templates debian/debconf-tiny.templates
+	ln -sf config debian/debconf-tiny.config 
+	ln -sf postinst debian/debconf-tiny.postinst         
+	ln -sf postrm debian/debconf-tiny.postrm
 
-build:
+build: fixlinks
 	$(MAKE)
 	dh_testdir
 

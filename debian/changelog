@@ -1,3 +1,17 @@
+debconf (0.2.88) unstable; urgency=low
+
+  * Add templates file, config script, postinst, and posrtm to debconf-tiny, 
+    so debconf/priority actually exists. This is necessary so base-config   
+    can change the priority if the boot-floppies were installed in verbose or
+    quiet mode. This is a critical bugfix, as it fixes a bug that made newly 
+    installed systems unusable.     
+  * Added dpkg-preconfigure to debconf-tiny, since this:         
+    a) lets debconf-tiny use debconf's postinst unchanged           
+    b) is useful in general to have in debconf-tiny 
+  * Several k of bloat. Oh well..
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  9 Feb 2000 19:49:38 -0800
+
 debconf (0.2.87) unstable; urgency=low
 
   * Corrected 2 typos, Closes: #57605

@@ -52,5 +52,7 @@ tiny-install: install-common
 		'
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.bak' | xargs rm -f
 	install -d $(prefix)/usr/sbin $(prefix)/usr/share/man/man8
-	install Client/dpkg-reconfigure $(prefix)/usr/sbin
-	cp Client/dpkg-reconfigure.8 $(prefix)/usr/share/man/man8
+	install Client/dpkg-reconfigure Client/dpkg-preconfigure \
+		$(prefix)/usr/sbin/
+	cp Client/dpkg-reconfigure.8 Client/dpkg-preconfigure.8 \
+		$(prefix)/usr/share/man/man8
