@@ -1,3 +1,13 @@
+debconf (0.2.70) unstable; urgency=low
+
+  * '_' and '.' can now appear in fields names in templates. Necessary for
+    some localization.. If you use them in a field name, you had better
+    depend on this version; earlier ones will die if they see such a thing.
+  * Fixed a logic error that broke debconf if you had LC_ALL or LANG set,
+    Closes: #54615, #54638, #54655
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  9 Jan 2000 14:03:31 -0800
+
 debconf (0.2.69) unstable; urgency=low
 
   * Debconf is not yet internationalized itself, but the data it reads in

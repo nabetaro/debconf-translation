@@ -63,7 +63,7 @@ sub frontend {
 		$type=$fallback{$type};
 		last if $seen{$type};
 
-		warn "falling back to $type frontend";
+		warn "falling back to $type frontend" if $type ne '';
 	}
 	
 	if (! defined $frontend) {

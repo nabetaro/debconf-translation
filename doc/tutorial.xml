@@ -255,7 +255,11 @@ Template: ....
         Note that you can (and should) even translate the
 	<literal>Choices</literal> field of a select or multiselect question.
 	If you do, you should list the same choices, in the same order as
-	they appear in the main <literal>Choices</literal> field.
+	they appear in the main <literal>Choices</literal> field. It is
+	<emphasis>very</emphasis> important the order is the same. You do not
+	need to translate the <literal>Default</literal> field of a select
+	or a multiselect question, and the answer returned when you display
+	the question will always be in English.
       </para>
     </sect2>
   </sect1>

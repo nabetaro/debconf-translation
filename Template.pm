@@ -123,8 +123,8 @@ sub AUTOLOAD {
 	$this->{$property}=shift if @_;
 
 	# Check to see if i18n should be used.
-	if ($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG} && 
-	    exists $this->{$property.'-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG})}) {
+	if (($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG}) && 
+	    exists $$this{$property.'-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG})}) {
 		$property.='-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG});
 	}
 
