@@ -60,6 +60,7 @@ sub show {
 		 	default => $default,
 			completions => [@completions],
 			completion_append_character => " ",
+			question => $this->question,
 		);
 		return unless defined $_;
 

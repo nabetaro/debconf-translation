@@ -254,6 +254,8 @@ sub command_input {
 		return $codes{syntaxerror}, "\"$priority\" is not a valid priority";
 	}
 
+	$question->priority($priority);
+	
 	# Figure out if the question should be displayed to the user or
 	# not.
 	my $visible=1;

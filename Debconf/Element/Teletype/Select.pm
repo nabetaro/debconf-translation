@@ -170,6 +170,7 @@ sub show {
 			prompt => $this->question->description,
 			default => $default ? $default : '',
 			completions => [@completions],
+			question => $this->question,
 		);
 		return unless defined $value;
 		$value=$this->expandabbrev($value, @choices);

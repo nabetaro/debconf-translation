@@ -47,7 +47,8 @@ sub show {
 		$_=$this->frontend->prompt(
 			default => $default,
 			completions => [$y, $n],
-			prompt => $this->question->description
+			prompt => $this->question->description,
+			question => $this->question,
 		);
 		return unless defined $_;
 

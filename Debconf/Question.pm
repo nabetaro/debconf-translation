@@ -31,6 +31,10 @@ that field will be returned instead.
 
 Holds the name of the Question.
 
+=item priority
+
+Holds the priority of the Question.
+
 =back
 
 =cut

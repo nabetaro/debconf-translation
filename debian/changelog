@@ -1,3 +1,21 @@
+debconf (1.1.12) unstable; urgency=low
+
+  * Added priority sigils to the readline frontend. If you don't like the
+    smileys, put Smileys: false in debconf.conf. To disable sigils entirely,
+    use Sigils: false. I will implement smiley customization for $25. (Ads
+    in a changlog -- you saw it here first :-P)
+    
+    Besides looking cute, the intent here is to make it obvious what priority
+    a question is being asked at, to help combat priority inflation. Varying
+    types of sigils will be added to the other frontends as well.
+  * Made the examples in debconf.conf have some acuaintance with reality.
+    Closes: #150078
+  * A patch from Sam Vilain <sam@vilain.net> to debconf.8 documents ways of
+    using debconf in clusters and large installations. Closes: #150206, I
+    guess.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 15 Jun 2002 13:23:20 -0400
+
 debconf (1.1.11) unstable; urgency=low
 
   * Fixed warnings if a question was displayed, then unregistered, then

@@ -11,6 +11,7 @@ use strict;
 use Debconf::Gettext;
 use Debconf::Priority;
 use Debconf::Log ':all';
+use Debconf::Config;
 use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
@@ -49,6 +50,10 @@ that the user has indicated they want to back up.
 
 This will be set if the confmodule states it has the backup capability.
 
+=item sigil
+
+A Sigil object for this frontend.
+
 =back
 
 =head1 METHODS
@@ -68,6 +73,19 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
+
+	my $class="Debconf::Sigil";
+	if (Debconf::Config->sigils ne 'false') {
+		$class.="::".$this->elementtype;
+	}
+	if (! UNIVERSAL::can($class, 'new')) {
+		eval qq{use $class};
+		if ($@ || ! UNIVERSAL::can($class, 'new')) {
+			$class="Debconf::Sigil";
+			eval qq{use $class};
+		}
+	}
+	$this->sigil($class->new);
 }
 
 =item elementtype
@@ -77,13 +95,14 @@ name as the frontend, but tightly-linked frontends might want to share
 elements; if so, one can override this with a method that returns the name
 of the other.
 
+This is also used to determine the type of sigil to use.
+
 This may be called as either a class or an object method.
 
 =cut
 
 sub elementtype {
 	my $this=shift;
-
 	
 	my $ret;
 	if (ref $this) {

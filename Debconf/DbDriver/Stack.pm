@@ -201,7 +201,6 @@ sub _change {
 	my $writer;
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver == $src) {
-			# Woah, mama!
 			debug "db $this->{name}" =>
 				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
 			return;

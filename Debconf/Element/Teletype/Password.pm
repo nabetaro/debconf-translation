@@ -33,6 +33,7 @@ sub show {
 	my $value=$this->frontend->prompt_password(
 		prompt => $this->question->description,
 		default => $default,
+		question => $this->question,
 	);
 	return unless defined $value;
 

@@ -30,6 +30,7 @@ sub show {
 	my $value=$this->frontend->prompt(
 		prompt => $this->question->description,
 		default => $default,
+		question => $this->question,
 	);
 	return unless defined $value;
 	

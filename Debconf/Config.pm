@@ -13,7 +13,8 @@ use Debconf::Gettext;
 use Debconf::Db;
 
 use fields qw(config templates frontend priority terse
-              showold admin_email log debug nowarnings);
+              showold admin_email log debug nowarnings
+	      smilies sigils);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",

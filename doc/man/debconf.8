@@ -78,11 +78,14 @@ connection, or for those who are comfortable with unix.
 .RE
 .TP
 .B noninteractive
-This is the anti-frontend. It never interacts with you at all,
-and makes the default answers be used for all questions. It will
-occasionally mail root with messages the package wanted to
-display, but that's it; otherwise it is completly silent and
-unobtrusive, a perfect frontend for automatic installs.
+This is the anti-frontend. It never interacts with you at all, and
+makes the default answers be used for all questions. It will
+occasionally mail root with messages the package wanted to display,
+but that's it; otherwise it is completly silent and unobtrusive, a
+perfect frontend for automatic installs.  If you are using this
+front-end, and require non-default answers to questions, you will need
+to pre-populate the debconf database; see the section below on
+Unattended Package Installation for more details.
 .TP
 .B gnome
 This is a modern X GUI using the gtk and gnome libraries. Of course, it
@@ -173,6 +176,52 @@ with local overrides, read the
 man page for all the gory details. Generally,
 the backend database is located in
 .B /var/cache/debconf/
+.SH Unattended Package Installation
+Occasionally, it is required to perform unattended installation of
+debian packages to systems, but default answers to configuration
+questions are not acceptable.
+.P
+The sequence is
+.TP
+.B 1
+Load the templates for the package to be installed and configure them
+(perhaps using
+.BR dpkg-preconfigure (8)
+), or install the package and answer the questions manually.  This only
+needs to be performed on one system.
+.TP
+.B 2
+Extract the configuration for the desired package(s) from the Debconf
+backend database
+.TP
+.B 3
+Pre-populate the Debconf backend database on the target systems with
+the configuration
+.TP
+.B 4
+Install the packages using the Noninteractive front-end
+.P
+The exact process involved for steps 2 and 3 will depend on how
+Debconf is configured on the master and target systems.  Converting
+the Debconf backend database to a directory heirarcy as described in
+.BR debconf.conf (5)
+and
+.BR debconf-copydb (1)
+will then make it trivial to extract the answers from the database and
+copy out to the target systems.  An entire network of debian machines
+can also have any or all package installation questions answered
+automatically by a single LDAP server.
+.P
+You can extract the list of debconf configuration questions using
+.BR debconf-show (1)
+, and
+.BR debconf-communicate (1)
+can be used to feed them back in, but only if the target Debconf
+database has had the templates for that package loaded via
+.BR debconf-loadtemplate (1)
+or
+.BR dpkg-preconfigure (8) .
+.P
 .SH Developing for Debconf
 Package developers and others who want to develop packages that use 
 debconf should read
