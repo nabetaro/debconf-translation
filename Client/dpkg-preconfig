@@ -5,6 +5,8 @@
 # and mappings from them and asks any necessary questions, storing the results
 # in the database for later use.
 
+my $dbfn="/var/lib/debconf/debconf.db";
+
 use strict;
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::FrontEnd::Line;
@@ -14,6 +16,7 @@ use Debian::DebConf::ConfModule::Dialog;
 use Debian::DebConf::ConfModule::Line;
 use Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::Priority;
+use Debian::DebConf::Config;
 use Getopt::Long;
 
 my $frontend_type='Dialog';
@@ -26,8 +29,8 @@ my $ret=GetOptions(
 $frontend_type=ucfirst($frontend_type);
 
 # Load up previous state information.
-if (-e 'debconf.db') {
-	Debian::DebConf::ConfigDb::loaddb('debconf.db');
+if (-e $Debian::DebConf::Config::dbfn) {
+	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
 }
 
 # Start up the FrontEnd.
@@ -71,7 +74,7 @@ foreach my $deb (@ARGV) {
 }
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb('debconf.db');
+Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
 
 use Fcntl;
 use POSIX qw(tmpnam);

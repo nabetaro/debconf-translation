@@ -8,13 +8,16 @@ clean:
 
 install: clean
   # Install libs
-	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/
+	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
+		$(prefix)/var/lib/debconf
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client ConfModule Element FrontEnd -type d | grep -v CVS | \
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	find Client ConfModule Element FrontEnd -type f | grep .pm\$$ | \
 	xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
-	
+	mv $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
+		$(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
+
   # Generate man pages from POD docs.
 	install -d $(prefix)/usr/man/man2/
 	pod2man Client/ConfModule.pm > $(prefix)/usr/man/man2/Debian::Debconf::Client::ConfModule.2pm

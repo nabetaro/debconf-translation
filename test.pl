@@ -14,6 +14,7 @@ use Debian::DebConf::ConfModule::Dialog;
 use Debian::DebConf::ConfModule::Line;
 use Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::Priority;
+use Debian::DebConf::Config;
 
 my $type=shift;
 my $template=shift;
@@ -21,8 +22,8 @@ my $mapping=shift;
 my $script=shift;
 
 # Load up previous state information.
-if (-e 'debconf.db') {
-	Debian::DebConf::ConfigDb::loaddb('debconf.db');
+if (-e $Debian::DebConf::Config::dbfn) {
+	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
 }
 
 # Load up templates.
@@ -49,4 +50,4 @@ die $@ if $@;
 1 while ($confmodule->communicate);
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb('debconf.db');
+Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
