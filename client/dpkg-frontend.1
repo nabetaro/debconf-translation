@@ -1,0 +1,97 @@
+.TH DPKG-FRONTEND 1
+.SH NAME
+dpkg-frontend \- communicate with Debian configuration system FrontEnd.
+.SH SYNOPSIS
+.B dpkg-frontend
+[options]
+.SH DESCRIPTION
+.BR dpkg-frontend
+is used by confmodules and other scripts to communicate with the FrontEnd
+user interface that is shown to the user. This program can cause the
+frontend to display test to the user and ask the user questions.
+.PP
+A quick description of the protocol used to communicate between the FrontEnd and
+.BR dpkg-frontend
+is in order. They communicate using standard input asnd output. It is a
+command-based protocol, and each command
+.BR dpkg-frontend
+sends causes the FrontEnd to reply with a return value. So anything your
+script sends to standard output or reads from standard input will be assumed
+to be part of this communication.
+.PP
+.BR dpkg-frontend
+takes a number of options. Any number of options can be specified, and the
+order is important. The options are processed in the order given, and many
+of the options cause commands to be sent to the FrontEnd.
+.SH OPTIONS
+.TP
+.I "\-h, \-\-help"
+Output usage help.I "\-P, \-\-print00The following codes can be returned:
+.TP
+.I 1
+The "
+Print the return code of the last command the FrontEnd responds to.
+.TP
+.I "\-pvalue, \-\-priority=value"
+Set the priority of the next question, note, or text displayed to the
+specified value. The default priority is "medium". The new priority remains
+in effect until it is changed or until
+.BR dpkg-frontend
+finishes. Current valid priorities are low, medium, high, and critical.
+.PP
+These options cause
+.BR dpkg-frontend
+to communicate with the FrontEnd.
+.TP
+.I "\-I, \-\-init"
+Initialize communication with the FrontEnd. This causes protocol version
+numbers and capability information to be exchanged. It is reccommended that
+this be called before you do anything else. The FrontEnd returns the
+protocol version it supports.
+.TP
+.I "\-B, \-\-can\-backup"
+This lets the FrontEnd know that you are capable of backing up to previous
+questions or other items. It will cause the FrontEnd to provide the user
+with a "Back" button of some kind. If the user clicks on the button,
+.BR dpkg-frontend
+will return 1. You can test for trhis in your program and handle it
+appropriatly. The FrontEnd returns the capabilities it supports.
+.TP
+.I "\-ttext, \-\-text=text"
+Cause the FrontEnd to display text to the user.
+.TP
+.I "\-Ttitle, \-\-title=title"
+Set the title displayed by the FrontEnd.
+.TP
+.I "\-s, \-\-stop"
+Tell the FrontEnd we are finished.
+.TP
+.I "\-iquestion, \-\-input=question"
+Tell the frontend to present a question to the user.
+.TP
+.I "\-ntext, \-\-note=text"
+Cause the FrontEnd to display a note to the user.
+.TP
+.I "\-gquestion, \-\-get=question"
+Makes the FrontEnd return the value the user ansered for a question. This
+automatically causes --print to be set so the value is printed out.
+.TP
+.I "[, --beginblock"
+Begin a block. A block can hold a number of questions and texts and will be
+displayed to the user all at once by many FrontEnds. Blocks can be nested.
+.TP
+.I "], --endblock"
+End a block.
+.TP
+.I "\-G, \-\-go"
+Tell the FrontEnd to present all questions, notes, text, etc to the user.
+Prints "backup" if the user hits the Back button and --print was specified.
+.SH "RETURN CODES"
+A code of 1 is returned if the user hits the Back button on the FrontEnd.
+.SH EXAMPLES
+ dpkg-frontend --init --can-backup --title "Hi" --input foo --go
+Makes the Frontend pr"ompt for the user to answer the question named "foo".
+ dpkg-fronte
+ nd --
+.SH AUTHOR
+Joey Hess <joey@kitenet.net>
