@@ -123,7 +123,7 @@ sub save {
 	if (keys %{$data{owners}}) {
 		print TEXTDB_OUT "Owners: ".join(", ", keys(%{$data{owners}}))."\n";
 	}
-	if (keys %{$data{flags}}) {
+	if (grep { $data{flags}->{$_} eq 'true' } keys %{$data{flags}}) {
 		print TEXTDB_OUT "Flags: ".join(", ",
 			grep { $data{flags}->{$_} eq 'true' }
 				sort keys(%{$data{flags}}))."\n";
