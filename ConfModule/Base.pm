@@ -105,8 +105,8 @@ sub AUTOLOAD {
 	my $this=shift;
 	my $property = $AUTOLOAD;
 	$property =~ s|.*:||; # strip fully-qualified portion
-	if ($property=~/^command_/) {
-		die "Unsupported command \"$property\" received from client configuration module.";
+	if ($property=~/^command_(.*)/) {
+		die "Unsupported command \"$1\" received from client configuration module.";
 	}
 	else {
 		$this->{$property}=shift if @_;

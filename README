@@ -9,6 +9,11 @@ make test FRONTEND=Line PACKAGE=cvs
 make test FRONTEND=Dialog PACKAGE=exim
 make test FRONTEND=Line PACKAGE=exim
 
+The cvs demo is actually skipping some questions of low priority. To see
+them, try:
+
+make test FRONTEND=Dialog PACKAGE=cvs DEBIAN_PRIORITY=low
+
 You can also try the web frontend, just run one of these 3 commands, and
 connect to localhost port 8001:
 
