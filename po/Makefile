@@ -22,7 +22,7 @@ debconf.pot: $(POTFILES)
 	xgettext $(POTFILES) -o debconf.pot -Lc
 
 clean:
-	rm -f debconf.pot $(MOFILES)
+	rm -f debconf.pot $(MOFILES) messages
 
 %.mo: %.po
 	msgfmt -o $@ $<

@@ -202,7 +202,6 @@ sub go {
 		}
 		
 		foreach my $widget (@{$element->widgets}) {
-			$widget->resize_hook(sub { $element->resize });
 			$widget->activate_hook(sub {
 				my $this=shift;
 			
@@ -263,7 +262,8 @@ sub go {
 		$this->panel->display;
 		# Force screen refresh because something may have written
 		# to the display behind our back.
-		$this->screen->force_display;
+		# Bah, don't, it looks like crap.
+		#$this->screen->force_display;
 		$this->screen->run($firstwidget);
 
 		# See which button is active (and thus was pressed), and
@@ -303,11 +303,10 @@ Called when the panel is resized.
 
 sub fillpanel {
 	my $this=shift;
-	
+
 	my $y=0;
 	foreach my $element (@{$this->elements}) {
 		$element->widget_description || next;
-
 		$y=$element->resize($y);
 		$y++;
 		$y++; # a blank line between widget groups.

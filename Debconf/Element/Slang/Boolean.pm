@@ -50,7 +50,6 @@ sub resize {
 	$description->xoffset(1 + $widget->width + 1);
 	$description->width($widget->container->width - 4 -
 		$description->xoffset + 1);
-	
 	$description->yoffset($y);
 	$description->resize;
 	$widget->yoffset($y);

@@ -78,7 +78,6 @@ sub resize {
 		$widget->width($maxwidth);
 		$widget->xoffset(1);
 	}
-
 	$description->yoffset($y);
 	$description->resize;
 	$y++ unless $sameline;
