@@ -94,7 +94,7 @@ my %todo;
 			
 			# Figure out the package name.
 			$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
-			chomp $packages{$debs[$x]};
+			$packages{$debs[$x]}=~s/\n$//;
 
 			# Process the templates.
 			while (<TEMPLATES>) {

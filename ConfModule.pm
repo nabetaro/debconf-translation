@@ -78,9 +78,12 @@ sub startup {
 	my $this=shift;
 	my $confmodule=shift;
 
+	my @args=$this->confmodule($confmodule);
+	push @args, @_ if @_;
+
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
-			 $this->confmodule($confmodule), @_)) || die $!;
+			 @args)) || die $!;
 }
 
 =head2 communicate

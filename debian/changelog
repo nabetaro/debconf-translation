@@ -1,3 +1,12 @@
+debconf (0.2.9) unstable; urgency=low
+
+  * Squashed a ConfModule startup warning.
+  * Removed an implicit apt dependancy.
+  * _Really_ fixed problem with newline after owner. Tested and resteted
+   this time. Closes: #48450
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 12:45:54 -0800
+
 debconf (0.2.8) unstable; urgency=low
 
   * Fixed xml stylesheet to include legalnotice.
