@@ -1,3 +1,21 @@
+debconf (0.3.74) unstable; urgency=low
+
+  * Sometimes you put in something to be helpful, and it comes back to bite
+    you in a major way. Say you add some code to /usr/share/debconf/confmodule
+    to allow broken postinst scripts that use debconf to still echo stuff to
+    stdout and not have it go to debconf. Then you find that this hack makes
+    legitimate code that uses the confmodule and uses the perl ConfModule
+    library nested inside, not work. So your choices are to add a further 
+    hack to the perl ConfModule, or end all these hacks and do things 
+    cleanly. Unfortunatly, several packages have come to depend on the hack.
+    What do you do?
+  * Well I chickened out and hacked Client::ConfModule. But I have added an
+    entry to the TODO, and if you have a broken debconf-using package,
+    expect a bug report soon.
+  * Some copyright file cleanups.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 18 Sep 2000 19:35:58 -0700
+
 debconf (0.3.73) unstable; urgency=low
 
   * My night for stupid debconf bugs. It turns out that the

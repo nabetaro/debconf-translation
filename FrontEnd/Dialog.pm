@@ -237,7 +237,6 @@ sub showdialog {
 	# Have to put the wait here to make sure $? is set properly.
 	wait;
 	$^W=$savew;
-	use strict;
 
 	# Restore stdout, stdin.
 	open(STDOUT, ">&SAVEOUT") || die $!;

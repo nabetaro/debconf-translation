@@ -8,6 +8,12 @@ I18N:
   of a character were used.
 
 General:
+* Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
+  Unfortuantly, many packages probably depend on the hack. Options are to
+  find all such packages (by examining/auditing all packages that use
+  debconf), to come up with a new shell interface that is so much cooler
+  people will want to migrate to it, and make it not use the hack,
+  or to decide with Wichert that debconf should not ursurp stdin/out.
 * Once perlbug ID 20000212.001 is fixed and the fix in in debian, grep -v 
   "perlbug" throughout the source to remove bug workaruond code. I think
   this is fixed in perl 5.6, but I'd have to depend on that version to use
@@ -24,14 +30,11 @@ General:
 * I need to implement the container template type. That's gonna be fun..
   I've mostly done it now, except it won't work at all with the web
   frontend. I need to make some architectural changes, probably.
-* The appendix should use a definition list. (maybe)
 * Something I see frequently is a select list that needs lots of explination
   for each option. It'd be neat if the explination could be added as a
   parallell list with the select list, to keep the actual tokens that the
   confmodule script gets back short. See modconf for how such a list could
   display in whiptail.
-* Finish dependncy checks. Currently, they don't handle conflicts, and they
-  only look for the first versioned debconf dependancy on a line.
 * Darxus <darxus@Op.Net>
 > I will probably leave debconf set to ask me every question for quite some
 > time.  But it would be nice, in addition the "yes" & "no" buttons, to have

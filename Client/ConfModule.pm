@@ -74,6 +74,14 @@ sub import {
 
 	# Make the Exporter still work.
 	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
+
+	# A truely gross hack. This only is needed if
+	# /usr/share/debconf/confmodule is loaded, and then this
+	# perl module is used. In that case, this module needs to write
+	# to fd #3, rather than stdout. See changelog 0.3.74.
+	if (exists $ENV{DEBCONF_REDIR} && $ENV{DEBCONF_REDIR}) {
+		open(STDOUT,">&3");
+	}
 }
 
 =item stop

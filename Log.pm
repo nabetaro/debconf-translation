@@ -37,7 +37,7 @@ Note that DEBCONF_DEBUG can be set to a regular expression, like '.*'.
 sub debug {
 	my $type=shift;
 	if (exists $ENV{DEBCONF_DEBUG} && $type =~ /$ENV{DEBCONF_DEBUG}/) {
-		print STDERR "debconf: ".join(" ", @_)."\n";
+		print STDERR "debconf ($type): ".join(" ", @_)."\n";
 	}
 }
 
