@@ -34,6 +34,7 @@ Currently used types of information: user, developer, debug
 =cut
 
 my $log_open=0;
+my $log_failed=0;
 sub debug {
 	my $type=shift;
 	my $debug=Debconf::Config->debug;
@@ -41,11 +42,15 @@ sub debug {
 		my $log_to=Debconf::Config->log_to;
 		if ($log_to eq 'syslog') {
 			require Sys::Syslog;
-			if (! $log_open) {
+			unless ($log_open) {
+				Sys::Syslog::setlogsock('unix');
 				Sys::Syslog::openlog('debconf', '', 'user');
 				$log_open=1;
 			}
-			Sys::Syslog::syslog('debug', "($type): ".join(" ", @_));
+			eval { # ignore all exceptions this throws
+				Sys::Syslog::syslog('debug', "($type): ".
+					join(" ", @_));
+			};
 		}
 		else { # assume stderr
 			print STDERR "debconf ($type): ".join(" ", @_)."\n";

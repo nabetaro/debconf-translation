@@ -1,3 +1,23 @@
+debconf (0.9.37) unstable; urgency=low
+
+  * The "timezone bingo" release.
+  * Made syslog logging work with syslogd in its default configuration,
+    which only listens to the unix domain socket, not inet.
+  * If any of the syslog stuff fails, catch the exception and don't
+    log anything (think single user mode). I thought about falling back to
+    stderr logging, but if you log to syslog you probably don't want the
+    log info scrawled accross the console during routine single user mode
+    upgrades.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 23 Apr 2001 15:57:06 -0500
+
+debconf (0.9.36) unstable; urgency=low
+
+  * Fixed variable expansion problem if a variable existed twice in the
+    same line. It was caused by $2 getting clobbered. Closes: #94395
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 21 Apr 2001 16:01:01 -0700
+
 debconf (0.9.35) unstable; urgency=low
 
   * Closes: #93493

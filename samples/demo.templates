@@ -75,7 +75,8 @@ Type: select
 Choices: ${colors}
 Default: red
 Description: What is your favorite color?
- This is a demo select list item. The list is generated on the fly.
+ This is a demo select list item. The list is generated on the fly,
+ and the available choices are: ${colors} again, that's: ${colors}.
 
 Template: demo/multiselect
 Type: multiselect
@@ -84,3 +85,11 @@ Choices-fr: slushdot, spoiledmeat, leenoox dawt cawm, leenox tuday, leenox dwat 
 Default: slashdot, linux.com, lwn
 Description: Which web sites do you visit frequently?
  There should be some selected as defaults.
+
+Template: demo/subst
+Type: boolean
+Default: false
+Description: A description
+ Blah blah blah ${user}?  ${user} Blah blah blah blah
+ blah.  Blah blah blah ${user}
+ blah blah blah.

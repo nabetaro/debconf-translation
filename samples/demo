@@ -17,7 +17,7 @@ db_title Demo
 
 # This implements a simple state machine so the back button can be handled.
 STATE=1
-while [ "$STATE" != 0 -a "$STATE" != 6 ]; do
+while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 	case $STATE in
 	1)
 		db_input high demo/boolean || true
@@ -42,6 +42,10 @@ while [ "$STATE" != 0 -a "$STATE" != 6 ]; do
 		db_input low demo/note || true
 		# Will be displayed again.
 		db_input high demo/password || true
+	;;
+	6)
+		db_subst demo/subst user joeuser
+		db_input high demo/subst || true
 	;;
 	esac
 	

@@ -124,11 +124,13 @@ sub _expand_vars {
 	
 	my $rest=$text;
 	my $result='';
+	my $variable;
 	my $varval;
 	while ($rest =~ m/^(.*?)\${([^{}]+)}(.*)$/sg) {
 		$result.=$1;  # copy anything before the variable
+		$variable=$2;
 		$rest=$3; # continue trying to expand rest of text
-		$varval=$Debconf::Db::config->getvariable($this->{name}, $2);
+		$varval=$Debconf::Db::config->getvariable($this->{name}, $variable);
 		$result.=$varval if defined($varval); # expand the variable
 	}
 	$result.=$rest; # add on anything that's left.
