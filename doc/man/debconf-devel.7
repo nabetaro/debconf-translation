@@ -708,8 +708,7 @@ is a skeleton of a state machine that you can fill out and expand.
  db_capb backup
  
  STATE=1
- LASTSTATE=2
- while [ "$STATE" != 0 -a "$STATE" -le "$LASTSTATE" ]; do
+ while true; do
  	case "$STATE" in
   	1)
   		# Two unrelated questions.
@@ -725,16 +724,33 @@ is a skeleton of a state machine that you can fill out and expand.
  			db_input medium my/dep_question || true
  		fi
   	;;
- 	# Add additional states here, making sure to
- 	# increment LASTSTATE.
- 	esac
-
+ 	*)
+ 		# The default case catches when $STATE is greater than the
+ 		# last implemented state, and breaks out of the loop. This
+ 		# requires that states be numbered consecutively from 1
+ 		# with no gaps, as the default case will also be entered
+ 		# if there is a break in the numbering
+ 		break # exits the enclosing "while" loop
+	;;
+  	esac
+ 
  	if db_go; then
  		STATE=$(($STATE + 1))
  	else
  		STATE=$(($STATE - 1))
  	fi
  done
+
+ if [ $STATE -eq 1 ]; then
+ 	# The user has asked to back up from the first
+ 	# question. This case is problematical. Regular
+ 	# dpkg and apt package installation isn't capable
+ 	# of backing up questions between packages as this
+ 	# is written, so this will exit leaving the package
+ 	# unconfigured - probably the best way to handle
+ 	# the situation.
+ 	exit 10
+ fi
 .P
 Note that if all your config script does is ask a few unrelated questions,
 then there is no need for the state machine. Just ask them all, and GO;
