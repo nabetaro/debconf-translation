@@ -10,6 +10,7 @@ package Debconf::Element::Kde::String;
 use strict;
 use Qt;
 use base qw(Debconf::Element::Kde);
+use Debconf::Encoding qw(to_Unicode);
 
 =head1 DESCRIPTION
 
