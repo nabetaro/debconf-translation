@@ -159,43 +159,57 @@ sub _change {
 
 	# Check to see if we can just write to some driver in the stack.
 	foreach my $driver (@{$this->{stack}}) {
-		last if $driver->{readonly};
 		if ($driver->exists($item)) {
+			last if $driver->{readonly}; # nope, hit a readonly one
 			debug "db driver $this->{name}" => "passing to $driver->{name} ..";
 			return $driver->$command($item, @_);
 		}
 	}
 
-	# Figure out what driver is writable and will accept the new item.
-	my $writer;
-	foreach my $driver (@{$this->{stack}}) {
-		if (! $driver->{readonly} and $driver->accept($item)) {
-			$writer=$driver;
-			last;
-		}
-	}
+	# Set if we need to copy from something.
+	my $src;
 
-	unless ($writer) {
-		debug "db driver $this->{name}" => "FAILED $command";
-		return;
-	}
-
-	# Find out what (readonly) driver on the stack first
-	# contains the item, and do the copy to the top of the stack.
+	# Find out what (readonly) driver on the stack first contains the item.
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver->exists($item)) {
 			# Check if this modification would really have any
 			# effect.
 			my $ret=$this->_nochange($driver, $command, $item, @_);
 			if (defined $ret) {
-				debug "db driver $this->{name}" => "skipped $command as it would have no effect";
+				debug "db driver $this->{name}" => "skipped $command($item) as it would have no effect";
 				return $ret;
 			}
-			
+
 			# Nope, we have to copy after all.
-			$this->_copy($item, $driver, $writer);
+			$src=$driver;
+			last
+		}
+	}
+
+	# Work out what driver on the stack will be written to.
+	# We'll take the first that accepts the item.
+	my $writer;
+	foreach my $driver (@{$this->{stack}}) {
+		if ($driver == $src) {
+			# Woah, mama!
+			debug "db driver $this->{name}" =>
+				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
+			return;
+		}
+		if (! $driver->{readonly} and $driver->accept($item)) {
+			$writer=$driver;
 			last;
 		}
+	}
+	
+	unless ($writer) {
+		debug "db driver $this->{name}" => "FAILED $command";
+		return;
+	}
+
+	# Do the copy if we have to.
+	if ($src) {		
+		$this->_copy($item, $src, $writer);
 	}
 
 	# Finally, do the write.
@@ -245,7 +259,6 @@ sub _nochange {
 
 	if ($command eq 'addowner') {
 		my $value=shift;
-
 		# If the owner is already there, no change.
 		foreach my $owner ($driver->owners($item)) {
 			return $value if $owner eq $value;
@@ -266,15 +279,15 @@ sub _nochange {
 	my @list;
 	my $get;
 	if ($command eq 'setfield') {
-		@list=$driver->fields;
+		@list=$driver->fields($item);
 		$get='getfield';
 	}
 	elsif ($command eq 'setflag') {
-		@list=$driver->flags;
+		@list=$driver->flags($item);
 		my $get='getflag';
 	}
 	elsif ($command eq 'setvariable') {
-		@list=$driver->variables;
+		@list=$driver->variables($item);
 		my $get='getvariable';
 	}
 	else {
@@ -284,11 +297,14 @@ sub _nochange {
 	my $thing=shift;
 	my $value=shift;
 	my $currentvalue=$driver->$get($item, $thing);
-
+	
 	# If the thing doesn't exist yet, there will be a change.
+	my $exists=0;
 	foreach my $i (@list) {
-		return $currentvalue if $thing eq $i;
+		$exists=1, last if $thing eq $i;
 	}
+	return $currentvalue unless $exists;
+
 	# If the thing does not have the same value, there will be a change.
 	return $currentvalue if $currentvalue eq $value;
 	return undef;
