@@ -1,3 +1,13 @@
+debconf (1.3.17) unstable; urgency=low
+
+  * Sort list of owners in Question.pm before returning it. The changes to
+    hash randomization in perl 5.8.1 made the order random otherwise, which
+    breaks owners = choices style comparisons. It was also possible before
+    that if a db was moved to a different dbdriver backend, the order would
+    change. Closes: #217088
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 22 Oct 2003 18:14:18 -0400
+
 debconf (1.3.16) unstable; urgency=low
 
   * Patch from Fabian Franz to add support for Xdialog to the dialog
