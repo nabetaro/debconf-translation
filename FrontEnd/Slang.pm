@@ -139,8 +139,8 @@ sub init {
 			# Resize to take up the top half of the screen.
 			$window->xoffset(2);
 			$window->yoffset(2);
-			$window->width($this->container->width - 4);
-			if ($this->helpwindow->hidden) {
+			$window->width($window->container->width - 4);
+			if ($this->helpwindow->hidden) {			
 				$window->height($window->container->height - 4);
 			}
 			else {
