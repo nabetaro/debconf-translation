@@ -1,3 +1,12 @@
+debconf (0.1.10) unstable; urgency=low
+
+  * Uh oh. "set" is a shell builtin, so you cannot access the set command
+    via the shell interface. After talking with Sean, I've decided to just
+    prefix all the commands in the shell interface with "db_". So dh_set,
+    db_get, etc. Most packages that use debconf thus need to be changed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 14:31:45 -0700
+
 debconf (0.1.9) unstable; urgency=low
 
   * Back after a one month hiatus. I've moved debconf around in my cvs

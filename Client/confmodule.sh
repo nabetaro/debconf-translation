@@ -70,7 +70,7 @@ for i in "capb CAPB" "stop STOP" "reset RESET" "title TITLE" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET"; do
 	# Break string up into words.
 	set -- $i
-	eval "$1 () { _command \"$2 \$@\" ; read RET; }"
+	eval "db_$1 () { _command \"$2 \$@\" ; read RET; }"
 done
 # $@ was clobbered above, unclobber.
 set -- $old_opts
@@ -78,7 +78,7 @@ unset old_opts
 
 # By default, the current protocol version is sent to the frontend. You can
 # pass in a different version to override this.
-version () {
+db_version () {
 	if [ "$1" ]; then
 		_command "VERSION $1"
 	else
@@ -89,6 +89,6 @@ version () {
 
 # Just an alias for input. It tends to make more sense to use this to display
 # text, since displaying text isn't really asking for input.
-text () {
+db_text () {
 	input $@
 }
