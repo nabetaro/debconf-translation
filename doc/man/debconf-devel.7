@@ -903,7 +903,7 @@ but rather unavoidable. In the future some of these programs may be able to
 use debconf-loadtemplate by hand though.
 .P
 /usr/share/debconf/confmodule's historic behavior of playing with
-file descriptions and setting up a fd #3 that talks to debconf, can cause
+file descriptors and setting up a fd #3 that talks to debconf, can cause
 all sorts of trouble when a postinst runs a daemon, since the daemon ends
 up talking to debconf, and debconf can't figure out when the script
 terminates. The STOP command can work around this. In the future, we are

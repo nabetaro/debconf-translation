@@ -2,13 +2,14 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Keita Maehara <maehara@debian.org>
 # Junichi Uekawa <dancer@debian.org>, 2002, 2003, 2004
+# Kenshi Muto <kmuto@debian.org>, 2004
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-04-13 12:45-0400\n"
-"PO-Revision-Date: 2004-04-03 07:35+0900\n"
-"Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
+"PO-Revision-Date: 2004-08-16 12:32+0900\n"
+"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=EUC-JP\n"
@@ -18,9 +19,7 @@ msgstr ""
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
-msgstr ""
-"システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
-"しています。詳しい説明はこのドキュメントの最後を見てください。"
+msgstr "システムを設定するために、エディタベースの debconf フロントエンドを使用しています。詳しい説明はこのドキュメントの最後を見てください。"
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -30,20 +29,13 @@ msgid ""
 "comments interspersed with configuration items. Edit the file, changing any "
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"エディタベースの debconf フロントエンドは、1 つ以上のテキストファイルを\n"
-"編集用に提供します。これはその編集用ファイルの 1 つです。あなたが標準的\n"
-"な UNIX の設定ファイルに慣れていれば、このファイルはわかりやすいでしょう。\n"
-"このファイルには、設定項目とともにところどころにコメントがあります。ファ\n"
-"イルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了\n"
-"して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
-"値をシステムの設定に利用します。"
+msgstr "エディタベースの debconf フロントエンドは、1 つ以上のテキストファイルを編集用に提供します。これはその編集用ファイルの 1 つです。あなたが標準的な UNIX の設定ファイルに慣れていれば、このファイルはわかりやすいでしょう。このファイルには、設定項目とともにところどころにコメントがあります。ファイルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了して下さい。このとき、debconf は編集されたファイルを読み込み、入力された値をシステムの設定に利用します。"
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
 #, c-format
 msgid "Debconf on %s"
-msgstr "%s のDebconf"
+msgstr "%s の Debconf"
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -52,9 +44,7 @@ msgstr "移動"
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"注意: Debconf はウェブモードで動作しています。\n"
-"http://localhost:%i/ をご覧ください。"
+msgstr "注意: Debconf はウェブモードで動作しています。http://localhost:%i/ をご覧ください。"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -66,33 +56,28 @@ msgstr "次へ"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERMが設定されていません，dialogフロントエンドを利用する事はできません"
+msgstr "TERM が設定されていないので、dialog フロントエンドを利用することはできません。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Dialogフロントエンドはemacsのシェルバッファと互換性がありません"
+msgstr "Dialog フロントエンドは emacs のシェルバッファと互換性がありません"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr ""
-"Dialogフロントエンドはダムターミナル，emacsのシェルバッファ，もしくはユーザが"
-"制御しているターミナルではない場合には動きません."
+msgstr "Dialog フロントエンドはダムターミナル、emacs のシェルバッファ、もしくはユーザが制御しているターミナルではない場合には動作しません。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr ""
-"利用可能な dialog 系のプログラムがインストールされていないため、\n"
-"ダイアログ形式のフロントエンドは使用できません。"
+msgstr "利用可能な dialog 系のプログラムがインストールされていないため、ダイアログ形式のフロントエンドは使用できません。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
+msgstr "Dialog フロントエンドはすくなくとも 13 行あり、幅 31 文字ある画面を必要とします。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -100,12 +85,11 @@ msgstr "Debian の設定"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "このフロントエンドはユーザが操作しているttyを必要とします"
+msgstr "このフロントエンドはユーザが操作している tty を必要とします。"
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"Term::ReadLine::GNU フロントエンドはemacsのシェルバッファと互換性がありません"
+msgstr "Term::ReadLine::GNU フロントエンドは emacs のシェルバッファと互換性がありません。"
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
@@ -124,54 +108,46 @@ msgstr "フロントエンドの起動ができませんでした: %s"
 
 #: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
-msgstr "設定データベースが設定ファイルで指定されていません"
+msgstr "設定データベースが設定ファイルで指定されていません。"
 
 #: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
-msgstr "テンプレートデータベースが設定ファイルで指定されていません"
+msgstr "テンプレートデータベースが設定ファイルで指定されていません。"
 
 #: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr ""
-"設定ファイルのSigilsとSmileysオプションは使われなくなりました．削除してくださ"
-"い．"
+msgstr "設定ファイルの Sigils と Smileys オプションは使われなくなりました。削除してください。"
 
 #: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"%2$s の %1$s で定義されたデータベースを設定するのに問題が発生しました．"
+msgstr "%2$s の %1$s で定義されたデータベースを設定するのに問題が発生しました。"
 
 #: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "不正なプロパティー \"%s\" を無視します"
+msgstr "不正なプロパティ \"%s\" を無視します"
 
 #: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr "有効なプロパティーは: %s"
+msgstr "有効なプロパティは次のとおりです: %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr ""
-"警告： データベースが破壊されている可能性があります．たりない質問 %s を追加す"
-"ることにより修正しようと試みます．"
+msgstr "警告: データベースが破壊されている恐れがあります。足りない質問 %s を追加することにより修正しようと試みます。"
 
 #: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-" %2$s のテンプレート #%1$s  に，新しい値 \"%4$s\" を \"%3$s\" のフィールドに"
-"重複してあります．二つのテンプレートが一つの改行により正しく分割されていない"
-"のかもしれません．\n"
+msgstr "%2$s のテンプレート #%1$s に、新しい値 \"%4$s\" が \"%3$s\" のフィールドに重複してあります。2つのテンプレートが1つの改行により正しく分割されていないのかもしれません。\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
@@ -181,17 +157,16 @@ msgstr "不明なテンプレートフィールド '%1$s' が %3$s の #%2$s にあります\n"
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"%3$s のスタンザ %2$s で， `%1$s' 付近でテンプレートの解析に失敗しました\n"
+msgstr "%3$s のスタンザ %2$s の `%1$s' 付近でテンプレートの解析に失敗しました\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"
+msgstr "%2$s のテンプレート #%1$s に `Template:' 行がありません\n"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
-msgstr "注意を保存(メール)する"
+msgstr "注意を保存 (メール) する"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
@@ -231,7 +206,7 @@ msgstr "選択"
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
+msgstr "(コンマと空白 (', ') で区切りながら 0 個以上の項目を入力してください。)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -276,10 +251,7 @@ msgstr "Debconf, %s にて実行"
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
-msgstr ""
-"入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないこ\n"
-"とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
-"ます。"
+msgstr "入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないことです。テンプレートファイルが正しくローカライズされていない恐れがあります。"
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
@@ -302,8 +274,7 @@ msgstr "preconfigureするdebファイルを指定してください"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"apt-utilsがインストールされていないため，パッケージの設定を遅らせます．"
+msgstr "apt-utilsがインストールされていないため、パッケージの設定を遅らせます。"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -313,12 +284,12 @@ msgstr "テンプレートの解析に失敗しました: %s"
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "chmod できません: %s"
+msgstr "debconf: chmod できません: %s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s は終了コード %s で前設定に失敗しました。"
+msgstr "%s は終了コード %s で前設定に失敗しました"
 
 #: ../dpkg-reconfigure:104
 #, c-format
@@ -327,7 +298,7 @@ msgstr "%s は root で実行する必要があります"
 
 #: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
-msgstr "再設定するパッケージを指定してください．"
+msgstr "再設定するパッケージを指定してください"
 
 #: ../dpkg-reconfigure:156
 #, c-format
@@ -337,7 +308,7 @@ msgstr "%s はインストールされていません"
 #: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s は壊れているか，完全にインストールされていません"
+msgstr "%s は壊れているか、完全にインストールされていません"
 
 #: ../dpkg-reconfigure:237
 #, c-format
@@ -352,12 +323,12 @@ msgstr "%s がありません"
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "%s がありません．%s を無視します"
+msgstr "%s がありません。%s を無視します"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s は %s バイトでファジーです： %s"
+msgstr "%s は %s バイトでファジーです: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
@@ -367,93 +338,9 @@ msgstr "%s は %s バイトでファジーです: %s; 無視します"
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr "%s の翻訳は古いです"
+msgstr "%s の翻訳は古いものです"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s は古いです； 全テンプレートを無視します！"
-
-#, fuzzy
-#~ msgid "Debconf was asked to save this "
-#~ msgstr ""
-#~ "この注意を保存するよう要求されたので、debconf があなたにメールを送りまし"
-#~ "た。"
-
-#, fuzzy
-#~ msgid "note, so it mailed it to you."
-#~ msgstr ""
-#~ "この注意を保存するよう要求されたので、debconf があなたにメールを送りまし"
-#~ "た。"
-
-#~ msgid "Hide Help"
-#~ msgstr "ヘルプを非表示"
-
-#~ msgid "Show Help"
-#~ msgstr "ヘルプを表示"
-
-#, fuzzy
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr "タブか矢印キーで移動"
-
-#~ msgid "Working, please wait..."
-#~ msgstr "処理しています、お待ちください…"
-
-#, fuzzy
-#~ msgid "The note has been mailed to root"
-#~ msgstr "この注意は root にメールされました。"
-
-#~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a "
-#~ "bug report, and include the stack trace below"
-#~ msgstr ""
-#~ "debconf: confmodule の起動時に未定義値が見つかりました!\n"
-#~ "以下のスタックトレースとともにバグレポートを出してください"
-
-#~ msgid ""
-#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
-#~ msgstr ""
-#~ "使用方法: dpkg-preconfigure [--frontend=型] [--priority=値] debファイル"
-
-#~ msgid "Unknown option: %s"
-#~ msgstr "不明なオプションです: %s"
-
-#~ msgid ""
-#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-#~ msgstr ""
-#~ "使用方法: dpkg-reconfigure [--frontend=型] [--priority=値] パッケージ"
-
-#~ msgid "debconf: Unable to write to temporary file %s: %s"
-#~ msgstr "debconf: 一時ファイル %s に書き込みができません: %s"
-
-#~ msgid "debconf: Unable to read %s: %s"
-#~ msgstr "debconf: %s の読み込みに失敗しました: %s"
-
-#~ msgid "Unable to make element of type %s. Failed because: %s"
-#~ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
-
-#~ msgid "Unsupported command `%s'."
-#~ msgstr "`%s' は未サポートのコマンドです。"
-
-#~ msgid "Warning: Newline present in parameters passed to debconf."
-#~ msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
-
-#~ msgid "This will probably cause strange things to happen!"
-#~ msgstr "このためにおそらくおかしなことが起こります!"
-
-#~ msgid "%s is not installed or does not use debconf"
-#~ msgstr "%s はインストールされていないか、debconf を使用していません"
-
-#~ msgid "Container element question method called before frontend was set."
-#~ msgstr ""
-#~ "フロントエンドが設定される前にコンテナ要素質問メソッドが呼び出されました。"
-
-#~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw "
-#~ "it, but Debconf was running in noninteractive mode, or you have told it "
-#~ "to not pause and show you unimportant notes. Here is the text of the note:"
-#~ msgstr ""
-#~ "あなたが確実に見るように、以下の注意が表示されましたが、debconf が全自動\n"
-#~ "モードで動作していたか、重要でない注意は見せないように指定されていまし"
-#~ "た。\n"
-#~ "これがその注意です:"
+msgstr "%s は古いものです。全テンプレートを無視します!"

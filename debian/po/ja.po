@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: debconf 1.2.35\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-12-28 19:07-0500\n"
-"PO-Revision-Date: 2004-01-11 15:47+0900\n"
+"PO-Revision-Date: 2004-08-16 12:33+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,9 +36,7 @@ msgstr "パッケージの設定にどのインターフェースを用いますか?"
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr ""
-"設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。どの種"
-"類のユーザインターフェースを用いるかを選んで下さい。"
+msgstr "設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。どの種類のユーザインターフェースを用いるかを選んでください。"
 
 #. Type: select
 #. Description
@@ -56,7 +54,7 @@ msgstr "「ダイアログ」は全画面の文字ベースのインターフェースです。「readline」は
 #. Choices
 #: ../templates:18
 msgid "critical, high, medium, low"
-msgstr "重要, 高, 標準, 低"
+msgstr "重要, 高, 中, 低"
 
 #. Type: select
 #. Description
@@ -77,13 +75,11 @@ msgid ""
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
 "あなたが答えたい質問のうち、最低の優先度のものを選択してください。\n"
-" - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目用で"
-"す。\n"
+" - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目用です。\n"
 "   あなたが初心者か、あるいは急いでいるのであればこれを選んでください。\n"
 " - 「高」は、適切なデフォルトの回答がないような項目用です。\n"
 " - 「中」は、適切なデフォルトの回答があるような普通の項目用です。\n"
-" - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささいな項目用"
-"です。"
+" - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささいな項目用です。"
 
 #. Type: select
 #. Description
