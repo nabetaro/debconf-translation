@@ -30,7 +30,7 @@ install-utils:
 		xargs -i install {} $(prefix)/usr/bin
 	# Make man pages for utils.
 	install -d $(prefix)/usr/share/man/man1
-	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' -printf '%P\n' | \
 		xargs -i sh -c '$(pod2man) --section=1 {} > $(prefix)/usr/share/man/man1/`basename {}`.1'
 
 # Install all else.
@@ -62,7 +62,7 @@ install-rest:
 		xargs -i install {} $(prefix)/usr/sbin
 	# Make man pages for programs.
 	install -d $(prefix)/usr/share/man/man8
-	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -printf '%P\n' | \
 		xargs -i sh -c '$(pod2man) --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\
