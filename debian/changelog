@@ -1,3 +1,28 @@
+debconf (1.0.26) unstable; urgency=low
+
+UNRE
+  * Removed uninitialized value warning in Teletype frontend.
+    Actually, this was a bug that did not let it display only one column on
+    choices when necessary; triggered by quake2-data.
+  * Incuded a short README.Debian for debconf-utils, Closes: #129541
+  * Made the README point to all the main docs for users and developers.
+    Closes: #129545
+  * Deregister SIGPIPE handler after confmodule finishes, so it is not called
+    after the object is gone. Closes: #129463
+  * Chomp whitespace at the end of field continuation lines; this fixes a
+    bug that caused some indented lines to be accidentially wrapped up to
+    the previous line.
+  * Stop using funky grave quotes in this package's templates.
+  * Updated Spanish template. Closes: #128838
+  * Updated Catalan.
+  * Added German po file, updated templates.
+  * Killed the following overly-outdated translated templates: pl, ru,
+    zh_CN, zh_TW, nl, ja, it.
+  * fi and gl have one fuzzy translation each, and all the rest are fine.
+  * Corrected incorrect indents in a number of translated templates, sigh.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 11 Jan 2002 23:30:25 -0500
+
 debconf (1.0.25) unstable; urgency=medium
 
   * The "bite the bullet" release.

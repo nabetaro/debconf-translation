@@ -219,6 +219,9 @@ sub finish {
 	waitpid $this->pid, 0 if defined $this->pid;
 	$this->exitcode($this->caught_sigpipe || ($? >> 8));
 
+	# Stop catching sigpipe now.
+	$SIG{PIPE} = 'IGNORE';
+	
 	foreach (@{$this->seen}) {
 		$_->flag('seen', 'true');
 	}

@@ -82,7 +82,7 @@ sub printlist {
 
 	my $max_lines;
 	my $num_cols;
-COLUMN:	for ($num_cols = $max_cols; $num_cols > 0; $num_cols--) {
+COLUMN:	for ($num_cols = $max_cols; $num_cols >= 0; $num_cols--) {
 		my @col_width;
 		my $total_width;
 

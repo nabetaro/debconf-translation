@@ -1,3 +1,19 @@
+The main sources of documentation on debconf for users are:
+
+	- The debconf introduction, in the same directory as this file,
+	  explains what debconf is.
+	- The debconf(8) man page, is a complete debconf user's guide.
+	- The debconf.conf(5) man page is useful reading if you want to use
+	  a different debconf database setup.
+
+Developers should refer to:
+
+	- The debconf tutorial, in the same directory as this file explains
+	  how debconf works, walks you through converting a package to
+	  debconf, and discusses some common problems and their solutions.
+	- The debconf specification, which is in the debian-policy
+	  package, is a reference to all the available debconf commands.
+
 Though the source for this package can be found on any debian mirror,
 development work happens in CVS. You can get a snapshot of the current
 development release via CVS, but you'll have to read this page first:
