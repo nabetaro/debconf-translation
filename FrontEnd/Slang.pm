@@ -8,7 +8,7 @@ DebConf::FrontEnd::Slang - Nice GUI Slang frontend
 
 package Debian::DebConf::FrontEnd::Slang;
 use strict;
-#use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Config;
 use Term::Stool::Screen;
 use Term::Stool::Window;
@@ -45,12 +45,12 @@ sub init {
 
 	$this->screen(Term::Stool::Screen->new);
 	$this->titlebar(Term::Stool::TitleBar->new(
-		text => "Debian Configuration",
+		text => gettext("Debian Configuration"),
 	));
 	$this->helpbar(Term::Stool::HelpBar->new);
 	
 	$this->helpwindow(Term::Stool::Window->new(
-		title => "Help",
+		title => gettext("Help"),
 		resize_hook => sub {
 			my $this=shift;
 		
@@ -73,12 +73,12 @@ sub init {
 		},
 	));
 	
-	$this->button_next(Term::Stool::Button->new(text => "Next"));
-	$this->button_back(Term::Stool::Button->new(text => "Back"));
+	$this->button_next(Term::Stool::Button->new(text => gettext("Next")));
+	$this->button_back(Term::Stool::Button->new(text => gettext("Back")));
 	$this->button_help(Term::Stool::Button->new(
 		align => 'right',
-		text_hidden => "Show Help",
-		text_shown => "Hide Help",
+		text_hidden => gettext("Show Help"),
+		text_shown => gettext("Hide Help"),
 		width => "13",
 		press_hook => sub {
 			# Toggle display of the helpwindow.
@@ -228,7 +228,7 @@ sub go {
 		$this->button_back->disabled(! $this->capb_backup);
 
 		# Now set it all in motion, with the first widget focused.
-		$this->helpbar->push("Tab and arrow keys move.");
+		$this->helpbar->push(gettext("Tab and arrow keys move."));
 		$this->helpbar->display;
 		$this->panel->display;
 		$this->screen->run($firstwidget);
@@ -246,7 +246,7 @@ sub go {
 		}
 		$this->mainwindow->buttonbar->active('');
 		# User interaction is done for now.
-		$this->helpbar->helpstack(["Working, please wait.."]);
+		$this->helpbar->helpstack([gettext("Working, please wait..")]);
 		$this->helpbar->display;
 		$this->screen->refresh;
 	}

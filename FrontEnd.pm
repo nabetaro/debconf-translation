@@ -8,6 +8,7 @@ Debian::DebConf::FrontEnd - base FrontEnd
 
 package Debian::DebConf::FrontEnd;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 use Debian::DebConf::Log ':all';
@@ -189,7 +190,7 @@ package that is being configured.
 sub default_title {
 	my $this=shift;
 	
-	$this->title("Configuring ".ucfirst(shift));
+	$this->title(gettext("Configuring")." ".ucfirst(shift));
 }
 
 =item shutdown

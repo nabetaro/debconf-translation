@@ -9,6 +9,7 @@ DebConf::FrontEnd::Editor - Edit a config file to answer questions
 package Debian::DebConf::FrontEnd::Editor;
 use strict;
 use Text::Wrap;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Config qw{tmpdir};
 use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
@@ -94,12 +95,10 @@ sub go {
 	# so make it 0600.
 	mkdir $tmpdir, 0700;
 	open (TMP, ">$tmpfile") ||
-		die "debconf: Unable to write to temporary file $tmpfile: $!";
+		die gettext("debconf: Unable to write to temporary file")." $tmpfile: $!";
 	chmod(0600, $tmpfile);
 
-	$this->comment("You are using the editor-based debconf frontend ".
-		       "to configure your system. See the end of this ".
-		       "document for detailed instructions.");
+	$this->comment(gettext("You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."));
 	$this->divider;
 	print TMP "\n";
 
@@ -122,15 +121,7 @@ sub go {
 	}
 	
 	$this->divider;
-	$this->comment("The editor-based debconf frontend presents you with ".
-		       "one or more text files to edit. This is one such ".
-		       "text file. If you are familair with standard unix ".
-		       "configuration files, this file will look familiar to ".
-		       "you -- it contains comments interspersed with ".
-		       "configuration items. Edit the file, changing any ".
-		       "items as necessary, and then save it and exit. At ".
-		       "that point, debconf will read the edited file, and ".
-		       "use the values you entered to configure the system.");
+	$this->comment(gettext("The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familair with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."));
 	close TMP;
 	
 	# Launch editor.
@@ -142,7 +133,7 @@ sub go {
 	# pass the text into it to be processed.
 	# FIXME: this isn't really very robust. Syntax errors are ignored.
 	my %eltname=map { $_->question->name => $_ } @elements;
-	open (IN, "<$tmpfile") || die "debconf: Unable to read $tmpfile: $!";
+	open (IN, "<$tmpfile") || die gettext("debconf: Unable to read")." $tmpfile: $!";
 	while (<IN>) {
 		next if /^\s*#/;
 

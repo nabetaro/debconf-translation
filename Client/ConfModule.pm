@@ -36,6 +36,7 @@ everything, simply import ":all".
 =cut
 
 package Debian::DebConf::Client::ConfModule;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use strict;
@@ -97,7 +98,7 @@ sub AUTOLOAD {
 	my $command = uc $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 
-	die "Unsupported command \"$command\"." unless $commands{$command};
+	die gettext("Unsupported command")." \"$command\"." unless $commands{$command};
 	
 	no strict 'refs';
 	*$AUTOLOAD = sub {
@@ -106,8 +107,8 @@ sub AUTOLOAD {
 		# Newlines in input can really badly confuse the protocol, so
 		# detect and warn.
 		if ($c=~m/\n/) {
-			warn "Warning: Newline present in parameters passwd to debconf.\n";
-			warn "         This will probably cause strange things to happen!\n";
+			warn gettext("Warning: Newline present in parameters passed to debconf.")."\n";
+			warn gettext("This will probably cause strange things to happen!")."\n";
 		}
 
 		print "$c\n";

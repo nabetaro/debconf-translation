@@ -9,6 +9,7 @@ Debian::DebConf::Element::Noninteractive::Note - noninteractive note Element
 package Debian::DebConf::Element::Noninteractive::Note;
 use strict;
 use Text::Wrap;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Element::Noninteractive; # perlbug
 use base qw(Debian::DebConf::Element::Noninteractive);
 
@@ -34,10 +35,7 @@ Calls sendmail to mail the note to root.
 sub show {
 	my $this=shift;
 
-	$this->sendmail("This note was sent to you because Debconf was asked
-to make sure you saw it, but Debconf was running in noninteractive mode, or
-you have told it to not pause and show you unimportant notes. Here is the text
-of the note:");
+	$this->sendmail(gettext("This note was sent to you because Debconf was asked to make sure you saw it, but Debconf was running in noninteractive mode, or you have told it to not pause and show you unimportant notes. Here is the text of the note:"));
 	return '';
 }
 
@@ -57,9 +55,9 @@ sub sendmail {
 	my $header=shift;
 
 	if (-x '/usr/bin/mail' && $this->question->flag_isdefault ne 'false') {
-	    	my $title="Debconf: ".$this->frontend->title." -- ".
+	    	my $title=gettext("Debconf").": ".$this->frontend->title." -- ".
 		   $this->question->description;
-		$title=~s/'/\'/g;                                                                             # This comment here to work around stupid ' highlighting in jed
+		$title=~s/'/\'/g;
 	    	open (MAIL, "|mail -s '$title' root") or return '';
 		# Let's not clobber this, other parts of debconf might use
 		# Text::Wrap at other spacings.

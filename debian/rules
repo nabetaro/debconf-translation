@@ -18,8 +18,8 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	$(MAKE) prefix=debian/tmp install
-	$(MAKE) prefix=debian/debconf-doc install-man
+	$(MAKE) prefix=`pwd`/debian/tmp install
+	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
 
 binary-indep: install
 	# Make sure debhelper is going to install the config and templates.

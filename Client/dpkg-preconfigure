@@ -75,8 +75,11 @@ BEGIN {
 					       dbdir tmpdir);
 		use Debian::DebConf::AutoSelect qw(:all);
 		use Debian::DebConf::Version;
+		use Debian::DebConf::Gettext;
 	};
 	if ($@) {
+		# Don't use gettext() on this because it may have failed to
+		# load.
 		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
 		exit 0;
 	}
@@ -107,11 +110,11 @@ for (my $x=0; $x < @ARGV;) {
 		priority($ARGV[$x++]);
 	}
 	elsif (/^-(?:h|-help)$/) {
-		print STDERR "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles\n";
+		print STDERR gettext("Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles")."\n";
 		exit 1;
 	}
 	elsif (/^--?(\w+)/) {
-		print STDERR "Unknown option: $1\n";
+		print STDERR gettext("Unknown option").": $1\n";
 	}
 	else {
 		push @debs, $_;
@@ -133,7 +136,7 @@ if ($apt) {
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin should get input from the user, so re-open.
 	open (STDIN, "/dev/tty") ||
-		(print STDERR "dpkg-preconfigure: unable to re-open stdin: $!\n", exit 0);
+		(print STDERR gettext("dpkg-preconfigure: unable to re-open stdin").": $!\n", exit 0);
 
 	# Since we are running from apt, we will be preconfiguring some
 	# packages prior to installing them. If the user has debconf configured
@@ -209,7 +212,7 @@ foreach my $x (0..$#debs) {
 					loadtemplatedata($_, $packages{$debs[$x]});
 				};
 				if ($@) {
-					print STDERR "$debs[$x] template parse error: $@\n";
+					print STDERR "$debs[$x] ".gettext("template parse error").": $@\n";
 					next;
 				}
 			}
@@ -236,13 +239,13 @@ foreach my $deb (@debs) {
 	# we will skip it. If so, we need to save the confmodule
 	# to disk so it can be run.
 	open (IN, "dpkg --info $deb config 2>/dev/null |") or
-		die "Unable to spawn dpkg: $!";
+		die gettext("Unable to spawn dpkg").": $!";
 	
 	next if eof(IN);
 	
 	if ($apt && ! $runconfig) {
 		$runconfig=1;
-		print "Configuring packages ...\n"
+		print gettext("Configuring packages ...")."\n";
 	}
 
 	my $script=tmpdir()."/config.$$";
@@ -251,7 +254,7 @@ foreach my $deb (@debs) {
 	close IN;
 	close OUT;
 	chmod(0755, $script) or 
-		die "Can't chmod: $!";
+		die gettext("Can't chmod").": $!";
 
 	$frontend->default_title($packages{$deb});
 
@@ -268,7 +271,7 @@ foreach my $deb (@debs) {
 	# I could just exit, but it's good to be robust so 
 	# other packages can still be configured and installed.
 	if ($confmodule->exitcode > 0) {
-		print STDERR "$packages{$deb} failed to configure, with exit code ".$confmodule->exitcode."\n";
+		print STDERR "$packages{$deb} ".gettext("failed to configure, with exit code")." ".$confmodule->exitcode."\n";
 	}
 
 	unlink $script;

@@ -8,6 +8,7 @@ Debian::DebConf::Element::Editor::MultiSelect - select from a list of choices
 
 package Debian::DebConf::Element::Editor::Multiselect;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
@@ -28,8 +29,8 @@ sub show {
 	my @choices=$this->question->choices_split;
 
 	$this->frontend->comment($this->question->extended_description."\n\n".
-		"(Choices: ".join(", ", @choices).")\n".
-		"(Enter zero or more items separated by spaces.)\n".
+		"(".gettext("Choices").": ".join(", ", @choices).")\n".
+		gettext("(Enter zero or more items separated by spaces.)")."\n".
 		$this->question->description."\n");
 
 	my $default='';

@@ -1,5 +1,6 @@
 all: Version.pm
 	$(MAKE) -C doc
+	$(MAKE) -C po
 
 VERSION=$(shell expr "`dpkg-parsechangelog 2>/dev/null |grep Version:`" : '.*Version: \(.*\)')
 Version.pm:
@@ -15,6 +16,7 @@ clean:
 	find . -name \*~ | xargs rm -f
 	rm -f *.db Version.pm
 	$(MAKE) -C doc clean
+	$(MAKE) -C po clean
 
 install-man:
 	install -d $(prefix)/usr/share/man/man3
@@ -23,6 +25,7 @@ install-man:
 	install -m 0644 Client/confmodule.3 $(prefix)/usr/share/man/man3/
 
 install:
+	$(MAKE) -C po install
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf \
 		$(prefix)/usr/share/debconf/templates
@@ -68,4 +71,3 @@ install:
 			}						\
 		'
 	find $(prefix) -name '*.bak' | xargs rm -f
-

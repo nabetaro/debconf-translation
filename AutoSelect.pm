@@ -8,6 +8,7 @@ Debian::DebConf::AutoSelect - automatic FrontEnd selection library.
 
 package Debian::DebConf::AutoSelect;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::ConfModule;
 use Debian::DebConf::Config qw(frontend);
 use Debian::DebConf::Log qw(:all);
@@ -63,7 +64,7 @@ sub make_frontend {
 		};
 		last if defined $frontend;
 		
-		warn "failed to initialize $type frontend";
+		warn gettext("failed to initialize frontend").": $type";
 		debug 1, "(Error: $@)";
 
 		# Only try each type once to prevent loops.
@@ -71,7 +72,7 @@ sub make_frontend {
 		$type=$fallback{$type};
 		last if $seen{$type};
 
-		warn "falling back to $type frontend" if $type ne '';
+		warn gettext("falling back to frontend").": $type" if $type ne '';
 	}
 	
 	if (! defined $frontend) {
@@ -80,7 +81,7 @@ sub make_frontend {
 			use Debian::DebConf::FrontEnd::Noninteractive;
 			Debian::DebConf::FrontEnd::Noninteractive->new();
 		};
-		die "Unable to start a frontend: $@" unless defined $frontend;
+		die gettext("Unable to start a frontend").": $@" unless defined $frontend;
 	}
 
 	return $frontend;

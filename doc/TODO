@@ -8,9 +8,6 @@ I18N:
     translates back to english, and sets Default: to the english values(s)
     they selected. So all the backend code in the confmodule just deals with
     the english values.
-* The text frontend uses lots of English text, and also makes other
-  assumptions about things that don't hold up in other locales. Slang
-  frontend too, probably.
 * I should "use locale" -- but it's not in the base perl package.
   Get it in, or I could hack together my own locale enabler, it's one line
   -- see locale.pm. This is necessary for proper sorting, and other stuff.

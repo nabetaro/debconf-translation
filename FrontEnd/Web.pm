@@ -11,6 +11,7 @@ use IO::Socket;
 use IO::Select;
 use CGI;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
@@ -62,7 +63,7 @@ sub init {
 		LocalAddr => '127.0.0.1',
 	)) || die "Can't bind to ".$this->port.": $!";
 
-	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$this->port."/\n";
+	print STDERR gettext("Note: Debconf is running in web mode. Go to http://localhost").":".$this->port."/\n";
 }
 
 =item client
@@ -162,9 +163,9 @@ sub go {
 
 	# Should the back button be displayed?
 	if ($this->capb_backup) {
-		$form.="<input type=submit value=Back name=back>\n";
+		$form.="<input type=submit value=".gettext("Back")." name=back>\n";
 	}
-	$form.="<input type=submit value=Next>\n";
+	$form.="<input type=submit value=".gettext("Next").">\n";
 	$form.="</form>\n</body>\n</html>\n";
 
 	my $query;

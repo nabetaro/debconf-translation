@@ -47,6 +47,7 @@ sub pickabbrevs {
 	# the item.
 	my $count=0;
 	foreach my $item (@important, @items) {
+		# TODO: i18n
 		if (! $abbrevs{$item} && $item =~ m/^([a-z])/i && $alphabet{lc $1}) {
 			$abbrevs{$item}=lc $1;
 			$alphabet{lc $1}='';

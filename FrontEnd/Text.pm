@@ -10,6 +10,7 @@ package Debian::DebConf::FrontEnd::Text;
 use strict;
 use Text::Wrap;
 use Term::ReadLine;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
 
@@ -92,7 +93,7 @@ sub display_nowrap {
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
 		if ($this->linecount($this->linecount+1) > $this->screenheight - 2) {
-			$this->prompt("[More]", '');
+			$this->prompt('['.gettext("More").']', '');
 		}
 		print "$_\n";
 	}

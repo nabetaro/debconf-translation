@@ -8,6 +8,7 @@ Debian::DebConf::Element::Text::Multiselect - select multiple items
 
 package Debian::DebConf::Element::Text::Multiselect;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Element::Text::Select; # perlbug
 use base qw(Debian::DebConf::Element::Text::Select);
 
@@ -23,7 +24,7 @@ sub show {
 	my $this=shift;
 
 	my @selected;
-	my $none_of_the_above="none of the above";
+	my $none_of_the_above=gettext("none of the above");
 
 	my @choices=$this->question->choices_split;
 	my %value=map { $_ => 1 } $this->question->value_split;
@@ -37,7 +38,7 @@ sub show {
 	# Print out the question.
 	$this->frontend->display($this->question->extended_description."\n");
 	$this->printlist(\%abbrevs, @choices);
-	$this->frontend->display("\n(Type in the letters of the items you want to select, separated by spaces.)\n");
+	$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
 
 	# Prompt until a valid answer is entered.
 	my $value;
@@ -48,6 +49,7 @@ sub show {
 
 		# Split up what they entered. They can separate items
 		# with whitespace, commas, etc.
+		# TODO: i18n
 		@selected=split(/[^A-Za-z0-9]*/, $_);
 
 		# Expand the abbreviations in what they entered. If they

@@ -12,7 +12,7 @@ Provides: debconf-tiny
 Replaces: debconf-tiny
 Depends: perl-5.005-base (>= 5.005.03-4.1), fileutils (>= 4.0-5)
 Recommends: libterm-stool-perl | libterm-readline-gnu-perl
-Suggests: debconf-doc, whiptail | dialog | gnome-utils
+Suggests: debconf-doc, whiptail | dialog | gnome-utils, liblocale-gettext-perl
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. It is
  used by some packages to prompt you for questions before they are installed.

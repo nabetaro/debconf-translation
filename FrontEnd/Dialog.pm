@@ -8,6 +8,7 @@ DebConf::FrontEnd::Dialog - dialog FrontEnd
 
 package Debian::DebConf::FrontEnd::Dialog;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Log qw(:all);
 use Debian::DebConf::Config qw(tmpdir);
@@ -70,8 +71,7 @@ sub init {
 #		$this->columnspacer(0);
 #	}
 	else {
-		die "Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.";
-#		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
+		die gettext("Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.");
 	}
 }
 
@@ -213,10 +213,10 @@ sub showdialog {
 	my $savew=$^W;
 	$^W=0;
 	
-	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program, 
-		'--backtitle', 'Debian Configuration',
+	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
+		'--backtitle', gettext("Debian Configuration"),
 		'--title', $this->title, @_);
-	my $stderr;	
+	my $stderr;
 	while (<ERRFH>) {
 		$stderr.=$_;
 	}

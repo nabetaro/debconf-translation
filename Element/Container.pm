@@ -7,6 +7,7 @@ Debian::DebConf::Element::Container - Container input element
 =cut
 
 package Debian::DebConf::Element::Container;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::ConfigDb;
 use strict;
 use UNIVERSAL qw(isa);
@@ -36,7 +37,7 @@ sub question {
 	if (@_) {
 		# This shouldn't happen..
 		if (! $this->frontend) {
-			die "Container element question method called before frontend was set.";
+			die gettext("Container element question method called before frontend was set.");
 		}
 	
 		$this->{'question'}=shift;

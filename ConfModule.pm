@@ -10,6 +10,7 @@ package Debian::DebConf::ConfModule;
 use strict;
 use IPC::Open2;
 use FileHandle;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Config qw(showold);
 use Debian::DebConf::ConfigDb qw(getquestion addquestion disownquestion
 				 disownall);
@@ -124,7 +125,7 @@ sub startup {
 	map { $bad=1 if ! defined $_ } @args;
 	if ($bad) {
 		use Carp;
-		Carp::cluck('debconf: Undefined values detected at confmodule startup! Please file a bug report, and include the stack trace below');
+		Carp::cluck(gettext("debconf: Undefined values detected at confmodule startup! Please file a bug report, and include the stack trace below"));
 	}
 	
 	debug 2, "starting ".join(' ',@args);

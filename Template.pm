@@ -9,6 +9,7 @@ Debian::DebConf::Template - Template object
 package Debian::DebConf::Template;
 use strict;
 use POSIX;
+use Debian::DebConf::Gettext;
 use vars qw($AUTOLOAD);
 use base qw(Debian::DebConf::Base);
 
@@ -99,14 +100,14 @@ sub parse {
 			$extended.=$1." ";
 		}
 		else {
-			die "Template parse error near \"$_\"";
+			die gettext("Template parse error near")." \"$_\"";
 		}
 	}
 
 	$this->_savefield($field, $value, $extended);
 
 	# Sanity checks.
-	die "Template does not contain a Template: line"
+	die gettext("Template does not contain a `Template:' line")
 		unless $this->template;
 }
 

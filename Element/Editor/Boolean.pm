@@ -8,6 +8,7 @@ Debian::DebConf::Element::Editor::Boolean - Yes/No question
 
 package Debian::DebConf::Element::Editor::Boolean;
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
@@ -26,10 +27,10 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 	if ($default eq 'true') {
-		$default='yes';
+		$default=gettext("yes");
 	}
 	elsif ($default eq 'false') {
-		$default='no';
+		$default=gettext("no");
 	}
 
 	$this->frontend->item($this->question->name, $default);
@@ -45,8 +46,9 @@ sub process {
 	my $this=shift;
 	my $value=shift;
 	
-	return 'true' if $value eq 'yes';
-	return 'false' if $value eq 'no';
+	# Handle translated and non-translated replies.
+	return 'true' if $value eq 'yes' || $value eq gettext("yes");
+	return 'false' if $value eq 'no' || $value eq gettext("no");
 	return $this->question->value;
 }
 

@@ -11,7 +11,7 @@ dpkg-reconfigure - reconfigure an already installed package
 =cut
 
 sub usage {
-	print STDERR "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages\n";
+	print STDERR gettext("Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages")."\n";
 	exit 1;
 }
 
@@ -66,6 +66,7 @@ Display usage help.
 =cut
 
 use strict;
+use Debian::DebConf::Gettext;
 use Debian::DebConf::ConfigDb qw(loaddb savedb loadtemplatefile);
 use Debian::DebConf::Config qw(frontend priority dbdir showold);
 use Debian::DebConf::AutoSelect qw(:all);
@@ -123,7 +124,7 @@ for (my $x=0; $x < @ARGV;) {
 
 # See if they are root.
 if ($> != 0) {
-	warn "$0 must be run as root";
+	warn "$0 ".gettext("must be run as root");
 	exit 1;
 }
 
@@ -146,7 +147,7 @@ foreach my $pkg (@packages) {
 	# If this doesn't exist, the package probably doesn't use debconf,
 	# so skip it, becuase a normal package may misbehave when run here.
 	if (! -x "/var/lib/dpkg/info/$pkg.config") {
-		warn "package \"$pkg\" is not installed or does not use debconf";
+		warn $pkg." ".gettext("is not installed or does not use debconf");
 		next;
 	}
 
@@ -158,7 +159,7 @@ foreach my $pkg (@packages) {
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
 	if (! defined $status || $status !~ m/ ok installed$/) {
-		warn "package \"$pkg\" is not fully installed";
+		warn $pkg." ".gettext("is not fully installed");
 		exit 1;
 	}
 	
@@ -231,7 +232,7 @@ sub allpackages {
 	local $/="\n\n";
 	
 	open (STATUS, "</var/lib/dpkg/status")
-		|| die "Cannot read status file: $!";
+		|| die gettext("Cannot read status file").": $!";
 	while (<STATUS>) {
 		push @ret, $1
 			if m/Status:\s*.*installed\n/ && m/Package:\s*(.*)\n/;

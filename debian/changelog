@@ -1,3 +1,14 @@
+debconf (0.3.30) unstable; urgency=low
+
+  * gettextized the entire source tree, so it can now be translated. I used
+    Locale::gettext for this, but since it is not in base, I have arranged
+    for debconf to continue working if it is not found (just using the C
+    locale).
+  * Added polish translation from Marcin Owsiany
+    <porridge@pandora.info.bielsko.pl>.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  8 May 2000 17:05:56 -0700
+
 debconf (0.3.24) unstable; urgency=low
 
   * Prompted priority to standard, since lynx depends on it. Closes: #63346
