@@ -1,6 +1,8 @@
 FILES=$(patsubst %.xml,%.txt,$(wildcard *.xml)) \
       $(patsubst %.xml,%.html,$(wildcard *.xml))
 
+base: tutorial.html tutorial.txt
+
 all: $(FILES)
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
 

@@ -1,3 +1,14 @@
+debconf (0.9.77) unstable; urgency=low
+
+  * Expanded debconf.8 to include most of the text of the debconf user's
+    guide, and removed the user's guide. Added some additional docs to the
+    man page.
+  * Register the debconf tutorial with doc-base. Closes: #103973
+  * No longer shipping the introduction, though it's still in the source
+    for historical interest.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 10 Jul 2001 17:31:22 -0400
+
 debconf (0.9.76) unstable; urgency=low
 
   * Don't use double dashes for dialog, though they are needed for

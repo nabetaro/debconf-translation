@@ -4,10 +4,233 @@ debconf \- Debian package configuration system
 .SH DESCRIPTION
 Debconf is a configuration system for Debian packages. There is no
 command named "debconf".
+.P
+Debconf provides a consistent interface for configuring packages, allowing
+you to choose from several user interface frontends. It supports
+preconfiguring packages before they are installed, which allows large
+installs and upgrades to ask you for all the necessary information up
+front, and then go do the work while you do something else.  It lets you,
+if you're in a hurry, skip over less important questions and information
+while installing a package (and revisit it later).
+.SH "Preconfiguring packages"
+Debconf can configure packages before they are even installed onto
+your system. This is useful because it lets all the questions the
+packages are going to ask be asked at the beginning of an install,
+so the rest of the install can proceeed while you are away getting
+a cup of coffee.
+.P
+If you use apt (version 0.5 or above), and you have apt-utils installed,
+each package apt installs will be automatically peconfigured. This is
+controlled via
+.I /etc/apt/apt.conf.d/70debconf
+.P
+Sometimes you might want to preconfigure a package
+by hand, when you're not installing it with apt. You can use
+.B dpkg-preconfigure (8)
+to do that, just pass it the filenames of the packages you 
+want to preconfigure. You will need apt-utils installed for that to work.
+.SH Reconfiguring packages
+Suppose you installed the package, and answered debconf's questions, but
+now that you've used it a while, you realize you want to go back and change
+some of your answers. In the past, reinstalling a package was often the thing
+to do when you got in this situation, but when you reinstall the package,
+debconf seems to remember you have answered the questions, and doesn't ask
+them again (this is a feature).
+.P
+Luckily, debconf makes it easy to reconfigure any package that uses it.
+Suppose you want to reconfigure debconf itself. Just run, as root:
+  dpkg-reconfigure debconf
+.P
+This will ask all the questions you saw when debconf was first installed.
+It may ask you other questions as well, since it asks even low priority
+questions that may have been skipped when the package was installed.
+You can use it on any other package that uses debconf, as well.
+.SH Frontends
+One of debconf's unique features is that the interface it presents to
+you is only one of many, that can be swapped in at will. There are many
+debconf frontends available:
+.TP
+.B dialog
+The default frontend, this uses the 
+.B whiptail (1)
+or
+.B dialog (1)
+programs to display questions to you. It works in text mode.
+.TP
+.B text
+.RS
+The most traditional frontend, this looks quite similar
+to how Debian configuration always has been: a series of
+questions, printed out at the console using plain text. It
+includes readline support, and even supports tab completion.
+(Install the libterm-readline-gnu-perl package to make the most
+of the readline support.)
+.P
+This frontend has some special hotkeys. Pageup (or ctrl-u)
+will go back to the previous question (if that is supported
+by the package that is using debconf), and pagedown (or 
+ctrl-v) will skip forward to the next question.
+.P
+This is the best frontend for remote admin work over a slow
+connection, or for those who are comfortable with unix.
+.RE
+.TP
+.B noninteractive
+This is the anti-frontend. It never interacts with you at all,
+and makes the default answers be used for all questions. It will
+occasionally mail root with messages the package wanted to
+display, but that's it; otherwise it is completly silent and
+unobtrusive, a perfect frontend for automatic installs.
+.TP
+.B slang
+This frontend is based on the Slang toolkit. It presents a full-featured
+GUI (in text mode). Note that for this frontend to work, you must have the
+libterm-stool-perl package installed.
+.TP
+.B editor
+This is for those fanatics who have to do everything in a
+text editor. It runs the your editor on a file that looks
+something like typical unix config file, and you edit the
+file to communicate with debconf. Debconf's author takes the
+fifth amendment regarding the circumstances that lead to this
+frontend being written.
+.TP
+.B web
+.RS
+This frontend acts as a web server, that you connect to
+with your web browser, to browse the questions and anser them.
+It has a lot of promise, but is a little rough so far.
+When this frontend starts up, it will print out the location
+you should point your web browser to. You have to run the web
+browser on the same machine you are configuring, for security
+reasons.
+.P
+Do keep in mind that this is not a very secure frontend.
+Anyone who has access to the computer being configured
+can currently access the web server and configure things
+while this frontend is running. So this is more of a
+proof of concept than anything.
+.RE
+.P
+You can change the default frontend debconf uses by reconfiguring
+debconf. On the other hand, if you just want to change the frontend
+for a minute, you can set the DEBIAN_FRONTEND environment variable to
+the name of the frontend to use. For example:
+  DEBIAN_FRONTEND=text apt-get install slrn
+.P
+The 
+.B dpkg-reconfigure (8)
+and
+.B dpkg-preconfigure (8)
+commands also let you pass 
+.I --frontend=
+to them, followed by the frontend you want them to use.
+.P
+Note that not all frontends will work in all circumstances. If a frontend
+fails to start up for some reason, debconf will print out a message
+explaining why, and fall back to the next-most similar frontend.
+.SH Priorities
+Another nice feature of debconf is that the questions it asks you are
+prioritized. If you don't want to be bothered about every little thing,
+you can set up debconf to only ask you the most important questions.
+On the other hand, if you are a control freak, you can make it show
+you all questions. Each question has a priority. In increasing order of
+importance:
+.TP
+.B low
+Very trivial questions that have defaults that will work in the vast majority
+of cases.
+.TP
+.B medium
+Normal questions that have reasonable defaults.
+.TP
+.B high
+Questions that don't have a reasonable default.
+.TP
+.B critical
+For things that will probably break the system without user intervention.
+.P
+Only questions with a priority equal to or greater than the priority you
+choose will be shown to you. You can set the priority value by
+reconfiguring debconf, or temporarily by passing
+.I --priority=
+followed by the value to the
+.B dpkg-reconfigure (8)
+and
+.B dpkg-preconfigure (8)
+commands, or by setting the DEBIAN_PRIORITY environment variable.
+.SH Backend Database
+Debconf uses a rather flexible and potentially complicated backend
+database for storing data such as the answers to questions. The file
+.B /etc/debconf.conf
+is used to configure this database. If you need to set up something
+complicated, like make debconf read a remote database to get defaults,
+with local overrides, read the
+.B debconf.conf (5)
+man page for all the gory details. Generally,
+the backend database is located in
+.B /var/cache/debconf/
+.SH Developing for Debconf
+Package developers and others who want to use debconf should read the
+Debconf Programmer's Tutorial (/usr/share/doc/debconf-doc/tutorial*).
+.P
+Briefly, debconf communicates with maintainer scripts or other programs
+via standard input and output, using a simple line-oriented command language 
+similar to that used by common internet protocols such as SMTP. Programs use
+this protocol to ask debconf to display questions to the user, and retrieve
+the user's answers. The questions themselves are defined in a separate file, 
+called the "templates file", which has a format not unlike a debian control
+file.
+.P
+Debian packages which use debconf typically provide
+both a templates file and a "config" script (run to preconfigure the
+package) in the control metadata section of the package.
+.SH ENVIRONMENT
+.TP
+.B DEBIAN_FRONTEND
+Used to temporarily change the frontend debconf uses. See above.
+.TP
+.B DEBIAN_PRIORITY
+Used to temporarily change the minimum priority of question debconf will
+display. See above.
+.TP
+.B DEBCONF_DEBUG
+.RS
+Tuuns on debugging output on standard error. May be set to a facility name
+or a regular expression which matches a facility name (such as '.*' to output
+all debug info). The facility names include:
+.TP
+.B user
+Debugging info of interest to a debconf user.
+.TP
+.B developer
+Debugging info of interest to a package developer.
+.TP
+.B db
+Debugging info about the backend database.
+.RE
+.TP
+.B DEBCONF_TERSE
+Set to "yes" to enable terse mode, in which debconf frontends cut down on
+the verbiage as much as possible.
+.SH BUGS
+Probably quite a few, there's a lot of code here.
+.P
+If you do file a bug report, be sure to include the following information:
+.TP
+.B *
+The debconf frontend you were using when the problem occurred
+.TP
+.B *
+What you did to trigger the problem.
+.TP
+.B *
+The full text of any error messages. If you can reproduce the bug, so so
+with DEBCONF_DEBUG='.*' set and include. This speeds up debugging a
+lot.
 .SH SEE ALSO
 .BR debconf.conf (5),
 .BR dpkg-preconfigure (8),
 .BR dpkg-reconfigure (8),
-.BR /usr/share/doc/debconf-doc/usersguide.txt.gz
 .SH AUTHOR
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
