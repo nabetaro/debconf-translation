@@ -11,8 +11,6 @@ test:
 
 clean:
 	find . -name \*~ | xargs rm -f
-	rm -f *.db Version.pm
-	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	$(MAKE) -C Client/preconfigure clean
 
@@ -53,11 +51,11 @@ install:
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 	# Install essential programs.
 	install -d $(prefix)/usr/sbin
-	find Client -perm +1 -type f | grep dpkg- | \
+	find Client -perm +1 -type f | grep dpkg- | grep -v \\.# | \
 		xargs -i_ install _ $(prefix)/usr/sbin
 	# Make man pages for programs.
 	install -d $(prefix)/usr/share/man/man8
-	find Client -perm +1 -type f | grep dpkg- | \
+	find Client -perm +1 -type f | grep dpkg- | grep -v \\.# | \
 		xargs -i_ sh -c 'pod2man --section=8 _ > $(prefix)/usr/share/man/man8/`basename _`.8'
 	# Now strip all pod documentation from all .pm files.
 	# Also, don't use 'base'.
