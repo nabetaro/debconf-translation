@@ -41,7 +41,7 @@ for (my $x=0; $x < @ARGV;) {
 		Debian::DebConf::Config::priority($ARGV[$x++]);
 		$change_priority='';
 	}
-	elsif ((/^-(?:u|-unseen-only)$/) {
+	elsif (/^-(?:u|-unseen-only)$/) {
 		$unseen_only=1;
 	}
 	elsif (/^-(?:h|-help)$/) {
