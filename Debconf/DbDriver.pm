@@ -149,8 +149,9 @@ sub error {
 	my $this=shift;
 
 	if ($this->{required}) {
-		die 'debconf: DbDriver "'.$this->{name}.'" error: '.
+		print STDERR 'debconf: DbDriver "'.$this->{name}.'" error: '.
 			shift()."\n";
+		exit(1);
 	}
 	else {
 		print STDERR 'debconf: DbDriver "'.$this->{name}.'" warning: '.
