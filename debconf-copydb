@@ -112,7 +112,7 @@ my $owner_pattern='.*';
 # a dbdriver from the available config data first.
 my %config;
 sub config {
-	my ($field, $value)=split(/\s*:\s*/, $_[1]);
+	my ($field, $value)=split(/\s*:\s*/, $_[1], 2);
 	$field=~tr/-/_/;
 	$field=lc($field);
 	die "Parse error: \"$_[1]\"" unless defined $field and length $field;

@@ -1,3 +1,10 @@
+debconf (1.2.21) unstable; urgency=low
+
+  * debconf-copydb: Fixed -c parsing for passwords with colons in them, etc.
+    Closes: #173796
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 26 Dec 2002 21:33:41 -0500
+
 debconf (1.2.20) unstable; urgency=low
 
   * Build-depend on python for dh_python. Closes: #172839
