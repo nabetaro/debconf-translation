@@ -1,0 +1,70 @@
+=head1 NOM
+
+debconf-set-selections - insère de nouvelles valeurs par défaut dans la base de
+données de debconf
+
+=cut
+
+=head1 SYNOPSIS
+
+ debconf-set-selections fichier
+ debconf-get-selections | ssh nouvelhôte debconf-set-selections
+
+=head1 DESCRIPTION
+
+B<debconf-set-selections> peut être utilisé pour prévisualiser la base de
+données de debconf et les réponses, ou pour changer les réponses dans la base de
+données. Chaque question sera marquée comme vue afin d'éviter à debconf de poser
+la question de manière interactive.
+
+Si un nom de fichier est donné, il lira depuis celui-ci, autrement il lira
+depuis l'entrée standard.
+
+=head1 ATTENTION
+
+Utilisez cette commande uniquement pour positionner les valeurs debconf par
+défaut pour des paquet qui seront installés ou qui le sont déjà. Autrement vous
+pouvez finir par avoir des valeurs restantes dans la base de données pour des
+paquets non installées, ou des problèmes plus importants concernants des valeurs
+partagées. Il est recommandé d'utiliser cela uniquement pour renseigner les
+bases de données de machines ayant exactement la même installation.
+
+=head1 FORMAT DES DONNÉES
+
+Les données sont sous forme de ligne. Une ligne commençant par le caractère
+dièse (« # ») sont des commentaires. Les lignes vides sont ignorées. Toutes
+les autres lignes définissent la valeur d'une question et devrait contenir
+quatre champs, chacun d'eux séparé par un caractère d'espacement. Le premier
+champs est le nom du paquet propritétaire de la question. Le second est le nom
+de la question, le troisième champ est le type de la question et le quatrième
+(jusqu'à la fin de la ligne) est la valeur de la réponse à utiliser pour cette
+question.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--verbose>, B<-v>
+
+Affichage bavard
+
+=item B<--checkonly>, B<-c>
+
+vérifie seulement le format du fichier d'entrée, ne sauvegarde pas les
+changements fait à la base de données.
+
+=back
+
+
+=cut
+
+=head1 AUTEUR
+
+Petter Reinholdtsen <pere@hungry.com>
+
+=head1 TRADUCTION
+
+Julien Louis <leonptitlouis@ifrance.com>
+
+=cut
+

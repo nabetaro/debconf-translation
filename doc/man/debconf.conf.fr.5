@@ -86,7 +86,7 @@ les désactiver, utilisez Sigils: false.
 .TP
 .B Smileys
 Quelques interfaces utilisent de gentilles petites binettes comme sceaux. Si
-c'est trop gentil et que vous voulez les désactiver, utilisez Smilies: false.
+c'est trop gentil et que vous voulez les désactiver, utilisez Smileys: false.
 Pour les interfaces ne les montrant pas par défaut, Smileys: true essaiera de
 les activer.
 .TP
@@ -194,7 +194,7 @@ Pour ce pilote, les points suivants sont configurables.
 Le répertoire où sont déposés les fichiers. Obligatoire.
 .TP
 .B Extension
-Une extension pour préfixer les fichiers. Elle ne doit pas être une chaîne
+Une extension à ajouter aux noms de fichiers. Elle ne doit pas être une chaîne
 vide\ ;
 Par défaut à «\ .dat\ »
 .TP
@@ -308,7 +308,6 @@ Autre exemple, cette fois la base de données LDAP est sur l'hôte local et peut
   Driver: LDAP
   Server: localhost
   BaseDN: cn=debconf,dc=domain,dc=com
-  BaseDN: cn=debconf,dc=domain,dc=com
   BindPasswd: secret
 .RE
 .TP
@@ -404,8 +403,8 @@ Par exemple\ :
 .P
   Name: backup
   Driver: Backup
-  Backupdb: mydb
-  Backup: mybackupdb
+  Db: mydb
+  Backupdb: mybackupdb
 .RE
 .P
 .B Debug
@@ -466,7 +465,7 @@ Voici un exemple de fichier debconf.conf parmi les plus compliqués.
   # configuration générale de debconf.
   Config: stack
   Templates: templates
-  Log-To: syslog
+  Log: developer
   Debug: developer
 
   # Ma base de données locale.
