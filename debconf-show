@@ -126,12 +126,12 @@ elsif (@packages) {
 				else {
 					print "  ";
 				}
-				print $q->name.": ";
+				print $q->name.":";
 				if ($q->type eq 'password') {
-					print "(password omitted)";
+					print " (password omitted)";
 				}
-				else {
-					print $q->value;
+				elsif (length $q->value) {
+					print " ".$q->value;
 				}
 				print "\n";
 			}
