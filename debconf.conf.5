@@ -16,12 +16,12 @@ can be combined in various ways.
   Templates: templatedb
 
   Name: configdb
-  Driver: Text
-  Directory: /var/lib/debconf/config
+  Driver: File
+  Filename: /var/cache/debconf/config.dat
 
   Name: templatedb
-  Driver: Text
-  Directory: /var/cache/debconf/templates
+  Driver: File
+  Filename: /var/cache/debconf/templates.dat
 .SH "FILE FORMAT"
 The format of this file is a series of stanzas, each seperated by at least
 one wholly blank line. Comment lines beginning with a "#" character are
@@ -43,7 +43,7 @@ begins by naming the database:
 .P
 Then it indicates what database driver should be used for this database.
 See DRIVERS, below, for information about what drivers are available.
-  Driver: Text
+  Driver: File
 .P
 You can indicate that the database is not essential to the proper
 functioning of debconf by saying it is not required. This will make debconf
@@ -60,7 +60,7 @@ and Reject- lines; see ACCESS CONTROLS, below.
 The remainder of each database stanza is used to provide configuration
 specific to that driver. For example, the Text driver needs to know
 a directory to put the database in, so you might say:
-  Directory: /var/lib/debconf/config
+  Filename: /var/cache/debconf/config.dat
 .SH DRIVERS
 A number of drivers are available, and more can be written with little
 difficulty. Drivers come in three general types. First there are real drivers
@@ -69,16 +69,48 @@ which might be on the local filesystem, or on a remote system. Then
 there are meta-drivers that combine other drivers together to form more
 interesting systems. Let's start with the former.
 .TP
-.B Text
+.TP
+.B File
 .RS
-This database driver allows debconf to access data from a subdirectory,
-which contains plain text files. The format of the files is very simple to
-figure out, should you ever need to edit them directly. One file is used
-for each item in the database, so it doesn't scale to database with
-thousands of entries (on the ext2 filesystem anyway). But it is quick and
-efficient for smaller databases. Note that items which might contain
-passwords are written out into mode 600 files, while other files will be
-mode 644.
+This database driver allows debconf to store a whole database in a single
+flat text file. This makes it easy to archive, transfer between machines,
+and edit. It is one of the more compact database formats in terms of disk
+space used.
+.P
+On the downside, the entire file has to be read in each time debconf starts
+up, and saving it is also slow.
+.P
+The following things are configurable for this driver.
+.RS
+.TP
+.B Filename
+The file to use as the database. This is a required field.
+.TP
+.B Mode
+The permissions to create the file with if it does not exist. Defaults to
+600, since the file could contian passwords in some circumstances.
+.TP
+.B Format
+The format of the file. See FORMATS below. Defaults to using a rfc-822
+like format.
+.RE
+.P
+As example stanza setting up a database using this driver:
+.P
+  Name: mydb
+  Driver: File
+  Filename: /var/cache/debconf/mydb.dat
+.RE
+.TP
+.B DirTree
+.RS
+This database driver allows debconf to store data in a hierarchical
+directory structure. The names of the various debconf templates and
+questions are used as-is to form directories with files in them. This
+format for the database is the easiest to browse and fiddle with by hand.
+It has very good load and save speeds. It also typically occupies the most
+space, since a lot of small files and subdirectories do take up some
+additional room.
 .P
 The following things are configurable for this driver.
 .RS
@@ -87,15 +119,28 @@ The following things are configurable for this driver.
 The directory to put the files in. Required.
 .TP
 .B Extention
-An extention to prefix the files with. Optional.
+An extention to prefix the files with. Must be set to a non-empty string;
+defaults to ".dat"
+.TP
+.B Format
+The format of the file. See FORMATS below. Defaults to using a rfc-822
+like format.
 .RE
 .P
 As example stanza setting up a database using this driver:
 .P
   Name: mydb
-  Driver: Text
-  Directory: /home/me/.mydb/
+  Driver: DirTree
+  Directory: /var/cache/debconf/mydb
   Extention: .txt
+.RE
+.TP
+.B Directory
+.RS
+This database driver is the same as the DirTree driver, except all the
+files are put in one directory. It is intended mainly for future
+compatability with cdebconf. Also, unlike with DirTree, the Extention field
+is not required for this driver.
 .RE
 .P
 That's all of the real drivers, now moving on to meta-drivers..
@@ -139,7 +184,8 @@ For example:
   Driver: stack
   Stack: passworddb, configdb, companydb
 .P
-WARNING: The stack driver is not very well tested.
+WARNING: The stack driver is not very well tested yet. Use at your own
+risk.
 .RE
 .SH "ACCESS CONTROLS"
 When you set up a database, you can also use some fields to specify access
@@ -169,9 +215,18 @@ granted.
 .B Reject-Type
 Like Accept-Type, except any type matching this regular expression
 will be rejected.
+.SH FORMATS
+Some of the database drivers use format modules to control the actual
+format in which the database is stored on disk. These formats are currently
+supported:
+.TP
+.B 822
+This is a file format loosely based upon the rfc-822 format for email
+message headers. Similar formats are used throughout Debian; in the dpkg
+status file, and so on.
 .SH EXAMPLE
-Note that some of the driver types in this example do not exist. Feel free
-to write them!
+Note that some of the drivers and formats in this example do not exist.
+Feel free to write them!
 .P
   # This stanza is used for general debconf setup.
   Config: stack
@@ -179,19 +234,15 @@ to write them!
 
   # This is my own local database.
   Name: mydb
-  Driver: Text
-  Directory: /var/lib/debconf/config
-
-  # This is my own local database.
-  Name: mydb
-  Driver: Text
+  Driver: DirTree
   Directory: /var/lib/debconf/config
 
   # This is another database that I use to hold
   # only X server configuration.
   Name: X
-  Driver: Text
-  Directory: /etc/X11/debconf/
+  Driver: File
+  File: /etc/X11/debconf.dat
+  Mode: 644
   # It's sorta hard to work out what questions
   # belong to X; it should be using a deeper
   # tree structure so I could just match on ^X/
@@ -223,7 +274,7 @@ to write them!
   # And I use this database to hold
   # passwords safe and secure.
   Name: passwords
-  Driver: FlatFile
+  Driver: File
   File: /etc/debconf/passwords
   Mode: 600
   Owner: root
@@ -245,19 +296,17 @@ to write them!
   # A database is also used to hold templates. We don't
   # need to make this as fancy.
   Name: templates
-  Driver: text
+  Driver: File
+  Format: db
   Directory: /var/cache/debconf/templates
 .SH "PLANNED ENHANCEMENTS"
-More drivers. Some ideas include:
+More drivers and formats. Some ideas include:
 A SQL driver, with the capability to access a remote database.
-A driver that stores a whole database in a single file, perhaps using a .db
-file (useful for shipping from system to system).
 A LDAP driver.
 A driver that pulls values out of public DNS records TXT fields.
-A driver that is compatable with the output of cdebconf.
-.B
-.P
-Force-Flag-Foo: value to allow things like Force-Flag-Seen: false
+A format that is compatable with the output of cdebconf.
+An override driver, which can override the value field or flags of
+all requests that pass through it.
 .SH FILES
 /etc/debconf.conf
 .P

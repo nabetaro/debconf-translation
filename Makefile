@@ -39,9 +39,7 @@ install-utils:
 install-rest:
 	$(MAKE) -C po install
 	install -d $(prefix)/etc \
-		$(prefix)/var/lib/debconf/config \
-		$(prefix)/var/cache/debconf/templates \
-		$(prefix)/usr/share/debconf/templates \
+		$(prefix)/usr/share/debconf \
 		$(prefix)/usr/lib/debconf
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
