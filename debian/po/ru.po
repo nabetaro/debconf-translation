@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#    Translators, please read /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=KOI8-R\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Choices
+#: ../templates:3
+msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+msgstr "диалог, строка ввода, Gnome, редактор, неинтерактивный"
+
+#. Description
+#: ../templates:5
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Пакеты,  которые  используют debconf, для настройки будут использовать "
+"единый интерфейс. Вы можете выбрать наиболее подходящий."
+
+#. Description
+#: ../templates:5
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and the "
+"gnome frontend is a modern X interface. The editor frontend lets you "
+"configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Диалоговая  оболочка  -  полноэкранная,  в то время как \"строка ввода\" "
+"использует более  традиционный  простой текстовый интерфейс, а Gnome - "
+"современный  X интерфейс.  Редактор  позволит вам задавать настройки в "
+"вашем   любимом   редакторе.  Неинтерактивный  режим  избавит  вас  от "
+"необходимости отвечать на какие-либо вопросы."
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "Какой интерфейс нужно использовать для настройки пакетов?"
+
+#. Choices
+#: ../templates:17
+msgid "critical, high, medium, low"
+msgstr "критичный, высокий, средний, низкий"
+
+#. Description
+#: ../templates:19
+msgid ""
+"Packages that use debconf for configuration prioritize the questions they "
+"might ask you. Only questions with a certain priority or higher are actually "
+"shown to you; all less important questions are skipped."
+msgstr ""
+"Пакеты,  которые  используют  debconf,  используют систему приоритетов "
+"вопросов,  которые  они вам задают. Вам будут показаны только вопросы, "
+"имеющие  приоритет  равный  или  выше  указанного;  вопросы  с меньшим "
+"приоритетом будут пропущены."
+
+#. Description
+#: ../templates:19
+msgid ""
+"You can select the lowest priority of question you want to see:\n"
+"  - 'critical' is for items that will probably break the system\n"
+"    without user intervention.\n"
+"  - 'high' is for items that don't have reasonable defaults.\n"
+"  - 'medium' is for normal items that have reasonable defaults.\n"
+"  - 'low' is for trivial items that have defaults that will work in the\n"
+"    vast majority of cases."
+msgstr ""
+"Вы можете выбирать приоритеты:\n"
+"  - 'критичный' - это те пункты, которые могут навредить  системе  без\n"
+"    вмешательства пользователя.\n"
+"  - 'высокий' - для пунктов, не имеющие разумных значений по умолчанию.\n"
+"  - 'средний' - пункты, которые имеют разумные значения по умолчанию.\n"
+"  - 'низкий' - пункты,  которые имеют разумные значения  по  умолчанию,\n"
+"    работоспособные в подавляющем большинстве случаев."
+
+#. Description
+#: ../templates:19
+msgid ""
+"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
+"only see the most important questions."
+msgstr ""
+"Если вы новичок в Debian GNU/Linux, то сейчас выберите 'критичный',  и вам "
+"будут показаны только наиболее важные вопросы."
+
+#. Description
+#: ../templates:19
+msgid ""
+"For example, this question is of medium priority, and if your priority were "
+"already 'high' or 'critical', you wouldn't see this question."
+msgstr ""
+"Например, этот вопрос имеет средний  приоритет,  и  если  вы  выберете "
+"приоритет  'высокий'  или  'критичный',  то  этот  вопрос вы впредь не "
+"увидите."
+
+#. Description
+#: ../templates:19
+msgid "Ignore questions with a priority less than.."
+msgstr "Игнорировать вопросы с приоритетом меньше, чем.."
+
+#. Description
+#: ../templates:41
+msgid ""
+"Debconf normally only asks you any given question once. Then it remembers "
+"your answer and never asks you that question again. If you prefer, debconf "
+"can ask you questions over and over again, each time you upgrade or "
+"reinstall a package that asks them."
+msgstr ""
+"Debconf  обычно  задает  конкретный  вопрос  только один раз. Затем он "
+"запоминает  ответ на него и больше не задает этот вопрос. Если хотите, то  "
+"debconf может задавать одни и те же вопросы при каждых обновлениях или "
+"переустановках пакетов."
+
+#. Description
+#: ../templates:41
+msgid "Show all old questions again and again?"
+msgstr "Всегда задавать старые вопросы?"
+
+#. Description
+#: ../templates:41
+msgid ""
+"Note that no matter what you choose here, you can see old questions again by "
+"using the dpkg-reconfigure program."
+msgstr ""

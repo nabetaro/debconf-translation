@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#    Translators, please read /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Choices
+#: ../templates:3
+msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+msgstr "Dialog, Readline, Gnome, Editori, Automaattinen"
+
+#. Description
+#: ../templates:5
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän. Voit "
+"itse valita mieluisesi liittymän muutamasta vaihtoehdosta."
+
+#. Description
+#: ../templates:5
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and the "
+"gnome frontend is a modern X interface. The editor frontend lets you "
+"configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Dialog on ruudun täyttävä päätteellä näkyvä liittymä. Readline on "
+"perinteisempi pelkkää tekstiä käyttävä liittymä. Gnome tarjoaa nykyaikaisen "
+"X-pohjaisen liittymän. Editori käyttää asetusten säätöön lempieditoriasi. "
+"Automaattinen liittymä ei koskaan kysy kysymyksiä."
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?"
+
+#. Choices
+#: ../templates:17
+msgid "critical, high, medium, low"
+msgstr "kriittinen, tärkeä, tavallinen, vähäpätöinen"
+
+#. Description
+#: ../templates:19
+msgid ""
+"Packages that use debconf for configuration prioritize the questions they "
+"might ask you. Only questions with a certain priority or higher are actually "
+"shown to you; all less important questions are skipped."
+msgstr ""
+"Debconf:ia käyttävät paketit määrittävät kunkin kysymänsä kysymyksen "
+"tärkeyden. Sinulle näytetään vain valitsemasi tasoiset ja niitä tärkeämmät "
+"kysymykset; kaikille muille käytetään oletusasetuksia."
+
+#. Description
+#: ../templates:19
+msgid ""
+"You can select the lowest priority of question you want to see:\n"
+"  - 'critical' is for items that will probably break the system\n"
+"    without user intervention.\n"
+"  - 'high' is for items that don't have reasonable defaults.\n"
+"  - 'medium' is for normal items that have reasonable defaults.\n"
+"  - 'low' is for trivial items that have defaults that will work in the\n"
+"    vast majority of cases."
+msgstr ""
+"Kysymysten tärkeystasot ja niiden merkitykset ovat\n"
+" - \"kriittinen\" asioille, jotka luultavasti rikkovat järjestelmän,\n"
+"   jos niille ei valita sopivaa vaihtoehtoa,\n"
+" - \"tärkeä\" asioille, joille ei ole järkevää oletusasetusta,\n"
+" - \"tavallinen\" asioille, joille on järkevä oletusasetus,\n"
+" - \"vähäpätöinen\" asioille, joiden järkevä oletusasetus on kelvollinen\n"
+"   lähes kaikissa tapauksissa"
+
+#. Description
+#: ../templates:19
+msgid ""
+"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
+"only see the most important questions."
+msgstr ""
+"Jos olet uusi Debian GNU/Linux -järjestelmän käyttäjä, valitse \"kriittinen"
+"\", jolloin joudut vastaamaan vain tärkeimpiin kysymyksiin."
+
+#. Description
+#: ../templates:19
+msgid ""
+"For example, this question is of medium priority, and if your priority were "
+"already 'high' or 'critical', you wouldn't see this question."
+msgstr ""
+"Tämä kysymys on tasoltaan tavallinen, joten jos olisit aiemmin valinnut "
+"omaksi tasoksesi \"kriittinen\" tai \"tärkeä\", et edes näkisi tätä."
+
+#. Description
+#: ../templates:19
+msgid "Ignore questions with a priority less than.."
+msgstr "Kuinka tärkeät kysymykset haluat nähdä?"
+
+#. Description
+#: ../templates:41
+msgid ""
+"Debconf normally only asks you any given question once. Then it remembers "
+"your answer and never asks you that question again. If you prefer, debconf "
+"can ask you questions over and over again, each time you upgrade or "
+"reinstall a package that asks them."
+msgstr ""
+"Yleensä debconf kysyy kunkin kysymyksen vain kerran, muistaa antamasi "
+"vastauksen eikä enää kysy samaa kysymystä uudestaan. Jos haluat, debconf voi "
+"kysyä kaikki kysymykset uudelleen aina paketteja päivitettäessä tai "
+"uudelleenasennettaessa."
+
+#. Description
+#: ../templates:41
+msgid "Show all old questions again and again?"
+msgstr "Näytetäänkö vanhat kysymykset aina uudelleen?"
+
+#. Description
+#: ../templates:41
+msgid ""
+"Note that no matter what you choose here, you can see old questions again by "
+"using the dpkg-reconfigure program."
+msgstr ""
+"Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan "
+"ajamalla \"dpkg-reconfigure\"-ohjelman."

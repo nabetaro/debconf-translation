@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#    Translators, please read /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Choices
+#: ../templates:3
+msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+msgstr "Dialog, Readline, Gnome, Editor, No interactivo"
+
+#. Description
+#: ../templates:5
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Los paquetes que usan debconf para configurarse comparten un aspecto común. "
+"Puede elegir el tipo de interfaz de usuario que quiere que usen."
+
+#. Description
+#: ../templates:5
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and the "
+"gnome frontend is a modern X interface. The editor frontend lets you "
+"configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Dialog es un interfaz de texto a pantalla completa, mientras que el de "
+"readline es más tradicional, de sólo texto, y gnome es un moderno interfaz "
+"para X. Editor le permite configurar el sistema usando su editor favorito. "
+"El interfaz no interactivo no hace ninguna pregunta."
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "¿Qué interfaz quiere usar para configurar paquetes?"
+
+#. Choices
+#: ../templates:17
+msgid "critical, high, medium, low"
+msgstr "crítica, alta, media, baja"
+
+#. Description
+#: ../templates:19
+msgid ""
+"Packages that use debconf for configuration prioritize the questions they "
+"might ask you. Only questions with a certain priority or higher are actually "
+"shown to you; all less important questions are skipped."
+msgstr ""
+"Los paquetes que usan debconf para la configuración le asignan una prioridad "
+"a las preguntas que hacen. Sólo se mostrarán las preguntas con una cierta "
+"prioridad o superior; no se mostrarán las preguntas menos importantes."
+
+#. Description
+#: ../templates:19
+msgid ""
+"You can select the lowest priority of question you want to see:\n"
+"  - 'critical' is for items that will probably break the system\n"
+"    without user intervention.\n"
+"  - 'high' is for items that don't have reasonable defaults.\n"
+"  - 'medium' is for normal items that have reasonable defaults.\n"
+"  - 'low' is for trivial items that have defaults that will work in the\n"
+"    vast majority of cases."
+msgstr ""
+"Puede escoger la prioridad más baja para las preguntas que desea ver:\n"
+"  - 'crítica' es para asuntos que probablemente romperán el sistema si\n"
+"    el usuario no interviene.\n"
+"  - 'alta' es para asuntos para los que no hay valores predeterminados\n"
+"    razonables.\n"
+"  - 'media' es para asuntos normales, que tienen valores predeterminados\n"
+"    razonables.\n"
+"  - 'baja' es para asuntos triviales, que tienen valores predeterminados\n"
+"    que funcionarán en la inmensa mayoría de casos."
+
+#. Description
+#: ../templates:19
+msgid ""
+"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
+"only see the most important questions."
+msgstr ""
+"Si es un principiante en el sistema Debian GNU/Linux, escoja 'crítica' por "
+"ahora, para ver únicamente las preguntas más importantes."
+
+#. Description
+#: ../templates:19
+msgid ""
+"For example, this question is of medium priority, and if your priority were "
+"already 'high' or 'critical', you wouldn't see this question."
+msgstr ""
+"Por ejemplo, esta pregunta es de prioridad media, y si el valor escogido "
+"para la prioridad fuese 'alta' o 'crítica', no hubiese visto esta pregunta."
+
+#. Description
+#: ../templates:19
+msgid "Ignore questions with a priority less than.."
+msgstr "No mostrar preguntas con una prioridad menor que..."
+
+#. Description
+#: ../templates:41
+msgid ""
+"Debconf normally only asks you any given question once. Then it remembers "
+"your answer and never asks you that question again. If you prefer, debconf "
+"can ask you questions over and over again, each time you upgrade or "
+"reinstall a package that asks them."
+msgstr ""
+"Normalmente debconf hace una determinada pregunta una sola vez. A partir de "
+"ahí recuerda su respuesta y no vuelve a repetir la pregunta más. Si usted "
+"prefiere, debconf puede repetir las preguntas una y otra vez cada vez que "
+"actualice o reinstale un paquete que las haga."
+
+#. Description
+#: ../templates:41
+msgid "Show all old questions again and again?"
+msgstr "¿Mostrar las preguntas antiguas una y otra vez?"
+
+#. Description
+#: ../templates:41
+msgid ""
+"Note that no matter what you choose here, you can see old questions again by "
+"using the dpkg-reconfigure program."
+msgstr ""
+"Observe que independiente de lo que escoja aquí, puede ver las preguntas "
+"antiguas de nuevo usando dpkg-reconfigure."
