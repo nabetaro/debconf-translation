@@ -1,3 +1,10 @@
+debconf (0.2.43) unstable; urgency=low
+
+  * dpkg-preconfig: modified regexp to work under perl 5.004
+    (Closes: #50854, #50880)
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 21 Nov 1999 13:36:37 -0800
+
 debconf (0.2.42) unstable; urgency=low
 
   * Improved abbreviation finding algorythm for text select elements.

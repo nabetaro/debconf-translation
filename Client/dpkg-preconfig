@@ -96,7 +96,7 @@ foreach my $x (0..$#debs) {
 			#
 			# NOTE: if there are two debconf dependancies on a
 			# line, this only looks at the first
-			if (/^ (?i)(?:Pre-)?Depends(?i-):\s+.*?debconf\s+\(\s*([><=]*)\s+(.*?)\s*\)/) {
+			if (/^ (?:Pre-)?Depends:\s+.*?debconf\s+\(\s*([><=]*)\s+(.*?)\s*\)/i) {
 				if (system('dpkg', '--compare-versions', $Debian::DebConf::Version::version, $1, $2) / 256 != 0) {
 					$ok='';
 				}
