@@ -63,7 +63,7 @@ sub make_frontend {
 		return $frontend if defined $frontend;
 
 		warn sprintf(gettext("failed to initialize frontend: %s"), $type);
-		$@=~s/\n//s;
+		$@=~s/\n.*//s;
 		warn "($@)\n";
 	}
 

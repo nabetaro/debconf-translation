@@ -10,17 +10,24 @@ package Debian::DebConf::FrontEnd::Slang;
 use strict;
 use Debian::DebConf::Gettext;
 use Debian::DebConf::Config;
-use Term::Stool::Screen;
-use Term::Stool::Window;
-use Term::Stool::Dialog;
-use Term::Stool::TitleBar;
-use Term::Stool::HelpBar;
-use Term::Stool::Panel;
-use Term::Stool::Button;
-use Term::Stool::Text;
-use Term::Stool::WrappedText;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
+
+# Catch this so it doesn't confuse the poor users if Term::Stool is
+# not installed.
+eval q{
+	use Term::Stool::Screen;
+	use Term::Stool::Window;
+	use Term::Stool::Dialog;
+	use Term::Stool::TitleBar;
+	use Term::Stool::HelpBar;
+	use Term::Stool::Panel;
+	use Term::Stool::Button;
+	use Term::Stool::Text;
+	use Term::Stool::WrappedText
+};
+die "Unable to load Term::Stool -- is libterm-stool-perl installed?\n"
+	if $@;
 
 =head1 DESCRIPTION
 

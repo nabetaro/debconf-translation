@@ -78,6 +78,7 @@ binary-arch: build-arch
 	# Don't modify postrm, I purge differently than normal packages
 	# using me.
 	dh_installdebconf -n
+	dh_installdocs
 	# Changelog reduction hack for debconf. Only include top 5 entries.
 	perl -ne '$$c++ if /^debconf /; last if $$c > 5 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
