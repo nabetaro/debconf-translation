@@ -319,7 +319,7 @@ sub showdialog {
 	chomp $output;
 
 	# Have to put the wait here to make sure $? is set properly.
-	wait;
+	waitpid($pid, 0);
 	$^W=$savew;
 	$^F=$savef;
 
