@@ -42,7 +42,6 @@ use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use strict;
-use lib '.';
 use Exporter;
 use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);

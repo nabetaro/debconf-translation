@@ -14,7 +14,6 @@
 BEGIN {
 	eval qq{
 		use strict;
-		use lib '.';
 		use Getopt::Long;
 		use Debian::DebConf::ConfigDb;
 		use Debian::DebConf::Config;
