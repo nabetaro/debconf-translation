@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive, Web
-Choices-ja: Slang, テキスト, エディタ, ダイアログ, 全自動, ウェブ
+Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices-ja: Slang, テキスト, エディタ, ダイアログ, 全自動
 Default: Slang
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -11,17 +11,16 @@ Description: What interface should be used for configuring packages?
  windowing interface, while the text frontend uses a more traditional plain
  text interface. The editor frontend lets you configure things using your
  favorite text editor. The noninteractive frontend never asks you any
- questions notes. The web frontend can be accessed using your favorite browser.
+ questions.
 Description-ja: パッケージの設定にどのインターフェイスを使用しますか?
- 設定に debconf を使用するパッケージは、共通の外観と操作体系を使用します。
- ここでは、使用するユーザインターフェイスの種類を選択できます。
+ 設定に debconf を使用するパッケージは、共通の外観と操作体系を利用します。
+ そこで利用されるユーザインターフェイスの種類を選択できます。
  .
  slang フロントエンドは、カラフルでフルスクリーンの、キャラクタベースの
  ウィンドウインターフェイスを提供します。また、テキストフロントエンドで
  は、より伝統的な素のテキストインターフェイスを使用します。エディタフロ
- ントエンドでは、お好きなエディタを使用して設定を行ないます。全自動フロ
- ントエンドは、一切の質問を行ないません。ウェブフロントエンドには、お好
- きなウェブブラウザを使用してアクセスができます。
+ ントエンドでは、好きなエディタを使用して設定を行ないます。全自動フロン
+ トエンドは、一切の質問を行ないません。
 
 Template: debconf/priority
 Type: select
@@ -31,34 +30,38 @@ Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
  might ask you. Only questions with a certain priority or higher are actually
- shown to you; all less important questions are skipped and the defaults are
- used for them.
+ shown to you; all less important questions are skipped.
  .
- You can select the lowest priority of question you want to see: `low' is for
- trivial items that have defaults that will work in the vast majority of
- cases. `medium' is for normal items that have reasonable defaults.  `high'
- is for items that don't have reasonable defaults. `critical' is for items
- that will probably break the system without user intervention. For example,
- this question is of medium priority, and if your priority were already
- `high' or `critical', you wouldn't see this question.
+ You can select the lowest priority of question you want to see: 
+   - `critical' is for items that will probably break the system
+     without user intervention.
+   - `high' is for items that don't have reasonable defaults.
+   - `medium' is for normal items that have reasonable defaults.
+   - `low' is for trivial items that have defaults that will work in the
+     vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority were 
+ already `high' or `critical', you wouldn't see this question.
  .
  If you are new to the Debian GNU/Linux system choose `critical' now,
  so you only see the most important questions.
-Description-ja: 以下の項目よりも重要度の低い質問を無視する
+Description-ja: 以下のものよりも重要度の低い質問を無視する
  設定に debconf を使用するパッケージは、ユーザに対する質問に重要度を付け
- ています。ある重要度よりも高い質問のみが実際に出てきますが、それよりも
- 重要度の低い質問は飛ばされ、デフォルトの回答が使用されます。
+ ています。ある重要度以上の質問のみが実際に行なわれますが、それよりも重
+ 要度の低い質問は飛ばされます。
  .
- 質問の重要度が最低のものも選択できます。「低」は、ほとんどの場合にデフォ
- ルトの回答でも構わないような、ささいな項目用です。「標準」は、適当なデ
- フォルトの回答があるような一般の項目用です。「高」は、適当なデフォルト
- の回答がないような項目用です。「重要」は、ユーザが介在しないとシステム
- を破壊しかねないような項目用です。たとえば、ある質問の重要度が標準で、
- 重要度の設定がすでに「高」や「重要」になっていると、その質問は出てきま
- せん。
+ 質問の重要度が最低のものも選択できます。
+  - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目用
+    です。
+  - 「高」は、適切なデフォルトの回答がないような項目用です。
+  - 「標準」は、適切なデフォルトの回答があるような普通の項目用です。
+  - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささいな
+    項目用です。
+ たとえば、ある質問の重要度が標準で、重要度の設定がすでに「高」や「重要」
+ になっていると、その質問は行なわれません。
  .
  もしあなたが Debian GNU/Linux システムの初心者ならば、ここで「重要」を
- 選択すれば、非常に重要な質問のみが出てきます。
+ 選択すれば、非常に重要な質問のみが行なわれます。
 
 Template: debconf/preconfig
 Type: boolean
@@ -105,11 +108,11 @@ Description: Switch to the new, full-freatured slang frontend?
  to use. If you'd like, you can switch to that frontend now.
 Description-ja: 新しい高機能 slang フロントエンドに切り替えますか?
  現在使用しているのは、debconf のダイアログフロントエンドです。このフロ
- ントエンドは、slang フロントエンドと呼ばれる、新しいフロントエンドに
- 置き換わりました。ダイアログフロントエンドにできることはすべて可能で、
- それ以上のこともできます。複数の質問を一度に表示して回答することが可能
- になり、大体においてより柔軟で快適です。ご希望なら、ここでフロントエン
- ドを切り替えることができます。
+ ントエンドは、slang フロントエンドと呼ばれる、新しいフロントエンドに置
+ き換わりました。ダイアログフロントエンドにできることはすべて可能で、そ
+ れ以上のこともできます。複数の質問を一度に表示して回答することが可能に
+ なり、大体においてより柔軟で快適です。ご希望なら、ここでフロントエンド
+ を切り替えることができます。
 
 Template: debconf/helpvisible
 Type: boolean
