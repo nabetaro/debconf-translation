@@ -130,6 +130,10 @@ sub load {
 		exit(1);
 	}
 
+	if (exists $config->{sigils} || exists $config->{smileys}) {
+		print STDERR "debconf: ".gettext("The Sigils and Smileys options in the config file are no longer used. Please remove them.")."\n";
+	}
+
 	# Now read in each database driver, and set it up.
 	while (<DEBCONF_CONFIG>) {
 		my %config=(@defaults);

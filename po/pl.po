@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-02-03 02:17+0200\n"
 "Last-Translator: Emil Nowak <emil5@go2.pl>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Dalej"
 
@@ -94,7 +94,7 @@ msgid ""
 msgstr ""
 "Interfejs dialog wymaga ekranu o wymiarach conajmniej 13 linii na 31 kolumn."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 
@@ -129,7 +129,13 @@ msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 msgid "Template database not specified in config file."
 msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problem z ustawieniem bazy danych zdefiniowanej przez zwrotkê %s z %s."
@@ -260,12 +266,12 @@ msgstr ""
 "Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
 "siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"

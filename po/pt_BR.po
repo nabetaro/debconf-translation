@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf-1.2.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-01-12 15:13-0200\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Mais"
 
@@ -95,7 +95,7 @@ msgstr ""
 "Caso você seja iniciante no sistema Debian GNU/Linux escolhe 'crítica' agora "
 "e veja somente as questões mais importantes."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
@@ -132,7 +132,13 @@ msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
@@ -265,12 +271,12 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"

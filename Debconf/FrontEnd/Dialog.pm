@@ -108,19 +108,6 @@ sub init {
 	if ($this->screenheight < 13 || $this->screenwidth < 31) {
 		die gettext("Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.")."\n";
 	}
-	
-	if (Debconf::Config->sigils ne 'false') {
-		# Defualt to not using smileys.
-		if (Debconf::Config->smileys eq 'true') {
-                        require Debconf::Sigil::Smiley;
-                        $this->sigil(Debconf::Sigil::Smiley->new);
-                }
-                else {
-                        require Debconf::Sigil::Punctuation;
-                        $this->sigil(Debconf::Sigil::Punctuation->new);
-                }
-        }
-	
 }
 
 =item sizetext
@@ -282,8 +269,6 @@ sub showdialog {
 		$_[0]='--password --inputbox'
 	}
 	
-	my $sigil=$this->sigil->get($question->priority) if $this->sigil && $question;
-
 	# Set up a pipe to the output fd, before calling open3. Mess with
 	# $^F to make the fd not be close-on-exec.
 	my $savef=$^F;
@@ -295,7 +280,7 @@ sub showdialog {
 	
 	my $pid = open3('>&STDOUT', '<&STDIN', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
-		'--title', $sigil.$this->title, @_);
+		'--title', $this->title, @_);
 	close OUTPUT_WTR if $this->hasoutputfd;
 	my $output='';
 	if ($this->hasoutputfd) {

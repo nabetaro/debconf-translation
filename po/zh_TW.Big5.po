@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2002-10-31 13:32+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf 在 %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "更多"
 
@@ -84,7 +84,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "對話介面要求畫面必須為 13 行高及 31 字元閣度."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
@@ -119,7 +119,13 @@ msgstr "設定檔中沒有指定的設定資料庫"
 msgid "Template database not specified in config file."
 msgstr "設定檔中沒有指定樣板資料庫"
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -244,12 +250,12 @@ msgstr ""
 "輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的.可能樣板受到不正確的本"
 "地化."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "正設定 %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-01-31 21:48+0100\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Více"
 
@@ -94,7 +94,7 @@ msgstr ""
 "Dialogové rozhraní vy¾aduje obrazovku minimálnì 13 øádkù vysokou a 31 "
 "sloupcù ¹irokou."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Nastavení Debianu"
 
@@ -129,7 +129,13 @@ msgstr "Databáze nastavení není v konfiguraèním souboru zadána."
 msgid "Template database not specified in config file."
 msgstr "Databáze ¹ablon není v konfiguraèním souboru zadána."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problém nastavení databáze definované v èásti %s z %s."
@@ -258,12 +264,12 @@ msgstr ""
 "Vstupní hodnota \"%s\" není v C volbách! To se nikdy nemìlo stát. Mo¾ná jsou "
 "¹ablony ¹patnì lokalizovány."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nemohu nahrát Debconf::Element::%s. Selhal, proto¾e: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Nastavuji %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-02-06 23:26+0100\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf sur %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Suite"
 
@@ -95,7 +95,7 @@ msgid ""
 msgstr ""
 "L'interface dialog a besoin d'un écran d'au moins 13 lignes sur 31 colonnes."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Outil de configuration de Debian"
 
@@ -134,7 +134,13 @@ msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des messages (« templates »)."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -269,12 +275,12 @@ msgstr ""
 "La valeur « %s » ne fait pas partie des choix disponibles ! Cela ne devrait "
 "jamais se produire. Les messages ont peut-être été mal traduits."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"

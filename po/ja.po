@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "%s のDebconf"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "移動"
 
@@ -95,7 +95,7 @@ msgid ""
 msgstr ""
 "Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -131,7 +131,13 @@ msgstr "設定データベースが設定ファイルで指定されていません"
 msgid "Template database not specified in config file."
 msgstr "テンプレートデータベースが設定ファイルで指定されていません"
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -264,12 +270,12 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"

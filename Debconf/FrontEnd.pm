@@ -49,10 +49,6 @@ that the user has indicated they want to back up.
 
 This will be set if the confmodule states it has the backup capability.
 
-=item sigil
-
-May be set to a sigil object for this frontend.
-
 =back
 
 =head1 METHODS
@@ -80,8 +76,6 @@ What type of elements this frontend uses. Defaults to returning the same
 name as the frontend, but tightly-linked frontends might want to share
 elements; if so, one can override this with a method that returns the name
 of the other.
-
-This is also used to determine the type of sigil to use.
 
 This may be called as either a class or an object method.
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2002-09-27 14:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Més"
 
@@ -98,7 +98,7 @@ msgstr ""
 "La interfície de dialog requereix una pantalla d'al menys 13 d'alçada i 31 "
 "columnes d'amplària."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Configuració de Debian"
 
@@ -139,7 +139,13 @@ msgstr ""
 "La base de dades de plantilles no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -273,12 +279,12 @@ msgstr ""
 "El valor de entrada, «%s» no es troba en les opcions C! Açò no hauria de "
 "pasar mai. Potser la plantilla va ser localitzada incorrectament."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "No s'ha pogut carregar Debconf::Element::%s. Error degut a: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurant %s"

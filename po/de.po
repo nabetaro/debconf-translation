@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-01-13 10:27+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf auf %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Weiter"
 
@@ -97,7 +97,7 @@ msgstr ""
 "F�r das Dialog-Frontend muss das Bild mindestens 13 Zeilen lang und 31 "
 "Spalten breit sein."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Debian Konfiguration"
 
@@ -132,7 +132,13 @@ msgstr "Konfigurationsdatenbank in der Konfigurationsdatei nicht angegeben."
 msgid "Template database not specified in config file."
 msgstr "Templatedatenbank in der Konfigurationsdatei nicht angegeben."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problem beim Anlegen der Datenbank nach Absatz %s von %s."
@@ -268,12 +274,12 @@ msgstr ""
 "Eingabewert �%s� nicht in der C Auswahl gefunden! Das sollte nie "
 "passieren. Vielleicht wurde das Template unvorschriftsm��ig localisiert."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Kann Debconf::Element::%s nicht laden. Fehlgeschlagen wegen: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguriere %s"

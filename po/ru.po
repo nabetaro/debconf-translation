@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Далее"
 
@@ -99,7 +99,7 @@ msgstr ""
 "Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
 "ширину."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
@@ -134,7 +134,13 @@ msgstr "База данных настройки не указана в файле настройки."
 msgid "Template database not specified in config file."
 msgstr "База данных шаблонов не указана в файле настройки."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -273,12 +279,12 @@ msgstr ""
 "Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
 "случиться. Возможно, шаблоны были неправильно переведены."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Не удалось создать элемент типа Debconf::Element::%s. Причина: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"

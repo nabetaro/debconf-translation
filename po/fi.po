@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-01-09 13:34+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf @ %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Lisää"
 
@@ -94,7 +94,7 @@ msgstr ""
 "Dialog-liittymä tarvitsee vähintään 13 riviä pitkän ja 31 saraketta leveän "
 "ruudun."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Debianin asetusten säätö"
 
@@ -130,7 +130,13 @@ msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 msgid "Template database not specified in config file."
 msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -264,12 +270,12 @@ msgstr ""
 "Arvoa \"%s\" ei löytynyt C-valinnoista! Näin ei pitäisi koskaan käydä. "
 "Kyselypohjien paikallistamisessa saattaa olla vikaa."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s:n lataus epäonnistui: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "%s:n asetusten säätö"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2004-01-07 23:06EEST\n"
 "Last-Translator: Konstantinos Margaritis <markos@debian.org>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf στο %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Περισσότερα"
 
@@ -101,7 +101,7 @@ msgstr ""
 "Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
 "τουλάχιστον."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Ρύθμιση του Debian"
 
@@ -137,7 +137,13 @@ msgstr "Η βάση δεδομένων των ρυθμίσεων δεν έχει
 msgid "Template database not specified in config file."
 msgstr "Η βάση δεδομένων των προτύπων δεν έχει οριστεί στο αρχείο ρυθμίσεων."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -269,12 +275,12 @@ msgstr ""
 "Η επιλογή που δώσατε, \"%s\" δε βρέθηκε σε C επιλογές! Αυτό δε θα έπρεπε να "
 "έχει συμβεί. Πιθανόν τα πρότυπα δε μεταφράστηκαν σωστά."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Ρύθμιση του %s"

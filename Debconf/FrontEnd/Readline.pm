@@ -216,13 +216,11 @@ sub prompt {
 	$this->linecount(0);
 	my $ret;
 	$this->_skip(0);
-	my $sigil='';
-	$sigil=$this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
 	if (! $noshowdefault) {
-		$ret=$this->readline->readline($sigil.$prompt, $default);
+		$ret=$this->readline->readline($prompt, $default);
 	}
 	else {
-		$ret=$this->readline->readline($sigil.$prompt);
+		$ret=$this->readline->readline($prompt);
 	}
 	$this->display_nowrap("\n");
 	return if $this->_skip;

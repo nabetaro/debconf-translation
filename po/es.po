@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-03 15:39-0500\n"
+"POT-Creation-Date: 2004-03-26 22:06-0500\n"
 "PO-Revision-Date: 2003-09-23 18:35+0200\n"
 "Last-Translator: Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:109
+#: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
 msgstr "Más"
 
@@ -98,7 +98,7 @@ msgstr ""
 "El interfaz Dialog necesita una pantalla de al menos 13 líneas de alto y 31 "
 "columnas de ancho."
 
-#: ../Debconf/FrontEnd/Dialog.pm:297
+#: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
@@ -137,7 +137,13 @@ msgstr ""
 "La base de datos de plantillas no está especificada en el fichero de "
 "configuración."
 
-#: ../Debconf/Config.pm:141
+#: ../Debconf/Config.pm:134
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
@@ -274,12 +280,12 @@ msgstr ""
 "debería suceder nunca. Tal vez las plantillas estaban localizadas "
 "incorrectamente."
 
-#: ../Debconf/FrontEnd.pm:137
+#: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "No se pudo cargar Debconf::Element::%s. Error porque: %s"
 
-#: ../Debconf/FrontEnd.pm:209
+#: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuración de %s"
