@@ -60,15 +60,17 @@ command, sends it to the agent, and reads and processes its reply.
 sub talk {
 	my $this=shift;
 	my $command=join(' ', @_);
+	my $reply;
 	
 	my $fh = $this->{thepipe} || carp "Broken pipe";
-	local $_;
 	
+	debug developer => "----> $command";
 	print $fh $command."\n";
 	$fh->flush;
-	<$fh>;
-	chomp;
-	my ($tag, $val) = split(' ', $_, 2);
+	$reply = <$fh>;
+	chomp($reply);
+	debug developer => "<---- $reply";
+	my ($tag, $val) = split(' ', $reply, 2);
 
 	return ($tag, $val) if wantarray;
 	return $tag;
@@ -119,6 +121,22 @@ sub capb_backup
 	$this->talk('CAPB', 'backup') if $val;
 }
 
+=head2 capb
+
+Gets UI agent capabilities
+
+=cut
+
+sub capb
+{
+	my $this=shift;
+	my $ret;
+	return $this->{capb} if exists $this->{capb};
+
+	($ret, $this->{capb}) = $this->talk('CAPB');
+	return $this->{capb} if ($ret eq '0');
+}
+
 =head2 title
 
 Pass title along to the UI agent.
@@ -155,7 +173,6 @@ sub go {
 		my $type = $question->template->type;
 		my $desc = $question->description;
 		my $extdesc = $question->extended_description;
-		my $choices = $question->choices;
 		my $default = $question->value;
 
 		if ($desc) {
@@ -169,18 +186,19 @@ sub go {
 			            $extdesc);
 		}
 
-		if ($choices) {
-			$choices =~ s/\n/\\n/g if (defined($choices));
+		if ($type eq "select") {
+			my $choices = $question->choices;
+			$choices =~ s/\n/\\n/g if ($choices);
 			$this->talk('DATA', $tag, 'choices', $choices);
 		}
 
-		# TODO: use SET instead to set default.
-		$this->talk('DATA', $tag, $type, $default);
+		$this->talk('SET', $tag, $default) if ($default);
+		$this->talk('INPUT', $tag, $type);
 	}
 
 	# Tell the agent to display the question(s), and check
 	# for a back button.
-	if (scalar $this->talk('GO') eq "30" && $this->capb_backup) {
+	if ((scalar($this->talk('GO')) eq "30") && $this->{capb_backup}) {
 		$this->clear;
 		return;
 	}
