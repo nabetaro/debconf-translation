@@ -12,7 +12,7 @@ This FrontEnd is for a user interface based on dialog, whiptail, or gdialog.
 It will use whichever is available, but prefers to use whiptail if available.
 It handles all the messy communication with thse programs.
 
-It currently uses only whiptail, because dialog and gdialog lack --defaultno.
+It currently uses only whiptail of gdialog, because dialog lacks --defaultno.
 
 =cut
 
@@ -71,13 +71,13 @@ sub new {
 #		$self->{titlespacer}=4;
 #		$self->{clearscreen}=1;
 #	}
-#	elsif (-x "/usr/bin/gdialog") {
-#		$self->{program}='gdialog';
-#		$self->{borderwidth}=5;
-#		$self->{borderheight}=6;
-#		$self->{spacer}=1;
-#		$self->{titlespacer}=10;
-#	}
+	elsif (-x "/usr/bin/gdialog") {
+		$self->{program}='gdialog';
+		$self->{borderwidth}=5;
+		$self->{borderheight}=6;
+		$self->{spacer}=1;
+		$self->{titlespacer}=10;
+	}
 	else {
 		die "Whiptail is not installed, so the dialog based frontend cannot be used.";
 #		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";

@@ -1,3 +1,14 @@
+debconf (0.1.40) unstable; urgency=low
+
+  * gdialog will soon support --defaultno, added versionsed conflicts
+    with versions that don't, and support it again.
+  * ConfModule::new() doesn't take a confmodule to start anymore, I broke
+    that out into a separate function.
+  * AutoSelect only starts up the script if it's actually passed once. TRhis
+    should fix your problem, BenC.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 26 Sep 1999 18:16:47 -0700
+
 debconf (0.1.39) unstable; urgency=low
 
   * Hm, I know I fixed this before, but the fix seems to have been lost:

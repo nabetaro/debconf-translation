@@ -34,12 +34,8 @@ use vars qw($AUTOLOAD);
 
 =head2 new
 
-Create a new ConfModule. You must specify a FrontEnd
-object that this ConfModule can use. If you specify a
-confmodule script to run and communicate with then that
-script will automatically be started and used (if not,
-you can later set the read_handle, write_handle, and pid
-properties of the ConfModule by hand).
+Create a new ConfModule. Pass in a FrontEnd object that this object
+can use.
 
 =cut
 
@@ -56,15 +52,26 @@ sub new {
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
 
-	if (@_) {
-		$self->{confmodule} = shift;
-		$self->{read_handle} = FileHandle->new;
-		$self->{write_handle} = FileHandle->new;
-		$self->{pid} = open2($self->{read_handle}, 
-			$self->{write_handle}, $self->{confmodule}) || die $!;
-	}
-
 	return $self;
+}
+
+=head2 startup
+
+Pass this name name of a confmodule program, and it is started up. You 
+enerally need to do this before trying to use any of the rest of this object.
+The alternative is to launch a confmodule manually, and connect the read_handle
+and write_handle properties of this object to it.
+
+=cut
+
+sub startup {
+	my $this=shift;
+	my $confmodule=shift;
+	
+	$this->confmodule($confmodule);
+	$this->pid(open2($this->read_handle(FileHandle->new),
+		         $this->write_handle(FileHandle->new),
+			 $this->confmodule($confmodule))) || die $!;
 }
 
 =head2 communicate
