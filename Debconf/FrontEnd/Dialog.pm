@@ -246,7 +246,8 @@ If called in a list context, returns the return code of dialog, then the
 stderr output.
 
 Note that the return code of dialog is examined, and if the user hit escape
-or cancel, this frontend will assume they wanted to back up.
+or cancel, this frontend will assume they wanted to back up. In that case,
+showdialog will return undef.
 
 =cut
 
@@ -335,6 +336,7 @@ sub showdialog {
 	my $ret=$? >> 8;
 	if ($ret == 255 || ($ret == 1 && join(' ', @_) !~ m/--yesno\s/)) {
 		$this->backup(1);
+		return undef;
 	}
 
 	if (wantarray) {

@@ -32,8 +32,15 @@ sub show {
 	               $columns, $default);
 
 	my $value=$this->frontend->showdialog($this->question, @params);
-	$value='' unless defined $value;
-	$this->value($value);
+	if (defined $value) {
+		$this->value($value);
+	}
+	else {
+		my $default='';
+		$default=$this->question->value
+			if defined $this->question->value;
+		$this->value($default);
+	}
 }
 
 1

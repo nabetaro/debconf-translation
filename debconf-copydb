@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-debconf-copydb - copy a debconf db
+debconf-copydb - copy a debconf database
 
 =cut
 
@@ -105,7 +105,7 @@ L<debconf.conf(5)>
 =cut
 
 my $pattern='.*';
-my $owner_pattern='.*';
+my $owner_pattern;
 
 # This hash holds config data. The sub adds a new item to the hash,
 # and if it looks like a stanza just ended, tries to instantiate
@@ -158,12 +158,14 @@ my $i=$copier->iterator;
 while (my $item=$i->iterate) {
 	next unless $item =~ /$pattern/;
 
-	my $fit_owner = 0;
-	my $owner;
-	foreach $owner ($src->owners($item)){
-		$fit_owner = 1 if ( $owner =~ /$owner_pattern/ );
+	if (defined $owner_pattern) {
+		my $fit_owner = 0;
+		my $owner;
+		foreach $owner ($src->owners($item)){
+			$fit_owner = 1 if $owner =~ /$owner_pattern/;
+		}
+		next unless $fit_owner;
 	}
-	next unless $fit_owner;
 
 	$copier->copy($item, $src, $dest);
 }

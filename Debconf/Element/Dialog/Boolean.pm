@@ -32,7 +32,15 @@ sub show {
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog($this->question, @params);
-	$this->value($ret eq 0 ? 'true' : 'false');
+	if (defined $ret) {
+		$this->value($ret eq 0 ? 'true' : 'false');
+	}
+	else {
+		my $default='';
+		$default=$this->question->value
+			if defined $this->question->value;
+		$this->value($default);
+	}
 }
 
 1

@@ -384,6 +384,26 @@ sub command_title {
 	return $codes{success};
 }
 
+=item command_settitle
+
+Uses the short description of a question as the title, with automatic i18n.
+
+=cut
+
+sub command_settitle {
+	my $this=shift;
+	
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
+	my $question_name=shift;
+	
+	my $question=Debconf::Question->get($question_name) ||
+		return $codes{badparams}, "\"$question_name\" doesn't exist";
+
+	$this->frontend->title($question->description);
+	
+	return $codes{success};
+}
+
 =item beginblock, endblock
 
 These are just stubs to be overridden by other modules.

@@ -42,13 +42,13 @@ binary-indep: build
 	cp debian/apt.conf debian/debconf/etc/apt/apt.conf.d/70debconf
 	dh_installman doc/man/gen/dpkg-*configure.8 \
 		doc/man/gen/debconf-show.1 doc/man/gen/debconf-copydb.1 \
-		doc/man/gen/debconf.1
+		doc/man/gen/debconf.1 doc/man/gen/debconf-communicate.1
 	dh_installman -p debconf-i18n doc/man/gen/dpkg-*.*.8 \
 		doc/man/gen/debconf-show*.*.1 doc/man/gen/debconf-copydb*.*.1 \
 		doc/man/gen/debconf.*.1
 	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.7 \
 		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
-	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-get-selections | grep -v debconf-set-selections`
+	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-get-selections | grep -v debconf-set-selections | grep -v debconf-communicate`
 	dh_installexamples -pdebconf-doc samples/*
 	
 	# Changelog reduction hack for debconf. Only include top 100 entries.

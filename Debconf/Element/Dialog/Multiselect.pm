@@ -69,11 +69,20 @@ sub show {
 	         $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog($this->question, @params);
-	$value='' if ! defined $value;
 
-	# Dialog returns the selected items, each on a line.
-	# Translate back to C, and turn into our internal format.
-	$this->value(join(", ", $this->order_values(map { $this->translate_to_C($_) } split(/\n/, $value))));
+	if (defined $value) {
+		# Dialog returns the selected items, each on a line.
+		# Translate back to C, and turn into our internal format.
+		$this->value(join(", ", $this->order_values(
+					map { $this->translate_to_C($_) }
+					split(/\n/, $value))));
+	}
+	else {
+		my $default='';
+		$default=$this->question->value
+			if defined $this->question->value;
+		$this->value($default);
+	}
 }
 
 1

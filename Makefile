@@ -14,7 +14,7 @@ install: install-utils install-rest
 # Anything that goes in the debconf-utils package.
 install-utils:
 	install -d $(prefix)/usr/bin
-	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-set-selections | grep -v debconf-get-selections | grep -v debconf-show | grep -v debconf-copydb | \
+	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-set-selections | grep -v debconf-get-selections | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-communicate | \
 		xargs -i install {} $(prefix)/usr/bin
 
 # Anything that goes in the debconf-i18n package.
@@ -51,7 +51,7 @@ install-rest:
 	install -d $(prefix)/usr/sbin $(prefix)/usr/bin
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i install {} $(prefix)/usr/sbin
-	find . -maxdepth 1 -perm +100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb | \
+	find . -maxdepth 1 -perm +100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb -or -name debconf-communicate | \
 		xargs -i install {} $(prefix)/usr/bin
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\

@@ -151,6 +151,9 @@ be used for cosmetic reasons in the displays of some frontends. Other
 frontends will not use it at all. There is no point in using this datatype
 yet, since no frontends support it well. It may even be removed in the
 future.
+.TP
+.B title
+This datatype is used for titles, to be set with the SETTITLE command.
 .RE
 .TP
 .B Default
@@ -245,6 +248,13 @@ supports.
 This sets the title debconf displays to the user. You rarely need to use
 this commands since debconf can automatically generate a title based on
 your package's name.
+.TP
+.B SETTITLE question
+This sets the title to the short description of the template for the
+specified question. The template should be of type title. The advantage
+this has over the TITLE command is that it allows for titles to be stored
+in the same place as the rest of the debconf questions, and allows them to
+be translated.
 .TP
 .B INPUT priority question
 .RS

@@ -52,11 +52,6 @@ sub show {
 		);
 		return unless defined $_;
 
-		# Handle defaults.
-		if ($_ eq '' && length $default) {
-			$_=$default;
-		}
-
 		# Validate the input. Check to see if the first letter
 		# matches the start of "yes" or "no". Internationalization
 		# makes this harder, because there may be some language where
@@ -69,14 +64,23 @@ sub show {
 		# I suppose this would break in a language where $y is a
 		# anchored substring of $n. Any such language should be taken
 		# out and shot. TODO: I hear Chinese actually needs this..
-		# Also, I should just gettext("y") and "n", and use those,
-		# rather than taking the first character, may not makse
-		# sense in multi-byte encodings.
 		if (/^\Q$y\E/i) {
 			$value='true';
 			last;
 		}
 		elsif (/^\Q$n\E/i) {
+			$value='false';
+			last;
+		}
+
+		# As a fallback, check for unlocalised y or n. Perhaps the
+		# question was not fully translated and the user chose to
+		# answer in English.
+		if (/^y/i) {
+			$value='true';
+			last;
+		}
+		elsif (/^n/i) {
 			$value='false';
 			last;
 		}

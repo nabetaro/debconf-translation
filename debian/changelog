@@ -1,3 +1,30 @@
+debconf (1.3.22) unstable; urgency=medium
+
+  * When the teletype frontend is processing the answer to a boolean
+    question, accept English answers even if the locale is set to some other
+    language, as the question may not yet be translated. Closes: #220472
+  * Remove cruft that acted as if "" was a default value in Teletpye Boolean.
+    Closes: #210671
+  * debconf-copydb, DbDriver/Copy: deal better with input dbs that have no
+    Owners fields, such as cdebconf templates dbs. Assume that the owner is
+    "unknown" in this case.
+  * Add support for the SETTITLE command to better handle translated titles.
+    Closes: #172218, #213184
+  * Drop ucfirst of package name in default title.
+  * Make Debian::DebConf::Client::ConfModule deprecation warning go to stderr,
+    not log.
+  * Conflict with versions of whiptail before --default-item was added.
+  * Use --default-item in dialog frontend, instead of the nasty menu
+    reordering. Yay!
+  * Move debconf-communicate from debconf-utils to debconf, it is needed by
+    base-config 2.0.
+  * Urgency medium to help the new base-config get into testing quickly.
+  * Dialog frontend set values to "" or defaults when the user hit cancel or
+    escape and capb backup was not enabled. Instead, in this case do not
+    change any values.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 30 Nov 2003 13:05:22 -0500
+
 debconf (1.3.21) unstable; urgency=low
 
   * Fix multiselect elements in non-C locales. Closes: #221410

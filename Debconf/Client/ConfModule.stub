@@ -4,7 +4,7 @@
 package Debian::DebConf::Client::ConfModule;
 use Debconf::Client::ConfModule;
 use Debconf::Log qw{debug};
-debug developer => "Debian::DebConf::Client::ConfModule is deprecated, please use Debconf::Client::ConfModule instead.";
+print STDERR "Debian::DebConf::Client::ConfModule is deprecated, please use Debconf::Client::ConfModule instead.\n";
 
 sub import {
 	splice @_, 0, 1 => Debconf::Client::ConfModule;

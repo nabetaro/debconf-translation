@@ -32,7 +32,7 @@ class Debconf:
     def __init__(self, title=None):
         for command in ('capb set reset title input beginblock endblock go get'
                         ' register unregister subst previous_module fset fget'
-                        ' visible purge metaget exist version').split():
+                        ' visible purge metaget exist version settitle').split():
             self.setCommand(command)
         self.write, self.read = sys.stdout, sys.stdin
         sys.stdout = sys.stderr

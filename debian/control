@@ -8,7 +8,7 @@ Build-Depends: perl, python, debhelper (>= 4.1.27), gettext, po-debconf
 Package: debconf
 Priority: important
 Pre-Depends: perl-base (>= 5.6.1-4)
-Conflicts: cdebconf, debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9b-20020814-1), whiptail (<< 0.51.4-7), whiptail-utf8 (<= 0.50.17-13)
+Conflicts: cdebconf, debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9b-20020814-1), whiptail (<< 0.51.4-11), whiptail-utf8 (<= 0.50.17-13), debconf-utils (<< 1.3.22)
 Provides: debconf-2.0
 Replaces: debconf-tiny
 Depends: debconf-i18n | debconf-english
@@ -60,6 +60,4 @@ Conflicts: debconf (<< 0.1.0)
 Replaces: debconf (<< 0.1.0)
 Architecture: all
 Description: debconf utilities
- This package contains some small utilities to aid users and developers.
- There are utilities to help manage debconf databases, a program to
- communicate directly with debconf from the command line, and more.
+ This package contains some small utilities for debconf developers.

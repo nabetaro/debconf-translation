@@ -42,14 +42,8 @@ sub show {
 	my $c=1;
 	my $selectspacer = $this->frontend->selectspacer;
 	foreach (@choices) {
-		if ($_ ne $default) {
-			push @params, $_, '';
-		}
-		else {
-			# Make the default go first so it is actually
-			# selected as the default.
-			@params=($_, '', @params);
-		}
+		push @params, $_, '';
+		
 		# Choices wider than the description text? (Only needed for
 		# whiptail BTW.)
 		if ($columns < length($_) + $selectspacer) {
@@ -61,14 +55,18 @@ sub show {
 		unshift @params, $this->frontend->dashsep;
 	}
 	
-	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
+	@params=('--default-item', $default, '--menu', 
+		  $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog($this->question, @params);
 	if (defined $value) {
-		$this->value($this->translate_to_C($value));
+		$this->value($this->translate_to_C($value)) if defined $value;
 	}
 	else {
-		$this->value('');
+		my $default='';
+		$default=$this->question->value
+			if defined $this->question->value;
+		$this->value($default);
 	}
 }
 

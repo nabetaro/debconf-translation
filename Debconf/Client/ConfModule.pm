@@ -45,7 +45,8 @@ use base qw(Exporter);
 # List all valid commands here.
 our @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister previous_module clear
-	      start_frontend fset fget subst purge metaget visible exist);
+	      start_frontend fset fget subst purge metaget visible exist
+	      settitle);
 
 # Import :all to get everything.		   
 our %EXPORT_TAGS = (all => [@EXPORT_OK]);
