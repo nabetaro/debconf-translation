@@ -55,7 +55,7 @@ install-rest:
 	# Other libs and helper stuff.
 	install -m 0644 confmodule.sh confmodule $(prefix)/usr/share/debconf/
 	install frontend $(prefix)/usr/share/debconf/
-	install -m 0755 transition_db.pl $(prefix)/usr/share/debconf/
+	install -m 0755 transition_db.pl fix_db.pl $(prefix)/usr/share/debconf/
 	# Install essential programs.
 	install -d $(prefix)/usr/sbin
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -or -name debconf-show | \

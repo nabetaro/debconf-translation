@@ -60,9 +60,14 @@ sub new {
 	my $owner=shift || 'unknown';
 	
 	# See if we can use an existing template.
-	return $template{$template} if exists $template{$template};
 	if ($Debconf::Db::templates->exists($template) and
 	    $Debconf::Db::templates->owners($template)) {
+		# If a question matching this template already exists in
+		# the db, add the owner to it. This handles shared owner
+		# questions.
+		my $q=Debconf::Question->get($template);
+		$q->addowner($owner) if $q;
+		
 		$this = fields::new($this);
 		$this->{template}=$template;
 		return $template{$template}=$this;
@@ -74,11 +79,18 @@ sub new {
 	}
 	$this->{template}=$template;
 	# Create a question in the db to go with it, unless
-	# one with the same name already exists.
-	unless ($Debconf::Db::config->exists($template)) {
+	# one with the same name already exists. If one with the same name
+	# exists, it may be a shared question so we add the current owner
+	# to it.
+	if ($Debconf::Db::config->exists($template)) {
+		my $q=Debconf::Question->get($template);
+		$q->addowner($owner) if $q;
+	}
+	else {
 		my $q=Debconf::Question->new($template, $owner);
 		$q->template($template);
 	}
+	
 	# This is what actually creates the template in the db.
 	return unless $Debconf::Db::templates->addowner($template, $template);
 

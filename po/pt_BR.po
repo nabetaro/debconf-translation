@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.73\n"
-"POT-Creation-Date: 2001-07-10 18:31-0400\n"
+"POT-Creation-Date: 2001-07-17 13:50-0400\n"
 "PO-Revision-Date: 2001-07-02 22:13-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -43,7 +43,7 @@ msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: ../Debconf/Template.pm:164
+#: ../Debconf/Template.pm:176
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -53,12 +53,12 @@ msgstr ""
 "Provavelmente dois templates não estão separados apropriadamente por uma "
 "única linha.\n"
 
-#: ../Debconf/Template.pm:207
+#: ../Debconf/Template.pm:219
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
 
-#: ../Debconf/Template.pm:213
+#: ../Debconf/Template.pm:225
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"

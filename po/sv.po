@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-07-10 18:31-0400\n"
+"POT-Creation-Date: 2001-07-17 13:50-0400\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: ../Debconf/Template.pm:164
+#: ../Debconf/Template.pm:176
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -50,12 +50,12 @@ msgstr ""
 "beror troligen på att två mallar inte avdelats korrekt med en ensam "
 "radbrytning.\n"
 
-#: ../Debconf/Template.pm:207
+#: ../Debconf/Template.pm:219
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
-#: ../Debconf/Template.pm:213
+#: ../Debconf/Template.pm:225
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"

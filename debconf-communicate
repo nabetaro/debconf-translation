@@ -13,7 +13,7 @@ debconf-communicate - communicate with debconf
 =head1 DESCRIPTION
 
 B<debconf-communicate> allows you to communicate with debconf on the fly,
-from the command line. The sole argument is the name of the package
+from the command line. The package argument is the name of the package
 which you are pretending to be as you communicate with debconf, and it may
 be omitted if you are lazy. It reads commands in the form used by the debconf
 protocol from stdin. For documentation on the available commands and their

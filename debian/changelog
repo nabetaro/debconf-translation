@@ -1,3 +1,16 @@
+debconf (0.9.80) unstable; urgency=medium
+
+  * Looks like new shared templates have been ignored ever since 0.9.10!
+    Symtoms that installed a second package that shared a template
+    with an already installed first did not add the second owner to the
+    list of owners. It's possible that this was also responsible for
+    sporadic reports of db corruption; the question that should belong
+    to a template going away when the only recorded other owner was purged.
+  * Added a call in the postinst to a program to clean up after this
+    problem.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 17 Jul 2001 13:11:44 -0400
+
 debconf (0.9.79) unstable; urgency=low
 
   * Cute, debconf was ignoring fsets of seen of questions that were asked
