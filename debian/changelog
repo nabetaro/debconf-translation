@@ -1,3 +1,11 @@
+debconf (1.0.16) unstable; urgency=low
+
+  * Typo, Closes: #116275
+  * Added dashsep support for password and text elements in the dialog
+    frontend. Closes: #116642
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 19 Oct 2001 16:39:52 -0400
+
 debconf (1.0.15) unstable; urgency=low
 
   * Frontend::Gnome: erase @ARGV before calling Gnome->init, since that

@@ -23,9 +23,9 @@ sub show {
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);
 
-	my @params=('--passwordbox', $text,
-		$lines + $this->frontend->spacer, $columns);
-
+	my @params=('--passwordbox');
+	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
+	push @params, ($text, $lines + $this->frontend->spacer, $columns);
 	my $ret=$this->frontend->showdialog(@params);
 
 	# The password isn't passed in, so if nothing is entered,

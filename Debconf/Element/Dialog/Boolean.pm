@@ -20,9 +20,11 @@ on it.
 sub show {
 	my $this=shift;
 
+	my @params=('--yesno');
+	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
 	# Note 1 is passed in, because we can squeeze on one more line
 	# in a yesno dialog than in other types.
-	my @params=('--yesno', $this->frontend->makeprompt($this->question, 1));
+	push @params, $this->frontend->makeprompt($this->question, 1);
 	if (defined $this->question->value && $this->question->value eq 'false') {
 		# Put it at the start of the option list,
 		# where dialog likes it.

@@ -54,7 +54,7 @@ sub init {
 	$this->interactive(1);
 	$this->capb('backup');
 
-	# Autodetect if whiptail or dialog is available and set magic numbers.
+	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
 	    ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('whiptail');
@@ -232,6 +232,8 @@ sub showdialog {
 	if (not $this->capb_backup) {
 		unshift @_, '--nocancel';
 	}
+	
+	
 	
 	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),

@@ -26,9 +26,10 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
-	my @params=('--inputbox', $text, 
-		$lines + $this->frontend->spacer, 
-		$columns, $default);
+	my @params=('--inputbox');
+	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
+	push @params, ($text, $lines + $this->frontend->spacer, 
+	               $columns, $default);
 
 	my $value=$this->frontend->showdialog(@params);
 	$value='' unless defined $value;
