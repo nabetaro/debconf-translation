@@ -1,10 +1,5 @@
-Add (un)register commands:
-
-<wichert>   REGISTER <template> <location>
-<wichert>      Add a mapping to create an instantiation of <template> at <location>
-<wichert>   UNREGISTER <location>
-<wichert>      Remove the mapping starting at <location>
-
+* The register command doesn't seem to be working, at least not in the cvs
+  demo.
 * Check protocol version against wichert's spec.
 * Finish demos, add some more.
 * Other frontends.
