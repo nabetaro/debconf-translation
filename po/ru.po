@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-05-22 19:22-0400\n"
+"POT-Creation-Date: 2001-05-27 15:24-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -247,17 +247,17 @@ msgstr ""
 "Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
 
-#: ../dpkg-preconfigure:81
-msgid "(not preconfiguring packages since apt-utils is not installed)"
-msgstr ""
-
-#: ../dpkg-preconfigure:112
+#: ../dpkg-preconfigure:107
 #, fuzzy, c-format
 msgid "unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: не удалось заново открыть stdin: %s"
 
-#: ../dpkg-preconfigure:125
+#: ../dpkg-preconfigure:120
 msgid "must specify some debs to preconfigure"
+msgstr ""
+
+#: ../dpkg-preconfigure:125
+msgid "(not preconfiguring packages since apt-utils is not installed)"
 msgstr ""
 
 #: ../dpkg-preconfigure:160

@@ -56,7 +56,7 @@ sub makedriver {
 	my $class=shift;
 	my %config=@_;
 
-	my $type=$config{driver} or die "driver type not specified";
+	my $type=$config{driver} or die "driver type not specified (perhaps you need to re-read debconf.conf(5))";
 
 	# Make sure that the class is loaded..
 	if (! UNIVERSAL::can("Debconf::DbDriver::$type", 'new')) {

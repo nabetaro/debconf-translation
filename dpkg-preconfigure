@@ -77,11 +77,6 @@ BEGIN {
 	}
 }
 
-if (! -x "/usr/bin/apt-extracttemplates") {
-	warn gettext("(not preconfiguring packages since apt-utils is not installed)");
-	exit;
-}
-
 Debconf::Db->load;
 
 my $apt=0;
@@ -124,6 +119,11 @@ if ($apt) {
 elsif (! @debs) {
 	print STDERR sprintf("dpkg-preconfigure: ".gettext("must specify some debs to preconfigure")), "\n";
 	exit(1);
+}
+
+if (! -x "/usr/bin/apt-extracttemplates") {
+	warn gettext("(not preconfiguring packages since apt-utils is not installed)");
+	exit;
 }
 
 my $frontend=make_frontend();

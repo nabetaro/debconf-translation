@@ -1,3 +1,12 @@
+debconf (0.9.60) unstable; urgency=low
+
+  * Make dpkg-preconfigure read all of its input in --apt mode, even if it
+    cannot preconfigure, so apt doesn't think it failed. However, this will
+    only work in normal operation, and things might break in exceptional
+    circumstances. I think this is a bug in apt.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 27 May 2001 15:22:16 -0400
+
 debconf (0.9.59) unstable; urgency=low
 
   * Now that perl-base has Getopt::Long, I can get rid of the handrolled
