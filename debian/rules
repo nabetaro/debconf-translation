@@ -50,6 +50,7 @@ binary-indep: build
 	echo "See /usr/share/doc/debconf-doc/changelog.gz for the" >> debian/debconf.changelog
 	echo "remainder of this changelog." >> debian/debconf.changelog
 
+	dh_python
 	dh_installchangelogs
 	dh_link
 	dh_compress

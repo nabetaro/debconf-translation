@@ -1,3 +1,11 @@
+debconf (1.2.18) unstable; urgency=low
+
+  * Added a python binding for debconf written by moshez. If you use it, you
+    must take care of making your package depend on python; debconf itself
+    does not. It only works with python 2.2.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  9 Dec 2002 12:13:35 -0500
+
 debconf (1.2.17) unstable; urgency=low
 
   * Updated da.po. Closes: #171890
