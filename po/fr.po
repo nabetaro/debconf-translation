@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.1.8\n"
-"POT-Creation-Date: 2002-09-09 12:36-0400\n"
-"PO-Revision-Date: 2002-05-27 11:05+0200\n"
+"Project-Id-Version: debconf 1.1.32\n"
+"POT-Creation-Date: 2002-09-16 14:04-0400\n"
+"PO-Revision-Date: 2002-09-10 10:19+0200\n"
 "Last-Translator: Martin Quinson <Martin.Quinson@tuxfamily.org>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Choix"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Entrez zéro ou plusieurs éléments séparés par une virgule suivie d'un "
+"(Entrez zéro ou plusieurs éléments séparés par une virgule suivie d'une "
 "espace (', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
@@ -43,17 +43,17 @@ msgstr "non"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 msgid "Save (mail) Note"
-msgstr "Enregistrer (mailer) la note"
+msgstr "Enregistrer (dans un courrier) la note"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Il a été demandé à Debconf de sauver cette note, il vous l'a donc envoyé par "
-"courrier électronique."
+"Il a été demandé à Debconf de sauver cette note, il vous l'a donc envoyée "
+"par courrier électronique."
 
 #: ../Debconf/Element/Gnome/Note.pm:50
 msgid "The note has been mailed."
-msgstr "La note a été envoyé par courrier électronique."
+msgstr "La note a été envoyée par courrier électronique."
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
@@ -95,12 +95,12 @@ msgid ""
 "Perhaps the templates were incorrectly localized."
 msgstr ""
 "La valeur « %s » ne se trouve pas parmi les choix possibles ! Cela ne "
-"devrait jamais se produire. Peut être que les modèles ont été mal traduits."
+"devrait jamais se produire. Les modèles ont peut-être été mal traduits."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
+msgstr ""
+"La variable TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -125,8 +125,8 @@ msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Ni whiptail ni dialog ne sont installés, donc l'interface basé sur dialog va "
-"être utilisé."
+"Ni whiptail ni dialog ne sont installés, donc l'interface basé sur dialog ne "
+"peut pas être utilisé."
 
 #: ../Debconf/FrontEnd/Dialog.pm:265
 msgid "Debian Configuration"
@@ -152,16 +152,16 @@ msgid ""
 msgstr ""
 "Cette interface debconf vous présente un ou plusieurs fichiers texte à "
 "éditer. Voici l'un d'entre eux. Si vous êtes familier avec les fichiers de "
-"configuration d'Unix, ce fichier sera facile a comprendre. Il contient des "
+"configuration d'Unix, ce fichier sera facile à comprendre. Il contient des "
 "éléments de configuration séparés par des commentaires. Éditez le fichier et "
 "changez tous les éléments nécessaires, puis enregistrez le et quittez. À ce "
-"point, debconf relira ce fichier et utilisera ses valeurs pour configurer le "
+"point, debconf relira ce fichier et utilisera ces valeurs pour configurer le "
 "système."
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf sur %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
@@ -219,30 +219,37 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Debconf/Template.pm:182
+#: ../Debconf/Template.pm:84
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+
+#: ../Debconf/Template.pm:195
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Dans le modèle #%s de %s, le champ « %s » est dupliqué avec « %s » nouvelle "
-"valeur. Il manque probablement la ligne vide de séparation entre deux "
-"modèles.\n"
+"Dans le modèle #%s de %s, le champ « %s » est dupliqué avec « %s » comme "
+"nouvelle valeur. Il manque probablement la ligne vide de séparation entre "
+"deux modèles.\n"
 
-#: ../Debconf/Template.pm:207
+#: ../Debconf/Template.pm:220
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Erreur champ de modèle « %s » inconnu, dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:233
+#: ../Debconf/Template.pm:246
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers « %s », dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:239
+#: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Le modèle #%s de %s contient pas de ligne « Template: »\n"
+msgstr "Le modèle #%s de %s ne contient pas de ligne « Template: »\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -294,32 +301,29 @@ msgstr "Impossible de lire le fichier d'état : %s"
 #: ../debconf-mergetemplate:114
 #, c-format
 msgid "%s is missing"
-msgstr "%s est manquant"
+msgstr "%s est absent"
 
 #: ../debconf-mergetemplate:118
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "%s est manquant ; abandon de %s"
+msgstr "%s manque ; abandon de %s"
 
 #: ../debconf-mergetemplate:141
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s est flou, octet %s: %s"
 
 #: ../debconf-mergetemplate:146
-#, fuzzy, c-format
+#, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s est flou ; ce champ a été abandonné"
+msgstr "%s est flou à l'octet %s: %s ; ce champ a été abandonné"
 
 #: ../debconf-mergetemplate:163
 #, c-format
 msgid "%s is outdated"
-msgstr "%s est hors d'âge"
+msgstr "%s est obsolète"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s est hors d'âge ; abandon de tout le modèle !"
-
-#~ msgid "%s is fuzzy"
-#~ msgstr "%s est flou"

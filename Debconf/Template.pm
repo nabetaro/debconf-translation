@@ -73,6 +73,19 @@ sub new {
 		# questions.
 		my $q=Debconf::Question->get($template);
 		$q->addowner($owner, $type) if $q;
+
+		# See if the template claims to own any questions that
+		# cannot be found. If so, the db is corrupted; attempt to
+		# recover.
+		my @owners=$Debconf::Db::templates->owners($template);
+		foreach my $question (@owners) {
+			my $q=Debconf::Question->get($question);
+			if (! $q) {
+				warn sprintf(gettext("warning: possible database corruption. Will attempt to repair by adding back missing question %s."), $question);
+				my $newq=Debconf::Question->new($question, $owner, $type);
+				$newq->template($template);
+			}
+		}
 		
 		$this = fields::new($this);
 		$this->{template}=$template;

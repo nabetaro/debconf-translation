@@ -9,6 +9,7 @@ if (! @ARGV || $ARGV[0] ne 'end') {
 	# These actions need to be repeated until the db is consistent.
 	my $fix=0;
 	my $ok;
+	my $counter=0;
 	do {
 		$ok=1;
 	
@@ -70,7 +71,8 @@ if (! @ARGV || $ARGV[0] ne 'end') {
 				}
 			}
 		}
-	} until ($ok);
+		$counter++;
+	} until ($ok || $counter > 20);
 
 	# If some fixes were done, save them and then fork a new process
 	# to do the final fixes. Seems to be necessary to do this is the db was

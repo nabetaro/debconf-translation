@@ -1,3 +1,16 @@
+debconf (1.1.33) unstable; urgency=low
+
+  * Add question when loading a template if the question is gone and the
+    template still claims to own it. This should never happen unless you
+    have a disk crash or bad kernel hang when using debconf, but enough
+    people experience it to waste too much of my time. This is more robust.
+    Closes: #151406, #160960
+  * Update fr.po
+  * Fixed typos in debconf.conf.
+  * fix_db.pl: Loop only 10 times. Closes: #153775
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 16 Sep 2002 14:03:47 -0400
+
 debconf (1.1.32) unstable; urgency=low
 
   * Added back Polish template translation. Closes: #160183
