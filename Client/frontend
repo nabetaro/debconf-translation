@@ -11,6 +11,8 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use Debian::DebConf::Log ':all';
 
+debug 2, "frontend started";
+
 # Load up previous state information.
 Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 
@@ -38,28 +40,29 @@ else {
 	# Being run some other way, not via a dpkg script.
 	$package='';
 
+	debug 2, "Trying to find a templates file..";
+	sub trytemplate {
+		my $fn=shift;
+		if (-e $fn) {
+			debug 2, "I guess it is $fn";
+			return Debian::DebConf::ConfigDb::loadtemplatefile($fn, $package);
+		}
+		else {
+			return;
+		}
+	}
+
 	# See if there is a templates file in the same directory as the script,
-	# with the same name except .templates is appended. Also try just
-	# using the script name, with "config" in it at the end replaced with
-	# "templates". Finally, look in /usr/share/debconf/templates/ for the
-	# same filenames.
-	my $t="$ARGV[0].templates";
-	if (! -e $t && $t=~m/config$/) {
-		$t=$ARGV[0];
-		$t=~s/config$/templates/;
-	}
-	my ($tbase)=$t=~m:.*/(.*?):;
-	$tbase="/usr/share/debconf/templates/$tbase";
-	if (-e $t) {
-		debug 2, "trying to load templates file (guessing it is $t)";
-		Debian::DebConf::ConfigDb::loadtemplatefile($t, $package);
-	}
-	else {
-		($t)=$t=~m:.*/(.*):;
-		$t="/usr/share/debconf/templates/$t";
-		if (-e $t) {
-			debug 2, "trying to load templates file (guessing it is $t)";
-			Debian::DebConf::ConfigDb::loadtemplatefile($t, $package);
+	# with the same name except .templates is appended.
+	unless (trytemplate("$ARGV[0].templates")) {
+		# Next try removing "config" from the end of the script name,
+		# and putting in "templates".
+		unless ($ARGV[0]=~m/(.*)config$/ && trytemplate("${1}templates")) {
+			# Finally, look in debconf lib directory for the base
+			# filename with .templates appended.
+			unless ($ARGV[0]=~m!^(?:.*/)?(.*)! && trytemplate("/usr/share/debconf/templates/${1}.templates")) {
+				debug 2, "Couldn't find a templates file."
+			}
 		}
 	}
 }
