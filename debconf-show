@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+
+=head1 NAME
+
+debconf-show
+
+=head1 SYNOPSIS
+
+ debconf-show packagename
+
+=head1 DESCRIPTION
+
+B<debconf-show> displays all items in the debconf database owned by a given
+package, and their current values. Items that have been displayed are prefixed
+with an '*'.
+
+This can be useful as a debugging aid, and especially handy in bug reports
+involving a package's use of debconf.
+
+=cut
+
+use strict;
+use warnings;
+use Debconf::Db;
+use Debconf::Template;
+use Debconf::Question;
+
+my $package = shift || die "Syntax: debconf-showpackage packagename\n";
+
+Debconf::Db->load;
+
+my $qi=Debconf::Question->iterator;
+while (my $q=$qi->iterate) {
+	if (grep { $package eq $_} split(/, /, $q->owners)) {
+		if ($q->flag("seen") eq 'true') {
+			print "* ";
+		}
+		else {
+			print "  ";
+		}
+		print $q->name.": ";
+		if ($q->type eq 'password') {
+			print "(password omitted)";
+		}
+		else {
+			print $q->value;
+		}
+		print "\n";
+	}
+}
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut

@@ -86,22 +86,6 @@ Description-sv: Visa alla gamla frågor igen och igen?
  Observera: oavsett vad du väljer här kan du se gamla frågor igen genom att
  använda programmet dpkg-reconfigure. 
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-sv: Byta till det nya, fullt fungerade slangskalet?
- Du använder just nu debconfs dialogskal. Detta skal har ersatts med ett
- nytt skal, kallat slangskalet, som gör allting dialogskalet gör, och mer
- därtill. Det låter dig se och besvara flera frågor samtidigt, och är
- oftast mer flexibelt och trevligt att använda. Om du så önskar kan du byta
- till det skalet nu. 
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

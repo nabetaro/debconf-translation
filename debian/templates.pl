@@ -82,22 +82,6 @@ Description-pl: Czy zawsze zadawaæ stare pytania?
  Zwróæ uwagê, ¿e bez wzglêdu na odpowied¼ na to pytanie mo¿esz zobaczyæ
  dowolne pytanie jeszcze raz u¿ywaj±c programu dpkg-reconfigure.
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now.
-Description-pl: Czy prze³±czyæ siê na now± nak³adkê slang?
- U¿ywasz obecnie nak³adki `dialog' dla debconfa. Zosta³a ona zast±piona
- now±, lepsz± nak³adk± `slang'. Potrafi ona robiæ to wszystko, co `dialog', a
- nawet wiêcej. Pozwala widzieæ i odpowiadaæ na kilka pytañ na raz, i jest
- ogólnie wygodniejsza i bardziej elastyczna w u¿yciu. Je¶li chcesz, mo¿esz
- teraz prze³±czyæ siê na t± nak³adkê.
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

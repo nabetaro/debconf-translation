@@ -1,19 +1,3 @@
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-de: Wechseln zum neuen funktionsreichen slang Frontend?
- Sie benutzen zur Zeit debconf's dialog Frontend. Dieses Frontend
- wurde durch ein neues Frontend ersetzt. Dieses slang Frontend kann
- alles was das dialog Frontend kann und mehr. Es zeigt Ihnen mehrere
- Fragen gleichzeitig und ist im Allgemeinen flexibler und angenehmer.
- Wenn Sie möchten können Sie jetzt zu diesen Frontend wechseln.
-
 Template: debconf/showold
 Type: boolean
 Default: false

@@ -83,23 +83,6 @@ Description-ja: 以前に問い合わせた質問をすべて何度も表示しますか?
  注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ
  グラムを使用して表示できます。
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-freatured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now.
-Description-ja: 新しい高機能 slang フロントエンドに切り替えますか?
- 現在使用しているのは、debconf のダイアログフロントエンドです。このフロ
- ントエンドは、slang フロントエンドと呼ばれる、新しいフロントエンドに置
- き換わりました。ダイアログフロントエンドにできることはすべて可能で、そ
- れ以上のこともできます。複数の質問を一度に表示して回答することが可能に
- なり、大体においてより柔軟で快適です。ご希望なら、ここでフロントエンド
- を切り替えることができます。
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

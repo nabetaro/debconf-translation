@@ -30,7 +30,7 @@ EOF
 
 B<debconf-copydb> copies items from an existing debconf database into
 another, possibly new database. The two databases may have different
-formats, if so a conversion will automatically be done.
+formats; if so a conversion will automatically be done.
 
 =head1 OPTIONS
 
@@ -38,7 +38,7 @@ formats, if so a conversion will automatically be done.
 
 =item I<sourcedb>
 
-Tthe name of the source database. Typically it will be defined
+The name of the source database. Typically it will be defined
 in your debconf.conf (or .debconfrc) file.
 
 =item I<destdb>

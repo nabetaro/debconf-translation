@@ -1,4 +1,8 @@
 General:
+* Change the default config over to having one db for passwords and
+  another for all else; this will allow most of the debconf config to be
+  world readable. Then I can put the bts-script into the deb and it will be
+  usable from bug even.
 * The ConfModule should not return the backup return code, ever, if 
   the confmodule it talks to has not indicated it has that capability.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.

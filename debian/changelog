@@ -1,3 +1,13 @@
+debconf (0.9.73) unstable; urgency=low
+
+  * Added debconf-show, which displays all questinos belonging to a
+    package, their values, and indicates if they have been seen or not, all
+    in a compact format handy for bug reports. Now why didn't I think of
+    this before?
+  * To keep the bit scales balanced, removed an unused template.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 25 Jun 2001 15:22:15 -0400
+
 debconf (0.9.72) unstable; urgency=low
 
   * Dropped libterm-stool-perl down to a suggests.

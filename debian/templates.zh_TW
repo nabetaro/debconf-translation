@@ -77,21 +77,6 @@ Description-zh_TW: 是否總是要顯示老問題？
  向您提出相同的問題了．當然，如果您樂意，Debconf 也可以在您升級軟件包，或者
  重新安裝的時候，重復的問您這些老問題．
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-freatured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-zh_TW: 切換到新的，全功能的 Slang 前端界面嗎？
- 您正在使用 Debconf 的 Dialog 前端用戶界面．這個界面已經被新的前端界面
- Slang 所取代了，Slang 可以做到 Dialog 的全部的效果，並且做得更好．它可
- 以讓您一次看到多個問題，而且更加靈活和賞心悅目．如果您覺得合適的話，可
- 以考慮切換到這個界面上來．
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

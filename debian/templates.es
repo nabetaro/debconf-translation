@@ -84,22 +84,6 @@ Description-es: ¿Mostrar las preguntas antiguas una y otra vez?
  Observe que independiente de lo que escoja aquí, puede ver las preguntas
  antiguas de nuevo usando dpkg-reconfigure .
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-freatured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-es: ¿Cambiar a la nueva interfaz, basada en slang?
- Actualmente está usando la interfaz dialog de debconf. Esta interfaz ha
- sido suplantada por un nuevo interfaz, llamado interfaz slang, que hace
- todo lo que hace dialog y más. Le permite ver y responder a múltiples
- preguntas a la vez, y es en general más flexible y confortable de usar.
- Si lo desea, puede cambiar a ese interfaz ahora.
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

@@ -15,22 +15,6 @@ Description-pt_BR: Mostrar as perguntas antigas sempre?
  o debconf pode perguntar toda vez que você atualizar ou reinstalar um
  pacote que que tem perguntas.
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-pt_BR: Mudar para o novo front-end completo slang?
- Você está atualmente usando o frontend dialog. Esse frontend foi ultrapassado
- por um novo frontend, chamado de slang, que faz tudo que o dialog faz
- e mais. Ele permite a você responder múltiplas perguntas de uma vez e é
- normalmente mais flexível e agradável de usar. Se quiser pode mudar para
- esse frontend agora.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low

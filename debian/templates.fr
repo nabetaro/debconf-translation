@@ -92,22 +92,6 @@ Description-fr: Poser de nouveau les anciennes questions ?
  Notez que quel que soit votre choix ici, vous pouvez revoir la
  configuration  d'un paquet avec le programme dpkg-reconfigure.  
 
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now. 
-Description-fr: Utiliser la nouvelle interface slang ?
- Vous utilisez en ce moment l'interface 'Dialogue'. Celle ci est maintenant
-  remplacée par une nouvelle interface nommée 'slang'. Elle fait tout ce
- que 'Dialogue' fait, et plus encore. Par exemple, elle vous permet de
- visualiser plusieurs questions à la fois, ce qui est plus agréable. Vous
- pouvez choisir de changer d'interface maintenant.  
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

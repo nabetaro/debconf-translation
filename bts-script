@@ -1,0 +1,10 @@
+#!/bin/sh
+# Include info about debconf in bug report.
+# If your package could use this info too, make a symlink from this script
+# to your package's name.
+(
+	echo
+	echo "--- Begin debconf db information"; 
+	debconf-show $(basename $0) || echo "debconf-show failed!"
+	echo "--- End debconf db information";
+) 2>&3 >&3

@@ -17,21 +17,6 @@ Description-nl: Alle oude vragen blijven herhalen?
  Los van wat u hier antwoord, kunt u oude vragen altijd opnieuw zien
  door het dpkg-reconfigure programma te gebruiken.
 
-Template: debconf/switch-to-slang
-Type: boolean
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now.
-Description-nl: Overgaan naar de nieuwe, uitgebreide 'slang' schil?
- U gebruikt momenteel debconf's 'dialog' schil. Deze heeft nu een opvolger
- genaamd 'slang', die alles kan wat 'dialog' kan en meer. U kunt hiermee
- meerdere vragen tegelijk zien en beantwoorden. Verder is ze over het
- algemeen flexibeler en prettiger in gebruik. Als u wilt, kunt u nu
- overstappen op de nieuwe schil.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
