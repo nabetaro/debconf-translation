@@ -1,3 +1,12 @@
+debconf (0.9.71) unstable; urgency=HIGH
+
+  * No changes. Testing has debconf 0.9.41, which breaks under perl 5.6.1.
+    5.6.1 just went into testing. This needs to go in ASAP.
+  * aj, if you see this, this is your cue to slam this package into testing
+    without any delay at all.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 21 Jun 2001 20:16:26 -0400
+
 debconf (0.9.70) unstable; urgency=low
 
   * Fixed pod2man silly man page header issue. Closes: #101766
