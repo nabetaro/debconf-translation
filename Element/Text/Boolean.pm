@@ -35,7 +35,7 @@ sub show {
 	}
 	elsif ($default eq 'false') {
 		$prompt="yN";
-		$default='u';
+		$default='n';
 	}
 	else {
 		$prompt="yn";
@@ -50,7 +50,7 @@ sub show {
 		
 		# Handle defaults.
 		if ($_ eq '' && defined $default) {
-			$value=$default;
+			$_=$default;
 		}
 
 		# Validate the input.
