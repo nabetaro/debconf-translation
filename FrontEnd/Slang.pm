@@ -15,6 +15,7 @@ This FrontEnd is a Slang UI for DebConf.
 package Debian::DebConf::FrontEnd::Slang;
 use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
+use Debian::DebConf::Config;
 use Term::Stool::Screen;
 use Term::Stool::Window;
 use Term::Stool::Dialog;
@@ -50,7 +51,7 @@ sub init {
 	));
 	$this->helpbar(Term::Stool::HelpBar->new);
 	
-	$this->descwindow(Term::Stool::Window->new(
+	$this->helpwindow(Term::Stool::Window->new(
 		title => "Help",
 		resize_hook => sub {
 			my $this=shift;
@@ -62,7 +63,7 @@ sub init {
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));
-	$this->desctext(Term::Stool::WrappedText->new(
+	$this->helptext(Term::Stool::WrappedText->new(
 		xoffset => 1,
 		yoffset => 0,
 		resize_hook => sub {
@@ -74,14 +75,40 @@ sub init {
 		},
 	));
 	
-	$this->button_next(Term::Stool::Button->new(
-		text => "Next",
-		width => 8,
+	$this->button_next(Term::Stool::Button->new(text => "Next"));
+	$this->button_back(Term::Stool::Button->new(text => "Back"));
+	$this->button_help(Term::Stool::Button->new(
+		align => 'right',
+		text_hidden => "Show Help",
+		text_shown => "Hide Help",
+		width => "13",
+		press_hook => sub {
+			# Toggle display of the helpwindow.
+			if ($this->helpwindow->hidden) {
+				Debian::DebConf::Config::helpvisible('true');
+				$this->helpwindow->hidden(0);
+				$this->button_help->text($this->button_help->text_shown);
+			}
+			else {
+				Debian::DebConf::Config::helpvisible('false');
+				$this->helpwindow->hidden(1);
+				$this->button_help->text($this->button_help->text_hidden);
+			}
+			$this->mainwindow->resize;
+			$this->screen->display;
+			$this->screen->refresh;
+		},
+	
 	));
-	$this->button_back(Term::Stool::Button->new(
-		text => "Back",
-		width => 8,
-	));
+	
+	if (Debian::DebConf::Config::helpvisible eq 'true') {
+		$this->button_help->text($this->button_help->text_shown);
+	}
+	else {
+		$this->button_help->text($this->button_help->text_hidden);
+		$this->helpwindow->hidden(1);
+	}
+	
 	$this->panel(Term::Stool::Panel->new(
 		xoffset => -1,
 		yoffset => -1,
@@ -98,30 +125,38 @@ sub init {
 		deactivate_hook => sub {
 			my $panel=shift;
 
-			# Clear out any visible description when the focus
+			# Clear out any visible help when the focus
 			# leaves the panel.
-			$this->desctext->text('');
-			$this->desctext->display;
+			$this->helptext->text('');
+			$this->helptext->display;
 		},
 	));
 	$this->mainwindow(Term::Stool::Dialog->new(
 		inside => $this->panel,
 		resize_hook => sub {
+			my $hidden=$this->helpwindow->hidden;
+			
 			my $this=shift;
 			
 			# Resize to take up the top half of the screen.
 			$this->xoffset(2);
 			$this->yoffset(2);
 			$this->width($this->container->width - 4);
-			$this->height(int(($this->container->height - 6) / 2));
+			if ($hidden) {
+				$this->height($this->container->height - 4);
+			}
+			else {
+				# Take up top half of screen only.
+				$this->height(int(($this->container->height - 6) / 2));
+			}	
 		},
         ));
 	
 	$this->mainwindow->buttonbar->add($this->button_next,
-		$this->button_back);
-	$this->descwindow->add($this->desctext);
+		$this->button_back, $this->button_help);
+	$this->helpwindow->add($this->helptext);
 	$this->screen->add($this->titlebar, $this->mainwindow,
-		$this->descwindow, $this->helpbar);
+		$this->helpwindow, $this->helpbar);
 }
 
 =head2 go
@@ -165,8 +200,10 @@ sub go {
 			# First, make sure the short description is visible.
 			$this->container->scrollto($element->widget_description);
 			# Now show the long description.
-			$element->frontend->desctext->text($element->question->extended_description);
-			$element->frontend->desctext->display;
+			$element->frontend->helptext->text($element->question->extended_description);
+			unless ($element->frontend->helpwindow->hidden) {	
+				$element->frontend->helptext->display;
+			}
 		});
 		$element->widget_description(Term::Stool::Text->new(
 			text => $element->question->description,

@@ -64,8 +64,8 @@ sub AUTOLOAD {
 	my $field = $AUTOLOAD;
 	$field =~ s|.*:||; # strip fully-qualified portion
 	
-	return $this->{$field}=shift if @_;
-	return $this->{$field};
+	return $this->{$field} unless @_;
+	return $this->{$field}=shift;
 }
 
 =head1 AUTHOR

@@ -117,6 +117,28 @@ If DEBIAN_PRIORITY is set in the environment, it overrides all this.
 	}
 }
 
+=head2 helpvisible
+
+Whether extended help should be displayed in some frontends. A value is
+pulled out of the database if possible, otherwise a default is used.
+
+If a value is passed to this function, it changes it perminantly.
+
+=cut
+
+sub helpvisible {
+	my $question=Debian::DebConf::ConfigDb::getquestion(
+		'debconf/helpvisible'
+	);
+	if ($question) {
+		return $question->value unless @_;
+		return $question->value(shift);
+	}
+	else {
+		return 'true';
+	}
+}
+
 =head2 showold
 
 If true, then old questions the user has already seen are shown to them again.

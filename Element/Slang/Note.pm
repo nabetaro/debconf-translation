@@ -26,7 +26,7 @@ sub init {
 	$this->widget(Term::Stool::Button->new(
 		sameline => 1,
 		text => 'Save Note',
-		preferred_width => 11,
+		preferred_width => 13,
 		press_hook => sub {
 			my $button=shift;
 			if ($this->sendmail("Debconf was asked to save this note, so it mailed it to you.")) {

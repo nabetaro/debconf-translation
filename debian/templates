@@ -64,3 +64,11 @@ Description: Switch to the new, full-freatured slang frontend?
  multiple questions at a time, and is generally more flexable and pleasant
  to use. If you'd like, you can switch to that frontend now.
 
+Template: debconf/helpvisible
+Type: boolean
+Default: true
+Description: Should debconf display extended help for questions?
+ Debconf can display extended help for questions. Some frontends allow this
+ display to be turned off, which may make them run a bit faster, or be less
+ cluttered. This is mostly useful for experts.
+

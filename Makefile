@@ -7,7 +7,7 @@ Version.pm:
 
 test:
 	install -d Debian || true
-	cd Debian && ln -sf .. DebConf
+	cd Debian && ln -s .. DebConf || true
 	samples/$(PACKAGE)
 	rm -rf Debian
 
