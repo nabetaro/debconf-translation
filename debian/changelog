@@ -1,3 +1,17 @@
+debconf (0.2.58) unstable; urgency=low
+
+  * Now just depends on perl-5.005-base (of sufficiently recent version),
+    since that package now contains everything I need. (Closes: #53186)
+  * Client/frontend: Look for templates in /usr/share/debconf/templates/
+    as well as the current directory. Useful for stadalone programs that
+    use debconf.
+  * Include apt-setup in debconf and debconf-tiny for now, since the base
+    system needs them available *now*. This is not the right long-term
+    location, though. Closes: #53187 (Adam, you want to run
+    "/usr/sbin/apt-setup probe")
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 20 Dec 1999 21:31:50 -0800
+
 debconf (0.2.57) unstable; urgency=low
 
   * Tightened up the perl dependancies. I think the previous looser

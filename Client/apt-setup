@@ -6,12 +6,15 @@
 VARDIR=$1
 GROUP=$2
 METHOD=$3
-# Pass something as parameter 4 to enable cd autoprobing on startup.
-CDPROBE=$4
+
+# If this is not called from dselect, and the first parameter is "probe", it
+# will do cd autoprobing on startup.
+if [ "$VARDIR" = probe ]; then
+	CDPROBE=1
+fi
 
 # Where is the mirrors master list?
-#MIRRORLIST=/home/joey/debian/webwml/english/mirror/Mirrors.masterlist
-MIRRORLIST=$VARDIR/methods/$GROUP/Mirrors.masterlist
+MIRRORLIST=/usr/share/debconf/Mirrors.masterlist
 
 . /usr/share/debconf/confmodule
 
@@ -29,12 +32,24 @@ eval $RES
 # that have mirrors in them that match the type.
 country_list () {
 	perl -ne '
-		BEGIN { $/="\n\n"; $type=shift }
+		BEGIN {
+			$type=shift;
+			open (T, "/usr/share/zoneinfo/iso3166.tab");
+			while (<T>) {
+				next if /^#/;
+				chomp;
+				($code, $long)=split(/\t/, $_);
+				$c{$code}=$long;
+			}
+			close T;
+			$/="\n\n";
+			$countries{"enter information manually"}=1;
+		}
 		if (/Archive-$type:/) {
 			($c)=/Country: (.*?)\s*\n/;
-			$countries{$c}=1 if $c;
+			$countries{$c{$c}}=1 if $c;
 		}
-		END { print join(", ", sort(keys %countries)).", " if %countries }
+		END { print join(", ", sort(keys %countries)) if %countries }
 	' $1 $MIRRORLIST
 }
 
@@ -44,7 +59,22 @@ country_list () {
 # Other orderings can be added here.
 mirror_list () {
 	perl -ne '
-		BEGIN { $/="\n\n"; $type=shift; $country=shift }
+		BEGIN {
+			$type=shift;
+			$country=shift;
+			open (T, "/usr/share/zoneinfo/iso3166.tab");
+			while (<T>) {
+				next if /^#/;
+				chomp;
+				($code, $long)=split(/\t/, $_);
+				if ($long eq $country) {
+					$country=$code;
+				        close T;
+				}
+			}
+			close T;
+			$/="\n\n";
+		}
 		if (/Archive-$type:/ && /Country: $country\s*\n/) {
 			($s)=/Site: (.*?)\n/;
 			($t)=/Type: (.*?)\n/;

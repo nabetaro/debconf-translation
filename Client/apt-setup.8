@@ -1,0 +1,19 @@
+.TH APT-SETUP 8
+.SH NAME
+apt-setup \- add apt download sources
+.SH SYNOPSIS
+.B apt-setup [probe]
+.SH DESCRIPTION
+.BR apt-setup
+simplifies adding sources to apt's sources.list. It can even use
+.BR apt-cdrom (8)
+to scan CD's.
+.SH OPTIONS
+.TP
+.I "probe"
+By default no probing of CD's is done. Passing "probe" as the first argument
+to this program will make it probe for a CD in the drive on startup and add
+it to sources.list. This is useful on initial debian installs, to minimize
+interaction with the user.
+.SH AUTHOR
+Joey Hess <joey@kitenet.net>

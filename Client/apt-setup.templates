@@ -11,12 +11,12 @@ Description: Choose what method apt will use to access the Debian archive
 
 Template: aptconf/country
 Type: select
-Choices: ${countries}enter information manually
-Default: US
+Choices: ${countries}
+Default: United States
 Description: Select a country
  Select the country the mirror should be in. The goal is to find a mirror that
- is close to you on the network, and be aware that near countries, or even 
- your own, may not be the best choice.  
+ is close to you on the network -- be aware that near countries, or even
+ your own, may not be the best choice.
  .
  If you want to enter mirror information manually, select the last item on
  the list.
