@@ -85,11 +85,13 @@ if (frontend() eq 'Noninteractive') {
 my @packages;
 my $change_priority=1;
 my $unseen_only='';
+my $all='';
 for (my $x=0; $x < @ARGV;) {
 	$_=$ARGV[$x++];
 	
 	if ($_ eq '--all') {
 		@packages=allpackages();
+		$all=1;
 	}
 	elsif (/^-(?:d|-default-priority)$/) {
 		$change_priority='';
@@ -148,7 +150,7 @@ foreach my $pkg (@packages) {
 	# If this doesn't exist, the package probably doesn't use debconf,
 	# so skip it, becuase a normal package may misbehave when run here.
 	if (! -x "/var/lib/dpkg/info/$pkg.config") {
-		warn sprintf(gettext("%s is not installed or does not use debconf"), $pkg);
+		warn sprintf(gettext("%s is not installed or does not use debconf"), $pkg) unless $all;
 		next;
 	}
 
