@@ -1,3 +1,12 @@
+debconf (0.1.50) unstable; urgency=low
+
+  * Corrected several errors with how the choices field is accessed.
+    (Closes: #46606)
+  * No longer parses the choices field at template load time. This is a
+    big change and might break stuff -- we'll see.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 11:26:32 -0700
+
 debconf (0.1.49) unstable; urgency=low
 
   * Added a simple little progress report display to dpkg-preconfig so

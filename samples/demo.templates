@@ -63,39 +63,7 @@ Description: This is a much longer test text.
 
 Template: demo/select
 Type: select
-Choices: red, blue, green, yellow, teal, orange, magenta, cyan, black, white, gray
+Choices: ${colors}
 Default: orange
 Description: What is your favorite color?
- This is a demo select list item.
- .
- Orange should be default. I hope that
- .
- this
- .
- is 
- .
- long
- .
- enough
- .
- so
- .
- that
- .
- it
- .
- must
- .
- be
- .
- displayed
- .
- to
- .
- you
- .
- on
- .
- several
- .
- screens
+ This is a demo select list item. The list above is generated on the fly.

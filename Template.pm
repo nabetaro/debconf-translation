@@ -52,10 +52,6 @@ sub _savefield {
 		$this->description($value);
 		$this->extended_description($extended);
 	}
-	elsif ($field eq 'choices') {
-		# Split values at commas.
-		$this->$field([split(/,\s*/, $value)]);
-	}
 	elsif ($field ne '') {
 		$this->$field($value);
 	}

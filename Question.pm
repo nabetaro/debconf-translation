@@ -92,14 +92,15 @@ sub extended_description {
 
 Returns the choices field of this Question. This value is taken from the
 Template the Question is mapped to, and then any substitutions in the extended
-description are expanded.
+description are expanded. The result is assumede to be a comma-and space
+delimited list, which is then broken up and returned to you.
 
 =cut
 
 sub choices {
 	my $this=shift;
 	
-	my @choices=map { $this->_expand_vars($_) } @{$this->template->choices};
+	my @choices=split(/,\s+/, $this->_expand_vars($this->template->choices));
 	return \@choices;
 }
 
