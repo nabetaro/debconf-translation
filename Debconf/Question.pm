@@ -63,7 +63,7 @@ sub new {
 	$this->{name}=$name;
 	# This is what actually creates the question in the db.
 	return unless defined $this->addowner($owner);
-	$this->setflag('seen', 'false');
+	$this->flag('seen', 'false');
 	return $question{$name}=$this;
 }
 
@@ -78,7 +78,9 @@ sub get {
 	my $name=shift;
 	return $question{$name} if exists $question{$name};
 	if ($Debconf::Db::config->exists($name)) {
-		return $question{$name} = fields::new($this);
+		$this = fields::new($this);
+		$this->{name}=$name;
+		return $question{$name}=$this;
 	}
 	return undef;
 }
