@@ -85,7 +85,7 @@
     <para>
       First, your package must depend on debconf (or pre-depend on it
       if it uses debconf in its preinst<footnote><para>Since policy frowns
-      on pre-dependancies that haven't been approved by debian-devel, you
+      on pre-dependencies that haven't been approved by debian-devel, you
       could also make your package detect if debconf isn't installed, and use
       a sane fallback that doesn't involve debconf.</para></footnote>). This is
       necessary since debconf isn't part of the base system.
@@ -214,7 +214,7 @@ Template: ....
 	      the user. It's intended to be used for mostly cosmetic
 	      reasons, touching up around other questions that are asked
 	      at the same time. Unlike a note, it isn't treated as
-	      something the user should definitly see. Less complex frontends
+	      something the user should definitely see. Less complex frontends
 	      may refuse to ever display this type of element.
 	    </entry>
 	  </row>
@@ -288,7 +288,7 @@ Template: ....
 	keep them in separate files; one file per translation. The
 	debconf-mergetemplate program can merge several such templates
 	files together to produce a combined file to put in your binary
-	pagkage.
+	package.
       </para>
       <para>
         You may also find the debconf-getlang program useful to start a
@@ -309,7 +309,7 @@ Template: ....
       display them.
       <note>
       <para>
-      These questions are asked by a seperate config script,
+      These questions are asked by a separate config script,
       <emphasis>not</emphasis> by the postinst, so the package can be
       configured before it is installed, or reconfigured after it is
       installed. Do not make your postinst use debconf to ask
@@ -635,7 +635,7 @@ fi
       <para>
         This is really rather easy to do. Some debconf frontends have the
         ability to display more than one question on screen at the same time.
-	However, the questions can't be dependant on each other.
+	However, the questions can't be dependent on each other.
 	<footnote>
 	<para>For example,
 	if question b should only be asked if question a is true, you obviously
@@ -672,7 +672,7 @@ fi
 	will return <literal>30</literal>.
       </para>
       <para>
-        There are several ways to write the control scructures of your program
+        There are several ways to write the control structures of your program
 	so it can jump back to previous questions when necessary. You can
 	write goto-laden spaghetti code. Or you can create several functions
 	and use recursion. But perhaps the cleanest and easiest way is to
@@ -759,7 +759,7 @@ done
 	dictionary files. While it would be possible for each package
 	in the set to simply prompt <quote>Should this package be
 	default?</quote>,
-	this leads to a lot of repetative questions if several of the
+	this leads to a lot of repetitive questions if several of the
 	packages are installed. It's possible with debconf to present
 	a list of all the packages in the set and allow the user to
 	choose between them. Here's how.
@@ -794,11 +794,11 @@ fi
 	</programlisting>
       </para>
       <para>
-	A bit of an explination is called for. By the time your config
+	A bit of an explanation is called for. By the time your config
 	script runs, debconf has already read in all the templates for
 	the packages that are being installed. Since the set of
 	packages share a question, debconf records that fact in the
-	owners field. By a strange cooincidence, the format of the
+	owners field. By a strange coincidence, the format of the
 	owners field is the same as that of the choices field (a comma
 	and space delimited list of values).
       </para>
@@ -897,7 +897,7 @@ fi
     <para>
       Templates and questions in the debconf database are arranged in a
       hierarchical namespace. It can be arbitrarily deep, and is separated
-      by '/' characters, like a unix directory hierarchy. Here are the
+      by '/' characters, like a Unix directory hierarchy. Here are the
       conventions we're using so far to divide up the namespace.
       <itemizedlist>
       	<listitem>

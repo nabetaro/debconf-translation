@@ -1,3 +1,15 @@
+debconf (0.3.67) unstable; urgency=low
+
+  * Spelling corrections from Sean, who should ispell the xml next time.
+  * Killed an uninitialized value warning, Closes: #70508 (This one is
+    tickled only by nasty packages like sslwrap that provide no extended
+    descriptions to their questions. Evil.)
+  * Fixed a debconf corrupted database crash. This is, I think, just
+    another bit of fallout from the very old debconf db corruption problem
+    (see changelog entry 0.3.19). Closes: #69781, #69582
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 30 Aug 2000 14:48:48 -0700
+
 debconf (0.3.66) unstable; urgency=low
 
   * Corrected the wrapping-of-bulleted-lists issue. It is now possible to

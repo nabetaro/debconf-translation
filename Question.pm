@@ -45,7 +45,9 @@ sub init {
 sub _expand_vars {
 	my $this=shift;
 	my $text=shift;
-	
+		
+	return '' unless defined $text;
+
 	my %vars=%{$this->variables};
 	
 	my $rest=$text;
@@ -149,7 +151,7 @@ sub value {
 	
 	if (@_ == 0) {
 		return $this->{value} if (defined $this->{value});
-		return $this->template->default;
+		return $this->template->default if ref $this->template;
 	} else {
 		return $this->{value} = shift;
 	}
@@ -257,7 +259,7 @@ sub AUTOLOAD {
 		$this->{$field}=shift if @_;
 		return $this->{$field} if (defined $this->{$field});
 		# Fall back to template values.
-		return $this->{template}->$field() if defined $this->{template};
+		return $this->{template}->$field() if ref $this->{template};
 	};
 	goto &$AUTOLOAD;
 }
