@@ -1,3 +1,14 @@
+debconf (1.4.27) unstable; urgency=low
+
+  * Change the shell confmodule to not construct functions on the fly.
+    The new code is smaller, a bit faster, and simpler, but the important
+    thing is that it does not clobber $@. The old version messed up $@ if
+    parameters contained spaces.
+  * Removed the never completed PREVIOUS_MODULE stuff from the shell,
+    perl, and python confmodules.
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  6 Jun 2004 17:14:31 -0400
+
 debconf (1.4.26) unstable; urgency=low
 
   * Add Basqe translation by Piarres Beobide Egaña. Closes: #247321
