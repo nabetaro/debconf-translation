@@ -1,3 +1,12 @@
+debconf (0.1.19) unstable; urgency=low
+
+  * I had a truely nasty problem: when installing packages using the dialog
+    frontend, and using dpkg directly, debconf would segfault shortly after
+    the config script was run. It looks like this was due to reentrancy
+    problems in my sigchld handler and I think I've squashed it.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 16 Sep 1999 12:22:48 -0700
+
 debconf (0.1.18) unstable; urgency=low
 
   * Expanded the tutorial, it's now a complete standalone document with

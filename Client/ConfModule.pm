@@ -96,7 +96,9 @@ sub import {
 		if (-e $Debian::DebConf::Config::dbfn) {
 			Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
 		}
-		
+
+		my $confmodule;
+
 		# See if the postinst or prerm of the package is being run, and
 		# if there is a config script associated with this package. If
 		# so, run it first as a confmodule (also loading the 
@@ -117,7 +119,7 @@ sub import {
 			my $config=$ARGV[0];
 			$config=~s/\.(?:postinst|prerm)$/.config/;
 			if (-e $config) {
-				my $confmodule=eval qq{
+				$confmodule=eval qq{
 					Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
 				};
 				die $@ if $@;

@@ -23,6 +23,8 @@ my $frontend=eval qq{
 };
 die $@ if $@;
 
+my $confmodule;
+
 # See if the postinst or prerm of the package is being run, and if there is a
 # config script associated with this package. If so, run it first as a
 # confmodule (alos loading the templates). This is a bit of a nasty hack, that
@@ -41,7 +43,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	my $config=$ARGV[0];
 	$config=~s/\.(?:postinst|prerm)$/.config/;
 	if (-e $config) {
-		my $confmodule=eval qq{
+		$confmodule=eval qq{
 			Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
 		};
 		die $@ if $@;
@@ -52,7 +54,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=eval qq{
+$confmodule=eval qq{
 	Debian::DebConf::ConfModule::$type->new(\$frontend, join " ",\@ARGV);
 };
 die $@ if $@;

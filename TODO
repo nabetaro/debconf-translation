@@ -1,8 +1,5 @@
 To Do Before Release:
-* The slrn and slrnpull postinst segfault, but only if the dialog frontend
-  is used (and I mean used -- if it doesn't throw up any dialogs, it's ok).
-  Weird stuff I need to look into. I've tracked the problem down to being
-  in Client/frontend, near "# Start up the confmodule we were asked to run."
+*
 
 General:
 * Make sure my spec changes are accepted by Wichert.
