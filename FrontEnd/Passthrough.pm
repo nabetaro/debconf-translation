@@ -11,6 +11,7 @@ use strict;
 use Carp;
 use IO::Socket;
 use Debian::DebConf::FrontEnd;
+use Debian::DebConf::Element;
 use Debian::DebConf::Log qw(:all);
 use base qw(Debian::DebConf::FrontEnd);
 
@@ -97,8 +98,6 @@ sub capb_backup
 	$this->{capb_backup} = $val;
 	if ($val) {
 		print $fh "capb backup\n";
-	} else {
-		print $fh "capb nobackup\n";
 	}
 }
 
