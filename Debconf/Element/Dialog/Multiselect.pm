@@ -55,7 +55,8 @@ sub show {
 		
 	}
 	
-	@params=('--separate-output','--checklist', $text, $lines, $columns, $menu_height, @params);
+	@params=('--separate-output', '--checklist', 
+	         $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog(@params);
 	$value='' if ! defined $value;

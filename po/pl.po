@@ -6,13 +6,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-12-08 14:43-0800\n"
+"POT-Creation-Date: 2000-12-14 11:33-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Nieobs³ugiwana komenda `%s'."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -62,19 +75,6 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -150,21 +150,21 @@ msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "Wpisz, oddzielone przecinkami, litery pozycji, które chcesz zaznaczyæ."
 
-#: ../Debconf/FrontEnd/Dialog.pm:46
+#: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:49
+#: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatable with emacs shell buffers"
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:52
+#: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:86
+#: ../Debconf/FrontEnd/Dialog.pm:85
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -172,7 +172,7 @@ msgstr ""
 "Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
 "mo¿e zostaæ u¿yta."
 
-#: ../Debconf/FrontEnd/Dialog.pm:232 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 

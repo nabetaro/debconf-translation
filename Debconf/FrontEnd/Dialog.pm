@@ -19,7 +19,7 @@ use base qw(Debconf::FrontEnd::Tty);
 
 =head1 DESCRIPTION
 
-This FrontEnd is for a user interface based on dialog, whiptail, or gdialog.
+This FrontEnd is for a user interface based on dialog or whiptail.
 It will use whichever is available, but prefers to use whiptail if available.
 It handles all the messy communication with thse programs.
 
@@ -29,9 +29,8 @@ It handles all the messy communication with thse programs.
 
 =item init
 
-Checks to see if whiptail, or dialog, or gdialog are available, in that
-order. To make it use dialog, set FORCE_DIALOG in the environment. To make
-it use gdialog, set FORCE_GDIALOG in the environment.
+Checks to see if whiptail, or dialog are available, in that
+order. To make it use dialog, set FORCE_DIALOG in the environment.
 
 =cut
 
@@ -73,7 +72,7 @@ sub init {
 		$this->titlespacer(4);
 		$this->columnspacer(2);
 	}
-# Disabled until it supports --passwordbox
+# Disabled until it supports --passwordbox and --nocancel
 #	elsif (-x "/usr/bin/gdialog") {
 #		$this->program}(gdialog);
 #		$this->borderwidth(5);
@@ -230,7 +229,7 @@ sub showdialog {
 	
 	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
-		'--title', $this->title, @_);
+		'--title', $this->title, '--nocancel', @_);
 	my $stderr;
 	while (<ERRFH>) {
 		$stderr.=$_;

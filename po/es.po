@@ -5,13 +5,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2000-12-08 14:43-0800\n"
+"POT-Creation-Date: 2000-12-14 11:33-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Comando `%s' no soportado."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -62,20 +76,6 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Comando `%s' no soportado."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -157,21 +157,21 @@ msgstr ""
 "Pulse las letras de los elementos que desea seleccionar, separadas por "
 "espacios."
 
-#: ../Debconf/FrontEnd/Dialog.pm:46
+#: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:49
+#: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatable with emacs shell buffers"
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:52
+#: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:86
+#: ../Debconf/FrontEnd/Dialog.pm:85
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -179,7 +179,7 @@ msgstr ""
 "Ni whiptail ni dialog están instalados, así que no se puede usar la interfaz "
 "basada en dialog."
 
-#: ../Debconf/FrontEnd/Dialog.pm:232 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 

@@ -1,3 +1,14 @@
+debconf (0.5.35) unstable; urgency=low
+
+  * Both dialog and whiptail now support --nocancel, which the dialog
+    frontend will use now if a cancel button is not appropriate. 
+    Closes: #67419
+  * Reluctantly brought back a *temoporary* dependancy on perl-5.6 until
+    it gets it act in order. Closes: #79571 (Debian *cannot* be released
+    while debconf has this bogus dependancy.)
+ 
+ -- Joey Hess <joeyh@debian.org>  Thu, 14 Dec 2000 11:00:59 -0800
+
 debconf (0.5.34) unstable; urgency=low
 
   * Fixed umask-related build problem, Closes: #78453
