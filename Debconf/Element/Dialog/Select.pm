@@ -60,7 +60,11 @@ sub show {
 		}
 	}
 	
-	@params=('--menu', $text, $lines, $columns, $menu_height, '--', @params);
+	if ($this->frontend->dashsep) {
+		unshift @params, $this->frontend->dashsep;
+	}
+	
+	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog(@params);
 	if (defined $value) {

@@ -55,8 +55,12 @@ sub show {
 		
 	}
 	
+	if ($this->frontend->dashsep) {
+		unshift @params, $this->frontend->dashsep;
+	}
+	
 	@params=('--separate-output', '--checklist', 
-	         $text, $lines, $columns, $menu_height, '--', @params);
+	         $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog(@params);
 	$value='' if ! defined $value;

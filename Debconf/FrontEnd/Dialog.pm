@@ -58,6 +58,7 @@ sub init {
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
 	    ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('whiptail');
+		$this->dashsep('--');
 		$this->borderwidth(5);
 		$this->borderheight(6);
 		$this->spacer(1);
@@ -66,6 +67,8 @@ sub init {
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('dialog');
+		$this->dashsep(''); # dialog does not need (or support) 
+		                    # double-dash separation
 		$this->borderwidth(7);
 		$this->borderheight(6);
 		$this->spacer(4);

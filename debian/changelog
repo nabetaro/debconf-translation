@@ -1,3 +1,10 @@
+debconf (0.9.76) unstable; urgency=low
+
+  * Don't use double dashes for dialog, though they are needed for
+    whiptail. Gag. Closes: #103867 
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  9 Jul 2001 19:08:22 -0400
+
 debconf (0.9.75) unstable; urgency=low
 
   * Put back debconf/helpvisible question, and made the slang frontend
