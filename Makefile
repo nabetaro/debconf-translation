@@ -65,7 +65,6 @@ install-rest:
 	find . -maxdepth 1 -perm +1 -type f -name 'dpkg-*' | \
 		xargs -i sh -c 'pod2man --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files.
-	# Also, don't use 'base', it's not in perl-base.
 	find $(prefix)/usr/lib/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\
 	     -name '*.pm' -or -name 'dpkg-*' | 				\
@@ -76,14 +75,6 @@ install-rest:
 	     		$$cutting="" if /^=cut/; 			\
 			next if /use lib/;				\
 			next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";\
-			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { 	\
-				$$what=$$2; \
-				$$use=""; \
-				map { $$use.="use $$_;" } split(/\s+/, $$what); \
-				print "our \@ISA; $$use push \@ISA, qw{$$what};\n" \
-			} 						\
-			else {						\
-				print $$_				\
-			}						\
+			print $$_					\
 		'
 	find $(prefix) -name '*.bak' | xargs rm -f

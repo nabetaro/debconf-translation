@@ -45,9 +45,9 @@ while [ "$STATE" != 0 -a "$STATE" != 6 ]; do
 	esac
 	
 	if db_go; then
-		STATE=`expr $STATE + 1`
+		STATE=$(($STATE + 1))
 	else
-		STATE=`expr $STATE - 1`
+		STATE=$(($STATE - 1))
 	fi
 #	echo "ON STATE: $STATE"
 done

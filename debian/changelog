@@ -1,3 +1,12 @@
+debconf (0.5.32) unstable; urgency=low
+
+  * Removed bogus perl-5.6 dependancy, now that perl is fixed.
+  * Now that base.pm is in perl-5.6-base, I no longer need to do hackery in
+    my Makefile to avoid using that module. Got rid of it, and versioned
+    dep on perl-5.6-base.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  4 Dec 2000 20:07:46 -0800
+
 debconf (0.5.31) unstable; urgency=low
 
   * Put README.translators in debconf-doc.

@@ -26,8 +26,8 @@ while [ "$STATE" != 0 -a "$STATE" != 3 ]; do
 	esac
 
 	if db_go; then
-		STATE=`expr $STATE + 1`
+		STATE=$(($STATE + 1))
 	else
-		STATE=`expr $STATE - 1`
+		STATE=$(($STATE - 1))
 	fi
 done
