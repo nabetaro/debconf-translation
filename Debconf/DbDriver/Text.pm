@@ -39,6 +39,7 @@ Debconf::DbDriver::Cached.
 sub load {
 	my $this=shift;
 	my $item=shift;
+	return unless $this->accept($item);
 	my $file=$this->filename($item);
 	return unless -e $file;
 	
@@ -102,10 +103,10 @@ Writes out the file.
 sub save {
 	my $this=shift;
 	my $item=shift;
+	return unless $this->accept($item);
+	return if $this->{readonly};
 	my %data=%{shift()};
 	my $file=$this->filename($item);
-
-	return if $this->{readonly};
 
 	open(TEXTDB_OUT, ">$file") or $this->error("$file: $!");
 	foreach my $field (sort keys %{$data{fields}}) {

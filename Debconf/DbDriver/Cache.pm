@@ -120,6 +120,8 @@ sub cached {
 	my $this=shift;
 	my $item=shift;
 
+	return unless $this->accept($item);
+
 	unless (exists $this->{cache}->{$item}) {
 		$this->{cache}->{$item}=$this->load($item);
 	}
@@ -145,7 +147,6 @@ sub savedb {
 
 	foreach my $item (keys %{$this->{cache}}) {
 		if (defined $this->{cache}->{$item}) {
-
 			return $this->save($item, $this->{cache}->{$item});
 		}
 		else {

@@ -103,7 +103,10 @@ Simply check for file existance.
 
 sub exists {
 	my $this=shift;
-	return -e $this->filename(shift);
+	my $name=shift;
+	
+	return unless $this->accept($name);
+	return -e $this->filename($name);
 }
 
 =head2 remove(itemname)
@@ -114,8 +117,10 @@ Unlink a file.
 
 sub remove {
 	my $this=shift;
-	return if $this->{readonly};
-	my $file=$this->filename(shift);
+	my $name=shift;
+
+	return if $this->{readonly} or not $this->accept($name);
+	my $file=$this->filename($name);
 	unlink $file or return undef;
 }
 

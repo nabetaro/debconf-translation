@@ -116,7 +116,7 @@ sub iterate {
 =head2 savedb
 
 Calls savedb on the entire stack. If any savedb call returns undef, returns
-undef, but only after calling them all.
+undef too, but only after calling them all.
 
 =cut
 
