@@ -32,7 +32,7 @@ fi
 # Each command must be listed twice, once in lower case, once in upper.
 # Doing that saves us a lot of calls to tr at load time. I just wish shell had
 # an upper-case function.
-old_opts="$@"
+_old_opts="$@"
 for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
@@ -42,19 +42,18 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
 	set -- $i
 	# Generate function on the fly.
 	eval "db_$1 () {
-		local _RET
 		echo \"$2 \$@\" >&3
-		read -r _RET
-		set -- \$_RET
-		_RET=\$1
-		shift
-		RET="\$@"
+		# <space><tab><newline>
+		local IFS=' 	
+'
+		local _RET
+		read -r _RET RET
 		return \$_RET
 	      }"
 done
 # $@ was clobbered above, unclobber.
-set -- $old_opts
-unset old_opts
+set -- $_old_opts
+unset _old_opts
 
 # Just an alias for input. It tends to make more sense to use this to display
 # text, since displaying text isn't really asking for input.
