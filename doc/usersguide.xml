@@ -211,12 +211,12 @@
       You can change the default frontend debconf uses by 
       <link linkend="reconfigure">reconfiguring</link> debconf. On the other
       hand, if you just want to change the frontend for a minute, you can
-      set the <literal>DEBCONF_FRONTEND</literal> environment variable to
+      set the <literal>DEBIAN_FRONTEND</literal> environment variable to
       the name of the frontend to use. For example:
       <blockquote>
 	<para>
 	  <literal>
-	    DEBCONF_FRONTEND=text apt-get install slrn
+	    DEBIAN_FRONTEND=text apt-get install slrn
           </literal>
 	</para>
       </blockquote>
