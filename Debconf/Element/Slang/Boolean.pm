@@ -28,7 +28,7 @@ sub init {
 	my $this=shift;
 
 	$this->widget(Term::Stool::CheckBox->new(
-		checked => ($this->question->value eq 'true') ? 1 : 0,
+		checked => (defined $this->question->value && $this->question->value eq 'true') ? 1 : 0,
 	));
 }
 

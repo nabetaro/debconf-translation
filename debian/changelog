@@ -1,3 +1,19 @@
+debconf (0.4.01) unstable; urgency=low
+
+  * Moved over to a hopefully more robust check in the preinst to see if
+    the database needs to be converted, after receiving two reports that
+    the current check is not always firing. Closes: #75240
+  * Patch from Martin Quinson <mquinson@ens-lyon.fr> to po/Makefile, adding
+    stuff for translators. It automatically merges the new debconf.pot
+    with .po files, and outputs stats on how up-to-date the translation is.
+  * Seems that the Debian::DebConf::Client::ConfModule stub from bod
+    isn't good enough. :-( The problem is code that calls stuff like 
+    Debian::DebConf::Client::ConfModule::title directly. Ugh. Added an AUTOLOAD
+    with a nasty eval to deal with this. Closes: #75239
+  * Fixed an uninitialized value if a boolean item has no default. Bleagh.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 20 Oct 2000 11:24:03 -0700
+
 debconf (0.4.00) unstable; urgency=low
 
   * Removed recursive build-dependancy on debconf-utils. There were two

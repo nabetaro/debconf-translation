@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2000-07-01 17:05+0900\n"
+"POT-Creation-Date: 2000-10-20 14:14-0700\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,30 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "`%s' は未サポートのコマンドです。"
-
-#: ../Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
-
-#: ../Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "このためにおそらくおかしなことが起こります!"
-
-#: ../AutoSelect.pm:65
+#: ../Debconf/AutoSelect.pm:65
 #, c-format
 msgid "failed to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../AutoSelect.pm:70
+#: ../Debconf/AutoSelect.pm:70
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../ConfModule.pm:134
+#: ../Debconf/ConfModule.pm:134
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -45,30 +32,36 @@ msgstr ""
 "debconf: confmodule の起動時に未定義値が見つかりました!\n"
 "以下のスタックトレースとともにバグレポートを出してください"
 
-#: ../FrontEnd.pm:110
+#: ../Debconf/FrontEnd.pm:110
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../FrontEnd.pm:193
+#: ../Debconf/FrontEnd.pm:193
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
-#: ../Template.pm:188
-#, c-format
-msgid "Template parse error near `%s'"
+#: ../Debconf/Template.pm:163
+msgid "unknown file"
+msgstr ""
+
+#: ../Debconf/Template.pm:192
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 
-#: ../Template.pm:195
-msgid "Template does not contain a `Template:' line"
+#: ../Debconf/Template.pm:199
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"
 
-#: ../Element/Container.pm:40
+#: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
-msgstr "フロントエンドが設定される前にコンテナ要素質問メソッドが呼び出されました。"
+msgstr ""
+"フロントエンドが設定される前にコンテナ要素質問メソッドが呼び出されました。"
 
-#: ../Element/Select.pm:86
+#: ../Debconf/Element/Select.pm:86
 #, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
@@ -78,7 +71,29 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
-#: ../Element/Noninteractive/Note.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:50
+#: ../Debconf/Element/Text/Boolean.pm:35 ../Debconf/Element/Text/Boolean.pm:57
+msgid "yes"
+msgstr "はい"
+
+#: ../Debconf/Element/Editor/Boolean.pm:33
+#: ../Debconf/Element/Editor/Boolean.pm:51
+#: ../Debconf/Element/Text/Boolean.pm:38 ../Debconf/Element/Text/Boolean.pm:58
+msgid "no"
+msgstr "いいえ"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+#: ../Debconf/Element/Editor/Select.pm:32
+msgid "Choices"
+msgstr "選択"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:33
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:38
 msgid ""
 "This note was sent to you because Debconf was asked to make sure you saw it, "
 "but Debconf was running in noninteractive mode, or you have told it to not "
@@ -88,87 +103,37 @@ msgstr ""
 "モードで動作していたか、重要でない注意は見せないように指定されていました。\n"
 "これがその注意です:"
 
-#: ../Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:58
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Element/Editor/Boolean.pm:30 ../Element/Editor/Boolean.pm:50
-#: ../Element/Text/Boolean.pm:35 ../Element/Text/Boolean.pm:57
-msgid "yes"
-msgstr "はい"
+#: ../Debconf/Element/Slang/Note.pm:29
+msgid "Save Note"
+msgstr "注意を保存する"
 
-#: ../Element/Editor/Boolean.pm:33 ../Element/Editor/Boolean.pm:51
-#: ../Element/Text/Boolean.pm:38 ../Element/Text/Boolean.pm:58
-msgid "no"
-msgstr "いいえ"
+#: ../Debconf/Element/Slang/Note.pm:33
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Element/Text/Multiselect.pm:28
+#: ../Debconf/Element/Slang/Note.pm:34
+msgid "The note has been mailed to root."
+msgstr "この注意は root にメールされました。"
+
+#: ../Debconf/Element/Slang/Note.pm:37
+msgid "Unable to save note."
+msgstr "この注意を保存できません。"
+
+#: ../Debconf/Element/Text/Multiselect.pm:28
 msgid "none of the above"
 msgstr "上記以外"
 
-#: ../Element/Text/Multiselect.pm:41
+#: ../Debconf/Element/Text/Multiselect.pm:41
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
-#: ../Element/Slang/Note.pm:29
-msgid "Save Note"
-msgstr "注意を保存する"
-
-#: ../Element/Slang/Note.pm:33
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
-
-#: ../Element/Slang/Note.pm:34
-msgid "The note has been mailed to root."
-msgstr "この注意は root にメールされました。"
-
-#: ../Element/Slang/Note.pm:37
-msgid "Unable to save note."
-msgstr "この注意を保存できません。"
-
-#: ../Element/Editor/Multiselect.pm:32 ../Element/Editor/Select.pm:32
-msgid "Choices"
-msgstr "選択"
-
-#: ../Element/Editor/Multiselect.pm:33
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
-
-#: ../FrontEnd/Dialog.pm:229 ../FrontEnd/Slang.pm:64
-msgid "Debian Configuration"
-msgstr "Debian の設定"
-
-#: ../FrontEnd/Slang.pm:69
-msgid "Help"
-msgstr "ヘルプ"
-
-#: ../FrontEnd/Slang.pm:92 ../FrontEnd/Web.pm:168
-msgid "Next"
-msgstr "次へ"
-
-#: ../FrontEnd/Slang.pm:93 ../FrontEnd/Web.pm:166
-msgid "Back"
-msgstr "戻る"
-
-#: ../FrontEnd/Slang.pm:94
-msgid "Hide Help"
-msgstr "ヘルプを非表示"
-
-#: ../FrontEnd/Slang.pm:95
-msgid "Show Help"
-msgstr "ヘルプを表示"
-
-#: ../FrontEnd/Slang.pm:260
-msgid "Tab and arrow keys move."
-msgstr "タブか矢印キーで移動"
-
-#: ../FrontEnd/Slang.pm:278
-msgid "Working, please wait..."
-msgstr "処理しています、お待ちください…"
-
-#: ../FrontEnd/Dialog.pm:83
+#: ../Debconf/FrontEnd/Dialog.pm:83
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -176,23 +141,16 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../FrontEnd/Text.pm:96
-msgid "More"
-msgstr "移動"
+#: ../Debconf/FrontEnd/Dialog.pm:229 ../Debconf/FrontEnd/Slang.pm:64
+msgid "Debian Configuration"
+msgstr "Debian の設定"
 
-#: ../FrontEnd/Web.pm:66
-#, c-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"注意: Debconf はウェブモードで動作しています。\n"
-"http://localhost:%i/ をご覧ください。"
-
-#: ../FrontEnd/Editor.pm:98
+#: ../Debconf/FrontEnd/Editor.pm:98
 #, c-format
 msgid "debconf: Unable to write to temporary file %s: %s"
 msgstr "debconf: 一時ファイル %s に書き込みができません: %s"
 
-#: ../FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -200,7 +158,7 @@ msgstr ""
 "システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
 "しています。詳しい説明はこのドキュメントの最後を見てください。"
 
-#: ../FrontEnd/Editor.pm:124
+#: ../Debconf/FrontEnd/Editor.pm:124
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -217,59 +175,112 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../FrontEnd/Editor.pm:138
+#: ../Debconf/FrontEnd/Editor.pm:138
 #, c-format
 msgid "debconf: Unable to read %s: %s"
 msgstr "debconf: %s の読み込みに失敗しました: %s"
 
-#: ../Client/dpkg-preconfigure:112
-msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
-msgstr "使用方法: dpkg-preconfigure [--frontend=型] [--priority=値] debファイル"
+#: ../Debconf/FrontEnd/Slang.pm:69
+msgid "Help"
+msgstr "ヘルプ"
 
-#: ../Client/dpkg-preconfigure:116
+#: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:168
+msgid "Next"
+msgstr "次へ"
+
+#: ../Debconf/FrontEnd/Slang.pm:93 ../Debconf/FrontEnd/Web.pm:166
+msgid "Back"
+msgstr "戻る"
+
+#: ../Debconf/FrontEnd/Slang.pm:94
+msgid "Hide Help"
+msgstr "ヘルプを非表示"
+
+#: ../Debconf/FrontEnd/Slang.pm:95
+msgid "Show Help"
+msgstr "ヘルプを表示"
+
+#: ../Debconf/FrontEnd/Slang.pm:260
+msgid "Tab and arrow keys move."
+msgstr "タブか矢印キーで移動"
+
+#: ../Debconf/FrontEnd/Slang.pm:278
+msgid "Working, please wait..."
+msgstr "処理しています、お待ちください…"
+
+#: ../Debconf/FrontEnd/Text.pm:96
+msgid "More"
+msgstr "移動"
+
+#: ../Debconf/FrontEnd/Web.pm:66
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"注意: Debconf はウェブモードで動作しています。\n"
+"http://localhost:%i/ をご覧ください。"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "`%s' は未サポートのコマンドです。"
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "このためにおそらくおかしなことが起こります!"
+
+#: ../dpkg-preconfigure:112
+msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+msgstr ""
+"使用方法: dpkg-preconfigure [--frontend=型] [--priority=値] debファイル"
+
+#: ../dpkg-preconfigure:116
 #, c-format
 msgid "Unknown option: %s"
 msgstr "不明なオプションです: %s"
 
-#: ../Client/dpkg-preconfigure:138
+#: ../dpkg-preconfigure:138
 #, c-format
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: 標準入力を再オープンできません: %s"
 
-#: ../Client/dpkg-preconfigure:184
+#: ../dpkg-preconfigure:184
 #, c-format
 msgid "template parse error: %s"
 msgstr "テンプレートの解析に失敗しました: %s"
 
-#: ../Client/dpkg-preconfigure:192
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "chmod できません: %s"
 
-#: ../Client/dpkg-preconfigure:202
+#: ../dpkg-preconfigure:202
 #, c-format
 msgid "%s failed to configure, with exit code %s"
 msgstr "%s は終了コード %s で設定に失敗しました。"
 
-#: ../Client/dpkg-reconfigure:14
+#: ../dpkg-reconfigure:14
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "使用方法: dpkg-reconfigure [--frontend=型] [--priority=値] パッケージ"
 
-#: ../Client/dpkg-reconfigure:130
+#: ../dpkg-reconfigure:130
 msgid "must be run as root"
 msgstr "root で実行する必要があります"
 
-#: ../Client/dpkg-reconfigure:153
+#: ../dpkg-reconfigure:153
 #, c-format
 msgid "%s is not installed or does not use debconf"
 msgstr "%s はインストールされていないか、debconf を使用していません"
 
-#: ../Client/dpkg-reconfigure:165
+#: ../dpkg-reconfigure:165
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s は完全にインストールされていません"
 
-#: ../Client/dpkg-reconfigure:240
+#: ../dpkg-reconfigure:240
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"

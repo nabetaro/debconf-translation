@@ -1,49 +1,30 @@
 # debconf fr.po
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@debian.org>, 2000
+# Martin Quinson <mquinson@ens-lyon.fr>, 2000
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2000-05-23 11:55+0200\n"
-"PO-Revision-Date: 2000-05-22 19:14+0200\n"
+"POT-Creation-Date: 2000-10-20 14:14-0700\n"
+"PO-Revision-Date: 2000-10-19 12:43+02:00\n"
 "Last-Translator: Vincent Renardias <vincent@debian.org>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Client/ConfModule.pm:101
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Commande `%s' non supportée."
-
-#: ../Client/ConfModule.pm:111
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Avertissement : Retour à la ligne présent dans les paramètres passés à "
-"debconf."
-
-#: ../Client/ConfModule.pm:112
-msgid "This will probably cause strange things to happen!"
-msgstr "Cela peut provoquer des résultats bizarres !"
-
-#: ../AutoSelect.pm:67
+#: ../Debconf/AutoSelect.pm:65
 #, c-format
 msgid "failed to initialize frontend: %s"
 msgstr "échec de l'initialisation du frontal : %s"
 
-#: ../AutoSelect.pm:75
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "utilisation du frontal : %s"
-
-#: ../AutoSelect.pm:85
+#: ../Debconf/AutoSelect.pm:70
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Impossible de démarrer le frontal : %s"
 
-#: ../ConfModule.pm:128
+#: ../Debconf/ConfModule.pm:134
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -51,149 +32,139 @@ msgstr ""
 "debconf : Valeurs non définies détectées au démarrage de confmodule ! "
 "Envoyez un rapport de bug et mentionnez la trace de pile qui suit"
 
-#: ../FrontEnd.pm:193
+#: ../Debconf/FrontEnd.pm:110
+#, c-format
+msgid "Unable to make element of type %s. Failed because: %s"
+msgstr "Impossible de créer un élément de type %s. Cause de l'échec : %s."
+
+#: ../Debconf/FrontEnd.pm:193
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Template.pm:189
-#, c-format
-msgid "Template parse error near `%s'"
+#: ../Debconf/Template.pm:163
+msgid "unknown file"
+msgstr "fichier inconnu"
+
+#: ../Debconf/Template.pm:192
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers `%s'"
 
-#: ../Template.pm:196
-msgid "Template does not contain a `Template:' line"
-msgstr "Le modèle de contient pas la ligne `Template:'"
+#: ../Debconf/Template.pm:199
+#, c-format
+msgid "Template #%s in %s does not contain a `Template:' line\n"
+msgstr "Le modèle #%s de %s contient pas la ligne `Template:'\n"
 
-#: ../Element/Container.pm:40
+#: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
 msgstr ""
 "``Container element question method'' appelé avant la définition du frontal."
 
-#: ../Element/Noninteractive/Note.pm:38
+#: ../Debconf/Element/Select.pm:86
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"La valeur \"%s\" ne se trouve pas parmi les choix possibles ! Cela ne "
+"devrait jamais se produire. Peut être que les modèles ont été mal traduits."
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:50
+#: ../Debconf/Element/Text/Boolean.pm:35 ../Debconf/Element/Text/Boolean.pm:57
+msgid "yes"
+msgstr "oui"
+
+#: ../Debconf/Element/Editor/Boolean.pm:33
+#: ../Debconf/Element/Editor/Boolean.pm:51
+#: ../Debconf/Element/Text/Boolean.pm:38 ../Debconf/Element/Text/Boolean.pm:58
+msgid "no"
+msgstr "non"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+#: ../Debconf/Element/Editor/Select.pm:32
+msgid "Choices"
+msgstr "Choix"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:33
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Entrez zéro ou plusieurs éléments séparés par une virgule suivie d'un "
+"espace (', ').)"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:38
 msgid ""
 "This note was sent to you because Debconf was asked to make sure you saw it, "
 "but Debconf was running in noninteractive mode, or you have told it to not "
 "pause and show you unimportant notes. Here is the text of the note:"
 msgstr ""
-"Ce message vous a été envoyé car il a été demandé à Debconf de vous la "
+"Ce message vous a été envoyé car il a été demandé à Debconf de vous le "
 "montrer, mais Debconf tournait en mode non interactif ou vous n'avez pas "
 "demandé de faire une pause pour les messages non importants. Voici le texte "
 "du message : "
 
-#: ../Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:58
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Element/Editor/Boolean.pm:30 ../Element/Editor/Boolean.pm:50
-#: ../Element/Text/Boolean.pm:35 ../Element/Text/Boolean.pm:57
-msgid "yes"
-msgstr "oui"
+#: ../Debconf/Element/Slang/Note.pm:29
+msgid "Save Note"
+msgstr "Enregistrer note"
 
-#: ../Element/Editor/Boolean.pm:33 ../Element/Editor/Boolean.pm:51
-#: ../Element/Text/Boolean.pm:38 ../Element/Text/Boolean.pm:58
-msgid "no"
-msgstr "non"
+#: ../Debconf/Element/Slang/Note.pm:33
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
+"envoyée par email."
 
-#: ../Element/Text/Multiselect.pm:27
+#: ../Debconf/Element/Slang/Note.pm:34
+msgid "The note has been mailed to root."
+msgstr "La note a été envoyé par mail à root."
+
+#: ../Debconf/Element/Slang/Note.pm:37
+msgid "Unable to save note."
+msgstr "Impossible d'enregistrer la note."
+
+#: ../Debconf/Element/Text/Multiselect.pm:28
 msgid "none of the above"
 msgstr "aucun des éléments mentionnés"
 
-#: ../Element/Text/Multiselect.pm:41
+#: ../Debconf/Element/Text/Multiselect.pm:41
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr ""
 "Tapez les lettres correspondantes aux éléments que vous voulez selectionner, "
 "séparés par des espaces."
 
-#: ../Element/Slang/Note.pm:29
-msgid "Save Note"
-msgstr "Enregistrer note"
-
-#: ../Element/Slang/Note.pm:33
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
-"envoyée par email."
-
-#: ../Element/Slang/Note.pm:34
-msgid "The note has been mailed to root."
-msgstr "La note a été envoyé par mail à root."
-
-#: ../Element/Slang/Note.pm:37
-msgid "Unable to save note."
-msgstr "Impossible d'enregistrer la note."
-
-#: ../Element/Editor/Multiselect.pm:32 ../Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Choix"
-
-#: ../Element/Editor/Multiselect.pm:33
-msgid "(Enter zero or more items separated by spaces.)"
-msgstr "(Entrez les éléments séparés par des espaces.)"
-
-#: ../FrontEnd/Dialog.pm:217 ../FrontEnd/Slang.pm:48
-msgid "Debian Configuration"
-msgstr "Configuration Debian"
-
-#: ../FrontEnd/Slang.pm:53
-msgid "Help"
-msgstr "Aide"
-
-#: ../FrontEnd/Slang.pm:76 ../FrontEnd/Web.pm:168
-msgid "Next"
-msgstr "Suivant"
-
-#: ../FrontEnd/Slang.pm:77 ../FrontEnd/Web.pm:166
-msgid "Back"
-msgstr "Retour"
-
-#: ../FrontEnd/Slang.pm:80
-msgid "Show Help"
-msgstr "Montrer l'aide"
-
-#: ../FrontEnd/Slang.pm:81
-msgid "Hide Help"
-msgstr "Masquer l'aide"
-
-#: ../FrontEnd/Slang.pm:231
-msgid "Tab and arrow keys move."
-msgstr "Touches Tab et flèches pour se déplacer."
-
-#: ../FrontEnd/Slang.pm:249
-msgid "Working, please wait..."
-msgstr "Veuillez patienter..."
-
-#: ../FrontEnd/Dialog.pm:74
+#: ../Debconf/FrontEnd/Dialog.pm:83
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
-msgstr "Ni whiptail ni dialog ne sont installés, donc le frontal basé sur "
-"dialog va être utilisé."
+msgstr ""
+"Ni whiptail ni dialog ne sont installés, donc le frontal basé sur dialog va "
+"être utilisé."
 
-#: ../FrontEnd/Text.pm:96
-msgid "More"
-msgstr "Suite"
+#: ../Debconf/FrontEnd/Dialog.pm:229 ../Debconf/FrontEnd/Slang.pm:64
+msgid "Debian Configuration"
+msgstr "Configuration Debian"
 
-#: ../FrontEnd/Web.pm:66
-#, c-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Note : Debconf fonctionne en mode Web. Allez sur http://localhost:%i/"
-
-#: ../FrontEnd/Editor.pm:98
+#: ../Debconf/FrontEnd/Editor.pm:98
 #, c-format
 msgid "debconf: Unable to write to temporary file %s: %s"
 msgstr "debconf : Impossible d'écrire dans le fichier temporaire %s : %s"
 
-#: ../FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
-msgstr "Vous utilisez le frontal de debconf basée sur l'édition de fichier "
-"pour configurer votre système. Voyez la fin de ce document pour avoir des "
+msgstr ""
+"Vous utilisez le frontal de debconf basée sur l'édition de fichier pour "
+"configurer votre système. Voyez la fin de ce document pour avoir des "
 "instructions détaillées."
 
-#: ../FrontEnd/Editor.pm:124
+#: ../Debconf/FrontEnd/Editor.pm:124
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -201,80 +172,124 @@ msgid ""
 "comments interspersed with configuration items. Edit the file, changing any "
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
-msgstr "Ce frontal debconf vous présente un ou plusieurs fichiers texte à "
-"éditer. Voici l'un d'entre eux. Si vous êtes familier avec les fichiers de "
+msgstr ""
+"Ce frontal debconf vous présente un ou plusieurs fichiers texte à éditer. "
+"Voici l'un d'entre eux. Si vous êtes familier avec les fichiers de "
 "configuration d'Unix, ce fichier sera facile a comprendre. Il contient des "
-"éléments de configuration séparés par des commentaires. Éditez le fichier "
-"et changez tous les éléments nécessaires, puis enregistrez le et quittez. "
-"À ce point, debconf relira ce fichier et utilisera ses valeurs pour "
-"configurer le système."
+"éléments de configuration séparés par des commentaires. Éditez le fichier et "
+"changez tous les éléments nécessaires, puis enregistrez le et quittez. À ce "
+"point, debconf relira ce fichier et utilisera ses valeurs pour configurer le "
+"système."
 
-#: ../FrontEnd/Editor.pm:137
+#: ../Debconf/FrontEnd/Editor.pm:138
 #, c-format
 msgid "debconf: Unable to read %s: %s"
 msgstr "debconf : Impossible de lire %s : %s"
 
-#: ../Client/dpkg-preconfigure:114
+#: ../Debconf/FrontEnd/Slang.pm:69
+msgid "Help"
+msgstr "Aide"
+
+#: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:168
+msgid "Next"
+msgstr "Suivant"
+
+#: ../Debconf/FrontEnd/Slang.pm:93 ../Debconf/FrontEnd/Web.pm:166
+msgid "Back"
+msgstr "Retour"
+
+#: ../Debconf/FrontEnd/Slang.pm:94
+msgid "Hide Help"
+msgstr "Masquer l'aide"
+
+#: ../Debconf/FrontEnd/Slang.pm:95
+msgid "Show Help"
+msgstr "Montrer l'aide"
+
+#: ../Debconf/FrontEnd/Slang.pm:260
+msgid "Tab and arrow keys move."
+msgstr "Touches Tab et flèches pour se déplacer."
+
+#: ../Debconf/FrontEnd/Slang.pm:278
+msgid "Working, please wait..."
+msgstr "Veuillez patienter..."
+
+#: ../Debconf/FrontEnd/Text.pm:96
+msgid "More"
+msgstr "Suite"
+
+#: ../Debconf/FrontEnd/Web.pm:66
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Note : Debconf fonctionne en mode Web. Allez sur http://localhost:%i/"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Commande `%s' non supportée."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Avertissement : Retour à la ligne présent dans les paramètres passés à "
+"debconf."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "Cela peut provoquer des résultats bizarres !"
+
+#: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
 "Utilisation : dpkg-preconfigure [--frontend=type] [--priority=valeur] "
 "fichiersdeb"
 
-#: ../Client/dpkg-preconfigure:118
+#: ../dpkg-preconfigure:116
 #, c-format
 msgid "Unknown option: %s"
 msgstr "Option inconnue : %s"
 
-#: ../Client/dpkg-preconfigure:140
+#: ../dpkg-preconfigure:138
 #, c-format
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure : impossible de réouvrir stdin : %s"
 
-#: ../Client/dpkg-preconfigure:212
+#: ../dpkg-preconfigure:184
 #, c-format
 msgid "template parse error: %s"
 msgstr "erreur d'analyse de modèle : %s"
 
-#: ../Client/dpkg-preconfigure:237
+#: ../dpkg-preconfigure:192
 #, c-format
-msgid "Unable to spawn dpkg: %s"
-msgstr "Impossible d'exécuter dpkg : %s"
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: Impossible de changer le mode : %s"
 
-#: ../Client/dpkg-preconfigure:243
-msgid "Configuring packages ..."
-msgstr "Configuration des paquetages... "
-
-#: ../Client/dpkg-preconfigure:252
-#, c-format
-msgid "Can't chmod: %s"
-msgstr "Impossible de changer le mode : %s"
-
-#: ../Client/dpkg-preconfigure:270
+#: ../dpkg-preconfigure:202
 #, c-format
 msgid "%s failed to configure, with exit code %s"
 msgstr "Échec de la configuration de %s avec le code d'erreur %s"
 
-#: ../Client/dpkg-reconfigure:14
+#: ../dpkg-reconfigure:14
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr ""
 "Utilisation : dpkg-reconfigure [--frontend=type] [--priority=valeur] "
 "paquetages"
 
-#: ../Client/dpkg-reconfigure:127
+#: ../dpkg-reconfigure:130
 msgid "must be run as root"
 msgstr "doit être lancé par root"
 
-#: ../Client/dpkg-reconfigure:150
+#: ../dpkg-reconfigure:153
 #, c-format
 msgid "%s is not installed or does not use debconf"
 msgstr "%s n'est pas installé ou n'utilise pas debconf"
 
-#: ../Client/dpkg-reconfigure:162
+#: ../dpkg-reconfigure:165
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s n'est pas totalement installé"
 
-#: ../Client/dpkg-reconfigure:235
+#: ../dpkg-reconfigure:240
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"

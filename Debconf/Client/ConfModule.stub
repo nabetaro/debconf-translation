@@ -12,4 +12,11 @@ sub import {
 	goto &$sub;
 }
 
+sub AUTOLOAD {
+	my $command=$AUTOLOAD;
+	$command =~ s|.*:||; # strip fully-qualified portion
+	# Doesn't step errors; should.
+	return eval("Debconf::Client::ConfModule::$command(\@_)");
+}
+
 1
