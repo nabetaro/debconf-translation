@@ -315,7 +315,7 @@
       Continuing the example, we need a config script to display the
       first question, and if the user says they do not like debian, it
       should display the message about that.
-      <programlisting>
+      <programlisting id="config_example">
 	#!/bin/sh -e
 
 	# Source debconf library.
@@ -493,6 +493,106 @@
     <para>
       Now I'll move on to some more complicated areas of debconf.
     </para>
+    <sect2>
+      <title>
+        Blocks
+      </title>
+      <para>
+        This is really rather easy to do. Some debconf frontends have the
+        ability to display more than one question on screen at the same time.
+	However, the questions can't be dependant on each other.
+	<footnote>
+	<para>For example,
+	if question b should only be asked if question a is true, you obviously
+	can't display them at the same time.</para>
+	</footnote>
+	Just wrap the <literal><link linkend="db_input">input</link></literal>
+	commands inside
+	<literal><link linkend="db_beginblock">beginblock</link></literal> and
+	<literal><link linkend="db_endblock">endblock</link></literal>
+	commands.
+      </para>
+    </sect2>
+    <sect2>
+      <title>
+        Letting the User Back Up
+      </title>
+      <para>
+        It's very useful, if you are asking a long series of questions,
+	if the user can jump backward in the list and change an answer.
+	Debconf supports this, but it takes a fair amount of work on your
+	part to make your package support it.
+      </para>
+      <para>
+        The first step is to make your config script let debconf know it
+	is capable of handling the user pressing a back button. You use the
+	<literal><link linkend="db_capb">capb</link></literal> command to
+	do this, passing <quote>backup</quote> as a parameter.
+      </para>
+      <para>
+        Then after each <literal><link linkend="db_go">go</link></literal>
+	command, you must test to see if the user hit the back button, and
+	if so jump back to the previous question. If the user hit the back
+	button, the <literal><link linkend="db_go">go</link></literal> command
+	will return <quote>back</quote>.
+      </para>
+      <para>
+        There are two common ways to write the control scructures of your
+	program so it can jump back to previous questions when necessary:
+	using goto and using recursion. Since many people dislike goto, I will
+	give an example of the method that uses recursion, although the goto
+	method is often easier to implement. So let's take the 
+	<link linkend="config_example">example</link> config script developed
+	earlier in this tutorial, and make it support backing up. There is
+	only one place in that config script where the user might hit a back
+	button
+	<footnote>
+	<para>
+	Actually, there are two. The other time a back button might be useful
+	is at the first question asked, when it might jump back from
+	configuring this package to configuring the previous package. However,
+	the details of how this would work are not worked out yet.	
+	</para>
+	</footnote>
+	when the second question is displayed to them, to return to the first
+	question. Here is a new version of the script that handles the back
+	button:
+	<programlisting>
+	 #!/bin/sh -e
+
+	 # Source debconf library.
+	 . /usr/share/debconf/confmodule.sh
+
+	 # This conf script is capable of backing up
+	 db_capb backup
+
+	 question_2 () {
+	 	# Poor misguided one..
+		db_input high foo/why_debian_is_great
+		db_go
+		if [ "RET" = back ]; then
+			# Back button; go back to first question.
+			question_1
+		fi
+	 }
+
+	 question_1 () {
+	 	# Do you like debian?
+		db_input medium foo/like_debian
+		db_go
+		
+		# Check their answer.
+		db_get foo/like_debian
+		if [ "$RET" = "false" ]; then
+			question_2
+		fi
+	 }
+
+	 # Start asking questions.
+	 question_1
+	</programlisting> 
+      </para>
+    </sect2>
     <sect2>
       <title>
 	Infinite Loop Prevention

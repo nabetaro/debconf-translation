@@ -39,7 +39,7 @@ sub show {
 	}
 
 	my $default=$this->question->value;
-	my @params=('--inputbox', $text, 
+	my @params=('--passwordbox', $text, 
 		$lines + $this->frontend->spacer, 
 		$columns, $default);
 

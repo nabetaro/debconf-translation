@@ -1,3 +1,12 @@
+debconf (0.1.71) unstable; urgency=low
+
+  * The dialog frontend can now use --passwordbox with both whiptail and
+    dialog, so I made that change. (Closes: #47196)
+  * Added a section to the tutorail on adding backup capabilities to config
+    scripts. (Closes: #47676)
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 26 Oct 1999 15:02:10 -0700
+
 debconf (0.1.70) unstable; urgency=low
 
   * Some work done towards supporting containers.
