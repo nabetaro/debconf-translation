@@ -104,8 +104,6 @@ sub import {
 		autoflush CHILD_STDOUT 1;
 		$confmodule->write_handle->autoflush;
 
-		my $confmodule;
-
 		# See if the postinst or prerm of the package is being run, and
 		# if there is a config script associated with this package. If
 		# so, run it first as a confmodule (also loading the 
@@ -126,7 +124,7 @@ sub import {
 			my $config=$0;
 			$config=~s/\.(?:postinst|prerm)$/.config/;
 			if (-e $config) {
-				$confmodule=eval qq{
+				my $confmodule=eval qq{
 					Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
 				};
 				die $@ if $@;
