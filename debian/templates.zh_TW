@@ -2,24 +2,25 @@ Template: debconf/frontend
 Type: select
 Choices: Slang, Text, Editor, Dialog, Noninteractive
 Choices-zh_TW: Slang, 文本, 編輯器, Dialog, 非交互式
-Default: Slang
+Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use. 
+ You can select the type of user interface they use.
  .
  The slang frontend provides a colorful, full-screen, character based
  windowing interface, while the text frontend uses a more traditional plain
  text interface. The editor frontend lets you configure things using your
  favorite text editor. The noninteractive frontend never asks you any
- questions. 
-Description-zh_TW: 在配置軟件包的時候應使用什麼樣的界面？
- 使用 Debconf 來配置的軟件包可以使用相同風格的用戶界面．你可以在這裡選擇
- 到底使用哪一種界面．
+ questions. The dialog frontend is a primitive frontend that is being
+ phased out.
+Description-zh_TW: 在設置包件時可使用那個介面？
+ 使用 Debconf 來設置的軟件包可以使用相同風格的用戶介面．你可以在這裡選擇
+ 使用哪一種介面．
  .
- 基于 Slang 的用戶界面是一個彩色的，全屏幕的，基于字符的窗口界面；至于 Text
- 的前端用戶界面，則是更為傳統的簡單的文本界面．名為 Editor 的用戶界面可以讓
- 你在自己最滿意的編輯器中進行配置工作．非交互式的前端界面則絕不會向你問任何
- 問題．
+ 基於 slang 的用戶介面是一個彩色的，全屏幕的，基於字符的窗口介面；至於 Text
+ 的前端用戶介面，則是更為傳統的簡單的文本介面．名為 Editor 的用戶介面可以讓
+ 你在自己最滿意的編輯器中進行配置工作．非交互式的前端介面則絕不會向你問任何
+ 問題．而舊式的對話介面則已經被分格開.
 
 Template: debconf/priority
 Type: select
@@ -40,11 +41,11 @@ Description: Ignore questions with a priority less than..
      vast majority of cases.
  .
  For example, this question is of medium priority, and if your priority
- were  already `high' or `critical', you wouldn't see this question. 
+ were  already `high' or `critical', you wouldn't see this question.
  .
  If you are new to the Debian GNU/Linux system choose `critical' now, so
- you only see the most important questions. 
-Description-zh_TW: 忽略低于指定優先級的問題
+ you only see the most important questions.
+Description-zh_TW: 忽略低於指定優先級的問題
  使用 Debconf 的軟件包為它們將要向您提出的問題指定了優先級別．只有優先級
  別達到一定程度的問題才會真正向您提出來；其它相對不那麼重要的問題都會被忽
  略過去．
@@ -68,10 +69,10 @@ Description: Show all old questions again and again?
  Debconf normally only asks you any given question once. Then it remembers
  your answer and never asks you that question again. If you prefer, debconf
  can ask you questions over and over again, each time you upgrade or
- reinstall a package that asks them. 
+ reinstall a package that asks them.
  .
  Note that no matter what you choose here, you can see old questions again
- by using the dpkg-reconfigure program. 
+ by using the dpkg-reconfigure program.
 Description-zh_TW: 是否總是要顯示老問題？
  Debconf 通常只將所涉及的問題問僅僅一遍．它能記住您的回答，這樣以後就再也不
  向您提出相同的問題了．當然，如果您樂意，Debconf 也可以在您升級軟件包，或者
@@ -83,8 +84,8 @@ Default: true
 Description: Should debconf display extended help for questions?
  Debconf can display extended help for questions. Some frontends allow this
  display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts. 
+ cluttered. This is mostly useful for experts.
 Description-zh_TW: Debconf 應改為問題顯示詳盡的幫助信息嗎？
- Debconf 可以為提出的問題顯示詳盡的幫助信息．一部份風格的前端用戶界面可以不
+ Debconf 可以為提出的問題顯示詳盡的幫助信息．一部份風格的前端用戶介面可以不
  顯示這些幫助信息，這樣可以讓它們運行的更快一些，或者可能更加清爽一些．這可
  能只是對一些專家會有所幫助．
