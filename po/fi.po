@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.25\n"
-"POT-Creation-Date: 2001-07-27 20:26-0400\n"
+"POT-Creation-Date: 2001-08-02 23:19-0400\n"
 "PO-Revision-Date: 2001-03-18 20:10+0200\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "MIME-Version: 1.0\n"
@@ -51,8 +51,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla "
-"\"%s\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
+"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
+"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
 "toisistaan.\n"
 
 #: ../Debconf/Template.pm:219
@@ -73,6 +73,24 @@ msgid ""
 msgstr ""
 "Arvoa \"%s\" ei löytynyt C-valinnoista! Tätä ei pitäisi koskaan sattua. "
 "Kyselypohjien paikallistamisessa saattaa olla vikaa."
+
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Tallenna ilmoitus"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Tämä ilmoitus postitettiin, koska debconfia pyydettiin tallentamaan se."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "Ilmoitus on lähetetty root:lle."
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Ilmoituksen tallennus epäonnistui."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -115,22 +133,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf koneella %s"
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Tallenna ilmoitus"
-
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Tämä ilmoitus postitettiin, koska debconfia pyydettiin tallentamaan se."
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "Ilmoitus on lähetetty root:lle."
-
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "Ilmoituksen tallennus epäonnistui."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -142,11 +147,6 @@ msgid ""
 msgstr ""
 "Kirjoita haluamiasi vaihtoehtoja vastaavat kirjaimet välilyönneillä "
 "erotettuina."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "Ilmoitus on lähetetty root:lle."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
 #: ../Debconf/FrontEnd/Slang.pm:72
@@ -306,8 +306,8 @@ msgid "Cannot read status file: %s"
 msgstr "Tilatiedoston luku epäonnistui: %s"
 
 #~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a bug "
-#~ "report, and include the stack trace below"
+#~ "debconf: Undefined values detected at confmodule startup! Please file a "
+#~ "bug report, and include the stack trace below"
 #~ msgstr ""
 #~ "debconf: confmodule:n alustuksessa havaittiin määrittelemättömiä arvoja! "
 #~ "Tekisitkö vikailmoituksen, johon liität alla olevan kutsupinon"
@@ -315,7 +315,8 @@ msgstr "Tilatiedoston luku epäonnistui: %s"
 #~ msgid ""
 #~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 #~ msgstr ""
-#~ "Käyttö: dpkg-preconfigure [--frontend=tyyppi] [--priority=arvo] deb-tiedostot"
+#~ "Käyttö: dpkg-preconfigure [--frontend=tyyppi] [--priority=arvo] deb-"
+#~ "tiedostot"
 
 #~ msgid "Unknown option: %s"
 #~ msgstr "Tuntematon valitsin %s"

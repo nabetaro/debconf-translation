@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-07-27 20:26-0400\n"
+"POT-Creation-Date: 2001-08-02 23:19-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -74,6 +74,24 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "注意を保存する"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "この注意は root にメールされました。"
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "この注意を保存できません。"
+
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
 #: ../Debconf/Element/Text/Boolean.pm:28
@@ -113,22 +131,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "注意を保存する"
-
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "この注意は root にメールされました。"
-
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "この注意を保存できません。"
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -138,11 +143,6 @@ msgstr "上記以外"
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "この注意は root にメールされました。"
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
 #: ../Debconf/FrontEnd/Slang.pm:72
@@ -301,8 +301,8 @@ msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
 
 #~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a bug "
-#~ "report, and include the stack trace below"
+#~ "debconf: Undefined values detected at confmodule startup! Please file a "
+#~ "bug report, and include the stack trace below"
 #~ msgstr ""
 #~ "debconf: confmodule の起動時に未定義値が見つかりました!\n"
 #~ "以下のスタックトレースとともにバグレポートを出してください"
@@ -346,10 +346,11 @@ msgstr "ステータスファイルを読み込めません: %s"
 #~ "フロントエンドが設定される前にコンテナ要素質問メソッドが呼び出されました。"
 
 #~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
-#~ "but Debconf was running in noninteractive mode, or you have told it to not "
-#~ "pause and show you unimportant notes. Here is the text of the note:"
+#~ "This note was sent to you because Debconf was asked to make sure you saw "
+#~ "it, but Debconf was running in noninteractive mode, or you have told it "
+#~ "to not pause and show you unimportant notes. Here is the text of the note:"
 #~ msgstr ""
 #~ "あなたが確実に見るように、以下の注意が表示されましたが、debconf が全自動\n"
-#~ "モードで動作していたか、重要でない注意は見せないように指定されていました。\n"
+#~ "モードで動作していたか、重要でない注意は見せないように指定されていまし"
+#~ "た。\n"
 #~ "これがその注意です:"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-07-27 20:26-0400\n"
+"POT-Creation-Date: 2001-08-02 23:19-0400\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,24 @@ msgstr ""
 "Indatavärde, \"%s\" hittades inte i C-val! Detta skall inte inträffa. Kanske "
 "översattes mallarna felaktigt."
 
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Spara notis"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf ombads spara denna notis, så den har sänts till dig per e-post."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "Notisen har sänts till root per e-post."
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Kan inte spara notis."
+
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
 #: ../Debconf/Element/Text/Boolean.pm:28
@@ -115,22 +133,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf på %s"
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Spara notis"
-
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf ombads spara denna notis, så den har sänts till dig per e-post."
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "Notisen har sänts till root per e-post."
-
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "Kan inte spara notis."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -142,11 +147,6 @@ msgid ""
 msgstr ""
 "Skriv bokstäverna för de alternativ du vill markera, separerade med "
 "blanksteg."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "Notisen har sänts till root per e-post."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
 #: ../Debconf/FrontEnd/Slang.pm:72
@@ -308,8 +308,8 @@ msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
 
 #~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a bug "
-#~ "report, and include the stack trace below"
+#~ "debconf: Undefined values detected at confmodule startup! Please file a "
+#~ "bug report, and include the stack trace below"
 #~ msgstr ""
 #~ "debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd en "
 #~ "felrapport och inkludera stackspårningen nedan"
@@ -355,10 +355,10 @@ msgstr "Kan inte läsa statusfil: %s"
 #~ msgstr "Behållarelementsfrågemetod anropad innan skal valts."
 
 #~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
-#~ "but Debconf was running in noninteractive mode, or you have told it to not "
-#~ "pause and show you unimportant notes. Here is the text of the note:"
+#~ "This note was sent to you because Debconf was asked to make sure you saw "
+#~ "it, but Debconf was running in noninteractive mode, or you have told it "
+#~ "to not pause and show you unimportant notes. Here is the text of the note:"
 #~ msgstr ""
-#~ "Denna notis sändes till dig eftersom Debconf ombads se till att du såg den, "
-#~ "men Debconf körde i ickeinteraktivt läge, eller så har du bett det att inte "
-#~ "pausa och visa oviktiga notiser. Här är texten i notisen:"
+#~ "Denna notis sändes till dig eftersom Debconf ombads se till att du såg "
+#~ "den, men Debconf körde i ickeinteraktivt läge, eller så har du bett det "
+#~ "att inte pausa och visa oviktiga notiser. Här är texten i notisen:"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.73\n"
-"POT-Creation-Date: 2001-07-27 20:26-0400\n"
+"POT-Creation-Date: 2001-08-02 23:19-0400\n"
 "PO-Revision-Date: 2001-07-02 22:13-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -77,6 +77,25 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
+#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Salvar Nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
+"você."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "A nota foi enviada ao root."
+
+#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Impossível salvar nota"
+
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
 #: ../Debconf/Element/Text/Boolean.pm:28
@@ -118,23 +137,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, rodando em %s"
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Salvar Nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
-"você."
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "A nota foi enviada ao root."
-
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -145,11 +150,6 @@ msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
-msgid "The note has been mailed to root"
-msgstr "A nota foi enviada ao root."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
 #: ../Debconf/FrontEnd/Slang.pm:72
