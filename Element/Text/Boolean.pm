@@ -16,14 +16,17 @@ use base qw(Debian::DebConf::Element);
 This is a yes or no question, presented to the user using a plain text
 interface.
 
+=head1 METHODS
+
+=over 4
+
 =cut
 
 sub show {
 	my $this=shift;
 
 	# Display the question's long desc first.
-	$this->frontend->display(
-		$this->question->extended_description."\n");
+	$this->frontend->display($this->question->extended_description."\n");
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
@@ -59,5 +62,13 @@ sub show {
 	$this->frontend->display("\n");
 	return $value;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

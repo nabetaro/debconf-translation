@@ -44,6 +44,21 @@ set the value of the accociated question).
 
 sub show {}
 
+=item process
+
+Some types of Elements will be called on to process information gotten from
+the user. The default process subroutine simply spits the information back,
+it may need to be overridden to manipulate the values.
+
+=cut
+
+sub process {
+	my $this=shift;
+	my $value=shift;
+
+	return $value;
+}
+
 =back
 
 =head1 AUTHOR

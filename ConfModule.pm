@@ -104,7 +104,7 @@ sub init {
 =item startup
 
 Pass this name name of a confmodule program, and it is started up. Any
-further options are parameters to pass to the confmodule. You enerally need
+further options are parameters to pass to the confmodule. You generally need
 to do this before trying to use any of the rest of this object. The
 alternative is to launch a confmodule manually, and connect the read_handle
 and write_handle fields of this object to it.
@@ -117,6 +117,15 @@ sub startup {
 
 	my @args=$this->confmodule($confmodule);
 	push @args, @_ if @_;
+	
+	# Try to detect the uninitialized value bug. Seems very hard to
+	# reproduce, so I am going to rather excessive lenghts here.
+	my $bad='';
+	map { $bad=1 if ! defined $_ } @args;
+	if ($bad) {
+		use Carp;
+		Carp::cluck('debconf: Undefined values detected at confmodule startup! Please file a bug report, and include the stack trace below');
+	}
 	
 	debug 2, "starting ".join(' ',@args);
 	$this->pid(open2($this->read_handle(FileHandle->new),

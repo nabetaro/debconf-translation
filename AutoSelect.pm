@@ -31,6 +31,7 @@ my %fallback=(
 	'Gtk'			=>	'Slang',
 	'Text'			=>	'Slang',
 	'Slang'			=>	'Dialog',
+	'Editor'		=>	'Text',
 );
 
 my $frontend;

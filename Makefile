@@ -57,7 +57,10 @@ install:
 	     		$$cutting="" if /^=cut/; 			\
 			next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";\
 			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { 	\
-				print "use vars qw{\@ISA}; use $$2; push \@ISA, q{$$2};\n" \
+				$$what=$$2; \
+				$$use=""; \
+				map { $$use.="use $$_;" } split(/\s+/, $$what); \
+				print "use vars qw{\@ISA}; $$use push \@ISA, qw{$$what};\n" \
 			} 						\
 			else {						\
 				print $$_				\

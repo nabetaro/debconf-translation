@@ -149,11 +149,10 @@ the question associated with that element.
 sub go {
 	my $this=shift;
 
-	debug 2, "preparing to ask questions";
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
 		if ($this->backup && $this->capb_backup) {
-			$this->elements([]);
+			$this->clear;
 			$this->backup('');
 			return;
 		}

@@ -258,8 +258,6 @@ sub AUTOLOAD {
 		return $this->{$field} if (defined $this->{$field});
 		# Fall back to template values.
 		return $this->{template}->$field() if defined $this->{template};
-		# Woah, should never get here.
-		warn("Question ".$this->{name}." has no template. This should never happen; please file a bug report.");
 	};
 	goto &$AUTOLOAD;
 }

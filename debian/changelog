@@ -1,3 +1,18 @@
+debconf (0.3.19) unstable; urgency=low
+
+  * Added crazy new frontend: it just makes a pseudo-config file, and
+    pops up your favorite editor on it.
+  * Killed question w/o template debug code, I'm reasonably sure the problem
+    is just happenning to people who had a very old version of debconf, and
+    that the problem is being corrected properly.
+    Closes: #62004, #61970, #61947
+  * Added debug code to try to track down the uninitialized value in
+    confmodule startup/open2 bug.
+  * Fixed a bug in the 'use base' expander that was causing multiple
+    inheritance to turn into syntax errors.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  7 Apr 2000 16:06:42 -0700
+
 debconf (0.3.18) unstable; urgency=low
 
   * dpkg-reconfigure detects if your default frontend is Noninteractive,

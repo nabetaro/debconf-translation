@@ -1,16 +1,16 @@
 Template: debconf/frontend
 Type: select
-Choices: Slang, Dialog, Text, Web, Noninteractive
+Choices: Slang, Text, Editor, Dialog, Noninteractive, Web
 Default: Slang
-Description: What frontend should be used for configuring packages?
+Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they all use.
+ You can select the type of user interface they use.
  .
  The slang frontend provides a colorful, full-screen, character based
  windowing interface, while the text frontend uses a more traditional plain
- text interface. The web frontend can be accessed using your favorite
- browser. The noninteractive frontend never asks you any questions, but may
- mail you important notes.
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions notes. The web frontend can be accessed using your favorite browser.
 
 Template: debconf/priority
 Type: select

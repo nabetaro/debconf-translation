@@ -5,55 +5,47 @@
 Debian::DebConf::Element::Slang - element containing a slang widget
 
 =cut
-                
-=head1 DESCRIPTION
-
-This is a type of Element used by the slang FrontEnd. It contains a Widget
-from Term::Stool.
-
-=cut
 
 package Debian::DebConf::Element::Slang;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
+=head1 DESCRIPTION
+
+This is a type of Element used by the slang FrontEnd. It contains a Widget
+from Term::Stool.
+
 =head1 FIELDS
 
-=cut
+=over 4
 
-=head2 widget
+=item widget
 
 This is the primary input widget associated with this Element. It should
 automatically be made when this Element is instantiated.
 
-=cut
-
-=head2 widget_description
+=item widget_description
 
 This is a secondary widget, that is used to display the short description.
 
-=cut
-
-=head2 sameline
+=item sameline
 
 This should be set whenever the widget occupys the same line as its short
 description.
 
-=cut
-
-=head2 preferred_width
+=item preferred_width
 
 This is how wide the widget prefers to be. If possible, the widget will be
 made that wide, but it might have to be narrower.
 
-=cut
+=back
 
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 resize
+=item resize
 
 This is called when the widget is resized.
 
@@ -86,7 +78,7 @@ sub resize {
 	}
 }
 
-=head2 value
+=item value
 
 Return the value the user entered.
 
@@ -99,5 +91,13 @@ sub value {
 
 	return '';
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1
