@@ -8,6 +8,7 @@
 #include <fstream.h>
 
 #if APT_PKG_MAJOR >= 3
+#define APT_COMPATIBILITY 986
 #include <apt-pkg/debversion.h>
 #endif
 #include <apt-pkg/pkgcache.h>
