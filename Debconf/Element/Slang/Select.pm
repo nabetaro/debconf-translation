@@ -45,7 +45,7 @@ sub init {
 		),
 	));
 	# The widget prefers to be just wide enough for the list box.
-	$this->widget->preferred_width($this->widget->list->width + 5);
+	$this->widget->preferred_width($this->widget->list->width + 3);
 }
 
 =item value

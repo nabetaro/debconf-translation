@@ -5,25 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.4.07\n"
-"POT-Creation-Date: 2000-11-15 16:27-0800\n"
+"POT-Creation-Date: 2000-11-15 21:23-0800\n"
 "PO-Revision-Date: 2000-11-12 23:28+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Kommandot \"%s\" stöds ej."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Varning: Nyradstecken i flagga given till debconf."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "Detta kommer troligen göra att konstiga saker händer!"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -66,6 +53,19 @@ msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 #, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
+
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Kommandot \"%s\" stöds ej."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Varning: Nyradstecken i flagga given till debconf."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "Detta kommer troligen göra att konstiga saker händer!"
 
 #: ../Debconf/Element/Container.pm:39
 msgid "Container element question method called before frontend was set."
@@ -216,7 +216,8 @@ msgid "Show Help"
 msgstr "Visa hjälp"
 
 #: ../Debconf/FrontEnd/Slang.pm:256
-msgid "Tab and arrow keys move."
+#, fuzzy
+msgid "Tab and arrow keys move; space drops down lists."
 msgstr "Tabbsteg och piltangeter flyttar."
 
 #: ../Debconf/FrontEnd/Slang.pm:278

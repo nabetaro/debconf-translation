@@ -6,26 +6,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-11-15 16:27-0800\n"
+"POT-Creation-Date: 2000-11-15 21:23-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Client/ConfModule.pm:108
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:118
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/AutoSelect.pm:64
 #, c-format
@@ -68,6 +55,19 @@ msgstr "B³±d w szablonie w pobli¿u `%s'"
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
+
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Nieobs³ugiwana komenda `%s'."
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/Element/Container.pm:39
 msgid "Container element question method called before frontend was set."
@@ -215,7 +215,8 @@ msgid "Show Help"
 msgstr "Poka¿ pomoc"
 
 #: ../Debconf/FrontEnd/Slang.pm:256
-msgid "Tab and arrow keys move."
+#, fuzzy
+msgid "Tab and arrow keys move; space drops down lists."
 msgstr "Przesuwanie klawiszami tab i strza³ek"
 
 #: ../Debconf/FrontEnd/Slang.pm:278

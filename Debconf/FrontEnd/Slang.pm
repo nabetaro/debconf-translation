@@ -253,7 +253,7 @@ sub go {
 		}
 
 		# Now set it all in motion, with the first widget focused.
-		$this->helpbar->push(gettext("Tab and arrow keys move."));
+		$this->helpbar->push(gettext("Tab and arrow keys move; space drops down lists."));
 		$this->helpbar->display;
 		$this->panel->display;
 		# Force screen refresh because something may have written
