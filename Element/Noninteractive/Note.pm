@@ -40,7 +40,7 @@ sub show {
 	    	my $title="Debconf: ".$this->frontend->title." -- ".
 		   $this->question->description;
 		$title=~s/'/\'/g;                                                                             # This comment here to work around stupid ' highlighting in jed
-	    	open (MAIL, "|mail -s '$title' root") or return;
+	    	open (MAIL, "|mail -s '$title' root") or return '';
 		# Let's not clobber this, other parts of debconf might use
 		# Text::Wrap at other spacings.
 		my $old_columns=$Text::Wrap::columns;
@@ -59,14 +59,14 @@ eof
 			print MAIL wrap('', '', $this->question->description);
 		}
 		print MAIL "\n";
-		close MAIL;
+		close MAIL or return '';
 
 		$Text::Wrap::columns=$old_columns;
-	}
 	
-	# Mark this note as shown. The frontend doesn't do this for us,
-	# since we are marked as not visible.
-	$this->question->flag_isdefault('false');
+		# Mark this note as shown. The frontend doesn't do this for us,
+		# since we are marked as not visible.
+		$this->question->flag_isdefault('false');
+	}
 
 	return '';
 }
