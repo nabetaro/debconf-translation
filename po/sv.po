@@ -1,78 +1,75 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Swedish translation of debconf.
+# Copyright 2000 Peter Karlsson
+# Peter Karlsson <peterk@debian.org>, 2000.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf 0.4.07\n"
 "POT-Creation-Date: 2000-11-12 15:45-0800\n"
-"PO-Revision-Date: 2000-09-28 22:30+0900\n"
-"Last-Translator: Keita Maehara <maehara@debian.org>\n"
-"Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
+"PO-Revision-Date: 2000-11-12 23:28+0100\n"
+"Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=euc-jp\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:65
 #, c-format
 msgid "failed to initialize frontend: %s"
-msgstr "¥Õ¥í¥ó¥È¥¨¥ó¥É¤Î½é´ü²½¤Ë¼ºÇÔ¤·¤Þ¤·¤¿: %s"
+msgstr "kunde inte initiera skalet: %s"
 
 #: ../Debconf/AutoSelect.pm:70
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "¥Õ¥í¥ó¥È¥¨¥ó¥É¤Îµ¯Æ°¤¬¤Ç¤­¤Þ¤»¤ó¤Ç¤·¤¿: %s"
+msgstr "Kan inte starta skal: %s"
 
 #: ../Debconf/ConfModule.pm:134
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
 msgstr ""
-"debconf: confmodule ¤Îµ¯Æ°»þ¤ËÌ¤ÄêµÁÃÍ¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿!\n"
-"°Ê²¼¤Î¥¹¥¿¥Ã¥¯¥È¥ì¡¼¥¹¤È¤È¤â¤Ë¥Ð¥°¥ì¥Ý¡¼¥È¤ò½Ð¤·¤Æ¤¯¤À¤µ¤¤"
+"debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd en "
+"felrapport och inkludera stackspårningen nedan"
 
 #: ../Debconf/FrontEnd.pm:110
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
-msgstr "%s ·¿¤ÎÍ×ÁÇ¤¬ºîÀ®¤Ç¤­¤Þ¤»¤ó¡£°Ê²¼¤ÎÍýÍ³¤Ë¤è¤ê¼ºÇÔ¤·¤Þ¤·¤¿: %s"
+msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 
 #: ../Debconf/FrontEnd.pm:193
 #, c-format
 msgid "Configuring %s"
-msgstr "%s ¤òÀßÄê¤·¤Æ¤¤¤Þ¤¹"
+msgstr "Konfigurerar %s"
 
 #: ../Debconf/Template.pm:163
 msgid "unknown file"
-msgstr ""
+msgstr "okänd fil"
 
 #: ../Debconf/Template.pm:196
-#, fuzzy, c-format
+#, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' ÉÕ¶á¤Ç¥Æ¥ó¥×¥ì¡¼¥È¤Î²òÀÏ¤Ë¼ºÇÔ¤·¤Þ¤·¤¿"
+msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
 #: ../Debconf/Template.pm:203
-#, fuzzy, c-format
+#, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
-msgstr "¥Æ¥ó¥×¥ì¡¼¥È¤Ë `Template:' ¹Ô¤¬¤¢¤ê¤Þ¤»¤ó"
+msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../Debconf/Client/ConfModule.pm:109
 #, c-format
 msgid "Unsupported command `%s'."
-msgstr "`%s' ¤ÏÌ¤¥µ¥Ý¡¼¥È¤Î¥³¥Þ¥ó¥É¤Ç¤¹¡£"
+msgstr "Kommandot \"%s\" stöds ej."
 
 #: ../Debconf/Client/ConfModule.pm:119
 msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "·Ù¹ð: debconf ¤ËÅÏ¤µ¤ì¤ë¥Ñ¥é¥á¡¼¥¿¤ÎÃæ¤Ë²þ¹Ô¤¬¤¢¤ê¤Þ¤¹¡£"
+msgstr "Varning: Nyradstecken i flagga given till debconf."
 
 #: ../Debconf/Client/ConfModule.pm:120
 msgid "This will probably cause strange things to happen!"
-msgstr "¤³¤Î¤¿¤á¤Ë¤ª¤½¤é¤¯¤ª¤«¤·¤Ê¤³¤È¤¬µ¯¤³¤ê¤Þ¤¹!"
+msgstr "Detta kommer troligen göra att konstiga saker händer!"
 
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
-msgstr ""
-"¥Õ¥í¥ó¥È¥¨¥ó¥É¤¬ÀßÄê¤µ¤ì¤ëÁ°¤Ë¥³¥ó¥Æ¥ÊÍ×ÁÇ¼ÁÌä¥á¥½¥Ã¥É¤¬¸Æ¤Ó½Ð¤µ¤ì¤Þ¤·¤¿¡£"
+msgstr "Behållarelementsfrågemetod anropad innan skal valts."
 
 #: ../Debconf/Element/Select.pm:86
 #, c-format
@@ -80,98 +77,101 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"ÆþÎÏÃÍ \"%s\" ¤Ï C ¤Ë¤ª¤±¤ëÁªÂò»è¤Ë¤Ï¤¢¤ê¤Þ¤»¤ó! ¤³¤ì¤Ïµ¯¤³¤ë¤Ï¤º¤¬¤Ê¤¤¤³\n"
-"¤È¤Ç¤¹¡£¥Æ¥ó¥×¥ì¡¼¥È¥Õ¥¡¥¤¥ë¤¬Àµ¤·¤¯¥í¡¼¥«¥é¥¤¥º¤µ¤ì¤Æ¤¤¤Ê¤¤²ÄÇ½À­¤¬¤¢¤ê\n"
-"¤Þ¤¹¡£"
+"Indatavärde, \"%s\" hittades inte i C-val! Detta skall inte inträffa. Kanske "
+"översattes mallarna felaktigt."
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:50
 #: ../Debconf/Element/Text/Boolean.pm:35 ../Debconf/Element/Text/Boolean.pm:57
 msgid "yes"
-msgstr "¤Ï¤¤"
+msgstr "ja"
 
 #: ../Debconf/Element/Editor/Boolean.pm:33
 #: ../Debconf/Element/Editor/Boolean.pm:51
 #: ../Debconf/Element/Text/Boolean.pm:38 ../Debconf/Element/Text/Boolean.pm:58
 msgid "no"
-msgstr "¤¤¤¤¤¨"
+msgstr "nej"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 #: ../Debconf/Element/Editor/Select.pm:32
 msgid "Choices"
-msgstr "ÁªÂò"
+msgstr "Alternativ"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:33
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(¥³¥ó¥Þ¤È¶õÇò(', ')¤Ç¶èÀÚ¤ê¤Ê¤¬¤é 0 ¸Ä°Ê¾å¤Î¹àÌÜ¤òÆþÎÏ¤·¤Æ¤¯¤À¤µ¤¤¡£)"
+msgstr ""
+"(Ange noll eller flera poster separerade med komma följt av blanksteg (\", "
+"\").)"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:38
 #, fuzzy
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"¤³¤ÎÃí°Õ¤òÊÝÂ¸¤¹¤ë¤è¤¦Í×µá¤µ¤ì¤¿¤Î¤Ç¡¢debconf ¤¬¤¢¤Ê¤¿¤Ë¥á¡¼¥ë¤òÁ÷¤ê¤Þ¤·¤¿¡£"
+"Debconf ombads spara denna notis, så den har sänts till dig per e-post."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:59
 msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:75
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf"
+msgstr ""
 
 #: ../Debconf/Element/Slang/Note.pm:29
 msgid "Save Note"
-msgstr "Ãí°Õ¤òÊÝÂ¸¤¹¤ë"
+msgstr "Spara notis"
 
 #: ../Debconf/Element/Slang/Note.pm:33
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"¤³¤ÎÃí°Õ¤òÊÝÂ¸¤¹¤ë¤è¤¦Í×µá¤µ¤ì¤¿¤Î¤Ç¡¢debconf ¤¬¤¢¤Ê¤¿¤Ë¥á¡¼¥ë¤òÁ÷¤ê¤Þ¤·¤¿¡£"
+"Debconf ombads spara denna notis, så den har sänts till dig per e-post."
 
 #: ../Debconf/Element/Slang/Note.pm:34
 msgid "The note has been mailed to root."
-msgstr "¤³¤ÎÃí°Õ¤Ï root ¤Ë¥á¡¼¥ë¤µ¤ì¤Þ¤·¤¿¡£"
+msgstr "Notisen har sänts till root per e-post."
 
 #: ../Debconf/Element/Slang/Note.pm:37
 msgid "Unable to save note."
-msgstr "¤³¤ÎÃí°Õ¤òÊÝÂ¸¤Ç¤­¤Þ¤»¤ó¡£"
+msgstr "Kan inte spara notis."
 
 #: ../Debconf/Element/Text/Multiselect.pm:28
 msgid "none of the above"
-msgstr "¾åµ­°Ê³°"
+msgstr "inget av ovanstående"
 
 #: ../Debconf/Element/Text/Multiselect.pm:41
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
-msgstr "¶õÇò¤Ç¶èÀÚ¤ê¤Ê¤¬¤é¡¢ÁªÂò¤·¤¿¤¤¹àÌÜ¤òÆþÎÏ¤·¤Æ¤¯¤À¤µ¤¤¡£"
+msgstr ""
+"Skriv bokstäverna för de alternativ du vill markera, separerade med "
+"blanksteg."
 
 #: ../Debconf/FrontEnd/Dialog.pm:83
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"whiptail¡¢dialog ¤Î¤¤¤º¤ì¤â¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤Ê¤¤¤¿¤á¡¢\n"
-"¥À¥¤¥¢¥í¥°·Á¼°¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É¤Ï»ÈÍÑ¤Ç¤­¤Þ¤»¤ó¡£"
+"Varken whiptail eller dialog är installerade, så det dialogbaserade skalet "
+"kan inte användas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:229 ../Debconf/FrontEnd/Slang.pm:64
 msgid "Debian Configuration"
-msgstr "Debian ¤ÎÀßÄê"
+msgstr "Debiankonfigurering"
 
 #: ../Debconf/FrontEnd/Editor.pm:98
 #, c-format
 msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: °ì»þ¥Õ¥¡¥¤¥ë %s ¤Ë½ñ¤­¹þ¤ß¤¬¤Ç¤­¤Þ¤»¤ó: %s"
+msgstr "debconf: Kan inte skriva till temporärfil %s: %s"
 
 #: ../Debconf/FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"¥·¥¹¥Æ¥à¤òÀßÄê¤¹¤ë¤¿¤á¤Ë¡¢¥¨¥Ç¥£¥¿¥Ù¡¼¥¹¤Î debconf ¥Õ¥í¥ó¥È¥¨¥ó¥É¤ò»ÈÍÑ\n"
-"¤·¤Æ¤¤¤Þ¤¹¡£¾Ü¤·¤¤ÀâÌÀ¤Ï¤³¤Î¥É¥­¥å¥á¥ó¥È¤ÎºÇ¸å¤ò¸«¤Æ¤¯¤À¤µ¤¤¡£"
+"Du använder det textbehandlarbaserade debconfskalet för att konfigurera ditt "
+"system. Se slutet av detta dokument för detaljerade instruktioner."
 
 #: ../Debconf/FrontEnd/Editor.pm:124
 msgid ""
@@ -182,116 +182,114 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"¥¨¥Ç¥£¥¿¥Ù¡¼¥¹¤Î debconf ¥Õ¥í¥ó¥È¥¨¥ó¥É¤Ï¡¢1 ¤Ä°Ê¾å¤Î¥Æ¥­¥¹¥È¥Õ¥¡¥¤¥ë¤ò\n"
-"ÊÔ½¸ÍÑ¤ËÄó¶¡¤·¤Þ¤¹¡£¤³¤ì¤Ï¤½¤ÎÊÔ½¸ÍÑ¥Õ¥¡¥¤¥ë¤Î 1 ¤Ä¤Ç¤¹¡£¤¢¤Ê¤¿¤¬É¸½àÅª\n"
-"¤Ê UNIX ¤ÎÀßÄê¥Õ¥¡¥¤¥ë¤Ë´·¤ì¤Æ¤¤¤ì¤Ð¡¢¤³¤Î¥Õ¥¡¥¤¥ë¤Ï¤ï¤«¤ê¤ä¤¹¤¤¤Ç¤·¤ç¤¦¡£\n"
-"¤³¤Î¥Õ¥¡¥¤¥ë¤Ë¤Ï¡¢ÀßÄê¹àÌÜ¤È¤È¤â¤Ë¤È¤³¤í¤É¤³¤í¤Ë¥³¥á¥ó¥È¤¬¤¢¤ê¤Þ¤¹¡£¥Õ¥¡\n"
-"¥¤¥ë¤òÊÔ½¸¤·¤ÆÉ¬Í×¤Ë±þ¤¸¤Æ¹àÌÜ¤òÊÑ¹¹¤·¡¢¥Õ¥¡¥¤¥ë¤òÊÝÂ¸¤·¤Æ¥¨¥Ç¥£¥¿¤ò½ªÎ»\n"
-"¤·¤Æ²¼¤µ¤¤¡£¤³¤Î¤È¤­¡¢debconf ¤ÏÊÔ½¸¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¹þ¤ß¡¢ÆþÎÏ¤µ¤ì¤¿\n"
-"ÃÍ¤ò¥·¥¹¥Æ¥à¤ÎÀßÄê¤ËÍøÍÑ¤·¤Þ¤¹¡£"
+"Det textbehandlarbaserade debconfskalet ger dig en eller flera textfiler att "
+"redigera. Detta är en sådan fil. Om du är van vid vanliga "
+"konfigurationsfiler i Unix kommer du känna igen formatet på den här filen -- "
+"den innehåller kommentarer med interfolierade konfigurationsposter. Redigera "
+"filen och ändra de poster som behövs, och spara och avsluta sedan. Vid den "
+"tidpunkten kommer debconf läsa den redigerade filen, och använda de värden "
+"du angivit för att konfigurera systemet."
 
 #: ../Debconf/FrontEnd/Editor.pm:138
 #, c-format
 msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: %s ¤ÎÆÉ¤ß¹þ¤ß¤Ë¼ºÇÔ¤·¤Þ¤·¤¿: %s"
+msgstr "debconf: Kan inte läsa %s: %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:69
 msgid "Help"
-msgstr "¥Ø¥ë¥×"
+msgstr "Hjälp"
 
 #: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "¼¡¤Ø"
+msgstr "Nästa"
 
 #: ../Debconf/FrontEnd/Slang.pm:93 ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
-msgstr "Ìá¤ë"
+msgstr "Föregående"
 
 #: ../Debconf/FrontEnd/Slang.pm:94
 msgid "Hide Help"
-msgstr "¥Ø¥ë¥×¤òÈóÉ½¼¨"
+msgstr "Göm hjälp"
 
 #: ../Debconf/FrontEnd/Slang.pm:95
 msgid "Show Help"
-msgstr "¥Ø¥ë¥×¤òÉ½¼¨"
+msgstr "Visa hjälp"
 
 #: ../Debconf/FrontEnd/Slang.pm:261
 msgid "Tab and arrow keys move."
-msgstr "¥¿¥Ö¤«Ìð°õ¥­¡¼¤Ç°ÜÆ°"
+msgstr "Tabbsteg och piltangeter flyttar."
 
 #: ../Debconf/FrontEnd/Slang.pm:282
 msgid "Working, please wait..."
-msgstr "½èÍý¤·¤Æ¤¤¤Þ¤¹¡¢¤ªÂÔ¤Á¤¯¤À¤µ¤¤¡Ä"
+msgstr "Arbetar, var god vänta..."
 
 #: ../Debconf/FrontEnd/Text.pm:96
 msgid "More"
-msgstr "°ÜÆ°"
+msgstr "Mer"
 
 #: ../Debconf/FrontEnd/Web.pm:66
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Ãí°Õ: Debconf ¤Ï¥¦¥§¥Ö¥â¡¼¥É¤ÇÆ°ºî¤·¤Æ¤¤¤Þ¤¹¡£\n"
-"http://localhost:%i/ ¤ò¤´Í÷¤¯¤À¤µ¤¤¡£"
+msgstr "Obs: Debconf kör i webbläge. Gå till http://localhost:%i/"
 
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
-"»ÈÍÑÊýË¡: dpkg-preconfigure [--frontend=·¿] [--priority=ÃÍ] deb¥Õ¥¡¥¤¥ë"
+"Användning: dpkg-preconfigure [--frontend=typ] [--priority=värde] debfiler"
 
 #: ../dpkg-preconfigure:116
 #, c-format
 msgid "Unknown option: %s"
-msgstr "ÉÔÌÀ¤Ê¥ª¥×¥·¥ç¥ó¤Ç¤¹: %s"
+msgstr "Okänd flagga: %s"
 
 #: ../dpkg-preconfigure:138
 #, c-format
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: É¸½àÆþÎÏ¤òºÆ¥ª¡¼¥×¥ó¤Ç¤­¤Þ¤»¤ó: %s"
+msgstr "dpkg-preconfigure: kan inte återöppna stdin: %s"
 
 #: ../dpkg-preconfigure:184
 #, c-format
 msgid "template parse error: %s"
-msgstr "¥Æ¥ó¥×¥ì¡¼¥È¤Î²òÀÏ¤Ë¼ºÇÔ¤·¤Þ¤·¤¿: %s"
+msgstr "malltolkfel: %s"
 
 #: ../dpkg-preconfigure:192
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "chmod ¤Ç¤­¤Þ¤»¤ó: %s"
+msgstr "debconf: kan inte byta ägare: %s"
 
 #: ../dpkg-preconfigure:202
 #, c-format
 msgid "%s failed to configure, with exit code %s"
-msgstr "%s ¤Ï½ªÎ»¥³¡¼¥É %s ¤ÇÀßÄê¤Ë¼ºÇÔ¤·¤Þ¤·¤¿¡£"
+msgstr "%s kunde inte konfigurera, med slutkod %s"
 
 #: ../dpkg-reconfigure:14
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-msgstr "»ÈÍÑÊýË¡: dpkg-reconfigure [--frontend=·¿] [--priority=ÃÍ] ¥Ñ¥Ã¥±¡¼¥¸"
+msgstr "Anvädning: dpkg-reconfigure [--frontend=typ] [--priority=värde] paket"
 
 #: ../dpkg-reconfigure:130
 msgid "must be run as root"
-msgstr "root ¤Ç¼Â¹Ô¤¹¤ëÉ¬Í×¤¬¤¢¤ê¤Þ¤¹"
+msgstr "måste köras som root"
 
 #: ../dpkg-reconfigure:153
 #, c-format
 msgid "%s is not installed or does not use debconf"
-msgstr "%s ¤Ï¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤Ê¤¤¤«¡¢debconf ¤ò»ÈÍÑ¤·¤Æ¤¤¤Þ¤»¤ó"
+msgstr "%s är inte installerat eller använder inte debconf"
 
 #: ../dpkg-reconfigure:165
 #, c-format
 msgid "%s is not fully installed"
-msgstr "%s ¤Ï´°Á´¤Ë¥¤¥ó¥¹¥È¡¼¥ë¤µ¤ì¤Æ¤¤¤Þ¤»¤ó"
+msgstr "%s är inte helt installerat"
 
 #: ../dpkg-reconfigure:240
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr "¥¹¥Æ¡¼¥¿¥¹¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¹þ¤á¤Þ¤»¤ó: %s"
+msgstr "Kan inte läsa statusfil: %s"
 
 #~ msgid ""
 #~ "This note was sent to you because Debconf was asked to make sure you saw it, "
 #~ "but Debconf was running in noninteractive mode, or you have told it to not "
 #~ "pause and show you unimportant notes. Here is the text of the note:"
 #~ msgstr ""
-#~ "¤¢¤Ê¤¿¤¬³Î¼Â¤Ë¸«¤ë¤è¤¦¤Ë¡¢°Ê²¼¤ÎÃí°Õ¤¬É½¼¨¤µ¤ì¤Þ¤·¤¿¤¬¡¢debconf ¤¬Á´¼«Æ°\n"
-#~ "¥â¡¼¥É¤ÇÆ°ºî¤·¤Æ¤¤¤¿¤«¡¢½ÅÍ×¤Ç¤Ê¤¤Ãí°Õ¤Ï¸«¤»¤Ê¤¤¤è¤¦¤Ë»ØÄê¤µ¤ì¤Æ¤¤¤Þ¤·¤¿¡£\n"
-#~ "¤³¤ì¤¬¤½¤ÎÃí°Õ¤Ç¤¹:"
+#~ "Denna notis sändes till dig eftersom Debconf ombads se till att du såg den, "
+#~ "men Debconf körde i ickeinteraktivt läge, eller så har du bett det att inte "
+#~ "pausa och visa oviktiga notiser. Här är texten i notisen:"

@@ -7,7 +7,7 @@
 #include <wait.h>
 #include <fstream.h>
 
-#ifdef APT_COMPATIBILITY
+#if APT_PKG_MAJOR >= 3
 #include <apt-pkg/debversion.h>
 #endif
 #include <apt-pkg/pkgcache.h>
@@ -63,7 +63,7 @@ void writeconfig(const DebFile &file)
 void init(MMap *&Map, pkgCache *&Cache)
 {
 	// Initialize the apt cache
-#ifdef APT_COMPATIBILITY
+#if APT_PKG_MAJOR >= 3
 	if (pkgInitConfig(*_config) == false || pkgInitSystem(*_config, _system) == false)
 #else
 	if (pkgInitialize(*_config) == false)
@@ -75,7 +75,7 @@ void init(MMap *&Map, pkgCache *&Cache)
 	pkgSourceList List;
 	List.ReadMainList();
 	OpProgress Prog;
-#ifdef APT_COMPATIBILITY
+#if APT_PKG_MAJOR >= 3
 	pkgMakeStatusCache(List,Prog,&Map,true);
 	Cache = new pkgCache(Map);
 #else
