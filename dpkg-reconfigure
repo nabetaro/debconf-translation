@@ -37,6 +37,11 @@ Specify the minimum priority of question that will be displayed.
 dpkg-reconfigure normally shows low priority questions no matter what your
 default priority is.
 
+=item B<--default-priority>
+
+Use whatever the default priority of question is, unstead of forcing the
+priority to low.
+
 =item B<--all>
 
 Reconfigure all installed packages that use debconf. Warning: this may take
@@ -77,19 +82,22 @@ use Debconf::Config;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
-# Default to low priority.
+# Use low priority unless an option below overrides.
 Debconf::Config->priority('low');
 
 my $unseen_only=0;
 my $all=0;
 my $force=0;
+my $default_priority=0;
 Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
 qq{Usage: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
   -u,  --unseen-only		Show only not yet seen questions.
+       --default-priority	Use default priority instead of low.
        --force			Force reconfiguration of broken packages.},
 	"all|a"			=> \$all,
 	"unseen-only|u"		=> \$unseen_only,
+	"default-priority"	=> \$default_priority,
 	"force"			=> \$force,
 );
 
@@ -99,6 +107,10 @@ if ($> != 0) {
 }
 
 Debconf::Db->load;
+
+if ($default_priority) {
+	Debconf::Config->priority(Debconf::Question->get('debconf/priority')->value);
+}
 
 # If the frontend is noninteractive, change it temporarily to dialog.
 if (Debconf::Config->frontend eq 'Noninteractive') {

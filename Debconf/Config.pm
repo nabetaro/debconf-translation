@@ -233,7 +233,7 @@ sub frontend {
 =item priority
 
 The lowest priority of questions you want to see. Looks at first the value
-of DEBIAN_PRIORITYD, second the config file, third the database, and if all
+of DEBIAN_PRIORITY, second the config file, third the database, and if all
 of those fail, defaults to "medium".
 
 If a value is passed to this function, it changes it temporarily (for
