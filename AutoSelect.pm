@@ -31,7 +31,7 @@ my %fallback=(
 	'Dialog'		=>	'Slang',
 	'Gtk'			=>	'Slang',
 	'Text'			=>	'Slang',
-	'Slang'			=>	'Dialog',
+	'Slang'			=>	'Text',
 	'Editor'		=>	'Text',
 );
 
