@@ -1,0 +1,260 @@
+.TH DEBCONF.CONF 5
+.SH NAME
+debconf.conf \- debconf configuration file
+.SH DESCRIPTION
+Debconf is a configuration system for Debian packages. /etc/debconf.conf
+and ~/.debconfrc are configuration files debconf uses to determine which
+databases it should use. These databases are used for storing two types of
+information; dynamic config data the user enters into it, and static
+template data. Debconf offers a flexible, extensible database backend. New
+drivers can be created with a minimum of effort, and sets of drivers
+can be combined in various ways.
+.SH SYNOPSIS
+  # This is a sample config file that is
+  # sufficient to use debconf.
+  Config: configdb
+  Templates: templatedb
+
+  Name: configdb
+  Driver: Text
+  Directory: /var/lib/debconf/config
+
+  Name: templatedb
+  Driver: Text
+  Directory: /var/lib/debconf/templates
+.SH "FILE FORMAT"
+The format of this file is a series of stanzas, each seperated by at least
+one wholly blank line. Comment lines beginning with a "#" character are
+ignored.
+.P
+The first stanza of the file is special, is used to configure debconf as a
+whole. Currently, only two fields are supported is this first stanza, and
+both must be present. A field named "Config" specifies the name of the
+database from which to load config data, and a field named "Templates"
+specifies the name of the database for template data.
+.P
+For example, the first stanza of a file might look like this:
+  Config: configdb
+  Templates: templatedb
+.P
+Each remaining stanza in the file sets up a database. A database stanza
+begins by naming the database:
+  Name: configdb
+.P
+Then it indicates what database driver should be used for this database.
+See DRIVERS, below, for information about what drivers are available.
+  Driver: Text
+.P
+You can indicate that the database is not essential to the proper
+functioning of debconf by saying it is not required. This will make debconf
+muddle on if the database fails for some reason.
+  Required: false
+.P
+You can mark any database as readonly and debconf will not write anything
+to it.
+  Readonly: true
+.P
+You can also limit what types of data can go into the database with Accept-
+and Reject- lines; see ACCESS CONTROLS, below.
+.P
+The remainder of each database stanza is used to provide configuration
+specific to that driver. For example, the Text driver needs to know
+a directory to put the database in, so you might say:
+  Directory: /var/lib/debconf/config
+.SH DRIVERS
+A number of drivers are available, and more can be written with little
+difficulty. Drivers come in three general types. First there are real drivers
+-- drivers that actually access and store data in some kind of database,
+which might be on the local filesystem, or on a remote system. Then
+there are meta-drivers that combine other drivers together to form more
+interesting systems. Let's start with the former.
+.TP
+.B Text
+.RS
+This database driver allows debconf to access data from a subdirectory,
+which contains plain text files. The format of the files is very simple to
+figure out, should you ever need to edit them directly. One file is used
+for each item in the database, so it doesn't scale to database with
+thousands of entries (on the ext2 filesystem anyway). But it is quick and
+efficient for smaller databases.
+.P
+The following things are configurable for this driver.
+.RS
+.TP
+.B Directory
+The directory to put the files in. Required.
+.TP
+.B Extention
+An extention to prefix the files with. Optional.
+.RE
+.P
+As example stanza setting up a database using this driver:
+.P
+  Name: mydb
+  Driver: Text
+  Directory: /home/me/.mydb/
+  Extention: .txt
+.RE
+.P
+That's all of the real drivers, now moving on to meta-drivers..
+.TP
+.B Stack
+.RS
+This driver stacks up a number of other databases (of any type), and allows
+them to be accessed as one. When debconf asks for a value, the first
+database on the stack that contains the value returns it. If debconf writes
+something to the database, the write normally goes to the first driver on
+the stack that has the item debconf is modifying, and if none do, the new
+item is added to the first writeable database on the stack.
+.P
+Things become more interesting if one of the databases on the stack is
+readonly. Consider a stack of the databases foo, bar, and baz, where foo
+and baz are both readonly. Debconf wants to change an item, and this item
+is only present in baz, which is readonly. The stack driver is smart enough
+to realize that won't work, and it will copy the item from baz to bar, and
+the write will take place in bar. Now the item in baz is shadowed by the
+item in bar, and it will not longer be visible to debconf.
+.P
+This kind of thing is particularly useful if you want to point many systems
+at a central, readonly database, while still allowing things to be
+overridden on each system. When access controls are added to the picture,
+stacks allow you to do many other interesting things, like redirect all
+passwords to one database while a database underneath it handles everything
+else.
+.P
+Only one piece of configuration is needed to set up a stack:
+.P
+.RS
+.TP
+.B Stack
+This is where you specify a list of other databases, by name, to tell it
+what makes up the stack.
+.RE
+.P
+For example:
+.P
+  Name: megadb
+  Driver: stack
+  Stack: passworddb, configdb, companydb
+.P
+WARNING: The stack driver is not very well tested.
+.RE
+.SH "ACCESS CONTROLS"
+When you set up a database, you can also use some fields to specify access
+controls. You can specify that a database only accepts passwords, for
+example, or make a database only accept things with "foo" in their name.
+.TP
+.B Readonly
+As was mentioned earlier, this access control, if set to "true", makes a
+database readonly. Debconf will read values from it, but will never write
+anything to it.
+.TP
+.B Accept-Name
+The text in this field is a perl-compatabile regular expression that is
+matched against the names of items as they are requested from the
+database. Only if an items name matches the regular expression, will the
+database allow debconf to access or modify it.
+.TP
+.B Reject-Name
+Like Accept-Name, except any item name matching this regular expression
+will be rejected.
+.TP
+.B Accept-Type
+Another regular expression, this matches against the type of the item
+that is being accessed. Only if the type matches the regex will access be
+granted.
+.TP
+.B Reject-Type
+Like Accept-Type, except any type matching this regular expression
+will be rejected.
+.P
+WARNING: The Accept-Type and Reject-Type access controls are not yet
+implemented.
+.SH EXAMPLE
+Note that some of the driver types in this example do not exist. Feel free
+to write them!
+.P
+  # This stanza is used for general debconf setup.
+  Config: stack
+  Templates: templates
+
+  # This is my own local database.
+  Name: mydb
+  Driver: Text
+  Directory: /var/lib/debconf/config
+
+  # This is my own local database.
+  Name: mydb
+  Driver: Text
+  Directory: /var/lib/debconf/config
+
+  # This is another database that I use to hold
+  # only X server configuration.
+  Name: X
+  Driver: Text
+  Directory: /etc/X11/debconf/
+  # It's sorta hard to work out what questions
+  # belong to X; it should be using a deeper
+  # tree structure so I could just match on ^X/
+  # Oh well.
+  Accept-Name: xserver|xfree86|xbase
+
+  # This is our company's global, read-only
+  # (for me!) debconf database.
+  Name: company
+  Driver: SQL
+  Server: debconf.foo.com
+  Readonly: true
+  Username: foo
+  Password: bar
+  # I don't want any passwords that might be
+  # floating around in there.
+  Reject-Type: password
+  # If this db is not accessible for whatever
+  # reason, carry on anyway.
+  Required: false
+
+  # This special driver provides a few items
+  # from dhcp.
+  Name: dhcp
+  Driver: DHCP
+  Required: false
+  Reject-Type: password
+
+  # And I use this database to hold
+  # passwords safe and secure.
+  Name: passwords
+  Driver: FlatFile
+  File: /etc/debconf/passwords
+  Mode: 600
+  Owner: root
+  Group: root
+  Accept-Type: password
+
+  # Let's put them all together in a database stack.
+  Name: stack
+  Driver: Stack
+  Stack: passwords, X, mydb, company, dhcp
+  # So, all passwords go to the password database. Most
+  # X configuration stuff goes to the x database, and
+  # anything else goes to my main database. Values are
+  # looked up in each of those in turn, and if none has
+  # a particular value, it is looked up in the
+  # company-wide database or maybe dhcp (unless it's
+  # a password).
+
+  # A database is also used to hold templates. We don't
+  # need to make this as fancy.
+  Name: templates
+  Driver: text
+  Directory: /var/lib/debconf/templates
+.SH "PLANNED ENHANCEMENTS"
+More drivers.
+.P
+Force-Flag-Foo: value to allow things like Force-Flag-Seen: false
+.SH FILES
+/etc/debconf.conf
+.P
+~/.debconfrc
+.SH AUTHOR
+Joey Hess <joey@kitenet.net>
