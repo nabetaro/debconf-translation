@@ -1,3 +1,11 @@
+debconf (1.2.13) unstable; urgency=low
+
+  * Fix debconf/helper confusion in debconf-devel(7). Closes: #166585
+  * Don't let readline frontend be used with Term::ReadLine::GNU and emacs
+    shell buffers, as those two don't get along. See bug #166987
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 29 Oct 2002 20:49:53 -0500
+
 debconf (1.2.12) unstable; urgency=low
 
   * Include topmost 100 changelog entries now in the hope that I will rarely

@@ -52,6 +52,12 @@ sub init {
 	$this->readline->ornaments(1);
 
 	if (Term::ReadLine->ReadLine =~ /::Gnu$/) {
+		# Well, emacs shell buffer has some annoying interactions
+		# with Term::ReadLine::GNU. It's not worth the pain.
+		if ($ENV{TERM} =~ /emacs/i) {
+			die gettext("Term::ReadLine::GNU is incompatable with emacs shell buffers.")."\n";
+		}
+		
 		# Ctrl-u or pageup backs up, while ctrl-v or pagedown moves
 		# forward. These key bindings and history completion are only
 		# supported by Gnu ReadLine.

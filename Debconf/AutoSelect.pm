@@ -18,23 +18,23 @@ our %EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 =head1 DESCRIPTION
 
-This library makes it easy to create FrontEnd and ConfModule objects. It starts
-with the desired type of object, and tries to make it. If that fails, it
-progressivly falls back to other types.
+This library makes it easy to create FrontEnd and ConfModule objects. It
+starts with the desired type of object, and tries to make it. If that fails,
+it progressivly falls back to other types in the list.
 
 =cut
 
 my %fallback=(
-	# preferred frontend		# fall back to (list ref)
-	'Gnome'			=>	['Dialog', 'Readline'],
-	'Web'			=>	['Dialog', 'Readline'],
-	'Dialog'		=>	['Readline'],
-	'Gtk'			=>	['Dialog', 'Readline'],
+	# preferred frontend		# fall back to
+	'Gnome'			=>	['Dialog', 'Readline', 'Teletype'],
+	'Web'			=>	['Dialog', 'Readline', 'Teletype'],
+	'Dialog'		=>	['Readline', 'Teletype'],
+	'Gtk'			=>	['Dialog', 'Readline', 'Teletype'],
 	'Readline'		=>	['Teletype', 'Dialog'],
-	'Editor'		=>	['Readline'],
+	'Editor'		=>	['Readline', 'Teletype'],
 	# Here to make upgrades clean for those who used to use the slang
 	# frontend.
-	'Slang'			=>	['Dialog'],
+	'Slang'			=>	['Dialog', 'Readline', 'Teletype'],
 	# And the Text frontend has become the Readline frontend.
 	'Text'			=> 	['Readline', 'Teletype', 'Dialog'],
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2002-10-05 14:40-0400\n"
+"POT-Creation-Date: 2002-10-29 20:38-0500\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -164,6 +164,11 @@ msgstr "Debconf"
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "Esta interface precisa dun terminal de control."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+#, fuzzy
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "A interface Slang é incompatible cos buffers shell de emacs."
 
 #: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
@@ -351,9 +356,6 @@ msgstr ""
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "Non se estabreceu TERM, así que a interface Slang non é utilizable."
-
-#~ msgid "Slang frontend is incompatible with emacs shell buffers"
-#~ msgstr "A interface Slang é incompatible cos buffers shell de emacs."
 
 #~ msgid ""
 #~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
