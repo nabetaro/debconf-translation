@@ -47,7 +47,7 @@ sub init {}
 =head2 iterate([itarator])
 
 Iterate over all available items. If called with no arguments, it returns
-an itarator. If called with the iterator passed in, it retuns the next
+an itarator. If called with the iterator passed in, it returns the next
 item in the sequence, or undef if there are no more.
 
 =cut
@@ -60,7 +60,7 @@ Save the entire database state.
 
 =cut
 
-sub save {}
+sub savedb {}
 
 =head2 exists(itemname)
 
@@ -123,6 +123,8 @@ sub setfield {}
 Return the fields present in the item.
 
 =cut
+
+sub fields {}
 
 =head2 getflag(itemname, flagname)
 
