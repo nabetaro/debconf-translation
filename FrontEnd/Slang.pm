@@ -17,6 +17,7 @@ use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
 use Term::Stool::Screen;
 use Term::Stool::Window;
+use Term::Stool::Dialog;
 use Term::Stool::TitleBar;
 use Term::Stool::HelpBar;
 use Term::Stool::Panel;
@@ -48,25 +49,14 @@ sub init {
 		text => "Debian Configuration",
 	));
 	$this->helpbar(Term::Stool::HelpBar->new);
-	$this->mainwindow(Term::Stool::Window->new(
-		resize_hook => sub {
-			my $this=shift;
-
-			# Resize to take up the top half of the screen.
-			$this->xoffset(2);
-			$this->yoffset(2);
-			$this->width($this->container->width - 4);
-			$this->height(int(($this->container->height - 6) / 2));
-		},
-	));
 	$this->descwindow(Term::Stool::Window->new(
-		title => "Description",
+		title => "Help",
 		resize_hook => sub {
 			my $this=shift;
 		
 			# Resize to take up the bottom half of the screen.
-			$this->xoffset(2);
-			$this->width($this->container->width - 4);
+			$this->xoffset(3);
+			$this->width($this->container->width - 6);
 			$this->yoffset(int(($this->container->height - 6) / 2 + 4));
 			$this->height(int(($this->container->height - 6) / 2));
 		},
@@ -86,35 +76,21 @@ sub init {
 	$this->button_next(Term::Stool::Button->new(
 		text => "Next",
 		width => 8,
-		resize_hook => sub {
-			my $this=shift;
-
-			# Fit at bottom of window, on left hand side.
-			$this->yoffset($this->container->height - 3);
-			$this->xoffset($this->container->width / 4);
-		},
 	));
 	$this->button_back(Term::Stool::Button->new(
 		text => "Back",
 		width => 8,
-		resize_hook => sub {
-			my $this=shift;
-
-			# Fit at bottom of window, on right hand side.
-			$this->yoffset($this->container->height - 3);
-			$this->xoffset($this->container->width / 4 * 3
-				- $this->width);
-		},
 	));
 	$this->panel(Term::Stool::Panel->new(
-		xoffset => 0,
-		yoffset => 0,
+		xoffset => -1,
+		yoffset => -1,
+		withframe => 0,
 		resize_hook => sub {
 			my $panel=shift;
 			
 			# Fill the window, with space for the buttons.
-			$panel->width($panel->container->width - 2);
-			$panel->height($panel->container->height - 3);
+			$panel->width($panel->container->width);
+			$panel->height($panel->container->height - 2);
 
 			$this->fillpanel;
 		},
@@ -127,7 +103,21 @@ sub init {
 			$this->desctext->display;
 		},
 	));
-	$this->mainwindow->add($this->panel, $this->button_next,
+
+	$this->mainwindow(Term::Stool::Dialog->new(
+		inside => $this->panel,
+		resize_hook => sub {
+			my $this=shift;
+			
+			# Resize to take up the top half of the screen.
+			$this->xoffset(2);
+			$this->yoffset(2);
+			$this->width($this->container->width - 4);
+			$this->height(int(($this->container->height - 6) / 2));
+		},
+        ));
+	
+	$this->mainwindow->buttonbar->add($this->button_next,
 		$this->button_back);
 	$this->descwindow->add($this->desctext);
 	$this->screen->add($this->titlebar, $this->mainwindow,
