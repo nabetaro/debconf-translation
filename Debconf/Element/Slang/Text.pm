@@ -17,16 +17,16 @@ This is a bit of text to show to the user.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 	
 	# Make a widget only because the frontend expects us to. The widget
 	# is not displayed or used at all.
-	$this->widgets([Term::Stool::Widget->new(
+	return Term::Stool::Widget->new(
 		can_focus => 0,
 		width => 1,
-		preferred_width => 0,
-	)]);
+		preferred_width => 1,
+	);
 }
 
 1

@@ -23,11 +23,12 @@ This is a password input widget.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 
-	$this->widgets([Term::Stool::Password->new]);
-	$this->widgets->[0]->preferred_width($this->widgets->[0]->width);
+	my $widget=Term::Stool::Password->new;
+	$widget->preferred_width($widget->width);
+	return $widget;
 }
 
 =item value

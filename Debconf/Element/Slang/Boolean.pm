@@ -23,12 +23,12 @@ This is a check box widget.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 
-	$this->widgets([Term::Stool::CheckBox->new(
+	return Term::Stool::CheckBox->new(
 		checked => (defined $this->question->value && $this->question->value eq 'true') ? 1 : 0,
-	)]);
+	);
 }
 
 =item resize

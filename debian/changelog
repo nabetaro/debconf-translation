@@ -1,3 +1,12 @@
+debconf (0.5.44) unstable; urgency=low
+
+  * Modified slang frontend to not instantiate Term::Stool widgets until
+    the GO command. This allows for thinge like:
+      db_set foo yes; db_input priority foo || db_set foo no
+  * All other frontends should already handle this just fine.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Jan 2001 21:38:22 -0800
+
 debconf (0.5.43) unstable; urgency=low
 
   * Modified shell confmodule to use read -r, so if \ characters are 

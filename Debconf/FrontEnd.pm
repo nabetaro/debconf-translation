@@ -80,7 +80,7 @@ if it was unable to make an Element of the given  ype.
 This may be called as either a class or an object method. 
 
 Normally, it outputs debug codes if creating the Element fails. If failure
-is expected, a second pasrameter can be passed with a true value to turn
+is expected, a second parameter can be passed with a true value to turn
 off those debug messages.
 
 =cut

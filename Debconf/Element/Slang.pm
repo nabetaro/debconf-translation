@@ -41,6 +41,33 @@ made that wide, but they might have to be narrower.
 
 =over 4
 
+=item widgets
+
+Returns the widget(s) that will be used to display this Element to the
+user. If the widgets already exist, they are just returned. If they do not
+yet exist, they are created, by calling the make_widgets method, and the
+resulting widgets are stashed away.
+
+=cut
+
+sub widgets {
+	my $this=shift;
+
+	return $this->_widgets if $this->_widgets;
+	return $this->_widgets([$this->make_widgets]);
+}
+
+=item make_widgets
+
+Makes the widgets that will be used to display this Element to the
+user. Just return the widget or widgets.
+
+=cut
+
+sub make_widgets {
+	die "make_widgets not overridden by child class";
+}
+
 =item resize
 
 This is a stock resize method that only supports one widget.

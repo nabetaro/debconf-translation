@@ -25,7 +25,7 @@ made this use an array of checkboxes.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 
 	my %default=map { $_ => 1 } $this->translate_default;
@@ -39,7 +39,8 @@ sub init {
 		);
 		push @widgets, Term::Stool::Text->new(text => $choice);
 	}
-	$this->widgets([@widgets]);
+
+	return @widgets;
 }
 
 =item resize

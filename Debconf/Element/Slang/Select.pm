@@ -23,7 +23,7 @@ This is a drop down select box widget.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 
 	my $default=$this->translate_default;
@@ -38,14 +38,17 @@ sub init {
 		}
 	}
 
-	$this->widgets([Term::Stool::DropDown->new(
+	my $widget=Term::Stool::DropDown->new(
 		list => Term::Stool::List->new(
 			contents => [@choices],
 			cursor => $cursor,
 		),
-	)]);
+	);
+	
 	# The widget prefers to be just wide enough for the list box.
-	$this->widgets->[0]->preferred_width($this->widgets->[0]->list->width + 3);
+	$widget->preferred_width($widget->list->width + 3);
+
+	return $widget;
 }
 
 =item value

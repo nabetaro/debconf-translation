@@ -23,15 +23,15 @@ This is a text input widget.
 
 =cut
 
-sub init {
+sub make_widgets {
 	my $this=shift;
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
-	$this->widgets([Term::Stool::Input->new(
+	return Term::Stool::Input->new(
 		text => $default,
 		preferred_width => 20,
-	)]);
+	);
 }
 
 =item resize
