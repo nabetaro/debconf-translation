@@ -77,7 +77,10 @@ A short description of the data types:
   	possible values with commas and spaces, like this: 
   		Choices: yes, no, maybe
   note
-  	This template is a note that can be displayed to the user.
+  	This template is a note that can be displayed to the user. As
+	opposed to text, it is something important, that the user really
+	should see. If debconf is not running interactively, it might be
+	saved to a log file or mailbox for them to see later.
   text
 	This template is a scrap of text that can be displayed to the user.
 
@@ -90,7 +93,7 @@ templates in it:
    We'd like to know if you like the Debian GNU/Linus system.
 
   Template: foo/why_debian_is_great
-  Type: message
+  Type: note
   Description: Poor misguided one. Why are you installing this package, then?
    Debian is great. As you continue using Debian, we hope you will discover
    the error in your ways.

@@ -1,3 +1,12 @@
+debconf (0.1.22) unstable; urgency=low
+
+  * Fixed a typo in the tutorial, and expanded it some.
+  * Fixed the apt dependancy, which was on too low a version.
+  * Depend on whiptail || dialog || gnome-utils so some kind of dialog is
+    installed always.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 17:48:12 -0700
+
 debconf (0.1.21) unstable; urgency=low
 
   * All the sigchld counting and handling stuff was making debconf segfault
