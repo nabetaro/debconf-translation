@@ -1,5 +1,31 @@
+debconf (0.3.43) unstable; urgency=low
+
+  * Don't let the dialog frontend run with with TERM=dumb either.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 15 Jun 2000 12:33:57 -0700
+
+debconf (0.3.42) unstable; urgency=low
+
+  * Running debconf's dialog frontend inside an emacs shell buffer is a
+    VERY bad idea. Dialog/whiptail tend to exit immediatly with an error
+    message. Said error goes to stderr. Unfortunatly, the design of
+    dialog/whiptail is such that you _read_ stderr to get the user's reply,
+    and a return code of 1 is also not unusual. Thus, random garbage about
+    emacs not being a suitable terminal gets fed into the debconf database.
+    Yich. To prevent this nestiness, the dialog frontend will now refuse to
+    run in an emacs shell buffer.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 15 Jun 2000 11:06:12 -0700
+
+debconf (0.3.41) unstable; urgency=low
+
+  * Some Polish translation fix of which I am ignorant.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 14 Jun 2000 17:10:43 -0700
+
 debconf (0.3.40) unstable; urgency=low
 
+  * Updated Polish translation.
   * Fixed perl 5.6 specific error message.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 13 Jun 2000 12:25:56 -0700

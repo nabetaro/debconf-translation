@@ -20,6 +20,8 @@ db_input low demo/password || true
 db_input low demo/text || true
 db_input low demo/select || true
 db_go || true
+db_set demo/select Your terminal lacks the ability to clear the screen or position the cursor.
+db_get demo/select
 db_beginblock
 db_input low demo/boolean || true
 db_input low demo/boolean || true
