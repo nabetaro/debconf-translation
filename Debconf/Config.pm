@@ -13,7 +13,7 @@ use Debconf::Gettext;
 use Debconf::Db;
 
 use fields qw(config templates frontend priority helpvisible
-              showold admin_email debug log_to);
+              showold admin_email log debug);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",

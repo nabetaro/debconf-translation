@@ -26,35 +26,34 @@ This module uses Exporter.
 =item debug
 
 Outputs an infomational message. The first parameter specifies the type of
-information that is being logged. If the user has specified a debug setting
-that matches the parameter, the message is output.
+information that is being logged. If the user has specified a debug or log 
+setting that matches the parameter, the message is output and/or logged.
 
-Currently used types of information: user, developer, debug
+Currently used types of information: user, developer, debug, db
 
 =cut
 
 my $log_open=0;
-my $log_failed=0;
 sub debug {
 	my $type=shift;
+	
 	my $debug=Debconf::Config->debug;
 	if ($debug && $type =~ /$debug/) {
-		my $log_to=Debconf::Config->log_to;
-		if ($log_to eq 'syslog') {
-			require Sys::Syslog;
-			unless ($log_open) {
-				Sys::Syslog::setlogsock('unix');
-				Sys::Syslog::openlog('debconf', '', 'user');
-				$log_open=1;
-			}
-			eval { # ignore all exceptions this throws
-				Sys::Syslog::syslog('debug', "($type): ".
-					join(" ", @_));
-			};
+		print STDERR "debconf ($type): ".join(" ", @_)."\n";
+	}
+	
+	my $log=Debconf::Config->log;
+	if ($log && $type =~ /$log/) {
+		require Sys::Syslog;
+		unless ($log_open) {
+			Sys::Syslog::setlogsock('unix');
+			Sys::Syslog::openlog('debconf', '', 'user');
+			$log_open=1;
 		}
-		else { # assume stderr
-			print STDERR "debconf ($type): ".join(" ", @_)."\n";
-		}
+		eval { # ignore all exceptions this throws
+			Sys::Syslog::syslog('debug', "($type): ".
+				join(" ", @_));
+		};
 	}
 }
 

@@ -1,3 +1,13 @@
+debconf (0.9.39) unstable; urgency=low
+
+  * Changed the debug and log stuff in debconf.conf and removed log-to. 
+    This will break any debconf.conf files which used that stuff, but I'm
+    proably the only one. The new scheme is more realistic -- you can have
+    debconf always log a given thing, while turning on debugging of other
+    things temporarily on the fly.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 28 Apr 2001 12:04:51 -0400
+
 debconf (0.9.38) unstable; urgency=low
 
   * debconf-doc moved to section doc, Closes: #94840

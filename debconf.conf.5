@@ -56,14 +56,17 @@ any valid email address to send the mail there. If you prefer to never have
 debconf send you mail, specify a blank address.
 .TP
 .B Debug
-Makes debconf output debug information, the same as if DEBCONF_DEBUG was
-set to a value. Regular expressions may be used, or it can be set to "user"
-or "developer", or other things.
+If set, this will cause debconf to output debugging information to standard
+error. The value it is set to can be something like "user", "developer",
+"db", or a regular expression. Typically, rather than setting it
+perminantly in a config file, you will only want to temporarily turn on
+debugging, and the DEBCONF_DEBUG environment variable can be set instead to
+accomplish that.
 .TP
-.B Log-To
-Controls where debconf sends debug information. By default, it goes to
-stderr, but if you prefer, it can be logged to the syslog. Valid values:
-"stderr" or "syslog".
+.B Log
+Makes debconf log debugging information as it runs, to the syslog. The
+value it is set to controls that is logged. See Debug, above for an
+explination of the values that can be set to control what is logged.
 .RE
 .P
 For example, the first stanza of a file might look like this:
@@ -273,7 +276,7 @@ For example:
 .B Debug
 .RS
 This driver passes all requests on to another database driver, outputting verbose
-debug output about the request and the result.
+debugging output about the request and the result.
 .P
 You must specify the following fields to set up this driver:
 .P
