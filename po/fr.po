@@ -5,8 +5,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-10-24 19:30-0400\n"
+"Project-Id-Version: debconf 1.0.17\n"
+"POT-Creation-Date: 2001-11-06 19:44-0500\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -112,7 +112,7 @@ msgstr ""
 "envoyée par email."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:71
+#: ../Debconf/FrontEnd/Gnome.pm:72
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -235,10 +235,8 @@ msgid "must specify some debs to preconfigure"
 msgstr "Vous devez spécifier des paquets à préconfigurer"
 
 #: ../dpkg-preconfigure:131
-#, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"(les paquets ne peuvent être préconfigurés car apt-utils n'est pas installé)"
+msgstr "configuration des paquets reportée, car apt-utils n'est pas installé"
 
 #: ../dpkg-preconfigure:187
 #, c-format

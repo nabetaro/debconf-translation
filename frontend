@@ -123,7 +123,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=make_confmodule(join " ",@ARGV);
+my $confmodule=make_confmodule(@ARGV);
 
 # Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);

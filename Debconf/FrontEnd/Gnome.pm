@@ -35,13 +35,10 @@ Set up most of the GUI.
 
 =cut
 
+our @ARGV_for_gnome=('--sm-disable');
+
 sub init {
 	my $this=shift;
-	
-	# Gnome really does suck. Why does it try to parse @ARGV when it
-	# inits?
-	my @gnome_sucks=@ARGV;
-	@ARGV=();
 	
 	# Ya know, this really sucks. The authors of GTK seemed to just not
 	# conceive of a program that can, *gasp*, work even if GTK doesn't
@@ -55,9 +52,13 @@ sub init {
 		}
 	}
 	else {
+		@ARGV=@ARGV_for_gnome; # temporary change at first
 		Gnome->init('Debconf');
 		exit(0); # success
 	}
+	
+	my @gnome_sucks=@ARGV;
+	@ARGV=@ARGV_for_gnome;
 	Gnome->init('Debconf');
 	@ARGV=@gnome_sucks;
 	

@@ -1,3 +1,16 @@
+debconf (1.0.18) unstable; urgency=low
+
+  * Another French update.
+  * Danish translation by Morten Brix Pedersen <morten@wtf.dk>
+  * frontend: don't glob unnecessarily, Closes: #117077
+  * Michel Dänzer <daenzer@debian.org> figured out how to turn off the gnome
+    session manager warnings. Closes: #116087
+  * Turns out that the gnome frontend ARGV stomping was not being backed out
+    if gtk failed to init due to a bad DISPLAY. Fixed that, which probably
+    Closes: #118513
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 26 Oct 2001 14:01:51 -0400
+
 debconf (1.0.17) unstable; urgency=low
 
   * Reworded the 'not preconfiguring' method, since it seems to confuse
