@@ -1,3 +1,6 @@
+* Frontend really shouldn't inherit from confmodule. It makes it too tied
+  into communicating with modules when it could be used for other tasks.
+
 * Mappings!
 * Other frontends.
 * Other demo package files.
@@ -10,3 +13,5 @@ Line at a time frontend:
 * Add some way to go back in the Line.pm front end. I don't know how to
   let the user signal it, which makes it hard to do.
 * Doesn't understand mappings.
+* If you are entering text, they're no way to enter "" because it is
+  interpreted as "use default"
