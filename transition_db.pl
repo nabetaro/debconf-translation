@@ -53,12 +53,15 @@ foreach my $item (keys %questions) {
 		# Template does not exist yet, so we have to pull it out of
 		# the %templates hash.
 		$template=Debconf::Template::Persistent->new($tname, $item);
-		# Simply copy every field into it.
-		foreach my $field (keys %{$templates{$tname}}) {
-			next if $field=~/^_name/; # except this one we added above.
-			$template->$field($templates{$tname}->{$field});
-		}
 	}
+	# Simply copy every field into it. I do this even if it already
+	# exists, because for all I know a db is being imported over top of
+	# a failed import or a different db.
+	foreach my $field (keys %{$templates{$tname}}) {
+		next if $field=~/^_name/; # except this one we added above.
+		$template->$field($templates{$tname}->{$field});
+	}
+
 	# Copy over all significant values to the question.
 
 	# This old flag morphes into the seen flag, inverting meaning.

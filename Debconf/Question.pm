@@ -313,16 +313,21 @@ Returns a template object.
 sub template {
 	my $this=shift;
 	if (@_) {
-		# This question no longer owns the template it used to, if any.
+		# If the template is not chenged from the current one, do
+		# nothing. This avoids deleting the template entirely by
+		# removing its last owner.
 		my $oldtemplate=$Debconf::Db::config->getfield($this->{name}, 'template');
-		$Debconf::Db::templates->removeowner($oldtemplate, $this->{name})
-			if defined $oldtemplate and length $oldtemplate;
+		my $newtemplate=shift;
+		if (not defined $oldtemplate or $oldtemplate ne $newtemplate) {
+			# This question no longer owns the template it used to, if any.
+			$Debconf::Db::templates->removeowner($oldtemplate, $this->{name})
+				if defined $oldtemplate and length $oldtemplate;
 
-		my $template=shift;
-		$Debconf::Db::config->setfield($this->{name}, 'template', $template);
+			$Debconf::Db::config->setfield($this->{name}, 'template', $newtemplate);
 
-		# Register this question as an owner of the template.
-		$Debconf::Db::templates->addowner($template, $this->{name});
+			# Register this question as an owner of the template.
+			$Debconf::Db::templates->addowner($newtemplate, $this->{name});
+		}
 	}
 	return Debconf::Template::Persistent->get(
 		$Debconf::Db::config->getfield($this->{name}, 'template'));

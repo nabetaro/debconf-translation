@@ -2,7 +2,8 @@ debconf (0.9.00) experimental; urgency=low
 
   * Wrote a flexible extensible layered backend database system for
     debconf. It's the long-missing quarter of debconf, and thus debconf
-    will be ready for 1.0 once the kinks in it are worked out.
+    will be ready for 1.0 once the kinks in it are worked out. See the
+    debconf.conf(5) man page (in debconf-doc) for more information.
   * But we're not at 1.0 yet. Use this release with *extreme* caution!
     It _will_ trash your debconf database. It _will_ break your system.
   * Conflicts with versions of cdebconf that themselves use a
@@ -17,9 +18,6 @@ debconf (0.9.00) experimental; urgency=low
 
 NOT READY FOR RELEASE
 Before release, I must:
-* The transition script is buggy if it is run once it works.
-  If it is run again, all the data about all the templates except their
-  owner is deleted. Hmmmmmmmmmmm.
 * I think that when REGISTER is called, I need to make the template get
   owned by the question, inverse for unregister. -- implemented, needs a
   lot of testing.
