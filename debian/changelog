@@ -1,5 +1,8 @@
 debconf (1.4.39) UNRELEASED; urgency=low
 
+  * Joey Hess
+    - Avoid a warning message in DbDriver::Copy that's triggered by d-i
+      debconf preseeding. Closes: #275122
   * Translations:
     - Spanish updated (programs). Closes: #274148
     - Hebrew added (both). Closes: #274381

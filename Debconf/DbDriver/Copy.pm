@@ -40,7 +40,7 @@ sub copy {
 	}
 	foreach my $owner (@owners) {
 		my $template = Debconf::Template->get($src->getfield($item, 'template'));
-		my $type;
+		my $type="";
 		$type = $template->type if $template;
 		$dest->addowner($item, $owner, $type);
 	}
