@@ -269,7 +269,7 @@ sub showdialog {
 	my $savew=$^W;
 	$^W=0;
 	
-	unless ($this->capb_backup) {
+	unless ($this->capb_backup || grep { $_ eq '--defaultno' } @_) {
 		if ($this->program ne 'Xdialog') {
 			unshift @_, '--nocancel';
 		}
