@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2002-09-27 14:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -40,7 +40,8 @@ msgstr ""
 "salveu i sortiu. En aquest moment, debconf llegirà el fitxer editat, i "
 "utilitzarà els valors que vau introduir per configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -97,7 +98,7 @@ msgstr ""
 "La interfície de dialog requereix una pantalla d'al menys 13 d'alçada i 31 "
 "columnes d'amplària."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Configuració de Debian"
 
@@ -111,17 +112,17 @@ msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr ""
 "La interfície de dialog és incompatible amb els buffers de shell d'emacs"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "provant ara l'interfície: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "no s'ha pogut iniciar l'interfície: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "No s'ha pogut iniciar una interfície: %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2002-09-09 13:50+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -40,7 +40,8 @@ msgstr ""
 "przeczyta zapisany plik i u¿yje wprowadzonych przez Ciebie warto¶ci do "
 "konfiguracji systemu."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
@@ -94,7 +95,7 @@ msgid ""
 msgstr ""
 "Interfejs dialog wymaga ekranu o wymiarach conajmniej 13 linii na 31 kolumn."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 
@@ -107,17 +108,17 @@ msgstr "Ten interfejst wymaga terminala steruj±cego."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "powrót do nak³adki: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "nie uda³o siê uruchomiæ nak³adki: %s"

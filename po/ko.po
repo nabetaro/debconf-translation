@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -38,7 +38,8 @@ msgstr ""
 "그 시점에, debconf는 편집된 파일을 읽고, 시스템을 설정하기 위해 입력한 값을 "
 "사용할 것입니다."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf"
@@ -92,7 +93,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 
@@ -105,17 +106,17 @@ msgstr "이 frontend는 제어 tty를 필요로 합니다."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"

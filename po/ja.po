@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -39,7 +39,8 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
 msgstr "%s のDebconf"
@@ -94,7 +95,7 @@ msgid ""
 msgstr ""
 "Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -107,17 +108,17 @@ msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr ""
 "Term::ReadLine::GNU フロントエンドはemacsのシェルバッファと互換性がありません"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "フロントエンドをフォールバックします: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"

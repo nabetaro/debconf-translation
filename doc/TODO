@@ -86,6 +86,17 @@ Gnome frontend:
   one they should be on. Actually, the Elements are not hanging around, but
   the gtk label widgets are, and I don't know why.
 
+KDE frontend:
+* Document the code! (Better)
+* Use libkde-perl when it arrives
+* Fix the mysterious and annoying DESTROY warnings from perlqt (they seem to
+  be harmless... but i'd rather see them go away)
+* Needs testing...
+* Embedding into package manager (kapture) -- maybe there's no need for
+  changing the frontend itself for this to work
+* Blocks and stuff (need to read some docs and/or code first)
+* More?
+
 Web based frontend:
 * Well, a little security would be nice! It only allows connections
   from localhost, but even that isn't good enough at all.

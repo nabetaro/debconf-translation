@@ -223,6 +223,11 @@ code (the first word of the reply), and an optional extended result code
 and other numbers to indicate various kinds of failure. For full details,
 see the table in Debian policy's debconf specification document.
 .P
+The extended return code is genrally free form and unspecified, so you
+should generally ignore it, and should certianly not try to parse it in a
+program to work out what debconf is doing. The exception is commands like 
+GET, that cause a value to be returned in the extended return code.
+.P
 Generally you'll want to use a language-specific library that handles
 the nuts and bolts of setting up these connections to debconf and
 communicating with it.

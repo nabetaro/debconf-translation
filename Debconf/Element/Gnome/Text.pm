@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::Element::Gnome::Text - a bit of text to show to the user.
+Debconf::Element::Gnome::Text - a bit of text to show to the user
 
 =cut
 

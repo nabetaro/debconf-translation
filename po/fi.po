@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "Language-Team: none\n"
@@ -38,7 +38,8 @@ msgstr ""
 "poistu, mink‰ j‰lkeen debconf lukee editoidun tiedoston ja s‰‰t‰‰ asetukset "
 "syˆtt‰miesi tietojen perusteella."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf"
@@ -92,7 +93,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Debianin asetusten s‰‰tˆ"
 
@@ -105,17 +106,17 @@ msgstr "T‰m‰ liittym‰ tarvitsee ohjaavan p‰‰tteen."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Dialog-liittym‰‰ ei voi k‰ytt‰‰ emacsin komentotulkkiymp‰ristˆss‰"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "siirryn vaihtoehtoiseen liittym‰‰n: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "liittym‰n alustus ep‰onnistui: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Liittym‰n k‰ynnistys ep‰onnistui: %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf-1.2.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2003-O1-17 22:07+0300\n"
 "Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -40,7 +40,8 @@ msgstr ""
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf"
@@ -95,7 +96,7 @@ msgstr ""
 "Caso você seja iniciante no sistema Debian GNU/Linux escolhe 'crítica' agora "
 "e veja somente as questões mais importantes."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
@@ -108,17 +109,17 @@ msgstr "Esse frontend requer um tty controlador."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "O frontend Slang é incompatível com buffers shell do emacs"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "tentando com frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "falha ao inicializar frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"

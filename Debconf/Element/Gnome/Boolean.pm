@@ -15,6 +15,14 @@ use base qw(Debconf::Element::Gnome);
 
 This is a check box widget.
 
+=head1 METHODS
+
+=over 4
+
+=item init
+
+Sets up the widget.
+
 =cut
 
 sub init {

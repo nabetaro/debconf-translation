@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2001-12-05 18:04+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -38,7 +38,8 @@ msgstr ""
 "debconf læse den redigerede fil og bruge værdierne du indtastede, til at "
 "sætte systemet op."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
 msgstr "Debconf på %s"
@@ -91,7 +92,7 @@ msgid ""
 msgstr ""
 "Dialog-grænsefladen behøver en skærm, min. 13 linjer høj og 31 kolonner bred."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Opsætning af Debian"
 
@@ -103,17 +104,17 @@ msgstr "Denne grænseflade behøver en styrende tty."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU er ikke forenelig med Emacs-skalbuffere."
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "falder tilbage på grænseflade: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "kunne ikke klargøre grænseflade: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Kunne ikke starte en grænseflade: %s"

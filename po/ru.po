@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -41,7 +41,8 @@ msgstr ""
 "прочитает измененный файл и использует введенные вами параметры для "
 "настройки системы."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
@@ -98,7 +99,7 @@ msgstr ""
 "Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
 "ширину."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
@@ -110,17 +111,17 @@ msgstr "Этот интерфейс требует наличия контролирующего терминала."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU не может работать из-под буферов emacs'а."
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "будет использован интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "не удалось инициализировать интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось запустить интерфейс: %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2002-10-31 13:32+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -35,7 +35,8 @@ msgstr ""
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
 "而且會使用您的設定值設定系統. "
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
 msgstr "Debconf 在 %s"
@@ -83,7 +84,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "對話介面要求畫面必須為 13 行高及 31 字元閣度."
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
@@ -95,17 +96,17 @@ msgstr "這個介面需求可控制的tty."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU 與 Emacs 外殼綬沖不兼容"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "返回前端介面: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "不能開啟前端介面: %s"

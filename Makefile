@@ -1,11 +1,15 @@
-all:
+all: Debconf/FrontEnd/Kde/WizardUi.pm
 	$(MAKE) -C doc
 	$(MAKE) -C po
+
+Debconf/FrontEnd/Kde/WizardUi.pm: Debconf/FrontEnd/Kde/WizardUi.ui
+	puic $< |sed 's/package WizardUi/package Debconf::FrontEnd::Kde::WizardUi/' > $@
 
 clean:
 	find . -name \*~ | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
+	rm -f Debconf/FrontEnd/Kde/WizardUi.pm
 
 # Does not attempt to install documentation, as that can be fairly system
 # specific.

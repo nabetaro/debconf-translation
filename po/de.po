@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-20 19:50-0400\n"
+"POT-Creation-Date: 2003-12-28 19:39-0500\n"
 "PO-Revision-Date: 2002-01-18 08:51+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -40,7 +40,8 @@ msgstr ""
 "wird Debconf die bearbeitete Datei lesen und die von Ihnen eingegebenen "
 "Werte verwenden, um das System zu konfigurieren."
 
-#: ../Debconf/FrontEnd/Gnome.pm:73
+#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
 msgstr "Debconf"
@@ -96,7 +97,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:296
+#: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
 msgstr "Debian Konfiguration"
 
@@ -109,17 +110,17 @@ msgstr "Dieses Frontend bedarf eines steuernden Terminals."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Das Dialog-Frontend ist mit dem Emacs-Shellbuffer nicht kompatibel"
 
-#: ../Debconf/AutoSelect.pm:75
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "greife zurück auf das Frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:83
+#: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "kann Frontend nicht initialisieren: %s"
 
-#: ../Debconf/AutoSelect.pm:89
+#: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Kann das Frontend nicht starten: %s"

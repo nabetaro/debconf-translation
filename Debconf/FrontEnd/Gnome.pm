@@ -15,11 +15,10 @@ use base qw{Debconf::FrontEnd};
 # Catch this so as not to confuse the poor users if Gtk or Gnome are not
 # installed.
 eval q{
-    use Gtk;
-    use Gnome;
+	use Gtk;
+	use Gnome;
 };
-die "Unable to load Gnome -- is libgnome-perl installed?\n"
-	if $@;
+die "Unable to load Gnome -- is libgnome-perl installed?\n" if $@;
 
 =head1 DESCRIPTION
 

@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
 Standards-Version: 3.6.1.0
-Build-Depends: perl, python, debhelper (>= 4.1.27), gettext, po-debconf
+Build-Depends: perl, python, debhelper (>= 4.1.27), gettext, po-debconf, libqt-perl
 
 Package: debconf
 Priority: important
@@ -13,7 +13,7 @@ Provides: debconf-2.0
 Replaces: debconf-tiny
 Depends: debconf-i18n | debconf-english
 Recommends: apt-utils (>= 0.5.1)
-Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome-perl, libnet-ldap-perl, perl
+Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome-perl, libqt-perl, libnet-ldap-perl, perl
 Architecture: all
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages

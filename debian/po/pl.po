@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-21 17:15-0400\n"
+"POT-Creation-Date: 2003-12-28 19:07-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,16 +19,20 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: select
 #. Choices
 #: ../templates:3
-msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+#, fuzzy
+msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "Dialog, Readline, Gnome, Edytor, Nieinteraktywny"
 
+#. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
 msgstr "Który interfejs ma byæ u¿ywany do konfigurowania pakietów?"
 
+#. Type: select
 #. Description
 #: ../templates:5
 msgid ""
@@ -38,13 +42,16 @@ msgstr ""
 "Konfiguracja pakietów u¿ywaj±cych do tego celu debconf-a ma spójny wygl±d. "
 "Mo¿esz wybraæ rodzaj interfejsu u¿ytkownika, jaki bêdzie u¿ywany."
 
+#. Type: select
 #. Description
 #: ../templates:5
+#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and the "
-"gnome frontend is a modern X interface. The editor frontend lets you "
-"configure things using your favorite text editor. The noninteractive "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
 "Interfejs dialog to pe³noekranowy interfejs tekstowy, natomiast readline "
@@ -53,18 +60,21 @@ msgstr ""
 "system przy pomocy Twojego ulubionego edytora. Interfejs nieinteraktywny "
 "nigdy nie zadaje ¿adnych pytañ."
 
+#. Type: select
 #. Choices
-#: ../templates:17
+#: ../templates:18
 msgid "critical, high, medium, low"
 msgstr "najwy¿szy, wysoki, ¶redni, niski"
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 msgid "See only questions that are of what priority and higher?"
 msgstr ""
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -75,8 +85,9 @@ msgid ""
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 #, fuzzy
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.35\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-21 17:15-0400\n"
+"POT-Creation-Date: 2003-12-28 19:07-0500\n"
 "PO-Revision-Date: 2003-09-11 12:13+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -18,16 +18,20 @@ msgstr ""
 "Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: select
 #. Choices
 #: ../templates:3
-msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+#, fuzzy
+msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "ダイアログ, Readline, Gnome, エディタ, 非対話的"
 
+#. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
 msgstr "パッケージの設定にどのインターフェースを用いますか?"
 
+#. Type: select
 #. Description
 #: ../templates:5
 msgid ""
@@ -37,13 +41,16 @@ msgstr ""
 "設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。どの種"
 "類のユーザインターフェースを用いるかを選んで下さい。"
 
+#. Type: select
 #. Description
 #: ../templates:5
+#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and the "
-"gnome frontend is a modern X interface. The editor frontend lets you "
-"configure things using your favorite text editor. The noninteractive "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
 "「ダイアログ」は全画面の文字ベースのインターフェースです。「readline」はより"
@@ -51,18 +58,21 @@ msgstr ""
 "ターフェースです。「エディタ」を用いるとあなたの好きなテキストエディタを用い"
 "ることができます。「非対話的」を選ぶとまったく質問をしなくなります。"
 
+#. Type: select
 #. Choices
-#: ../templates:17
+#: ../templates:18
 msgid "critical, high, medium, low"
 msgstr "重要, 高, 標準, 低"
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 msgid "See only questions that are of what priority and higher?"
 msgstr "どの優先度以上の質問のみしか表示しないようにしますか?"
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -81,8 +91,9 @@ msgstr ""
 " - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささいな項目用"
 "です。"
 
+#. Type: select
 #. Description
-#: ../templates:19
+#: ../templates:20
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
