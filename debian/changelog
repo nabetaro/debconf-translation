@@ -1,3 +1,12 @@
+debconf (1.4.32) unstable; urgency=low
+
+  * Hack in an --installer parameter in debconf-get-selections so the d-i
+    manual can document a sane way to generate d-i preseeding files.
+  * Add the question's short description as a comment in
+    debconf-get-selections output, and skip notes, text, and errors.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 19 Aug 2004 14:46:03 +0100
+
 debconf (1.4.31) unstable; urgency=low
 
   * Improve the man page with state machine improvements and better back out
