@@ -19,7 +19,8 @@ install: clean
 	rm -f $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 	cp $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
 		$(prefix)/etc/debconf.cfg
-	# Should be a link here to Config.pm, debian/rules does it w/dh_link.	
+	ln -sf /etc/debconf.cfg \
+		$(prefix)//usr/lib/perl5/Debian/DebConf/Config-dist.pm
 	mv $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
 		$(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 	install -m 0644 Client/confmodule.sh $(prefix)/usr/share/debconf/
