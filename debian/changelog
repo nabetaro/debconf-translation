@@ -1,3 +1,13 @@
+debconf (0.4.03) unstable; urgency=low
+
+  * Fixed a typo in the preinst. 
+    Closes: #75318, #66484, #75322, #75328, #75339, #75341, #75319, #75367,
+    #75399 (and probably a bunch more, but they're merged anyway). Actually 
+    tested this time, and it actually works.
+  * Patch from bod to wrapper.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 23 Oct 2000 10:15:25 -0700
+
 debconf (0.4.02) unstable; urgency=low
 
   * Bod rewrite the ConfModule wrapper. Now should handle errors properly.

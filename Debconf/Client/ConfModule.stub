@@ -13,7 +13,7 @@ sub import {
 
 sub AUTOLOAD {
 	(my $sub = $AUTOLOAD) =~ s/.*:://;
-	*$sub = \&{"Debconf::Client::ConfModule::$sub"} unless defined &$sub;
+	*$sub = \&{"Debconf::Client::ConfModule::$sub"};
 	goto &$sub;
 }
 
