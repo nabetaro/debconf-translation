@@ -31,17 +31,27 @@ I'll use this. (Sigh)
 
 =head2 new
 
-Returns a new object of this class.
+Returns a new object of this class. Optionally, you can pass in named
+parameters that specify the values of any fields in the class.
 
 =cut
 
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $this  = {};
-	bless ($this, $class);
+	my $this=bless ({@_}, $class);
+	$this->init;
 	return $this;
 }
+
+=head2 init
+
+This is called by new(). It's a handy place to set fields, etc, without
+having to write your own new() method.
+
+=cut
+
+sub init {}
 
 =head2 *
 
