@@ -9,7 +9,7 @@ Debconf::Log - debconf log module
 package Debconf::Log;
 use strict;
 use base qw(Exporter);
-our @EXPORT_OK=qw(debug warn die);
+our @EXPORT_OK=qw(debug warn);
 our %EXPORT_TAGS = (all => [@EXPORT_OK]); # Import :all to get everything.
 require Debconf::Config; # not use; there are recursive use loops
 
@@ -69,18 +69,6 @@ sub warn {
 }
 
 =back
-
-=item die
-
-Dies with a stack backtrace. This overrides the builtin die() command.
-
-=cut
-
-sub die {
-	require Carp;
-	Carp::cluck(@_);
-	exit 255;
-}
 
 =head1 AUTHOR
 

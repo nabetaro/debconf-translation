@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2002-06-20 18:54-0400\n"
+"POT-Creation-Date: 2002-07-16 14:20-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -13,16 +13,82 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
+#: ../Debconf/AutoSelect.pm:75
+#, fuzzy, c-format
+msgid "falling back to frontend: %s"
+msgstr "frontend를 초기화할 수 없음: %s"
+
+#: ../Debconf/AutoSelect.pm:83
+#, fuzzy, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "frontend를 초기화할 수 없음: %s"
+
+#: ../Debconf/AutoSelect.pm:89
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Frontend를 시작할 수 없습니다: %s"
+
+#: ../Debconf/Config.pm:90
+msgid "Config database not specified in config file."
+msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
+
+#: ../Debconf/Config.pm:94
+msgid "Template database not specified in config file."
+msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "%s 설정중"
+
+#: ../Debconf/Template.pm:182
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s의 템플릿 #%1$s은(는) 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"을(를) 가지"
+"고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
+"다.\n"
+
+#: ../Debconf/Template.pm:207
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
+
+#: ../Debconf/Template.pm:233
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
+
+#: ../Debconf/Template.pm:239
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "도움말"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
+"야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
+
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "선택"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(컴마와 빈칸(', ')으로 분리된 0개 이상의 항목을 입력하세요.)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -37,6 +103,11 @@ msgstr "예"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "아니오"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(컴마와 빈칸(', ')으로 분리된 0개 이상의 항목을 입력하세요.)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -83,21 +154,9 @@ msgstr "위에 있는 것 중에 없음"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "도움말"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
-"야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
-
 #: ../Debconf/FrontEnd/Dialog.pm:45
-msgid "TERM is not set, so the Dialog frontend is not usable."
+#, fuzzy
+msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr "TERM이 설정되지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
@@ -174,64 +233,6 @@ msgstr "뒤로"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "다음"
-
-#: ../Debconf/AutoSelect.pm:75
-#, fuzzy, c-format
-msgid "falling back to frontend: %s"
-msgstr "frontend를 초기화할 수 없음: %s"
-
-#: ../Debconf/AutoSelect.pm:83
-#, fuzzy, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "frontend를 초기화할 수 없음: %s"
-
-#: ../Debconf/AutoSelect.pm:89
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Frontend를 시작할 수 없습니다: %s"
-
-#: ../Debconf/Config.pm:90
-msgid "Config database not specified in config file."
-msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
-
-#: ../Debconf/Config.pm:94
-msgid "Template database not specified in config file."
-msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "%s 설정중"
-
-#: ../Debconf/Template.pm:182
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"%2$s의 템플릿 #%1$s은(는) 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"을(를) 가지"
-"고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
-"다.\n"
-
-#: ../Debconf/Template.pm:207
-#, fuzzy, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
-
-#: ../Debconf/Template.pm:233
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
-
-#: ../Debconf/Template.pm:239
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -4,8 +4,6 @@ debconf.conf \- arquivo de configuração
 .SH NOTE
 This translated man page is out of date -- it does not document the LDAP 
 database driver. See the English version for a more current version.
-.SH WARNING
-This translation is out of date.
 .SH DESCRIÇÃO
 Debconf é um sistema de configuração de pacotes Debian. /etc/debconf.conf
 e ~/.debconfrc são arquivos de configuração que o debconf usa para
@@ -57,6 +55,12 @@ definido na base de dados debconf.
 A prioridade que o Debconf deve usar, sobreescrevendo qualquer prioridade
 definida na base de dados debconf.
 .TP
+.B Showold
+Defina para "true" para fazer com que o debconf sempre mostre perguntas
+antigas e já exibidas. Provavelmente não é o que você quer. Isto pode ser
+sobreescrito em tempo de execução com a variável de ambiente
+DEBCONF_SHOWOLD.
+.TP
 .B Admin-Email
 O endereço de e-mail para o qual o Debconf deve enviar mensagens caso
 precise certificar-se que o adminstrador tenha visto uma nota importante.
@@ -75,11 +79,27 @@ de configuração você desejará habilitar a depuração somente
 temporariamente e a variável de ambiente DEBCONF_DEBUG pode ser definida
 para cumprir exatamente isso.
 .TP
+.B NoWarnings
+Caso definida, fará com que o debconf não exiba avisos sobre várias
+coisas. Isto pode ser sobreescrito em tempo de execução com a variável
+de ambiente DEBCONF_NOWARNINGS.
+.TP
 .B Log
 Faz com que o debconf grave informação de depuração para o syslog
 quando ele é executado. O valor para o qual é definido controla o
 que é logado. Veja Debug acima para uma explicação dos
 valores que podem ser definidos para controlar o que é logado.
+.TP
+.B Sigils
+Alguns frontends debconf exibirão "sigils" -- pequenas coisas que indicam
+quão importante uma questão é. Os mesmos exibem isso por padrão, use
+Sigils: false para desabilitar a exibição.
+.TP
+.B Smileys
+Alguns frontends usam pequenas carinhas smiley como um sigil. Caso isso
+seja muito bonitinho e você queira desabilitar isso, use Smilies: false.
+Smileys: true tentará habilitar isso para os frontends que por padrão
+não exibem smileys.
 .TP
 .B Terse
 Caso definido pata "true", faz com que alguns frontends debconf usem um
@@ -190,6 +210,10 @@ string não vazia; o padrão é ".dat"
 .B Format
 O formato do arquivo. Veja FORMATOS abaixo. O padrão é usar um formato
 como o rfc-822.
+.TP
+.B Backup
+Se um backup do arquivo antigo deve ser feito antes de mudá-lo. O padrão
+é true.
 .RE
 .P
 Uma estrofe de exemplo configurando uma base de dados usando este
@@ -201,15 +225,108 @@ controlador :
   Extension: .txt
 .RE
 .TP
-.B Directory
+,B PackageDir
 .RS
-Este controlador de base de dados é o mesmo que o controlador DirTree,
-exceto que todos os arquivos são colocados em um diretório. Isto é
-destinado principalmente para futura compatibilidade com o cdebconf.
-Adiconalmente, diferente do DirTree, o campo Extension não é requerido
-para este controlador.
+Este controlador de base de dados é um meio termo entre as base de dados
+File a DirTree. O mesmo usa um diretório, no qual existe (aproximadamente)
+um arquivo por pacote que utiliza o debconf. Ele é bem rápido e utiliza um
+pouco mais de espaço do que o controlador de base de dados File.
+.P
+Este controlador [e configurável da mesma forma como no controlador
+DirTree e adicionalmente possui:
+.TP
+.B Mode
+As permissões com as quais os arquivos devem ser criados. O padrão é 600
+uma vez que os arquivos podem conter senhas em algumas circunstâncias.
+.P
+Uma estrofe de exemplo configurando uma base de dados usando este
+controlador:
+.P
+  Name: mydb
+	Driver: PackaDir
+	Directory: /var/cache/debconf/mydb
+.RE
+.TP
+.B LDAP
+AVISO: Este controlador de base de dados é atualmente experimental. Use-o
+com cuidado.
+.P
+Este controlador de base de dados acessa um diretório LDAP para os dados
+de configuração debconf. Devido a natureza dessas bestas, diretórios LDAP
+devem ser tipicamente acessados em modo somente-leitura. Isto é porque
+múltiplos acessos podem acontecer e geralmente é melhor para a
+consistência dos dados que ninguém tente modificar os dados enquanto isto
+está acontecendo. É claro, acesso de escrita é suportado para aqueles
+casos em que você quer atualizar os dados de configuração no diretório.
+.P
+Para informações sobre a configuração de um servidor LDAP para o debconf
+leia /usr/share/doc/debconf-doc/README.LDAP (presente no pacote
+debconf-doc).
+.P
+Para usar este controlador de base de dados você deve ter o pacote
+libnet-ldap-perl instalado. O Debconf sugere este pacote, mas não depende
+do mesmo.
+.P
+Por favor considere cuidadosamente as implicações de segurança em usar uma
+base de dados debconf remota. A menos que você confie na fonte e confie
+na rede envolvida isso não é algo seguro a ser feito.
+.P
+As coisas a seguir são configuráveis para este controlador.
+.RS
+ e confie
+ na rede envolvida isso não é algo seguro a ser feito.
+ .P
+ As coisas a seguir são configuráveis para este controlador.
+.RS
+.TP
+.B server
+O nome da máquina ou endereço IP de um servidor LDAP ao qual se conectar.
+.TP
+.B port
+A porta na qual se conectar no servidor LDAP. Caso nenhuma seja informada
+a porta padrão 389 é usada (ou 686 caso SSL esteja sendo usado).
+.TP
+.B basedn
+O DN sob o qual todos os itens de configuração serão armazenados. É
+assumido que cada item de configuração resida em um DN de
+cn=<nome do item>,<Base DN>. Caso esta estrutura não seja seguida, todas
+as apostas estrão fechadas.
+.TP
+.B binddn
+O DN sob o qual se ligar ao diretório. Ligação anônima será usada caso
+nenhum seja especificado.
+.TP
+.B bindpasswd
+A senha a usar na ligação de autenticada (usada com binddn, acima). Caso
+não especificado, ligação anônima será usada.
+.P
+.RS
+Esta opção não deve deverá ser usada geralmente. Ligação anônima deverá
+ser suficiente a maioria das vezes par acesso somente leitura. Especificar
+um DN de ligação e uma senha deverá ser reservado para o caso ocasional
+que você deseja atualizar os dados de configuração debconf.
+.RE
 .RE
 .P
+Uma estrofe de exemplo configurando uma base de dados usando este
+controlador, assumindo que a base de dados remota esteja em exemple.com
+e possa ser acessada anonimamente:
+.P
+  Name: ldapdb
+	Driver: LDAP
+	Readonly: true
+	Server: example.com
+	BaseDN: cn=debconf,dc=example,dc=com
+.P
+Outro exemplo, desta vez a base de dados LDAP está em localhost e pode ser
+gravada:
+.P
+  Name: ldapdb
+	Driver: LDAP
+	Server: localhost
+	BaseDN: cn=debconf,dc=domain,dc=com
+	BindPasswd: secret
+.RE
 .TP
 .B Pipe
 .RS
@@ -395,11 +512,12 @@ Sinta-se livre para escrevê-los!
   # Este é o global de nossa empresa, base de dados
 	# debconf somente-leitua (para mim!).
   Name: company
-  Driver: SQL
+  Driver: LDAP
   Server: debconf.foo.com
+	BaseDN: cn=debconf,dc=foo,dc=com
+	BindDN: uid=admin,dc=foo,dc=com
+	BindPasswd: secret
   Readonly: true
-  Username: foo
-  Password: bar
   # Não quero que nenhuma senha que possa estar
 	# flutuando por aí aqui.
   Reject-Type: password
@@ -408,43 +526,34 @@ Sinta-se livre para escrevê-los!
 	# qualquer forma.
   Required: false
 
-  # Este controlador especial oferece alguns
-	# items do dhcp.
-  Name: dhcp
-  Driver: DHCP
+  # Eu uso eta base de dados para armazenar
+	# senhas protegidas e seguras.
   Required: false
-  Reject-Type: password
-
-  # E eu uso esta base de dados para
-	# armazenar senhas protegidas e seguras.
-  Name: passwords
-  Driver: File
-  File: /etc/debconf/passwords
-  Mode: 600
-  Owner: root
-  Group: root
+	Name: passwords
+	Driver: File
+	Filename: /etc/debconf/passwords
+	Mode: 600
   Accept-Type: password
 
-  # vamos colocá-los todos juntos em uma pilha de
+  # Vamos colocá-las todas juntas em uma pilha de
 	# base de dados.
   Name: stack
   Driver: Stack
-  Stack: passwords, X, mydb, company, dhcp
-	# Assim, todas as senhas vão para a base de dados de
-	# senhas. A maioria da coisas relacionadas à configuração
+  Stack: passwords, X, mydb, company
+	# Todas as senhas vão para a base de dados de senhas.
+	# A maioria das coisas relacionadas à configuração
 	# do X vão para a base de dados X e qualquer outra coisa
 	# vai para minha base de dados principal. Os valores são
-	# pesqusados em cada uma delas, e caso nenhuma tenha um
+	# pesquisados em cada uma delas, e caso nenhuma tenha um
 	# valor em particular, o mesmo é pesquisado na base de
-	# dados da empresa ou talvez dhcp ( a menos que seja uma
-	# senha).
+	# dados LDAP da empresa ( a menos que seja uma senha).
 
   # Uma base de dados é também para armazenar modelos. Não
 	# precisamos fazer com que ela seja mais bonita.
   Name: templates
   Driver: File
   Mode: 644
-  Format: db
+  Format: 822
   Directory: /var/cache/debconf/templates
 .SH NOTAS
 Caso você utilize algo como ${HOME} neste arquivo, isso será substituído
@@ -456,7 +565,8 @@ sensíveis à caixa (case-insensitive). Os valores, porém, são sensíveis
 .SH "MELHORIAS PLANEJADAS"
 Mais controladores e formatos. Algumas idéias incluem :
 Um controlador SQL, com a capacidade de acessar uma base de dados remota.
-Um controlador LDAP.
+Um controlador DHCP, que disponibiliza algumas coisas especiais como
+o nome da máquina (hostname), endereço IP e servidores DNS.
 Um comtrolador que obtém valores de campos TXT de registros DNS públicos.
 Um formato que seja compatível com a saída do cdebconf.
 Um controlador de sobreescrita que pode sobreescrever o valor dos

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2002-06-20 18:54-0400\n"
+"POT-Creation-Date: 2002-07-16 14:20-0400\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "Language-Team: none <>\n"
@@ -11,18 +11,84 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../Debconf/AutoSelect.pm:75
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "falder tilbage til grænseflade: %s"
+
+#: ../Debconf/AutoSelect.pm:83
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "kunne ikke initialisere grænseflade: %s"
+
+#: ../Debconf/AutoSelect.pm:89
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Kunne ikke starte et grænseflade: %s"
+
+#: ../Debconf/Config.pm:90
+msgid "Config database not specified in config file."
+msgstr "Konfigurations database ikke specificeret i konfigurations fil"
+
+#: ../Debconf/Config.pm:94
+msgid "Template database not specified in config file."
+msgstr "Skabelons database ikke specificeret i konfigurations fil"
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Kunne ikke loade Debconf::Element::%s. Fejlede p.g.a.: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "Konfigurerer %s"
+
+#: ../Debconf/Template.pm:182
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Skabelon #%s i %s har et duplikeret felt \"%s\" med en ny værdi \"%s\". Det "
+"kan være fordi at to skabeloner ikke er sepereret rigtigt med en tom ny "
+"linje.\n"
+
+# FIXME 'stanza'?
+#: ../Debconf/Template.pm:207
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
+
+# FIXME 'stanza'?
+#: ../Debconf/Template.pm:233
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
+
+#: ../Debconf/Template.pm:239
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Skabelon #%s i %s indeholder ikke en 'Template:' linje\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Hjælp"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Input værdi, \"%s\" fandtes ikke i C valg! Dette burde aldrig ske. Måske "
+"blev skabelonerne initialiseret forkert"
+
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Valg"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Vælg 0 eller flere ting sepereret af komma, efterfulgt a et mellemrum (', "
-"').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -37,6 +103,13 @@ msgstr "ja"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "nej"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Vælg 0 eller flere ting sepereret af komma, efterfulgt a et mellemrum (', "
+"').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -83,21 +156,9 @@ msgstr "ingen af ovenstående"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Vælg de ting du vil vælge, sepereret af mellemrum."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Hjælp"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Input værdi, \"%s\" fandtes ikke i C valg! Dette burde aldrig ske. Måske "
-"blev skabelonerne initialiseret forkert"
-
 #: ../Debconf/FrontEnd/Dialog.pm:45
-msgid "TERM is not set, so the Dialog frontend is not usable."
+#, fuzzy
+msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr "TERM er ikke sat, så Dialog grænsefladen kunne ikke bruges"
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
@@ -174,66 +235,6 @@ msgstr "Tilbage"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Næste"
-
-#: ../Debconf/AutoSelect.pm:75
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "falder tilbage til grænseflade: %s"
-
-#: ../Debconf/AutoSelect.pm:83
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "kunne ikke initialisere grænseflade: %s"
-
-#: ../Debconf/AutoSelect.pm:89
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Kunne ikke starte et grænseflade: %s"
-
-#: ../Debconf/Config.pm:90
-msgid "Config database not specified in config file."
-msgstr "Konfigurations database ikke specificeret i konfigurations fil"
-
-#: ../Debconf/Config.pm:94
-msgid "Template database not specified in config file."
-msgstr "Skabelons database ikke specificeret i konfigurations fil"
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Kunne ikke loade Debconf::Element::%s. Fejlede p.g.a.: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "Konfigurerer %s"
-
-#: ../Debconf/Template.pm:182
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Skabelon #%s i %s har et duplikeret felt \"%s\" med en ny værdi \"%s\". Det "
-"kan være fordi at to skabeloner ikke er sepereret rigtigt med en tom ny "
-"linje.\n"
-
-# FIXME 'stanza'?
-#: ../Debconf/Template.pm:207
-#, fuzzy, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
-
-# FIXME 'stanza'?
-#: ../Debconf/Template.pm:233
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
-
-#: ../Debconf/Template.pm:239
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Skabelon #%s i %s indeholder ikke en 'Template:' linje\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -42,12 +42,12 @@ sub init {
 	# Detect all the ways people have managed to screw up their
 	# terminals (so far...)
 	if (! exists $ENV{TERM} || ! defined $ENV{TERM} || $ENV{TERM} eq '') { 
-		die gettext("TERM is not set, so the Dialog frontend is not usable.")."\n";
+		die gettext("TERM is not set, so the dialog frontend is not usable.")."\n";
 	}
 	elsif ($ENV{TERM} =~ /emacs/i) {
 		die gettext("Dialog frontend is incompatible with emacs shell buffers")."\n";
 	}
-	elsif ($ENV{TERM} eq 'dumb') {
+	elsif ($ENV{TERM} eq 'dumb' || $ENV{TERM} eq 'unknown') {
 		die gettext("Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";
 	}
 
