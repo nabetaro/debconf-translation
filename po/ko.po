@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-07-17 14:52-0400\n"
+"POT-Creation-Date: 2001-07-26 22:14-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../Debconf/AutoSelect.pm:62
+#: ../Debconf/AutoSelect.pm:63
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:70
+#: ../Debconf/AutoSelect.pm:71
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:77
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
@@ -46,26 +46,6 @@ msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
 msgid "Configuring %s"
 msgstr "%s 설정중"
 
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"%2$s의 템플릿 #%1$s은(는) 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"을(를) 가지"
-"고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
-"다.\n"
-
-#: ../Debconf/Template.pm:219
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
-
-#: ../Debconf/Template.pm:225
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
-
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -74,6 +54,23 @@ msgid ""
 msgstr ""
 "C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
 "야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
+
+#: ../Debconf/Element/Gnome/Note.pm:45 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "주의 저장"
+
+#: ../Debconf/Element/Gnome/Note.pm:48 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "이 주의는 root에게 메일로 보냈습니다."
+
+#: ../Debconf/Element/Gnome/Note.pm:52 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "주의를 저장할 수 없습니다."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -112,21 +109,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
 
-#: ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "주의 저장"
-
-#: ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "이 주의는 root에게 메일로 보냈습니다."
-
-#: ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "주의를 저장할 수 없습니다."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -246,6 +231,26 @@ msgstr "이 frontend는 제어 tty를 필요로 합니다."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "주의: Debconf는 웹 모드에서 실행중입니다. http://localhost:%i/로 가세요"
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s의 템플릿 #%1$s은(는) 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"을(를) 가지"
+"고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
+"다.\n"
+
+#: ../Debconf/Template.pm:219
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
+
+#: ../Debconf/Template.pm:225
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

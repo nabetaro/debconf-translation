@@ -2,16 +2,15 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Gnome::Password - password input widget
+Debconf::Element::Gnome::Password - password input widget
 
 =cut
 
-package Debian::DebConf::Element::Gnome::Password;
+package Debconf::Element::Gnome::Password;
 use strict;
 use Gtk;
 use Gnome;
-use Debian::DebConf::Element::Gnome; # perlbug
-use base qw(Debian::DebConf::Element::Gnome);
+use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
@@ -28,22 +27,22 @@ This is a password input widget.
 sub init {
 	my $this=shift;
 
-	$this->{widget} = new Gtk::Entry;
-	$this->{widget}->show;
-	$this->{widget}->set_visibility(0);
+	$this->widget(Gtk::Entry->new);
+	$this->widget->show;
+	$this->widget->set_visibility(0);
 }
 
 =item value
 
-If the widget''s value field is empty, return the default.
+If the widget's value field is empty, return the default.
 
 =cut
 
 sub value {
 	my $this=shift;
 	
-	my $text = $this->{widget}->get_chars(0, -1);
-	$text = $this->{question}->value if $text eq '';
+	my $text = $this->widget->get_chars(0, -1);
+	$text = $this->question->value if $text eq '';
 	return $text;
 }
 

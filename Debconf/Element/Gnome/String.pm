@@ -2,16 +2,15 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Gnome::String - text input widget
+Debconf::Element::Gnome::String - text input widget
 
 =cut
 
-package Debian::DebConf::Element::Gnome::String;
+package Debconf::Element::Gnome::String;
 use strict;
 use Gtk;
 use Gnome;
-use Debian::DebConf::Element::Gnome; # perlbug
-use base qw(Debian::DebConf::Element::Gnome);
+use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
@@ -19,24 +18,16 @@ This is a text input widget.
 
 =cut
 
-=head1 METHODS
-
-=over 4
-
-=cut
-
 sub init {
 	my $this=shift;
 
+	$this->widget(Gtk::Entry->new);
+	$this->widget->show;
+
 	my $default='';
-	$default=$this->{question}->value if defined $this->{question}->value;
+	$default=$this->question->value if defined $this->question->value;
 
-	$this->{widget} = new Gtk::Entry;
-	$this->{widget}->show;
-
-#	Which of these is correct?
-#	$this->{widget}->set_text($default);
-	$this->{widget}->set_text($this->{question}->value);
+	$this->widget->set_text($default);
 }
 
 =item value
@@ -48,7 +39,7 @@ The value is just the text field of the associated widget.
 sub value {
 	my $this=shift;
 
-	return $this->{widget}->get_chars(0, -1);
+	return $this->widget->get_chars(0, -1);
 }
 
 =back

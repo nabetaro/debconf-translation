@@ -2,32 +2,33 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Gnome::Multiselect - a check list in a dialog box
+Debconf::Element::Gnome::Multiselect - a check list in a dialog box
 
 =cut
 
-package Debian::DebConf::Element::Gnome::Multiselect;
+package Debconf::Element::Gnome::Multiselect;
 use strict;
 use Gtk;
 use Gnome;
-use Debian::DebConf::Element::Gnome; # perlbug
-use base qw(Debian::DebConf::Element::Gnome);
+use base qw(Debconf::Element);
 
 sub init {
 	my $this=shift;
-	my @choices = $this->{question}->choices_split;
+	my @choices = $this->question->choices_split;
 
-	$this->{widget} = new Gtk::VBox(0, 0);
-	$this->{widget}->show;
+	$this->widget(Gtk::VBox->new(0, 0));
+	$this->widget->show;
 
+	# TODO: isn't there a gtk multiselct list box that could be used
+	# instead of all these checkboxes?
 	my @buttons;
 	for (my $i=0; $i <= $#choices; $i++) {
-	    $buttons[$i] = new Gtk::CheckButton($choices[$i]);
+	    $buttons[$i] = Gtk::CheckButton->new($choices[$i]);
 	    $buttons[$i]->show;
-	    $this->{widget}->pack_start($buttons[$i], 0, 0, 0);
+	    $this->widget->pack_start($buttons[$i], 0, 0, 0);
 	}
 
-	$this->{buttons} = \@buttons;
+	$this->buttons(\@buttons);
 }
 
 =item value
@@ -39,24 +40,24 @@ locale.
 
 sub value {
 	my $this=shift;
-	my @choices=$this->{question}->choices_split;
-	my @buttons = @{$this->{buttons}};
+	my @choices=$this->question->choices_split;
+	my @buttons = @{$this->buttons};
 	my ($ret, $val);
 
 	my @vals;
-	my $j = 0;
 	for (my $i=0; $i <= $#choices; $i++) {
-	    if ($buttons[$i]->get_active()) {
-		$vals[$j++] = $choices[$i];
-	    }
+		if ($buttons[$i]->get_active()) {
+			push @vals, $this->translate_to_C($choices[$i]);
+		}
 	}
 
-	$ret = $vals[0];
-	for (my $i=1; $i <= $#vals; $i++) {
-	    $ret = "$ret, $vals[$i]";
-	}
-
-	return $this->translate_to_C($ret);
+	return join(', ', @vals);
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

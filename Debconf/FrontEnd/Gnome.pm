@@ -40,8 +40,21 @@ Set up most of the GUI.
 sub init {
 	my $this=shift;
 	
-	die "Unable to open X display.\n" if not $ENV{"DISPLAY"};
-	Gnome->init('DebConf');
+	# Ya know, this really sucks. The authors of GTK seemed to just not
+	# conceive of a program that can, *gasp*, work even if GTK doesn't
+	# load. So this thing throws a fatal, essentially untrappable
+	# error. Yeesh. Look how far I must go out of my way to make sure
+	# it's not going to destroy debconf..
+	if (fork) {
+		wait(); # for child
+		if ($? != 0) {
+			die "DISPLAY problem?\n";
+		}
+	}
+	else {
+		Gnome->init('Debconf');
+		exit(0); # success
+	}
 	
 	$this->SUPER::init(@_);
 	

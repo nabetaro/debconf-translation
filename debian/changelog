@@ -1,9 +1,24 @@
+debconf (0.9.90) unstable; urgency=low
+
+  * Merged in Progeny's gnome frontend.
+  * Lots of code changes to this frontend, to bing it current from debconf
+    0.3, fix tab damage, not break perl object abstractions, add some docs,
+    remove dead code, and so forth. Mostly untested, probably quite a few
+    bugs introduced here, but they'll just affect this frontend, so I don't
+    feel _too_ bad about slipping it in so near to freeze.
+  * In the gnome (well, gtk) sucks department, why does the thing throw an
+    untrappable exception if the DISPLAY can't be connected to? Myopic. I
+    added a nasty hack to fork an entire process that just checks to see if
+    gnome is going to make debconf blow up when init'ed, or if it'll work.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 26 Jul 2001 22:09:26 -0400
+
 debconf (0.9.81) unstable; urgency=low
 
   * Made frontend fallback messages less likely to generate FRNBs
     (Frequently-Reported Non-Bugs).
 
- -- Joey Hess <joeyh@debian.org>  Tue, 17 Jul 2001 14:50:57 -0400
+ -- Joey Hess <joeyh@debian.org>  Thu, 26 Jul 2001 22:02:56 -0400
 
 debconf (0.9.80) unstable; urgency=medium
 

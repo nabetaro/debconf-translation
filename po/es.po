@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2001-07-17 14:52-0400\n"
+"POT-Creation-Date: 2001-07-26 22:14-0400\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:62
+#: ../Debconf/AutoSelect.pm:63
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "falló al inicializar el interfaz: %s"
 
-#: ../Debconf/AutoSelect.pm:70
+#: ../Debconf/AutoSelect.pm:71
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "falló al inicializar el interfaz: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:77
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "No puede arrancar un interfaz: %s"
@@ -46,23 +46,6 @@ msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:219
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Error al procesar la plantilla, cerca de `%s'"
-
-#: ../Debconf/Template.pm:225
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "La plantilla con contiene una línea `Template:'"
-
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -72,6 +55,25 @@ msgstr ""
 "¡El valor introducido, \"%s\" no se encontró en la opciones C! Esto no "
 "debiera suceder nunca. Tal vez las plantillas estaban localizadas "
 "incorrectamente."
+
+#: ../Debconf/Element/Gnome/Note.pm:45 ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Grabar Nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:48 ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Se solicitó a Debconf que guardase esta nota, así que se la ha enviado por "
+"correo."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "The note has been mailed to root"
+msgstr "La nota ha sido enviada por correo a root."
+
+#: ../Debconf/Element/Gnome/Note.pm:52 ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "No pude grabar la nota."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -114,23 +116,9 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Slang/Note.pm:27
-msgid "Save Note"
-msgstr "Grabar Nota"
-
-#: ../Debconf/Element/Slang/Note.pm:31
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Se solicitó a Debconf que guardase esta nota, así que se la ha enviado por "
-"correo."
-
 #: ../Debconf/Element/Slang/Note.pm:32
 msgid "The note has been mailed to root."
 msgstr "La nota ha sido enviada por correo a root."
-
-#: ../Debconf/Element/Slang/Note.pm:35
-msgid "Unable to save note."
-msgstr "No pude grabar la nota."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -251,6 +239,23 @@ msgstr ""
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Nota: Debconf está ejecutándose en modo web. Vaya a http://localhost:%i/"
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:219
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Error al procesar la plantilla, cerca de `%s'"
+
+#: ../Debconf/Template.pm:225
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "La plantilla con contiene una línea `Template:'"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

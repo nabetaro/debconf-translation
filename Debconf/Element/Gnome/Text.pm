@@ -2,17 +2,16 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Gnome::Text - a bit of text to show to the user.
+Debconf::Element::Gnome::Text - a bit of text to show to the user.
 
 =cut
 
-package Debian::DebConf::Element::Gnome::Text;
+package Debconf::Element::Gnome::Text;
 use strict;
 use Debian::DebConf::Gettext;
 use Gtk;
 use Gnome;
-use Debian::DebConf::Element::Gnome; # perlbug
-use base qw(Debian::DebConf::Element::Gnome);
+use base qw(Debian::DebConf::Element);
 
 =head1 DESCRIPTION
 
@@ -23,25 +22,31 @@ This is a bit of text to show to the user.
 sub init {
 	my $this=shift;
 
-	$this->{widget} = new Gtk::VBox(0, 0);
+	$this->widget(Gtk::VBox(0, 0));
 
-	my $text = new Gtk::Text(0, 0);
+	my $text = Gtk::Text->new(0, 0);
 	$text->show;
 	$text->set_word_wrap(1);
 
-	my $vscrollbar = new Gtk::VScrollbar($text->vadj);
+	my $vscrollbar = Gtk::VScrollbar->new($text->vadj);
 	$vscrollbar->show;
 
-	my $hbox = new Gtk::HBox(0, 0);
+	my $hbox = Gtk::HBox->new(0, 0);
 	$hbox->show;
 	$hbox->pack_start($text, 1, 1, 0);
 	$hbox->pack_start($vscrollbar, 0, 0, 0);
-	$this->{widget}->pack_start($hbox, 1, 1, 0);
+	$this->widget->pack_start($hbox, 1, 1, 0);
 
 	$text->insert(undef, undef, undef,
-		      $this->{question}->extended_description);
+		      $this->question->extended_description);
 
-	$this->{widget}->show;
+	$this->widget->show;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

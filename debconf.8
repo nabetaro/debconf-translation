@@ -82,6 +82,12 @@ occasionally mail root with messages the package wanted to
 display, but that's it; otherwise it is completly silent and
 unobtrusive, a perfect frontend for automatic installs.
 .TP
+.B gnome
+This is a modern X GUI using the gtk and gnome libraries. Of course, it
+requires a vlid DISPLAY to work; debconf will fall back to other frontends
+if it can't work. Note that this frontend requires you have the
+libgnome-perl package installed.
+.TP
 .B slang
 This frontend is based on the Slang toolkit. It presents a full-featured
 GUI (in text mode). Note that for this frontend to work, you must have the

@@ -65,6 +65,13 @@ Dialog frontend:
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
 
+Gnome frontend:
+* Track down the segfault at exit thing that it currently works around by
+  catching the signal.
+* Make it use a multiselect box instead of all the check boxes
+* Add support for blocks and containers, both of which should let multiple
+  questions be grouped together in nice ways on the screen.
+
 Web based frontend:
 * Well, a little security would be nice! It only allows connections
   from localhost, but even that isn't good enough at all.

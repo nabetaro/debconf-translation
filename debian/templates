@@ -1,6 +1,6 @@
 Template: debconf/frontend
 Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices: Slang, Text, Editor, Dialog, Gnome, Noninteractive
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -8,10 +8,10 @@ Description: What interface should be used for configuring packages?
  .
  The slang frontend provides a colorful, full-screen, character based
  windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out.
+ text interface, and the gnome frontend is a modern X interface. The editor
+ frontend lets you configure things using your favorite text editor. The
+ noninteractive frontend never asks you any questions. The dialog frontend
+ is a primitive frontend that is being phased out.
 
 Template: debconf/priority
 Type: select

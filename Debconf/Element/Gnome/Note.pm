@@ -2,18 +2,16 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Gnome::Note - a note to show to the user
+Debconf::Element::Gnome::Note - a note to show to the user
 
 =cut
 
-package Debian::DebConf::Element::Gnome::Note;
+package Debconf::Element::Gnome::Note;
 use strict;
-use Debian::DebConf::Gettext;
+use Debconf::Gettext;
 use Gtk;
 use Gnome;
-use Debian::DebConf::Element::Gnome; # perlbug
-use base qw(Debian::DebConf::Element::Gnome
-	    Debian::DebConf::Element::Noninteractive::Note);
+use base qw(Debconf::Element::Noninteractive::Note);
 
 =head1 DESCRIPTION
 
@@ -25,44 +23,52 @@ that can be pressed to save the note.
 sub init {
 	my $this=shift;
 
-	$this->{widget} = new Gtk::VBox(0, 0);
+	$this->widget(Gtk::VBox->new(0, 0));
 
-	my $text = new Gtk::Text(0, 0);
+	my $text = Gtk::Text->new(0, 0);
 	$text->show;
 	$text->set_word_wrap(1);
 
-	my $vscrollbar = new Gtk::VScrollbar($text->vadj);
+	my $vscrollbar = Gtk::VScrollbar->new($text->vadj);
 	$vscrollbar->show;
 
-	my $hbox = new Gtk::HBox(0, 0);
+	my $hbox = Gtk::HBox->new(0, 0);
 	$hbox->show;
 	$hbox->pack_start($text, 1, 1, 0);
 	$hbox->pack_start($vscrollbar, 0, 0, 0);
-	$this->{widget}->pack_start($hbox, 1, 1, 0);
+	$this->widget->pack_start($hbox, 1, 1, 0);
 
 	$text->insert(undef, undef, undef,
-		      $this->{question}->extended_description);
+		      $this->question->extended_description);
 
-	my $button = new Gtk::Widget("Gtk::Button",
-				     -label => gettext("Save Note"),
-				     -signal::clicked => sub {
-					 if ($this->sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
-					     my $msg = new Gnome::MessageBox(gettext("The note has been mailed to root"), "info", "Button_Ok");
-					     $msg->show;
-					     $msg->run;
-					 } else {
-					     my $msg = new Gnome::MessageBox(gettext("Unable to save note."), "error", "Button_Ok");
-					     $msg->show;
-					     $msg->run;
-					 }});
+	my $button = Gtk::Widget->new("Gtk::Button",
+		-label => gettext("Save Note"),
+		-signal::clicked => sub {
+			my $msg;
+			if ($this->sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
+				$msg = Gnome::MessageBox->new(gettext("The note has been mailed to root"), "info", "Button_Ok");
+			}
+			else {
+				$msg = Gnome::MessageBox->new(gettext("Unable to save note."), "error", "Button_Ok");
+			}
+			$msg->show;
+			$msg->run;
+		}
+	);
 	$button->show;
 
-	$hbox = new Gtk::HBox(0, 0);
+	$hbox = Gtk::HBox->new(0, 0);
 	$hbox->show;
 	$hbox->pack_start($button, 1, 0, 0);
-	$this->{widget}->pack_start($hbox, 0, 0, 0);
+	$this->widget->pack_start($hbox, 0, 0, 0);
 
-	$this->{widget}->show;
+	$this->widget->show;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1
