@@ -13,12 +13,12 @@ debconf - run a debconf-using program
 =head1 DESCRIPTION
 
 Debconf is a configuration system for Debian packages. For a debconf
-overview and documentation for sysadmins, see L<debconf(8)>.
+overview and documentation for sysadmins, see L<debconf(7)>.
 
 The B<debconf> program runs a program under debconf's control, setting it up
 to talk with debconf on stdio. The program's output is expected to be debconf
 protocol commands, and it is expected to read result codes on stdin. See
-L<debconf-devel(8)> for details about the debconf protocol.
+L<debconf-devel(7)> for details about the debconf protocol.
 
 =head1 OPTIONS
 
@@ -56,7 +56,7 @@ Or, you might use this:
 
 =head1 SEE ALSO
 
-L<debconf-devel(8)>, L<debconf(8)>
+L<debconf-devel(7)>, L<debconf(7)>
 
 =cut
 
