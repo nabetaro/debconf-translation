@@ -8,6 +8,8 @@ I18N:
   of a character were used.
 
 General:
+* When preconfiguring from apt, SIGWINCH signals are ignored. This is an
+  apt bug -- a patch is in the BTS and it should be fixed soon.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
   Unfortuantly, many packages probably depend on the hack. Options are to
   find all such packages (by examining/auditing all packages that use
@@ -51,10 +53,10 @@ General:
   their packages depend on the new version of debconf if they do.
 
 Slang frontend:
-* I doubt resizing always works perfectly.
-* Large dropdown select boxes probably go off the screen. console-data
-  is one example of this.
 * The buttons should have help text associated with them too.
+* Multiselect elements!
+* Menus to allow controlling of question priority on the fly (?)
+* Hotkeys.
 
 Text frontend:
 * Add some way to go back in the Text.pm front end. I don't know how to

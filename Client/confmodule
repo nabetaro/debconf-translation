@@ -14,16 +14,16 @@ if [ ! "$DEBIAN_HAS_FRONTEND" ]; then
 fi
 
 # Only do this once.
-#if [ -z "$DEBCONF_REDIR" ]; then
+if [ -z "$DEBCONF_REDIR" ]; then
 	# Redirect standard output to standard error. This prevents common
 	# mistakes by making all the output of the postinst or whatever
 	# script is using this library not be parsed as confmodule commands.
 	#
 	# To actually send something to standard output, send it to fd 3.
-	#exec 3>&1 1>&2
-#	DEBCONF_REDIR=1
-#	export DEBCONF_REDIR
-#fi
+	exec 3>&1 1>&2
+	DEBCONF_REDIR=1
+	export DEBCONF_REDIR
+fi
 
 ###############################################################################
 # Commands.
