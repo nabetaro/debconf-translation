@@ -51,7 +51,7 @@ it run, and is passed the parameters "reconfigure" and
 installed-version.
 .P  
 Note that since a typical package install or upgrade using apt runs steps 1
-and 3, the config script will typically be run twice. It should do nothing
+and 2, the config script will typically be run twice. It should do nothing
 the second time (to ask questions twice in a row is annoying), and it should
 definitely be idempotent. Luckily, debconf avoids repeating questions by
 default, so this is generally easy to accomplish.
@@ -313,7 +313,7 @@ look like "${key}". When the question is displayed, the substitutions are
 replaced with their values. This command can be used to set the value of a
 substitution. This is useful if you need to display some message to the
 user that you can't hard-code in the templates file.
-.P
+.IP
 Do not try to use SUBST to change the default value of a question; it won't
 work since there is a SET command explicielt for that purpose.
 .TP
@@ -622,10 +622,13 @@ And the postinst will look something like this:
 
  # Substitute in the values from the debconf db.
  # There are obvious optimizations possible here.
+ # The cp before the sed ensures we do not mess up
+ # the config file's ownership and permissions.
  db_get mypackage/foo
  FOO="$RET"
  db_get mypackage/bar
  BAR="$RET"
+ cp -a -f $CONFIGFILE $CONFIGFILE.tmp
  sed -e "s/^ *FOO=.*/FOO=\\"$FOO\\"/" \\
      -e "s/^ *FOO=.*/BAR=\\"$BAR\\"/" \\
      < $CONFIGFILE > $CONFIGFILE.tmp
