@@ -32,8 +32,14 @@ sub init {
 	$this->SUPER::init(@_);
 
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
-	$this->readline(Term::ReadLine->new('debian'));
+	$this->readline(Term::ReadLine->new('Debconf'));
 	$this->readline->ornaments(1);
+	# ctrl-p backs up
+	$this->readline->add_defun('previous-question',
+		sub {
+			$this->backup(1);
+			$this->_readline_done(1);
+		}, ord "\cp");
 	$this->interactive(1);
 	$this->linecount(0);
 	
@@ -140,7 +146,26 @@ sub prompt {
 		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
 	else {
-		$ret=$this->readline->readline($prompt, $default);
+		# Use readline in its callback mode, so we can break out of
+		# the loop if the user decides to back up.
+		$this->readline->callback_handler_install($prompt,
+			sub {
+				$this->_readline_done(1);
+				$this->_readline_val=shift;
+			}
+		);
+		$this->_readline_done('');
+		until ($this->_readline_done) {
+			$this->readline->callback_read_char;
+		}
+		$this->readline->callback_handler_remove;
+		# This is a huge hack. TODO: fixme
+		if ($this->backup) {
+			$ret=$default;
+		}
+		else {
+			$ret=$this->_readline_val;
+		}
 	}
 	$this->readline->addhistory($ret);
 	if ($ret eq '' && $this->promptdefault) {
