@@ -168,7 +168,9 @@ foreach my $pkg (@packages) {
 	registertemplates($pkg,Debian::DebConf::Template->load("$infodir/$pkg.templates"))
 		if -e "$infodir/$pkg.templates";
 
-	# Run postrm, config, and postinst scripts in sequence, with args.
+	# Run config, and postinst scripts in sequence, with args.
+	# Do not run postrm, because the postrm can depend on the package's
+	# files actually being gone already.
 	foreach my $info (['config',   'reconfigure', $version],
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
