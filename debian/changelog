@@ -1,3 +1,10 @@
+debconf (0.2.99) unstable; urgency=low
+
+  * Added --unseen-only switch to dpkg-reconfigure. This makes it only ask
+    questions that have not been asked before. Closes: #59260
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 29 Feb 2000 11:30:21 -0800
+
 debconf (0.2.98) unstable; urgency=low
 
   * When debconf or debconf-tiny is purged, the database is not deleted if

@@ -17,6 +17,7 @@ my $infodir="/var/lib/dpkg/info";
 # Parse command line. I don't use Getopt::Long since it's not in base.
 my @packages;
 my $change_priority=1;
+my $unseen_only='';
 for (my $x=0; $x < @ARGV;) {
 	$_=$ARGV[$x++];
 	
@@ -39,6 +40,9 @@ for (my $x=0; $x < @ARGV;) {
 	elsif (/^-(?:p|-priority)$/) {
 		Debian::DebConf::Config::priority($ARGV[$x++]);
 		$change_priority='';
+	}
+	elsif ((/^-(?:u|-unseen-only)$/) {
+		$unseen_only=1;
 	}
 	elsif (/^-(?:h|-help)$/) {
 		usage();
@@ -63,9 +67,12 @@ Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
 
 my $frontend=Debian::DebConf::AutoSelect::frontend();
 
-# Make the frontend show questions even if the user has already seen them.
-# Since this is a reconfigure program, they may want to change their choices.
-Debian::DebConf::Config::showold('true');
+unless ($unseen_only) {
+	# Make the frontend show questions even if the user has already seen
+	# them. Since this is a reconfigure program, they may want to change
+	# their choices.
+	Debian::DebConf::Config::showold('true');
+}
 
 # Default to low priority unless some other priority was specified.
 Debian::DebConf::Config::priority('low') if $change_priority;
