@@ -10,6 +10,7 @@ if [ ! -e /etc/apt/apt.conf ]; then
 fi
 if ! grep -q "dpkg-preconfig --apt" /etc/apt/apt.conf; then
 	echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
+	echo "// (Automatically added by debconf.)" >> /etc/apt/apt.conf
 	echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
 fi
 
