@@ -1,3 +1,11 @@
+debconf (0.3.62) unstable; urgency=low
+
+  * Reworked rules file, since this package now has arch-indep and -dep
+    parts. Split build dependancies along those lines. Closes: #68461
+  * Removed obsolete Version.pm (Randolph's code does the checking now).
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  3 Aug 2000 15:20:21 -0700
+
 debconf (0.3.61) unstable; urgency=low
 
   * Passthrough fix. s/carp/croak/

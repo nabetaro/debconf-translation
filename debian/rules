@@ -1,43 +1,83 @@
 #!/usr/bin/make -f
 
-# Uncomment this to turn on verbose mode.
+# Uncomment this to turn on verbose mode. 
 #export DH_VERBOSE=1
 
+# This is the debhelper compatibility version to use.
+export DH_COMPAT=2
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+# I've broken up building to make the build-dependancies more sane,
+# since lots of stuff is needed for building arch dependant and independant
+# packages.
 build:
-	$(MAKE)
+	@echo "This package does not have a unified build target."
+	@echo "Use either build-arch or build-indep to build."
+
+build-arch: build-arch-stamp
+build-arch-stamp:
 	dh_testdir
+	$(MAKE) -C po
+	$(MAKE) -C Client/preconfigure
+	touch build-arch-stamp
+
+build-indep:  build-indep-stamp
+build-indep-stamp:
+	dh_testdir
+	$(MAKE) -C doc
 
 clean:
 	dh_testdir
 	dh_testroot
+	rm -f build-arch-stamp build-indep-stamp
 	$(MAKE) clean
 	dh_clean debian/debconf.changelog
 
-install: build
+# Build architecture-independent files here.
+# Pass -i to all debhelper commands in this target to reduce clutter.
+binary-indep: DH_OPTIONS=-i
+binary-indep: build-indep
+	dh_testversion 2
 	dh_testdir
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	$(MAKE) prefix=`pwd`/debian/tmp install
+
 	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
+	
+	dh_installdocs doc/namespace.txt doc/hierarchy.txt \
+		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
+		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
+		doc/passthrough.txt
+	dh_installexamples samples/*
+	dh_installchangelogs
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
 
-binary-arch: install
+# Build architecture-dependent files here.
+# Pass -a to all debhelper commands in this target to reduce clutter.
+binary-arch: DH_OPTIONS=-a
+binary-arch: build-arch
 	# Make sure debhelper is going to install the config and templates.
 	dh_testversion 2.0.98
 	dh_testdir
 	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	$(MAKE) prefix=`pwd`/debian/debconf install
+	
 	# Don't modify postrm, I purge differently than normal packages
 	# using me.
 	dh_installdebconf -n
-	dh_installdocs
-	dh_installdocs -p debconf-doc doc/namespace.txt doc/hierarchy.txt \
-		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
-		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
-		doc/passthrough.txt
-	dh_installexamples -p debconf-doc samples/*
-	dh_installmenu
-	dh_installcron
 	# Changelog reduction hack for debconf. Only include top 5 entries.
 	perl -ne '$$c++ if /^debconf /; last if $$c > 5 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
@@ -45,17 +85,14 @@ binary-arch: install
 	echo "remainder of this changelog." >> debian/debconf.changelog
 	dh_installchangelogs
 	dh_strip
+	dh_link
 	dh_compress
 	dh_fixperms
-	dh_suidregister
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
 
-binary-indep: build install
-# Nothing to do.
-
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean build-indep binary-indep build-arch binary-arch binary

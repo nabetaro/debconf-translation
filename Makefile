@@ -1,11 +1,7 @@
-all: Version.pm
+all:
 	$(MAKE) -C doc
 	$(MAKE) -C po
 	$(MAKE) -C Client/preconfigure
-
-VERSION=$(shell expr "`dpkg-parsechangelog 2>/dev/null |grep Version:`" : '.*Version: \(.*\)')
-Version.pm:
-	echo -e "package Debian::DebConf::Version;\n\$$version='$(VERSION)';" > Version.pm
 
 test:
 	-install -d Debian

@@ -74,7 +74,6 @@ BEGIN {
 		use Debian::DebConf::Config qw(frontend priority showold
 					       dbdir tmpdir);
 		use Debian::DebConf::AutoSelect qw(:all);
-		use Debian::DebConf::Version;
 		use Debian::DebConf::Gettext;
 	};
 	if ($@) {
