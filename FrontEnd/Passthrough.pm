@@ -51,6 +51,23 @@ sub init {
 	$this->interactive(1);
 }
 
+=head2 _getreply
+
+Reads a line from the handle, and do some simple processing with it
+
+=cut
+
+sub _getreply {
+	my $fh = shift;
+
+	<$fh>;
+	chomp;
+	my ($tag, $val) = split(/ /, $_, 2);
+
+	return ($tag, $val) if (wantarray);
+	return $tag 
+}
+
 =head2 shutdown
 
 The the UI agent know we're shutting down.
@@ -62,8 +79,9 @@ sub shutdown {
 	my $fh = $this->{thepipe} || carp "Broken pipe";
 	debug developer => "Sending done signal";
 
-	print $fh "done\n";
+	print $fh "STOP\n";
 	$fh->flush;
+	_getreply($fh);
 }
 
 =head2 makeelement
@@ -97,7 +115,8 @@ sub capb_backup
 
 	$this->{capb_backup} = $val;
 	if ($val) {
-		print $fh "capb backup\n";
+		print $fh "CAPB backup\n";
+		_getreply($fh);
 	}
 }
 
@@ -115,7 +134,8 @@ sub title
 
 	$this->{title} = $title;
 
-	print $fh "title $title\n";
+	print $fh "TITLE $title\n";
+	_getreply($fh);
 }
 
 =head2 go
@@ -129,7 +149,6 @@ the UI agent.
 sub go {
 	my $this = shift;
 	my $fh = $this->{thepipe} || carp "Broken pipe";
-	my %answers;
 	my $datasent = 0;
 
 	foreach my $element (@{$this->elements}) {
@@ -146,40 +165,43 @@ sub go {
 		$extdesc =~ s/\n/\\n/g if (defined($extdesc));
 		$choices =~ s/\n/\\n/g if (defined($choices));
 
-		print $fh "data $tag description $desc\n" if ($desc);
-		print $fh "data $tag extended-description $extdesc\n" if ($extdesc);
-		print $fh "data $tag choices $choices\n" if ($choices);
-		print $fh "input $tag $type $default\n";
-	}
-
-	if ($datasent > 0) {
-		print $fh "go\n";
-		$fh->flush;
-
-		# loop while waiting for data
-		while (<$fh>) {
-			chomp;
-			last if (!$_);
-			my ($tag, $data) = split(/ +/, $_, 2);
-			if ($tag eq "30") {
-				if ($this->capb_backup) {
-					$this->clear;
-					return;
-				}
-			}
-			last if ($tag eq "0");
-			$answers{$tag} = $data;
+		if ($desc) {
+			print $fh "DATA $tag description $desc\n";
+			_getreply($fh);
 		}
+
+		if ($extdesc) {
+			print $fh "DATA $tag extended-description $extdesc\n";
+			_getreply($fh);
+		}
+
+		if ($choices) {
+			print $fh "DATA $tag choices $choices\n";
+			_getreply($fh);
+		}
+
+		print $fh "DATA $tag $type $default\n";
+		_getreply($fh);
 	}
 
+	print "GO\n";
+	my $ret = _getreply($fh);
+
+	if ($ret eq "30" && $this->capb_backup) {
+		$this->clear;
+		return;
+	}
+	
 	# Assign the answers
 	foreach my $element (@{$this->elements}) {
 		my $tag = $element->question->template->template;
-		if (defined($answers{$tag})) {
-			$element->question->value($answers{$tag});
-			$element->question->flag_isdefault('false');
-			debug developer => "Setting value of $tag to ".$answers{$tag};
-		}
+
+		print $fh "GET $tag\n";
+		<$fh>;
+		chomp;
+		$element->question->value($_);
+		$element->question->flag_isdefault('false');
+		debug developer => "Setting value of $tag to $_";
 	}
 	
 	$this->clear;
