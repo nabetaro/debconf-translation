@@ -124,7 +124,8 @@ sub cached {
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
 		debug "db driver $this->{name}" => "cache miss on $item";
-		$this->{cache}->{$item}=$this->load($item);
+		my $cache=$this->load($item);
+		$this->{cache}->{$item}=$cache if $cache;
 	}
 	return $this->{cache}->{$item};
 }
