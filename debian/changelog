@@ -1,3 +1,20 @@
+debconf (1.4.0) unstable; urgency=low
+
+  * Add an exerimental KDE frontend, contributed by Peter Rockai.
+    Closes: #224040
+  * Generate Debconf/FrontEnd/Kde/WizardUi.pm in Makefile using puic,
+    so build-depend on libqt-perl.
+  * Added basic pod docs for the Kde frontend, though it could stand
+    improvements.
+  * Fix code formatting to match the rest of debconf.
+  * Use frontend debug facility instead of developer.
+  * Remove some dead code and useless init methods that just call super.
+  * Split modules into their own files where appropriate; better handling
+    of libqt-perl less systems with Kde frontend selected.
+  * Suggest libqt-perl.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 28 Dec 2003 19:03:46 -0500
+
 debconf (1.3.22) unstable; urgency=medium
 
   * When the teletype frontend is processing the answer to a boolean
