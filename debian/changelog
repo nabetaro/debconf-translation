@@ -1,3 +1,11 @@
+debconf (0.3.21) unstable; urgency=low
+
+  * Corrected bug in slang frontend -- if the last item in a dropdown
+    select box was default, it was not highlighted as such correctly. 
+    Closes: #62021 
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  8 Apr 2000 20:14:37 -0700
+
 debconf (0.3.20) unstable; urgency=low
 
   * debconf-doc conflicts with older versions of debconf that contained the

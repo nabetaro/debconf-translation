@@ -33,7 +33,7 @@ sub init {
 
 	# Find cursor position.
 	my $cursor=1;
-	for (my $x=0; $x < $#choices ; $x++) {
+	for (my $x=0; $x <= $#choices ; $x++) {
 		if ($choices[$x] eq $default) {
 			$cursor=$x;
 			last;
@@ -46,8 +46,7 @@ sub init {
 			cursor => $cursor,
 		),
 	));
-	# The widget prefers to be just wide enough for the list box,
-	# plus one character. The one character makes it look better, IMHO.
+	# The widget prefers to be just wide enough for the list box.
 	$this->widget->preferred_width($this->widget->list->width + 5);
 }
 
