@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"POT-Creation-Date: 2003-03-07 12:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,11 @@ msgstr ""
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
 msgstr "Dialog, Readline, Gnome, Edytor, Nieinteraktywny"
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "Który interfejs ma byæ u¿ywany do konfigurowania pakietów?"
 
 #. Description
 #: ../templates:5
@@ -47,11 +52,6 @@ msgstr ""
 "system przy pomocy Twojego ulubionego edytora. Interfejs nieinteraktywny "
 "nigdy nie zadaje ¿adnych pytañ."
 
-#. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Który interfejs ma byæ u¿ywany do konfigurowania pakietów?"
-
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
@@ -59,62 +59,38 @@ msgstr "najwy¿szy, wysoki, ¶redni, niski"
 
 #. Description
 #: ../templates:19
-msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+msgid "See only questions that are of what priority and higher?"
 msgstr ""
-"Pakiety u¿ywaj±ce do konfiguracji systemu debconf nadaj± ka¿demu pytaniu, na "
-"które wymagaj± odpowiedzi, pewien priorytet. W rzeczywisto¶ci zobaczysz "
-"tylko pytania o priorytecie wy¿szym lub równym pewnemu ustalonemu; wszystkie "
-"mniej wa¿ne s± pomijane."
 
 #. Description
 #: ../templates:19
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-"  - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-"  - 'high' is for items that don't have reasonable defaults.\n"
-"  - 'medium' is for normal items that have reasonable defaults.\n"
-"  - 'low' is for trivial items that have defaults that will work in the\n"
-"    vast majority of cases."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break. Pick it if you\n"
+"    are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Mo¿esz ustaliæ najni¿szy priorytet pytañ, które chcesz widzieæ:\n"
-"  - 'najwy¿szy' obejmuje pytania, od odpowiedzi na które zale¿y poprawna\n"
-"    praca systemu.\n"
-"  - 'wysoki' obejmuje pytania, które nie maj± sensownych warto¶ci\n"
-"    domy¶lnych.\n"
-"  - '¶redni' obejmuje zwyk³e pytania, które maj± sensowne warto¶ci\n"
-"    domy¶lne.\n"
-"  - 'niski' obejmuje ma³o istotne rzeczy, których warto¶ci domy¶lne bêd±\n"
-"    dzia³aæ w prawie wszystkich przypadkach."
 
 #. Description
 #: ../templates:19
+#, fuzzy
 msgid ""
-"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
-"only see the most important questions."
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Je¶li jeste¶ pocz±tkuj±cym u¿ytkownikiem systemu Debian GNU/Linux wybierz "
-"poziom 'najwy¿szy', aby widzieæ tylko najwa¿niejsze pytania."
+"Zwróæ uwagê, ¿e niezale¿nie od tego jak teraz odpowiesz, zawsze mo¿esz "
+"zobaczyæ stare pytania przy pomocy komendy dpkg-reconfigure."
 
 #. Description
-#: ../templates:19
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
-msgstr ""
-"Na przyk³ad to pytanie ma priorytet ¶redni, wiêc je¶li wybra³by¶/wybra³aby¶ "
-"wcze¶niej priorytet 'wysoki' albo 'najwy¿szy', nie ukaza³oby siê ono."
+#: ../templates:34
+msgid "Show all old questions again and again?"
+msgstr "Pokazywaæ stare pytania za ka¿dym razem?"
 
 #. Description
-#: ../templates:19
-msgid "Ignore questions with a priority less than.."
-msgstr "Ignoruj pytania o priorytecie ni¿szym ni¿.."
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
@@ -127,15 +103,57 @@ msgstr ""
 "reinstalacji danego pakietu."
 
 #. Description
-#: ../templates:41
-msgid "Show all old questions again and again?"
-msgstr "Pokazywaæ stare pytania za ka¿dym razem?"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Note that no matter what you choose here, you can see old questions again by "
 "using the dpkg-reconfigure program."
 msgstr ""
 "Zwróæ uwagê, ¿e niezale¿nie od tego jak teraz odpowiesz, zawsze mo¿esz "
 "zobaczyæ stare pytania przy pomocy komendy dpkg-reconfigure."
+
+#~ msgid ""
+#~ "Packages that use debconf for configuration prioritize the questions they "
+#~ "might ask you. Only questions with a certain priority or higher are "
+#~ "actually shown to you; all less important questions are skipped."
+#~ msgstr ""
+#~ "Pakiety u¿ywaj±ce do konfiguracji systemu debconf nadaj± ka¿demu pytaniu, "
+#~ "na które wymagaj± odpowiedzi, pewien priorytet. W rzeczywisto¶ci "
+#~ "zobaczysz tylko pytania o priorytecie wy¿szym lub równym pewnemu "
+#~ "ustalonemu; wszystkie mniej wa¿ne s± pomijane."
+
+#~ msgid ""
+#~ "You can select the lowest priority of question you want to see:\n"
+#~ "  - 'critical' is for items that will probably break the system\n"
+#~ "    without user intervention.\n"
+#~ "  - 'high' is for items that don't have reasonable defaults.\n"
+#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
+#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
+#~ "    vast majority of cases."
+#~ msgstr ""
+#~ "Mo¿esz ustaliæ najni¿szy priorytet pytañ, które chcesz widzieæ:\n"
+#~ "  - 'najwy¿szy' obejmuje pytania, od odpowiedzi na które zale¿y poprawna\n"
+#~ "    praca systemu.\n"
+#~ "  - 'wysoki' obejmuje pytania, które nie maj± sensownych warto¶ci\n"
+#~ "    domy¶lnych.\n"
+#~ "  - '¶redni' obejmuje zwyk³e pytania, które maj± sensowne warto¶ci\n"
+#~ "    domy¶lne.\n"
+#~ "  - 'niski' obejmuje ma³o istotne rzeczy, których warto¶ci domy¶lne bêd±\n"
+#~ "    dzia³aæ w prawie wszystkich przypadkach."
+
+#~ msgid ""
+#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
+#~ "you only see the most important questions."
+#~ msgstr ""
+#~ "Je¶li jeste¶ pocz±tkuj±cym u¿ytkownikiem systemu Debian GNU/Linux wybierz "
+#~ "poziom 'najwy¿szy', aby widzieæ tylko najwa¿niejsze pytania."
+
+#~ msgid ""
+#~ "For example, this question is of medium priority, and if your priority "
+#~ "were already 'high' or 'critical', you wouldn't see this question."
+#~ msgstr ""
+#~ "Na przyk³ad to pytanie ma priorytet ¶redni, wiêc je¶li wybra³by¶/"
+#~ "wybra³aby¶ wcze¶niej priorytet 'wysoki' albo 'najwy¿szy', nie ukaza³oby "
+#~ "siê ono."
+
+#~ msgid "Ignore questions with a priority less than.."
+#~ msgstr "Ignoruj pytania o priorytecie ni¿szym ni¿.."

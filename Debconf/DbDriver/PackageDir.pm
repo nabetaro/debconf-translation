@@ -198,9 +198,9 @@ sub shutdown {
 	my (%files, %filecontents, %killfiles, %dirtyfiles);
 	foreach my $item (keys %{$this->{cache}}) {
 		my $file=$this->filename($item);
-		$files{$file}=$item;
+		$files{$file}++;
 		
-		if (! defined $this->{cache}{$item}) {
+		if (! defined $this->{cache}->{$item}) {
 			$killfiles{$file}++;
 			delete $this->{cache}->{$item};
 		}
@@ -210,14 +210,20 @@ sub shutdown {
 
 		if ($this->{dirty}->{$item}) {
 			$dirtyfiles{$file}++;
-			$this->{dirty}->{$item}=0
+			$this->{dirty}->{$item}=0;
 		}
 	}
 
 	foreach my $file (keys %files) {
 		if (! $filecontents{$file} && $killfiles{$file}) {
-			$this->remove($files{$file}) ||
-				$this->error("unable to remove $file: $!");
+			debug "db $this->{name}" => "removing $file";
+			my $filename=$this->{directory}."/".$file;
+			unlink $filename or
+				$this->error("unable to remove $filename: $!");
+			if (-e $filename."-old") {
+				unlink $filename."-old" or
+					$this->error("unable to remove $filename-old: $!");
+			}
 		}
 		elsif ($dirtyfiles{$file}) {
 			debug "db $this->{name}" => "saving $file";
@@ -230,6 +236,7 @@ sub shutdown {
 			foreach my $item (@{$filecontents{$file}}) {
 				$this->{format}->write($fh, $this->{cache}->{$item}, $item);
 			}
+			$this->{format}->endfile;
 
 			# Ensure -new is flushed.
 			$fh->autoflush(1);

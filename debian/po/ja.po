@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"POT-Creation-Date: 2003-03-07 12:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,11 @@ msgstr ""
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
 msgstr "ダイアログ, Readline, Gnome, エディタ, 非対話的"
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "パッケージの設定にどのインターフェースを用いますか?"
 
 #. Description
 #: ../templates:5
@@ -46,11 +51,6 @@ msgstr ""
 "ターフェースです。「エディタ」を用いるとあなたの好きなテ キストエディタを用い"
 "ることができます。「非対話的」を選ぶと全く質問をし なくなります。"
 
-#. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "パッケージの設定にどのインターフェースを用いますか?"
-
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
@@ -58,59 +58,38 @@ msgstr "重要, 高, 標準, 低"
 
 #. Description
 #: ../templates:19
-msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+msgid "See only questions that are of what priority and higher?"
 msgstr ""
-"設定に debconf を使用するパッケージは、ユーザに対する質問に重要度を付 けてい"
-"ます。ある重要度以上の質問のみが実際に行なわれますが、それよりも 重要度の低い"
-"質問は飛ばされます。"
 
 #. Description
 #: ../templates:19
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-"  - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-"  - 'high' is for items that don't have reasonable defaults.\n"
-"  - 'medium' is for normal items that have reasonable defaults.\n"
-"  - 'low' is for trivial items that have defaults that will work in the\n"
-"    vast majority of cases."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break. Pick it if you\n"
+"    are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"あなたが答えたい質問のうち、最低の優先度のものを選択してください。\n"
-" - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目\n"
-"   用です。\n"
-" - 「高」は、適切なデフォルトの回答がないような項目用です。\n"
-" - 「中」は、適切なデフォルトの回答があるような普通の項目用です。\n"
-" - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささい\n"
-"   な項目用です。"
 
 #. Description
 #: ../templates:19
+#, fuzzy
 msgid ""
-"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
-"only see the most important questions."
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"もしあなたが Debian GNU/Linux システムの初心者ならば、ここで「重要」 を選択す"
-"れば、非常に重要な質問のみが行なわれます。"
+"注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ グラム"
+"を使用して表示できます。"
 
 #. Description
-#: ../templates:19
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
-msgstr ""
-"例えば、ある質問の重要度が「中」で、この重要度の設定がすでに「高」や 「重要」"
-"になっていると、その質問は行なわれません。"
+#: ../templates:34
+msgid "Show all old questions again and again?"
+msgstr "以前に問い合わせた質問をすべて何度も表示しますか?"
 
 #. Description
-#: ../templates:19
-msgid "Ignore questions with a priority less than.."
-msgstr "以下のものよりも重要度の低い質問を無視する"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
@@ -123,15 +102,53 @@ msgstr ""
 "とができます。"
 
 #. Description
-#: ../templates:41
-msgid "Show all old questions again and again?"
-msgstr "以前に問い合わせた質問をすべて何度も表示しますか?"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Note that no matter what you choose here, you can see old questions again by "
 "using the dpkg-reconfigure program."
 msgstr ""
 "注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ グラム"
 "を使用して表示できます。"
+
+#~ msgid ""
+#~ "Packages that use debconf for configuration prioritize the questions they "
+#~ "might ask you. Only questions with a certain priority or higher are "
+#~ "actually shown to you; all less important questions are skipped."
+#~ msgstr ""
+#~ "設定に debconf を使用するパッケージは、ユーザに対する質問に重要度を付 けて"
+#~ "います。ある重要度以上の質問のみが実際に行なわれますが、それよりも 重要度"
+#~ "の低い質問は飛ばされます。"
+
+#~ msgid ""
+#~ "You can select the lowest priority of question you want to see:\n"
+#~ "  - 'critical' is for items that will probably break the system\n"
+#~ "    without user intervention.\n"
+#~ "  - 'high' is for items that don't have reasonable defaults.\n"
+#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
+#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
+#~ "    vast majority of cases."
+#~ msgstr ""
+#~ "あなたが答えたい質問のうち、最低の優先度のものを選択してください。\n"
+#~ " - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目\n"
+#~ "   用です。\n"
+#~ " - 「高」は、適切なデフォルトの回答がないような項目用です。\n"
+#~ " - 「中」は、適切なデフォルトの回答があるような普通の項目用です。\n"
+#~ " - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささい\n"
+#~ "   な項目用です。"
+
+#~ msgid ""
+#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
+#~ "you only see the most important questions."
+#~ msgstr ""
+#~ "もしあなたが Debian GNU/Linux システムの初心者ならば、ここで「重要」 を選"
+#~ "択すれば、非常に重要な質問のみが行なわれます。"
+
+#~ msgid ""
+#~ "For example, this question is of medium priority, and if your priority "
+#~ "were already 'high' or 'critical', you wouldn't see this question."
+#~ msgstr ""
+#~ "例えば、ある質問の重要度が「中」で、この重要度の設定がすでに「高」や 「重"
+#~ "要」になっていると、その質問は行なわれません。"
+
+#~ msgid "Ignore questions with a priority less than.."
+#~ msgstr "以下のものよりも重要度の低い質問を無視する"

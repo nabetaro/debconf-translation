@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"POT-Creation-Date: 2003-03-07 12:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,11 @@ msgstr ""
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
 msgstr "Dialog, Readline, Gnome, Editori, Automaattinen"
+
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?"
 
 #. Description
 #: ../templates:5
@@ -46,11 +51,6 @@ msgstr ""
 "X-pohjaisen liittymän. Editori käyttää asetusten säätöön lempieditoriasi. "
 "Automaattinen liittymä ei koskaan kysy kysymyksiä."
 
-#. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?"
-
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
@@ -58,59 +58,38 @@ msgstr "kriittinen, tärkeä, tavallinen, vähäpätöinen"
 
 #. Description
 #: ../templates:19
-msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+msgid "See only questions that are of what priority and higher?"
 msgstr ""
-"Debconf:ia käyttävät paketit määrittävät kunkin kysymänsä kysymyksen "
-"tärkeyden. Sinulle näytetään vain valitsemasi tasoiset ja niitä tärkeämmät "
-"kysymykset; kaikille muille käytetään oletusasetuksia."
 
 #. Description
 #: ../templates:19
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-"  - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-"  - 'high' is for items that don't have reasonable defaults.\n"
-"  - 'medium' is for normal items that have reasonable defaults.\n"
-"  - 'low' is for trivial items that have defaults that will work in the\n"
-"    vast majority of cases."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break. Pick it if you\n"
+"    are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Kysymysten tärkeystasot ja niiden merkitykset ovat\n"
-" - \"kriittinen\" asioille, jotka luultavasti rikkovat järjestelmän,\n"
-"   jos niille ei valita sopivaa vaihtoehtoa,\n"
-" - \"tärkeä\" asioille, joille ei ole järkevää oletusasetusta,\n"
-" - \"tavallinen\" asioille, joille on järkevä oletusasetus,\n"
-" - \"vähäpätöinen\" asioille, joiden järkevä oletusasetus on kelvollinen\n"
-"   lähes kaikissa tapauksissa"
 
 #. Description
 #: ../templates:19
+#, fuzzy
 msgid ""
-"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
-"only see the most important questions."
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Jos olet uusi Debian GNU/Linux -järjestelmän käyttäjä, valitse \"kriittinen"
-"\", jolloin joudut vastaamaan vain tärkeimpiin kysymyksiin."
+"Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan "
+"ajamalla \"dpkg-reconfigure\"-ohjelman."
 
 #. Description
-#: ../templates:19
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
-msgstr ""
-"Tämä kysymys on tasoltaan tavallinen, joten jos olisit aiemmin valinnut "
-"omaksi tasoksesi \"kriittinen\" tai \"tärkeä\", et edes näkisi tätä."
+#: ../templates:34
+msgid "Show all old questions again and again?"
+msgstr "Näytetäänkö vanhat kysymykset aina uudelleen?"
 
 #. Description
-#: ../templates:19
-msgid "Ignore questions with a priority less than.."
-msgstr "Kuinka tärkeät kysymykset haluat nähdä?"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
@@ -123,15 +102,53 @@ msgstr ""
 "uudelleenasennettaessa."
 
 #. Description
-#: ../templates:41
-msgid "Show all old questions again and again?"
-msgstr "Näytetäänkö vanhat kysymykset aina uudelleen?"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Note that no matter what you choose here, you can see old questions again by "
 "using the dpkg-reconfigure program."
 msgstr ""
 "Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan "
 "ajamalla \"dpkg-reconfigure\"-ohjelman."
+
+#~ msgid ""
+#~ "Packages that use debconf for configuration prioritize the questions they "
+#~ "might ask you. Only questions with a certain priority or higher are "
+#~ "actually shown to you; all less important questions are skipped."
+#~ msgstr ""
+#~ "Debconf:ia käyttävät paketit määrittävät kunkin kysymänsä kysymyksen "
+#~ "tärkeyden. Sinulle näytetään vain valitsemasi tasoiset ja niitä "
+#~ "tärkeämmät kysymykset; kaikille muille käytetään oletusasetuksia."
+
+#~ msgid ""
+#~ "You can select the lowest priority of question you want to see:\n"
+#~ "  - 'critical' is for items that will probably break the system\n"
+#~ "    without user intervention.\n"
+#~ "  - 'high' is for items that don't have reasonable defaults.\n"
+#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
+#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
+#~ "    vast majority of cases."
+#~ msgstr ""
+#~ "Kysymysten tärkeystasot ja niiden merkitykset ovat\n"
+#~ " - \"kriittinen\" asioille, jotka luultavasti rikkovat järjestelmän,\n"
+#~ "   jos niille ei valita sopivaa vaihtoehtoa,\n"
+#~ " - \"tärkeä\" asioille, joille ei ole järkevää oletusasetusta,\n"
+#~ " - \"tavallinen\" asioille, joille on järkevä oletusasetus,\n"
+#~ " - \"vähäpätöinen\" asioille, joiden järkevä oletusasetus on kelvollinen\n"
+#~ "   lähes kaikissa tapauksissa"
+
+#~ msgid ""
+#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
+#~ "you only see the most important questions."
+#~ msgstr ""
+#~ "Jos olet uusi Debian GNU/Linux -järjestelmän käyttäjä, valitse "
+#~ "\"kriittinen\", jolloin joudut vastaamaan vain tärkeimpiin kysymyksiin."
+
+#~ msgid ""
+#~ "For example, this question is of medium priority, and if your priority "
+#~ "were already 'high' or 'critical', you wouldn't see this question."
+#~ msgstr ""
+#~ "Tämä kysymys on tasoltaan tavallinen, joten jos olisit aiemmin valinnut "
+#~ "omaksi tasoksesi \"kriittinen\" tai \"tärkeä\", et edes näkisi tätä."
+
+#~ msgid "Ignore questions with a priority less than.."
+#~ msgstr "Kuinka tärkeät kysymykset haluat nähdä?"

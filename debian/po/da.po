@@ -1,39 +1,37 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#    Translators, please read /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+# This file is from the DDTP, the Debian Description Translation Project
 #
-#, fuzzy
+# See http://ddtp.debian.org/ for more information.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"POT-Creation-Date: 2002-12-19 19:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Debian Description Translation Project <debconf@ddtp.debian.org>\n"
+"Language-Team: da <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Choices
-#: ../templates:3
-msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
-msgstr "Dialog, Readline, Gnome, Editor, Ikke-interaktivt"
-
 #. Description
-#: ../templates:5
+#  Template: debconf/frontend
+#  ddtp-prioritize: 54
+#
+msgid ""
+"What interface should be used for configuring packages?"
+msgstr ""
+"Hvilken brugerflade skal bruges til opsætning af pakker?"
+
+#
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Pakker der bruger debconf til konfiguration, deler det samme 'look and "
-"feel'. Du kan vælge hvilket bruger interface de skal bruge."
+"Pakker der bruger debconf til opsætning, fremtræder på samme måde. "
+"Du kan vælge hvilken brugerflade de skal bruge."
 
-#. Description
-#: ../templates:5
+#
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and the "
@@ -41,96 +39,75 @@ msgid ""
 "configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Dialog er et full-screen, karakter baseret interface, mens readline er et "
-"mere traditionelt tekst interface, og gnome er et mere moderne X interface. "
-"Editoren lader dig svare på spørgsmålene via din favorit editor. Ikke-"
-"interaktivt stiller dig aldrig nogen spørgsmål."
+"Dialog er en fuldskærms, tekstbaseret brugerflade, mens readline er en "
+"mere traditionel tekst-brugerflade og gnome en mere moderne X-brugerflade. "
+"Editor lader dig svare på spørgsmålene via din foretrukne editor. "
+"Ikke-interaktivt stiller aldrig spørgsmål."
+
 
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Hvilket interface skal bruges til at konfigure pakker?"
-
-#. Choices
-#: ../templates:17
-msgid "critical, high, medium, low"
-msgstr "kritisk, høj, medium, lav"
-
-#. Description
-#: ../templates:19
+#  Template: debconf/priority
+#  ddtp-prioritize: 54
+#
 msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+"See only questions that are of what priority and higher?"
 msgstr ""
-"Pakker der bruger debconf til konfiguration prioriterer spørgsmålene de kan "
-"spørge dig. Kun spørgsmål med en vis prioritet eller højere bliver rent "
-"faktisk vist til dig; alle mindre vigtige spørgsmål bliver hoppet over."
+"Hvilken prioritet skal spørgsmål have for at blive vist?"
 
-#. Description
-#: ../templates:19
+#
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-"  - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-"  - 'high' is for items that don't have reasonable defaults.\n"
-"  - 'medium' is for normal items that have reasonable defaults.\n"
-"  - 'low' is for trivial items that have defaults that will work in the\n"
-"    vast majority of cases."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see: "
+"  - 'critical' only prompts you if the system might break. Pick it if you \n"
+"    are a newbie, or in a hurry. \n"
+"  - 'high' is for rather important questions \n"
+"  - 'medium' is for normal questions \n"
+"  - 'low' is for control freaks who want to see everything\n"
 msgstr ""
-"Du kan vælge den laveste prioritet som du vil se:\n"
-"  - 'kritisk' er for spørgsmål der kan ødelægge system uden bruger\n"
-"    tilseelse\n"
-"  - 'høj' er for spørgsmål der ikke har rimelige forvalg.\n"
-"  - 'medium' er for spørgsmål der har rimelige forvalg.\n"
-"  - 'lav' er for trivielle spørgsmål der har forvalg der vil virke i de\n"
-"    fleste tilfælde."
+"Debconf prioriterer de spørgsmål, den stiller dig. Vælg den laveste "
+"spørgsmåls-prioritet, du ønsker at se: "
+"  - 'kritisk' spørger dig kun hvis systemet potentielt kommer i uorden. \n"
+"    Vælg dette, hvis du er nybegynder eller har travlt. \n"
+"  - 'høj' for ret vigtige spørgsmål \n"
+"  - 'medium' for almindelige spørgmål \n"
+"  - 'lav' for kontrolnarkomaner, der vil have alt at se\n"
 
-#. Description
-#: ../templates:19
+#
 msgid ""
-"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
-"only see the most important questions."
-msgstr "Hvis du er ny til Debian GNU/Linux systemet, så vælg 'kritisk' nu."
-
-#. Description
-#: ../templates:19
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
+"Note that no matter what level you pick here, you will be able to see "
+"every question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"For eksempel, dette spørgsmål har prioriteten 'medium', og hvis din "
-"prioritet var sat til 'høj' eller 'kritisk', ville du ikke se dette "
-"spørgsmål."
+"Bemærk at uanset hvilket niveau du vælger her, vil du kunne se samtlige "
+"spørgsmål, hvis du genopsætter pakken med kommandoen dpkg-reconfigure."
+
 
 #. Description
-#: ../templates:19
-msgid "Ignore questions with a priority less than.."
-msgstr "Ignorer spørgsmål med prioritet mindre end.."
+#  Template: debconf/showold
+#  ddtp-prioritize: 54
+#
+msgid ""
+"Show all old questions again and again?"
+msgstr ""
+"Vis gamle spørgsmål igen og igen?"
 
-#. Description
-#: ../templates:41
+#
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
 "can ask you questions over and over again, each time you upgrade or "
 "reinstall a package that asks them."
 msgstr ""
-"Debconf spørger dig normalt kun en gang. Så husker den dit svar og spørger "
-"dig aldrig igen om det spørgsmål. Hvis du foretrækker det, så kan debconf "
+"Debconf spørger dig normalt kun én gang. Så husker den dit svar og stiller "
+"dig aldrig igen det spørgsmål. Hvis du foretrækker det, så kan debconf "
 "stille dig spørgsmålene igen og igen, hver gang du opgraderer eller "
-"geninstallerer en pakke der stiller dem."
+"geninstallerer en pakke, der stiller dem."
 
-#. Description
-#: ../templates:41
-msgid "Show all old questions again and again?"
-msgstr "Vis gamle spørgsmål igen og igen?"
-
-#. Description
-#: ../templates:41
+#
 msgid ""
-"Note that no matter what you choose here, you can see old questions again by "
-"using the dpkg-reconfigure program."
+"Note that no matter what you choose here, you can see old questions again "
+"by using the dpkg-reconfigure program."
 msgstr ""
-"Bemærk at lige meget hvad du vælger her, kan du altid se de gamle spørgsmål "
-"igen ved hjælp af dpkg-reconfigure programmet."
+"Bemærk at lige meget hvad du vælger her, kan du altid se de gamle "
+"spørgsmål igen ved hjælp af programmet dpkg-reconfigure."
+
+

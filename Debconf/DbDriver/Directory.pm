@@ -212,7 +212,7 @@ sub remove {
 	my $file=$this->{directory}.'/'.$this->filename($name);
 	unlink $file or return undef;
 	if (-e $file."-old") {
-		unlink $file or return undef;
+		unlink $file."-old" or return undef;
 	}
 	return 1;
 }

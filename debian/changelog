@@ -1,3 +1,22 @@
+debconf (1.2.32) unstable; urgency=low
+
+  * Updated pt_BR template po file. Closes: #183301
+  * Complete de and da translations downloaded from DDTP.
+    (NB, some have trailing whitespace fuzzyness issues.)
+  * debconf-mergetemplates: Split field and lang non-greedily on field,
+    to properly split eg, fr.iso-8859-1. Patch from Dennis.
+  * Patch from Roderich Schupp:
+    - PackageDir needs to manually remove files on shutdown, calling
+      inherited remove method fails as the items are not in the cache
+      anymore. This only shows up if using PackageDir for both config and
+      templates.
+    - Fix typo in Directory::remove which kept it from removing "-old" 
+      backup files.
+    - Make PackageDir::shutdown Call endfile on format.
+    Closes: #182725
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  8 Mar 2003 16:46:54 -0500
+
 debconf (1.2.31) unstable; urgency=low
 
   * Use ! not ^ in confmodule character class. Closes: #183032

@@ -104,7 +104,7 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 		my $master=$templates{$template->template};
 		foreach my $field (grep { /.+-.+/ } $template->fields) {
 			next if $field =~ /^extended_/;
-			if ($field =~ /(.+)-(.+)/) {
+			if ($field =~ /(.+?)-(.+)/) {
 				my $basefield = $1;
 				my $lang = $2;
 

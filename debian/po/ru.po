@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-10-02 23:06-0400\n"
+"POT-Creation-Date: 2003-03-07 12:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Serge Winitzki <winitzki@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,12 +25,17 @@ msgstr "диалог, строка ввода, Gnome, редактор, неинтерактивный"
 
 #. Description
 #: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "Какой интерфейс нужно использовать для настройки пакетов?"
+
+#. Description
+#: ../templates:5
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Пакеты,  использущие debconf для своей настройки, обладают"
-"единым интерфейсом. Вы можете выбрать наиболее подходящий."
+"Пакеты,  использущие debconf для своей настройки, обладаютединым "
+"интерфейсом. Вы можете выбрать наиболее подходящий."
 
 #. Description
 #: ../templates:5
@@ -47,11 +52,6 @@ msgstr ""
 "вашем   любимом   редакторе.  Неинтерактивный  режим  избавит  вас  от "
 "необходимости отвечать на какие-либо вопросы."
 
-#. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Какой интерфейс нужно использовать для настройки пакетов?"
-
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
@@ -59,61 +59,38 @@ msgstr "критичный, высокий, средний, низкий"
 
 #. Description
 #: ../templates:19
-msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+msgid "See only questions that are of what priority and higher?"
 msgstr ""
-"Пакеты,  которые  используют  debconf,  приписывают приоритеты "
-"вопросам,  которые  они вам задают. Вам будут показаны только вопросы, "
-"имеющие  приоритет  равный  или  выше  указанного;  вопросы  с меньшим "
-"приоритетом будут пропущены."
 
 #. Description
 #: ../templates:19
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-"  - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-"  - 'high' is for items that don't have reasonable defaults.\n"
-"  - 'medium' is for normal items that have reasonable defaults.\n"
-"  - 'low' is for trivial items that have defaults that will work in the\n"
-"    vast majority of cases."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break. Pick it if you\n"
+"    are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Вы можете выбирать приоритеты:\n"
-"  - 'критичный' - это те пункты, которые могут навредить  системе  без\n"
-"    вмешательства пользователя.\n"
-"  - 'высокий' - для пунктов, не имеющие разумных значений по умолчанию.\n"
-"  - 'средний' - пункты, которые имеют разумные значения по умолчанию.\n"
-"  - 'низкий' - пункты,  которые имеют разумные значения  по  умолчанию,\n"
-"    работоспособные в подавляющем большинстве случаев."
 
 #. Description
 #: ../templates:19
+#, fuzzy
 msgid ""
-"If you are new to the Debian GNU/Linux system choose 'critical' now, so you "
-"only see the most important questions."
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Если вы новичок в Debian GNU/Linux, то сейчас выберите 'критичный',  и вам "
-"будут показаны только наиболее важные вопросы."
+"Заметьте, что независимо от вашего выбора, вы всегда сможете увидеть старые "
+"вопросы, с помощью программы dpkg-reconfigure."
 
 #. Description
-#: ../templates:19
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
-msgstr ""
-"Например, этот вопрос имеет средний  приоритет,  и  если  вы  выберете "
-"приоритет  'высокий'  или  'критичный',  то  этот  вопрос вы впредь не "
-"увидите."
+#: ../templates:34
+msgid "Show all old questions again and again?"
+msgstr "Всегда задавать старые вопросы еще раз?"
 
 #. Description
-#: ../templates:19
-msgid "Ignore questions with a priority less than.."
-msgstr "Игнорировать вопросы с приоритетом меньше, чем.."
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
@@ -126,14 +103,55 @@ msgstr ""
 "переустановках пакетов."
 
 #. Description
-#: ../templates:41
-msgid "Show all old questions again and again?"
-msgstr "Всегда задавать старые вопросы еще раз?"
-
-#. Description
-#: ../templates:41
+#: ../templates:34
 msgid ""
 "Note that no matter what you choose here, you can see old questions again by "
 "using the dpkg-reconfigure program."
-msgstr "Заметьте, что независимо от вашего выбора, вы всегда сможете увидеть "
-"старые вопросы, с помощью программы dpkg-reconfigure." 
+msgstr ""
+"Заметьте, что независимо от вашего выбора, вы всегда сможете увидеть старые "
+"вопросы, с помощью программы dpkg-reconfigure."
+
+#~ msgid ""
+#~ "Packages that use debconf for configuration prioritize the questions they "
+#~ "might ask you. Only questions with a certain priority or higher are "
+#~ "actually shown to you; all less important questions are skipped."
+#~ msgstr ""
+#~ "Пакеты,  которые  используют  debconf,  приписывают приоритеты вопросам,  "
+#~ "которые  они вам задают. Вам будут показаны только вопросы, имеющие  "
+#~ "приоритет  равный  или  выше  указанного;  вопросы  с меньшим приоритетом "
+#~ "будут пропущены."
+
+#~ msgid ""
+#~ "You can select the lowest priority of question you want to see:\n"
+#~ "  - 'critical' is for items that will probably break the system\n"
+#~ "    without user intervention.\n"
+#~ "  - 'high' is for items that don't have reasonable defaults.\n"
+#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
+#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
+#~ "    vast majority of cases."
+#~ msgstr ""
+#~ "Вы можете выбирать приоритеты:\n"
+#~ "  - 'критичный' - это те пункты, которые могут навредить  системе  без\n"
+#~ "    вмешательства пользователя.\n"
+#~ "  - 'высокий' - для пунктов, не имеющие разумных значений по умолчанию.\n"
+#~ "  - 'средний' - пункты, которые имеют разумные значения по умолчанию.\n"
+#~ "  - 'низкий' - пункты,  которые имеют разумные значения  по  умолчанию,\n"
+#~ "    работоспособные в подавляющем большинстве случаев."
+
+#~ msgid ""
+#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
+#~ "you only see the most important questions."
+#~ msgstr ""
+#~ "Если вы новичок в Debian GNU/Linux, то сейчас выберите 'критичный',  и "
+#~ "вам будут показаны только наиболее важные вопросы."
+
+#~ msgid ""
+#~ "For example, this question is of medium priority, and if your priority "
+#~ "were already 'high' or 'critical', you wouldn't see this question."
+#~ msgstr ""
+#~ "Например, этот вопрос имеет средний  приоритет,  и  если  вы  выберете "
+#~ "приоритет  'высокий'  или  'критичный',  то  этот  вопрос вы впредь не "
+#~ "увидите."
+
+#~ msgid "Ignore questions with a priority less than.."
+#~ msgstr "Игнорировать вопросы с приоритетом меньше, чем.."
