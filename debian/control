@@ -12,8 +12,8 @@ Conflicts: debconf-utils (<< 0.9), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1
 Provides: debconf-tiny
 Replaces: debconf-tiny
 Depends: fileutils (>= 4.0-5)
-Recommends: libterm-stool-perl | libterm-readline-gnu-perl, apt-utils (>= 0.5.1)
-Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, liblocale-gettext-perl
+Recommends: apt-utils (>= 0.5.1)
+Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, liblocale-gettext-perl, libterm-stool-perl | libterm-readline-gnu-perl
 Architecture: all
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages
