@@ -44,7 +44,7 @@ Called at the end of each file that is written.
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut
 

@@ -91,7 +91,7 @@ my $unseen_only=0;
 my $all=0;
 my $force=0;
 Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
-qq{Syntax: dpkg-reconfigure [options] packages
+qq{Usage: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
   -u,  --unseen-only		Show only not yet seen questions.
        --force			Force reconfiguration of broken packages.},
@@ -221,6 +221,6 @@ sub allpackages {
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut

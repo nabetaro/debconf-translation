@@ -55,7 +55,7 @@ L<debconf-getlang(1)>
 
 my $outdated=0;
 Debconf::Config->getopt(
-qq{Syntax: debconf-mergetemplate [options] [templates.ll ...] templates
+qq{Usage: debconf-mergetemplate [options] [templates.ll ...] templates
         --outdated		Merge in even outdated translations.},
        "outdated"		=> \$outdated,
 );
@@ -149,6 +149,6 @@ print Debconf::Template::Transient->stringify(values %templates);
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut

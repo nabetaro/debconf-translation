@@ -2,8 +2,9 @@
 .SH NAME
 debconf \- Debian package configuration system
 .SH DESCRIPTION
-Debconf is a configuration system for Debian packages. There is no
-command named "debconf".
+Debconf is a configuration system for Debian packages. There is a
+rarely-used command named debconf, documented in
+.BR debconf (1)
 .P
 Debconf provides a consistent interface for configuring packages, allowing
 you to choose from several user interface frontends. It supports
@@ -63,8 +64,9 @@ The most traditional frontend, this looks quite similar
 to how Debian configuration always has been: a series of
 questions, printed out at the console using plain text, and
 prompts done using the readline library. It even supports tab
-completion. (Install the libterm-readline-gnu-perl package to
-make the most of the readline support.)
+completion. The libterm-readline-gnu-perl package is strongly
+reccommended if you chose to use this frontend; the default
+readline module isn't really good enough.
 .P
 This frontend has some special hotkeys. Pageup (or ctrl-u)
 will go back to the previous question (if that is supported
@@ -238,5 +240,6 @@ lot.
 .BR debconf.conf (5),
 .BR dpkg-preconfigure (8),
 .BR dpkg-reconfigure (8),
+.BR debconf (1),
 .SH AUTHOR
 Joey Hess <joeyh@debian.org>

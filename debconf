@@ -2,96 +2,80 @@
 
 =head1 NAME
 
-debconf - runs a program under debconf
+debconf - run a debconf-using program
+
+=cut
 
 =head1 SYNOPSIS
 
- debconf owner [options] program [params]
+ debconf [options] command [args]
 
 =head1 DESCRIPTION
 
-This program runs a program that uses debconf, and talks to it via the
-debconf protocol, accessing the database and displaying questions as
-directed.
+Debconf is a configuration system for Debian packages. For a debconf
+overview and documentation for sysadmins, see L<debconf(8)>.
+
+The B<debconf> program runs a program under debconf's control, setting it up
+to talk with debconf on stdio. The program's output is expected to be debconf
+protocol commands, and it is expected to read result codes on stdin. See
+L<debconf-devel(8)> for details about the debconf protocol.
 
 =head1 OPTIONS
 
 =over 4
 
+=item B<-o>I<package>, B<--owner=>I<package>
+
+Tell debconf what package the command it is running is a part of. This is
+necessary to get ownership of registered questions right, and to support
+unregister and purge commands properly.
+
 =item B<-f>I<type>, B<--frontend=>I<type>
 
-Specify a debconf frontend to use.
+Select the frontend to use.
 
 =item B<-p>I<value>, B<--priority=>I<value>
 
 Specify the minimum priority of question that will be displayed.
 
-=item B<--package>=I<package>
-
-Tell debconf what package the program is a part of. Recommended.
-
-=item B<-t>I<file>, B<--templates>=I<file>
-
-Load up the specified file as a templates file first.
-
 =back
 
-=head 1 RETURN VALUE
+=head1 SEE ALSO
 
-This program returns the return code of the program it runs.
+L<debconf-devel(8)>, L<debconf(8)>
 
 =cut
 
 use strict;
 use Debconf::Db;
-use Debconf::Template;
 use Debconf::AutoSelect qw(:all);
-use Debconf::Log qw(:all);
 use Debconf::Config;
-use Debconf::Gettext;
+
+my $usage = "Usage: debconf [options] command [args]";
+my $owner='';
+Debconf::Config->getopt($usage.qq{
+  -o,  --owner=package		Set the package that owns the command.},
+        "o|owner=s"		=> \$owner,
+);
+if (! @ARGV) {
+	die "$usage\n";
+}
 
 Debconf::Db->load;
-
-my $templates='';
-my $package='';
-Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
-qq{Syntax: debconf [options] program [params]
-  -t,  --templates		Load specified templates file.
-       --package		Specifiy package the program is part of.},
-	"templates|t=s",	\$templates,
-	"package=s",		\$package,
-);
-
-if (! @ARGV) {
-	warn gettext("you must specify a program to run");
-	exit(1);
-}
-
 my $frontend=make_frontend();
-$frontend->default_title($package);
+my $confmodule=make_confmodule(@ARGV);
+$confmodule->owner($owner) if length $owner;
 
-# Load templates.
-if (length $templates) {
-	debug developer => "loading templates from $templates";
-	Debconf::Template->load($templates, $package);
-}
-
-# Start up the confmodule we were asked to run.
-my $confmodule=make_confmodule(join " ", @ARGV);
-
-# Make sure any questions the confmodule generates are owned by this package.
-$confmodule->owner($package) if length $package;
-
-# Talk to it until it is done.
 1 while ($confmodule->communicate);
 
-# End.
+my $code=$confmodule->exitcode;
 $frontend->shutdown;
+$confmodule->finish;
 Debconf::Db->save;
-exit $confmodule->exitcode;
+exit $code;
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut

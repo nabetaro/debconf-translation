@@ -49,7 +49,7 @@ use Debconf::Config;
 
 Debconf::Db->load;
 
-Debconf::Config->getopt("Syntax: debconf-communicate [options] [package]");
+Debconf::Config->getopt("Usage: debconf-communicate [options] [package]");
 
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();
@@ -69,7 +69,7 @@ exit $code;
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut
 

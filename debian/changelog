@@ -21,7 +21,8 @@ UNRE
   * I had to add a third parameter to Debconf::Question->new to make
     accept/rejecttype really work right. And similar to all the addowner
     methods. And fixed a typo that had prevented it from working at all.
-  * Added a DEBCONF_NOWARNINGS environment variable.
+  * Added a DEBCONF_NOWARNINGS environment variable. Amoung other things this
+    can be used to turn off the frontend fallback messages. Closes: #103288
   * Have debconf-show open the db readonly, so it will not contend for locks.
   * Put debconf-show in /usr/bin/.
   * Turned on comment stripping of some more files.
@@ -39,6 +40,16 @@ UNRE
   * A multiselect question, once displayed, gets its value set to the selected
     choices, in the same order as those choices appear in its Choices field.
     Previously, the order had been undefined. Closes: #129768, #135961
+  * Warn when an unknown field is found in a template. Closes: #131227
+  * Stronger reccommendation of libterm-readline-gnu-perl in documentation.
+    Closes: #136284
+  * Added a "debconf" program, which runs a given program inside debconf
+    without all the nasty hackiness that auto-debconf invocation entails.
+    The future hope is that dpkg becomes smart enough to run postinst scripts
+    that use debconf by means of this program. Closes: #75578, #119338
+    This means a conflict with cdebconf.
+  * Settled on one email address.
+  * Some s/Syntax:/Usage:/
   * Uses debhelper v4.
 
  -- Joey Hess <joeyh@debian.org>  Fri, 12 Apr 2002 13:54:03 -0400
@@ -52,7 +63,7 @@ debconf (1.0.33) unstable; urgency=low
   * Fixed some typos and crazy man escapage in debconf.devel(8), 
     Closes: #140991
 
- -- Joey Hess <joey@kitenet.net>  Sun, 31 Mar 2002 13:27:43 -0500
+ -- Joey Hess <joeyh@debian.org>  Sun, 31 Mar 2002 13:27:43 -0500
 
 debconf (1.0.32) unstable; urgency=low
 
@@ -1429,14 +1440,14 @@ debconf (0.5.38) unstable; urgency=low
   * I guess perl is fixed now, so I can remove the bogus dependancy.
     Thanks, bod!
 
- -- Joey Hess <joey@kitenet.net>  Thu, 28 Dec 2000 20:39:59 -0800
+ -- Joey Hess <joeyh@debian.org>  Thu, 28 Dec 2000 20:39:59 -0800
 
 debconf (0.5.37) unstable; urgency=low
 
   * Aw hell, that won't work; too many things still depend on old versions
     of perl.
 
- -- Joey Hess <joey@kitenet.net>  Mon, 25 Dec 2000 23:48:07 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 25 Dec 2000 23:48:07 -0800
 
 debconf (0.5.36) unstable; urgency=low
 
@@ -1446,7 +1457,7 @@ debconf (0.5.36) unstable; urgency=low
     at some old version of perl, even though debconf depends on 5.6, which
     breaks things pretty badly.
 
- -- Joey Hess <joey@kitenet.net>  Mon, 25 Dec 2000 23:28:04 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 25 Dec 2000 23:28:04 -0800
 
 debconf (0.5.35) unstable; urgency=low
 

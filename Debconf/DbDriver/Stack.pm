@@ -337,7 +337,7 @@ sub variables	{ $_[0]->_query('variables', @_)	}
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut
 

@@ -540,10 +540,11 @@ their values and whether the user has seen them.
 To avoid the often tedious build/install/debug cycle, it can be useful to
 load up your templates (with
 .BR debconf-loadtemplate (1)
-) and run your config script by hand. However, you still have to do that as
-root, right? Not so good. And ideally you'd like to be able to see what a
-fresh installation of your package looks like, with a clean debconf
-database.
+) and run your config script by hand with the
+.BR debconf (1)
+command. However, you still have to do that as root, right? Not so good.
+And ideally you'd like to be able to see what a fresh installation of your
+package looks like, with a clean debconf database.
 .P
 It turns out that if you set up a ~/.debconfrc file for a normal
 user, pointing at a personal config.dat and template.dat for the user, you
@@ -811,7 +812,9 @@ again. Debconf notices it is being used by the postinst script, and so it
 goes off and runs the config script. This can only work if your postinst
 loads up one of the debconf libraries though, so postinsts always have to
 take care to do that. We hope to address this later by adding explicit
-support to dpkg for debconf.
+support to dpkg for debconf. The
+.BR debconf (1)
+program is a step in this direction.
 .P
 A related hack is getting debconf running when a config script, postinst,
 or other program that uses it starts up. After all, they expect to be able

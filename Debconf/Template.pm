@@ -22,6 +22,10 @@ use fields qw(template);
 our %template;
 $Debconf::Template::i18n=1;
 
+# A hash of known template fields. Others are warned about.
+our %known_field = map { $_ => 1 }
+	qw{template description choices default type};
+
 =head1 DESCRIPTION
 
 This is an object that represents a Template. Each Template has some associated
@@ -196,6 +200,11 @@ sub load {
 				$value=$2;
 				$value=~s/\s*$//;
 				$extended='';
+				my $basefield=$field;
+				$basefield=~s/-.+$//;
+				if (! $known_field{$basefield}) {
+					warn sprintf(gettext("Unknown template field '%s', in stanza #%s of %s\n"), $field, $., $file);
+				}
 			}
 			elsif ($line=~/^\s\.$/) {
 				# Continuation of field that contains only 
@@ -393,7 +402,7 @@ sub DESTROY {}
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut
 

@@ -139,7 +139,7 @@ and tutorial (/usr/share/doc/debconf-doc/tutorial.html).
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Joey Hess <joeyh@debian.org>
 
 =cut
 
