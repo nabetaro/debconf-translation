@@ -62,6 +62,7 @@ sub show {
 	@params=('--separate-output','--checklist', $text, $lines, $columns, $menu_height, @params);
 
 	my $value=$this->frontend->showdialog(@params);
+	$value='' if ! defined $value;
 
 	# Dialog returns the selected items, each on a line.
 	# Turn that into our internal format.

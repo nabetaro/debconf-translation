@@ -168,7 +168,9 @@ individual values and returns them as a list.
 sub value_split {
 	my $this=shift;
 	
-	return split(/,\s+/, $this->value);
+	my $value=$this->value;
+	$value='' if ! defined $value;
+	return split(/,\s+/, $value);
 }
 
 =head2 owners

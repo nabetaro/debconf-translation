@@ -1,3 +1,10 @@
+debconf (0.2.85) unstable; urgency=low
+
+  * Fixed some uninitialized values related to multiselct questions with no
+    defaults.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  8 Feb 2000 20:20:56 -0800
+
 debconf (0.2.84) unstable; urgency=low
 
   * Added code to postinst to delete long-obsolete /etc/debconf.cfg
