@@ -1,3 +1,11 @@
+debconf (0.1.49) unstable; urgency=low
+
+  * Added a simple little progress report display to dpkg-preconfig so
+    when apt passes it 200 packages to be upgraded on a 386, it's clear
+    that something is actually going on.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun,  3 Oct 1999 18:04:38 -0700
+
 debconf (0.1.48) unstable; urgency=low
 
   * Quoted a few more bareword hash keys that were causing a perl warning. What

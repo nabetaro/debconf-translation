@@ -28,6 +28,9 @@ BEGIN {
 	}
 }
 
+# In apt mode, need unbuffered output.
+$|=1;
+
 my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
@@ -40,6 +43,9 @@ my @debs=@ARGV;
 
 # If running from apt, read package filenames on stdin.
 if ($apt) {
+	# Apt runs us with the cursor not on a new line. Advance one line.
+	print "\n";
+
 	while (<>) {
 		chomp;
 		push @debs, $_ if $_;
@@ -59,14 +65,25 @@ my $frontend=Debian::DebConf::AutoSelect::frontend();
 my %packages;
 
 # Make two passes -- first load all templates, then run all confmodules.
-foreach my $deb (@debs) {
-	my $package=`dpkg-deb -f $deb Package`;
+foreach my $x (0..$#debs) {
+	# Display a little progress indicator similar to what apt uses.
+	# This is mostly for showing something is going on during huge upgrades.
+	if ($apt) {
+		print "\r".(int( ($x+1) / ($#debs+1) * 100))."% [Scanning packages]";
+	}
+
+	my $package=`dpkg-deb -f $debs[$x] Package`;
 	chomp $package;
-	$packages{$deb}=$package;
+	$packages{$debs[$x]}=$package;
 
 	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates 2>/dev/null |", $package);
+	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $debs[$x] templates 2>/dev/null |", $package);
 }
+
+if ($apt) {
+	print "\n";
+}
+my $runconfig='';
 
 foreach my $deb (@debs) {
 	# Check to see if this deb has a confmodule in it. If not,
@@ -78,6 +95,11 @@ foreach my $deb (@debs) {
 	close IN;
 	next unless @config;
 	
+	if ($apt && ! $runconfig) {
+		$runconfig=1;
+		print "Configuring packages..\n"
+	}
+
 	# Open a temp file safely and save the confmodule to it.
 	my $script;
 	do { $script = tmpnam() }
