@@ -1,3 +1,11 @@
+debconf (0.2.36) unstable; urgency=low
+
+  * I've been persuaded that the Text frontend is the best default for
+    new installs. This doesn't change the default for people who already
+    have debconf installed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 16 Nov 1999 16:12:04 -0800
+
 debconf (0.2.35) unstable; urgency=low
 
   * Update database files atomically, should fix the isolated empty db files

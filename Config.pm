@@ -69,7 +69,7 @@ If DEBIAN_FRONTEND is set in the environment, it overrides all this.
 	
 		return $override_frontend if ($override_frontend);
 	
-		my $ret='Dialog';
+		my $ret='Text';
 		my $question=Debian::DebConf::ConfigDb::getquestion(
 			'debconf/frontend'
 		);

@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
 Choices: Dialog, Text, Web, Noninteractive
-Default: Dialog
+Default: Text
 Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
