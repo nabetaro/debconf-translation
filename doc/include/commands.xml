@@ -1,0 +1,263 @@
+<listitem id="command_version">
+  <para>
+    version
+    <parameter>number</parameter>
+  </para>
+  <para>
+    This exchanges with the frontend the protocol version
+    number that is being used. The current version is
+    2.0. Versions in the 2.x series will be
+    backwards-compatible. You may specify the protocol version
+    number you are speaking. The frontend will return the version
+    of the protocol it speaks. If the version you specify is too
+    low, this command will return the numeric return code
+    <literal>30</literal>.
+  </para>
+</listitem>
+<listitem id="command_capb">
+  <para>
+    capb 
+    <parameter>capabilities</parameter>
+  </para>
+  <para> 
+    This exchanges with the frontend the capabilities
+    that are supported. Capabilities both the frontend and your
+    confmodule support will be used; the capabilities supported by
+    the frontend are returned by this command.
+    <table frame="all">
+      <title>Currently known capabilities</title>
+      <tgroup cols="2">
+      <thead>
+        <row>
+          <entry>capability</entry>
+	  <entry>description</entry>
+        </row>
+      </thead>
+      <tbody>
+        <row>
+          <entry>backup</entry>
+ 		  <entry>Backing up to a previous step is supported.</entry>
+        </row>
+	<row>
+	  <entry>multiselect</entry>
+	  <entry>
+	    The multiselect data type is supported. For compatability
+	    reasons, you should not ask questions of this type unless
+	    this capability is returned.
+	  </entry>
+	</row>
+      </tbody>
+      </tgroup>
+    </table>
+  </para>
+</listitem>
+<listitem id="command_title">
+  <para>
+    title
+    <parameter>string</parameter>
+  </para>
+  <para>
+    You can use this command to set a title in the
+    frontend. This in different ways, depending on the
+    frontend being used, for example it might change the title
+    of the frontend's window. If you don't specify anything, a
+    title will automatically be generated.
+  </para>
+</listitem> 
+<listitem id="command_stop">
+  <para>
+    stop
+  </para>
+  <para>
+    This command tells the frontend you're done talking to it.
+    If transactions are used, changes to variables will be stored
+    only when this command is called.
+  </para>
+</listitem>
+<listitem id="command_input">
+  <para>
+    input
+    <parameter>priority</parameter>
+    <parameter>variable</parameter>
+  </para>
+  <para>
+    This tells the frontend you are interested in the value of
+    a variable. <parameter>variable</parameter> is the name of the
+    variable, all other information about the variable is retrieved
+            from the templates described previously. 
+    <parameter>priority</parameter> is how important it is that the
+    user be prompted for the variable. The frontend need  
+            only ask this question if the priority is high enough. The
+    question is not displayed until a go command is given. This
+            allows us to ask multiple questions in a single screen. Once a
+            question has been asked the frontend will clear the 
+    <literal>isdefault</literal> flag.
+    &priority_table;
+  </para>
+  <para>
+    Note that the frontend decides if the user is actually
+    prompted or not. If the user has already answered a
+    question, they are normally not asked it again even if
+    input is called again. And if the user is ignoring low
+    priority items, they will not see them. In either of
+    these cases, this command returns the numeric return code
+    <literal>30</literal>.
+  </para>
+</listitem>
+<listitem id="command_beginblock">
+  <para>
+    beginblock
+  </para>
+</listitem>
+<listitem id="command_endblock">
+  <para>
+    endblock
+  </para>
+  <para>
+    Some frontends are able to display a number of items to
+    the user at once. To do this, they need to be given blocks
+    of input commands, enclosed in the beginblock and endblock
+    commands. Blocks can be nested and very advanced frontends
+    may use this as a user interface hint.
+  </para>
+</listitem>
+<listitem id="command_go">
+  <para>
+    go
+  </para>
+  <para>
+    Shows the current set of accumulated items to the user and lets
+    them fill in values, etc. If the backup capability is supported
+    and the user indicates they want to back up a step, this command
+    returns the numeric return code <literal>30</literal>.
+  </para>
+</listitem>
+<listitem id="command_clear">
+  <para>
+    clear
+  </para>
+  <para>
+    Clears the accumulated set of input commands without displaying
+    them to the user.
+  </para>
+</listitem>
+<listitem id="command_get">
+  <para>
+    get <parameter>variable</parameter>
+  </para>
+  <para>
+    Ask the frontend to tell you the value of a variable. The
+    value is returned to you.
+  </para>
+</listitem>
+<listitem id="command_set">
+  <para>
+    set
+    <parameter>variable</parameter>
+    <parameter>value</parameter>
+  </para>
+  <para>
+    Ask the frontend to set a variable to a value.
+  </para>
+</listitem>
+<listitem id="command_reset">
+  <para>
+    reset
+    <parameter>variable</parameter>
+  </para>
+  <para>
+    Reset the variable to its default value. This includes
+    resetting flags to their defaults.
+  </para>
+</listitem>
+<listitem id="command_subst">
+  <para>
+      subst
+      <parameter>variable</parameter>
+      <parameter>key</parameter>
+      <parameter>value</parameter>
+  </para>
+  <para>
+    Variables can have substitutions embedded in their
+    descriptions. These substitutions look like
+    "<literal>${key}</literal>". When the description is displayed,
+    the substitutions are replaced with their values. This
+    command can be used to set the value of a substitution.
+  </para>
+</listitem>
+<listitem id="command_fget">
+  <para>
+    fget
+    <parameter>variable</parameter>
+    <parameter>flag</parameter>
+  </para>
+  <para>
+    Variables can have flags associated with them. The flags
+    have a value of "<literal>true</literal>" or 
+    "<literal>false</literal>". This command returns
+    the value of a flag.
+  </para>
+</listitem>
+<listitem id="command_fset">
+  <para>
+    fset
+    <parameter>variable</parameter>
+    <parameter>flag</parameter>
+    <parameter>value</parameter>
+  </para>
+  <para>
+    This sets the state of a flag on a variable. Valid
+    states for the flag are "<literal>true</literal>" and 
+    "<literal>false</literal>". One common flag is the 
+    "<literal>isdefault</literal>" flag. It is normally only set if
+    the variable is set to its default value and the user
+    has not seen it. Typically, frontends only display
+    questions to users if they have the isdefault flag set to "true".
+    Sometimes you want the user to see a question again --
+    in these cases you can set the isdefault flag to true to
+    force the frontend to redisplay it.
+  </para>
+</listitem>
+<listitem id="command_metaget">
+  <para>
+    metaget 
+    <parameter>variable</parameter>
+    <parameter>field</parameter>
+  </para>
+  <para>
+    This returns the value of any field of a variable.
+  </para>
+</listitem>
+<listitem id="command_register">
+  <para>
+    register
+    <parameter>template</parameter>
+    <parameter>variable</parameter>
+  </para>
+  <para>
+    This creates a new variable that is bound to a
+    template. By default each template has an associated
+    variable with the same name. However, any number of
+    variables can really be associated with a template, and
+    this lets you create more such variables.
+  </para>
+</listitem>
+<listitem id="command_unregister">
+  <para>
+    unregister
+    <parameter>variable</parameter>
+  </para>
+  <para>
+    This removes a variable from the database.
+  </para>
+</listitem>
+<listitem id="command_purge">
+  <para>
+    purge
+  </para>
+  <para>
+    Call this in your postinst when your package is
+    purged. It removes all templates and variables your
+    package has generated.
+  </para>
+</listitem>
