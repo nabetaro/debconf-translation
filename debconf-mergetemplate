@@ -45,6 +45,11 @@ templates files, and then your main templates file last.
 Merge in even outdated translations. The default is to drop them with a
 warning message.
 
+=item --drop-old-templates
+
+If a translation has an entire template that is not in the master file (and
+thus is probably an old template), drop that entire template.
+
 =back
 
 =head1 SEE ALSO
@@ -53,12 +58,21 @@ L<debconf-getlang(1)>
 
 =cut
 
+my $usage="Usage: debconf-mergetemplate [options] [templates.ll ...] templates";
+
 my $outdated=0;
-Debconf::Config->getopt(
-qq{Usage: debconf-mergetemplate [options] [templates.ll ...] templates
-        --outdated		Merge in even outdated translations.},
+my $dropold=0;
+Debconf::Config->getopt($usage.
+qq{
+        --outdated		Merge in even outdated translations.
+	--drop-old-templates	Drop entire outdated templates.},
        "outdated"		=> \$outdated,
+       "drop-old-templates"	=> \$dropold,
 );
+
+if (! @ARGV) {
+	die $usage."\n";
+}
 
 # Ignore the user's locale settings.
 Debconf::Template::Transient->i18n(0);
@@ -133,7 +147,7 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 		}
 	}
 	else {
-		if ($outdated) {
+		if (! $dropold) {
 			warn "debconf-mergetemplate: ".$template->template." ".
 			     gettext("is outdated")."\n";
 			$templates{$template->template}=$template;

@@ -1,3 +1,17 @@
+debconf (1.1.1) experimental; urgency=low
+
+  * debconf-mergetemplate will now only drop old templates if it is passed
+    a --drop-old-templates parameter. The old waqy broke base-config's build,
+    and might break anytime someone calls the program by hand in a weird way. 
+    I will turn this parameter on in dh_installdebconf though.
+    Closes: #145436
+  * Updated french po file.
+  * Tomohiro KUBOTA <tkubota@riken.go.jp> sent in a new Japanese templates
+    file.
+  * Fixed apt.conf.d file.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 16 Apr 2002 17:24:29 -0400
+
 debconf (1.1.0) experimental; urgency=low
 
   * NOT targeted at woody.

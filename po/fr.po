@@ -1,13 +1,13 @@
 # debconf fr.po
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@debian.org>, 2000
-# Martin Quinson <mquinson@ens-lyon.fr>, 2000,2001
+# Martin Quinson <mquinson@ens-lyon.fr>, 2000,2001,2002
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2002-04-13 14:49-0400\n"
-"PO-Revision-Date: 2001-01-31 10:09+01:00\n"
+"POT-Creation-Date: 2002-05-02 20:18-0400\n"
+"PO-Revision-Date: 2002-04-16 14:38-0400\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,11 +51,11 @@ msgstr "Il a été demandé a Debconf d'enregistrer cette "
 
 #: ../Debconf/Element/Gnome/Note.pm:49
 msgid "note, so it mailed it to you."
-msgstr "note, il vous l'a donc envoyé par couriel."
+msgstr "note, il vous l'a donc envoyé par courriel."
 
 #: ../Debconf/Element/Gnome/Note.pm:51
 msgid "The note has been mailed."
-msgstr "La note a été envoyé par mail."
+msgstr "La note a été envoyé par courrier électronique."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Unable to save note."
@@ -66,7 +66,7 @@ msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf n'a pas été configuré pour montrer cette note, il vous l'a donc "
-"envoyée par email."
+"envoyée par courrier électronique."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 #: ../Debconf/FrontEnd/Gnome.pm:72
@@ -85,7 +85,7 @@ msgstr "aucun des éléments mentionnés"
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
-"Entrez les éléments que vous voulez selectionner, séparés par des espaces."
+"Entrez les éléments que vous voulez sélectionner, séparés par des espaces."
 
 #: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
@@ -97,7 +97,7 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"La valeur \"%s\" ne se trouve pas parmi les choix possibles ! Cela ne "
+"La valeur « %s » ne se trouve pas parmi les choix possibles ! Cela ne "
 "devrait jamais se produire. Peut être que les modèles ont été mal traduits."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
@@ -106,7 +106,7 @@ msgstr "TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "L'interface Dialog est incompatible avec les buffers shell d'emacs"
+msgstr "L'interface Dialog est incompatible avec les tampons shell d'Emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
@@ -114,19 +114,20 @@ msgid ""
 "without a controlling terminal."
 msgstr ""
 "L'interface Dialog ne fonctionnera pas avec un terminal stupide (dumb), un "
-"buffer shell d'emacs ou sans terminal de contrôle."
+"tampon shell d'Emacs ou sans terminal de contrôle."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"L'interface Dialog a besoin d'un écran d'au moins 13 lignes par 31 colonnes."
 
 #: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Ni whiptail ni dialog ne sont installés, donc le frontal basé sur dialog va "
+"Ni whiptail ni dialog ne sont installés, donc l'interface basé sur dialog va "
 "être utilisé."
 
 #: ../Debconf/FrontEnd/Dialog.pm:249
@@ -138,7 +139,7 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Vous utilisez le frontal de debconf basée sur l'édition de fichier pour "
+"Vous utilisez l'interface de debconf basée sur l'édition de fichier pour "
 "configurer votre système. Voyez la fin de ce document pour avoir des "
 "instructions détaillées."
 
@@ -151,8 +152,8 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Ce frontal debconf vous présente un ou plusieurs fichiers texte à éditer. "
-"Voici l'un d'entre eux. Si vous êtes familier avec les fichiers de "
+"Cette interface debconf vous présente un ou plusieurs fichiers texte à "
+"éditer. Voici l'un d'entre eux. Si vous êtes familier avec les fichiers de "
 "configuration d'Unix, ce fichier sera facile a comprendre. Il contient des "
 "éléments de configuration séparés par des commentaires. Éditez le fichier et "
 "changez tous les éléments nécessaires, puis enregistrez le et quittez. À ce "
@@ -183,17 +184,17 @@ msgstr "Suivant"
 #: ../Debconf/AutoSelect.pm:75
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr "Utilisation à la place du frontal : %s"
+msgstr "Utilisation de l'interface %s à la place"
 
 #: ../Debconf/AutoSelect.pm:83
 #, c-format
 msgid "unable to initialize frontend: %s"
-msgstr "Impossible d'initialiser le frontal : %s"
+msgstr "Impossible d'initialiser l'interface : %s"
 
 #: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Impossible de démarrer le frontal : %s"
+msgstr "Impossible de démarrer l'interface : %s"
 
 #: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
@@ -221,33 +222,33 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Dans le modèle #%s de %s, le champ \"%s\" est dupliqué avec \"%s\" nouvelle "
+"Dans le modèle #%s de %s, le champ « %s » est dupliqué avec « %s » nouvelle "
 "valeur. Il manque probablement la ligne vide de séparation entre deux "
 "modèles.\n"
 
 #: ../Debconf/Template.pm:206
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
+msgstr "Erreur champ de modèle « %s » inconnu, dans la partie #%s de %s\n"
 
 #: ../Debconf/Template.pm:232
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
+msgstr "Erreur d'analyse de modèle vers « %s », dans la partie #%s de %s\n"
 
 #: ../Debconf/Template.pm:238
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"
+msgstr "Le modèle #%s de %s contient pas de ligne « Template: »\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "impossible de réouvrir stdin : %s"
+msgstr "impossible de ré-ouvrir stdin : %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr "Vous devez spécifier des paquets à préconfigurer"
+msgstr "Vous devez spécifier des paquets à pré-configurer"
 
 #: ../dpkg-preconfigure:131
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -270,7 +271,7 @@ msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"
 
 #: ../dpkg-reconfigure:81
 msgid "must be run as root"
-msgstr "doit être lancé par root"
+msgstr "doit être lancé par le super-utilisateur"
 
 #: ../dpkg-reconfigure:125
 msgid "please specify a package to reconfigure"
@@ -286,52 +287,26 @@ msgstr "%s n'est pas totalement installé"
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
 
-#: ../debconf-mergetemplate:100
+#: ../debconf-mergetemplate:108
 msgid "$basefield is missing"
-msgstr ""
+msgstr "$basefield est manquant"
 
-#: ../debconf-mergetemplate:104
+#: ../debconf-mergetemplate:112
 msgid "$basefield is missing; dropping $field"
-msgstr ""
+msgstr "$basefield est manquant ; abandon de $field"
 
-#: ../debconf-mergetemplate:118
+#: ../debconf-mergetemplate:126
 msgid "$field is fuzzy"
-msgstr ""
+msgstr "$field est flou"
 
-#: ../debconf-mergetemplate:122
+#: ../debconf-mergetemplate:130
 msgid "$field is fuzzy; dropping it"
-msgstr ""
+msgstr "$field est flou ; ce champ a été abandonné"
 
-#: ../debconf-mergetemplate:138
+#: ../debconf-mergetemplate:146
 msgid "is outdated"
-msgstr ""
+msgstr "est hors d'âge"
 
-#: ../debconf-mergetemplate:143
+#: ../debconf-mergetemplate:151
 msgid "is outdated; dropping whole template!"
-msgstr ""
-
-#~ msgid "TERM is not set, so the Slang frontend is not usable."
-#~ msgstr "TERM n'a pas de valeur, l'interface Slang est donc inutilisable."
-
-#~ msgid "Slang frontend is incompatible with emacs shell buffers"
-#~ msgstr "L'interface Slang est incompatible avec les buffers shell d'emacs"
-
-#~ msgid ""
-#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
-#~ "or without a controlling terminal."
-#~ msgstr ""
-#~ "L'interface Slang ne fonctionnera pas avec un terminal stupide (dumb), un "
-#~ "buffer shell d'emacs ou sans terminal de contrôle."
-
-#~ msgid "Hide Help"
-#~ msgstr "Masquer l'aide"
-
-#~ msgid "Show Help"
-#~ msgstr "Montrer l'aide"
-
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr ""
-#~ "Touches Tab et flèches pour se déplacer ; espace pour voir les listes."
-
-#~ msgid "Working, please wait..."
-#~ msgstr "Veuillez patienter..."
+msgstr "est hors d'âge ; abandon de tout le modèle !"

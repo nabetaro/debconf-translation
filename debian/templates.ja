@@ -1,0 +1,85 @@
+Template: debconf/frontend
+Type: select
+Choices: Dialog, Readline, Gnome, Editor, Noninteractive
+Choices-ja: ダイアログ, Readline, Gnome, エディタ, 非対話的
+Default: Dialog
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use.
+ .
+ The dialog frontend is a full-screen, character based interface, while the
+ readline frontend uses a more traditional plain text interface, and the gnome
+ frontend is a modern X interface. The editor frontend lets you configure
+ things using your favorite text editor. The noninteractive frontend never
+ asks you any questions.
+Description-ja: パッケージの設定にどのインターフェースを用いますか?
+ 設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。
+ どの種類のユーザインターフェースを用いるかを選んで下さい。
+ .
+ 「ダイアログ」は全画面の文字ベースのインターフェースです。「readline」
+ はより伝統的なプレーンテキストのインターフェースです。「gnome」は近代
+ 的な X のインターフェースです。「エディタ」を用いるとあなたの好きなテ
+ キストエディタを用いることができます。「非対話的」を選ぶと全く質問をし
+ なくなります。
+
+Template: debconf/priority
+Type: select
+Choices: critical, high, medium, low
+Choices-ja: 重要, 高, 標準, 低
+Default: medium
+Description: Ignore questions with a priority less than..
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are actually
+ shown to you; all less important questions are skipped.
+ .
+ You can select the lowest priority of question you want to see:
+   - 'critical' is for items that will probably break the system
+     without user intervention.
+   - 'high' is for items that don't have reasonable defaults.
+   - 'medium' is for normal items that have reasonable defaults.
+   - 'low' is for trivial items that have defaults that will work in the
+     vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority were 
+ already 'high' or 'critical', you wouldn't see this question.
+ .
+ If you are new to the Debian GNU/Linux system choose 'critical' now,
+ so you only see the most important questions.
+Description-ja: 以下のものよりも重要度の低い質問を無視する
+ 設定に debconf を使用するパッケージは、ユーザに対する質問に重要度を付
+ けています。ある重要度以上の質問のみが実際に行なわれますが、それよりも
+ 重要度の低い質問は飛ばされます。
+ .
+ あなたが答えたい質問のうち、最低の優先度のものを選択してください。
+  - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目
+    用です。
+  - 「高」は、適切なデフォルトの回答がないような項目用です。
+  - 「中」は、適切なデフォルトの回答があるような普通の項目用です。
+  - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささい
+    な項目用です。
+ .
+ 例えば、ある質問の重要度が「中」で、この重要度の設定がすでに「高」や
+ 「重要」になっていると、その質問は行なわれません。
+ .
+ もしあなたが Debian GNU/Linux システムの初心者ならば、ここで「重要」
+ を選択すれば、非常に重要な質問のみが行なわれます。
+
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or reinstall
+ a package that asks them.
+ .
+ Note that no matter what you choose here, you can see old questions again by
+ using the dpkg-reconfigure program.
+Description-ja: 以前に問い合わせた質問をすべて何度も表示しますか?
+ 通常、debconf はいかなる質問も一度しか問い合わせません。debconf は、以
+ 前の回答を記憶して、再度同じ質問はしないようになっています。しかし、お
+ 望みなら、同じパッケージのアップグレード時や再インストール時に繰り返し
+ 同じ質問をさせることができます。
+ .
+ 注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ
+ グラムを使用して表示できます。
