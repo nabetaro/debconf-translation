@@ -29,23 +29,26 @@ someone.
 
 =item show
 
-Calls sendmail to mail the note.
+Calls sendmail to mail the note, if the note has not been seen before.
 
 =cut
 
 sub show {
 	my $this=shift;
 
-	$this->sendmail(gettext("Debconf was not configured to display this note, so it mailed it to you."));
+	if ($this->question->flag('seen') ne 'true') {
+		$this->sendmail(gettext("Debconf was not configured to display this note, so it mailed it to you."));
+	}
 	$this->value('');
 }
 
 =item sendmail
 
-The sendmail method mails the note to root if the note has not been displayed
-before. The external unix mail program is used to do this, if it is present.
+The sendmail method mails the note to root. The external unix mail
+program is used to do this, if it is present.
 
-If the mail is successfully sent a true value is returned.
+If the mail is successfully sent a true value is returned. Also, the
+question is marked as seen.
 
 A footer may be passed as the first parameter; it is generally used to
 explain why the note was sent.
@@ -56,7 +59,7 @@ sub sendmail {
 	my $this=shift;
 	my $footer=shift;
 	return unless length Debconf::Config->admin_email;
-	if (-x '/usr/bin/mail' && $this->question->flag('seen') ne 'true') {
+	if (-x '/usr/bin/mail') {
 		debug user => "mailing a note";
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".

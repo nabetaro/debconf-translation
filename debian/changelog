@@ -1,4 +1,4 @@
-debconf (1.0.0) unstable; urgency=low
+debconf (1.0.00) unstable; urgency=low
 
   * Let's call it 1.0, folks!
   * This leaves the following big things for later:
@@ -33,6 +33,8 @@ debconf (1.0.0) unstable; urgency=low
       version, I can't do anything about it w/o some nasty hacking.
   * Jordi Mallach <jordi@debian.org> quickly updated the Spanish translaton
     and added Catalan as well.
+  * Allow notes to be saved from the gnome frontend even if they have
+    already been seen. Closes: #110510
 
  -- Joey Hess <joeyh@debian.org>  Tue, 28 Aug 2001 16:37:27 -0400
 
