@@ -18,7 +18,7 @@ install:
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	$(MAKE) prefix=`pwd`/debian/tmp install
+	$(MAKE) prefix=debian/tmp install
 
 # Build architecture-independent files here.
 binary-indep: build install

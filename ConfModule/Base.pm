@@ -49,8 +49,8 @@ sub communicate {
 	my $this=shift;
 	
 	my $r=$this->{read_handle};
+	return if eof($r);
 	$_=<$r> || die $!;
-	return unless defined;
 	chomp;
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
