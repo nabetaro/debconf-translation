@@ -1,3 +1,17 @@
+debconf (0.9.27) unstable; urgency=low
+
+  * Moved config file reading into Debconf::Config. This let me easily add
+    support for configuring more things in the config file. You can specify
+    a frontend or a priority in there with more to come soon.
+  * Config file can also be used to set Admin-Email, which defaults to
+    root, but can redirect mail to anyone. Also, this can be used to
+    turn off mail entirely. Closes: #70677
+  * Made dpkg-preconfigure print usage if called incorrectly, instead of
+    a screen of crazed messages.
+  * Tightened up protocol parsing.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 18 Mar 2001 23:06:09 -0800
+
 debconf (0.9.26) unstable; urgency=low
 
   * Completed and updated Finnish translation by Jaakko Kangasharju

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-03-18 16:07-0800\n"
+"POT-Creation-Date: 2001-03-19 00:25-0800\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -32,12 +32,20 @@ msgstr ""
 "debconf : Valeurs non définies détectées au démarrage de confmodule ! "
 "Envoyez un rapport de bug et mentionnez la trace de pile qui suit"
 
-#: ../Debconf/FrontEnd.pm:115
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:114
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 
-#: ../Debconf/FrontEnd.pm:187
+#: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
@@ -82,11 +90,11 @@ msgstr ""
 "Debconf n'a pas été configuré pour montrer cette note, il vous l'a donc "
 "envoyée par email."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:60
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:76
+#: ../Debconf/Element/Noninteractive/Note.pm:78
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, s'exécutant sur %s"
@@ -251,13 +259,13 @@ msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"
 
-#: ../dpkg-preconfigure:118
+#: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
 "Utilisation : dpkg-preconfigure [--frontend=type] [--priority=valeur] "
 "fichiersdeb"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:124
 #, c-format
 msgid "Unknown option: %s"
 msgstr "Option inconnue : %s"
@@ -267,17 +275,21 @@ msgstr "Option inconnue : %s"
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure : impossible de réouvrir stdin : %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr ""
+
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "template parse error: %s"
 msgstr "erreur d'analyse de modèle : %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:206
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: Impossible de changer le mode : %s"
 
-#: ../dpkg-preconfigure:214
+#: ../dpkg-preconfigure:216
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"
@@ -288,7 +300,7 @@ msgstr ""
 "Utilisation : dpkg-reconfigure [--frontend=type] [--priority=valeur] "
 "paquetages"
 
-#: ../dpkg-reconfigure:126
+#: ../dpkg-reconfigure:128
 msgid "must be run as root"
 msgstr "doit être lancé par root"
 

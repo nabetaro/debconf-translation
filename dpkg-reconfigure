@@ -69,9 +69,11 @@ use strict;
 use Debconf::Db;
 use Debconf::Gettext;
 use Debconf::Template;
-use Debconf::Config qw(frontend priority showold);
+use Debconf::Config;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
+
+Debconf::Db->load;
 
 my $infodir="/var/lib/dpkg/info";
 
@@ -91,17 +93,17 @@ for (my $x=0; $x < @ARGV;) {
 		$change_priority='';
 	}
 	elsif (/^-(?:f|-frontend=)(.*)/) {
-		frontend($1);
+		Debconf::Config->frontend($1);
 	}
 	elsif (/^-(?:f|-frontend)$/) {
-		frontend($ARGV[$x++]);
+		Debconf::Config->frontend($ARGV[$x++]);
 	}
 	elsif (/^-(?:p|-priority=)(.*)/) {
-		priority($1);
+		Debconf::Config->priority($1);
 		$change_priority='';
 	}
 	elsif (/^-(?:p|-priority)$/) {
-		priority($ARGV[$x++]);
+		Debconf::Config->priority($ARGV[$x++]);
 		$change_priority='';
 	}
 	elsif (/^-(?:u|-unseen-only)$/) {
@@ -127,12 +129,10 @@ if ($> != 0) {
 	exit 1;
 }
 
-Debconf::Db->load;
-
 # If the default frontend is noninteractive, change it temporarily to
 # slang.
-if (frontend() eq 'Noninteractive') {
-	frontend('Slang');
+if (Debconf::Config->frontend eq 'Noninteractive') {
+	Debconf::Config->frontend('Slang');
 }
 
 my $frontend=make_frontend();
@@ -141,11 +141,11 @@ unless ($unseen_only) {
 	# Make the frontend show questions even if the user has already seen
 	# them. Since this is a reconfigure program, they may want to change
 	# their choices.
-	showold('true');
+	Debconf::Config->showold('true');
 }
 
 # Default to low priority unless some other priority was specified.
-priority('low') if $change_priority;
+Debconf::Config->priority('low') if $change_priority;
 
 foreach my $pkg (@packages) {
 	# Set default title.

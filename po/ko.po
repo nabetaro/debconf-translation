@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-03-18 16:07-0800\n"
+"POT-Creation-Date: 2001-03-19 00:25-0800\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -31,12 +31,20 @@ msgstr ""
 "debconf: confmodule를 시작할 때 정의되지 않은 값이 발견되었습니다! 버그 "
 "보고를 하고 stack trace를 아래에 포함시켜주세요"
 
-#: ../Debconf/FrontEnd.pm:115
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:114
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
 
-#: ../Debconf/FrontEnd.pm:187
+#: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
 msgstr "%s를 설정중"
@@ -78,11 +86,11 @@ msgid ""
 msgstr ""
 "Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:60
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:76
+#: ../Debconf/Element/Noninteractive/Note.pm:78
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
@@ -244,11 +252,11 @@ msgstr "`%1$s' 주위에서 template parse 에러, %3$s의 #%2$s절\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s의` template #%1$s이 `Template:' 줄을 담고 있지 않습니다\n"
 
-#: ../dpkg-preconfigure:118
+#: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr "사용법: dpkg-preconfigure [--frontend=종류] [--priority=값] deb파일들"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:124
 #, c-format
 msgid "Unknown option: %s"
 msgstr "알 수 없는 옵션: %s"
@@ -258,17 +266,21 @@ msgstr "알 수 없는 옵션: %s"
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: 표준입력을 다시 열 수 없음: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr ""
+
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "template parse error: %s"
 msgstr "template parse 에러: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:206
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod할 수 없음: %s"
 
-#: ../dpkg-preconfigure:214
+#: ../dpkg-preconfigure:216
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 설정 실패, 코드 %s와 함께 종료함"
@@ -277,7 +289,7 @@ msgstr "%s 설정 실패, 코드 %s와 함께 종료함"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "사용법: dpkg-reconfigure [--frontend=종류] [--priority=값] 패키지들"
 
-#: ../dpkg-reconfigure:126
+#: ../dpkg-reconfigure:128
 msgid "must be run as root"
 msgstr "root로 실행해야 합니다"
 

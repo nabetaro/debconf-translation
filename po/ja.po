@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-03-18 16:07-0800\n"
+"POT-Creation-Date: 2001-03-19 00:25-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -32,12 +32,20 @@ msgstr ""
 "debconf: confmodule の起動時に未定義値が見つかりました!\n"
 "以下のスタックトレースとともにバグレポートを出してください"
 
-#: ../Debconf/FrontEnd.pm:115
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:114
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../Debconf/FrontEnd.pm:187
+#: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
@@ -81,11 +89,11 @@ msgid ""
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:60
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:76
+#: ../Debconf/Element/Noninteractive/Note.pm:78
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
@@ -242,12 +250,12 @@ msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"
 
-#: ../dpkg-preconfigure:118
+#: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
 "使用方法: dpkg-preconfigure [--frontend=型] [--priority=値] debファイル"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:124
 #, c-format
 msgid "Unknown option: %s"
 msgstr "不明なオプションです: %s"
@@ -257,17 +265,21 @@ msgstr "不明なオプションです: %s"
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: 標準入力を再オープンできません: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr ""
+
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "template parse error: %s"
 msgstr "テンプレートの解析に失敗しました: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:206
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "chmod できません: %s"
 
-#: ../dpkg-preconfigure:214
+#: ../dpkg-preconfigure:216
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で設定に失敗しました。"
@@ -276,7 +288,7 @@ msgstr "%s は終了コード %s で設定に失敗しました。"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "使用方法: dpkg-reconfigure [--frontend=型] [--priority=値] パッケージ"
 
-#: ../dpkg-reconfigure:126
+#: ../dpkg-reconfigure:128
 msgid "must be run as root"
 msgstr "root で実行する必要があります"
 

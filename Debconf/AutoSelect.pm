@@ -10,7 +10,7 @@ package Debconf::AutoSelect;
 use strict;
 use Debconf::Gettext;
 use Debconf::ConfModule;
-use Debconf::Config qw(frontend);
+use Debconf::Config;
 use Debconf::Log qw(:all);
 use base qw(Exporter);
 our @EXPORT_OK = qw(make_frontend make_confmodule);
@@ -51,7 +51,7 @@ other types, all the way to a Noninteractive frontend if all else fails.
 
 sub make_frontend {
 	my $script=shift;
-	my $starttype=($type || frontend());
+	my $starttype=ucfirst($type || Debconf::Config->frontend);
 
 	foreach $type ($starttype, @{$fallback{$starttype}}, 'Noninteractive') {
 		debug user => "trying frontend $type";

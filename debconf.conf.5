@@ -28,10 +28,33 @@ one wholly blank line. Comment lines beginning with a "#" character are
 ignored.
 .P
 The first stanza of the file is special, is used to configure debconf as a
-whole. Currently, only two fields are supported is this first stanza, and
-both must be present. A field named "Config" specifies the name of the
-database from which to load config data, and a field named "Templates"
-specifies the name of the database for template data.
+whole. Two fields are required to be in this first stanza:
+.RS
+.TP
+.B Config
+Specifies the name of the database from which to load config data.
+.TP
+.B Templates
+Specifies the name of the database to use for for the template cache.
+.RE
+.P
+Additional fields that can be used include:
+.RS
+.TP
+.B Frontend
+The frontend Debconf should use, overriding any frontend set in the debconf
+database.
+.TP
+.B Priority
+The priority Debconf should use, overriding any priority set in the debconf
+database.
+.TP
+.B Admin-Email
+The email address Debconf should send mail to if it needs to make sure that
+the admin has seen an important note. Defaults to "root", but can be set to
+any valid email address to send the mail there. If you prefer to never have
+debconf send you mail, specify a blank address.
+.RE
 .P
 For example, the first stanza of a file might look like this:
   Config: configdb

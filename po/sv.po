@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-03-18 16:07-0800\n"
+"POT-Creation-Date: 2001-03-19 00:25-0800\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,20 @@ msgstr ""
 "debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd en "
 "felrapport och inkludera stackspårningen nedan"
 
-#: ../Debconf/FrontEnd.pm:115
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:114
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 
-#: ../Debconf/FrontEnd.pm:187
+#: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
@@ -80,11 +88,11 @@ msgstr ""
 "Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
 "per e-post."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:60
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:76
+#: ../Debconf/Element/Noninteractive/Note.pm:78
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf på %s"
@@ -249,12 +257,12 @@ msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
-#: ../dpkg-preconfigure:118
+#: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
 "Användning: dpkg-preconfigure [--frontend=typ] [--priority=värde] debfiler"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:124
 #, c-format
 msgid "Unknown option: %s"
 msgstr "Okänd flagga: %s"
@@ -264,17 +272,21 @@ msgstr "Okänd flagga: %s"
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: kan inte återöppna stdin: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr ""
+
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "template parse error: %s"
 msgstr "malltolkfel: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:206
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kan inte byta ägare: %s"
 
-#: ../dpkg-preconfigure:214
+#: ../dpkg-preconfigure:216
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s kunde inte konfigurera, med slutkod %s"
@@ -283,7 +295,7 @@ msgstr "%s kunde inte konfigurera, med slutkod %s"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "Användning: dpkg-reconfigure [--frontend=typ] [--priority=värde] paket"
 
-#: ../dpkg-reconfigure:126
+#: ../dpkg-reconfigure:128
 msgid "must be run as root"
 msgstr "måste köras som root"
 

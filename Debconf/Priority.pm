@@ -8,7 +8,7 @@ Debconf::Priority - priority level module
 
 package Debconf::Priority;
 use strict;
-use Debconf::Config qw(priority);
+use Debconf::Config;
 use base qw(Exporter);
 our @EXPORT_OK = qw(high_enough priority_valid);
 
@@ -43,7 +43,7 @@ sub high_enough {
 	my $priority=shift;
 
 	return 1 if ! exists $priorities{$priority};
-	return $priorities{$priority} >= $priorities{priority()};
+	return $priorities{$priority} >= $priorities{Debconf::Config->priority};
 }
 
 =item priority_valid

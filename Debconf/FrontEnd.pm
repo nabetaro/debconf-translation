@@ -10,7 +10,6 @@ package Debconf::FrontEnd;
 use strict;
 use Debconf::Gettext;
 use Debconf::Priority;
-use Debconf::Config;
 use Debconf::Log ':all';
 use base qw(Debconf::Base);
 

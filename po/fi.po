@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.25\n"
-"POT-Creation-Date: 2001-03-18 16:07-0800\n"
+"POT-Creation-Date: 2001-03-19 00:25-0800\n"
 "PO-Revision-Date: 2001-03-18 20:10+0200\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,20 @@ msgstr ""
 "debconf: confmodule:n alustuksessa havaittiin määrittelemättömiä arvoja! "
 "Tekisitkö vikailmoituksen, johon liität alla olevan kutsupinon"
 
-#: ../Debconf/FrontEnd.pm:115
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:114
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s:n lataus epäonnistui: %s"
 
-#: ../Debconf/FrontEnd.pm:187
+#: ../Debconf/FrontEnd.pm:186
 #, c-format
 msgid "Configuring %s"
 msgstr "%s:n asetusten säätö"
@@ -80,11 +88,11 @@ msgstr ""
 "Tämä ilmoitus postitettiin, koska debconf on asetettu olemaan näyttämättä "
 "sitä."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:60
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:76
+#: ../Debconf/Element/Noninteractive/Note.pm:78
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf koneella %s"
@@ -247,12 +255,12 @@ msgstr "Kyselypohjan jäsennysvirhe lähellä `%s':a rivillä #%s tiedostossa %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "`Template:'-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
-#: ../dpkg-preconfigure:118
+#: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
 "Käyttö: dpkg-preconfigure [--frontend=tyyppi] [--priority=arvo] deb-tiedostot"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:124
 #, c-format
 msgid "Unknown option: %s"
 msgstr "Tuntematon valitsin %s"
@@ -262,17 +270,21 @@ msgstr "Tuntematon valitsin %s"
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
 msgstr "dpkg-reconfigure: vakiosyötteen uudelleenavaus epäonnistui: %s"
 
-#: ../dpkg-preconfigure:190
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr ""
+
+#: ../dpkg-preconfigure:192
 #, c-format
 msgid "template parse error: %s"
 msgstr "kyselypohjan jäsennysvirhe: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:206
 #, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: en voi muuttaa oikeuksia: %s"
 
-#: ../dpkg-preconfigure:214
+#: ../dpkg-preconfigure:216
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
@@ -281,7 +293,7 @@ msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "Käyttö: dpkg-reconfigure [--frontend=tyyppi] [--priority=arvo] paketit"
 
-#: ../dpkg-reconfigure:126
+#: ../dpkg-reconfigure:128
 msgid "must be run as root"
 msgstr "on ajettava root-oikeuksilla"
 

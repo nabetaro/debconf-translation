@@ -16,8 +16,8 @@ use base qw(Debconf::Element::Noninteractive);
 
 This is a noninteractive note Element. Notes are generally some important peice
 of information that you want the user to see sometime. Since we are running
-non-interactively, we can't pause to show them. Instead, they are saved to
-root's mailbox.
+non-interactively, we can't pause to show them. Instead, they are mailed to
+someone.
 
 =cut
 
@@ -27,7 +27,7 @@ root's mailbox.
 
 =item show
 
-Calls sendmail to mail the note to root.
+Calls sendmail to mail the note.
 
 =cut
 
@@ -54,12 +54,14 @@ sub sendmail {
 	my $this=shift;
 	my $footer=shift;
 
+	return unless length Debconf::Config->admin_email;
+
 	if (-x '/usr/bin/mail' && $this->question->flag('seen') ne 'true') {
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".
 			$this->question->description;
 		unless (open(MAIL, "|-")) { # child
-			exec("mail", "-s", $title, "root") or return '';
+			exec("mail", "-s", $title, Debconf::Config->admin_email) or return '';
 		}
 		# Let's not clobber this, other parts of debconf might use
 		# Text::Wrap at other spacings.

@@ -11,7 +11,7 @@ use strict;
 use IPC::Open2;
 use FileHandle;
 use Debconf::Gettext;
-use Debconf::Config qw(showold);
+use Debconf::Config;
 use Debconf::Question;
 use Debconf::Priority qw(priority_valid high_enough);
 use Debconf::FrontEnd::Noninteractive;
@@ -133,7 +133,7 @@ sub startup {
 	push @args, @_ if @_;
 	
 	# Try to detect the uninitialized value bug. Seems very hard to
-	# reproduce, so I am going to rather excessive lenghts here.
+	# reproduce, so I am going to rather excessive legths here.
 	my $bad='';
 	map { $bad=1 if ! defined $_ } @args;
 	if ($bad) {
@@ -145,8 +145,7 @@ sub startup {
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
 			 @args)) || die $!;
-	
-	
+		
 	# Catch sigpipes so they don't kill us, and return 128 for them.
 	$this->caught_sigpipe('');
 	$SIG{PIPE}=sub { $this->caught_sigpipe(128) };
@@ -187,13 +186,18 @@ sub process_command {
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
-	# Make sure $command is a valid perl function name so the autoloader
-	# will catch it if nothing else.
-	$command=~s/[^a-zA-Z0-9_]/_/g;
+	$command=lc($command);
+	# This command could not be handled by a sub.
 	if (lc($command) eq "stop") {
 		return $this->_finish;
 	}
-	$command="command_".lc($command);
+	# Make sure that the command is valid.
+	if (! $this->can("command_$command")) {
+		return $codes{syntaxerror},
+		       "Unsupported command \"$command\" received from confmodule.";
+	}
+	# Now call the subroutine for the command.
+	$command="command_$command";
 	my $ret=join(' ', $this->$command(@params));
 	debug developer => "--> $ret";
 	return $ret;
@@ -253,7 +257,8 @@ sub command_input {
 	$visible='' unless high_enough($priority);
 
 	# Unless showold is set, don't re-show already seen questions.
-	$visible='' if showold() eq 'false' && $question->flag('seen') eq 'true';
+	$visible='' if Debconf::Config->showold() eq 'false' &&
+	               $question->flag('seen') eq 'true';
 
 	my $element;
 	if ($visible) {
@@ -648,32 +653,23 @@ sub command_exist {
 
 =item AUTOLOAD
 
-Catches all other commands the confmodule may try to run, and returns
-errors.
-
-Also handles storing and loading fields of course, with lvalue support.
+Handles storing and loading fields, with lvalue support.
 
 =cut
 
 sub AUTOLOAD : lvalue {
 	(my $field = our $AUTOLOAD) =~ s/.*://;
 
-	if ($field=~/^command_(.*)/) {
-		return $codes{syntaxerror},
-		       "Unsupported command \"$1\" received from confmodule.";
-	}
-	else {
-		no strict 'refs';
-		*$AUTOLOAD = sub : lvalue {
-			my $this=shift;
-			
-			$this->{$field}=shift if @_;
-			# Ensure lvalue calls work the first time through (grr).
-			$this->{$field}=undef unless exists $this->{$field};
-			$this->{$field};
-		};
-		goto &$AUTOLOAD;
-	}
+	no strict 'refs';
+	*$AUTOLOAD = sub : lvalue {
+		my $this=shift;
+		
+		$this->{$field}=shift if @_;
+		# Ensure lvalue calls work the first time through (grr).
+		$this->{$field}=undef unless exists $this->{$field};
+		$this->{$field};
+	};
+	goto &$AUTOLOAD;
 }
 
 =item DESTROY

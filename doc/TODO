@@ -36,10 +36,10 @@ General:
   since debconf-loadtemplate and debconf-communicate should make it easier.
 
 Database:
-* I need to move config file reading from db.pm to config.pm. It's cleaner
-  that way, and I want to let people put Priority: and Frontend: in the rc
-  file. There are some issues to figure out first though, like how Db.pm is
-  supposed to get the data from Config.pm.
+* The division between Debconf::Config and Debconf::Db still needs thought.
+  They both call each other, but worse, Debconf::Db->load needs to be
+  called in dpkg-preconfigure and others before Debconf::Config->blah can
+  be used, which is unintuitive.
 * There's also the Force-Flag-Seen thing, which is really a more generic
   forcing of any given flag to any vale, and should expand to forcing any
   field to a value too, I'd think. Perhaps it should be an overlaid

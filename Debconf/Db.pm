@@ -2,31 +2,19 @@
 
 =head1 NAME
 
-Debconf::Db - debconf database setup
+Debconf::Db - debconf databases
 
 =cut
 
 package Debconf::Db;
 use strict;
 use Debconf::Log qw{:all};
+use Debconf::Config;
 use Debconf::DbDriver;
-use fields qw{config templates};
-
-our Debconf::Db $opts=fields::new('Debconf::Db');
 our $config;
 our $templates;
 
 =head1 DESCRIPTION
-
-This module reads a config file and uses it to set up a set of debconf
-database drivers. It doesn't actually implement the database; the drivers
-do that.
-
-The config file format is a series of stanzas. The first stanza configures
-the debconf as a whole, and then each of the rest sets up a database driver.
-
-This lacks the glorious nested bindish beauty of Wichert's original idea,
-but it captures the essence of it.
 
 This class makes available a $Debconf::Db::config, which is the root db
 driver for storing state, and a $Debconf::Db::templates, which is the root
@@ -37,76 +25,22 @@ $Debconf::Db::config->setfield(...)
 
 =head1 CLASS METHODS
 
-=cut
-
-# Turns a chunk of text into a hash. Returns number of fields
-# that were processed. Also handles env variable expansion.
-sub _hashify ($$) {
-	my $text=shift;
-	my $hash=shift;
-
-	$text =~ s/\${([^}]+)}/$ENV{$1}/eg;
-	
-	my %ret;
-	my $i;
-	foreach my $line (split /\n/, $text) {
-		next if $line=~/^\s*#/; # comment
-		next if $line=~/^\s*$/; # blank
-		$i++;
-		my ($key, $value)=split(/\s*:\s*/, $line, 2);
-		$key=~tr/-/_/;
-		die "Parse error" unless defined $key and length $key;
-		$hash->{lc($key)}=$value;
-	}
-	return $i;
-}
-
 =item load
 
-Read a debconf config file, parse it, and set up the drivers.
-Reads from the standard locations unless a filename to read is specified.
+Loads up the database drivers.
 
 =cut
 
 sub load {
-	my $class=shift;
-	my $cf=shift;
-	
-	if (! $cf) {
-		for my $file ("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
-		              "/usr/share/debconf/debconf.conf") {
-			$cf=$file, last if -e $file;
-		}
-	}
-	die "No config file found" unless $cf;
-
-	debug db => "loading config file $cf";
-
-	open (DEBCONF_CONFIG, $cf) or die "$cf: $!\n";
-	local $/="\n\n"; # read a stanza at a time
-
-	# Read global options stanza.
-	1 until _hashify(<DEBCONF_CONFIG>, $opts);
-
-	# Now read in each database driver, and set them up.
-	# This assumes that there are no forward references in
-	# the config file..
-	while (<DEBCONF_CONFIG>) {
-		my %config=();
-		next unless _hashify($_, \%config);
-		$class->makedriver(%config);
-	}
-	close DEBCONF_CONFIG;
-
-	# Look up the two database drivers.
-	$config=Debconf::DbDriver->driver($opts->{config});
+	Debconf::Config->load;
+	$config=Debconf::DbDriver->driver(Debconf::Config->config);
 	if (not ref $config) {
-		die "Configuration database \"".$opts->{config}.
+		die "Configuration database \"".Debconf::Config->config.
 			"\" was not initialized.\n";
 	}
-	$templates=Debconf::DbDriver->driver($opts->{templates});
+	$templates=Debconf::DbDriver->driver(Debconf::Config->templates);
 	if (not ref $templates) {
-		die "Template database \"".$opts->{templates}.
+		die "Template database \"".Debconf::Config->config.
 			"\" was not initialized.\n";
 	}
 }
