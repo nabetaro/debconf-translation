@@ -95,6 +95,8 @@ sub init {
 
 	$this->SUPER::init(@_);
 
+	debug "DbDriver $this->{name}" => "loading database";
+
 	# Now read in the whole file using the Format object.
 	while (! eof $this->{_fh}) {
 		my ($item, $cache)=$this->{format}->read($this->{_fh});
@@ -116,6 +118,13 @@ sub savedb {
 	my $this=shift;
 
 	return if $this->{readonly};
+
+	if (grep $this->{cache}->{$_}->{dirty}, keys %{$this->{cache}}) {
+		debug "DbDriver $this->{name}" => "saving database";
+	}
+	else {
+		debug "DbDriver $this->{name}" => "no database changes, not saving";
+	}
 
 	# Use sysopen and specify the mode just to be sure.
 	sysopen(my $fh, $this->{filename},

@@ -173,16 +173,17 @@ sub cached {
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
 		debug "DbDriver $this->{name}" => "cache miss on $item";
-		my $cache=$this->load($item);
-		$this->{cache}->{$item}=$cache if $cache;
+		if (my $cache=$this->load($item)) {
+			$this->{cache}->{$item}=$cache;
+			$this->{cache}->{$item}->{dirty}=0;
+		}
 	}
 	return $this->{cache}->{$item};
 }
 
 =head2 savedb
 
-Synchronizes the underlying database with the cache. I don't keep track of
-whether the cache is dirty, so the whole thing is flushed out.
+Synchronizes the underlying database with the cache.
 
 Saving a item involves feeding the item from the cache into the underlying
 database, and then telling the underlying db to save it.
@@ -201,11 +202,13 @@ sub savedb {
 
 	my $ret=1;
 	foreach my $item (keys %{$this->{cache}}) {
-		if (defined $this->{cache}->{$item}) {
-			$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
-		}
-		else {
-			$ret=undef unless defined $this->remove($item);
+		if ($this->{cache}->{$item}->{dirty}) {
+			if (defined $this->{cache}->{$item}) {
+				$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
+			}
+			else {
+				$ret=undef unless defined $this->remove($item);
+			}
 		}
 	}
 	return $ret;
@@ -237,6 +240,7 @@ sub addowner {
 		}
 	}
 
+	$this->{cache}->{$item}->{dirty}=1;
 	$this->{cache}->{$item}->{owners}->{$owner}=1;
 	return $owner;
 }
@@ -257,6 +261,7 @@ sub removeowner {
 	return unless $this->cached($item);
 
 	delete $this->{cache}->{$item}->{owners}->{$owner};
+	$this->{cache}->{$item}->{dirty}=1;
 	unless (keys %{$this->{cache}->{$item}->{owners}}) {
 		$this->{cache}->{$item}=undef;
 	}
@@ -306,6 +311,7 @@ sub setfield {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
+	$this->{cache}->{$item}->{dirty}=1;
 	return $this->{cache}->{$item}->{fields}->{$field} = $value;	
 }
 
@@ -354,6 +360,7 @@ sub setflag {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
+	$this->{cache}->{$item}->{dirty}=1;
 	return $this->{cache}->{$item}->{flags}->{$flag} = $value;
 }
 
@@ -400,6 +407,7 @@ sub setvariable {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
+	$this->{cache}->{$item}->{dirty}=1;
 	return $this->{cache}->{$item}->{variables}->{$variable} = $value;
 }
 
