@@ -93,7 +93,8 @@ sub addmapping {
 	}
 	$mapping->question($location);
 	$mapping->template($template_text);
-
+	$mappings{$location}=$mapping;
+	
 	# Instantiate or change the question.
 	my $question;
 	if (exists $questions{$location}) {
@@ -106,6 +107,7 @@ sub addmapping {
 	$question->template($template);
 	$question->value($template->default);
 	$questions{$question->name}=$question;
+	$questions{$location}=$question;
 }
 
 # Remove a mapping.
