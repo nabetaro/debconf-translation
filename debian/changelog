@@ -1,3 +1,19 @@
+debconf (1.0.15) unstable; urgency=low
+
+  * Added NoWrap-Lang configuration directive, which can set a list of
+    languages whose text cannot be (easily) word-wrapped. It defaults to
+    ja,zh,zh_CN,zh_TW; which are encoded using multibyte encodings. If anyone
+    knows of more, let me know. This is a quick hack (and conflates
+    language and encoding), but it will do for now. Closes: #115314
+  * Translators writing templates in one of those languages: please be aware
+    that debconf won't try to word-wrap what you write. It's been reported
+    that whiptail can word-wrap EUC-JP encoded text all right, but if you
+    generate templates that typically need to be wordwrapped, debconf will
+    likely become confused. I suggest limiting yourself to something in the
+    neighborhood of 70 characters per line, to keep this to a minimum.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 11 Oct 2001 21:28:08 -0400
+
 debconf (1.0.13) unstable; urgency=medium
 
   * Fixed inverted test added in last version. Aargh. This mistake means that
