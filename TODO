@@ -1,9 +1,3 @@
-* Frontend really shouldn't inherit from confmodule. It makes it too tied
-  into communicating with modules when it could be used for other tasks.
-
-  It's already clear fromn looking at the frontends that they need to be
-  split.
-
 * Mappings!
 * Other frontends.
 * Other demo package files.
@@ -18,3 +12,13 @@ Line at a time frontend:
 * Doesn't understand mappings.
 * If you are entering text, they're no way to enter "" because it is
   interpreted as "use default"
+
+Dialog frontend:
+* there is no way to make it prompt for a password, because defaults are
+  passed in in cleartext. There should probably be a CAPB setting for this.
+* it doesn't check ret valules yet..
+* The dialog frontend _must_ do dynamic calculations about the size of the
+  box. See the cvs stuff for examples of it failing now.
+* It'd be nice if the Dialog stuff could catch text that was to be
+  displayed that is in the same block, buffer it, and display it up at the top
+  when it prompts for an input that is in the same block.

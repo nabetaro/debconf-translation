@@ -46,9 +46,21 @@ sub ask {
 		die "Unsupported data type \"$type\"";
 	}
 
-	$this->frontend->show_dialog($question->template->description, @params);
+	my $value;
+	my ($ret, $text)=$this->frontend->show_dialog(
+		$question->template->description, @params);
 
-#	$question->value($value);
+	if ($type eq 'boolean') {
+		$value=($ret eq 0 ? 'true' : 'false');
+	}
+	elsif ($type eq 'select') {
+		$value=$params[$text];
+	}
+	elsif ($type eq 'text') {
+		$value=$text;
+	}
+
+	$question->value($value);
 }
 
 1

@@ -28,6 +28,8 @@ sub new {
 	# Start up the script.
 	$self->{confmodule} = shift;
 	$self->{frontend} = shift;
+	$self->{version} = "1.0";
+	$self->{capb} = '';
 	$self->{read_handle} = FileHandle->new;
 	$self->{write_handle} = FileHandle->new;
 	$self->{pid} = open2($self->{read_handle}, $self->{write_handle},
@@ -59,13 +61,13 @@ sub command_version {
 	my $this=shift;
 	my $version=shift;
 	die "Version too low ($version)" if $version < 1;
-	return "1.0";
+	return $this->version;
 }
 
 sub command_capb {
 	my $this=shift;
-	$this->{capb}=[@_];
-	return;
+	$this->client_capb([@_]);
+	return $this->capb;
 }
 
 # Just store the title.
