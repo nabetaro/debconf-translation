@@ -10,8 +10,8 @@ package Debconf::Element::Gnome::Note;
 use strict;
 use Debconf::Gettext;
 use Gtk2;
-use Encode;
 use utf8;
+use Debconf::Encoding qw(to_Unicode);
 use Debconf::Element::Noninteractive::Note;
 use base qw(Debconf::Element::Gnome);
 
@@ -24,7 +24,7 @@ that can be pressed to save the note.
 
 sub init {
 	my $this=shift;
-	my $extended_description = $this->question->extended_description;
+	my $extended_description = to_Unicode($this->question->extended_description);
 
 	$this->SUPER::init(@_);
 	$this->multiline(1);
@@ -44,14 +44,9 @@ sub init {
 	$this->widget->show;
 	$this->widget->pack_start($scrolled_window, 1, 1, 0);
 
-	if ($this->is_unicode_locale()) {
-		$extended_description=decode ("UTF-8", $extended_description);
-	}
-
 	$textbuffer->set_text($extended_description);
 
-	$this->addbutton(gettext("Save (mail) Note"), sub {
-		my $dialog;
+	$this->addbutton(to_Unicode(gettext("Save (mail) Note")), sub {
 		if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
 			$this->create_message_dialog ("gtk-dialog-info",
 				gettext("Information"),
@@ -62,8 +57,6 @@ sub init {
 				gettext("Error"),
 				gettext("Unable to save note."));
 		}
-		$dialog->run;
-		$dialog->destroy;
 	});
 
 	$this->widget->show;

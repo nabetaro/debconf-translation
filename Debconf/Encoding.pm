@@ -77,7 +77,7 @@ BEGIN {
 }
 
 use base qw(Exporter);
-our @EXPORT_OK=qw(wrap $columns width convert $charmap);
+our @EXPORT_OK=qw(wrap $columns width convert $charmap to_Unicode);
 
 my $converter;
 my $old_input_charmap;
@@ -94,6 +94,20 @@ sub convert {
 		$old_input_charmap = $input_charmap;
 	}
 	return $converter->convert($string);
+}
+
+my $unicode_conv;
+sub to_Unicode {
+	my $string = shift;
+	my $result;
+
+	return $string if utf8::is_utf8($string);
+	if (!defined $unicode_conv) {
+		$unicode_conv = Text::Iconv->new($charmap, "UTF-8");
+	}
+	$result = $unicode_conv->convert($string);
+	utf8::decode($result);
+	return $result;
 }
 
 =head1 AUTHOR

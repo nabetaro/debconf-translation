@@ -9,27 +9,14 @@ Debconf::Element::Gnome::Multiselect - a check list in a dialog box
 package Debconf::Element::Gnome::Multiselect;
 use strict;
 use Gtk2;
-use Encode;
 use utf8;
+use Debconf::Encoding qw(to_Unicode);
 use base qw(Debconf::Element::Gnome Debconf::Element::Multiselect);
 
 sub init {
 	my $this=shift;
-	my @choices = $this->question->choices_split;
-        my %default=map { $_ => 1 } $this->translate_default;
-
-
-	my $j = 0;
-	if ($this->is_unicode_locale()) {
-		for ($j = 0; $j <= $#choices; $j++) {
-			$choices[$j] = decode("UTF-8", $choices[$j]);
-		}
-	}
-	else {
-		for ($j = 0; $j <= $#choices; $j++) {
-			$choices[$j] = $choices[$j];
-		}
-	}
+	my @choices = map { to_Unicode($_) } $this->question->choices_split;
+        my %default=map { to_Unicode($_) => 1 } $this->translate_default;
 
 	$this->SUPER::init(@_);
 	$this->multiline(1);
@@ -73,14 +60,18 @@ locale.
 
 sub value {
 	my $this=shift;
-	my @choices=$this->question->choices_split;
 	my @buttons = @{$this->buttons};
 	my ($ret, $val);
 	
 	my @vals;
+	# we need untranslated templates for this
+	$this->question->template->i18n('');
+	my @choices=$this->question->choices_split;
+	$this->question->template->i18n(1);
+	
 	for (my $i=0; $i <= $#choices; $i++) {
 		if ($buttons[$i]->get_active()) {
-			push @vals, $this->translate_to_C($choices[$i]);
+			push @vals, $choices[$i];
 		}
 	}
 

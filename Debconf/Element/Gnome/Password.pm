@@ -46,6 +46,7 @@ If the widget's value field is empty, return the default.
 sub value {
 	my $this=shift;
 	
+	# FIXME in which encoding?
 	my $text = $this->widget->get_chars(0, -1);
 	$text = $this->question->value if $text eq '';
 	return $text;

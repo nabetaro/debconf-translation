@@ -1,16 +1,16 @@
-# translation of debconf.po to Greek
+# translation of uk.po to Ukrainian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Konstantinos Margaritis <markos@debian.org>, 2004.
+# Eugeniy Meshcheryakov <eugen@univ.kiev.ua>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf\n"
+"Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-02-07 17:00-0500\n"
-"PO-Revision-Date: 2004-01-07 23:06EEST\n"
-"Last-Translator: Konstantinos Margaritis <markos@debian.org>\n"
-"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"PO-Revision-Date: 2004-02-03 18:57+0200\n"
+"Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
+"Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,8 +21,8 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Έχετε επιλέξει το κειμενογράφο ως τρόπο ρύθμισης του συστήματός σας. "
-"Λεπτομερείς οδηγίες αναγράφονται στο τέλος αυτού του κειμένου."
+"Ви використовуєте текстовий редактор для налаштовування вашої системи. "
+"Докладну інформацію ви знайдете в кінці цього документу."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -33,123 +33,121 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Η ρύθμιση μέσω κειμενογράφου σας παρουσιάζει μια λίστα με ένα ή περισσότερα "
-"αρχεία κειμένου προς επεξεργασία. Αυτό είναι ένα τέτοιο αρχείο. Αν έχετε "
-"εμπειρία με τυπικά αρχεία ρυθμίσεων του unix, η μορφή του αρχείου αυτού θα "
-"σας φανεί γνωστή -- περιέχει σχόλια εν μέσω ρυθμίσεων. Επεξεργαστείτε το "
-"αρχείο, αλλάζοντας όποιες ρυθμίσεις χρειάζονται, αποθηκεύστε το αρχείο και "
-"εξέλθετε από το πρόγραμμα. Στο σημείο αυτό, το debconf θα διαβάσει το "
-"επεξεργασμένο αρχείο και θα χρησιμοποιήσει τις ρυθμίσεις που δώσατε."
+"Інтерфейс до debconf, що використовує текстовий редактор, пропонує вам "
+"редагувати деяку кількість текстових файлів. Перед вами один з таких файлів. "
+"Якщо вам знайомі стандартні конфігураційні файли Unix, то цей файл виглядає "
+"знайомо -- він містить коментарі разом з параметрами та їх значеннями. Ви "
+"повинні змінити цей файл у відповідності з вашими вподобаннями, зберегти "
+"його та вийти з редактора. Після цього debconf прочитає змінений файл та "
+"використає введені параметри для налаштовування системи."
 
 #: ../Debconf/FrontEnd/Gnome.pm:95 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
-msgstr "Debconf στο %s"
+msgstr "Debconf на %s"
 
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
-msgstr "Περισσότερα"
+msgstr "Далі"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. Δείτε τη http://"
-"localhost:%i/"
+"Зауваження: debconf працює в web режимі. Відкрийте документ http://localhost:"
+"%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr "Προηγούμενο"
+msgstr "Назад"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr "Επόμενο"
+msgstr "Далі"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
-"Η μεταβλητή TERM δεν είναι ορισμένη, έτσι ο διαλογικός τρόπος δεν είναι "
-"διαθέσιμος."
+"Змінна оточення TERM не встановлена, отже діалогова оболонка не може бути "
+"застосована."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr ""
-"Ο διαλογικός τρόπος αλληλεπίδρασης δεν είναι συμβατός με το κέλυφος του "
-"emacs."
+msgstr "Діалогова оболонка не сумісна з буфером emacs."
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Το διαλογικό περιβάλλον δε λειτουργεί σε απλοϊκό (dumb) τερματικό, "
-"περιβάλλον κέλυφος του emacs, ή χωρίς τυλέτυπο ελέγχου."
+"Діалогова оболонка не буде працювати на не налаштованому (dumb) терміналі, в "
+"буфері emacs або без керуючого терміналу."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Δε βρέθηκε εγκατεστημένο λειτουργικό πρόγραμμα τύπου dialog, έτσι δε μπορεί "
-"να χρησιμοποιηθεί το διαλογικό περιβάλλον."
+"Не встановлено жодної програми, подібної до dialog, отже діалогова оболонка "
+"не може бути застосована."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
-"τουλάχιστον."
+"Для діалогового інтерфейсу потрібний термінал не менше 13 рядків в висоту та "
+"31 стовпчиків в ширину."
 
 #: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
-msgstr "Ρύθμιση του Debian"
+msgstr "Налаштовування пакетів Debian"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Το περιβάλλον αυτό απαιτεί ένα τυλέτυπο (tty) ελέγχου."
+msgstr "Для цієї оболонки потрібний керуючий термінал."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
+msgstr "Term::ReadLine::GNU не може працювати в буфері emacs."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr ""
+msgstr "буде використовуватися інтерфейс \"%s\""
 
 #: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
-msgstr "αδύνατη η αρχικοποίηση του περιβάλλοντος: %s"
+msgstr "не можливо ініціалізувати інтерфейс \"%s\""
 
 #: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Αδύνατη η εκκίνηση του περιβάλλοντος: %s"
+msgstr "Не вдалося запустити інтерфейс: %s"
 
 #: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
-msgstr "Η βάση δεδομένων των ρυθμίσεων δεν έχει οριστεί στο αρχείο ρυθμίσεων."
+msgstr "База даних налаштувань не вказана в конфігураційному файлі."
 
 #: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
-msgstr "Η βάση δεδομένων των προτύπων δεν έχει οριστεί στο αρχείο ρυθμίσεων."
+msgstr "База даних шаблонів не вказана в конфігураційному файлі."
 
 #: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-"Σφάλμα κατά την ρύθμιση της βάσης δεδομένων όπως ορίστηκε κατά το τμήμα %s "
-"του %s."
+"Виникла проблема при настроюванні бази даних, визначеної в строфі %s з %s."
 
 #: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr "προειδοποίηση: πιθανή καταστροφή της βάσης. Θα "
+msgstr ""
+"попередження: можливе ушкодження бази даних. Спробую відновити, додавши "
+"відсутнє питання %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -157,99 +155,100 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Το πρότυπο #%s στο %s έχει διπλά ορισμένο πεδίο \"%s\" με νέα τιμή \"%s\". "
-"Πιθανόν δύο πρότυπα δεν είναι σωστά χωρισμένα με κενή γραμμή.\n"
+"Шаблон #%s в %s має поле \"%s\" що повторюється з новим значенням \"%s\". "
+"Можливо, два шаблони невірно розділені символом нового рядка.\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Άγνωστο πεδίο προτύπου '%s', στο τμήμα #%s του %s\n"
+msgstr "Невідоме поле шаблона \"%s\", в строфі #%s з %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Σφάλμα ανάλυσης προτύπου κοντά στο `%s', στο τμήμα #%s του %s\n"
+msgstr "Помилка при розборі шаблону біля \"%s\", в строфі #%s з %s\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Το πρότυπο #%s στο %s δεν περιέχει μια γραμμή 'Template:'\n"
+msgstr "Шаблон #%s в %s не містить рядка \"Template:\"\n"
 
 #: ../Debconf/Element/Gnome/Note.pm:49
 msgid "Save (mail) Note"
-msgstr "Αποθήκευση (αποστολή) Σημείωσης"
+msgstr "Зберегти повідомлення"
 
 #: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
-"έστειλεμέσω ηλ. ταχυδρομείου."
+"Сценарій налаштовування запросив збереження повідомлення, тому воно було "
+"відправлене поштою."
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "The note has been mailed."
-msgstr "Η σημείωση έχει αποσταλεί."
+msgstr "Повідомлення було відіслано."
 
 #: ../Debconf/Element/Gnome/Note.pm:57
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: ../Debconf/Element/Gnome/Note.pm:58
 msgid "Unable to save note."
-msgstr "Αδύνατη η αποθήκευση της σημείωσης."
+msgstr "Не можу зберегти повідомлення."
 
 #: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
 msgid "_Help"
-msgstr "Βοήθεια"
+msgstr "Допомога"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
-msgstr "Βοήθεια"
+msgstr "Допомога"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
-msgstr "Επιλογές"
+msgstr "Варіанти"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
+"(Вкажіть необхідну кількість параметрів, розділяючи їх комою з пробілом (', "
+"').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
 #: ../Debconf/Element/Editor/Boolean.pm:59
 #: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
-msgstr "ναι"
+msgstr "так"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:39
 #: ../Debconf/Element/Editor/Boolean.pm:62
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
-msgstr "όχι"
+msgstr "ні"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "καμία από τις παραπάνω"
+msgstr "жоден з перерахованих"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Εισάγετε τις επιλογές σας, χωρισμένες με κενό."
+msgstr ""
+"Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
-"έστειλε μέσω ηλ. ταχυδρομείου."
+"Debconf був налаштований не відображувати це повідомлення, тому воно було "
+"відправлене поштою."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -258,7 +257,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Note.pm:87
 #, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, στο %s"
+msgstr "Debconf, що працює на %s"
 
 #: ../Debconf/Element/Select.pm:94
 #, c-format
@@ -266,99 +265,98 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Η επιλογή που δώσατε, \"%s\" δε βρέθηκε σε C επιλογές! Αυτό δε θα έπρεπε να "
-"έχει συμβεί. Πιθανόν τα πρότυπα δε μεταφράστηκαν σωστά."
+"Значення \"%s\" не знайдене серед варіантів C! Це не повинно було статися. "
+"Можливо, шаблон був не вірно перекладений."
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
+msgstr "Не вдалося завантажити Debconf::Element::%s. Причина  %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
-msgstr "Ρύθμιση του %s"
+msgstr "Налаштовування %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "αδύνατο το άνοιγμα της stdin: %s"
+msgstr "не вдалося заново відкрити stdin: %s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr "πρέπει να δηλώσετε κάποια πακέτα deb για προρύθμιση"
+msgstr "для перед-конфігурації необхідно вказати які-небудь deb-файли"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
-"καθυστέρηση της ρύθμισης του πακέτου, εφόσον το apt-utils δεν είναι "
-"εγκατεστημένο"
+"оскільки apt-utils не встановлені, налаштовування пакетів відкладається"
 
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
-msgstr "σφάλμα ανάλυσης προτύπου: %s"
+msgstr "помилка при розборі шаблону: %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: αδύνατη η εκτέλεση της chmod: %s"
+msgstr "debconf: не можу змінити права доступу: %s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λάθους %s"
+msgstr "не вдалося перед-конфігурувати пакет %s, код помилки %s"
 
 #: ../dpkg-reconfigure:105
 #, c-format
 msgid "%s must be run as root"
-msgstr "Το %s πρέπει να εκτελεστεί ως χρήστης root"
+msgstr "%s повинна виконуватись з правами користувача root"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
-msgstr "παρακαλώ δηλώστε το πακέτο προς επαναρύθμιση"
+msgstr "вкажіть пакет, який потрібно пере-конфігурувати"
 
 #: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
-msgstr "το %s δεν είναι εγκατεστημένο"
+msgstr "Пакет %s не встановлений"
 
 #: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr "το %s είναι κατεστραμμένο ή όχι πλήρως εγκατεστημένο"
+msgstr "Пакет %s встановлений не повністю чи пошкоджений"
 
 #: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr "Αδύνατη η ανάγνωση του αρχείου κατάστασης: %s"
+msgstr "Помилка при читанні файлу стану: %s"
 
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr "το %s αγνοείται"
+msgstr "%s відсутній"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "το %s αγνοείται, "
+msgstr "%s відсутній; кидаю %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "Το %s είναι ασαφές στο byte %s: %s"
+msgstr "%s нечіткий біля байту %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "Το %s είναι ασαφές στο byte %s: %s, και θα παραλειφθεί"
+msgstr "%s нечіткий біля байту %s: %s; кидаю це"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr "το %s είναι απηρχαιωμένο"
+msgstr "Пакет %s застарів"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "το %s είναι απηρχαιωμένο, παραλείπεται ολόκληρο το πρότυπο!"
+msgstr "Пакет %s застарів; кидаю весь шаблон!"

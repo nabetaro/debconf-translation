@@ -9,19 +9,11 @@ Debconf::Element::Gnome - gnome UI element
 package Debconf::Element::Gnome;
 use strict;
 use I18N::Langinfo qw(langinfo CODESET);
-use Encode;
 use utf8;
 use Gtk2;
 use Debconf::Gettext;
+use Debconf::Encoding qw(to_Unicode);
 use base qw(Debconf::Element);
-
-sub is_unicode_locale {
-	my $codeset = langinfo(CODESET());
-	if ($codeset && $codeset =~ /^UTF-8$/) {
-		return 1;
-	}
-	return 0;
-}
 
 =head1 DESCRIPTION
 
@@ -106,11 +98,7 @@ Packs a label containing the short description into the hbox.
 
 sub adddescription {
 	my $this=shift;
-	my $description=$this->question->description;
-	
-	if (is_unicode_locale()) {
-		$description=decode("UTF-8", $description);
-	}
+	my $description=to_Unicode($this->question->description);
 	
 	my $label=Gtk2::Label->new($description);
 	$label->show;
@@ -129,7 +117,7 @@ sub addbutton {
 	my $text = shift;
 	my $callback = shift;
 	
-	my $button = Gtk2::Button->new_with_mnemonic($text);
+	my $button = Gtk2::Button->new_with_mnemonic(to_Unicode($text));
 	$button->show;
 	$button->signal_connect("clicked", $callback);
 	
@@ -154,7 +142,7 @@ sub create_message_dialog {
 	my $text = shift;
 	
 	my $dialog = 
-		Gtk2::Dialog->new_with_buttons($title, undef, 
+		Gtk2::Dialog->new_with_buttons(to_Unicode($title), undef, 
 		                               "modal", "gtk-close", "close");
 	$dialog->set_border_width(3);
 	
@@ -170,7 +158,7 @@ sub create_message_dialog {
 	$alignment->add($image);
 	$image->show;
 	
-	my $label = Gtk2::Label->new($text);
+	my $label = Gtk2::Label->new(to_Unicode($text));
 	$label->set_line_wrap(1);
 	$hbox->pack_start($label, 1, 1, 2);
 	$label->show;
@@ -191,10 +179,6 @@ sub addhelp {
 	
 	my $help=$this->question->extended_description;
 	return unless length $help;
-	
-	if (is_unicode_locale()) {
-		$help=decode("UTF-8", $help);
-	}
 	
 	$this->addbutton(gettext("_Help"), sub {
 		$this->create_message_dialog("gtk-dialog-info",

@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.1\n"
+"Project-Id-Version: debconf 1.4.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-13 11:37-0500\n"
-"PO-Revision-Date: 2003-12-31 10:59+0100\n"
+"POT-Creation-Date: 2004-02-07 17:00-0500\n"
+"PO-Revision-Date: 2004-02-06 23:26+0100\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr ""
 "quittez. Debconf se servira alors des valeurs qui y sont indiquées pour "
 "configurer le système."
 
-#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:95 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
@@ -175,38 +175,37 @@ msgstr "Erreur d'analyse de message vers « %s », dans la partie #%s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le message #%s de %s ne contient pas de ligne « Template: »\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:53
+#: ../Debconf/Element/Gnome/Note.pm:49
 msgid "Save (mail) Note"
 msgstr "Enregistrer la note (dans un courriel)"
 
-#: ../Debconf/Element/Gnome/Note.pm:55
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Il a été demandé à debconf de sauver cette note, il vous l'a donc envoyée "
 "par courrier électronique."
 
-#: ../Debconf/Element/Gnome/Note.pm:57
+#: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Information"
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:58
+#: ../Debconf/Element/Gnome/Note.pm:53
 msgid "The note has been mailed."
 msgstr "La note a été envoyée par courrier électronique."
 
-#: ../Debconf/Element/Gnome/Note.pm:62
+#: ../Debconf/Element/Gnome/Note.pm:57
 msgid "Error"
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:63
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "Unable to save note."
 msgstr "Impossible d'enregistrer la note."
 
-#: ../Debconf/Element/Gnome.pm:199
-#, fuzzy
+#: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
-msgstr "Aide"
+msgstr "_Aide"
 
-#: ../Debconf/Element/Gnome.pm:201
+#: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
 msgstr "Aide"
 

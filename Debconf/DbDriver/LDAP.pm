@@ -93,7 +93,7 @@ sub binddb {
 	my $ds = Net::LDAP->new($this->{server}, port => $this->{port}, version => 3);
 	if (! $ds) {
 		$this->error("Unable to connect to LDAP server");
-		return; # if not fatal,give up anyway
+		return; # if not fatal, give up anyway
 	}
 	
 	# Check for anon bind
@@ -225,8 +225,10 @@ sub shutdown
 		];
 		
 		foreach my $field (keys %{$data{fields}}) {
-			next if $data{fields}->{$field} eq ''; # skip empty fields
-			$modify_data{$field}=$data{fields}->{$field};
+			# skip empty fields exept value field
+			next if ($data{fields}->{$field} eq '' && 
+				 !($field eq 'value'));
+ 			$modify_data{$field}=$data{fields}->{$field};
 			push(@{$add_data}, $field);
 			push(@{$add_data}, $data{fields}->{$field});
 		}

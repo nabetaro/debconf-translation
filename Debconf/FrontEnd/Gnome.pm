@@ -11,6 +11,7 @@ use strict;
 use utf8;
 use Debconf::Gettext;
 use Debconf::Config;
+use Debconf::Encoding qw(to_Unicode);
 use base qw{Debconf::FrontEnd};
 
 # Catch this so as not to confuse the poor users if Gtk or Gnome are not
@@ -91,7 +92,7 @@ sub init {
 	$this->win->set_position("center");
 	$this->win->set_default_size(600, 400);
 	my $hostname = `hostname`;
-	$this->win->set_title(sprintf(gettext("Debconf on %s"), $hostname));
+	$this->win->set_title(to_Unicode(sprintf(gettext("Debconf on %s"), $hostname)));
 	$this->win->signal_connect("delete_event", sub { exit });
 	
 	$this->logo(Gtk2::Gdk::Pixbuf->new_from_file("/usr/share/pixmaps/debian-logo.png"));
@@ -124,7 +125,7 @@ sub go {
 	}
 
 	if ($interactive) {
-	        $this->druid_page->set_title($this->title);
+	        $this->druid_page->set_title(to_Unicode($this->title));
 		if ($this->capb_backup) {
 			$this->druid->set_buttons_sensitive(1, 1, 1, 1);
 		}

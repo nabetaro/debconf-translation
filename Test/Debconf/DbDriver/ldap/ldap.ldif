@@ -1,0 +1,10 @@
+dn: cn=admin,dc=debian,dc=org
+objectClass: organizationalRole
+objectClass: simpleSecurityObject
+cn: admin
+description: LDAP administrator
+userPassword: debian
+
+dn: cn=debconf,dc=debian,dc=org
+objectClass: applicationProcess
+cn: debconf
