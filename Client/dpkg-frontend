@@ -1,0 +1,129 @@
+#!/usr/bin/perl -w
+# This is a standalone program that can be used to communicate with the
+# FrontEnd. See --help for details.
+use strict;
+use Getopt::Long;
+use lib 'client';
+use ConfModule;
+use vars qw($AUTOLOAD $ret $do_print $priority);
+
+sub help {
+	print <<eof;
+Usage: dpkg-frontend [options]
+	-h, --help		Display this help message.
+	-P, --print		Print to standard error the last return code
+	                        the FrontEnd sends.
+	-p, --priority value	Sets the priority of following questions to the
+				specified value.
+				
+	-I, --init		Initialize communications with FrontEnd.
+	-N, --can-backup	Tell the frontend your ConfModule supports
+				backing up.
+	-t, --text text		Display text to the user.
+	-T, --title title	Set the title displayed in the FrontEnd.
+	-s, --stop		Tell the FrontEnd you are all done.
+	-i, --input question	Asks the user a question.
+	-n, --note text		Display text to user as a note.
+	-g, --get question	Get the answer to the question. Implies -R.
+	[,  --beginblock	Begin a block of items.
+	],  --endblock		End a block of items.
+	-G, --go		Present all built up items to the user.
+	-rtemplate:question,
+	--register template:question
+				Add a mapping for the question to the template.
+	-uquestion,
+	--unregister question	Remove mapping for the question.
+eof
+	exit 100;
+}
+
+# Handle something that is not an option.
+sub nonoption {
+	my $item=shift;
+	if ($item eq '[') {
+		beginblock();
+	}
+	elsif ($item eq ']') {
+		endblock();
+	}
+	else {
+		help();
+	}
+}
+
+# Do version number exchange.
+sub init {
+	$ret=ConfModule::version();
+}
+
+sub can_backup {
+	$ret=ConfModule::capb('backup');
+}
+
+# Just turn on $do_print.
+sub do_get {
+	$do_print=1;
+	get(@_);
+}
+
+# Need to parse what the user entered a little more.
+sub do_register {
+	register(shift, split(/:/, shift, 2));
+}
+
+# These guys are just here so nothing gets passed into the commands.
+sub do_beginblock {
+	beginblock();
+}
+sub do_endblock {
+	endblock();
+}
+sub do_go {
+	go();
+}
+
+# This will handle passing normal commands along.
+sub AUTOLOAD {
+	my $command = $AUTOLOAD;
+	$command =~ s|.*:||; # strip fully-qualified portion
+	shift;
+	if ($command eq 'input' || $command eq 'note' || $command eq 'text') {
+		# These need a priority.
+		$ret=eval "ConfModule::$command".'($priority, @_)';
+	}
+	else {
+		$ret=eval "ConfModule::$command".'(@_)';
+	}
+}
+
+###############################################################################
+# Main program begins here.
+
+help unless @ARGV;
+
+$priority='medium';
+
+# Process command line.
+Getopt::Long::config qw(bundling no_ignore_case permute);
+GetOptions(
+	'help|h', \&help,
+	'can-backup|B', \&can_backup,
+	'print|P', \$do_print,
+	'priority|p=s', \$priority,
+	'init|I', \&init,
+	'title|T=s', \&title,
+	'text|t=s', \&text,
+	'stop|s', \&stop,
+	'input|i=s', \&input,
+	'note|n=s', \&note,
+	'get|g=s', \&do_get,
+	'beginblock', \&do_beginblock,
+	'endblock', \&do_endblock,
+	'go|G', \&do_go,
+	'register|r=s', \&do_register,
+	'unregister|u=s', \&unregister,
+	'<>', \&nonoption,
+) || help;
+
+print STDERR "$ret\n" if $do_print;
+exit 1 if $ret eq 'back';
