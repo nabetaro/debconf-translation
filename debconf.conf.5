@@ -147,6 +147,27 @@ compatability with cdebconf. Also, unlike with DirTree, the Extention field
 is not required for this driver.
 .RE
 .P
+.TP
+.B Pipe
+.RS
+This special-purpose database driver reads and writes the database from
+stdandard input/output. It may be useful for people with special needs.
+.P
+The following things are configurable for this driver.
+.RS
+.TP
+.B Format
+The format to read and write. See FORMATS below. Defaults to using a rfc-822
+like format.
+.TP
+.B Infd
+File descriptor number to read from. Defaults to reading from stdin.
+.TP
+.B Outfd
+File descriptor number to write to. Defaults to writing to stdout.
+.RE
+.RE
+.P
 That's all of the real drivers, now moving on to meta-drivers..
 .TP
 .B Stack
@@ -214,6 +235,19 @@ For example:
   Driver: Backup
   Db: mydb
   Backup: mybackupdb
+.RE
+.P
+.B Debug
+.RS
+This driver passes all requests on to another database driver, outputting verbose
+debug output about the request and the result.
+.P
+You must specify the following fields to set up this driver:
+.P
+.RS
+.TP
+.B Db
+The database to read from and write to.
 .RE
 .P
 .SH "ACCESS CONTROLS"

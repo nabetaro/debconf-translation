@@ -36,12 +36,16 @@ General:
   since debconf-loadtemplate and debconf-communicate should make it easier.
 
 Database:
+* I need to move config file reading from db.pm to config.pm. It's cleaner
+  that way, and I want to let people put Priority: and Frontend: in the rc
+  file. There are some issues to figure out first though, like how Db.pm is
+  supposed to get the data from Config.pm.
 * There's also the Force-Flag-Seen thing, which is really a more generic
   forcing of any given flag to any vale, and should expand to forcing any
   field to a value too, I'd think. Perhaps it should be an overlaid
   database really? Yes, I think so..
 * Regression tests!
-* The Copy driver cannot deal with situations where the db already has
+* The Backup driver cannot deal with situations where the db already has
   stuff and the copy does not. Perhaps it should copy items whole from db
   to copy if they do not already exist in the copy and an operation is done
   to them?

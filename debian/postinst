@@ -8,6 +8,12 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 		# Temporarily, I will leave the old db around. Later, I may
 		# want to delete..
 	fi
+	# This package used to add itself to apt.conf. That could result in
+	# a zero-byte file, since it no longer does. Detect that and remove
+	# the file.
+	if [ ! -s /etc/apt/apt.conf ]; then
+		rm -f /etc/apt/apt.conf
+	fi
 fi
 
 . /usr/share/debconf/confmodule

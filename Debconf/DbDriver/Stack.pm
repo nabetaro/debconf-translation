@@ -141,16 +141,16 @@ sub _query {
 	my $command=shift;
 	shift; # this again
 	
-	debug "DbDriver $this->{name}" => "trying to $command(@_) ..";
+	debug "db $this->{name}" => "trying to $command(@_) ..";
 	foreach my $driver (@{$this->{stack}}) {
 		if (wantarray) {
 			my @ret=$driver->$command(@_);
-			debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if @ret;
+			debug "db $this->{name}" => "$command done by $driver->{name}" if @ret;
 			return @ret if @ret;
 		}
 		else {
 			my $ret=$driver->$command(@_);
-			debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
+			debug "db $this->{name}" => "$command done by $driver->{name}" if defined $ret;
 			return $ret if defined $ret;
 		}
 	}
@@ -163,13 +163,13 @@ sub _change {
 	shift; # this again
 	my $item=shift;
 
-	debug "DbDriver $this->{name}" => "trying to $command($item @_) ..";
+	debug "db $this->{name}" => "trying to $command($item @_) ..";
 
 	# Check to see if we can just write to some driver in the stack.
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver->exists($item)) {
 			last if $driver->{readonly}; # nope, hit a readonly one
-			debug "DbDriver $this->{name}" => "passing to $driver->{name} ..";
+			debug "db $this->{name}" => "passing to $driver->{name} ..";
 			return $driver->$command($item, @_);
 		}
 	}
@@ -184,7 +184,7 @@ sub _change {
 			# effect.
 			my $ret=$this->_nochange($driver, $command, $item, @_);
 			if (defined $ret) {
-				debug "DbDriver $this->{name}" => "skipped $command($item) as it would have no effect";
+				debug "db $this->{name}" => "skipped $command($item) as it would have no effect";
 				return $ret;
 			}
 
@@ -200,7 +200,7 @@ sub _change {
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver == $src) {
 			# Woah, mama!
-			debug "DbDriver $this->{name}" =>
+			debug "db $this->{name}" =>
 				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
 			return;
 		}
@@ -211,7 +211,7 @@ sub _change {
 	}
 	
 	unless ($writer) {
-		debug "DbDriver $this->{name}" => "FAILED $command";
+		debug "db $this->{name}" => "FAILED $command";
 		return;
 	}
 
@@ -221,7 +221,7 @@ sub _change {
 	}
 
 	# Finally, do the write.
-	debug "DbDriver $this->{name}" => "passing to $writer->{name} ..";
+	debug "db $this->{name}" => "passing to $writer->{name} ..";
 	return $writer->$command($item, @_);
 }
 

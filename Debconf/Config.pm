@@ -15,8 +15,8 @@ our @EXPORT_OK = qw(frontend priority helpvisible showold);
 =head1 DESCRIPTION
 
 This package holds configuration values for debconf. It supplies defaults,
-and allows them to be overridden by values pulled right out of the debconf
-database itself.
+and allows them to be overridden by values from the environment, the config
+file, and values pulled right out of the debconf database itself.
 
 =head1 METHODS
 

@@ -31,7 +31,7 @@ sub copy {
 	my $src=shift;
 	my $dest=shift;
 	
-	debug "DbDriver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
+	debug "db $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
 	
 	# First copy the owners, which makes sure $dest has the item.
 	foreach my $owner ($src->owners($item)) {

@@ -80,7 +80,7 @@ sub init {
 	if (not -d $this->{directory}) {
 		$this->error($this->{directory}." does not exist");
 	}
-	debug "DbDriver $this->{name}" => "started; directory is $this->{directory}";
+	debug "db $this->{name}" => "started; directory is $this->{directory}";
 	
 	if (! $this->{readonly}) {
 		# Now lock the directory. I use a lockfile named '.lock' in the
@@ -105,7 +105,7 @@ sub load {
 	my $item=shift;
 
 	return unless $this->accept($item);
-	debug "DbDriver $this->{name}" => "loading $item";
+	debug "db $this->{name}" => "loading $item";
 	my $file=$this->{directory}.'/'.$this->filename($item);
 	return unless -e $file;
 
@@ -131,7 +131,7 @@ sub save {
 	my $data=shift;
 	return unless $this->accept($item);
 	return if $this->{readonly};
-	debug "DbDriver $this->{name}" => "saving $item";
+	debug "db $this->{name}" => "saving $item";
 	
 	my $file=$this->{directory}.'/'.$this->filename($item);
 
@@ -224,7 +224,7 @@ sub remove {
 	my $name=shift;
 
 	return if $this->{readonly} or not $this->accept($name);
-	debug "DbDriver $this->{name}" => "removing $name";
+	debug "db $this->{name}" => "removing $name";
 	unlink $this->{directory}.'/'.$this->filename($name) or return undef;
 	return 1;
 }

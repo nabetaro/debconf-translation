@@ -74,7 +74,7 @@ sub init {
 
 	$this->error("No filename specified") unless $this->{filename};
 
-	debug "DbDriver $this->{name}" => "started; filename is $this->{filename}";
+	debug "db $this->{name}" => "started; filename is $this->{filename}";
 	
 	# Make sure that the file exists, and set the mode too.
 	if (! -e $this->{filename}) {
@@ -90,14 +90,14 @@ sub init {
 	if (! $this->{readonly}) {
 		# Now lock the file with and flock locking. I don't wait on
 		# locks, just error out. Since I open a lexical filehandle,
-		# the lock is dropped when this object is destoryed.
+		# the lock is dropped when this object is destroyed.
 		flock($this->{_fh}, LOCK_EX | LOCK_NB) or
 			$this->error("$this->{filename} is locked by another process");
 	}
 
 	$this->SUPER::init(@_);
 
-	debug "DbDriver $this->{name}" => "loading database";
+	debug "db $this->{name}" => "loading database";
 
 	# Now read in the whole file using the Format object.
 	while (! eof $this->{_fh}) {
@@ -122,10 +122,10 @@ sub savedb {
 	return if $this->{readonly};
 
 	if (grep $this->{dirty}->{$_}, keys %{$this->{cache}}) {
-		debug "DbDriver $this->{name}" => "saving database";
+		debug "db $this->{name}" => "saving database";
 	}
 	else {
-		debug "DbDriver $this->{name}" => "no database changes, not saving";
+		debug "db $this->{name}" => "no database changes, not saving";
 		return 1;
 	}
 
@@ -149,7 +149,7 @@ sub savedb {
 	# in its place.
 	if (-e $this->{filename} && $this->{backup}) {
 		rename($this->{filename}, $this->{filename}."-old") or
-			debug "DbDriver $this->{name}" => "rename failed: $!";
+			debug "db $this->{name}" => "rename failed: $!";
 	}
 	rename($this->{filename}."-new", $this->{filename}) or
 		$this->error("rename failed: $!");

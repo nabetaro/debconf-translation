@@ -41,9 +41,7 @@ install-rest:
 		$(prefix)/usr/share/debconf
 	install -m 0644 debconf.conf $(prefix)/etc/
 	# This one is the ultimate backup copy.
-	perl -ne 'print unless /^#/' debconf.conf > \
-		$(prefix)/usr/share/debconf/debconf.conf
-	sed 's/^#.*//' debconf.conf
+	grep -v '^#' debconf.conf > $(prefix)/usr/share/debconf/debconf.conf
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
 		xargs -i install -d $(prefix)/usr/share/perl5/{}

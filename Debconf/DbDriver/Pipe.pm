@@ -1,0 +1,136 @@
+#!/usr/bin/perl -w
+
+=head1 NAME
+
+Debconf::DbDriver::Pipe - read/write database from file descriptors
+
+=cut
+
+package Debconf::DbDriver::Pipe;
+use strict;
+use Debconf::Log qw(:all);
+use base 'Debconf::DbDriver::Cache';
+
+=head1 DESCRIPTION
+
+This is a debconf database driver that reads the db from a file descriptor when
+it starts, and writes it out to another when it saves it. By default, stdin
+and stdout are used.
+
+=head1 FIELDS
+
+=over 4
+
+=item infd
+
+File descriptor number to read from. Defaults to reading from stdin.
+
+=item outfd
+
+File descriptor number to write to. Defaults to writing to stdout.
+
+=item format
+
+The Format object to use for reading and writing.
+
+In the config file, just the name of the format to use, such as '822' can
+be specified. Default is 822.
+
+=back
+
+=cut
+
+use fields qw(infd outfd format);
+
+=head1 METHODS
+
+=head2 init
+
+On initialization, load the entire db into memory and populate the cache.
+
+=cut
+
+sub init {
+	my $this=shift;
+
+	$this->{format} = "822" unless exists $this->{format};
+
+	$this->error("No format specified") unless $this->{format};
+	eval "use Debconf::Format::$this->{format}";
+	if ($@) {
+		$this->error("Error setting up format object $this->{format}: $@");
+	}
+	$this->{format}="Debconf::Format::$this->{format}"->new;
+	if (not ref $this->{format}) {
+		$this->error("Unable to make format object");
+	}
+
+	my $fh;
+	if (defined $this->{outfd}) {
+		open ($fh, "<&=$this->{outfd}") or
+			$this->error("could not open file descriptor #$this->{outfd}: $!");
+	}
+	else {	
+		open ($fh, '-');
+	}
+
+	$this->SUPER::init(@_);
+
+	debug "db $this->{name}" => "loading database";
+
+	# Now read in the whole file using the Format object.
+	while (! eof $fh) {
+		my ($item, $cache)=$this->{format}->read($fh);
+		$this->{cache}->{$item}=$cache;
+	}
+	close $fh;
+}
+
+=sub savedb
+
+Save the entire cache out to the fd. Always writes the cache, even if it's
+not dirty, for consitency's sake.
+
+=cut
+
+sub savedb {
+	my $this=shift;
+
+	return if $this->{readonly};
+
+	my $fh;
+	if (defined $this->{outfd}) {
+		open ($fh, ">&=$this->{infd}") or
+			$this->error("could not open file descriptor #$this->{outfd}: $!");
+	}
+	else {
+		open ($fh, '>-');
+	}
+	$this->{format}->beginfile;
+	foreach my $item (sort keys %{$this->{cache}}) {
+		next unless defined $this->{cache}->{$item}; # skip deleted
+		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+	}
+	$this->{format}->endfile;
+	close $fh;
+
+	return 1;
+}
+
+=sub load
+
+Sorry bud, if it's not in the cache, it doesn't exist.
+
+=cut
+
+sub load {
+	return undef;
+}
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
+
+1

@@ -178,7 +178,7 @@ sub cached {
 
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
-		debug "DbDriver $this->{name}" => "cache miss on $item";
+		debug "db $this->{name}" => "cache miss on $item";
 		if (my $cache=$this->load($item)) {
 			$this->{cache}->{$item}=$cache;
 			$this->{dirty}->{$item}=0;
@@ -238,7 +238,7 @@ sub addowner {
 
 	if (! defined $this->{cache}->{$item}) {
 		return if ! $this->accept($item);
-		debug "DbDriver $this->{name}" => "creating in-cache $item";
+		debug "db $this->{name}" => "creating in-cache $item";
 		# The item springs into existance.
 		$this->{cache}->{$item}={
 			owners => {},

@@ -9,6 +9,7 @@ Debconf::DbDriver - base class for debconf db drivers
 package Debconf::DbDriver;
 use Debconf::Log qw{:all};
 use strict;
+use base 1.01; # ensure that they don't have a broken perl installation
 
 =head1 DESCRIPTION
 
@@ -198,7 +199,7 @@ sub accept {
 	
 	if ((exists $this->{accept_name} && $name!~/$this->{accept_name}/) ||
 	    (exists $this->{reject_name} && $name=~/$this->{reject_name}/)) {
-		debug "DbDriver $this->{name}" => "reject $name";
+		debug "db $this->{name}" => "reject $name";
 		return;
 	}
 
@@ -238,29 +239,17 @@ each item in the db, and return it.
 
 Each subclass must implement this method.
 
-=cut
-
-sub iterate {}
-
 =head2 savedb
 
 Save the entire database state.
 
 Each subclass must implement this method.
 
-=cut
-
-sub savedb {}
-
 =head2 exists(itemname)
 
 Return true if the given item exists in the database.
 
 Each subclass must implement this method.
-
-=cut
-
-sub exists {}
 
 =head2 addowner(itemname, ownername)
 
@@ -272,10 +261,6 @@ existance.
 
 Each subclass must implement this method.
 
-=cut
-
-sub addowner {}
-
 =head2 removeowner(itemname, ownername)
 
 Remove an owner from a item. Returns the owner name, or undef if
@@ -284,19 +269,11 @@ be removed.
 
 Each subclass must implement this method.
 
-=cut
-
-sub removeowner {}
-
 =head2 owners(itemname)
 
 Return a list of all owners of the item.
 
 Each subclass must implement this method.
-
-=cut
-
-sub owners {}
 
 =head2 getfield(itemname, fieldname)
 
@@ -305,10 +282,6 @@ field failed.
 
 Each subclass must implement this method.
 
-=cut
-
-sub getfield {}
-
 =head2 setfield(itemname, fieldname, value)
 
 Set the given field the the given value, and return the value, or undef if
@@ -316,19 +289,11 @@ setting failed.
 
 Each subclass must implement this method.
 
-=cut
-
-sub setfield {}
-
 =head2 fields(itemname)
 
 Return the fields present in the item.
 
 Each subclass must implement this method.
-
-=cut
-
-sub fields {}
 
 =head2 getflag(itemname, flagname)
 
@@ -337,10 +302,6 @@ not.
 
 Each subclass must implement this method.
 
-=cut
-
-sub getflag {}
-
 =head2 setflag(itemname, flagname, value)
 
 Set the given flag to the given value (will be one of "true" or "false"),
@@ -348,19 +309,11 @@ and return the value. Or return undef if setting failed.
 
 Each subclass must implement this method.
 
-=cut
-
-sub setflag {}
-
 =head2 flags(itenname)
 
 Return the flags that are present for the item.
 
 Each subclass must implement this method.
-
-=cut
-
-sub flags {}
 
 =head2 getvariable(itemname, variablename)
 
@@ -369,10 +322,6 @@ there is no such variable.
 
 Each subclass must implement this method.
 
-=cut
-
-sub getvariable {}
-
 =head2 setvariable(itemname, variablename, value)
 
 Set the given variable of the given item to the value, and return the
@@ -380,19 +329,11 @@ value, or undef if setting failed.
 
 Each subclass must implement this method.
 
-=cut
-
-sub setvariable {}
-
 =head2 variables(itemname)
 
 Return the variables that exist for the item.
 
 Each subclass must implement this method.
-
-=cut
-
-sub variables {}
 
 =head1 AUTHOR
 

@@ -79,6 +79,14 @@ Copy all of configdb to backup.
 Copy slrn's data out of configdb, and into newdb. newdb is not defined in
 the rc file, so the --config switches set up the database on the fly.
 
+  debconf-copydb configdb pipe 
+  		--config=Name:pipe --config=Driver:Pipe </dev/null | \
+  	ssh remotehost debconf-copydb pipe configdb \
+		--config=Name:pipe --config=Driver:Pipe
+
+This uses the special purpose pipe driver to copy a database to a remote
+system.
+
 =head1 SEE ALSO
 
 L<debconf.conf(5)>
