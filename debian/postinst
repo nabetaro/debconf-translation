@@ -22,7 +22,7 @@ fi
 
 # Fix up broken db's before debconf starts up.
 if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
-   dpkg --compare-versions "$2" lt 0.9.80 && dpkg --compare-versions "$2" gt 0.9.00; then
+   dpkg --compare-versions "$2" lt 1.0.25; then
 	/usr/share/debconf/fix_db.pl
 fi
 

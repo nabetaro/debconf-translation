@@ -34,7 +34,6 @@ while (my $q=$qi->iterate) {
 # I had a report of a templates db that had templates that claimed to
 # be owned by their matching questions -- but the questions didn't exist!
 # Check for such a thing.
-
 foreach my $t (keys %templates) {
 	# Object has no owners method (not otherwise needed), so I'll do 
 	# some nasty grubbing.
@@ -44,11 +43,4 @@ foreach my $t (keys %templates) {
 			print STDERR "Warning: template \"$t\" claims to be used by nonexistant question \"$q\".\n";
 		}
 	}
-}
-
-# A bug in debconf between 0.5.x and 0.9.79 caused some shared templates
-# owners to not be registered. The fix is nasty; we have to load up all
-# templates belonging to all installed packages all over again.
-foreach my $templatefile (</var/lib/dpkg/status/*.templates>) {
-	print "t: $templatefile";
 }

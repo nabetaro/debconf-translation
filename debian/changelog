@@ -1,3 +1,18 @@
+debconf (1.0.25) unstable; urgency=medium
+
+  * The "bite the bullet" release.
+  * Enhanced fix_db.pl to detect and deal with every debconf db corruption
+    scenario that has been reported to me. Run it on upgrade from versions
+    prior to this one. I suspect that all instances of inconsistent and
+    corrupt debconf db's are due to past bugs in debconf and especially the
+    transition from the crufty old data::dumper db, and the "fix" for the
+    missing template problem, plus possibly some unclean shutdown problems.
+    So fix them all now, and either the problems go away for good or I prove
+    my theories wrong if they pop back up later. 
+  * Closes: #128707, #128265, #99786
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 11 Jan 2002 13:25:06 -0500
+
 debconf (1.0.24) unstable; urgency=low
 
   * Reverted the $Text::Wrap::break change from the last version, as that was
