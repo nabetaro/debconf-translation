@@ -1,3 +1,10 @@
+debconf (1.2.2) unstable; urgency=low
+
+  * Removed fileutils dep. Debconf's postinst has changed a lot and it is not
+    needed. Closes: #161421
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 18 Sep 2002 22:12:41 -0400
+
 debconf (1.2.1) unstable; urgency=low
 
   * Hmm, I wasn't aware that perl ran use's inside eval {} blocks at compile
