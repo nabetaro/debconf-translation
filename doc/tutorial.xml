@@ -782,9 +782,10 @@ CHOICES=$RET
 if [ "$OWNERS" != "$CHOICES" ]; then
 	db_subst shared/window-manager choices $OWNERS
 	db_fset shared/window-manager seen false
-	db_input medium shared/window-manager || true
-	db_go || true
 fi
+
+db_input medium shared/window-manager || true
+db_go || true
 	</programlisting>
       </para>
       <para>
