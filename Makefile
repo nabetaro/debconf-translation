@@ -40,7 +40,7 @@ install-rest:
 	$(MAKE) -C po install
 	install -d $(prefix)/etc \
 		$(prefix)/var/lib/debconf/config \
-		$(prefix)/var/lib/debconf/templates \
+		$(prefix)/var/cache/debconf/templates \
 		$(prefix)/usr/share/debconf/templates \
 		$(prefix)/usr/lib/debconf
 	# Make module directories.
