@@ -91,17 +91,28 @@ sub extended_description {
 =head2 choices
 
 Returns the choices field of this Question. This value is taken from the
-Template the Question is mapped to, and then any substitutions in the extended
-description are expanded. The result is assumede to be a comma-and space
-delimited list, which is then broken up and returned to you.
+Template the Question is mapped to, and then any substitutions in it
+are expanded.
 
 =cut
 
 sub choices {
 	my $this=shift;
 	
-	my @choices=split(/,\s+/, $this->_expand_vars($this->template->choices));
-	return \@choices;
+	return $this->_expand_vars($this->template->choices);
+}
+
+=head2 choices_split
+
+This takes the result of the choices method and simply splits it up into
+individual choices and returns them as a list.
+
+=cut
+
+sub choices_split {
+	my $this=shift;
+	
+	return split(/,\s+/, $this->choices);
 }
 
 =head2 variables

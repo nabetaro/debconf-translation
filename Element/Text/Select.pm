@@ -14,10 +14,10 @@ This lets the user pick from a number of values, using a plain text interface.
 
 package Debian::DebConf::Element::Text::Select;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element::Select;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element::Select);
 
 sub show {
 	my $this=shift;
@@ -30,7 +30,7 @@ sub show {
 	my $type=$this->question->type;
 	my $default=$this->question->value;
 	my $pdefault='';
-	my @choices=@{$this->question->choices};
+	my @choices=$this->question->choices_split;
 
 	# Output the list of choices, at the same time, generate
 	# a prompt with the full list in it.
@@ -73,7 +73,7 @@ sub show {
 			last;
 		}
 
-		my @choices=@{$this->question->choices};
+		my @choices=$this->question->choices_split;
 		if (defined $selectindfromlet{$_}) {
 			$value=$choices[$selectindfromlet{$_}]; 
 			last;

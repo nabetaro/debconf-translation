@@ -43,6 +43,21 @@ specify a value, and sets the value in the associated question.
 
 =cut
 
+sub show {}
+
+=head2 visible
+
+The question will determine if it wants to be shown. If so, it returns 1.
+
+=cut
+
+sub visible {
+	my $this=shift;
+
+	# Will be shown.
+	return 1;
+}
+
 # Set/get property.
 sub AUTOLOAD {
 	my $this=shift;

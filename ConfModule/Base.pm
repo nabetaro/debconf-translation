@@ -138,8 +138,7 @@ sub command_input {
 
 =head2 command_visible
 
-Figure out if a question would be displayed if we're told to display it.
-Simply asks my frontend what it would do.
+Figure out if a question would be displayed if we are told to display it.
 
 =cut
 
@@ -182,8 +181,8 @@ sub command_version {
 
 =head2 command_capb
 
-Sets the client_capb property of the ConfModule to the confmodule's
-capb string, and also sets the capb_backup property of the ConfModule's
+Sets the client_capb property of the ConfModule to the confmodules
+capb string, and also sets the capb_backup property of the ConfModules
 assosicated FrontEnd if the confmodule can backup. Sends the capb property
 of the ConfModule to the confmodule.
 
@@ -199,7 +198,7 @@ sub command_capb {
 
 =head2 title
 
-Stores the specified title in the associated FrontEnd's title property.
+Stores the specified title in the associated FrontEnds title property.
 
 =cut
 
@@ -249,7 +248,7 @@ sub command_get {
 
 =head2 command_set
 
-This must be passed a question name and a value. It sets the question's value.
+This must be passed a question name and a value. It sets the questions value.
 
 =cut
 
@@ -282,7 +281,7 @@ sub command_reset {
 =head2 command_subst
 
 This must be passed a question name, a key, and a value. It sets up variable
-substitutions on the question's description so all instances of the key
+substitutions on the questions description so all instances of the key
 (wrapped in "${}") are replaced with the value.
 
 =cut

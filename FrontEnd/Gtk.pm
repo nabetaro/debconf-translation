@@ -46,9 +46,9 @@ sub new {
 	$self->{interactive}=1;
 
 	# create the window. If display isn't set, this dies with 
-	# an untrappable error. So first tes that and exit sanely, so
+	# an untrappable error. So first test that and exit sanely, so
 	# it can be caught and fallbacks work.
-	die "No DISPLAY" if $ENV{DISPLAY} eq '';
+	Gtk->init_check() || return;
 	init Gtk;
 
 	my $window = new Gtk::Window('toplevel');

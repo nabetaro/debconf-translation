@@ -15,10 +15,10 @@ on it.
 
 package Debian::DebConf::Element::Dialog::Select;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element::Select;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element::Select);
 
 sub show {
 	my $this=shift;
@@ -43,7 +43,7 @@ sub show {
 
 	my $default=$this->question->value;
 	my @params=();
-	my @choices=@{$this->question->choices};
+	my @choices=$this->question->choices_split;
 		
 	# Figure out how many lines of the screen should be used to
 	# scroll the list. Look at how much free screen real estate
@@ -72,7 +72,7 @@ sub show {
 
 	exit $ret if $ret != 0;
 
-	@choices=@{$this->question->choices};
+	@choices=$this->question->choices_split;
 	$value=$choices[$value];
 
 	$this->question->value($value);

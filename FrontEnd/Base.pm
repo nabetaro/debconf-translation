@@ -11,7 +11,7 @@ Debian::DebConf::FrontEnd::Base - base FrontEnd
 This is the base of the FrontEnd class. Each FrontEnd presents a
 user interface of some kind to the user, and handles generating and
 communicating with Elements to form that FrontEnd. (It so happens that
-FrontEnd/Base.pm is a usable non-interactive FrontEnd -- it doesn't
+FrontEnd/Base.pm is a usable non-interactive FrontEnd -- it does not
 display any questions or anything else to the user. This may be useful
 in some obscure situations.)
 
@@ -71,40 +71,37 @@ sub add {
 	my $question=shift || die "\$question is undefined";
 	my $priority=shift;
 
-	print STDERR "Might display a question now.\n" if $ENV{DEBCONF_DEBUG};
-
-	return unless $this->visible($question, $priority);
-
-	print STDERR "Will display a question now.\n" if $ENV{DEBCONF_DEBUG};
-
-	# Pass in the frontend to use as well, some elements need it.
-	push @{$this->{elements}}, $this->makeelement($question);
+	my $element=$this->visible($question, $priority);
+	push @{$this->{elements}}, $element if $element;
 }
 
-=head2 visible
+=head2
 
-Pass a question and a priority. Returns true if the question would be shown
-to the user if the frontend is told to show it.
+Pass this a question and a priority, it determines if the question is visible.
+If so, it returns an input element to use to ask the question.
 
 =cut
 
 sub visible {
 	my $this=shift;
-	my $question=shift;
+	my $question=shift || die "\$question is undefined";
 	my $priority=shift;
-
-	# Noninteractive FrontEnds never show anyything.
+	
+	# Noninteractive frontends never show anything.
 	return '' if ! $this->interactive;
-
+	
 	# Skip items are unimportant.
 	return '' unless Debian::DebConf::Priority::high_enough($priority);
-
-	# Set showold to make it ask even default questions.
+	
+	# Set showold to ask even default questions.
 	return '' if Debian::DebConf::Config::showold() eq 'false' &&
-		     $question->flag_isdefault eq 'false';
-
-	# It will be shown.
-	return 1
+		$question->flag_isdefault eq 'false';
+	
+	# Create an input element and ask it.
+	my $element=$this->makeelement($question);
+	return unless $element->visible;
+	
+	return $element;
 }
 
 =head2 go

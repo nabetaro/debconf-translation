@@ -17,10 +17,10 @@ pick from a list of valid choices.
 package Debian::DebConf::Element::Gtk::Select;
 use Gtk;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element::Select;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element::Select);
 
 sub show {
 	my $self = shift;
@@ -55,7 +55,7 @@ sub radio {
 	my ($self, $vbox) = @_;
 	my $radio;
 
-	foreach my $opt (@{$self->question->choices}) {
+	foreach my $opt ($self->question->choices_split) {
 		if ($radio) {
 			$radio = new Gtk::RadioButton($opt, $radio);
 		} else {
@@ -81,7 +81,7 @@ sub dropdown {
 	my $n = 0;
 	my $hist;
 
-	foreach my $opt (@{$self->question->choices}) {
+	foreach my $opt ($self->question->choices_split) {
 		$menuitem = new Gtk::RadioMenuItem($opt, $menuitem);
 		$menu->append($menuitem);
 		$menuitem->signal_connect("toggle",

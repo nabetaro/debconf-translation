@@ -18,10 +18,10 @@ This element handles a select box on a web form.
 
 package Debian::DebConf::Element::Web::Select;
 use strict;
-use Debian::DebConf::Element::Base;
+use Debian::DebConf::Element::Select;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Base);
+@ISA=qw(Debian::DebConf::Element::Select);
 
 =head2 show
 
@@ -40,7 +40,7 @@ sub show {
 	my $id=$this->id;
 	$_.="<b>".$this->question->description."</b>\n<select name=\"$id\">\n";
 	my $c=0;
-	foreach my $x (@{$this->question->choices}) {
+	foreach my $x ($this->question->choices_split) {
 		if ($x ne $default) {
 			$_.="<option value=".$c++.">$x\n";
 		}
@@ -55,7 +55,7 @@ sub show {
 
 =head2 set
 
-This gets called once the user has entered a value. It's passed the
+This gets called once the user has entered a value. It is passed the
 value they entered. It saves the value in the associated Question.
 
 =cut
@@ -64,7 +64,7 @@ sub set {
 	my $this=shift;
 	my $value=shift;
 
-	my @choices=@{$this->question->choices};
+	my @choices=$this->question->choices_split;
 	$value=$choices[$value];
 
 	$this->question->value($value);

@@ -1,3 +1,12 @@
+debconf (0.1.54) unstable; urgency=low
+
+  * Gtk frontend can use the newest gtk-perl to test whether opening the
+    display will work. Closes: #46736
+  * metaget'ing choices now returns a list. Fixes the other half of #46606.
+  * Select boxes that consist of one item are not displayed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed,  6 Oct 1999 11:21:01 -0700
+
 debconf (0.1.53) unstable; urgency=low
 
   * Corrected db_text command in confmodule.sh, Closes: #46640
