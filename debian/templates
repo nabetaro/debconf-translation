@@ -1,15 +1,16 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Web, Noninteractive
-Default: Dialog
+Choices: Slang, Dialog, Text, Web, Noninteractive
+Default: Slang
 Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
  .
- The dialog frontend provides a full-screen, character based interface using
- the ncurses library, while the text frontend uses a more traditional plain
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
  text interface. The web frontend can be accessed using your favorite
- browser. The noninteractive frontend never asks you any questions.
+ browser. The noninteractive frontend never asks you any questions, but may
+ mail you important notes.
 
 Template: debconf/priority
 Type: select
@@ -52,3 +53,14 @@ Description: Show all old questions again and again?
  .
  Note that no matter what you choose here, you can see old questions again by
  using the dpkg-reconfigure program.
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-freatured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now.
+

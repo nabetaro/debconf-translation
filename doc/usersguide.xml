@@ -72,8 +72,9 @@
         bug list</ulink> before filing a bug. You might also try the latest
         version of debconf in
         <ulink url="http://www.debian.org/devel/incoming_mirrors">Incoming</ulink>,
-        as I have often seen and fixed the bug before you have. Please try to
-        keep my workload down by not filing duplicate bug reports.
+        as I have often seen and fixed the bug before you encounter it.
+	Please try to keep my workload down by not filing duplicate bug
+	reports.
       </para>
       <para>
         If you do file a bug report, tell me the 
@@ -144,12 +145,18 @@
 	</thead>
 	<tbody>
 	  <row>
+	    <entry>slang</entry>
+	    <entry>
+	      The default frontend, this is based on the Slang toolkit. It
+	      presents a full-featured GUI (in text mode).
+	    </entry>
 	    <entry>dialog</entry>
 	    <entry>
-	      The default frontend, this uses the
+	      This uses the
 	      <command>whiptail</command> or <command>dialog</command>
-	      programs to display questions to you. It works in text mode,
-	      though it may be a little slow over slow dialup commections.
+	      programs to display questions to you. It works in text mode.
+	      There is little reason to use this frontend, the slang
+	      frontend is better in most ways. 
 	    </entry>
 	  </row>
 	  <row>
