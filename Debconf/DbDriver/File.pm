@@ -121,9 +121,11 @@ sub savedb {
 	sysopen(my $fh, $this->{filename},
 			O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or
 		$this->error("could not write $this->{filename}: $!");		
+	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
 		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
 	}
+	$this->{format}->endfile;
 	close $fh;
 	return 1;
 }

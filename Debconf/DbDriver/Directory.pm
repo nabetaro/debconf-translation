@@ -142,7 +142,9 @@ sub save {
 	else {
 		open($fh, ">$file") or $this->error("$file: $!");
 	}
+	$this->{format}->beginfile;
 	$this->{format}->write($fh, $data, $item);
+	$this->{format}->endfile;
 	close $fh;
 }
 
