@@ -113,7 +113,7 @@ sub makeelement {
 	}
 	my $type=$frontend_type.'::'.ucfirst($question->template->type);
 
-	debug 2, "Trying to make element of type $type";
+	debug 2, "Trying to make element of type $type for $frontend_type";
 	my $element=eval qq{
 		use Debian::DebConf::Element::$type;
 		Debian::DebConf::Element::$type->new(

@@ -15,7 +15,6 @@ This FrontEnd is a Slang UI for DebConf.
 package Debian::DebConf::FrontEnd::Slang;
 use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
-use Term::Stool;
 use Term::Stool::Screen;
 use Term::Stool::Window;
 use Term::Stool::TitleBar;
@@ -287,7 +286,7 @@ Reset the screen on shutdown.
 sub shutdown {
 	my $this=shift;
 
-	$this->screen->reset;
+	$this->screen->reset if $this->screen;
 }
 
 =head1 AUTHOR
