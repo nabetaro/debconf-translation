@@ -170,6 +170,9 @@ unless (open(INFO, "-|")) {
 # the user watches their ui lock up until it scans all the way to the last..
 # Blowing a bit of memory on abuffer seems like a saner approach.
 my @buffer=<INFO>;
+if (@buffer) {
+	print "Preconfiguring packages ..\n";
+}
 foreach (@buffer) {
 	($package, $version, $template, $config)=split ' ';
 	
