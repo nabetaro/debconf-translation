@@ -46,7 +46,7 @@ sub new {
 	return $self;
 }
 
-=head2 resize
+=head2 screenwidth
 
 This method from my base class is overridden, so after the screen width
 changes, $Text::Wrap::columns is updated to match.
