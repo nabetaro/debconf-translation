@@ -13,8 +13,8 @@ This FrontEnd is a Slang UI for DebConf.
 =cut
 
 package Debian::DebConf::FrontEnd::Slang;
-use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
+#use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use Debian::DebConf::Config;
 use Term::Stool::Screen;
 use Term::Stool::Window;
