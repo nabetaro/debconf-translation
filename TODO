@@ -8,6 +8,9 @@ General:
   if low priority questions are asked.
 * The debian package needs to have the examples working or removed. Right
   now, they don't really work if used from an installed .deb.
+* When dpkg-preconfig is run, it still dumps out dups of the templates, in 2
+  places. The crazy thing is, this only seems to happen if you run it in an
+  already-installed package. Running it from the source tree doesn't do this.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which

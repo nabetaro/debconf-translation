@@ -8,6 +8,7 @@
 my $dbfn="/var/lib/debconf/debconf.db";
 
 use strict;
+use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::FrontEnd::Line;
 use Debian::DebConf::FrontEnd::Dialog;
