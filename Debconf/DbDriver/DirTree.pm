@@ -15,7 +15,8 @@ use base 'Debconf::DbDriver::Directory';
 
 This is an extention to the Directory driver that uses a deeper directory
 tree. I find such a tree easier to navigate, and it will also scale better
-for huge databases.
+for huge databases on ext2. It does use a little more disk space/inodes
+though.
 
 =head1 FIELDS
 
