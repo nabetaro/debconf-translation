@@ -69,8 +69,10 @@ module is loaded in the usual way.
 =cut
 
 sub import {
-	exec "/usr/share/debconf/frontend", $0, @ARGV
-		unless $ENV{DEBIAN_HAS_FRONTEND};
+	if (! $ENV{DEBIAN_HAS_FRONTEND}) {
+		$ENV{PERL_DL_NONLAZY}=1;
+		exec "/usr/share/debconf/frontend", $0, @ARGV;
+	}
 
 	# Make the Exporter still work.
 	Debconf::Client::ConfModule->export_to_level(1, @_);

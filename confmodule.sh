@@ -9,6 +9,8 @@
 
 # Check to see if a FrontEnd is running.
 if [ ! "$DEBIAN_HAS_FRONTEND" ]; then
+	PERL_DL_NONLAZY=1
+	export PERL_DL_NONLAZY
 	# Ok, this is pretty crazy. Since there is no FrontEnd, this
 	# program execs a FrontEnd. It will then run a new copy of $0 that
 	# can talk to it.

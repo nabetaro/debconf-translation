@@ -90,6 +90,7 @@ _frontEndProgram = '/usr/share/debconf/frontend'
 
 def runFrontEnd():
     if not os.environ.has_key('DEBIAN_HAS_FRONTEND'):
+        os.environ['PERL_DL_NONLAZY']='1'
         os.execv(_frontEndProgram, [_frontEndProgram, sys.executable]+sys.argv)
 
 

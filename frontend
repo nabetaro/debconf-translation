@@ -47,6 +47,9 @@ elsif (-e "/var/lib/dpkg/tmp.ci/control") {
 		}
 	}
 	close CONTROL;
+	if (! exists $ENV{PERL_DL_NONLAZY} || ! $ENV{PERL_DL_NONLAZY}) {
+		warn "PERL_DL_NONLAZY is not set, if debconf is running from a preinst script, this is not safe";
+	}
 }
 else {
 	# Being run some other way, not via a dpkg script.

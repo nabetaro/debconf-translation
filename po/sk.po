@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-19 15:43+0100\n"
+"POT-Creation-Date: 2004-11-03 14:50-0500\n"
 "PO-Revision-Date: 2004-11-02 08:25+0100\n"
 "Last-Translator: Peter KLFMANiK Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -48,8 +48,8 @@ msgstr "Debconf na %s"
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Poznámka: Debconf je spustený vo web re¾ime. Pozrite sa na "
-"http://localhost:%i/"
+"Poznámka: Debconf je spustený vo web re¾ime. Pozrite sa na http://localhost:%"
+"i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -76,16 +76,16 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Dialógové rozhranie nebude funkèné na jednoduchom termináli, shellovom bufferi "
-"emacsu, alebo bez riadiaceho terminálu."
+"Dialógové rozhranie nebude funkèné na jednoduchom termináli, shellovom "
+"bufferi emacsu, alebo bez riadiaceho terminálu."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Nie je nain¹talovaný ¾iaden dialógový program, tak¾e dialógové rozhranie "
-"sa nedá pou¾i»."
+"Nie je nain¹talovaný ¾iaden dialógový program, tak¾e dialógové rozhranie sa "
+"nedá pou¾i»."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
@@ -121,33 +121,33 @@ msgstr "nedá sa inicializova» rozhranie: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Nedá sa spusti» rozhranie: %s"
 
-#: ../Debconf/Config.pm:127
+#: ../Debconf/Config.pm:128
 msgid "Config database not specified in config file."
 msgstr "Databáza nastavení nie je zadaná v konfiguraènom súbore."
 
-#: ../Debconf/Config.pm:131
+#: ../Debconf/Config.pm:132
 msgid "Template database not specified in config file."
 msgstr "Databáza ¹ablón nie je zadaná v konfiguraènom súbore."
 
-#: ../Debconf/Config.pm:136
+#: ../Debconf/Config.pm:137
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Voµby Sigils a Smileys sa u¾ v konfiguraènom súbore nepou¾ívajú. "
-"Odstráòte ich, prosím."
+"Voµby Sigils a Smileys sa u¾ v konfiguraènom súbore nepou¾ívajú. Odstráòte "
+"ich, prosím."
 
-#: ../Debconf/Config.pm:147
+#: ../Debconf/Config.pm:148
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problém nastavenia databázy definovanej v èasti %s z %s."
 
-#: ../Debconf/Config.pm:276
+#: ../Debconf/Config.pm:277
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ignoruje sa neplatná priorita \"%s\""
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:278
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Dostupné priority sú: %s"
@@ -167,8 +167,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"©ablóna è.%s v %s má duplicitné pole \"%s\" s novou hodnotou \"%s\". "
-"Nejaké dve ¹ablóny pravdepodobne nie sú oddelené prázdnym riadkom.\n"
+"©ablóna è.%s v %s má duplicitné pole \"%s\" s novou hodnotou \"%s\". Nejaké "
+"dve ¹ablóny pravdepodobne nie sú oddelené prázdnym riadkom.\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
@@ -273,8 +273,8 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Vstupná hodnota \"%s\" nie je v C mo¾nostiach! To by sa nikdy nemalo "
-"sta». Mo¾no sú ¹ablóny chybne lokalizované."
+"Vstupná hodnota \"%s\" nie je v C mo¾nostiach! To by sa nikdy nemalo sta». "
+"Mo¾no sú ¹ablóny chybne lokalizované."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

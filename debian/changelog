@@ -1,5 +1,15 @@
-debconf (1.4.40) UNRELEASED; urgency=low
+debconf (1.4.40) unstable; urgency=low
 
+  * Joey Hess
+    - Force PERL_DL_NONLAZY=1 in confmodule, confmodule.sh, debconf.py, and
+      Debconf::Client::ConfModule to avoid bad behavior of the dynamic linker
+      when Text::Iconv is loaded but its symbols have not really been
+      resolved. This caused debconf to be killed with a relocation error
+      in certian upgrades from woody involving packages that use debconf in
+      their preinst. Closes: #278417 Thanks to Andrew Suffield and Branden
+      Robinson for analysis.
+    - Add check in frontend and debug message if PERL_DL_NONLAZY is not set
+      to 1 when it's run from a preinst, in case I missed other entry points.
   * Colin Watson
     - Set the seen flag on questions asked in the noninteractive frontend if
       DEBCONF_NONINTERACTIVE_SEEN is set to true. This allows debootstrap to
@@ -11,7 +21,7 @@ debconf (1.4.40) UNRELEASED; urgency=low
     - Simplified Chinese added (programs). Closes: #277470
     - Slovak translation added (programs and debconf). Closes: #279299
 
- -- Christian Perrier <bubulle@debian.org>  Tue,  2 Nov 2004 09:53:02 +0100
+ -- Joey Hess <joeyh@debian.org>  Wed,  3 Nov 2004 14:20:39 -0500
 
 debconf (1.4.39) unstable; urgency=low
 
