@@ -328,7 +328,7 @@ sub stringify {
 =head2 AUTOLOAD
 
 Creates and calls accessor methods to handle fields.
-This supports internationalization, but not lvalues.
+This supports internationalization.
 It pulls data out of the backend db.
 
 =cut

@@ -653,21 +653,19 @@ sub command_exist {
 
 =item AUTOLOAD
 
-Handles storing and loading fields, with lvalue support.
+Handles storing and loading fields.
 
 =cut
 
-sub AUTOLOAD : lvalue {
+sub AUTOLOAD {
 	(my $field = our $AUTOLOAD) =~ s/.*://;
 
 	no strict 'refs';
-	*$AUTOLOAD = sub : lvalue {
+	*$AUTOLOAD = sub {
 		my $this=shift;
 		
-		$this->{$field}=shift if @_;
-		# Ensure lvalue calls work the first time through (grr).
-		$this->{$field}=undef unless exists $this->{$field};
-		$this->{$field};
+		return $this->{$field} unless @_;
+		return $this->{$field}=shift;
 	};
 	goto &$AUTOLOAD;
 }

@@ -67,7 +67,7 @@ sub fields {
 =head2 AUTOLOAD
 
 Creates and calls accessor methods to handle fields. 
-This supports internationalization, but not lvalues.
+This supports internationalization.
 
 =cut
 

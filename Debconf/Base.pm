@@ -51,21 +51,19 @@ sub init {}
 =item AUTOLOAD
 
 Handles all fields, by creating accessor methods for them the first time
-they are accessed. Lvalue is supported.
+they are accessed.
 
 =cut
 
-sub AUTOLOAD : lvalue {
+sub AUTOLOAD {
 	(my $field = our $AUTOLOAD) =~ s/.*://;
 
 	no strict 'refs';
-	*$AUTOLOAD = sub : lvalue {
+	*$AUTOLOAD = sub {
 		my $this=shift;
 
-		$this->{$field}=shift if @_;
-		# Ensure lvalue calls work the first time through (grr).
-		$this->{$field}=undef unless exists $this->{$field};
-		$this->{$field};
+		return $this->{$field} unless @_;
+		return $this->{$field}=shift;
 	};
 	goto &$AUTOLOAD;
 }
