@@ -8,6 +8,7 @@ Debconf::Template::Persistent - Template object with persistence.
 
 package Debconf::Template::Persistent;
 use strict;
+use Debconf::Question;
 use Debconf::Db;
 use base 'Debconf::Template';
 
@@ -56,9 +57,8 @@ sub new {
 	$this->{template}=$template;
 	# Create a question in the db to go with it.
 	unless ($Debconf::Db::config->exists($template)) {
-		return unless $Debconf::Db::config->addowner($template, $owner);
-		# The question has this template as its template.
-		return unless $Debconf::Db::config->setfield($template, "template", $template);
+		my $q=Debconf::Question->new($template, $owner);
+		$q->template($template);
 	}
 	# This is what actually creates the template in the db.
 	return unless $Debconf::Db::templates->addowner($template, $template);
