@@ -87,7 +87,7 @@ Debconf::Db->load;
 
 my $apt=0;
 Debconf::Config->getopt(
-qq{Usage: dpkg-reconfigure [options] [debs]
+qq{Usage: dpkg-preconfigure [options] [debs]
        --apt			Apt mode.},
 	"apt"			=> \$apt,
 );
