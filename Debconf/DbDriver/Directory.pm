@@ -44,6 +44,8 @@ be specified.
 
 =back
 
+=head1 METHODS
+
 =cut
 
 use fields qw(directory extention lock format);
@@ -101,7 +103,7 @@ sub load {
 
 	return unless $this->accept($item);
 	debug "DbDriver $this->{name}" => "loading $item";
-	my $file=$this->filename($item);
+	my $file=$this->{directory}.'/'.$this->filename($item);
 	return unless -e $file;
 
 	my $fh=IO::File->new;
@@ -128,7 +130,7 @@ sub save {
 	return if $this->{readonly};
 	debug "DbDriver $this->{name}" => "saving $item";
 	
-	my $file=$this->filename($item);
+	my $file=$this->{directory}.'/'.$this->filename($item);
 
 	# Write out passwords mode 600.
 	my $fh=IO::File->new;
@@ -145,7 +147,7 @@ sub save {
 
 =head2 filename(itemname)
 
-Converts the item name into a filename.
+Converts the item name into a filename. (Minus the base directory.)
 
 =cut
 
@@ -153,7 +155,7 @@ sub filename {
 	my $this=shift;
 	my $item=shift;
 	$item =~ tr#/#:#;
-	return $this->{directory}."/$item".$this->{extention};
+	return $item.$this->{extention};
 }
 
 =head2 iterator
@@ -176,7 +178,7 @@ sub iterator {
 			$ret=readdir($handle);
 			closedir($handle) if not defined $ret;
 			next if $ret eq '.lock'; # ignore lock file
-		} while defined $ret and -d $this->filename($ret);
+		} while defined $ret and -d $this->{directory}.'/'.$this->filename($ret);
 		$ret=~tr#:#/#;
 		return $ret;
 	});
@@ -200,7 +202,7 @@ sub exists {
 	my $incache=$this->SUPER::exists($name);
 	return $incache if (!defined $incache or $incache);
 
-	return -e $this->filename($name);
+	return -e $this->{directory}.'/'.$this->filename($name);
 }
 
 =head2 remove(itemname)
@@ -215,7 +217,7 @@ sub remove {
 
 	return if $this->{readonly} or not $this->accept($name);
 	debug "DbDriver $this->{name}" => "removing $name";
-	my $file=$this->filename($name);
+	my $file=$this->{directory}.'/'.$this->filename($name);
 	unlink $file or return undef;
 }
 
