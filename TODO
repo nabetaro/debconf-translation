@@ -8,13 +8,10 @@ To Do Before Release:
   SIGCHLD handling?
 
 General:
-* Internals have changed in 0.1.5 and need to be redocumented.
-* Make messages really be saved to root's mailbox. (What about messages
-  they've already seen?)
+* Element/* needs to be POD documented.
+* Make messages really be saved to root's mailbox.
 * Proper backend database, but that's a whole other ball of wax.
 * Other frontends.
-* Need a good simple way for a developer to run a .config script w/o
-  building a whole package, for testing. Adapt test.pl?
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be nice to have.
 

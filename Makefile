@@ -15,6 +15,11 @@ install: clean
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	find Client ConfModule Element FrontEnd -type f | grep .pm\$$ | \
 	xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
+	install -d $(prefix)/etc/
+	rm -f $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
+	cp $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
+		$(prefix)/etc/debconf.cfg
+	# Should be a link here to Config.pm, debian/rules does it w/dh_link.	
 	mv $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
 		$(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 	install -m 0644 Client/confmodule.sh $(prefix)/usr/share/debconf/

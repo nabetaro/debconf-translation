@@ -19,6 +19,7 @@ install:
 	dh_clean -k
 	dh_installdirs
 	$(MAKE) prefix=debian/tmp install
+	dh_link /etc/debconf.cfg /usr/lib/perl5/Debian/DebConf/Config.pm
 
 # Build architecture-independent files here.
 binary-indep: build install

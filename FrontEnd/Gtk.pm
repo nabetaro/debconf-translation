@@ -29,6 +29,14 @@ use Gtk::Atoms;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd::Base);
 
+my @debianlogo_xpm=();
+while (<DATA>) {
+	chomp;
+	push @debianlogo_xpm, $_
+}	
+
+print $debianlogo_xpm[10];
+
 use strict;
 
 =head2 new

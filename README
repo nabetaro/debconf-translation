@@ -5,10 +5,13 @@ Gtk frontend requires libgtk-perl.)
 
 make test FRONTEND=Dialog PACKAGE=demo
 make test FRONTEND=Line PACKAGE=demo
+make test FRONTEND=Gtk PACKAGE=demo
 make test FRONTEND=Dialog PACKAGE=cvs
 make test FRONTEND=Line PACKAGE=cvs
+make test FRONTEND=Gtk PACKAGE=cvs
 make test FRONTEND=Dialog PACKAGE=exim
 make test FRONTEND=Line PACKAGE=exim
+make test FRONTEND=Gtk PACKAGE=exim
 
 The cvs demo is actually skipping some questions of low priority. To see
 them, try:

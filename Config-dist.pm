@@ -1,4 +1,4 @@
-# This package hold configuration values for debconf.
+# This package holds configuration values for debconf.
 # This is the version used after install.
 package Debian::DebConf::Config;
 

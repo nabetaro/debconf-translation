@@ -1,6 +1,8 @@
 debconf (0.1.13) unstable; urgency=low
 
   * Gtk::FrontEnd now has the xpm it uses inlined into the file.
+  * /etc/debconf.cfg now holds configurable debconf settings. Config.pm is
+    just a link to it now.
 
  -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 18:54:53 -0700
 
