@@ -17,6 +17,11 @@ if [ "$RET" = "true" ]; then
 	fi
 fi
 
+# Kill accidential db cruft.
+if [ "$1" = upgrade ] && dpkg --compare-versions "$2" lt 0.5.49; then
+	db_unregister foo/bar
+fi
+
 # Make sure the directory has safe permissions.
 chmod 700 /var/lib/debconf
 
