@@ -29,7 +29,7 @@ our $charmap;
 BEGIN {
 	# This module is not part of the base system, so don't demand it.
 	no warnings;
-	eval {use Text::Iconv};
+	eval "use Text::Iconv";
 	use warnings;
 	if (! $@) {
 		# I18N::Langinfo is not even in Debian as I write this, so

@@ -1,3 +1,11 @@
+debconf (1.2.1) unstable; urgency=low
+
+  * Hmm, I wasn't aware that perl ran use's inside eval {} blocks at compile
+    time. Use quotes instead. Closes: #161308, #161273
+  * Updated ja.po from Junichi Uekawa.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 18 Sep 2002 11:26:08 -0400
+
 debconf (1.2.0) unstable; urgency=low
 
   * Added support for encoding specification in translated templates. Use

@@ -1,17 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Keita Maehara <maehara@debian.org>
+# Junichi Uekawa <dancer@debian.org>, 2002
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-09-17 13:12-0400\n"
-"PO-Revision-Date: 2000-09-28 22:30+0900\n"
-"Last-Translator: Keita Maehara <maehara@debian.org>\n"
+"Project-Id-Version: debconf\n"
+"POT-Creation-Date: 2002-09-18 11:23-0400\n"
+"PO-Revision-Date: 2002-09-18 12:50+0900\n"
+"Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=euc-jp\n"
+"Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
@@ -40,47 +39,43 @@ msgid "no"
 msgstr "いいえ"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
 msgid "Save (mail) Note"
-msgstr "注意を保存する"
+msgstr "注意を保存(メール)する"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
 #: ../Debconf/Element/Gnome/Note.pm:50
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "この注意は root にメールされました。"
+msgstr "この注意はメールされました。"
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
+"この注意を表示するようには設定されていないので、debconf があなたにメールを送"
+"りました。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:83
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf"
+msgstr "Debconf, %s にて実行"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "上記以外"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
@@ -100,22 +95,25 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
+msgstr "TERMが設定されていません，dialogフロントエンドを利用する事はできません"
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr ""
+msgstr "Dialogフロントエンドはemacsのシェルバッファと互換性がありません"
 
 #: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"Dialogフロントエンドはダムターミナル，emacsのシェルバッファ，もしくはユーザが"
+"制御しているターミナルではない場合には動きません."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Dialogフロントエンドはすくなくとも13行あり，幅31文字ある画面を必要とします．"
 
 #: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
@@ -155,13 +153,13 @@ msgstr ""
 "値をシステムの設定に利用します。"
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "%s のDebconf"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr ""
+msgstr "このフロントエンドはユーザが操作しているttyを必要とします"
 
 #: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
@@ -183,12 +181,12 @@ msgid "Next"
 msgstr "次へ"
 
 #: ../Debconf/AutoSelect.pm:75
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "フロントエンドの初期化に失敗しました: %s"
+msgstr "フロントエンドをフォールバックします: %s"
 
 #: ../Debconf/AutoSelect.pm:83
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
@@ -199,16 +197,16 @@ msgstr "フロントエンドの起動ができませんでした: %s"
 
 #: ../Debconf/Config.pm:122
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "設定データベースが設定ファイルで指定されていません"
 
 #: ../Debconf/Config.pm:126
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "テンプレートデータベースが設定ファイルで指定されていません"
 
 #: ../Debconf/FrontEnd.pm:137
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
+msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
@@ -221,6 +219,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"警告： データベースが破壊されている可能性があります．たりない質問 %s を追加す"
+"ることにより修正しようと試みます．"
 
 #: ../Debconf/Template.pm:196
 #, c-format
@@ -228,34 +228,39 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
+" %2$s のテンプレート #%1$s  に，新しい値 \"%4$s\" を \"%3$s\" のフィールドに"
+"重複してあります．二つのテンプレートが一つの改行により正しく分割されていない"
+"のかもしれません．\n"
 
 #: ../Debconf/Template.pm:221
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+msgstr "不明なテンプレートフィールド '%1$s' が %3$s の #%2$s にあります\n"
 
 #: ../Debconf/Template.pm:247
-#, fuzzy, c-format
+#, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+msgstr ""
+"%3$s のスタンザ %2$s で， `%1$s' 付近でテンプレートの解析に失敗しました\n"
 
 #: ../Debconf/Template.pm:253
-#, fuzzy, c-format
+#, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "テンプレートに `Template:' 行がありません"
+msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"
 
 #: ../dpkg-preconfigure:113
-#, fuzzy, c-format
+#, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: 標準入力を再オープンできません: %s"
+msgstr "標準入力を再オープンできません: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "preconfigureするdebファイルを指定してください"
 
 #: ../dpkg-preconfigure:131
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
+"apt-utilsがインストールされていないため，パッケージの設定を遅らせます．"
 
 #: ../dpkg-preconfigure:189
 #, c-format
@@ -268,18 +273,18 @@ msgid "debconf: can't chmod: %s"
 msgstr "chmod できません: %s"
 
 #: ../dpkg-preconfigure:213
-#, fuzzy, c-format
+#, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s は終了コード %s で設定に失敗しました。"
+msgstr "%s は終了コード %s で前設定に失敗しました。"
 
 #: ../dpkg-reconfigure:97
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "root で実行する必要があります"
+msgstr "%s は root で実行する必要があります"
 
 #: ../dpkg-reconfigure:125
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "再設定するパッケージを指定してください．"
 
 #: ../dpkg-reconfigure:144
 #, c-format
@@ -294,32 +299,32 @@ msgstr "ステータスファイルを読み込めません: %s"
 #: ../debconf-mergetemplate:114
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "%s がありません"
 
 #: ../debconf-mergetemplate:118
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "%s がありません．%s を無視します"
 
 #: ../debconf-mergetemplate:141
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s は %s バイトでファジーです： %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s は %s バイトでファジーです: %s; 無視します"
 
 #: ../debconf-mergetemplate:163
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s は完全にインストールされていません"
+msgstr "%s の翻訳は古いです"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
+msgstr "%s は古いです； 全テンプレートを無視します！"
 
 #, fuzzy
 #~ msgid "Debconf was asked to save this "
