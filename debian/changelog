@@ -1,4 +1,4 @@
-debconf (1.0.29) unstable; urgency=low
+debconf (1.0.30) unstable; urgency=low
 
   * Matthew Palmer <mjp16@ieee.uow.edu.au> contributed a LDAP backend
     database for debconf. This will open up all kinds of new possiilities
@@ -11,11 +11,15 @@ debconf (1.0.29) unstable; urgency=low
   * Minor change to debconf-mergetemplate man page synopsis.
   * Refuse to use the dialog frontend if the screen is too small,
     it'll fall back to the text frontend which will work on screens
-    down to about 2 lines of 20 characters each. I want a pager with ssh.
-    Closes: #132972
+    down to about 2 lines of 20 characters each. Closes: #132972
   * Fixed typo, Closes: #134161
   * Patch from Denis Barbier <barbier@debian.org> to make debconf-getlang
     work better with ll_LL form languages. Closes: #134307
+  * Display choices for boolean questions in the editor frontend, 
+    Closes: #135078
+  * Improved the section in the tutorial on translations. Patch from Denis
+    Barbier. Closes: #96836
+  * Added a new Russian template from Ilgiz Kalmetev, Closes: #135839
 
  -- Joey Hess <joeyh@debian.org>  Tue,  5 Feb 2002 20:37:19 -0500
 

@@ -27,6 +27,7 @@ sub show {
 	my $this=shift;
 
 	$this->frontend->comment($this->question->extended_description."\n\n".
+		"(".gettext("Choices").": ".join(", ", gettext("yes"), gettext("no")).")\n".
 		$this->question->description."\n");
 
 	my $default='';

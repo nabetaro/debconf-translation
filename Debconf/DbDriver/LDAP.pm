@@ -69,16 +69,14 @@ use fields qw(server port basedn binddn bindpasswd exists);
 
 =head1 METHODS
 
-=head2 init
+=head2 binddb
 
-On initialization, connect to the directory, read all of the debconf data
-into the cache, and close off the connection again.
+Connect to the LDAP server, and bind to the DN. Retuns a Net::LDAP object.
 
 =cut
 
-sub init
-{
-	my $this = shift;
+sub binddb {
+	my $this=shift;
 
 	# Check for required options
 	$this->error("No server specified") unless exists $this->{server};
@@ -94,8 +92,8 @@ sub init
 	# Whee, LDAP away!  Net::LDAP tells us about all these methods.
 	my $ds = Net::LDAP->new($this->{server}, port => $this->{port});
 
-	my $rv = "";
 	# Check for anon bind
+	my $rv = "";
 	if (!($this->{binddn} && $this->{bindpasswd})) {
 		debug "db $this->{name}" => "binding anonymously; hope that's OK";
 		$rv = $ds->bind;
@@ -106,10 +104,25 @@ sub init
 	if ($rv->code) {
 		$this->error("Bind Failed: ".$rv->error);
 	}
+	
+	return $ds;
+}
+
+=head2 init
+
+On initialization, connect to the directory, read all of the debconf data
+into the cache, and close off the connection again.
+
+=cut
+
+sub init {
+	my $this = shift;
+
 	$this->SUPER::init(@_);
 	
 	debug "db $this->{name}" => "getting database data";
-	
+	my $ds=$this->binddb;
+	return unless $ds;
 	my $data = $ds->search(base => $this->{basedn}, sizelimit => 0, timelimit => 0, filter => "(objectclass=debconfDbEntry)");
 	if ($data->code) {
 		$this->error("Search failed: ".$data->error);
@@ -189,33 +202,8 @@ sub shutdown
 		return 1;
 	}
 	
-	# Check for required options
-	$this->error("No server specified") unless exists $this->{server};
-	$this->error("No Base DN specified") unless exists $this->{basedn};
-	
-	# Set up other defaults
-	$this->{binddn} = "" unless exists $this->{binddn};
-	# XXX This will need to handle SSL when we support it
-	$this->{port} = 389 unless exists $this->{port};
-	
-	debug "db $this->{name}" => "talking to $this->{server}, data under $this->{basedn}";
-
-	# Whee, LDAP away!  Net::LDAP tells us about all these methods.
-	my $ds = Net::LDAP->new($this->{server}, port => $this->{port});
-	
-	my $rv = "";
-	# Check for anon bind
-	if (!($this->{binddn} && $this->{bindpasswd})) {
-		debug "db $this->{name}" => "binding anonymously; hope that's OK";
-		$rv = $ds->bind;
-	} else {
-		debug "db $this->{name}" => "binding as $this->{binddn}";
-		$rv = $ds->bind($this->{binddn}, password => $this->{bindpasswd});
-	}
-	
-	if ($rv->code) {
-		$this->error("Bind failed: ".$rv->error);
-	}
+	my $ds=$this->binddb;
+	return unless $ds;
 
 	foreach my $item (keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item};  # skip deleted
@@ -256,7 +244,8 @@ sub shutdown
 			push(@{$add_data}, 'variables');
 			push(@{$add_data}, $variable);
 		}
-
+		
+		my $rv="";
 		if ($this->{exists}->{$item}) {
 			$rv = $ds->modify($entry_dn, replace => \%modify_data);
 		} else {

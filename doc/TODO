@@ -48,6 +48,13 @@ Database:
   to copy if they do not already exist in the copy and an operation is done
   to them?
 
+Noninteractive frontend:
+
+* Just because it's noninteractive doesn't mean it can't output to the
+  console. I think it should so so, at least for notes (in addition to
+  mailing them). That way if a note is displayed and the package install
+  fails you don't just see it dying, you immediatly see why.
+
 Readline frontend:
 * It might be better in terse mode to not print out the list of choices for
   a select list, and instead rely on them using tab completion. However,

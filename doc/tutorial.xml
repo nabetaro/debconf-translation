@@ -280,15 +280,51 @@ Template: ....
 	the question will always be in English.
       </para>
       <para>
-        You may find it useful to help you manage the translations if you
-	keep them in separate files; one file per translation. The
+        As you won't certainly be able to translate your templates file
+	into all the desired languages, you need some external help.
+	Be kind with translators, they need to know when you update
+	the templates file without having to manually check it all over
+	the time, and the simplest way to help them is to keep
+	translated templates in separate files, e.g.
+	<literal>templates.it</literal> for Italian translation.  Thus
+       when an Italian translator wants to translate your template file for
+       the first time, he runs
+	<programlisting>
+	   debconf-getlang it templates > templates.it
+	</programlisting>
+	and change all translatable fields.  All you have to do then is
+	to put this file along with your templates file in the
+	<literal>debian</literal> subdirectory.  The
 	debconf-mergetemplate program can merge several such templates
 	files together to produce a combined file to put in your binary
 	package.
+	<footnote>
+	<para>
+	Debhelper will do this for you if you use the dh_installdebconf
+	command.
+	</para>
+	</footnote>
       </para>
       <para>
-        You may also find the debconf-getlang program useful to start a
-	translation file for a new language.
+        You may check that all strings have been translated by running
+	<programlisting>
+	   debconf-getlang --stats templates templates.it
+	</programlisting>
+      </para>
+      <para>
+        When you update English text, do not touch translated templates
+	files.  Translators can check by running the command above that
+	their translation is outdated, and merge changes by running
+	<programlisting>
+	   debconf-getlang it templates templates.it > new.it
+	</programlisting>
+	Fuzzy fields are tagged with <literal>-fuzzy</literal> in their
+	name, and original field without value is inserted on a single
+	line just before.  Translator updates such fields according to
+	the English text, removes these marks and provides you with a
+	newer version.  Again, all you have to do is to place this
+	translated templates file in the <literal>debian</literal>
+	subdirectory with the right name.
       </para>
     </sect2>
   </sect1>
