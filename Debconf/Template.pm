@@ -47,7 +47,7 @@ The name of the template to create must be passed to this function.
 
 When a new template is created, a question is created with the same name
 as the template. This is to ensure that the template has at least
-one owner -- the question, and to make life easier for debcofn users -- so
+one owner -- the question, and to make life easier for debconf users -- so
 they don't have to manually register that question.
 
 The owner field, then, is actually used to set the owner of the question.

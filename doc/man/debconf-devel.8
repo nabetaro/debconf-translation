@@ -344,7 +344,7 @@ this lets you create more such questions.
 This removes a question from the database.
 .TP
 .B PURGE
-Call this in your postinst when your package is purged. It removes
+Call this in your postrm when your package is purged. It removes
 all of your package's questions from debconf's database.
 .P
 Here is a simple example of the debconf protocol in action.
@@ -607,8 +607,8 @@ And the postinst will look something like this:
  # file from elsewhere.
  if [ ! -e $CONFIGFILE ]; then
  	echo "# Config file for my package" > $CONFIGFILE
- 	echo "FOO=" > $CONFIGFILE
- 	echo "BAR=" > $CONFIGFILE
+ 	echo "FOO=" >> $CONFIGFILE
+ a	echo "BAR=" >> $CONFIGFILE
  fi
 
  # Substitute in the values from the debconf db.
@@ -617,10 +617,10 @@ And the postinst will look something like this:
  FOO="$RET"
  db_get mypackage/bar
  BAR="$RET"
- sed -e "s/^ *FOO=.*/FOO=\"$FOO\"/" \
-     -e "s/^ *FOO=.*/BAR=\"$BAR\"/" \
+ sed -e "s/^ *FOO=.*/FOO=\\"$FOO\\"/" \\
+     -e "s/^ *FOO=.*/BAR=\\"$BAR\\"/" \\
      < $CONFIGFILE > $CONFIGFILE.tmp
- mv -f $CONFIGFILE.tmp CONFIGFILE
+ mv -f $CONFIGFILE.tmp $CONFIGFILE
 .P
 Consider how these two scripts handle all the cases. On fresh installs the
 questions are asked by the config script, and a new config file generated

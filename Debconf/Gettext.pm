@@ -15,7 +15,7 @@ This module should be used by any part of debconf that is internationalized
 and uses the gettext() function to get translated text. This module will
 attempt to use Locale::gettext to provide the gettext() function. However,
 since debconf must be usable on the base system, which does not include
-Locale::gettext, it will detect if loading the module fails, ans fall back
+Locale::gettext, it will detect if loading the module fails, and fall back
 to providing a gettext() function that only works in the C locale.
 
 This module also calls textdomain() if possible; the domain used by debconf

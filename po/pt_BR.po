@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2002-03-23 12:10-0500\n"
+"POT-Creation-Date: 2002-04-12 13:14-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -13,79 +13,18 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:68
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "tentando com frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "falha ao inicializar frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:82
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Impossível iniciar um frontend: %s"
-
-#: ../Debconf/Config.pm:84
-msgid "Config database not specified in config file."
-msgstr ""
-"Banco de dados de configuração não especificado no arquivo de configuração."
-
-#: ../Debconf/Config.pm:88
-msgid "Template database not specified in config file."
-msgstr ""
-"Banco de dados de templates não especificado no arquivo de configuração."
-
-#: ../Debconf/FrontEnd.pm:132
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
-
-#: ../Debconf/FrontEnd.pm:204
-#, c-format
-msgid "Configuring %s"
-msgstr "Configurando %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
-"Provavelmente dois templates não estão separados apropriadamente por uma "
-"única linha.\n"
-
-#: ../Debconf/Template.pm:222
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
-
-#: ../Debconf/Template.pm:228
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
-"acontecer. Talvez os templates foram traduzidos incorretamente."
-
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Escolhas"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
+"(', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -100,13 +39,6 @@ msgstr "sim"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "não"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
-"(', ').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -161,6 +93,19 @@ msgstr "nenhuma das acima"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
+"acontecer. Talvez os templates foram traduzidos incorretamente."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
@@ -241,6 +186,61 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
+
+#: ../Debconf/AutoSelect.pm:68
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "tentando com frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "falha ao inicializar frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:82
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Impossível iniciar um frontend: %s"
+
+#: ../Debconf/Config.pm:84
+msgid "Config database not specified in config file."
+msgstr ""
+"Banco de dados de configuração não especificado no arquivo de configuração."
+
+#: ../Debconf/Config.pm:88
+msgid "Template database not specified in config file."
+msgstr ""
+"Banco de dados de templates não especificado no arquivo de configuração."
+
+#: ../Debconf/FrontEnd.pm:132
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
+
+#: ../Debconf/FrontEnd.pm:204
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurando %s"
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
+"Provavelmente dois templates não estão separados apropriadamente por uma "
+"única linha.\n"
+
+#: ../Debconf/Template.pm:222
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+
+#: ../Debconf/Template.pm:228
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

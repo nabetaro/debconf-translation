@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-03-23 12:10-0500\n"
+"POT-Creation-Date: 2002-04-12 13:14-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -14,76 +14,16 @@ msgstr ""
 "Content-Type: text/plain; charset=Big5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:68
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "返回前端介面: %s"
-
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "啟始前端介面失敗: %s"
-
-#: ../Debconf/AutoSelect.pm:82
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "不能開啟前端介面: %s"
-
-#: ../Debconf/Config.pm:84
-msgid "Config database not specified in config file."
-msgstr "設定檔中沒有指定的設定資料庫"
-
-#: ../Debconf/Config.pm:88
-msgid "Template database not specified in config file."
-msgstr "設定檔中沒有指定樣板資料庫"
-
-#: ../Debconf/FrontEnd.pm:132
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
-
-#: ../Debconf/FrontEnd.pm:204
-#, c-format
-msgid "Configuring %s"
-msgstr "正設定 %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
-"的新行分格.\n"
-
-#: ../Debconf/Template.pm:222
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
-
-#: ../Debconf/Template.pm:228
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "求助"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的.可能樣板受到不正確的本"
-"地化."
-
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "選擇"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(輸入零或多個項目以逗號及一個空格 (', ')以分格.)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -98,11 +38,6 @@ msgstr "是"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "否"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(輸入零或多個項目以逗號及一個空格 (', ')以分格.)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 msgid "Save (mail) Note"
@@ -146,6 +81,19 @@ msgstr "以上都沒有"
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "在您想選擇的項目中輸入, 以空格分開."
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "求助"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的.可能樣板受到不正確的本"
+"地化."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
@@ -217,6 +165,58 @@ msgstr "返回"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "下一版"
+
+#: ../Debconf/AutoSelect.pm:68
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "返回前端介面: %s"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "啟始前端介面失敗: %s"
+
+#: ../Debconf/AutoSelect.pm:82
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "不能開啟前端介面: %s"
+
+#: ../Debconf/Config.pm:84
+msgid "Config database not specified in config file."
+msgstr "設定檔中沒有指定的設定資料庫"
+
+#: ../Debconf/Config.pm:88
+msgid "Template database not specified in config file."
+msgstr "設定檔中沒有指定樣板資料庫"
+
+#: ../Debconf/FrontEnd.pm:132
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
+
+#: ../Debconf/FrontEnd.pm:204
+#, c-format
+msgid "Configuring %s"
+msgstr "正設定 %s"
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
+"的新行分格.\n"
+
+#: ../Debconf/Template.pm:222
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
+
+#: ../Debconf/Template.pm:228
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

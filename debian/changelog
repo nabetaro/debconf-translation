@@ -1,6 +1,11 @@
 debconf (1.0.33) unstable; urgency=low
 
   * Made fix_db.pl more robust in the face of really screwed up db's.
+  * Updated debconf schema using OID numbers allocated under
+    enterprise.Debian.package.debconf by Wichert.
+  * Fixed ancient program name in old tutorual. Closes: #141904
+  * Fixed some typos and crazy man escapage in debconf.devel(8), 
+    Closes: #140991
 
  -- Joey Hess <joey@kitenet.net>  Sun, 31 Mar 2002 13:27:43 -0500
 
