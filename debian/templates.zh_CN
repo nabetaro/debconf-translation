@@ -1,0 +1,118 @@
+Template: debconf/frontend
+Type: select
+Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices-zh_CN: Slang, 文本, 编辑器, Dialog, 非交互式
+Default: Slang
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use. 
+ .
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions. 
+Description-zh_CN: 在配置软件包的时候应使用什么样的界面？
+ 使用 Debconf 来配置的软件包可以使用相同风格的用户界面．你可以在这里选择
+ 到底使用哪一种界面．
+ .
+ 基于 Slang 的用户界面是一个彩色的，全屏幕的，基于字符的窗口界面；至于 Text
+ 的前端用户界面，则是更为传统的简单的文本界面．名为 Editor 的用户界面可以让
+ 你在自己最满意的编辑器中进行配置工作．非交互式的前端界面则绝不会向你问任何
+ 问题．
+ 
+Template: debconf/priority
+Type: select
+Choices: critical, high, medium, low
+Choices-zh_CN: 关键, 高, 中, 低
+Default: medium
+Description: Ignore questions with a priority less than..
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are
+ actually shown to you; all less important questions are skipped. 
+ .
+ You can select the lowest priority of question you want to see:  
+   - `critical' is for items that will probably break the system
+     without user intervention.
+   - `high' is for items that don't have reasonable defaults.
+   - `medium' is for normal items that have reasonable defaults.
+   - `low' is for trivial items that have defaults that will work in the
+     vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority
+ were  already `high' or `critical', you wouldn't see this question. 
+ .
+ If you are new to the Debian GNU/Linux system choose `critical' now, so
+ you only see the most important questions. 
+Description-zh_CN: 忽略低于指定优先级的问题
+ 使用 Debconf 的软件包为它们将要向您提出的问题指定了优先级别．只有优先级
+ 别达到一定程度的问题才会真正向您提出来；其它相对不那么重要的问题都会被忽
+ 略过去．
+ .
+ 您可以指定您希望看到的问题至少具有下列哪一优先级别：
+ 　－‘关键’级别的问题如果得不到您的回答，则有可能造成系统损伤．
+ 　－‘高’级别问题一般没有合理的默认回答．
+ 　－‘中’级别问题通常会有合理的默认回答．
+ 　－‘低’级别问题的默认的回答在绝大多数情况下都是可以的．
+ .
+ 比如说，本问题就是‘中’级别的，如果您先前设定所希望的优先级别是‘高’或
+ 者是‘关键’的话，您就不会看到本问题向您提出来．
+ .
+ 如果您是 Debian GNU/Linux 系统的新手的话，建议您在这里选择‘关键’级别，
+ 这样您将只会遇到最重要的那些问题．
+
+Template: debconf/preconfig
+Type: boolean
+Default: true
+Description: Pre-configure packages before they are installed?
+ Debconf can be used to configure packages before they are installed by
+ apt. This lets you answer most questions a package would ask at the
+ beginning of the install, so you do not need to be around to answer
+ questions during the rest of the install. 
+Description-zh_CN: 在软件包安装之前预先配置它们吗？
+ Debconf 可以在软件包被 apt 安装之前预先配置它们．这使得您可以在安装过程
+ 的一开始就回答完软件包安装的绝大部份问题，这样在余下的安装过程中您就不用
+ 老是要呆在一边看着了．
+
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or
+ reinstall a package that asks them. 
+ .
+ Note that no matter what you choose here, you can see old questions again
+ by using the dpkg-reconfigure program. 
+Description-zh_CN: 是否总是要显示老问题？
+ Debconf 通常只将所涉及的问题问仅仅一遍．它能记住您的回答，这样以后就再也不
+ 向您提出相同的问题了．当然，如果您乐意，Debconf 也可以在您升级软件包，或者
+ 重新安装的时候，重复的问您这些老问题．
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-freatured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now. 
+Description-zh_CN: 切换到新的，全功能的 Slang 前端界面吗？
+ 您正在使用 Debconf 的 Dialog 前端用户界面．这个界面已经被新的前端界面
+ Slang 所取代了，Slang 可以做到 Dialog 的全部的效果，并且做得更好．它可
+ 以让您一次看到多个问题，而且更加灵活和赏心悦目．如果您觉得合适的话，可
+ 以考虑切换到这个界面上来．
+
+Template: debconf/helpvisible
+Type: boolean
+Default: true
+Description: Should debconf display extended help for questions?
+ Debconf can display extended help for questions. Some frontends allow this
+ display to be turned off, which may make them run a bit faster, or be less
+ cluttered. This is mostly useful for experts. 
+Description-zh_CN: Debconf 应改为问题显示详尽的帮助信息吗？
+ Debconf 可以为提出的问题显示详尽的帮助信息．一部份风格的前端用户界面可以不
+ 显示这些帮助信息，这样可以让它们运行的更快一些，或者可能更加清爽一些．这可
+ 能只是对一些专家会有所帮助．
