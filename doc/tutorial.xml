@@ -346,11 +346,11 @@ Template: ....
 	  </para>
 	  <para>  
 	    You can use the 
-	    <literal>Debian::DebConf::Client::ConfModule</literal> perl module,
+	    <literal>Debconf::Client::ConfModule</literal> perl module,
 	    which makes a number of functions available to you. Each function
 	    corresponds to a command in the protocol -- you pass parameters 
 	    into it and it returns the result. For details, see the 
-	    <literal>Debian::Debconf::Client::ConfModule (3pm)</literal> man
+	    <literal>Debconf::Client::ConfModule (3pm)</literal> man
 	    page.
 	  </para>
 	</listitem>
@@ -428,7 +428,7 @@ Template: ....
       maintainer scripts of your package, like your postinst. Just
       like the config script, the postinst and other maintainer
       scripts can use the <literal>confmodule</literal> or
-      <literal>Debian::DebConf::Client::ConfModule</literal> libraries, or
+      <literal>Debconf::Client::ConfModule</literal> libraries, or
       they can speak directly to the frontend on standard output.
     </para>
     <para>

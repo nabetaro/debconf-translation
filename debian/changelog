@@ -1,3 +1,17 @@
+debconf (0.4.00) unstable; urgency=low
+
+  * Removed recursive build-dependancy on debconf-utils. There were two
+    ways to do this, the quick hack way and the move lots of directories in
+    cvs way. I took the latter. 
+  * While I was reorganizing *EVERYTHING*, I renamed all the perl modules, 
+    what was Debian::DebConf::foo is not Debconf::foo. 
+    Debian::DebConf::Client::ConfModule is now just Debconf::ConfModule, but 
+    a stub module exists in the old location for backwards compatability.
+  * Needless to say, this was a massive PITA all around. I've NEVER going
+    to do this again, so I hope I got it right.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 17 Oct 2000 13:35:41 -0700
+
 debconf (0.3.83) unstable; urgency=low
 
   * Removed CVS dirs that snuck into the binary debs.

@@ -8,7 +8,7 @@ designed to mirror the ConfModule protocol as closely as feasible.
 
 A typical session goes like this: (time moves downwards)
 In this diagram, and in the rest of this document, "Passthrough" denotes 
-the DebConf passthrough frontend, Frontend represents a user-supplied
+the Debconf passthrough frontend, Frontend represents a user-supplied
 program that understands this interface.
 
 
@@ -64,14 +64,14 @@ but can be changed by setting the DEBCONF_PIPE environment variable
 
 When the Passthrough module starts up, it expects the socket to already
 exist. The Frontend is responsible for creating the socket and be ready
-to listen on it prior to invoking DebConf with the Passthrough module.
+to listen on it prior to invoking Debconf with the Passthrough module.
 
 The socket should be created with mode 0400, and owned by root:root
 It should be removed when the Frontend exits.
 
 DATA/INPUT/GO/GET mechanism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Unlike existing DebConf frontends, the Frontend does not have access
+Unlike existing Debconf frontends, the Frontend does not have access
 to the template information directly. In order for it to have that
 information, the Passthrough module is responsible for sending it
 the information. This is done via the DATA mechanism, by sending
