@@ -117,7 +117,7 @@ sub save {
 
 	# Write out passwords mode 600.
 	if ($this->ispassword($item)) {
-		sysopen(TEXTDB_OUT, $file, O_WRONLY | O_CREAT, 0600)
+		sysopen(TEXTDB_OUT, $file, O_WRONLY|O_TRUNC|O_CREAT, 0600)
 			or $this->error("$file: $!");
 	}
 	else {
