@@ -257,7 +257,6 @@ sub command_input {
 	if ($visible) {
 		# Create an input Element of the type associated with
 		# the frontend.
-		print $this->frontend."<<<\n";
 		$element=$this->frontend->makeelement($question);
 		# If that failed, quit now. This should never happen.
 		unless ($element) {
