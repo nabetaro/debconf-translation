@@ -52,6 +52,11 @@ below).
 If this is specified, only items in I<sourcedb> whose names match the pattern
 will be copied.
 
+=item B<--owner-pattern> I<pattern>
+
+If this is specified, only items in I<sourcedb> whose owners match the pattern
+will be copied.
+
 =item B<-c> I<foo:bar>, B<--config> I<Foo:bar>
 
 Set option Foo to bar. This is similar to writing:
@@ -100,6 +105,7 @@ L<debconf.conf(5)>
 =cut
 
 my $pattern='.*';
+my $owner_pattern='.*';
 
 # This hash holds config data. The sub adds a new item to the hash,
 # and if it looks like a stanza just ended, tries to instantiate
@@ -128,6 +134,7 @@ sub config {
 GetOptions(
 	"pattern|p=s"	=> \$pattern,
 	"config|c=s"	=> \&config,
+	"owner-pattern=s" => \$owner_pattern,
 ) || usage();
 Debconf::Db->makedriver(%config) if %config;
 
@@ -150,6 +157,14 @@ my $copier=Debconf::DbDriver::Backup->new(
 my $i=$copier->iterator;
 while (my $item=$i->iterate) {
 	next unless $item =~ /$pattern/;
+
+	my $fit_owner = 0;
+	my $owner;
+	foreach $owner ($src->owners($item)){
+		$fit_owner = 1 if ( $owner =~ /$owner_pattern/ );
+	}
+	next unless $fit_owner;
+
 	$copier->copy($item, $src, $dest);
 }
 

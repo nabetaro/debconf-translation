@@ -1,10 +1,18 @@
-debconf (1.1.0) unstable; urgency=low
+debconf (1.1.0) experimental; urgency=low
 
-UNRE
   * NOT targeted at woody.
   * debconf-mergetemplate now drops out of date translations by default.
     The --outdated flag allows for the old behavior of keeping them.
     Closes: #131173
+  * Added a "debconf" program, which runs a given program inside debconf
+    without all the nasty hackiness that auto-debconf invocation entails.
+    The future hope is that dpkg becomes smart enough to run postinst scripts
+    that use debconf by means of this program. Closes: #75578, #119338
+    This means a conflict with cdebconf.
+  * This command is the best way to debug debconf-using scripts, you can run
+    a command like debconf sh -x my-script. Documented that, Closes: #84864
+  * And the debconf command has a --showold option. I added a DEBCONF_SHOWOLD
+    variable for good measure. Closes: #130072
   * Split the configdb into two files, a password database and a database for
     all else. This allows normal users to query the debconf db for items that
     are not passwords, which should be generally useful. The immediate
@@ -43,17 +51,10 @@ UNRE
   * Warn when an unknown field is found in a template. Closes: #131227
   * Stronger reccommendation of libterm-readline-gnu-perl in documentation.
     Closes: #136284
-  * Added a "debconf" program, which runs a given program inside debconf
-    without all the nasty hackiness that auto-debconf invocation entails.
-    The future hope is that dpkg becomes smart enough to run postinst scripts
-    that use debconf by means of this program. Closes: #75578, #119338
-    This means a conflict with cdebconf.
-  * This command is the best way to debug debconf-using scripts, you can run
-    a command like debconf sh -x my-script. Documented that, Closes: #84864
-  * And the debconf command has a --showold option. I added a DEBCONF_SHOWOLD
-    variable for good measure. Closes: #130072
   * Settled on one email address.
   * Some s/Syntax:/Usage:/
+  * Patch from Manuel Estrada Sainz <ranty@debian.org> to let debconf-copydb
+    filter by owner. Closes: #136488
   * Uses debhelper v4.
 
  -- Joey Hess <joeyh@debian.org>  Fri, 12 Apr 2002 13:54:03 -0400
