@@ -45,7 +45,6 @@ while [ "$STATE" != stop ]; do
 		db_input low debconf/showold || true
 		db_endblock
 		if ! db_go; then
-		echo backup hit
 			# Back button
 			STATE=1
 			db_fset debconf/frontend isdefault true
