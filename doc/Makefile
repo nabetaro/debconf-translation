@@ -10,7 +10,7 @@ all: $(FILES)
 	-tidy -i -m -f /dev/null $@
 
 %.txt: %.html
-	links -dump $< | perl -pe 's/[\r\0]//g' > $@
+	perl -pe 's/[\r\0]//g' $< | html2text -style pretty -nobs > $@
 
 clean:
 	rm -f $(FILES) hierarchy.txt *.css *.html

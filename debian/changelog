@@ -1,3 +1,10 @@
+debconf (0.9.51) unstable; urgency=low
+
+  * Changed to converting html with html2text, which does better than
+    links.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  7 May 2001 21:02:54 -0400
+
 debconf (0.9.50) unstable; urgency=low
 
   * Remove /var/lib/debconf on upgrade. Nothing uses it anymore,
