@@ -122,14 +122,6 @@ sub init {
 
 			$this->fillpanel;
 		},
-		deactivate_hook => sub {
-			my $panel=shift;
-
-			# Clear out any visible help when the focus
-			# leaves the panel.
-			$this->helptext->text('');
-			$this->helptext->display;
-		},
 	));
 	$this->mainwindow(Term::Stool::Dialog->new(
 		inside => $this->panel,
