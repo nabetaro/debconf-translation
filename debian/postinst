@@ -7,7 +7,7 @@ if [ -d /usr/lib/perl5/Debconf ]; then
 fi
 
 # Transition from old database format before debconf starts up.
-if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
+if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure -a -n "$2" ] && \
    dpkg --compare-versions "$2" lt 0.9.00; then
 	if [ -e /var/lib/debconf/config.db -o -e /var/lib/debconf/templates.db ]; then
 		/usr/share/debconf/transition_db.pl
@@ -20,16 +20,15 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 	fi
 fi
 
-   
 # Fix up broken db's before debconf starts up.
-if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
+if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure -a -n "$2" ] && \
    dpkg --compare-versions "$2" lt 1.0.25; then
 	/usr/share/debconf/fix_db.pl
 fi
 
 # configdb splits into passworded and non-passworded parts, before debconf
 # starts up. Do so only if the debconf.conf has the new databases in it.
-if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
+if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure -a -n "$2" ] && \
    dpkg --compare-versions "$2" lt 1.1.0 &&
    perl -e 'use Debconf::Db; Debconf::Db->load; for (@ARGV) { exit 1 unless
             Debconf::DbDriver->driver($_) }' config passwords; then
@@ -51,19 +50,19 @@ fi
 # In fact, the whole directory can go! Earlier versions of debconf in the
 # 0.9.x series kept it just in case, so make sure to delete it on upgrade
 # from any of those versions, or even older versions.
-if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.50; then
+if [ "$1" = configure -a -n "$2" ] && dpkg --compare-versions "$2" lt 0.9.50; then
 	rm -rf /var/lib/debconf
 fi
 
 # Kill db cruft.
-if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.73; then
+if [ "$1" = configure -a -n "$2" ] && dpkg --compare-versions "$2" lt 0.9.73; then
 	# It may not be present, if upgrading from long ago.
 	db_unregister foo/bar || true
 	db_unregister debconf/switch-to-slang || true
 fi
 
 # The Text frontend became the Readline frontend.
-if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 1.0.10; then
+if [ "$1" = configure -a -n "$2" ] && dpkg --compare-versions "$2" lt 1.0.10; then
 	db_get debconf/frontend || true
 	if [ "$RET" = Text ]; then
 		db_set debconf/frontend Readline || true

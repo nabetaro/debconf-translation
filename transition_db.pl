@@ -34,6 +34,8 @@ foreach my $t (keys %templates) {
 	$templates{$t}->{_name}=$t;
 }
 
+my $skipped=0;
+
 # Now make new Question objects for all the questions.
 foreach my $item (keys %questions) {
 	my @owners=grep { $_ ne '' } keys %{$questions{$item}->{owners}};
@@ -42,11 +44,14 @@ foreach my $item (keys %questions) {
 	# Skip questions that have no listed owner.
 	next unless defined $questions{$item}->{template}->{_name};
 
-	my $question=Debconf::Question->new($item, pop @owners);
+	# ->new needs to know the type of the question, which is stored in
+	# its associated template.
+	my $tname=$questions{$item}->{template}->{_name};
+	$skipped++, next unless defined $tname;
+	my $type=$templates{$tname}->{type};
+	my $question=Debconf::Question->new($item, pop(@owners), $type);
 	$question->addowner($_, '') foreach @owners;
 }
-
-my $skipped=0;
 
 # Now that all the Question objects are made, we can fill them in.
 # Have to do it in two passes to prevent duplicate questions trying to 
@@ -60,7 +65,7 @@ foreach my $item (keys %questions) {
 	$skipped++, next unless defined $tname;
 	my $template=Debconf::Template->get($tname);
 	unless (defined $template) {
-		$template=Debconf::Template->new($tname, $item);
+		$template=Debconf::Template->new($tname, $item, $templates{$tname}->{type});
 	}
 	unless ($seen_templates{$template}) {
 		# Delete every existing field, and then copy every field into

@@ -1,3 +1,13 @@
+debconf (1.1.6) unstable; urgency=low
+
+  * Fixed transition_db.pl to pass the new extra type argiments to
+    Question->new and Template->new. Thanks to the help of Pre and Cliph on
+    irc. Closes: #147932
+  * Don't run all the db mangling code in the whole postinst on fresh
+    installs.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 23 May 2002 12:53:57 -0400
+
 debconf (1.1.5) unstable; urgency=low
 
   * Fixed something to do with propigation of template types through database
