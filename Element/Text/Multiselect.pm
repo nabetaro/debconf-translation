@@ -49,7 +49,7 @@ sub show {
 		# Split up what they entered. They can separate items
 		# with whitespace, commas, etc.
 		# TODO: i18n
-		@selected=split(/[^A-Za-z0-9]*/, $_);
+		@selected=split(/[^A-Za-z0-9]+/, $_);
 
 		# Expand the abbreviations in what they entered. If they
 		# ented something that does not expand, loop.
