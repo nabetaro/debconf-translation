@@ -55,7 +55,8 @@ sub new {
 		$this = fields::new($this);
 	}
 	$this->{template}=$template;
-	# Create a question in the db to go with it.
+	# Create a question in the db to go with it, unless
+	# one with the same name already exists.
 	unless ($Debconf::Db::config->exists($template)) {
 		my $q=Debconf::Question->new($template, $owner);
 		$q->template($template);
