@@ -1,6 +1,8 @@
-debconf (1.4.28) UNRELEASED; urgency=low
+debconf (1.4.28) unstable; urgency=low
 
   * Typo fixes in debconf-devel.7. Closes: #253341
+  * Put back the PREVIOUS_MODULE stuff, at least console-data "uses" it,
+    although it does nothing, is undocumented, etc.
 
  -- Joey Hess <joeyh@debian.org>  Tue,  8 Jun 2004 17:28:25 -0400
 
