@@ -1,3 +1,14 @@
+debconf (0.2.31) unstable; urgency=low
+
+  * Always returns "mulitselect" as one of it's capabilities now.
+    This was added because people need a way for their packages, when
+    preconfigured, to check to see if they have a new enough version of
+    debconf to ask a multiselect question.
+  * The better, long term fix is basic dependancy checking in
+    dpkg-preconfig, and that is now the top of my todo list.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 14 Nov 1999 13:58:13 -0800
+
 debconf (0.2.30) unstable; urgency=low
 
   * STOP cannot return a success code, since in all likelyhood, the pipe it
