@@ -1,16 +1,17 @@
+# translation of ro.po to Romanian
 # translation of debconf_ro.po to Romanian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Sorin Batariuc <sorin@bonbon.net>, 2004.
+# Sorin Batariuc <sorin@bonbon.net>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_ro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-11-27 11:20+0200\n"
+"PO-Revision-Date: 2005-01-26 11:29+0200\n"
 "Last-Translator: Sorin Batariuc <sorin@bonbon.net>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +52,7 @@ msgstr "Debconf la %s"
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Notă: debconf rulează în modul web. Duceţi-vă la http://localhost:%i/"
+msgstr "Notă: Debconf rulează în modul web. Duceţi-vă la http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -153,7 +154,7 @@ msgstr "Problemă la ajustarea bazei de date definită de strofa %s din %s."
 #: ../Debconf/Config.pm:277
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Se ignoră prioritatea ne-validă \"%s\""
+msgstr "Se ignoră prioritatea nevalidă \"%s\""
 
 #: ../Debconf/Config.pm:278
 #, c-format
@@ -187,7 +188,7 @@ msgstr "Câmp de şablon necunoscut '%s', în strofa #%s din %s\n"
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Eroare de analiză a şablonului aproape de '%s', în strofa #%s din %s\n"
+msgstr "Eroare de analiză a şablonului aproape de `%s', în strofa #%s din %s\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
@@ -232,7 +233,7 @@ msgstr "Nu pot salva nota."
 #: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
-msgstr "Alegeri"
+msgstr "Opţiuni"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
@@ -317,11 +318,11 @@ msgstr ""
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "eşuare extragere şabloane apt: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Se preconfigurează pachetele ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -329,14 +330,14 @@ msgid "template parse error: %s"
 msgstr "eroare la analiza şablonului: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Configurez %s"
+msgstr "preconfigurez %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: nu pot schimba permisiunea de acces a lui: %s"
+msgstr "debconf: nu pot schimba permisiunea de acces: %s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
@@ -375,7 +376,7 @@ msgstr "%s lipseşte"
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "%s lipseşte, renunţ %s"
+msgstr "%s lipseşte; renunţare %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
@@ -385,7 +386,7 @@ msgstr "%s este neclar la byte %s: %s"
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s este neclar la byte %s: %s, renunţ"
+msgstr "%s este neclar la byte %s: %s; renunţ"
 
 #: ../debconf-mergetemplate:168
 #, c-format
