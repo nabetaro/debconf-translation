@@ -27,21 +27,27 @@ sub init {
         $this->widget->show;
         $this->widget->set_policy('automatic', 'automatic');
 	
-	# TODO: isn't there a gtk multiselct list box that could be used
-	# instead of all these checkboxes?
-	my @buttons;
-	my $vbox = Gtk2::VBox->new(0, 0);
+	my $list_store = Gtk2::ListStore->new ('Glib::String');
+
+	my $column = Gtk2::TreeViewColumn->new_with_attributes ('Choices',
+								Gtk2::CellRendererText->new,
+								'text', 0); 
+	$this->list_view(Gtk2::TreeView->new ($list_store));
+	my $list_selection = $this->list_view->get_selection ();
+	$list_selection->set_mode ('multiple');
+	$this->list_view->set_headers_visible (0);
+	$this->list_view->append_column ($column);
+	$this->list_view->show;
+
+	$this->widget->add ($this->list_view);
+
         for (my $i=0; $i <= $#choices; $i++) {
-		$buttons[$i] = Gtk2::CheckButton->new($choices[$i]);
-		$buttons[$i]->show;
-		$buttons[$i]->set_active($default{$choices[$i]} ? 1 : 0);
-		$vbox->pack_start($buttons[$i], 0, 0, 0);
+	    my $iter = $list_store->append ();
+	    $list_store->set ($iter, 0, $choices[$i]);
+	    if ($default{$choices[$i]}) {
+		$list_selection->select_iter ($iter);
+	    }
 	}
-        $vbox->show;
-        $this->widget->add_with_viewport($vbox);
-    
-	$this->buttons(\@buttons);
-	
 	$this->addwidget($this->widget);
 	$this->addhelp;
 
@@ -60,7 +66,9 @@ locale.
 
 sub value {
 	my $this=shift;
-	my @buttons = @{$this->buttons};
+	my $list_view = $this->list_view;
+	my $list_store = $list_view->get_model ();
+	my $list_selection = $list_view->get_selection ();
 	my ($ret, $val);
 	
 	my @vals;
@@ -69,10 +77,12 @@ sub value {
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
 	
+	my $iter = $list_store->get_iter_first ();
 	for (my $i=0; $i <= $#choices; $i++) {
-		if ($buttons[$i]->get_active()) {
+		if ($list_selection->iter_is_selected ($iter)) {
 			push @vals, $choices[$i];
 		}
+		$iter = $list_store->iter_next ($iter);
 	}
 
 	return join(', ', $this->order_values(@vals));
