@@ -1,3 +1,11 @@
+debconf (0.2.72) unstable; urgency=low
+
+  * Renamed dpkg-preconfig to dpkg-preconfigure, for consistency.
+    Closes: #53893
+  * Moved dpkg-preconfigure and dpkg-reconfigure to /usr/sbin.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 13 Jan 2000 12:55:10 -0800
+
 debconf (0.2.71) unstable; urgency=low
 
   * Sped up and simplified language code.

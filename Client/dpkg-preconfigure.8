@@ -1,10 +1,10 @@
-.TH DPKG-PRECONFIG 1
+.TH DPKG-PRECONFIGURE 8
 .SH NAME
-dpkg-preconfig \- let packages ask questions prior to their installation
+dpkg-preconfigure \- let packages ask questions prior to their installation
 .SH SYNOPSIS
-.B dpkg-preconfig [--frontend=type] [--priority=value] file.deb [file.deb ..]
+.B dpkg-preconfigure [--frontend=type] [--priority=value] file.deb [file.deb ..]
 .SH DESCRIPTION
-.BR dpkg-preconfig
+.BR dpkg-preconfigure
 lets packages ask questions before they are installed. It operates on a set
 of debian packages, and all packages that use debconf will have their config
 script run so they can examine the system and ask questions.
@@ -30,13 +30,13 @@ their default answers will be used.
 .B \-\-apt
 Run in apt mode. It will expect to read a set of package filenames from stdin,
 rather than getting them as parameters. Typically this is used to make apt
-run dpkg-preconfig on all packages before they are installed. To do this,
+run dpkg-preconfigure on all packages before they are installed. To do this,
 add something like this to /etc/apt/apt.conf:
 
  // Pre-configure all packages before
  // they are installed.
  DPkg::Pre-Install-Pkgs {
- 	"dpkg-preconfig --apt --priority=low";
+ 	"dpkg-preconfigure --apt --priority=low";
  };
 .SH AUTHOR
 Joey Hess <joey@kitenet.net>

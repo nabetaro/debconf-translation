@@ -6,7 +6,7 @@ if [ -e /etc/apt/apt.conf ]; then
 	cp /etc/apt/apt.conf /etc/apt/apt.conf.old
 	(grep -iv "// Pre-configure all packages" /etc/apt/apt.conf.old | \
 		grep -iv "// (Automatically added by debconf.)" | \
-		grep -iv dpkg-preconfig > /etc/apt/apt.conf) || true
+		grep -iv dpkg-preconfigure > /etc/apt/apt.conf) || true
 	rm -f /etc/apt/apt.conf.old
 	if [ ! -s /etc/apt/apt.conf ]; then
 		rm -f /etc/apt/apt.conf

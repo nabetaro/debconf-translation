@@ -10,10 +10,10 @@ if [ "$RET" = "true" ]; then
 		mkdir -p /etc/apt/ 2>/dev/null || true
 		touch /etc/apt/apt.conf
 	fi
-	if ! grep -q "dpkg-preconfig --apt" /etc/apt/apt.conf; then
+	if ! grep -q "dpkg-preconfigure --apt" /etc/apt/apt.conf; then
 		echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
 		echo "// (Automatically added by debconf.)" >> /etc/apt/apt.conf
-		echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
+		echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfigure --apt";};' >> /etc/apt/apt.conf
 	fi
 fi
 
