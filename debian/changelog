@@ -7,6 +7,8 @@ debconf (0.9.00) experimental; urgency=low
     It _will_ trash your debconf database. It _will_ break your system.
   * Conflicts with versions of cdebconf that themselves use a
     /etc/debconf.conf.
+  * Db reloads inside the same perl invocation (dpkg-reconfigure needs to
+    do this sometimes) are no longer a problem, Closes: #85873
 
 NOT READY FOR RELEASE
 Before release, I must:
