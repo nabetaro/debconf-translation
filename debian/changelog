@@ -1,3 +1,12 @@
+debconf (1.2.12) unstable; urgency=low
+
+  * Include topmost 100 changelog entries now in the hope that I will rarely
+    release debconf 100 times between entries into testing. I'm still leery of
+    bloating the base system with 50k of ancient changelog. Closes: #165399
+  * Added debconf.conf.fr.5.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 19 Oct 2002 23:44:05 -0400
+
 debconf (1.2.11) unstable; urgency=low
 
   * Ongoing French manpage translations.

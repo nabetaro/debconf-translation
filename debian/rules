@@ -1,8 +1,5 @@
 #!/usr/bin/make -f
 
-# Uncomment this to turn on verbose mode. 
-#export DH_VERBOSE=1
-
 # Ensure that builds are self-hosting, which means I have to use the .pm
 # files in this package, not any that may be on the system.
 export PERL5LIB=.
@@ -47,8 +44,8 @@ binary-indep: build
 	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb`
 	dh_installexamples -pdebconf-doc samples/*
 	
-	# Changelog reduction hack for debconf. Only include top 5 entries.
-	perl -ne '$$c++ if /^debconf /; last if $$c > 5 ; print $$_' \
+	# Changelog reduction hack for debconf. Only include top 100 entries.
+	perl -ne '$$c++ if /^debconf /; last if $$c > 100 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
 	echo "See /usr/share/doc/debconf-doc/changelog.gz for the" >> debian/debconf.changelog
 	echo "remainder of this changelog." >> debian/debconf.changelog

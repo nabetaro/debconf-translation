@@ -1,0 +1,569 @@
+.TH DEBCONF.CONF 5
+.SH NOM
+debconf.conf \- fichier de configuration de debconf
+.SH DESCRIPTION
+Debconf est un système de configuration pour les paquets Debian.
+/etc/debconf.conf et ~/.debconfrc sont les fichiers de configuration utilisés
+pour déterminer quelle base de données doit être utilisée. Ces bases de données
+sont utilisées pour garder deux types d'informations\ ; la configuration
+dynamique des données que l'utilisateur a entrées et les données statiques des
+questions. Debconf offre une interface souple et extensible pour la gestion
+des bases de données. De nouveaux pilotes peuvent être créés sans efforts et les
+pilotes peuvent être combinés de différentes façons.
+.SH SYNOPSIS
+  # This is a sample config file that is
+  # sufficient to use debconf.
+  Config: configdb
+  Templates: templatedb
+
+  Name: configdb
+  Driver: File
+  Filename: /var/cache/debconf/config.dat
+
+  Name: templatedb
+  Driver: File
+  Mode: 644
+  Filename: /var/cache/debconf/templates.dat
+.SH "FORMAT DE FICHIER"
+Le format de ce fichier est une suite de paragraphes, chacun d'eux séparé par
+au moins une ligne blanche. Les lignes de commentaires commençant par un
+caractère dièse («\ #\ ») sont ignorées.
+.P
+Le premier paragraphe du fichier est spécial et est utilisé pour configurer
+l'ensemble de debconf. Ce premier paragraphe requiert deux champs\ :
+.RS
+.TP
+.B Config
+Spécifie le nom de la base de données où prendre les données de configuration.
+.TP
+.B Templates
+Spécifie le nom de la base de données à utiliser pour le cache des
+questions.
+.RE
+.P
+Champs additionnels qui peuvent être ajoutés\ :
+.RS
+.TP
+.B Frontend
+L'interface utilisée par debconf, remplace toute interface indiquée dans
+la base de données de debconf.
+.TP
+.B Priority
+La priorité utilisée par debconf, remplace toute priorité indiquée dans
+la base de données de debconf.
+.TP
+.B Showold
+Fixé à «\ true\ » pour que debconf réaffiche les questions déjà posées. Ce
+n'est probablement pas ce que vous voulez. Cela peut être annulé à la volée
+par la variable d'environnement DEBCONF_SHOWOLD.
+.TP
+.B Admin-Email
+L'adresse électronique à laquelle Debconf envoie un courriel pour s'assurer que
+l'administrateur a bien vu une remarque importante. Par défaut «\ root\ »,
+mais ce peut être une adresse électronique valide où envoyer le
+courriel. Si vous préférez que debconf ne vous envoie pas de courriel, spécifiez
+une adresse vide. Cela peut être annulé à la volée par la variable
+d'environnement DEBCONF_ADMIN_EMAIL.
+.TP
+.B Debug
+Si ce champ existe, debconf affichera alors les informations de débogage sur la
+sortie d'erreur standard. La valeur fixée peut être quelque chose comme
+«\ user\ », «\ developper\ », «\ db\ » ou encore une expression rationnelle.
+Généralement, plutôt que de le configurer en permanence dans un fichier de
+configuration, vous voudrez activer le débogage temporairement, la variable
+d'environnement DEBCONF_DEBUG peut alors être utilisée à la place pour accomplir
+ce débogage.
+.TP
+.B NoWarnings
+S'il existe, debconf n'affichera aucun avertissement. Il peut être
+annulé à la volée par la variable d'environnement DEBCONF_NOWARNINGS.
+.TP
+.B Log
+Debconf enregistre des informations de débogage dans le fichier syslog 
+lorsqu'il fonctionne. La valeur donnée sert à contrôler ce qui est enregistré
+dans le journal. Voir plus haut Debug pour une explication des valeurs qui
+peuvent être choisies pour contrôler ce qui est enregistré dans le journal.
+.TP
+.B Sigils
+Certaines interfaces de debconf afficheront des «\ sceaux\ » --\ petits trucs
+qui indiquent l'importance de la question. Ils sont affichés par défaut, pour
+les désactiver, utilisez Sigils: false.
+.TP
+.B Smileys
+Quelques interfaces utilisent de gentilles petites binettes comme sceaux. Si
+c'est trop gentil et que vous voulez les désactiver, utilisez Smilies: false.
+Pour les interfaces ne les montrant pas par défaut, Smileys: true essaiera de
+les activer.
+.TP
+.B Terse
+S'il est fixé à «\ true\ », certaines interfaces debconf utiliseront un
+mode d'affichage concis et spécial qui affiche le moins possible. Par défaut à
+false. Le mode concis peut être choisi temporairement par la variable
+d'environnement DEBCONF_TERSE.
+.RE
+.P
+Par exemple, le premier paragraphe d'un fichier devrait ressembler à ça\ :
+  Config: configdb
+  Templates: templatedb
+.P
+Chaque paragraphe restant dans le fichier configure une base de données. Un
+paragraphe de base de données commence par nommer la base de données\ :
+  Name: configdb
+.P
+Ensuite, cela indique le pilote à utiliser pour
+cette base de données. Pour avoir des informations sur les pilotes disponibles,
+voir la section DRIVER plus bas.
+  Driver: File
+.P
+Vous pouvez indiquer que la base de données n'est pas essentielle au
+fonctionnement correct de debconf en disant qu'elle n'est pas requise. Cela
+mettra le désordre dans debconf si la base de données échoue pour une raison
+ou une autre.
+  Required: false
+.P
+Vous pouvez marquer une base de données comme en lecture seule et debconf
+n'écrira rien dedans.
+  Readonly: true
+.P
+Vous pouvez aussi limiter le type de données pouvant aller dans la base de
+données avec les lignes Accept- et Reject-\ ; voir la section ACCESS CONTROLS
+plus bas.
+.P
+Le reste de chaque paragraphe d'une base de données est utilisé pour fournir
+une configuration spécifique à ce pilote. Par exemple, le pilote Text a besoin
+de connaître un répertoire pour y mettre la base de données, vous devriez donc
+dire\ :
+  Filename: /var/cache/debconf/config.dat
+.SH PILOTES
+Il y a de nombreux pilotes disponibles et on peut en écrire d'autres sans
+grande difficulté. Les pilotes sont répartis en deux types. Il y a d'abord les
+pilotes réels --\ pilotes qui lisent et stockent réellement les données dans
+quelque base de données, qui peut être sur le système de fichiers local
+ou sur un système distant. Il y a ensuite les méta-pilotes qui associent 
+différents pilotes pour former des systèmes plus intéressants.
+Commençons par les premiers.
+.TP
+.TP
+.B File
+.RS
+Ce pilote permet à debconf de stocker une base de données complète dans un
+simple fichier texte. Cela facilite l'archivage, le transfert entre les machines
+et l'édition. C'est l'un des formats de base de données les plus compacts en
+terme d'espace disque utilisé. C'est aussi l'un des formats les plus lents.
+.P
+Parmi les inconvénients, le fichier doit être lu en entier à chaque fois que
+debconf démarre\ ; le sauvegarder est aussi lent.
+.P
+Pour ce pilote, les points suivants sont configurables.
+.RS
+.TP
+.B Filename
+Le fichier à utiliser comme base de données. Ce champ est obligatoire.
+.TP
+.B Mode
+Les permissions du fichier à créer s'il n'existe pas. Elles sont par défaut 
+mises à 600 parce que le fichier peut contenir dans certaines circonstances 
+des mots de passe.
+.TP
+.B Format
+Le format du fichier. Voir plus bas la section FORMATS. Le format par défaut
+est du type défini par la rfc-822.
+.TP
+.B Backup
+Si une sauvegarde de l'ancien fichier doit être faite avant de le changer.
+Par défaut à «\ true\ ».
+.RE
+.P
+Voici un exemple de paragraphe configurant une base de données qui utilise ce
+pilote\ :
+.P
+  Name: mydb
+  Driver: File
+  Filename: /var/cache/debconf/mydb.dat
+.RE
+.TP
+.B DirTree
+.RS
+Ce pilote permet à debconf de stocker les données dans une
+structure hiérarchisée de type répertoire. Les noms des différents questionnaires et
+questions debconf sont utilisés pour former des répertoires contenant les fichiers.
+Ce format de base de données est le plus facile à consulter et à modifier à la
+main. Il a une très bonne vitesse de chargement et de sauvegarde. C'est lui qui
+utilise le plus d'espace, car tous les petits fichiers et sous-répertoires
+occupent beaucoup de place.
+.P
+Pour ce pilote, les points suivants sont configurables.
+.RS
+.TP
+.B Directory
+Le répertoire où sont déposés les fichiers. Obligatoire.
+.TP
+.B Extension
+Une extension pour préfixer les fichiers. Elle ne doit pas être une chaîne
+vide\ ;
+Par défaut à «\ .dat\ »
+.TP
+.B Format
+Le format du fichier. Voir la section FORMATS plus bas. Par défaut, il utilise
+un format semblable au type défini par la rfc-822.
+.TP
+.B Backup
+Si une sauvegarde de l'ancien fichier doit être faite avant de le changer.
+Par défaut à «\ true\ ».
+.RE
+.P
+Voici un exemple de paragraphe configurant une base de données qui utilise ce
+pilote\ :
+.P
+  Name: mydb
+  Driver: DirTree
+  Directory: /var/cache/debconf/mydb
+  Extension: .txt
+.RE
+.TP
+.B PackageDir
+.RS
+Ce pilote est un compromis entre les bases de données File et
+DirTree. Il utilise un répertoire dans lequel il y a (approximativement) un
+fichier par paquet qui utilise debconf. C'est assez rapide, bien qu'utilisant
+un peu plus d'espace que le pilote de base de données File. 
+.P
+Ce pilote est configurable de la même manière que le pilote DirTree, plus\ :
+.TP
+.B Mode
+Les permissions des fichiers créés. Par défaut à 600 parce que les fichiers
+peuvent contenir dans certaines circonstances des mots de passe.
+.P
+Voici un exemple de paragraphe configurant une base de données qui utilise ce
+pilote\ :
+.P
+  Name: mydb
+  Driver: PackageDir
+  Directory: /var/cache/debconf/mydb
+.RE
+.TP
+.B LDAP
+.RS
+ATTENTION\ : Ce pilote est actuellement expérimental. Utilisez-le avec
+précaution.
+.P
+Ce pilote accède à un répertoire LDAP pour les données de configuration de
+debconf. Les répertoires LDAP doivent être en lecture seule, à cause de la
+nature de la bête. C'est parce que plusieurs accès peuvent avoir lieu et il
+vaut mieux, pour la cohérence des données, que personne n'essaie de les
+modifier lorsque cela arrive. Bien sûr, on peut donner la possibilité de
+modifier ces répertoires lorsque vous voulez mettre à jour les données de
+configuration.
+.P
+Pour plus d'informations à propos de la configuration d'un serveur LDAP pour
+debconf, lisez /usr/share/doc/debconf-doc/README.LDAP (du paquet debconf-doc).
+.P
+Pour utiliser ce pilote, vous devez avoir installé le paquet
+libnet-ldap-perl. Debconf suggère ce paquet mais ne dépend pas de lui.
+.P
+Veuillez être attentif à ce qu'implique une base de données debconf distante 
+en ce qui concerne la sécurité. Ce n'est pas une chose très sûre à faire à moins
+que vous fassiez confiance à la source et au réseau intervenant.
+.P
+Pour ce pilote, les points suivants sont configurables.
+.RS
+.TP
+.B server
+Le nom d'hôte ou l'adresse IP d'un serveur LDAP auquel se connecter.
+.TP
+.B port
+Le port de connexion au serveur LDAP. Si aucun n'est donné, le port par défaut
+est utilisé, 389 (ou 686 si vous utilisez SSL).
+.TP
+.B basedn
+Le DN sous lequel tous les points de la configuration seront stockés. Chaque
+point de configuration est supposé exister dans un DN de cn=<item name>,<Base
+DN>. Si cette structure n'est pas suivie, rien ne marche. 
+.TP
+.B binddn
+Le DN à attacher au répertoire. Un lien anonyme sera utilisé s'il n'y en a aucun
+de spécifié.
+.TP
+.B bindpasswd
+Le mot de passe à utiliser dans un attachement authentifié (utilisé avec
+binddn, ci-dessus). Si ce n'est pas spécifié, un lien anonyme sera utilisé.
+.P
+.RS
+Cette option ne doit pas être utilisée dans le cas général. La liaison anonyme
+devrait être suffisante dans la plupart des cas pour un accès en lecture seule.
+Spécifier un DN lié à un mot de passe devrait être réservé pour les cas où vous
+souhaitez mettre à jour vos données de configuration de debconf.
+.RE
+.RE
+.P
+Voici un exemple de paragraphe configurant une base de données qui utilise ce
+pilote, en supposant que la base de données distante est sur example.com et
+qu'on peut y accéder anonymement\ :
+.P
+  Name: ldapdb
+  Driver: LDAP
+  Readonly: true
+  Server: example.com
+  BaseDN: cn=debconf,dc=example,dc=com
+.P
+Autre exemple, cette fois la base de données LDAP est sur l'hôte local et peut
+être modifiée\ :
+.P
+  Name: ldapdb
+  Driver: LDAP
+  Server: localhost
+  BaseDN: cn=debconf,dc=domain,dc=com
+  BaseDN: cn=debconf,dc=domain,dc=com
+  BindPasswd: secret
+.RE
+.TP
+.B Pipe
+.RS
+Ce pilote spécial lit et écrit la base de données depuis
+l'entrée/sortie standard. Ça peut être utile pour les personnes qui ont des
+besoins spécifiques.
+.P
+Pour ce pilote, les points suivants sont configurables.
+.RS
+.TP
+.B Format
+Le format à lire et écrire. Voir la section FORMAT plus bas. Par défaut, il
+utilise un format du type défini par la rfc-822.
+.TP
+.B Infd
+Numéro du descripteur de fichier à lire. La lecture se fait par défaut depuis
+l'entrée standard. Si elle est fixée à «\ none\ », la base de données ne lira
+aucune donnée au démarrage
+.TP
+.B Outfd
+Numéro du descripteur de fichier à écrire. L'écriture se fait par défaut sur la
+sortie standard.
+.RE
+.RE
+.P
+C'est tout pour les pilotes réels, nous allons à présent voir les 
+méta-pilotes.
+.TP
+.B Stack
+.RS
+Ce pilote superpose plusieurs autres bases de données (de tous types) et permet
+l'accès à celles-ci comme si elles n'en formaient qu'une seule. Lorsque debconf
+demande une valeur, la première base dans la pile qui contient cette valeur la
+retourne. Si debconf écrit quelque chose dans la base de données, l'écriture se
+fait normalement dans le premier pilote de la pile qui contient l'élément
+modifié par debconf\ ; s'il n'y en a pas, le nouvel élément est ajouté à la
+première base de données de la pile sur laquelle on peut écrire.
+.P
+Les choses deviennent plus intéressantes si l'une des bases de données de la
+pile est en lecture seule. Considérez une pile des bases de données foo, bar et
+baz, où foo et baz sont toutes les deux en lecture seule. Debconf veut changer
+un élément et cet élément est présent seulement dans baz, qui est en lecture
+seule. Le pilote de pile est assez malin pour réaliser que ça ne fonctionne pas,
+il copiera l'élément de baz vers bar et l'écriture aura lieu dans bar.
+Maintenant l'élément de baz est caché par celui de bar et il ne sera plus
+visible par debconf.
+.P
+Ce genre de cas est particulièrement utile si vous voulez pointer beaucoup de
+systèmes vers une base de données centrale en lecture seule, tout en permettant
+la réécriture des éléments sur chaque système. Si l'on ajoute des contrôles 
+d'accès, les piles permettent de faire beaucoup d'autres choses
+intéressantes, comme rediriger tous les mots de passe vers une base de données
+pendant qu'une autre base de données en-dessous s'occupe de tout le reste.
+.P
+Pour configurer une pile, il n'y a besoin que d'un petit bout de configuration\ :
+.P
+.RS
+.TP
+.B Stack
+C'est là où vous spécifiez une liste d'autres bases de données, par nom, pour
+dire de quoi est composée la pile.
+.RE
+.P
+Par exemple\ :
+.P
+  Name: megadb
+  Driver: stack
+  Stack: passworddb, configdb, companydb
+.P
+ATTENTION\ : Le pilote de piles n'a pas encore été vraiment testé. Utilisez-le
+à vos propres risques.
+.RE
+.P
+.B Backup
+.RS
+Ce pilote transmet toutes les requêtes vers un autre pilote. Mais il copie
+aussi toutes les requêtes d'écriture vers un pilote de sauvegarde.
+.P
+Pour configurer ce pilote, vous devez spécifier les champs suivants\ :
+.P
+.RS
+.TP
+.B Db
+La base de données à lire et sur laquelle écrire.
+.TP
+.B Backupdb
+Le nom de la base de données où envoyer les copies à écrire.
+.RE
+.P
+Par exemple\ :
+.P
+  Name: backup
+  Driver: Backup
+  Backupdb: mydb
+  Backup: mybackupdb
+.RE
+.P
+.B Debug
+.RS
+Ce pilote transmet toutes les requêtes vers un autre pilote, affichant toutes
+les informations de débogage à propos des requêtes et de leurs résultats.
+.P
+Pour configurer ce pilote, vous devez spécifiez les champs suivants\ :
+.P
+.RS
+.TP
+.B Db
+La base de données à lire et sur laquelle écrire.
+.RE
+.P
+.SH "CONTRÔLE D'ACCÈS"
+Quand vous configurez une base de données, vous pouvez aussi utiliser quelques
+champs pour indiquer les contrôles d'accès. Vous pouvez spécifier, par exemple,
+qu'une base de données n'accepte que les mots de passe ou faire une base de
+données qui n'accepte que les choses ayant dans leur nom «\ foo\ ».
+.TP
+.B Readonly
+Comme on l'a mentionné, ce contrôle d'accès, s'il est fixé à
+«\ true\ », rend une base de données accessible qu'en lecture seule.
+Debconf en lira les valeurs mais n'écrira jamais rien dessus.
+.TP
+.B Accept-Name
+Le texte de ce champ est une expression rationnelle compatible avec perl qui
+s'accorde avec les noms des éléments requis de la base de données. La base de
+données permettra à debconf d'y accéder ou de la modifier seulement si le nom
+d'un élément concorde avec l'expression rationnelle.
+.TP
+.B Reject-Name
+Comme Accept-Name, excepté que tout élément correspondant à cette
+expression rationnelle sera rejeté.
+.TP
+.B Accept-Type
+Une autre expression rationnelle, qui correspond avec le type de l'élément
+auquel on accédera. L'accès sera accordé seulement si le type correspond à
+l'expression rationnelle.
+.TP
+.B Reject-Type
+Comme Accept-Type, excepté que tout type correspondant à cette
+expression rationnelle sera rejeté.
+.SH FORMATS
+Quelques pilotes utilisent des modules de format pour
+contrôler le format réel de stockage des bases de données sur le disque. Ces
+formats sont actuellement supportés\ :
+.TP
+.B 822
+C'est un format de fichier vaguement basé sur le format de la rfc-822 pour les
+entêtes des courriels. Des formats similaires sont utilisés partout dans 
+Debian\ ; dans le fichier de statut de dpkg, et d'autres.
+.SH EXEMPLE
+Voici un exemple de fichier debconf.conf parmi les plus compliqués.
+.P
+  # Ce paragraphe est utilisé pour la
+  # configuration générale de debconf.
+  Config: stack
+  Templates: templates
+  Log-To: syslog
+  Debug: developer
+
+  # Ma base de données locale.
+  Name: mydb
+  Driver: DirTree
+  Directory: /var/cache/debconf/config
+
+  # C'est une autre base de données que
+  # j'utilise pour garder seulement la
+  # configuration de mon serveur X.
+  Name: X
+  Driver: File
+  Filename: /etc/X11/debconf.dat
+  Mode: 644
+  # Il est difficile de savoir quelles
+  # questions concernent X\ ; il faudrait
+  # utiliser une arborescence plus profonde
+  # pour que je puisse n'accepter que les
+  # correspondances avec ^X/
+  # Passons.
+  Accept-Name: xserver|xfree86|xbase
+
+  # C'est la base de données générale de notre
+  # société, en lecture seule (pour moi\ !).
+  Name: company
+  Driver: LDAP
+  Server: debconf.foo.com
+  BaseDN: cn=debconf,dc=foo,dc=com
+  BindDN: uid=admin,dc=foo,dc=com
+  BindPasswd: secret
+  Readonly: true
+  # Je ne veux pas que les mots de passe traînent par là.
+  Reject-Type: password
+  # Si cette base de données n'est pas disponible
+  # pour quelque raison que ce soit, on continue.
+  Required: false
+
+  # J'utilise cette base de données pour
+  # conserver les mots de passe en sûreté.
+  Name: passwords
+  Driver: File
+  Filename: /etc/debconf/passwords
+  Mode: 600
+  Accept-Type: password
+
+  # Rassemblons toutes ses bases
+  # de données dans une pile.
+  Name: stack
+  Driver: Stack
+  Stack: passwords, X, mydb, company
+  # Donc, tous les mots de passe vont dans la
+  # base de données passwords. La plupart des objets
+  # concernant la configuration de X vont dans la
+  # base de données X, et tout le reste va dans ma
+  # base de données principale. Les valeurs sont
+  # recherchées tour à tour dans chacune de ces bases
+  # de données et si une valeur particulière n'est trouvée
+  # nulle part, elle est recherchée dans la base de
+  # données LDAP de la compagnie (à moins que ce ne
+  # soit un mot de passe).
+
+  # Une base de données est aussi utilisée
+  # pour conserver les questionnaires. Nous
+  # n'avons pas besoin de le faire à notre goût.
+  Name: templates
+  Driver: File
+  Mode: 644
+  Format: 822
+  Filename: /var/cache/debconf/templates
+.SH NOTES
+Si vous utilisez dans ce fichier quelque chose comme ${HOME}, cette variable 
+sera remplacée par la valeur de la variable d'environnement nommée ainsi.
+.P
+La casse des noms des champs (la partie de la ligne avant le deux-points) 
+n'est pas importante. Cependant, pour les valeurs, la casse importe.
+.SH "AMÉLIORATIONS PRÉVUES"
+Plus de pilotes et de formats. Voici quelques idées\ :
+Un pilote SQL, avec la possibilité d'accéder à une base de données distante.
+Un pilote DHCP, qui rend disponible certaines choses spécifiques comme le nom
+d'hôte, l'adresse IP et les serveurs DNS.
+Un pilote qui prend ses valeurs dans les champs TXT des enregistrements DNS 
+publics.
+Un format qui est compatible avec la sortie de debconf.
+Un pilote d'annulation, qui peut annuler la valeur d'un champ ou les drapeaux
+de toutes les requêtes qui lui sont adressées.
+.SH FICHIERS
+/etc/debconf.conf
+.P
+~/.debconfrc
+.SH VOIR AUSSI
+.BR debconf (7)
+.SH AUTEUR
+Joey Hess <joeyh@debian.org>
+.SH TRADUCTION
+Julien Louis <leonptitlouis@ifrance.com>
