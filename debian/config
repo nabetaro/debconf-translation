@@ -1,6 +1,14 @@
 #!/bin/sh -e
 # This lets debconf configure itself.
 
+# This is to handle upgrading from old versions of debconf. If the
+# file doesn't exist yet, this package is being preconfiged, and
+# we might as well just exit and wait until the postinst
+# runs the config script.
+if [ ! -e /usr/share/debconf/confmodule ]; then
+	exit
+fi
+
 . /usr/share/debconf/confmodule
 
 # Establish the preliminaries.

@@ -1,3 +1,10 @@
+debconf (0.2.2) unstable; urgency=low
+
+  * Corrected debconf upgrade problem. If an old version of debconf
+    preconfig'd a newer version, the config script failed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 30 Oct 1999 17:15:53 -0700
+
 debconf (0.2.1) unstable; urgency=low
 
   * Confmodule.pm fixes I forgot in the last version.
