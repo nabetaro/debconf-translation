@@ -198,7 +198,7 @@ foreach my $line (@buffer) {
 	($package, $version, $template, $config)=split /\s/, $line;
 
 	# Run config script if any.
-	if (defined $config && length $config) {
+	if (defined $config && length $config && -e $config) {
 		debug user => "preconfiguring $package ($version)";
 		chmod(0755, $config) or
 			die sprintf(gettext("debconf: can't chmod: %s"), $!);

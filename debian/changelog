@@ -1,3 +1,10 @@
+debconf (0.9.23) unstable; urgency=low
+
+  * dpkg-preconfigure: fixed problem with it trying to run an unlinked
+    config file if there was a template parse error (triggered by tgif).
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  9 Mar 2001 17:11:04 -0800
+
 debconf (0.9.22) unstable; urgency=low
 
   * Added Debug driver and simplified some other debug output.
