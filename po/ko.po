@@ -40,9 +40,9 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf on %s"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
@@ -63,7 +63,6 @@ msgid "More"
 msgstr "계속"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr "TERM이 설정되지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
 
@@ -80,18 +79,18 @@ msgstr ""
 "는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
+"dialog나 그와 비슷한 프로그램이 설치되지 않았으므로, 대화상자 frontend는 사"
 "용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"대화상자 frontend를 사용하려면 화면이 적어도 13행 31열은 되어야 합니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -102,24 +101,23 @@ msgid "This frontend requires a controlling tty."
 msgstr "이 frontend는 제어 tty를 필요로 합니다."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
+msgstr "이 frontend는 이맥스 쉘 버퍼와 호환되지 않습니다."
 
 #: ../Debconf/AutoSelect.pm:76
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "frontend를 초기화할 수 없음: %s"
+msgstr "다음 frontend를 대신 사용: %s"
 
 #: ../Debconf/AutoSelect.pm:84
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Frontend를 시작할 수 없습니다: %s"
+msgstr "frontend를 시작할 수 없음: %s"
 
 #: ../Debconf/Config.pm:128
 msgid "Config database not specified in config file."
@@ -168,9 +166,9 @@ msgstr ""
 "다.\n"
 
 #: ../Debconf/Template.pm:226
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
+msgstr "알 수 없는 템플릿 필드 `%1$s', %3$s의 #%2$s절\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
@@ -183,37 +181,33 @@ msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
 
 #: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
 msgid "_Help"
-msgstr "도움말"
+msgstr "도움말(_H)"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
 msgstr "도움말"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
-#, fuzzy
 msgid "Save (mail) Note"
 msgstr "주의 저장"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
-#, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
+"Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr ""
+msgstr "정보"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "이 주의는 root에게 메일로 보냈습니다."
+msgstr "주의를 메일로 보냈습니다."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
-msgstr ""
+msgstr "에러"
 
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
@@ -264,7 +258,6 @@ msgid "none of the above"
 msgstr "위에 있는 것 중에 없음"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
 
@@ -297,18 +290,17 @@ msgid "must specify some debs to preconfigure"
 msgstr "미리 설정할 deb를 지정해야 합니다"
 
 #: ../dpkg-preconfigure:121
-#, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "(apt-utils가 설치되지 않았기 때문에 패키지를 미리 설정하지 않습니다)"
+msgstr "apt-utils가 설치되지 않았기 때문에 패키지를 미리 설정하지 않습니다"
 
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates 실패: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "패키지들을 미리 설정하는 중입니다...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -316,9 +308,9 @@ msgid "template parse error: %s"
 msgstr "템플릿 parse 에러: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "%s 설정중"
+msgstr "%s (%s) 미리 설정중"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -331,23 +323,23 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
 
 #: ../dpkg-reconfigure:104
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "root로 실행해야 합니다"
+msgstr "%s은(는) root로 실행해야 합니다"
 
 #: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "다시 설정할 패키지를 지정하세요"
 
 #: ../dpkg-reconfigure:156
-#, fuzzy, c-format
+#, c-format
 msgid "%s is not installed"
-msgstr "%s은(는) 완전히 설치되지 않았습니다"
+msgstr "%s은(는) 설치되지 않았습니다"
 
 #: ../dpkg-reconfigure:160
-#, fuzzy, c-format
+#, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s은(는) 완전히 설치되지 않았습니다"
+msgstr "%s은(는) 망가졌거나 완전히 설치되지 않았습니다"
 
 #: ../dpkg-reconfigure:237
 #, c-format
@@ -375,91 +367,11 @@ msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr ""
 
 #: ../debconf-mergetemplate:168
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s은(는) 완전히 설치되지 않았습니다"
+msgstr ""
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Debconf was asked to save this "
-#~ msgstr ""
-#~ "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
-
-#, fuzzy
-#~ msgid "note, so it mailed it to you."
-#~ msgstr ""
-#~ "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
-
-#, fuzzy
-#~ msgid "This frontend probably needs a controlling tty."
-#~ msgstr "이 frontend는 제어 tty를 필요로 합니다."
-
-#~ msgid "TERM is not set, so the Slang frontend is not usable."
-#~ msgstr "TERM이 정해지지 않았으므로, Slang frontend는 사용할 수 없습니다."
-
-#~ msgid ""
-#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
-#~ "or without a controlling terminal."
-#~ msgstr ""
-#~ "Slang frontend는 벙어리 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없"
-#~ "이는 사용할 수 없습니다."
-
-#~ msgid "Hide Help"
-#~ msgstr "도움말 감춤"
-
-#~ msgid "Show Help"
-#~ msgstr "도움말 보임"
-
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr "Tab과 방향 키로 움직임; space는 목록을 보여줌."
-
-#~ msgid "Working, please wait..."
-#~ msgstr "수행중, 기다리세요..."
-
-#, fuzzy
-#~ msgid "The note has been mailed to root"
-#~ msgstr "이 주의는 root에게 메일로 보냈습니다."
-
-#~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a "
-#~ "bug report, and include the stack trace below"
-#~ msgstr ""
-#~ "debconf: confmodule를 시작할 때 정의되지 않은 값이 발견되었습니다! 버그 보"
-#~ "고를 하고 stack trace를 아래에 포함시켜주세요"
-
-#~ msgid ""
-#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
-#~ msgstr ""
-#~ "사용법: dpkg-preconfigure [--frontend=종류] [--priority=값] deb파일들"
-
-#~ msgid "Unknown option: %s"
-#~ msgstr "알 수 없는 옵션: %s"
-
-#~ msgid ""
-#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-#~ msgstr "사용법: dpkg-reconfigure [--frontend=종류] [--priority=값] 패키지들"
-
-#~ msgid "unknown file"
-#~ msgstr "알 수 없는 파일"
-
-#~ msgid "debconf: Unable to write to temporary file %s: %s"
-#~ msgstr "debconf: 임시 파일 %s를 쓸 수 없습니다: %s"
-
-#~ msgid "debconf: Unable to read %s: %s"
-#~ msgstr "debconf: %s를 읽을 수 없습니다: %s"
-
-#~ msgid "Unable to make element of type %s. Failed because: %s"
-#~ msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
-
-#~ msgid "Unsupported command `%s'."
-#~ msgstr "지원되지 않는 멍령 `%s'."
-
-#~ msgid "Warning: Newline present in parameters passed to debconf."
-#~ msgstr "주의: debconf로 넘겨줄 매개 변수에 개행 문자가 있습니다."
-
-#~ msgid "This will probably cause strange things to happen!"
-#~ msgstr "아마도 이것이 이상한 일을 일으킬 것입니다!"
