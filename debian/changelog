@@ -1,3 +1,12 @@
+debconf (0.1.70) unstable; urgency=low
+
+  * Some work done towards supporting containers.
+  * Config scripts are now passed the version of the package that is currently
+    installed when they are run, which is normally the old version of the
+    package. (Analagous to postinst scripts.)
+  
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 13 Oct 1999 06:35:34 -0700
+
 debconf (0.1.69) unstable; urgency=low
 
   * Fixed the web frontend to send a HTTP reponse header, patch from

@@ -52,7 +52,7 @@ if ($apt) {
 	}
 	# We have now reached the end of the first file on stdin.
 	# Furure reads from stdin will get input from the user.
-	
+
 	exit unless @debs;
 }
 
@@ -63,10 +63,23 @@ if (-e Debian::DebConf::Config::dbfn()) {
 
 my $frontend=Debian::DebConf::AutoSelect::frontend();
 
+# Parse the dpkg status file. I probably need to know the versions of 
+# several packages that are being installed, and calling dpkg -s for each
+# would be unbearably slow. Since this program should be in dpkg anyway,
+# I have few compunctions about parsing this file directly.
+my %versions;
+{
+	local $/="\n\n"; # only takes effect in this closure.
+	open (STATUS, "</var/lib/dpkg/status");
+	while (<STATUS>) {
+		my ($package)=m/Package:\s*(.*?)\n/;
+		($versions{$package})=m/Version:\s*(.*?)\n/;
+	}
+	close STATUS;
+}
+
 # Caches package names so they are only looked up once.
 my %packages;
-# Caches package versions.
-my %versions;
 
 # Make two passes -- first load all templates, then run all confmodules.
 foreach my $x (0..$#debs) {
@@ -78,10 +91,7 @@ foreach my $x (0..$#debs) {
 			"% [Scanning packages]";
 	}
 
-	# A little optimization: run it once to get 2 values. We have to parse
-	# the output though.
-	$_=`dpkg-deb -f $debs[$x] Package Version`;
-	($packages{$debs[$x]}, $versions{$debs[$x]})=m/^Package: (.*)\nVersion: (.*)\n/;
+	$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
 
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile(
@@ -121,9 +131,11 @@ foreach my $deb (@debs) {
 
 	$frontend->default_title($packages{$deb});
 
+	# Figure oout what version of the package is currently installed.
+
 	# Start up the confmodule, passing in the package version.
 	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,
-		'configure', $versions{$deb});
+		'configure', $versions{$packages{$deb}});
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});

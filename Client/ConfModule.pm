@@ -162,7 +162,6 @@ in a different version to override this.
 
 =cut
 
-# Send in the current version unless overridden.
 sub version {
 	my $version=shift || '1.0';
 	print "VERSION $version\n";

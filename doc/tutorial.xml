@@ -304,7 +304,12 @@
       "<literal>configure</literal>" or "<literal>reconfigure</literal>". The
       latter occurs only if a package is being reconfigured by
       dpkg-reconfig. The second parameter is the version of the package
-      that is being installed.
+      that is currently installed
+      <footnote>
+      <para>Not necessarily the version that is being configured, but
+      whatever happens to be installed right now.
+      </para>
+      </footnote>.
     </para>
     <para>
       Continuing the example, we need a config script to display the
@@ -359,10 +364,11 @@
     <para>
       The only command postinsts normally use to communicate with the
       frontend is "<literal><link linkend="db_get">get</link></literal>" 
-      (though in reality they can  use any commands, including
-      "<literal>input</literal>", you are advised  not to do so). Typically,
-      the config script prompts the user for input, and the postinst then
-      pulls that input out of the database via the get command.
+      <footnote><para>Though in reality they can use any commands, including
+      "<literal>input</literal>", you are advised  not to do 
+      so.</para></footnote>. Typically, the config script prompts the user
+      for input, and the postinst then pulls that input out of the database
+      via the get command.
     </para>
     <para>
       In the example, before debconf, the package's postinst did this:
