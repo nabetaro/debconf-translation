@@ -1,3 +1,11 @@
+debconf (0.3.65) unstable; urgency=low
+
+  * Fixed preconfiguring -- since version 0.3.60, it has unnecessarily
+    skipped preconfiguring of all packages that Depend: on debconf w/o a
+    version. Silly thinko..
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 21 Aug 2000 18:27:05 -0700
+
 debconf (0.3.64) unstable; urgency=low
 
   * Switched to using links to convert html to text, since it
