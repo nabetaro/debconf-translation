@@ -16,9 +16,16 @@ This formats data in a vaguely RFC-822-ish way.
 
 =cut
 
+# Not needed.
+sub beginfile {}
+sub endfile {}
+
 sub read {
 	my $this=shift;
 	my $fh=shift;
+	
+	# Make sure it's sane.
+	local $/="\n";
 	
 	my $name;
 	my %ret=(
