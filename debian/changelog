@@ -1,3 +1,12 @@
+debconf (0.2.82) unstable; urgency=low
+
+  * Installed workaround from Joel Klecker to fix the annoying termcap 
+    warning from Term::Readline. This does not close these bugs, but it does
+    work around them: #47363, #50286, #50540, #51787, #52052, #53274, #55142,
+    #56987, and #46270
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  7 Feb 2000 23:44:26 -0800
+
 debconf (0.2.81) unstable; urgency=low
 
   * Added checks for wrong number of parameters in all command_* subs in

@@ -31,6 +31,7 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
+	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
 	$self->{'readline'}=Term::ReadLine->new('debian');
 	$self->{'readline'}->ornaments(1);
 	$self->{'interactive'}=1;
