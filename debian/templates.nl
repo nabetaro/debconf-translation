@@ -100,20 +100,6 @@ Description-nl: Welke interface moet gebruikt worden bij het instellen van pakke
  favoriete editor gebruiken om de pakketten in te stellen. De
  'noninteractive' interface stelt u in het geheel geen vragen.
 
-Template: debconf/preconfig
-Type: boolean
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install.
-Description-nl: Pakketten instellen voor installatie?
- Debconf kan pakketten instellen voordat ze door apt geinstalleerd
- worden. Dit zorgt er voor dat u de meeste vragen die een pakket u zou
- stellen al aan het begin van de installatie gesteld krijgt. U hoeft dan
- niet in de buurt te blijven gedurende de resterende tijd van de
- installatie.
-
 Template: debconf/helpvisible
 Type: boolean
 Description: Should debconf display extended help for questions?

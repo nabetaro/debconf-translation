@@ -101,20 +101,6 @@ Description-fi: Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?
  koskaan kysy kysymyksiä. Dialog on vanhempi liittymä, josta ollaan
  luopumassa.
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install.  
-Description-fi: Säädetäänkö asetukset ennen pakettien asennusta?
- Debconf:lla voi säätää asetukset ennen kuin apt asentaa paketit. Näin
- pääset vastaamaan useimpiin pakettien esittämiin kysymyksiin heti
- asennuksen alussa, jolloin sinun ei tarvitse enää olla paikalla
- loppuasennuksen aikana.
-
 Template: debconf/helpvisible
 Type: boolean
 Default: true

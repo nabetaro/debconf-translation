@@ -91,20 +91,6 @@ Description-de: Soll debconf erweiterte Hilfen anzeigen?
  etwas schneller oder etwas aufgeräumter. Das ist meistens für
  Experten hilfreich.
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install. 
-Description-de: Konfiguration der Pakete vor der Installation?
- Debconf kann die Pakete konfigurieren, bevor diese von apt
- installiert werden. Dadurch können Sie viele Fragen der Pakete vor
- der Installation beantworten und müssen dieses nicht während der
- Installation der Pakete machen.
-
 Template: debconf/frontend
 Type: select
 Choices: Slang, Text, Editor, Dialog, Noninteractive

@@ -4,19 +4,6 @@
 # run.
 . /usr/share/debconf/confmodule
 
-db_get debconf/preconfig
-if [ "$RET" = "true" ]; then
-	if [ ! -e /etc/apt/apt.conf ]; then
-		mkdir -p /etc/apt/ 2>/dev/null || true
-		touch /etc/apt/apt.conf
-	fi
-	if ! grep -q "dpkg-preconfigure --apt" /etc/apt/apt.conf; then
-		echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
-		echo "// (Automatically added by debconf.)" >> /etc/apt/apt.conf
-		echo 'DPkg::Pre-Install-Pkgs {"/usr/sbin/dpkg-preconfigure --apt || true";};' >> /etc/apt/apt.conf
-	fi
-fi
-
 # Kill accidential db cruft.
 if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.5.49; then
 	db_unregister foo/bar

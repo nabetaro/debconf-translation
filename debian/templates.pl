@@ -62,20 +62,6 @@ Description-pl: Nie zadawaj pytañ o priorytecie ni¿szym ni¿..
  Je¶li jeste¶ nowym u¿ytkownikiem systemu Debian, wybierz priorytet
  `najwy¿szy', aby widzieæ tylko najwa¿niejsze pytania.
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by apt.
- This lets you answer most questions a package would ask at the beginning of
- the install, so you do not need to be around to answer questions during the
- rest of the install.
-Description-pl: Czy konfigurowaæ pakiety przed ich instalacj±?
- Dziêki debconfowi mo¿na konfigurowaæ pakiety zanim zostan± zainstalowane
- przez apt-a. Dziêki temu wiêkszo¶æ pytañ zostanie zadanych na pocz±tku
- instalacji, dziêki czemu Twoja obecno¶æ nie bêdzie konieczna w czasie ca³ego
- procesu.
-
 Template: debconf/showold
 Type: boolean
 Default: false

@@ -66,20 +66,6 @@ Description-sv: Ignorera frågor med en prioritet lägre än..
  Om du är nybörjade på Debian GNU/Linux-systemet, välj "kritisk" nu, så får
  du bara se de viktigaste frågorna. 
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install. 
-Description-sv: Förkonfigurera paket innan de installeras?
- Debconf kan användas för att konfigurera paket innan de installeras av
- apt. Detta låter dig besvara de flesta frågor ett paket skulle fråga i
- början av installationen, så att du inte behöver vara närvarande för att
- svara på dem under resten av installationen. 
-
 Template: debconf/showold
 Type: boolean
 Default: false

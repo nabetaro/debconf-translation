@@ -61,19 +61,6 @@ Description-zh_TW: 忽略低于指定優先級的問題
  如果您是 Debian GNU/Linux 系統的新手的話，建議您在這裡選擇‘關鍵’級別，
  這樣您將只會遇到最重要的那些問題．
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install. 
-Description-zh_TW: 在軟件包安裝之前預先配置它們嗎？
- Debconf 可以在軟件包被 apt 安裝之前預先配置它們．這使得您可以在安裝過程
- 的一開始就回答完軟件包安裝的絕大部份問題，這樣在余下的安裝過程中您就不用
- 老是要呆在一邊看著了．
-
 Template: debconf/showold
 Type: boolean
 Default: false

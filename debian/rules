@@ -71,7 +71,10 @@ binary-arch: build-arch
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs
+	dh_installdirs etc/apt/apt.conf.d
+
+	install -m 0644 debian/apt.conf \
+		debian/debconf/etc/apt/apt.conf.d/debconf
 
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
 	

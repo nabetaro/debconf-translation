@@ -15,6 +15,9 @@ fi
 db_version 2.0
 db_capb backup
 
+# Remove old question.
+db_unregister debconf/preconfig || true
+
 # Use a state machine to allow jumping back to previous questions.
 STATE=1
 while [ "$STATE" != 0 -a "$STATE" != 3 ]; do
@@ -29,10 +32,9 @@ while [ "$STATE" != 0 -a "$STATE" != 3 ]; do
 	
 	2)
 		# Ask if old questions should be shown only after
-		# asking about priority, because I don't want to bother people
-		# with it unless they pick low priority.
+		# asking about priority, because I don't want to bother
+		# people with it unless they pick low priority.
 		db_beginblock
-		db_input low debconf/preconfig || true
 		db_input low debconf/showold || true
 		db_endblock
 	;;
