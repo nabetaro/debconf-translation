@@ -58,7 +58,7 @@ if ($apt) {
 	# this program. The user will thus see the questions only once, when
 	# the package is actually installed.
 	# This is a hack, but it's the best I can do.
-	Debian::DebConf::Config::showold('');
+	Debian::DebConf::Config::showold('false');
 }
 
 # Load up previous state information.

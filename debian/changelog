@@ -1,3 +1,11 @@
+debconf (0.2.71) unstable; urgency=low
+
+  * Sped up and simplified language code.
+  * Fixed dpkg-preconfigure to not re-show old questions when running in apt
+    mode (oops!)
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 10 Jan 2000 18:01:34 -0800
+
 debconf (0.2.70) unstable; urgency=low
 
   * '_' and '.' can now appear in fields names in templates. Necessary for

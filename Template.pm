@@ -115,20 +115,24 @@ Set/get a property. This supports internationalization.
 
 =cut
 
-sub AUTOLOAD {
-	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
-			
-	$this->{$property}=shift if @_;
+{
+	# Only calculate this once..
+	my $language=($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LC_MESSAGE} || $ENV{LANG});
 
-	# Check to see if i18n should be used.
-	if (($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG}) && 
-	    exists $$this{$property.'-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG})}) {
-		$property.='-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG});
+	sub AUTOLOAD {
+		my $this=shift;
+		my $property = $AUTOLOAD;
+		$property =~ s|.*:||; # strip fully-qualified portion
+				
+		$this->{$property}=shift if @_;
+	
+		# Check to see if i18n should be used.
+		if (defined $language && exists $$this{$property.'-'.$language}) {
+			$property.='-'.$language;
+		}
+		
+		return $this->{$property};
 	}
-
-	return $this->{$property};
 }
 
 =head1 AUTHOR
