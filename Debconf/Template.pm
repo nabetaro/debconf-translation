@@ -205,7 +205,8 @@ sub load {
 				# Continuation of a field, with a doubly
 				# indented bit that should not be wrapped.
 				my $bit=$1;
-				$extended.="\n" unless $extended =~ /\n$/;
+				$extended.="\n" if length $extended &&
+				                   $extended !~ /\n$/;
 				$extended.=$bit."\n";
 			}
 			elsif ($line=~/^\s(.*)/) {

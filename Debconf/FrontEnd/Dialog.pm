@@ -71,7 +71,7 @@ sub init {
 		                    # double-dash separation
 		$this->borderwidth(7);
 		$this->borderheight(6);
-		$this->spacer(4);
+		$this->spacer(0);
 		$this->titlespacer(4);
 		$this->columnspacer(2);
 	}

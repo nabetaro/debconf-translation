@@ -1,3 +1,22 @@
+debconf (1.0.13) unstable; urgency=medium
+
+  * Fixed inverted test added in last version. Aargh. This mistake means that
+    any package with doubly-indented debconf descriptions built with debconf
+    1.0.12 needs to be rebuilt, or the description will look nasty.
+  * Dialog frontend fixups:
+    - changed the spacer value for dialog to 0, instead of 4, which seems ok
+      and fixes some bad displays, like 1 line tall select lists.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Oct 2001 19:50:05 -0400
+
+debconf (1.0.12) unstable; urgency=low
+
+  * Modified the template parser just a bit, to not add a blank line
+    before any template data if a template's extended description began with
+    a doubly-indented line. Closes: #114708
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  6 Oct 2001 21:30:10 -0400
+
 debconf (1.0.11) unstable; urgency=low
 
   * Whoops, I forgot that Frontend::makeelement could be used as a class
