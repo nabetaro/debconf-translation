@@ -1,3 +1,14 @@
+debconf (0.2.80) frozen unstable; urgency=low
+
+  * Adjusted debconf dependancy to perl-5.005, not perl5. As Raphael points
+    out, just dependong on perl5 does not guarentee Data::Dumper is available.
+    Raphael thinks this is a critical bug.
+  * debconf-tiny's dependancy, on the other hand, was already ok.
+  * Binary and source packages no longer contain CVS backup files, 
+    Closes: #55860
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 21 Jan 2000 11:44:56 -0800
+
 debconf (0.2.79) frozen unstable; urgency=low
 
   * dpkg-reconfigure: Now checks each script before running it
@@ -5,6 +16,10 @@ debconf (0.2.79) frozen unstable; urgency=low
     not under the confmodule interface. base-config shows this is necessary,
     with its non-confmodule postinst. This change is needed in frozen to
     keep base-config working.
+  * Fixed debconf's oldest bug report, which turned out to be a bug in how
+    IPC::Open3 was being called. It also turns out this bug is tickeled by
+    base-config, since it will be reconfiguredd from inittab, so it turned out
+    to be a critical bug. Closes: #47659
   * Documented (again) in dpkg-reconfigure.8 that 
     "dpkg-reconfigure --priority=medium debconf" should be used to
     reconfigure debconf. Closes: #55706

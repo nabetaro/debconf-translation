@@ -210,10 +210,10 @@ sub showdialog {
 	debug 2, "preparing to run dialog. Params are:" ,
 		join(",", $this->program, @_);
 
-	# Save stdout, stderr, the open3 below messes with them.
-	use vars qw{*SAVEOUT *SAVEERR};
-	open(SAVEOUT, ">&STDOUT");
-	open(SAVEERR, ">&STDERR");
+	# Save stdout, stdin, the open3 below messes with them.
+	use vars qw{*SAVEOUT *SAVEIN};
+	open(SAVEOUT, ">&STDOUT") || die $!;
+	open(SAVEIN, "<&STDIN") || die $!;
 
 	# If warnings are enabled by $^W, they are actually printed to
 	# stdout by IPC::Open3 and get stored in $stdout below! (I have no idea
@@ -221,7 +221,7 @@ sub showdialog {
 	my $savew=$^W;
 	$^W=0;
 	
-	my $pid = open3('<&STDOUT', '>&STDERR', \*ERRFH, $this->program, 
+	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program, 
 		'--backtitle', 'Debian Configuration',
 		'--title', $this->title, @_);
 	my $stderr;	
@@ -235,9 +235,9 @@ sub showdialog {
 	$^W=$savew;
 	use strict;
 
-	# Restore stdout, stderr.
-	open(STDOUT, ">&SAVEOUT");
-	open(STDERR, ">&SAVEERR");
+	# Restore stdout, stdin.
+	open(STDOUT, ">&SAVEOUT") || die $!;
+	open(STDIN, "<&SAVEIN") || die $!;
 
 	# Now check dialog's return code to see if escape (-1) or
 	# Cancel (1) were hit. If so, make a note that we should back up.

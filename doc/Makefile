@@ -10,8 +10,8 @@ all: $(FILES) spec
 		/usr/lib/sgml/declaration/xml.dcl $< | sed 's/&#13;//' > $@
 
 %.txt: %.html
-	w3m -dump $< > $@
-#	lynx -dump $< > $@
+#	w3m -dump $< > $@
+	lynx -dump $< > $@
 
 clean: spec
 	rm -f $(FILES) hierarchy.txt *.css *.html
