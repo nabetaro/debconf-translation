@@ -23,17 +23,19 @@ INPUT foo/bar    ->     (stored)
 INPUT foo/baz    ->     (stored)
                  <-     0 question will be asked
 GO               ->
+                        DATA foo/bar type boolean ->
+                                           <-   0 OK
                         DATA foo/bar description some description ->
 			                   <-   0 OK
 			DATA foo/bar extended_description etc ->
 			                   <-   0 OK
-			INPUT foo/bar boolean ->
+			INPUT medium foo/bar ->
 			                   <-   0 OK
                         DATA foo/baz description some description ->
 			                   <-   0 OK
 			DATA foo/baz extended_description etc ->
 			                   <-   0 OK
-			INPUT foo/baz text ->
+			INPUT low foo/baz ->
 			                   <-   0 OK
 			GO                 ->
 			                   <-   0 OK (or 30 GOBACK)
@@ -80,7 +82,7 @@ commands like this:
 
    where: 
 	<tag> is the name of the template, e.g. debconf/frontend
-	<item> is one of {"description", "extended-description", "choices"}
+	<item> is one of {"type", "description", "extended_description", "choices"}
 	<value> is the value of the <item>, with all newlines converted to 
 	        "\\n" (i.e. 0x2F 0x6E)
 
@@ -98,10 +100,10 @@ defined, viz:
 
 Finally, a corresponding INPUT command will be sent as:
 
-	INPUT <tag> <type>
+	INPUT <priority> <tag>
   where:
-  	<tag> is the name of the template
-	<type> is the type of the question
+  	<priority> is the priority of the question
+	<tag> is the name of the template
 
 An INPUT command will be issued to the Frontend for each INPUT command
 received by the Passthrough module prior to a GO command. After all INPUT

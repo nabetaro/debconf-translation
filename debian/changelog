@@ -3,6 +3,15 @@ debconf (1.4.42) UNRELEASED; urgency=low
   * Fix bug in man page example script. Closes: #286335
   * Add --unseen flag to debconf-set-selections. Closes: #286318
   * Fix typo in man page example. Closes: #285099
+  * Patch from mdz to improve the passthrough frontend:
+    - Use DEBCONF_READFD and DEBCONF_WRITEFD for passthrough communication
+      if DEBCONF_PIPE is not set to a socket.
+    - Change passthrough protocl for INPUT command so it is the same as in
+      the debconf protocol, and pass the type of the question in a "DATA type"
+      command.
+    - Fix passing of extended descriptions in DATA. Note they're newline
+      escaped.
+    - Pass choices for multiselect questions.
 
  -- Joey Hess <joeyh@debian.org>  Sun, 19 Dec 2004 13:26:12 -0500
 

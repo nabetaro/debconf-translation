@@ -10,12 +10,21 @@ package Debconf::FrontEnd::Passthrough;
 use strict;
 use Carp;
 use IO::Socket;
+use IO::Handle;
 use Debconf::FrontEnd;
 use Debconf::Element;
 use Debconf::Log qw(:all);
 use base qw(Debconf::FrontEnd);
 
-my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || die "DEBCONF_PIPE not set";
+my ($READFD, $WRITEFD, $SOCKET);
+if (defined $ENV{DEBCONF_PIPE}) {
+        $SOCKET = $ENV{DEBCONF_PIPE};
+} elsif (defined $ENV{DEBCONF_READFD} && defined $ENV{DEBCONF_WRITEFD}) {
+        $READFD = $ENV{DEBCONF_READFD};
+        $WRITEFD = $ENV{DEBCONF_WRITEFD};
+} else {
+        die "Neither DEBCONF_PIPE nor DEBCONF_READFD and DEBCONF_WRITEFD were set\n";
+}
 
 =head1 DESCRIPTION
 
@@ -39,12 +48,18 @@ Set up the pipe to the UI agent and other housekeeping chores.
 sub init {
 	my $this=shift;
 
-	$this->{thepipe} = IO::Socket::UNIX->new(
-		Type => SOCK_STREAM,
-		Peer => $DEBCONFPIPE
-	) || croak "Cannot connect to $DEBCONFPIPE: $!";
+        if (defined $SOCKET) {
+                $this->{readfh} = $this->{writefh} = IO::Socket::UNIX->new(
+		        Type => SOCK_STREAM,
+		        Peer => $SOCKET
+	        ) || croak "Cannot connect to $SOCKET: $!";
+        } else {
+                $this->{readfh} = IO::Handle->new_from_fd(int($READFD), "r") || croak "Failed to open fd $READFD: $!";
+                $this->{writefh} = IO::Handle->new_from_fd(int($WRITEFD), "w") || croak "Failed to open fd $WRITEFD: $!";
+        }
 
-	$this->{thepipe}->autoflush(1);
+	$this->{readfh}->autoflush(1);
+	$this->{writefh}->autoflush(1);
 	
 	$this->SUPER::init(@_);
 	$this->interactive(1);
@@ -62,12 +77,13 @@ sub talk {
 	my $command=join(' ', @_);
 	my $reply;
 	
-	my $fh = $this->{thepipe} || croak "Broken pipe";
+	my $readfh = $this->{readfh} || croak "Broken pipe";
+	my $writefh = $this->{writefh} || croak "Broken pipe";
 	
 	debug developer => "----> $command";
-	print $fh $command."\n";
-	$fh->flush;
-	$reply = <$fh>;
+	print $writefh $command."\n";
+	$writefh->flush;
+	$reply = <$readfh>;
 	chomp($reply);
 	debug developer => "<---- $reply";
 	my ($tag, $val) = split(' ', $reply, 2);
@@ -171,6 +187,8 @@ sub go {
 		my $extdesc = $question->extended_description;
 		my $default = $question->value;
 
+                $this->talk('DATA', $tag, 'type', $type);
+
 		if ($desc) {
 			$desc =~ s/\n/\\n/g;
 			$this->talk('DATA', $tag, 'description', $desc);
@@ -178,22 +196,21 @@ sub go {
 
 		if ($extdesc) {
 			$extdesc =~ s/\n/\\n/g;
-			$this->talk('DATA', $tag, 'extended-description',
+			$this->talk('DATA', $tag, 'extended_description',
 			            $extdesc);
 		}
 
-		if ($type eq "select") {
+		if ($type eq "select" || $type eq "multiselect") {
 			my $choices = $question->choices;
 			$choices =~ s/\n/\\n/g if ($choices);
 			$this->talk('DATA', $tag, 'choices', $choices);
 		}
 
 		$this->talk('SET', $tag, $default) if $default ne '';
-		# TODO: This INPUT command doesn't meet the protocol spec.
-		#       It should pass the priority and the question name,
-		#       not the type. I suppose type should be passed by
-		#       a DATA command.
-		$this->talk('INPUT', $tag, $type);
+
+                
+
+		$this->talk('INPUT', $question->priority, $tag);
 	}
 
 	# Tell the agent to display the question(s), and check
