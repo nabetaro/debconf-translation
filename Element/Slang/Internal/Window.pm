@@ -2,14 +2,13 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Slang::Internal::Window - Window element.
+Debian::DebConf::Element::Slang::Internal::Window - window element
 
 =cut
 
 =head1 DESCRIPTION
 
-This is a window element. It is not associated with a Question, and is thus
-internal to the Slang FrontEnd.
+This is a window element.
 
 =cut
 

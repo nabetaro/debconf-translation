@@ -21,6 +21,8 @@ use strict;
 use Term::Slang;
 use Debian::DebConf::Element::Slang::Internal;
 use Debian::DebConf::Element::Slang::Internal::Window;
+use Debian::DebConf::Element::Slang::Internal::Bar;
+use Debian::DebConf::Element::Slang::Internal::HelpBar;
 use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
 
@@ -30,6 +32,7 @@ sub new {
 	my $self  = bless $proto->SUPER::new(@_), $class;
 
 	$self->startslang;
+
 	# Create the element that represents the entire screen.
 	$self->screen(Debian::DebConf::Element::Slang::Internal->new);
 	$self->screen->frontend($self);
@@ -42,6 +45,17 @@ sub new {
 		$this->height(shift);
 		$this->width(shift);
 	});
+	
+	# Create the title and help bars and put them on the screen.
+	my $titlebar=Debian::DebConf::Element::Slang::Internal::Bar->new;
+	$titlebar->frontend($self);
+	$titlebar->container($self->screen);
+	$titlebar->text("Debian Configuration");
+	my $helpbar=Debian::DebConf::Element::Slang::Internal::HelpBar->new;
+	$helpbar->frontend($self);
+	$helpbar->container($self->screen);
+	$helpbar->push("Sample help text.");
+		
 	# Create the two main windows and put them in the screen.
 	my $qwin=Debian::DebConf::Element::Slang::Internal::Window->new;
 	$qwin->frontend($self);
@@ -120,67 +134,6 @@ sub resize {
 		$this->screen->display;
 		$this->sl->smg_refresh;
 	}
-}
-
-=head2 draw_titlebar
-
-Draw the titlebar at the top of the screen.
-
-=cut
-
-sub draw_titlebar {
-	my $this=shift;
-
-	$this->sl->smg_gotorc(0,0);
-	$this->sl->smg_set_color($this->color->{bar});
-	$this->sl->smg_erase_eol;
-	$this->sl->smg_gotorc(0,
-		($this->screenwidth - length($this->titlebar)) / 2);
-	$this->sl->smg_write_string($this->titlebar);
-}
-
-=head2 push_help
-
-Push help text onto the stack. This cases it to be displayed at the bottom
-of the screen. Pass in the text.
-
-=cut
-
-sub push_help {
-	my $this=shift;
-
-	push @{$this->helpstack}, @_;
-	$this->draw_helpbar;
-}
-
-=head2 pop_help
-
-Pops the current help text off the stack, causing the previous help text to
-be displayed. Returns the popped text.
-
-=cut
-
-sub pop_help {
-	my $this=shift;
-
-	my $ret=pop @{$this->helpstack};
-	$this->draw_helpbar;
-	return $ret;
-}
-
-=head2 draw_helpbar
-
-Draw the help bar at the bottom of the screen. The help bar displays the
-first element in the array referenced by the helpbar property.
-
-=cut
-
-sub draw_helpbar {
-	my $this=shift;
-
-	$this->sl->smg_gotorc($this->screenheight,0);
-	$this->sl->smg_set_color($this->color->{bar});
-	$this->sl->smg_write_nstring($this->helpstack->[0], $this->screenwidth);
 }
 
 =head2 go
