@@ -68,7 +68,6 @@ sub init {
 	$this->page->addChild($this->frame);
 	$this->toplayout->addWidget($this->page);
 	$this->vbox(Qt::VBoxLayout($this->frame, 0, 6, "wizard-main-vbox"));
-	$this->win->show;
 	$this->space(Qt::SpacerItem(1, 1, 1, 5));
 	$this->win->setTitle(to_Unicode(sprintf(gettext("Debconf on %s"), $this->hostname)));
 }

@@ -182,12 +182,14 @@ sub addhelp {
 	
 	$this->addbutton(gettext("_Help"), sub {
 		$this->create_message_dialog("gtk-dialog-info",
-		                              gettext("Help"), $help);
+		                              gettext("Help"), 
+					     to_Unicode($help));
 	});
 
 	if (defined $this->tip ){
 		$this->tooltips( Gtk2::Tooltips->new() );
-		$this->tooltips->set_tip( $this->tip, $help, undef );
+		$this->tooltips->set_tip($this->tip, to_Unicode($help), 
+					  undef );
 		$this->tooltips->enable;
 	}
 }
