@@ -217,6 +217,7 @@ sub fillpanel {
 	my $y=0;
 	foreach my $element (@{$this->elements}) {
 		$element->widget_description || next;
+		
 		$element->widget_description->yoffset($y);
 		$element->widget_description->resize;
 		$element->resize;

@@ -27,6 +27,7 @@ sub init {
 		disabled => 1,
 		sameline => 1,
 		width => 1,
+		preferred_width => 0,
 	));
 }
 
