@@ -10,29 +10,40 @@ clean:
 	rm -f *.db
 	$(MAKE) -C doc clean
 
-install:
-  # Install libs
+install-libs:
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf $(prefix)/usr/share/debconf
 	chmod 700 $(prefix)/var/lib/debconf
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
-	find Client ConfModule Element FrontEnd -type d | grep -v CVS | \
+	find Client Element FrontEnd -type d | grep -v CVS | \
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
-	find Client ConfModule Element FrontEnd -type f | grep .pm\$$ | \
+	find Client Element FrontEnd -type f | grep .pm\$$ | \
 		xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
-	install -d $(prefix)/etc/
 	install -m 0644 Client/confmodule.sh Client/confmodule $(prefix)/usr/share/debconf/
 	install Client/frontend $(prefix)/usr/share/debconf/
-
-  # Modify config module to use correct db location.
+	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 
-  # Generate man pages from POD docs.
+install: install-libs
+	# Generate man pages from POD docs.
 	install -d $(prefix)/usr/share/man/man3/
 	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
-
-  # Install bins
+	# Install bins
 	install -d $(prefix)/usr/bin
 	find Client -perm +1 -type f | grep -v frontend | \
 		xargs -i_ install _ $(prefix)/usr/bin
+
+# This target installs a minimal debconf.
+tiny-install: install-libs
+	# Delete the libs we don't need.
+	find $(prefix)/usr/lib/perl5/Debian/DebConf/ | egrep 'Text|Web|Gtk' | xargs rm -rf
+	# Strip out POD documentation and all other comments
+	# from all .pm files in it.
+	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.pm' | \
+	xargs perl -i.bak -ne ' \
+		$$cutting=!$$cutting if /^=/; \
+		next if $$cutting; \
+		print $$_ unless /^(=|\s*#)/ \
+	'
+	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.bak' | xargs rm -f

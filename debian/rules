@@ -24,6 +24,7 @@ install: build
 	dh_clean -k
 	dh_installdirs
 	$(MAKE) prefix=debian/tmp install
+	$(MAKE) prefix=debian/debconf-tiny tiny-install
 
 # Build architecture-independent files here.
 binary-indep: install
@@ -40,14 +41,14 @@ binary-indep: install
 	dh_installexamples samples/*.* test.pl
 	dh_installmenu
 	dh_installcron
-	dh_installmanpages dpkg-frontend.1
+	dh_installmanpages -p debconf dpkg-frontend.1
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
 	dh_suidregister
 	dh_installdeb
 	dh_gencontrol
-	dh_md5sums
+	dh_md5sums -p debconf
 	dh_builddeb
 
 # Build architecture-dependent files here.

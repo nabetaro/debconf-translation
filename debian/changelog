@@ -1,3 +1,21 @@
+debconf (0.2.32) unstable; urgency=low
+
+  * Added a debconf-tiny package, which is a very stripped down debconf to be
+    used on the base system. Debconf itself is 117+k, mainly because of all
+    the frontends and docs. To make debconf-tiny, I:
+    - removed all docs
+    - removed all frontends except dialog and noninteractive
+    - removed most stuff in /usr/bin
+    - stripped out all POD docs and regular comments from all perl modules
+    - All this got the package down to 27k compressed. 14k compressed of that
+      was this changelog (It's all the fault of long changelog entries like
+      this one!)
+    - So, I started a new changelog for debconf-tiny, in which I will record
+      changes specific to it. debconf-tiny is now 12k.
+  * Removed /etc from package.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 14 Nov 1999 17:08:58 -0800
+
 debconf (0.2.31) unstable; urgency=low
 
   * Always returns "mulitselect" as one of it's capabilities now.
