@@ -9,7 +9,9 @@ Debian::DebConf::Template - Template object
 package Debian::DebConf::Template;
 use strict;
 use POSIX;
+use FileHandle;
 use Debian::DebConf::Gettext;
+use Text::Wrap;
 use vars qw($AUTOLOAD);
 use base qw(Debian::DebConf::Base);
 
@@ -25,7 +27,7 @@ named "extended_description" holds the extended description, if any.
 
 Templates support internationalization. If LANG or a related environment
 variable is set, and you request a field from a template, it will see if
-"$ENV{LANG}-field" exists, and if so return that instead.
+"$LANG-field" exists, and if so return that instead.
 
 =cut
 
@@ -33,25 +35,22 @@ variable is set, and you request a field from a template, it will see if
 
 =cut
 
-# Helper for parse, sets a field to a value.
-sub _savefield {
-	my $this=shift;
-	my $field=shift;
-	my $value=shift;
-	my $extended=shift;
+=head2 fields
 
-	if ($field ne '') {
-		$this->$field($value);
-		my $e="extended_$field";
-		$this->$e($extended);
-	}
+Returns a list of all fields that are present in the object.
+
+=cut
+
+sub fields {
+	my $this=shift;
+
+	return keys %$this;
 }
 
 =head2 merge
 
-Pass this another Template and all fields of the object you
-call this method on will be copied over onto the other Template
-and any old values in the other Template will be removed.
+Pass in another Template and all the fields in that other template
+will be copied over onto the Template the method is called on.
 
 =cut
 
@@ -61,12 +60,96 @@ sub merge {
 
 	# Breaking the abstraction just a little..
 	foreach my $key (keys %$other) {
-		delete $other->{$key};
+		$this->$key($other->{$key});
+	}
+}
+
+=head2 clear
+
+Clears all fields of the template.
+
+=cut
+
+sub clear {
+	my $this=shift;
+
+	# Breaking the abstraction just a little..
+	foreach my $key (keys %$this) {
+		delete $this->{$key};
+	}
+}
+
+=head2 stringify
+
+This may be called as either a class method (in which case it takes a list
+of templates), or as a normal method (which makes it act on only the one
+object). It converts the template objects back into template file format,
+and returns a string containing the data.
+
+=cut
+
+sub stringify {
+	my $proto=shift;
+
+	my @templatestrings;
+	foreach (ref $proto ? $proto : @_) {
+		my $data='';
+		# Order the fields with Template and Type the top and the
+		# rest sorted.
+		foreach my $key ('template', 'type',
+		                 (grep { $_ ne 'template' && $_ ne 'type'} sort keys %$_)) {
+			next if $key=~/^extended_/;
+			$data.=ucfirst($key).": ".$_->{$key}."\n";
+			if (exists $_->{"extended_$key"}) {
+				# Add extended field.
+				my $extended=wrap(' ', ' ', $_->{"extended_$key"});
+				$extended=~s/\n \n/\n .\n/g;
+				$data.=$extended."\n" if length $extended;
+			}
+		}
+		push @templatestrings, $data;
+	}
+	return join("\n", @templatestrings);
+}
+
+=head2 load
+
+This class method reads a templates file, instantiates a template for each
+item in it, and returns all the instantiated templates.
+
+It takes two parameters: the file to load (or an already open FileHandle), and
+the owner of the instantiated templates.
+
+=cut
+
+sub load {
+	my $this=shift;
+	my $file=shift;
+	my $owner=shift;
+
+	my $data;
+	my @ret;
+	my $fh;
+
+	if (ref $file) {
+		$fh=$file;
+	}
+	else {
+		$fh=FileHandle->new($file) || die "$file: $!";
+	}
+	while (<$fh>) {
+		if ($_ ne "\n") {
+			$data.=$_;
+		}
+		if ($_ eq "\n" || $fh->eof) {
+			my $template=$this->new;
+			$template->parse($data);
+			push @ret, $template;
+			$data='';
+		}
 	}
 
-	foreach my $key (keys %$this) {
-		$other->$key($this->{$key});
-	}
+	return @ret;
 }
 
 =head2 parse
@@ -79,7 +162,7 @@ information in the Template object.
 sub parse {
 	my $this=shift;
 	my $text=shift;
-
+	
 	my ($field, $value, $extended)=('', '', '');
 	foreach (split "\n", $text) {
 		chomp;
@@ -100,7 +183,7 @@ sub parse {
 			$extended.=$1." ";
 		}
 		else {
-			die gettext("Template parse error near")." \"$_\"";
+			die gettext(sprintf("Template parse error near `%s'", $_));
 		}
 	}
 
@@ -109,6 +192,20 @@ sub parse {
 	# Sanity checks.
 	die gettext("Template does not contain a `Template:' line")
 		unless $this->template;
+}
+
+# Helper for parse, sets a field to a value.
+sub _savefield {
+	my $this=shift;
+	my $field=shift;
+	my $value=shift;
+	my $extended=shift;
+
+	if ($field ne '') {
+		$this->$field($value);
+		my $e="extended_$field";
+		$this->$e($extended);
+	}
 }
 
 # Calculate the current locale, with aliases expanded, and normalized.

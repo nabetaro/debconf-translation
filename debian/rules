@@ -20,6 +20,7 @@ install: build
 	dh_installdirs
 	$(MAKE) prefix=`pwd`/debian/tmp install
 	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
+	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 
 binary-indep: install
 	# Make sure debhelper is going to install the config and templates.

@@ -69,8 +69,9 @@ Display usage help.
 BEGIN {
 	eval qq{
 		use strict;
+		use FileHandle;
 		use Debian::DebConf::ConfigDb qw(loaddb savedb 
-			                         loadtemplatedata);
+					         loadtemplatefile);
 		use Debian::DebConf::Config qw(frontend priority showold
 					       dbdir tmpdir);
 		use Debian::DebConf::AutoSelect qw(:all);
@@ -114,7 +115,7 @@ for (my $x=0; $x < @ARGV;) {
 		exit 1;
 	}
 	elsif (/^--?(\w+)/) {
-		print STDERR gettext("Unknown option").": $1\n";
+		print STDERR gettext(sprintf("Unknown option: %s", $1))."\n";
 	}
 	else {
 		push @debs, $_;
@@ -136,7 +137,7 @@ if ($apt) {
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin should get input from the user, so re-open.
 	open (STDIN, "/dev/tty") ||
-		(print STDERR gettext("dpkg-preconfigure: unable to re-open stdin").": $!\n", exit 0);
+		(print STDERR gettext(sprintf("dpkg-preconfigure: unable to re-open stdin: %s", $!))."\n", exit 0);
 
 	# Since we are running from apt, we will be preconfiguring some
 	# packages prior to installing them. If the user has debconf configured
@@ -173,8 +174,8 @@ foreach my $x (0..$#debs) {
 	}
 
 	# See if there are any templates in this deb.
-	open (TEMPLATES, "dpkg --info $debs[$x] templates 2>/dev/null |");
-	if (! eof(TEMPLATES)) {
+	my $fh=FileHandle->new("dpkg --info $debs[$x] templates 2>/dev/null |");
+	if (! $fh->eof) {
 		# Now a sanity check: does this package depend
 		# on a newer version of debconf than the current
 		# version? If so, do nothing to prevent upgrade breaks.
@@ -204,17 +205,12 @@ foreach my $x (0..$#debs) {
 		close INFO;
 	
 		if ($ok) {
-			# Process the templates.
-			# I want to slurp whole templates.
-			local $/="\n\n";
-			while (<TEMPLATES>) {
-				eval q{
-					loadtemplatedata($_, $packages{$debs[$x]});
-				};
-				if ($@) {
-					print STDERR "$debs[$x] ".gettext("template parse error").": $@\n";
-					next;
-				}
+			eval q{
+				loadtemplatefile($fh, $packages{$debs[$x]});
+			}
+			if ($@) {
+				print STDERR "$debs[$x] ".gettext(sprintf("template parse error: %s", $@))."\n";
+				next;
 			}
 
 			$todo{$debs[$x]}=1;
@@ -239,7 +235,7 @@ foreach my $deb (@debs) {
 	# we will skip it. If so, we need to save the confmodule
 	# to disk so it can be run.
 	open (IN, "dpkg --info $deb config 2>/dev/null |") or
-		die gettext("Unable to spawn dpkg").": $!";
+		die gettext(sprintf("Unable to spawn dpkg: %s", $!));
 	
 	next if eof(IN);
 	
@@ -254,7 +250,7 @@ foreach my $deb (@debs) {
 	close IN;
 	close OUT;
 	chmod(0755, $script) or 
-		die gettext("Can't chmod").": $!";
+		die gettext(sprintf("Can't chmod: %s", $!));
 
 	$frontend->default_title($packages{$deb});
 
@@ -271,7 +267,9 @@ foreach my $deb (@debs) {
 	# I could just exit, but it's good to be robust so 
 	# other packages can still be configured and installed.
 	if ($confmodule->exitcode > 0) {
-		print STDERR "$packages{$deb} ".gettext("failed to configure, with exit code")." ".$confmodule->exitcode."\n";
+		print STDERR gettext(sprintf(
+			"%s failed to configure, with exit code %s", 
+			$packages{$deb}, $confmodule->exitcode))."\n";
 	}
 
 	unlink $script;

@@ -1,6 +1,6 @@
 # List here all source files with translatable strings.
 POTFILES=$(shell find .. -type f -name \*.pm) ../Client/*.pm \
-	../Client/dpkg-preconfigure ../Client/dpkg-reconfigure
+	../Client/dpkg-* ../Client/debconf-*
 
 POFILES=$(wildcard *.po)
 MOFILES=$(POFILES:.po=.mo)
@@ -18,7 +18,7 @@ debconf.pot: $(POTFILES)
 # xgettext can mostly handle perl files as C files, though it gets a bit
 # confused about single quotes in comments, and the gettext() calls have to
 # use double-quoted strings or it will ignore them.
-	xgettext $(POTFILES) -o debconf.pot -Lc
+	xgettext $(POTFILES) -o debconf.pot -Lc --keyword=sprintf
 
 clean:
 	rm -f debconf.pot $(MOFILES)

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-dpkg-debconf - communicate with debconf
+debconf-communicate - communicate with debconf
 
 =cut
 
@@ -13,14 +13,15 @@ use Debian::DebConf::AutoSelect qw(:all);
 
 =head1 SYNOPSIS
 
- dpkg-debconf "command" "command args"
+ debconf-communicate "command" "command args"
 
 =head1 DESCRIPTION
 
-B<dpkg-debconf> allows you to communicate with debconf on the fly, from the
-command line. It accepts any number of arguments, each of which contains a
-single debconf command to run along with any parameters. For documentation on
-the available commands and their usage, see Appendix A of the Debconf Tutorial.
+B<debconf-communicate> allows you to communicate with debconf on the fly,
+from the command line. It accepts any number of arguments, each of which
+contains a single debconf command to run along with any parameters. For
+documentation on the available commands and their usage, see Appendix A
+of the Debconf Tutorial.
 
 The commands are executed in sequence. The textual return code of each is
 printed out to standard output.
@@ -30,12 +31,12 @@ executed command.
 
 =head1 EXAMPLES
 
- dpkg-debconf "get debconf/frontend"
+ debconf-communicate "get debconf/frontend"
 
 Print out the value of the debconf/frontend question.
 
- dpkg-debconf "fset debconf/frontend isdefault false" \
-              "input medium debconf/frontend" go
+ debconf-communicate "fset debconf/frontend isdefault false" \
+                     "input medium debconf/frontend" go
 
 This asks debconf to display the debconf/frontend question, even if it has
 been seen before.
@@ -47,7 +48,7 @@ that uses debconf! It may however, be useful in debugging.
 
 =head1 SEE ALSO
 
-L<dpkg-loadtemplate(8)|dpkg-loadtemplate>
+L<debconf-loadtemplate(8)|debconf-loadtemplate>
 
 =cut
 

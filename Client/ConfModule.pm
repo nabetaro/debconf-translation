@@ -98,7 +98,8 @@ sub AUTOLOAD {
 	my $command = uc $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 
-	die gettext("Unsupported command")." \"$command\"." unless $commands{$command};
+	die gettext(sprintf("Unsupported command `%s'.", $command))
+		unless $commands{$command};
 	
 	no strict 'refs';
 	*$AUTOLOAD = sub {

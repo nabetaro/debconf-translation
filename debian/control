@@ -17,6 +17,17 @@ Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. It is
  used by some packages to prompt you for questions before they are installed.
 
+Package: debconf-utils
+Architecture: all
+Depends: debconf (>= 0.3.31)
+Conflicts: debconf (<< 0.3.31)
+Replaces: debconf (<< 0.3.31)
+Description: Debconf utilities
+ This package contains some small utilities to aid developers who are using
+ debconf. There are utilities to aid with managing translated template
+ files and utilities to communicate directly with debconf from the
+ command line.
+
 Package: debconf-doc
 Architecture: all
 Conflicts: debconf (<< 0.3.10)

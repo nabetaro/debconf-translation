@@ -63,7 +63,7 @@ sub init {
 		LocalAddr => '127.0.0.1',
 	)) || die "Can't bind to ".$this->port.": $!";
 
-	print STDERR gettext("Note: Debconf is running in web mode. Go to http://localhost").":".$this->port."/\n";
+	print STDERR gettext(sprintf("Note: Debconf is running in web mode. Go to http://localhost:%i/",$this->port))."\n";
 }
 
 =item client

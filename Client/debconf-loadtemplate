@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-dpkg-loadtemplate - load template file into debconf database
+debconf-loadtemplate - load template file into debconf database
 
 =cut
 
@@ -12,7 +12,7 @@ use Debian::DebConf::ConfigDb qw(loaddb loadtemplatefile savedb);
 
 =head1 SYNOPSIS
 
- dpkg-loadtemplate owner file [file ..]
+ debconf-loadtemplate owner file [file ..]
 
 =head1 DESCRIPTION
 
@@ -29,7 +29,7 @@ debconf database.
 
 =head1 SEE ALSO
 
-L<dpkg-debconf(8)|dpkg-debconf>
+L<debconf-communicate(8)|debconf-communicate>
 
 =cut
 

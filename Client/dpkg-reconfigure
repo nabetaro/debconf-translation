@@ -147,7 +147,7 @@ foreach my $pkg (@packages) {
 	# If this doesn't exist, the package probably doesn't use debconf,
 	# so skip it, becuase a normal package may misbehave when run here.
 	if (! -x "/var/lib/dpkg/info/$pkg.config") {
-		warn $pkg." ".gettext("is not installed or does not use debconf");
+		warn gettext(sprintf("%s is not installed or does not use debconf", $pkg));
 		next;
 	}
 
@@ -159,7 +159,7 @@ foreach my $pkg (@packages) {
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
 	if (! defined $status || $status !~ m/ ok installed$/) {
-		warn $pkg." ".gettext("is not fully installed");
+		warn gettext(sprintf("%s is not fully installed", $pkg));
 		exit 1;
 	}
 	
@@ -232,7 +232,7 @@ sub allpackages {
 	local $/="\n\n";
 	
 	open (STATUS, "</var/lib/dpkg/status")
-		|| die gettext("Cannot read status file").": $!";
+		|| die gettext(sprintf("Cannot read status file: %s", $!));
 	while (<STATUS>) {
 		push @ret, $1
 			if m/Status:\s*.*installed\n/ && m/Package:\s*(.*)\n/;

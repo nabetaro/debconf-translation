@@ -275,6 +275,17 @@ Template: ....
 	or a multiselect question, and the answer returned when you display
 	the question will always be in English.
       </para>
+      <para>
+        You may find it useful to help you manage the translations if you
+	keep them in separate files; one file per translation. The
+	debconf-mergetemplate program can merge several such templates
+	files together to produce a combined file to put in your binary
+	pagkage.
+      </para>
+      <para>
+        You may also find the dpkg-getlang program useful to start a
+	translation file for a new language.
+      </para>
     </sect2>
   </sect1>
 

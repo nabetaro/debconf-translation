@@ -1,3 +1,30 @@
+debconf (0.3.31) unstable; urgency=low
+
+  * Jazzed up the Template class. It can now load in templates files and
+    instantiate whole sets of templates on the fly. This is good because
+    that code used to be in ConfigDb, which is the part of debconf that
+    will probably go away eventually.
+  * Templates can also strignify themselves now, which recreates a
+    templates file entry. And there is a class method for stringifying a
+    whole list of objects, which can recreate a whole templates file.
+  * The above new functionality lets me use the Template class for
+    something new: management of translated templates files. Added some new
+    utilities to help with splitting and merging templates files for
+    translation. The idea for these utilities came from Michael Sobolev
+    <mss@transas.com>. Thanks, Michael!
+  * Added mentions of these utilities to the tutorial.
+  * Broke off all the small and non-essential utilities into a new
+    debconf-utils package. Developers and extreme power users may want it,
+    others will not.
+  * All the programs in debconf-utils now have names starting with
+    "debconf-". This means dpkg-debconf has been renmaed (again) to
+    debconf-communicate, and dpkg-loadtemplate has been renamed to
+    debconf-loadtemplate. I hope these are the last name changes.
+  * Used sprintf in all gettext() calls that have a parameter. This may
+    have messed up the polish translation though.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 11 May 2000 14:31:14 -0700
+
 debconf (0.3.30) unstable; urgency=low
 
   * gettextized the entire source tree, so it can now be translated. I used

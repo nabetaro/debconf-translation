@@ -1,0 +1,100 @@
+#!/usr/bin/perl -w
+
+=head1 NAME
+
+debconf-getlang - extract a language from a templates file
+
+=cut
+
+use lib '.';
+use strict;
+use Debian::DebConf::Template;
+
+=head1 SYNOPSIS
+
+ debconf-getlang lang file
+
+=head1 DESCRIPTION
+
+This program is designed to be used when a templates file is being
+translated. It is useful to send the translators a file with only the
+fields they need to worry about translating, and the English equivialants
+of those fields. There are basically two situations in which this program
+might be called:
+
+=over 4
+
+=item
+
+A translation is just being started. You want to provide the translator
+with a file they can work on that has the English fields from your
+templates file, plus blank Field-ll fields for the traget language that
+they can fill in.
+
+=item
+
+A translation is well under way. You have changed some English text, or
+added more items to your templates file, and you want to send the
+translators a file with the English text plus their current translations,
+so they can update them.
+
+=back
+
+In both cases, this program just does the right thing. Run it with the
+first parameter being the code for the language that is being translated
+to, and the second parameter being the filename of the templates file.
+
+=head1 SEE ALSO
+
+L<debconf-mergetemplate(8)|debconf-mergetemplate>
+
+=cut
+
+my $lang=shift;
+
+# I apologize for the silly baseball puns.
+my @out;
+foreach my $in (Debian::DebConf::Template->load(shift)) {
+	my $out=Debian::DebConf::Template->new;
+	
+	foreach my $field ($in->fields) {
+		if ($field =~ m/-(..)/) {
+			if ($1 eq $lang) {
+				$out->$field($in->$field());
+			}
+			# Skip fields that are for some other language.
+		}
+		else {
+			$out->$field($in->$field());
+		}
+	}
+
+	# Add any fields that need to exist for the target language, but do
+	# not yet exist. This is actually rather complex, because some
+	# fields only need translating for certian types of templates.
+	my @needfields;
+	foreach my $field (qw{choices description extended_description}) {
+		my $newfield=$field."-".$lang;
+		if (! defined $out->$newfield() && defined $in->$field()) {
+			push @needfields, $newfield;
+		}
+	}
+	my $field="default-$lang";
+	if (! defined $out->$field() &&
+	    $in->type ne 'select' && $in->type ne 'multiselct' &&
+	    $in->type ne 'note' && $in->type ne 'boolean') {
+		# Default only needs to be translated for some types.
+		push @needfields, $field;
+	}
+	map { $out->$_("") } @needfields;
+
+	push @out, $out;
+}
+
+print Debian::DebConf::Template->stringify(@out);
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut

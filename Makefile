@@ -24,6 +24,15 @@ install-man:
 		> $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
 	install -m 0644 Client/confmodule.3 $(prefix)/usr/share/man/man3/
 
+install-utils:
+	install -d $(prefix)/usr/bin
+	find Client -perm +1 -type f | grep debconf- | \
+		xargs -i_ install _ $(prefix)/usr/bin
+	# Make man pages for utils.
+	install -d $(prefix)/usr/share/man/man1
+	find Client -perm +1 -type f | grep debconf- | \
+		xargs -i_ sh -c 'pod2man --section=1 _ > $(prefix)/usr/share/man/man1/`basename _`.1'
+
 install:
 	$(MAKE) -C po install
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
@@ -42,14 +51,14 @@ install:
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
-	# Install programs.
+	# Install essential programs.
 	install -d $(prefix)/usr/sbin
-	find Client -perm +1 -type f | grep -v frontend | \
+	find Client -perm +1 -type f | grep dpkg- | \
 		xargs -i_ install _ $(prefix)/usr/sbin
 	# Make man pages for programs.
 	install -d $(prefix)/usr/share/man/man8
-	find Client -perm +1 -type f | grep -v frontend | \
-		xargs -i_ sh -c 'pod2man --section=8 _ > debian/tmp/usr/share/man/man8/`basename _`.8'
+	find Client -perm +1 -type f | grep dpkg- | \
+		xargs -i_ sh -c 'pod2man --section=8 _ > $(prefix)/usr/share/man/man8/`basename _`.8'
 	# Now strip all pod documentation from all .pm files.
 	# Also, don't use 'base'.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ $(prefix)/usr/sbin \

@@ -64,7 +64,7 @@ sub make_frontend {
 		};
 		last if defined $frontend;
 		
-		warn gettext("failed to initialize frontend").": $type";
+		warn gettext(sprintf("failed to initialize frontend: %s", $type));
 		debug 1, "(Error: $@)";
 
 		# Only try each type once to prevent loops.
@@ -72,7 +72,8 @@ sub make_frontend {
 		$type=$fallback{$type};
 		last if $seen{$type};
 
-		warn gettext("falling back to frontend").": $type" if $type ne '';
+		warn gettext(sprintf("falling back to frontend: %s", $type))
+			if $type ne '';
 	}
 	
 	if (! defined $frontend) {
@@ -81,7 +82,8 @@ sub make_frontend {
 			use Debian::DebConf::FrontEnd::Noninteractive;
 			Debian::DebConf::FrontEnd::Noninteractive->new();
 		};
-		die gettext("Unable to start a frontend").": $@" unless defined $frontend;
+		die gettext(sprintf("Unable to start a frontend: %s", $@))
+			unless defined $frontend;
 	}
 
 	return $frontend;

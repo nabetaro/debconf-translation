@@ -29,7 +29,7 @@ use vars qw(%templates %questions);
 use base qw(Exporter);
 use vars qw(@EXPORT_OK);
 @EXPORT_OK = qw(getquestion gettree isunder loadtemplatefile
-		loadtemplatedata addquestion disownquestion disownall
+		addquestion disownquestion disownall
 		savedb loaddb);
 
 =head2 getquestion
@@ -80,9 +80,9 @@ sub isunder {
 
 =head2 loadtemplatefile
 
-Loads up a file containing templates (pass the filename to load). Creates
-Template objects and corresponding Question objects. The second parameter is
-the name of the owner of the created templates and questions.
+Loads up a file containing templates (pass the filename or filehandle to load).
+Creates Template objects and corresponding Question objects. The second
+parameter is the name of the owner of the created templates and questions.
 
 =cut
 
@@ -90,55 +90,25 @@ sub loadtemplatefile {
 	my $fn=shift;
 	my $owner=shift;
 	
-	my $collect;
-	open (TEMPLATE_IN, $fn) || die "$fn: $!";
-	while (<TEMPLATE_IN>) {
-		if ($_ ne "\n") {
-			$collect.=$_;
+	foreach (Debian::DebConf::Template->load($fn, $owner)) {
+		# Have to be careful here to ensure that if a template
+		# already exists in the db and we load it up, the
+		# changes replace the old template without
+		# instantiating a new template.
+		if ($templates{$_->template}) {
+			# An old template with this name exists. Clear it
+			# and replace its data with the data from the new
+			# template.
+			$templates{$_->template}->clear;
+			$templates{$_->template}->merge($_);
 		}
-		if ($_ eq "\n" || eof TEMPLATE_IN) {
-			loadtemplatedata($collect, $owner);
-			$collect='';
+		else {
+			$templates{$_->template}=$_;
 		}
+
+		# Make a question to go with this template.
+		addquestion($_->template, $_->template, $owner);
 	}
-	close TEMPLATE_IN;      
-	return 1;
-}
-
-=head2 loadtemplatedata
-
-Pass this a string containing one of more templates, and it will 
-process it and instantiate the Template objects and
-corresponding Question objects.
-
-The second parameter is the name of the owner of the created
-templates and questions.
-
-=cut
-
-sub loadtemplatedata {
-	my $data=shift;
-	my $owner=shift;
-
-	# Have to be careful here to ensure that if a template
-	# already exists in the db and we load it up, the
-	# changes replace the old template without
-	# instantiating a new template.
-	my $template=Debian::DebConf::Template->new();
-	$template->parse($data);
-
-	if ($templates{$template->template}) {
-		# An old template with this name exists. Merge
-		# all info from the new template into it.
-		$template->merge($templates{$template->template});
-	}
-	else {
-		$templates{$template->template}=$template;
-	}
-
-	# Make a question to go with this template.
-	addquestion($template->template, $template->template,
-		    $owner);
 }
 
 =head2 addquestion
