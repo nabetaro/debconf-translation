@@ -88,7 +88,7 @@ the rc file, so the --config switches set up the database on the fly.
   debconf-copydb configdb stdout -c Name:stdout -c Driver:Pipe \
   	-c InFd:none --pattern='^foo/'
 
-Spit out all the items in the debconf datapase related to package foo.
+Spit out all the items in the debconf database related to package foo.
 
   debconf-copydb configdb pipe --config=Name:pipe \
                 --config=Driver:Pipe --config=InFd:none | \
