@@ -19,6 +19,8 @@ use Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 use Getopt::Long;
+use Fcntl;
+use POSIX qw(tmpnam);
 
 my $frontend_type='Dialog';
 my $priority;
@@ -47,9 +49,11 @@ foreach my $deb (@ARGV) {
 	my @config=<IN>;
 	close IN;
 	next unless @config;
-	my $script=tmpfile();
-	open (OUT, ">$script") or
-		die "Can't write to temporary file $script: $!";
+	
+	# Open a temp file safely and save the confmodule to it.
+	my $name;
+	do { $name = tmpnam() }
+		until sysopen(OUT, $name, O_RDWR|O_CREAT|O_EXCL);
 	print OUT @config;
 	close OUT;
 	chmod(0755, $script) or 
@@ -76,17 +80,3 @@ foreach my $deb (@ARGV) {
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
-
-use Fcntl;
-use POSIX qw(tmpnam);
-
-# Get a temp file safely.
-sub tmpfile {
-	my $name;
-	# try new temporary filenames until we get one that didn't already
-	# exist;  the check should be unnecessary, but you can't be too careful
-	do { $name = tmpnam() }
-		until sysopen(FH, $name, O_RDWR|O_CREAT|O_EXCL);
-	close FH;	
-	$name;
-}
