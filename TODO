@@ -4,10 +4,6 @@ General:
 * Proper backend database, but that's a whole other ball of wax.
 * Config db browser, with AJ's config2 stuff.
 * Other frontends.
-* The apt mods don't allow you to predepend on something and then use it in
-  a config script. That would be sorta nice to have, but think it through
-  first -- is it really necessary? Do we always want config scripts to run
-  locally? Etc.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
 * i8n
@@ -16,21 +12,25 @@ General:
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
-  doesn't seem to be the default.
+  doesn't seem to be the default. I could use stty -a to get this info
 * Add some way to go back in the Text.pm front end. I don't know how to
   let the user signal it, which makes it hard to do. One suggestion is to use
   pageup and pagedown -- but I dunnow how to catch those keys in readline.
 * If you are entering text, they're no way to enter "" because it is
   interpreted as "use default"
 
+
 Dialog frontend:
+* It can't tell how high the screen is unless LINES is exported, which
+  doesn't seem to be the default. I could use stty -a to get this info
 * Input.pm has too many magic numbers in it.
-* there is no good way to make it prompt for a password, because defaults are
-  passed in in cleartext. I may need to write a custom password prompter in
-  C/slang.
+* there is no good way to make it prompt for a password. I have a patch to
+  newt that allows this, and as soon as it gets in, I'll use it.
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
+* When reconfiguring slrn, with a 25 line display, note how it overlaps with
+  the back title; that needs to be fixed.
 
 Web based frontend:
 * Well, a little security would be nice! Make sure it only allows connections

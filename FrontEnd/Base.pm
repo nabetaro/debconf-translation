@@ -71,7 +71,11 @@ sub add {
 	my $question=shift || die "\$question is undefined";
 	my $priority=shift;
 
+	print STDERR "Might display a question now.\n" if $ENV{DEBCONF_DEBUG};
+
 	return unless $this->visible($question, $priority);
+
+	print STDERR "Will display a question now.\n" if $ENV{DEBCONF_DEBUG};
 
 	# Pass in the frontend to use as well, some elements need it.
 	push @{$this->{elements}}, $this->makeelement($question);
@@ -112,6 +116,8 @@ property, and that property is cleared after the Elements are presented.
 
 sub go {
 	my $this=shift;
+
+	print STDERR "Preparing to ask questions.\n" if $ENV{DEBCONF_DEBUG};
 
 	map { $_->show} @{$this->{elements}};
 	$this->clear;

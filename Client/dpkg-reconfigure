@@ -38,9 +38,8 @@ TOP:
 foreach my $pkg (@ARGV) {
 	# Set default title.
 	$frontend->default_title($pkg);
-
 	# Load up templates just in case they arn't already.
-	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
+	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
 	if (-x "/var/lib/dpkg/info/$pkg.config") {

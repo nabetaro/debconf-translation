@@ -40,7 +40,9 @@ sub show {
 	my $default=$this->question->value;
 	my @params=('--yesno', $text, $lines, $columns);
 	if ($default eq 'false') {
-		push @params, '--defaultno';
+		# Put it at the beginning of the option list,
+		# where dialog likes it.
+		unshift @params, '--defaultno';
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);

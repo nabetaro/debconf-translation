@@ -12,7 +12,6 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 
 Debian::DebConf::Config::frontend(shift);
-my $type=Debian::DebConf::Config::frontend();
 my $template=shift;
 my $script=shift;
 

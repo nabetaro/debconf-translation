@@ -12,6 +12,8 @@ This FrontEnd is for a user interface based on dialog, whiptail, or gdialog.
 It will use whichever is available, but prefers to use whiptail if available.
 It handles all the messy communication with thse programs.
 
+It currently uses only whiptail, because dialog and gdialog lack --defaultno.
+
 =cut
 
 =head1 METHODS
@@ -61,23 +63,24 @@ sub new {
 		$self->{titlespacer}=10;
 		$self->{clearscreen}=1;
 	}
-	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
-		$self->{program}='dialog';
-		$self->{borderwidth}=4;
-		$self->{borderheight}=4;
-		$self->{spacer}=3;
-		$self->{titlespacer}=4;
-		$self->{clearscreen}=1;
-	}
-	elsif (-x "/usr/bin/gdialog") {
-		$self->{program}='gdialog';
-		$self->{borderwidth}=5;
-		$self->{borderheight}=6;
-		$self->{spacer}=1;
-		$self->{titlespacer}=10;
-	}
+#	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
+#		$self->{program}='dialog';
+#		$self->{borderwidth}=4;
+#		$self->{borderheight}=4;
+#		$self->{spacer}=3;
+#		$self->{titlespacer}=4;
+#		$self->{clearscreen}=1;
+#	}
+#	elsif (-x "/usr/bin/gdialog") {
+#		$self->{program}='gdialog';
+#		$self->{borderwidth}=5;
+#		$self->{borderheight}=6;
+#		$self->{spacer}=1;
+#		$self->{titlespacer}=10;
+#	}
 	else {
-		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
+		die "Whiptail is not installed, so the dialog based frontend cannot be used.";
+#		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
 	}
 
 	return $self;
@@ -173,7 +176,7 @@ sub showtext {
 	my ($text, $height, $width)=$this->sizetext($intext);
 	my @lines = split(/\n/, $text);
 	my $num;
-	my @args=('--msgbox', join("\n", @lines));
+	my @args=('--msgbox', join(",", @lines));
 	if ($lines - 4 - $this->borderheight <= $#lines) {
 		$num=$lines - 4 - $this->borderheight;
 		if ($this->program eq 'whiptail') {
@@ -215,10 +218,12 @@ The second, anything it outputs to stderr.
 sub showdialog {
 	my $this=shift;
 
+	print STDERR "Preparing to show dialog ".(join " ", @_)."\n" if $ENV{DEBCONF_DEBUG};
+
 	# Clear the screen if clearscreen is set.
 	if ($this->clearscreen) {
 		$this->clearscreen('');
-		system 'clear';
+#		system 'clear';
 	}
 
 	# Save stdout, stderr, the open3 below messes with them.

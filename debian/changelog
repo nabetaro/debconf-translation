@@ -1,3 +1,19 @@
+debconf (0.1.39) unstable; urgency=low
+
+  * Hm, I know I fixed this before, but the fix seems to have been lost:
+    Fixed bug in the AutoSelect that was making it *always* try dialog
+    first, even if something else was picked. (Closes: #46020)
+  * Dialog has no --defaultno flag, which makes it unusable for debconf.
+    Oh, so does gdialog. I have submitted a patch for dialog, but for now
+    I have simply made debconf not accept dialog. If you don't have whiptail,
+    you get text mode. I also made the --defaultno flag be passed first,
+    which is how dialog will (eventually) support it. (Closes: #46047)
+  * Dialog frontend no longer clears the screen when running. Makes it
+    easier to get at debug messages. (Closes: #46048)
+  * dpkg-reconfigure was trashing ownerships, fixed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 26 Sep 1999 16:50:02 -0700
+
 debconf (0.1.38) unstable; urgency=low
 
   * Added password data type. Currently supported by the Text frontend
