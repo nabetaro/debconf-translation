@@ -1,8 +1,6 @@
-* Check protocol version against wichert's spec.
+* Check protocol version against spec.
 * Finish demos, add some more.
 * Other frontends.
-* Other demo package files.
-* Shell client program.
 * Working .deb's using the system.
 * Backend database, but that's a whole other ball of wax.
 
@@ -28,3 +26,7 @@ Web based frontend:
   dialog has, too.
 * It can support blocks, so add them. I guess they could be used for
   arranging questions into tables or something.
+* It should have a config screen. In it, you configure the frontend itself.
+  One option would be to make it be in "quiet" mode -- this would make it
+  not display extended descriptions, just provide links them. Another thing
+  to configure would be what priority of questions it is displaying.

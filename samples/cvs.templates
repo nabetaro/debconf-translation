@@ -20,12 +20,7 @@ Description: Do you want the history files in your repositories rotated weekly?
 Template: cvs/rotateindividual
 Type: boolean
 Default: true
-Description: Rotate this repository?
- You have indicated you want to specify which repositories have thier
- history files rotated on a case by case basis. Rotating history files
- is primarily useful for servers with a lot of activity. The script 
- /etc/cron.weekly/cvs will rotate the "history" files in the
- repositories you select.
+Description: Rotate this repository's history files?
 
 Template: cvs/pserver
 Type: boolean
