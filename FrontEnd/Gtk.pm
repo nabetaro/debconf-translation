@@ -51,6 +51,7 @@ sub new {
 	# an untrappable error. So first test that and exit sanely, so
 	# it can be caught and fallbacks work.
 	Gtk->init_check() || return;
+	set_locale Gtk;
 	init Gtk;
 
 	my $window = new Gtk::Window('toplevel');

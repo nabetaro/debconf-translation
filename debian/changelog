@@ -1,3 +1,12 @@
+debconf (0.2.13) unstable; urgency=low
+
+  * Patchs from Fumitoshi UKAI <ukai@ukai.org> to:
+     - fix typo that was breaking gtk frontend, Closes: #49074, #49076
+     - call set_locale so gtk frontend can display text in any language,
+       Closes: #49075
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed,  3 Nov 1999 12:26:45 -0800
+
 debconf (0.2.12) unstable; urgency=low
 
   * dpkg-preconfig is now more robust: If a config script fails, it

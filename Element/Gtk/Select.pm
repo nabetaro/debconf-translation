@@ -24,7 +24,7 @@ use vars qw(@ISA);
 sub show {
 	my $self = shift;
 	
-	return unless $this->SUPER::show(@_);
+	return unless $self->SUPER::show(@_);
 	
 	my $vbox = new Gtk::VBox(0,5);
 	my $text = $self->frontend->maketext(
