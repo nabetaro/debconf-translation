@@ -1,0 +1,29 @@
+Template: exim/system_type
+Type: select
+Choices: internet site, internet site using smarthost, satellite system, local delivery only, no configuration
+Default: internet site
+Description: How should the mail system be configured?
+ You can chose from one of several standard mail system configurations:
+ .
+ An internet site sends and receives mail directly using SMTP. If your
+ needs don't fit neatly into any category, you probably want to select this
+ and then edit the config file by hand.
+ .
+ An internet site using smarthost receives mail from the internet but sends
+ outgoing mail using a smarthost, optionally with adresses rewritten. This
+ is probably what you want for a dialup system.
+ .
+ A satellite system sends all mail to another machine for delivery. root and
+ postmaster mail is delivered according to /etc/aliases. No mail is received
+ locally.
+ .
+ Local delivery only is useful if you are not on a network. Mail for local
+ users is delivered.
+ .
+ Or you can elect to have no configuration done, which will leave the mail
+ system in a broken state until you manually configure it.
+
+Template: common/mail/mailname
+Type: text
+Description: What is the mail name of your system?
+ This is the name that will appear as the hostname in outgoing mail.
