@@ -98,7 +98,9 @@ description are expanded.
 
 sub choices {
 	my $this=shift;
-	return $this->_expand_vars($this->template->choices);
+	
+	my @choices=map { $this->_expand_vars($_) } @{$this->template->choices};
+	return \@choices;
 }
 
 =head2 variables

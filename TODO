@@ -16,7 +16,8 @@ General:
   *STDOUT=\*NO_STDOUT;
   print "HI 1\n";
   system 'echo HI 2';
-
+* Regression tests.
+  
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
   doesn't seem to be the default. I could use stty -a to get this info
