@@ -36,9 +36,6 @@ everything, simply import ":all".
 =cut
 
 package Debconf::Client::ConfModule;
-use Debconf::Gettext;
-use Debconf::ConfigDb;
-use Debconf::Config;
 use strict;
 use base qw(Exporter);
 
@@ -105,7 +102,7 @@ sub AUTOLOAD {
 	my $command = uc our $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 
-	die sprintf(gettext("Unsupported command `%s'."), $command)
+	die "Unsupported command `$command'."
 		unless $commands{$command};
 	
 	no strict 'refs';
@@ -115,8 +112,8 @@ sub AUTOLOAD {
 		# Newlines in input can really badly confuse the protocol, so
 		# detect and warn.
 		if ($c=~m/\n/) {
-			warn gettext("Warning: Newline present in parameters passed to debconf.")."\n";
-			warn gettext("This will probably cause strange things to happen!")."\n";
+			warn "Warning: Newline present in parameters passed to debconf.\n";
+			warn "This will probably cause strange things to happen!\n";
 		}
 
 		print "$c\n";
