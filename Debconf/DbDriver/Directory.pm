@@ -2,26 +2,26 @@
 
 =head1 NAME
 
-Debconf::DbDriver::FlatDir - debconf db driver that stores items in files
+Debconf::DbDriver::Directory - store database in a directory
 
 =cut
 
-package Debconf::DbDriver::FlatDir;
+package Debconf::DbDriver::Directory;
 use strict;
-use Debconf::Log qw{:all};
-use Fcntl qw(:flock);
+use Debconf::Log qw(:all);
+use IO::File;
+use Fcntl qw(:DEFAULT :flock);
 use Debconf::Iterator;
 use base 'Debconf::DbDriver::Cache';
 
 =head1 DESCRIPTION
 
 This is a debconf database driver that uses a plain text file for
-each individual item. The files are all contained in a single
-subdirectory, and are named the same as the item name, except '/' is
-replaced with ':' in the filename, and an optional extention is added.
+each individual item. The files are contained in a directory tree, and
+are named according to item names, with slashes replaces by colons.
 
-Derived modules must implement the methods for reading and writing the
-file contents.
+It uses a Format module to handle reading and writing the files, so the
+files can be of any format.
 
 =head1 FIELDS
 
@@ -35,11 +35,18 @@ The directory to put the files in.
 
 An optional extention to tack on the end of each filename.
 
+=item format
+
+The Format object to use for reading and writing files. 
+
+In the config file, just the name of the format to use, such as '822' can
+be specified.
+
 =back
 
 =cut
 
-use fields qw(directory extention lock);
+use fields qw(directory extention lock format);
 
 =head2 init
 
@@ -51,6 +58,16 @@ sub init {
 	my $this=shift;
 
 	$this->{extention} = "" unless defined $this->{extention};
+
+	$this->error("No format specified") unless $this->{format};
+	eval "use Debconf::Format::$this->{format}";
+	if ($@) {
+		$this->error("Error setting up format object $this->{format}: $@");
+	}
+	$this->{format}="Debconf::Format::$this->{format}"->new;
+	if (not ref $this->{format}) {
+		$this->error("Unable to make format object");
+	}
 
 	$this->error("No directory specified") unless $this->{directory};
 	if (not -d $this->{directory} and not $this->{readonly}) {
@@ -70,6 +87,60 @@ sub init {
 		$this->error("could not lock directory: $!");
 	flock($this->{lock}, LOCK_EX | LOCK_NB) or
 		$this->error("database directory is locked by another process");
+}
+
+=head2 load(itemname)
+
+Uses the format object to load up the item.
+
+=cut
+
+sub load {
+	my $this=shift;
+	my $item=shift;
+
+	return unless $this->accept($item);
+	debug "DbDriver $this->{name}" => "loading $item";
+	my $file=$this->filename($item);
+	return unless -e $file;
+
+	my $fh=IO::File->new;
+	open($fh, $file) or $this->error("$file: $!");
+	my $ret=$this->{format}->read($fh);
+	close $fh;
+	return $ret;
+}
+
+=head2 save(itemname,value)
+
+Use the format object to write out the item.
+
+Makes sure that items with a type of "password" are written out to mode 600
+files.
+
+=cut
+
+sub save {
+	my $this=shift;
+	my $item=shift;
+	my $data=shift;
+	return unless $this->accept($item);
+	return if $this->{readonly};
+	debug "DbDriver $this->{name}" => "saving $item";
+	
+	my $file=$this->filename($item);
+
+	# Write out passwords mode 600.
+	my $fh=IO::File->new;
+	if ($this->ispassword($item)) {
+		sysopen($fh, $file, O_WRONLY|O_TRUNC|O_CREAT, 0600)
+			or $this->error("$file: $!");
+	}
+	else {
+		open($fh, ">$file") or $this->error("$file: $!");
+	}
+	$this->{format}->write($fh, $data);
+	close $fh;
 }
 
 =head2 filename(itemname)
