@@ -87,7 +87,7 @@
       on pre-dependencies that haven't been approved by debian-devel, you
       could also make your package detect if debconf isn't installed, and use
       a sane fallback that doesn't involve debconf.</para></footnote>). This is
-      necessary since debconf isn't part of the base system.
+      necessary since debconf isn't essential.
     </para>
     <para>
       The first thing to do is look at your postinst, plus any program
@@ -99,7 +99,7 @@
       <note>
       <para>
       If your preinst uses debconf, you must make your package Pre-Depend on
-      <literal>debconf (>= 0.2.17)</literal>.
+      <literal>debconf (&gt;= 0.2.17)</literal>.
       </para>
       </note>
     </para>
@@ -411,9 +411,9 @@ Template: ....
     <note>
     <para>
       Note that the config script is run before the package is
-      unpacked. It should only use commands that are in the base
-      system. Also, it shouldn't actually edit files on the system, or
-      affect it in any other way.
+      unpacked. It should only use commands that are in essential packages
+      Also, it shouldn't actually edit files on the system, or affect it in
+      any other way.
     </para>
     </note>
   </sect1>
