@@ -111,7 +111,7 @@ sub sizetext {
 	# Why call expand? Well, wrap gratuitously calls unexpand. However,
 	# unexpand puts in tabs dialog does not deal with the way one would
 	# expect. Bleagh.
-	$Text::Wrap::break=q/\s+/;
+#	$Text::Wrap::break=q/\s+/;
 	$text=expand(wrap('', '', $text));
 	my @lines=split(/\n/, $text);
 	

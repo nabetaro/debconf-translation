@@ -71,7 +71,7 @@ sub sendmail {
 		# Text::Wrap at other spacings.
 		my $old_columns=$Text::Wrap::columns;
 		$Text::Wrap::columns=75;
-		$Text::Wrap::break=q/\s+/;
+#		$Text::Wrap::break=q/\s+/;
 		if ($this->question->extended_description ne '') {
 			print MAIL wrap('', '', $this->question->extended_description);
 		}

@@ -1,3 +1,11 @@
+debconf (1.0.24) unstable; urgency=low
+
+  * Reverted the $Text::Wrap::break change from the last version, as that was
+    making Text::Wrap eliminate multiple \n's, which leads to display
+    problems. Closes: #128034
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  6 Jan 2002 14:59:58 -0500
+
 debconf (1.0.23) unstable; urgency=low
 
   * Delete vanishing extended descriptions when merging templates.
