@@ -6,6 +6,7 @@
 # file and then the mapping file and finally the config script.
 
 use strict;
+use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::FrontEnd::Line;
 use Debian::DebConf::FrontEnd::Dialog;

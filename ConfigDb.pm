@@ -128,11 +128,11 @@ use Data::Dumper;
 sub savedb {
 	my $fn=shift;
 
-	$Data::Dumper::Indent=1;
+	my $dumper=Data::Dumper->new([\%mappings, \%templates, \%questions],
+		[qw{*mappings *templates *questions}]);
+	$dumper->Indent(1);
 	open (OUT, ">$fn") || die "$fn: $!";
-	print OUT Data::Dumper->Dump([\%mappings], [qw{*mappings}]);
-	# This saves the templates too.
-	print OUT Data::Dumper->Dump([\%questions], [qw{*questions}]);
+	print OUT $dumper->Dump;
 	close OUT;
 }
 
