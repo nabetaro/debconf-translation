@@ -28,6 +28,7 @@ sub go {
 		$elt->show;
 	}
 	$this->{elements}=[];
+	return '';
 }
 
 # Set/get property.

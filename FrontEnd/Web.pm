@@ -76,7 +76,7 @@ sub showclient {
 # This is called when it's time to display questions. It calls each element to
 # get the html to display for it, and bundles it all up into a web page which
 # is displayed to the client. Then it gets a response from the client and
-# parses it. TODO: blocks
+# parses it.
 sub go {
 	my $this=shift;
 
@@ -96,9 +96,16 @@ sub go {
 		$idtoelt{$id}=$elt;
 		$elt->id($id++);
 		$form.=$elt->show;
+		$form.="<hr>\n";
 	}
 	$this->{elements}=[];
-	$form.="<p>\n<input type=submit value=Next>\n</form>\n</body>\n</html>\n";
+	$form.="<p>\n";
+	# Should the back button be displayed?
+	if ($this->capb_backup) {
+		$form.="<input type=submit value=Back name=back>\n";
+	}
+	$form.="<input type=submit value=Next>\n";
+	$form.="</form>\n</body>\n</html>\n";
 
 	my $query;
 	# We'll loop here until we get a valid response from a client.
@@ -120,6 +127,12 @@ sub go {
 		$query=CGI->new($qs);
 	} until ($query->param('formid') eq $formid);
 
+	# Did they hit the back button? If so, ignore their input and inform
+	# the ConfModule of this.
+	if ($this->capb_backup && $query->param('back') ne '') {
+		return 'back';
+	}
+
 	# Now it's just a matter of matching up the element id's with values
 	# from the form, and passing the values from the form into the
 	# elements, for them to deal with.
@@ -128,6 +141,7 @@ sub go {
 		
 		$idtoelt{$id}->set($query->param($id));
 	}
+	return '';
 }
 
 1

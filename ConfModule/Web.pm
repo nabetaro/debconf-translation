@@ -11,12 +11,19 @@ use strict;
 use vars qw(@ISA);
 @ISA=qw(ConfModule::Base);
 
+sub new {
+	my $proto = shift;
+	my $class = ref($proto) || $proto;
+	my $self  = bless $proto->SUPER::new(@_), $class;
+	$self->{capb} = 'backup';
+	return $self;					
+}
+
 # Add an input item to the list of elements.
 sub command_input {
 	my $this=shift;
 	my $priority=shift;
 	my $question=shift;
-
 	push @{$this->frontend->elements},
 		Element::Web::Input->new($priority, $question);
 	
@@ -34,7 +41,8 @@ sub command_text {
 	return;
 }
 
-# Add a note to the list of elements.
+# Rather than adding a note to the list of elements, we'll display it right
+# away, by itself.
 sub command_note {
 	my $this=shift;
 	my $priority=shift;

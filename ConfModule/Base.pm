@@ -67,6 +67,8 @@ sub command_version {
 sub command_capb {
 	my $this=shift;
 	$this->client_capb([@_]);
+	# Set capb_backup on the frontend if the client can backup.
+	$this->frontend->capb_backup(1) if grep { $_ eq 'backup' } @_;
 	return $this->capb;
 }
 
@@ -82,12 +84,11 @@ sub command_title {
 sub command_beginblock {}
 sub command_endblock {}
 
-# Tell the frontend to display items to the user.
+# Tell the frontend to display items to the user. Anything
+# the frontend returns is our return value.
 sub command_go {
 	my $this=shift;
 	$this->frontend->go;
-
-	return;
 }
 
 # Pull a value out of a question.
