@@ -1,0 +1,254 @@
+Overview
+--------
+
+This is an attempt at documenting the many objects that form debconf, their
+interfaces, methods, and how they interact. It presumes familiarity with the
+configuration management specification.
+
+Debconf is composed of these type of objects:
+
+- The backend database. This is responsible for storing and loading
+  Templates and Mappings and initiating Questions from them. The following
+  modules compose it:
+  	- ConfigDb.pm
+	- Mapping.pm
+	- Question.pm
+	- Template.pm
+	- Priority.pm
+- ConfModules. Contained in the ConfModule/ directory, these objects
+  communicate with the real "confmodules" referred to by the specification:
+  the scripts inside .deb's that ask questions. There is a different
+  ConfModule for each FrontEnd.
+- FrontEnds. Contained in the FrontEnd/ directory, these objects present a
+  user interface to the user.
+- Elements. Contained in the Element/ directory, these objects represent
+  user interface elements in a FrontEnd. There are different varieties of
+  Elements for each FrontEnd.
+
+Backend Database
+----------------
+
+So starting with the backend database. Configdb.pm is a simple perl module,
+not a full-fledged object. It's a bit of a catchall, and perhaps the
+uglisest part of debconf. It defines the following functions:
+
+	getquestion(question)
+		Given the name of a question, returns the corresponding
+		question object.
+	loadtemplatefile(file)
+		Loads up templates from a file. Creates Template objects for
+		each.
+	loadmappingfile(file)
+		Loads up mappings from a file. Creates Mapping objects for
+		each.
+	makequestions()
+		Instantiates Questions from Templates and Mappings.
+	addmapping(template_name, location)
+		Creates a new Mapping, given the name of the Template and the
+		location of the Question it maps to in the hierarchy of questions.
+	removemapping(location)
+		Removes the given mapping.
+	savedb(filename)
+		Saves all current Question, Mapping, and Template data to a file.
+	loaddb(fdilename)
+		Loads up a saved database from a file.
+
+Template.pm is an object class that represents a template. It has one
+special method:
+
+	parse(test)
+		Parses a string containing as template and stores all the 
+		information in the Template object.
+
+Each Template has some associated data, the fields of the template
+structure. To get at this data, just use Template->fieldname to read a
+field, and Template->fieldname(value) to write a field. Any field names at
+all can be used, the convention is to lower-case their names. All Templates
+should have a "template" field that is their name. Most have "default",
+"type", and "description" fields as well. The field named
+"extended_description" holds the extended description, if any.
+
+Mapping.pm is an object class that represnets a mapping between a template
+and a question. It has a parse() method just like Template. Also just like
+Template, it has some associated data which can be accessed via
+Mapping->fieldname. Each Mapping has a field named "question" that is the
+name of the Question, and "template", which is the name of the Template
+associated with that question.
+
+Question.pm is an object that represents a question. It has some associated
+data, which can be gotten at just like a Template's data is accessed.
+Typical fields are: "name", "value", "template". That last is a reference to
+the Template object associated with this Question.
+
+Priority.pm is a simple perl module, not an object. It is used to deal with
+the priorities of Questions. It contains the following methods:
+
+	set(value)
+		Set the priority level to the specified value.
+	high_enough(value)
+		Returns true iff the passed value is greater than or equal to
+		the previously set() priority.
+
+ConfModules
+-----------
+
+ConfModule/Base.pm is the base of the ConfModule class. Each ConfModule can
+launch a confmodule script and communicate with it using the protocol
+detailed in the configuration management specification. This is based on
+standard input and output. The following methods exist on a ConfModule:
+
+	new(confmodule, frontend)
+		Create a new ConfModule. You must specify the confmodule script
+		to run and communicate with. You must also pass a FrontEnd
+		object. The ConfModule will later call methods of that object.
+	communicate()
+		Read one command from the confmodule, process it, and respond
+		to it. Returns true unless there were no more commands to read.
+		This is typically called in a loop. It in turn calls various
+		command_* methods.
+	command_*(value,[value..])
+		There must be a method prefixed with "command_"	that 
+		corresponds to each command in the protocol. (The command name
+		is lower-cased). These deal with enacting each command in the
+		protocol. Their input parameters are the parameters the
+		confmodule put after the command, separated into words. Any
+		return value is passed back to the confmodule verbatim.
+
+ConfModule::Base implements the following commands:
+	command_version()
+		Tests for too low protocol versions, returns the value of
+		ConfModule->version.
+	command_capb()
+		Sets ConfModule->client_capb to the confmodule's capb string,
+		and sets ConfModule->frontend->capb_backup is the confmodule
+		can backup. Returns ConfModule->capb
+	command_title()
+	command_beginblock()
+	command_endblock()
+	command_go()
+		Calls ConfModule->frontend->go.
+	command_get()
+	command_set(0
+	command_register()
+	command_unregister()
+
+A ConfModule also has some values associated with it. As usual, these can be
+assessed via ConfModule->fieldname and set via ConfModule->fieldname(value)
+
+ConfModule/Line.pm is a ConfModule for the line-at-a-time FrontEnd.
+ConfModule/Dialog.pm is a ConfModule for the dialog based FrontEnd.
+ConfModule/Web.pm is a COnfModule for the web based FrontEnd.
+
+Each of these objects add the following methods to those defined by the
+Base ConfModule:
+
+	command_input()
+	command_text()
+	command_note()
+
+Each of these methods when called create a new Element of the appropriate
+type and add it to the ConfModule->frontend->elements array.
+
+FrontEnds
+---------
+
+FrontEnd/Base.pm is the base of the FrontEnd class. Each FrontEnd presents a
+user interface of some kind to the user, and handles generating and
+communicating with Elements to form that FrontEnd. (It so happens that
+FrontEnd/Base.pm is a null FrontEnd -- it doesn't display any questions or
+anything else to the user. This may be useful in some obscure situations.)
+
+FrontEnd/Base.pm defines this method:
+
+	go()
+		Display accumulated Elements to the user. The elements are in
+		the ConfModule->frontend->elements array.
+
+FrontEnds also have some associated data, which is accessed in the standard
+way.
+
+FrontEnd/Line.pm is a FrontEnd for a simple, line-at-a-time user interface.
+It uses a perl readline module to make the UI a little nicer. It can handle
+various display sizes, and reformat the displayed text to match them, and
+will automatically page the text if neccessary. It provides the following
+methods that Elements may find useful:
+
+	display(text)
+		Display text, wrapping it to fit on the screen, and paging if
+		necessary. If a title has been set and has not yet been
+		displayed, displays it first.
+	display_nowrap(text)
+		Display text, paging if necessary. If a title has been set
+		and has not yet been displayed, displays it first.
+	title()
+		Display a title. Only do so once per title.
+	prompt(prompt [, default])
+		Display a prompt and get input from the user. Returns their
+		input.
+
+FrontEnd/Dialog.pm is a FrontEnd for a user interface based on dialog or
+whiptail. It will use whichever is available, but prefers to use whiptail.
+It handles all the messy communication with thse programs. It provides the
+following methods that Elements may find useful:
+
+	sizetext(text, title)
+		Dialog and whiptail have an annoying property of requiring
+		you specify their dimentions explicitly. This function handles
+		doing that. Just pass in the text that will be displayed in the
+		dialog and then the title of the dialog, and it will spit out
+		new text, formatted nicely, then the height for the dialog, and
+		then the width for the dialog.
+	showtext(title,text)
+		Display text to the user. If the text it too large to fit in
+		a single message dialog, it will use as many as are necessary.
+	showdialog(title, params ..)
+		Display a dialog. Specify a title, and the actual parameters
+		to be passed to dialog or whiptail. It returns a list with
+		two elements. The first is the return code of dialog. The
+		second, anything it outputs to stderr.
+
+FrontEnd/Web.pm is a FrontEnd for a web based user interface. It is a small,
+stupid web server. By default, it binds to port 8001, though a differnet
+port can be passed to new(). The only interesting method is this one:
+
+	go()
+		This overrides the go() method in the Base Frontend. It
+		calls each pending Element and asks it to return the html that
+		corresponds to that Element. It bundles all the html together
+		into a web page and displays the web page to the client.
+		Then it waits for the client to fill out the form, and parses
+		the client's response and uses that to set values on the
+		Elements.
+
+Adding a new FrontEnd is merely a matter of writing a new module similar to
+these above, and making a corresponding new ConfModule and Elements to go
+with it.
+
+Elements
+--------
+
+Each element represents one user interface element in a FrontEnd. Elements
+can have associated values which are accessed and set in the usual way.
+There are 3 types of Elements right now:
+
+- Input: represents a UI element the user can enter input into. It may be a
+  button, a text box, a select box, etc. Typically has fields named
+  "priority" and "question"
+- Text: a peice of text to display to the user. These are intermixed with
+  Input items. Typically has field named "priority" and "text".
+- Note: a dialog box or similar construct, used for displaying text to the
+  user.
+
+For each different FrontEnd, each of these 3 types of Elements must be
+implemented. I'll skip all the individual details. Most Elements have the
+following method:
+
+	show()
+		Display the element, prompting the user for input if necessary.
+
+Web based Elements have a show() that outputs html, plus this method:
+
+	set(value)
+		Receive a value from the user and deal with it as necessary.
+
+-- Joey Hess <joey@kitenet.net>

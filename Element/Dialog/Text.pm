@@ -16,7 +16,4 @@ sub show {
 	$this->frontend->showtext('Note', $this->text);
 }
 
-# Nothing to do.
-sub set {}
-
 1

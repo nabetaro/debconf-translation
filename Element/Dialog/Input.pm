@@ -75,7 +75,7 @@ sub show {
 		die "Unsupported data type \"$type\"";
 	}
 
-	my ($ret, $value)=$this->frontend->show_dialog(
+	my ($ret, $value)=$this->frontend->showdialog(
 		$question->template->description, @params);
 
 	if ($type eq 'boolean') {
