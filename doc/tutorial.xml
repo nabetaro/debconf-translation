@@ -415,10 +415,20 @@
 	fi
       </programlisting>
     </para>
-    <para>
-      Note that debhelper will do this for you if you use the
-      dh_installdebconf command.
-    </para>
+    <note>
+      <para>
+        Debhelper will do this for you if you use the
+        dh_installdebconf command.
+      </para>
+    </note>
+    <note>
+      <para>
+        Even if your postinst doesn't do anything with debconf, you currently 
+	need to make sure it loads one of the debconf libraries. This is
+	because the debconf libraries do deep magic to make the config scripts
+	work. This will be changed in the future.
+      </para>
+    </note>
   </sect1>
 
   <sect1>
