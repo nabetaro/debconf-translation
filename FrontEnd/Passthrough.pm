@@ -164,8 +164,6 @@ sub go {
 	my $this = shift;
 
 	foreach my $element (@{$this->elements}) {
-		# TODO: I think only elements with flag_isdefault = true
-		#       should be shown here. -JEH
 		my $question = $element->question;
 		my $tag = $question->template->template;
 		my $type = $question->template->type;
