@@ -88,7 +88,7 @@ sub init {
 	open ($this->{_fh}, $this->{filename}) or
 		$this->error("could not open $this->{filename}: $!");
 	if (! $this->{readonly}) {
-		# Now lock the file with and flock locking. I don't wait on
+		# Now lock the file with flock locking. I don't wait on
 		# locks, just error out. Since I open a lexical filehandle,
 		# the lock is dropped when this object is destroyed.
 		flock($this->{_fh}, LOCK_EX | LOCK_NB) or
