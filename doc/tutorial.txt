@@ -321,7 +321,7 @@ some code like this in its config script:
   
   if [ "$OWNERS" != "$CHOICES" ]; then
   	db_subst shared/window-manager choices $OWNERS
-	db_fset shared/window-manager isdefault false
+	db_fset shared/window-manager isdefault true
 	db_input medium shared/window-manager
 	db_go
   fi

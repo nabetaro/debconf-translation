@@ -55,7 +55,7 @@ sub _expand_vars {
 	my $result='';
 	while ($rest =~ m/^(.*?)\${([^{}]+)}(.*)$/sg) {
 		$result.=$1;  # copy anything before the variable
-		$result.=$vars{$2}; # expand the variable
+		$result.=$vars{$2} if defined($vars{$2}); # expand the variable
 		$rest=$3; # continue trying to expand rest of text
 	}
 	$result.=$rest; # add on anything that's left.

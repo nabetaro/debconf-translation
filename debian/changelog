@@ -1,3 +1,11 @@
+debconf (0.1.57) unstable; urgency=low
+
+  * Patch from rafael@icp.inpg.fr (Rafael Laboissiere) to fix a perl warning,
+    Closes: #46871
+  * Another patch from Rafael to fix a mistake in the tutorial. Closes: #46873
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 13:40:02 -0700
+
 debconf (0.1.56) unstable; urgency=low
 
   * Wrote a perl module dependancy grapher, and include output in the .deb
