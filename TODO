@@ -24,6 +24,13 @@ General:
   for each option. It'd be neat if the explination could be added as a
   paralell list with the select list, to keep the actual tokens that the
   confmodule script gets back short.
+* Add Noninteractive elements. Add a visible field to all elements. If
+  priority is too low, one of the non-interactive elements is created, which
+  is marked not visible (so the correct thing is returned by INPUT). It is
+  then used as normal when GO is called, which might do nothing. For a
+  Noninteractive Select Element, it will set the value to the first choice
+  (fixing that alloyance consitently). For a Note elemenet, it can log or
+  send mail.. In fact, all of them can log stuff.
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
