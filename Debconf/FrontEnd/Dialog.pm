@@ -297,7 +297,7 @@ sub showdialog {
 		'--backtitle', gettext("Debian Configuration"),
 		'--title', $sigil.$this->title, @_);
 	close OUTPUT_WTR if $this->hasoutputfd;
-	my $output;
+	my $output='';
 	if ($this->hasoutputfd) {
 		while (<OUTPUT_RDR>) {
 			$output.=$_;

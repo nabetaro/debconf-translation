@@ -1,17 +1,29 @@
-# Spanish debconf templates for debconf
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# debconf debconf translation to spanish
+# Copyright (C) 2003,2004 Software in the Public Interest
 # This file is distributed under the same license as the debconf package.
-# Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>, 2003.
 #
-#    Translators, please read /usr/share/doc/po-debconf/README-trans
+# Changes:
+# - Initial translation
+#        Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>, 2003, 2004
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.3.11\n"
+"Project-Id-Version: debconf 1.4.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-12-28 19:07-0500\n"
-"PO-Revision-Date: 2003-08-23 02:20+0200\n"
+"PO-Revision-Date: 2004-02-14 16:30+0100\n"
 "Last-Translator: Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +33,8 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:3
-#, fuzzy
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr "Dialog, Readline, Gnome, Editor, No interactivo"
+msgstr "Dialog, Readline, Gnome, Kde, Editor, No interactivo"
 
 #. Type: select
 #. Description
@@ -44,7 +55,6 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:5
-#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -53,10 +63,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Dialog es un interfaz de texto a pantalla completa, mientras que el de "
-"readline es más tradicional, de sólo texto, y gnome es un moderno interfaz "
-"para X. Editor le permite configurar el sistema usando su editor favorito. "
-"El interfaz no interactivo no hace ninguna pregunta."
+"Dialog es una interfaz de texto a pantalla completa, mientras que la de "
+"readline es más tradicional, de sólo texto, y gnome y kde son modernas "
+"interfaces para X adaptadas a cada uno de dichos escritorios (aunque "
+"pueden usarse en cualquier entorno gráfico). Editor le permite configurar "
+"el sistema usando su editor favorito. El interfaz no interactivo no hace "
+"ninguna pregunta."
 
 #. Type: select
 #. Choices
@@ -68,7 +80,7 @@ msgstr "crítica, alta, media, baja"
 #. Description
 #: ../templates:20
 msgid "See only questions that are of what priority and higher?"
-msgstr "Mostrar preguntas sólo con una prioridad mayor o igual que.."
+msgstr "Mostrar preguntas sólo con una prioridad mayor o igual que..."
 
 #. Type: select
 #. Description
@@ -99,24 +111,3 @@ msgid ""
 msgstr ""
 "Observe que independientemente del nivel que elija, puede ver todas las "
 "preguntas de un paquete usando dpkg-reconfigure."
-
-#~ msgid "Show all old questions again and again?"
-#~ msgstr "¿Mostrar las preguntas antiguas una y otra vez?"
-
-#~ msgid ""
-#~ "Debconf normally only asks you any given question once. Then it remembers "
-#~ "your answer and never asks you that question again. If you prefer, "
-#~ "debconf can ask you questions over and over again, each time you upgrade "
-#~ "or reinstall a package that asks them."
-#~ msgstr ""
-#~ "Normalmente debconf hace una determinada pregunta una sola vez. A partir "
-#~ "de ahí recuerda su respuesta y no vuelve a repetir la pregunta más. Si lo "
-#~ "prefiere, debconf puede repetir las preguntas una y otra vez cada vez que "
-#~ "actualice o reinstale un paquete que las haga."
-
-#~ msgid ""
-#~ "Note that no matter what you choose here, you can see old questions again "
-#~ "by using the dpkg-reconfigure program."
-#~ msgstr ""
-#~ "Observe que con independencia de lo que escoja aquí, puede ver las "
-#~ "preguntas antiguas de nuevo usando dpkg-reconfigure."
