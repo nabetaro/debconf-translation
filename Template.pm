@@ -6,6 +6,12 @@ Debian::DebConf::Template - Template object
 
 =cut
 
+package Debian::DebConf::Template;
+use strict;
+use POSIX;
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
+
 =head1 DESCRIPTION
 
 This is an object that represents a Template. Each Template has some associated
@@ -25,12 +31,6 @@ variable is set, and you request a field from a template, it will see if
 =head1 METHODS
 
 =cut
-
-package Debian::DebConf::Template;
-use strict;
-use POSIX;
-use vars qw($AUTOLOAD);
-use base qw(Debian::DebConf::Base);
 
 # Helper for parse, sets a field to a value.
 sub _savefield {

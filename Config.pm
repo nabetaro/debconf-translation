@@ -6,6 +6,10 @@ Debian::DebConf::Config - Debconf meta-configuration module
 
 =cut
 
+package Debian::DebConf::Config;
+use strict;
+use Debian::DebConf::ConfigDb;
+
 =head1 DESCRIPTION
 
 This package holds configuration values for debconf. It supplies defaults,
@@ -13,10 +17,6 @@ and allows them to be overridden by values pulled right out of the debconf
 database itself.
 
 =cut
-
-package Debian::DebConf::Config;
-use strict;
-use Debian::DebConf::ConfigDb;
 
 =head1 METHODS
 

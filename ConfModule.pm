@@ -6,6 +6,17 @@ Debian::DebConf::ConfModule - base ConfModule
 
 =cut
 
+package Debian::DebConf::ConfModule;
+use strict;
+use IPC::Open2;
+use FileHandle;
+use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Priority;
+use Debian::DebConf::FrontEnd::Noninteractive;
+use Debian::DebConf::Log ':all';
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
+
 =head1 DESCRIPTION
 
 This is a configuration module communication package for the Debian
@@ -21,20 +32,58 @@ module. Each of them are described below.
 
 =cut
 
-=head1 METHODS
+=head1 FIELDS
 
 =cut
 
-package Debian::DebConf::ConfModule;
-use strict;
-use IPC::Open2;
-use FileHandle;
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Priority;
-use Debian::DebConf::FrontEnd::Noninteractive;
-use Debian::DebConf::Log ':all';
-use vars qw($AUTOLOAD);
-use base qw(Debian::DebConf::Base);
+=head2 frontend
+
+The frontend object that is use to interact with the user.
+
+=cut
+
+=head2 version
+
+The protocol version spoken.
+
+=cut
+
+=head2 pid
+
+The PID of the confmodule that is running and talking to this object, if
+any.
+
+=cut
+
+=head2 write_handle
+
+Writes to this handle are sent to the confmodule.
+
+=cut
+
+=head2 read_handle
+
+Reads from this handle read from the confmodule.
+
+=cut
+
+=head2 caught_sigpipe
+
+Set if we have caught a SIGPIPE signal. If it is set, the value of the
+field should be returned, rather than the normal exit code.
+
+=cut
+
+=head2 client_capb
+
+An array reference. If set, it will hold the capabilities the confmodule
+reports.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 # Here I define all the numeric result codes that are used.
 my %codes = (

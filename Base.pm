@@ -6,6 +6,10 @@ Debian::DebConf::Base - Debconf base class
 
 =cut
 
+package Debian::DebConf::Base;
+use strict;
+use vars qw($AUTOLOAD);
+
 =head1 DESCRIPTION
 
 Objects of this class may have any number of properties. These properties can
@@ -21,9 +25,9 @@ I'll use this. (Sigh)
 
 =cut
 
-package Debian::DebConf::Base;
-use strict;
-use vars qw($AUTOLOAD);
+=head2 METHODS
+
+=cut
 
 =head2 new
 
@@ -39,7 +43,7 @@ sub new {
 	return $this;
 }
 
-=head2 any_other_method
+=head2 *
 
 Set/get a property.
 
@@ -47,11 +51,11 @@ Set/get a property.
 
 sub AUTOLOAD {
 	my $this=shift;
-	my $property = $AUTOLOAD;
-	$property =~ s|.*:||; # strip fully-qualified portion
+	my $field = $AUTOLOAD;
+	$field =~ s|.*:||; # strip fully-qualified portion
 	
-	return $this->{$property}=shift if @_;
-	return $this->{$property};
+	return $this->{$field}=shift if @_;
+	return $this->{$field};
 }
 
 =head1 AUTHOR

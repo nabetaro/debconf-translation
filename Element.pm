@@ -6,6 +6,10 @@ Debian::DebConf::Element - Base input element
 
 =cut
 
+package Debian::DebConf::Element;
+use strict;
+use base qw(Debian::DebConf::Base);
+
 =head1 DESCRIPTION
 
 This is the base object on which many different types of input elements are
@@ -16,10 +20,6 @@ built. Each element represents one user interface element in a FrontEnd.
 =head1 METHODS
 
 =cut
-
-package Debian::DebConf::Element;
-use strict;
-use base qw(Debian::DebConf::Base);
 
 =head2 visible
 

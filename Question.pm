@@ -6,9 +6,15 @@ Debian::DebConf::Question - Question object
 
 =cut
 
+package Debian::DebConf::Question;
+use strict;
+use Debian::DebConf::ConfigDb;
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
+
 =head1 DESCRIPTION
 
-This is an object that represents a Question. Each Question has some
+This isa an object that represents a Question. Each Question has some
 associated data. To get at this data, just use $question->fieldname
 to read a field, and  $question->fieldname(value) to write a field. Any
 field names at all can be used, the convention is to lower-case their names,
@@ -18,15 +24,11 @@ the Question is mapped to, the value of that field will be returned instead.
 
 =cut
 
+=head2 
+
 =head1 METHODS
 
 =cut
-
-package Debian::DebConf::Question;
-use strict;
-use Debian::DebConf::ConfigDb;
-use vars qw($AUTOLOAD);
-use base qw(Debian::DebConf::Base);
 
 =head2 new
 

@@ -6,6 +6,12 @@ Debian::DebConf::AutoSelect -- automatic FrontEnd selection library.
 
 =cut
 
+package Debian::DebConf::AutoSelect;
+use strict;
+use Debian::DebConf::ConfModule;
+use Debian::DebConf::Config;
+use Debian::DebConf::Log ':all';
+
 =head1 DESCRIPTION
 
 This library makes it easy to create FrontEnd and ConfModule objects. It starts
@@ -14,16 +20,10 @@ progressivly falls back to other types.
 
 =cut
 
-package Debian::DebConf::AutoSelect;
-use strict;
-use Debian::DebConf::ConfModule;
-use Debian::DebConf::Config;
-use Debian::DebConf::Log ':all';
-
 my %fallback=(
 	# preferred frontend		# fall back to
 	'Web'			=>	'Gtk',
-	'Dialog'		=>	'Text',
+	'Dialog'		=>	'Slang',
 	'Gtk'			=>	'Dialog',
 	'Text'			=>	'Dialog',
 	'Slang'			=>	'Dialog',

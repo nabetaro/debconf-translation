@@ -6,6 +6,13 @@ Debian::DebConf::FrontEnd - base FrontEnd
 
 =cut
 
+package Debian::DebConf::FrontEnd;
+use strict;
+use Debian::DebConf::Priority;
+use Debian::DebConf::Config;
+use Debian::DebConf::Log ':all';
+use base qw(Debian::DebConf::Base);
+
 =head1 DESCRIPTION
 
 This is the base of the FrontEnd class. Each FrontEnd presents a
@@ -14,16 +21,45 @@ communicating with Elements to form that FrontEnd.
 
 =cut
 
-=head1 METHODS
+=head1 FIELDS
 
 =cut
 
-package Debian::DebConf::FrontEnd;
-use strict;
-use Debian::DebConf::Priority;
-use Debian::DebConf::Config;
-use Debian::DebConf::Log ':all';
-use base qw(Debian::DebConf::Base);
+=head2 elements
+
+A reference to an array that contains all the elements that the FrontEnd
+needs to show to the user.
+
+=cut
+
+=head2 interactive
+
+Is this an interactive FrontEnd?
+
+=cut
+
+=head2 capb
+
+Holds any special capabilities the FrontEnd supports.
+
+=cut
+
+=head2 title
+
+The title of the FrontEnd.
+
+=cut
+
+=head2 backup
+
+A flag that Elements can set when they are displayed, to tell the FrontEnd
+that the user has indicated they want to back up.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 =head2 new
 

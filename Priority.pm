@@ -6,6 +6,10 @@ Debian::DebConf::Priority - priority level module
 
 =cut
 
+package Debian::DebConf::Priority;
+use strict;
+use Debian::DebConf::Config;
+
 =head1 DESCRIPTION
 
 This is a simple perl module, not an object. It is used to deal with
@@ -16,10 +20,6 @@ the priorities of Questions.
 =head1 METHODS
 
 =cut
-
-package Debian::DebConf::Priority;
-use strict;
-use Debian::DebConf::Config;
 
 =head1
 

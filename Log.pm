@@ -6,6 +6,14 @@ Debian::DebConf::Log - debconf log module
 
 =cut
 
+package Debian::DebConf::Log;
+use strict;
+use base qw(Exporter);
+use vars qw(@EXPORT_OK %EXPORT_TAGS);
+@EXPORT_OK=qw(debug warn);
+# Import :all to get everything.
+%EXPORT_TAGS = (all => [@EXPORT_OK]);
+
 =head1 DESCRIPTION
 
 This is a log module for debconf. It can output messages at varying priorities.
@@ -17,14 +25,6 @@ This module uses Exporter.
 =head1 METHODS
 
 =cut
-
-package Debian::DebConf::Log;
-use strict;
-use base qw(Exporter);
-use vars qw(@EXPORT_OK %EXPORT_TAGS);
-@EXPORT_OK=qw(debug warn);
-# Import :all to get everything.
-%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 =head2 debug
 
