@@ -30,7 +30,7 @@ sub show {
 
 	my @params=('--inputbox', $text, 
 		$lines + $this->frontend->spacer, 
-		$columns, $this->question->value);
+		$columns, $default);
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
 	
