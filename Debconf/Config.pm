@@ -17,9 +17,11 @@ use fields qw(config templates frontend priority terse
 	      smileys sigils);
 our $config=fields::new('Debconf::Config');
 
-our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
-                   "/usr/share/debconf/debconf.conf");
-
+our @config_files=("/etc/debconf.conf", "/usr/share/debconf/debconf.conf");
+if (! $ENV{DEBCONF_SYSTEMRC}) {
+	unshift @config_files, "$ENV{HOME}/.debconfrc";
+}
+	   
 =head1 DESCRIPTION
 
 This package holds configuration values for debconf. It supplies defaults,

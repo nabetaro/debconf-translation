@@ -1,3 +1,10 @@
+debconf (1.2.10) unstable; urgency=low
+
+  * Added DEBCONF_SYSTEMRC environment variable, which reportbug can set to
+    make it ignore ~/.debconfrc when gathering debconf information.
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  5 Oct 2002 14:39:58 -0400
+
 debconf (1.2.9) unstable; urgency=low
 
   * dpkg-reconfigure: run prerm script. Should be safe.

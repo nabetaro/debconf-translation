@@ -328,6 +328,10 @@ by default.
 Stack a database before the normally used databases, so that it can
 override values from them. The value of the variable works the same as does
 the value of DEBCONF_DB_FALLBACK.
+.TP
+.B DEBCONF_SYSTEMRC
+If this environment variable is set, debconf will ignore a user's
+~/.debconfrc file, and use the system one instead.
 .SH BUGS
 Probably quite a few, there's a lot of code here.
 .P
