@@ -40,7 +40,7 @@ An optional extention to tack on the end of each filename.
 The Format object to use for reading and writing files. 
 
 In the config file, just the name of the format to use, such as '822' can
-be specified.
+be specified. Default is 822.
 
 =back
 
@@ -59,7 +59,8 @@ On initialization, we ensure that the directory exists.
 sub init {
 	my $this=shift;
 
-	$this->{extention} = "" unless defined $this->{extention};
+	$this->{extention} = "" unless exists $this->{extention};
+	$this->{format} = "822" unless exists $this->{format};
 
 	$this->error("No format specified") unless $this->{format};
 	eval "use Debconf::Format::$this->{format}";

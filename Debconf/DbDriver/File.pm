@@ -32,14 +32,14 @@ The file to use as the database
 =item mode
 
 The permissions to create the file with if it does not exist. Defaults to
-600, since the file could contian passowrds in some circumstances.
+600, since the file could contian passwords in some circumstances.
 
 =item format
 
 The Format object to use for reading and writing the file.
 
 In the config file, just the name of the format to use, such as '822' can
-be specified.
+be specified. Default is 822.
 
 =back
 
@@ -58,7 +58,8 @@ On initialization, load the entire file into memory and populate the cache.
 sub init {
 	my $this=shift;
 
-	$this->{mode} =0600 unless exists $this->{mode};
+	$this->{mode} = 0600 unless exists $this->{mode};
+	$this->{format} = "822" unless exists $this->{format};
 
 	$this->error("No format specified") unless $this->{format};
 	eval "use Debconf::Format::$this->{format}";
