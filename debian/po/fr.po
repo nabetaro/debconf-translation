@@ -6,14 +6,13 @@
 #    Translators, please read /usr/share/doc/po-debconf/README-trans
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf 1.2.34\n"
 "POT-Creation-Date: 2003-03-07 12:15-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2003-04-17 10:07+0200\n"
+"Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
+"Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +25,7 @@ msgstr "Dialogue, Readline, Gnome, Éditeur, Non-interactif"
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr "Quelle interface utiliser pour configurer les paquets ?"
+msgstr "Quelle interface utiliser pour configurer les paquets ?"
 
 #. Description
 #: ../templates:5
@@ -34,8 +33,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Les paquets utilisant debconf pour leur configuration partagent la même "
-"apparence et ergonomie. Vous pouvez choisir leur interface utilisateur."
+"Les paquets utilisant debconf pour leur configuration ont une interface et une "
+"ergonomie communes. Vous pouvez choisir leur interface utilisateur."
 
 #. Description
 #: ../templates:5
@@ -46,21 +45,21 @@ msgid ""
 "configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"«Dialogue» est une interface couleur en plein écran en mode caractère. "
-"«Readline» est une interface plus traditionelle en mode texte. «Gnome» est "
-"une interface X moderne. L'interface «Éditeur» vous permet de faire vos "
-"configurations depuis votre éditeur favori. Si vous choisissez «Non-"
-"interactif», le système ne vous posera jamais de question."
+"« Dialogue » est une interface couleur en mode caractère et en plein écran. "
+"« Readline » est une interface plus traditionelle en mode texte. « Gnome » est "
+"une interface X moderne. L'interface « Éditeur » vous permet de faire vos "
+"configurations depuis votre éditeur favori. Si vous choisissez « Non-"
+"interactif », le système ne vous posera jamais de question."
 
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
-msgstr "critique, haut, moyen, bas"
+msgstr "critique, haute, moyenne, basse"
 
 #. Description
 #: ../templates:19
 msgid "See only questions that are of what priority and higher?"
-msgstr ""
+msgstr "Ne voir que les questions avec cette priorité ou supérieure ?"
 
 #. Description
 #: ../templates:19
@@ -73,21 +72,27 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf définit les priorités des questions qu'il vous pose. Choisissez la "
+"priorité la plus basse des questions que vous souhaitez voir :\n"
+"  - la priorité « critique » n'affiche que les questions pouvant casser le "
+"    système. Choisissez la si vous êtes nouveau ou si vous êtes pressés ;\n"
+"  - la priorité « haute » affiche les questions plutôt importantes ;\n"
+"  - la priorité « moyenne » affiche les questions normales ;\n"
+"  - la priorité « basse » est destinée à ceux qui veulent tout contrôler. "
 
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Notez que quel que soit votre choix ici, vous pouvez revoir la configuration "
-"d'un paquet avec le programme dpkg-reconfigure."
+"Notez que quel que soit le niveau de votre choix, vous pourrez revoir toutes "
+"les questions si vous reconfigurez le paquet avec dpkg-reconfigure."
 
 #. Description
 #: ../templates:34
 msgid "Show all old questions again and again?"
-msgstr "Poser de nouveau les anciennes questions ?"
+msgstr "Poser encore et toujours les anciennes questions ?"
 
 #. Description
 #: ../templates:34

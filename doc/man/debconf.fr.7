@@ -27,7 +27,7 @@ C'est contrôlé via
 .P
 Quelquefois vous voudrez préconfigurer un paquet manuellement, quand vous 
 l'installez sans apt. Vous pouvez utiliser
-.B dpkg-preconfigure (8)
+.BR dpkg-preconfigure (8)
 pour le faire. Donnez-lui seulement le nom du paquet que vous voulez
 préconfigurer. Vous aurez besoin d'installer apt-utils pour que cela fonctionne.
 .SH Reconfiguration des paquets
@@ -55,9 +55,9 @@ disponibles\ :
 .TP
 .B dialog
 L'interface par défaut\ : elle utilise les programmes
-.B whiptail (1)
+.BR whiptail (1)
 ou
-.B dialog (1)
+.BR dialog (1)
 pour afficher les questions. Elle fonctionne en mode texte.
 .TP
 .B readline
@@ -124,9 +124,9 @@ avec le nom de l'interface à utiliser. Par exemple\ :
   DEBIAN_FRONTEND=readline apt-get install slrn
 .P
 Les commandes
-.B dpkg-reconfigure (8)
+.BR dpkg-reconfigure (8)
 et
-.B dpkg-preconfigure (8)
+.BR dpkg-preconfigure (8)
 permettent aussi de leur passer 
 .I --frontend=
 en argument, suivi de l'interface que vous voulez qu'elles utilisent.
@@ -162,9 +162,9 @@ vous avez choisie seront affichées. Vous pouvez fixer la valeur de la priorité e
 reconfigurant debconf, ou temporairement en passant l'option
 .I --priority=
 suivie de la valeur aux commandes
-.B dpkg-reconfigure (8)
+.BR dpkg-reconfigure (8)
 et
-.B dpkg-preconfigure (8)
+.BR dpkg-preconfigure (8)
 , ou en positionnant la variable d'environnement DEBIAN_PRIORITY.
 .SH Base de données principale
 Debconf utilise une base de données principale plutôt flexible et potentiellement
@@ -174,7 +174,7 @@ est utilisé pour configurer cette base de données. Si vous avez besoin de
 configurer quelque chose de compliqué, comme faire lire à debconf une base de
 données distante pour obtenir les valeurs par défaut, annulées par des
 variables locales, lisez la page de manuel
-.B debconf.conf (5)
+.BR debconf.conf (5)
 pour tous les détails croustillants. La base de données principale se trouve
 généralement dans
 .B /var/cache/debconf/
@@ -187,7 +187,7 @@ d'une base de données que debconf utilisera pour obtenir les réponses par défaut
 que vous voulez.
 .P
 Avant de lire cette section, vous devriez vraiment lire 
-.B debconf.conf (5)
+.BR debconf.conf (5)
 car vous avez besoin de comprendre le fonctionnement de la base de données de
 debconf.
 .P
@@ -287,7 +287,7 @@ avoir (au minimum) pour être affichées par debconf. Voir plus haut.
 .RS
 Active l'affichage du débogage sur la sortie standard d'erreur. Elle peut être
 fixée par le nom d'un mécanisme ou par une expression régulière qui correspond au
-nom d'un mécanisme (comme «\.*\ » pour afficher toutes les informations de
+nom d'un mécanisme (comme «\ .*\ » pour afficher toutes les informations de
 débogage). Les noms de mécanisme incluent\ :
 .TP
 .B user
@@ -358,7 +358,7 @@ ce que vous avez fait pour déclencher le problème\ ;.
 .TP
 .B *
 Le texte complet des messages d'erreur. Si vous pouvez reproduire le bogue,
-faites-le avec DEBCONF_DEBUG='.*' fixée et inclue. Cela accélère beaucoup le
+faites-le avec DEBCONF_DEBUG='.*' fixée et incluse. Cela accélère beaucoup le
 débogage.
 .SH VOIR AUSSI
 .BR debconf.conf (5),
