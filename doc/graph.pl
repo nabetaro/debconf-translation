@@ -14,7 +14,7 @@ foreach my $file (@ARGV) {
 	my @isa=();
 	open (IN,$file) || die "$file: $!";
 	while (<IN>) {
-		if (/package\s(.*?);/) {
+		if (/package\s(\w+.*?);/) {
 			$package=$1;
 		}
 		# Gag. This just looks for @ISA= lines.
