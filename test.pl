@@ -9,8 +9,10 @@ use strict;
 use ConfigDb;
 use FrontEnd::Line;
 use FrontEnd::Dialog;
+use FrontEnd::Web;
 use ConfModule::Dialog;
 use ConfModule::Line;
+use ConfModule::Web;
 
 my $type=shift;
 my $template=shift;

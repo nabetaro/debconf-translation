@@ -23,7 +23,7 @@ sub go {
 	foreach my $elt (@{$this->{elements}}) {
 		next unless Priority::high_enough($elt->priority);
 		# Some elements use helper functions in the frontend
-		# so thet need to know what frontend to use.
+		# so they need to know what frontend to use.
 		$elt->frontend($this);
 		$elt->show;
 	}

@@ -14,4 +14,7 @@ sub show {
 	$this->frontend->showtext('Note', $this->SUPER::show(@_).$this->text);
 }
 
+# Nothing to do.
+sub set {}
+
 1

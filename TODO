@@ -3,6 +3,7 @@
 * Other demo package files.
 * Shell client program.
 * Perl client library.
+* Backend database, but that's a whole other ball of wax.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which
@@ -20,3 +21,7 @@ Dialog frontend:
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
+
+Web based frontend:
+* Well, a little security would be nice. It has the same password problem
+  dialog has, too.
