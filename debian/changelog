@@ -1,3 +1,20 @@
+debconf (0.9.14) unstable; urgency=low
+
+  * Resetting the value of a question that had no default stuffed an undef
+    into the cache dbdriver, which made the 822 formatter warn of
+    uninitialized values. Fixed by making template field accesses always
+    return a defined value, even if the field isn't present. Closes: #88751
+  * Fixed some exporter problems.
+  * Removed bogus preconfig template item (again..).
+  * Moved dirty flag out into its own hash, so items in the cache can be
+    marked dirty and removed at the same time. This should really fix
+    unregistration of items. I had been meaning to do this last week, but
+    it seems I forgot.
+  * Actually enabled the optimization of not saving flatfile db if no
+    changes were made, and made it not save deleted items.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2001 07:26:58 -0800
+
 debconf (0.9.13) unstable; urgency=low
 
   * Modified the transition script to detect corrupt old databases that

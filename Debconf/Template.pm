@@ -361,16 +361,19 @@ sub _getlangs {
 				return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
 			}
 		
+			my $ret;
 			# Check to see if i18n should be used.
 			if ($Debconf::Template::i18n && @langs) {
 				foreach my $lang (@langs) {
 					# Lower-case language name because
 					# fields are stored in lower case.
-					my $ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.lc($lang));
+					$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-'.lc($lang));
 					return $ret if defined $ret;
 				}
 			}
-			return $Debconf::Db::templates->getfield($this->{template}, $field);
+			$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
+			return $ret if defined $ret;
+			return '';
 		};
 		goto &$AUTOLOAD;
 	}

@@ -10,8 +10,6 @@ package Debconf::TmpFile;
 use strict;
 use IO::File;
 use Fcntl;
-use POSIX;
-use IO::File;
 
 =head1 DESCRIPTION
 

@@ -65,20 +65,6 @@ Description-it: Ignorare le domande con una priorità più bassa di..
  Se è la prima volta che utilizzate il sistema GNU/Linux scegliete
  `critica', in modo che vi vengano poste solo le domande più importanti.
 
-Template: debconf/preconfig
-Type: boolean
-Default: true
-Description: Pre-configure packages before they are installed?
- Debconf can be used to configure packages before they are installed by
- apt. This lets you answer most questions a package would ask at the
- beginning of the install, so you do not need to be around to answer
- questions during the rest of the install. 
-Description-it: Preconfigurare i pacchetti prima di installarli?
- Debconf può essere usato per configurare i pacchetti prima della loro
- installazione con apt. Questo permette di rispondere alla maggior parte  
- delle domande all'inizio dell'installazione, in modo da non dover restare
- davanti al computer per rispondere durante il resto dell'installazione.
-
 Template: debconf/showold
 Type: boolean
 Default: false

@@ -118,11 +118,12 @@ sub savedb {
 
 	return if $this->{readonly};
 
-	if (grep $this->{cache}->{$_}->{dirty}, keys %{$this->{cache}}) {
+	if (grep $this->{dirty}->{$_}, keys %{$this->{cache}}) {
 		debug "DbDriver $this->{name}" => "saving database";
 	}
 	else {
 		debug "DbDriver $this->{name}" => "no database changes, not saving";
+		return 1;
 	}
 
 	# Use sysopen and specify the mode just to be sure.
@@ -131,6 +132,7 @@ sub savedb {
 		$this->error("could not write $this->{filename}: $!");		
 	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
+		next unless defined $this->{cache}->{$item}; # skip deleted
 		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
 	}
 	$this->{format}->endfile;

@@ -33,11 +33,17 @@ database. Each hash key is a item name; hash values are either undef
 (used to indicate that a item used to exist here, but was deleted), or
 are themselves references to hashes that hold the item data.
 
+=item dirty
+
+A reference to a hash that holds data about what items in the cache are
+dirty. Each hash key is an item name; if the value is true, the item is
+dirty.
+
 =back
 
 =cut
 
-use fields qw(cache);
+use fields qw(cache dirty);
 
 =head1 ABSTRACT METHODS
 
@@ -175,7 +181,7 @@ sub cached {
 		debug "DbDriver $this->{name}" => "cache miss on $item";
 		if (my $cache=$this->load($item)) {
 			$this->{cache}->{$item}=$cache;
-			$this->{cache}->{$item}->{dirty}=0;
+			$this->{dirty}->{$item}=0;
 		}
 	}
 	return $this->{cache}->{$item};
@@ -207,9 +213,9 @@ sub savedb {
 			$ret=undef unless defined $this->remove($item);
 			delete $this->{cache}->{$item};
 		}
-		elsif ($this->{cache}->{$item}->{dirty}) {
+		elsif ($this->{dirty}->{$item}) {
 			$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
-			$this->{cache}->{$item}->{dirty}=0;
+			$this->{dirty}->{$item}=0;
 		}
 		
 	}
@@ -242,7 +248,7 @@ sub addowner {
 		}
 	}
 
-	$this->{cache}->{$item}->{dirty}=1;
+	$this->{dirty}->{$item}=1;
 	$this->{cache}->{$item}->{owners}->{$owner}=1;
 	return $owner;
 }
@@ -264,10 +270,11 @@ sub removeowner {
 
 	if (exists $this->{cache}->{$item}->{owners}->{$owner}) {
 		delete $this->{cache}->{$item}->{owners}->{$owner};
-		$this->{cache}->{$item}->{dirty}=1;
+		$this->{dirty}->{$item}=1;
 	}
 	unless (keys %{$this->{cache}->{$item}->{owners}}) {
 		$this->{cache}->{$item}=undef;
+		$this->{dirty}->{$item}=1;
 	}
 	return $owner;
 }
@@ -315,7 +322,7 @@ sub setfield {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
-	$this->{cache}->{$item}->{dirty}=1;
+	$this->{dirty}->{$item}=1;
 	return $this->{cache}->{$item}->{fields}->{$field} = $value;	
 }
 
@@ -364,7 +371,7 @@ sub setflag {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
-	$this->{cache}->{$item}->{dirty}=1;
+	$this->{dirty}->{$item}=1;
 	return $this->{cache}->{$item}->{flags}->{$flag} = $value;
 }
 
@@ -411,7 +418,7 @@ sub setvariable {
 
 	return if $this->{readonly};
 	return unless $this->cached($item);
-	$this->{cache}->{$item}->{dirty}=1;
+	$this->{dirty}->{$item}=1;
 	return $this->{cache}->{$item}->{variables}->{$variable} = $value;
 }
 
