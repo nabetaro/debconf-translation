@@ -79,7 +79,7 @@ reports.
 # Here I define all the numeric result codes that are used.
 my %codes = (
 	success => 0,
-	badquestion => 10,
+	badparams => 10,
 	syntaxerror => 20,
 	input_invisible => 30,
 	version_bad => 30,
@@ -222,7 +222,7 @@ sub command_input {
 	my $question_name=shift;
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "\"$question_name\" doesn't exist";
+		return $codes{badparams}, "\"$question_name\" doesn't exist";
 
 	if (! priority_valid($priority)) {
 		return $codes{syntaxerror}, "\"$priority\" is not a valid priority";
@@ -387,7 +387,7 @@ sub command_get {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 
 	if (defined $question->value) {
 		return $codes{success}, $question->value;
@@ -410,7 +410,7 @@ sub command_set {
 	my $value=join(" ", @_);
 
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 	$question->value($value);
 	return $codes{success}, "value set";
 }
@@ -427,7 +427,7 @@ sub command_reset {
 	my $question_name=shift;
 
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 	$question->value($question->default);
 	$question->flag_isdefault('true');
 	return $codes{success};
@@ -449,7 +449,7 @@ sub command_subst {
 	my $value = (join ' ', @_);
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 	$question->variables($variable,$value);
 	return $codes{success};
 }
@@ -515,8 +515,12 @@ sub command_metaget {
 	my $field=shift;
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
-	return $codes{success}, $question->$field();
+		return $codes{badparams}, "$question_name doesn't exist";
+	my $fieldval=$question->$field();
+	unless (defined $fieldval) {
+		return $codes{badparams}, "$field does not exist";
+	}
+	return $codes{success}, $fieldval;
 }
 
 =item command_fget
@@ -534,7 +538,7 @@ sub command_fget {
 	my $flag="flag_".shift;
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion},  "$question_name doesn't exist";
+		return $codes{badparams},  "$question_name doesn't exist";
 	return $codes{success}, $question->$flag();
 }
 
@@ -553,7 +557,7 @@ sub command_fset {
 	my $value=(join ' ', @_);
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 	return $codes{success}, $question->$flag($value);
 }
 
@@ -570,7 +574,7 @@ sub command_visible {
 	my $question_name=shift;
 	
 	my $question=getquestion($question_name) ||
-		return $codes{badquestion}, "$question_name doesn't exist";
+		return $codes{badparams}, "$question_name doesn't exist";
 	return $codes{success}, $this->frontend->visible($question, $priority) ? "true" : "false";
 }
 
