@@ -1,3 +1,5 @@
+pod2man=pod2man -c Debconf -r ""
+
 all:
 	$(MAKE) -C doc
 	$(MAKE) -C po
@@ -16,7 +18,7 @@ install: install-utils install-docs install-rest
 install-man:
 	install -d $(prefix)/usr/share/man/man3
 	install -d $(prefix)/usr/share/man/man8
-	pod2man --section=3 Debconf/Client/ConfModule.pm \
+	$(pod2man) --section=3 Debconf/Client/ConfModule.pm \
 		> $(prefix)/usr/share/man/man3/Debconf::Client::ConfModule.3pm
 	install -m 0644 confmodule.3 $(prefix)/usr/share/man/man3/
 	install -m 0644 debconf.8 $(prefix)/usr/share/man/man8/
@@ -29,7 +31,7 @@ install-utils:
 	# Make man pages for utils.
 	install -d $(prefix)/usr/share/man/man1
 	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | \
-		xargs -i sh -c 'pod2man --section=1 {} > $(prefix)/usr/share/man/man1/`basename {}`.1'
+		xargs -i sh -c '$(pod2man) --section=1 {} > $(prefix)/usr/share/man/man1/`basename {}`.1'
 
 # Install all else.
 install-rest:
@@ -63,7 +65,7 @@ install-rest:
 	# Make man pages for programs.
 	install -d $(prefix)/usr/share/man/man8
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
-		xargs -i sh -c 'pod2man --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
+		xargs -i sh -c '$(pod2man) --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files.
 	find $(prefix)/usr/lib/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\
