@@ -366,6 +366,29 @@ It pulls data out of the backend db.
 
 =cut
 
+# Helper for _getlocalelist
+sub _addterritory {
+	my $locale=shift;
+	my $territory=shift;
+	$locale=~s/^([^_@.]+)/$1$territory/;
+	return $locale;
+}
+# Returns the list of locale names as searched (with slight changes) by GNU libc
+sub _getlocalelist {
+	my $locale=shift;
+	my ($lang, $territory, $modifier, $charset)=($locale=~m/^
+	     ([^_@.]+)      #  Language
+	     (_[^_@.]+)?    #  Territory
+	     (@[^_@.]+)?    #  Modifier
+	     (\..+)?        #  Charset
+	     /x);
+	my (@ret) = ($lang);
+	@ret = map { $_.$modifier, $_} @ret if defined $modifier;
+	@ret = map { _addterritory($_,$territory), $_} @ret if defined $territory;
+	@ret = map { $_.$charset, $_} @ret if defined $charset;
+	return @ret;
+}
+
 # Helper for AUTOLOAD; calculate the current locale, with aliases expanded,
 # and normalized. May also generate a fallback. Returns both.
 sub _getlangs {
@@ -376,16 +399,14 @@ sub _getlangs {
 	# I am waiting on changing that until the perl that supports it
 	# hits testing, and I will need to (pre?)depend on it then.
 	my $language=setlocale(5); # LC_MESSAGES
-	if ($language eq 'C' || $language eq 'POSIX') {
-		return "";
+	my @langs = ();
+	# LANGUAGE has a higher precedence than LC_MESSAGES
+	if (exists $ENV{LANGUAGE} && $ENV{LANGUAGE} ne '') {
+		foreach (split(/:/, $ENV{LANGUAGE})) {
+			push (@langs, _getlocalelist($_));
+		}
 	}
-	elsif ($language=~m/^(\w\w)_(\w\w)\./) {
-		return $language, "$1_$2", $1
-	}
-	elsif ($language=~m/^(\w\w)_/) {
-		return $language, $1;
-	}
-	return $language;
+	return @langs, _getlocalelist($language);
 }
 
 # Lower-case language name because fields are stored in lower case.

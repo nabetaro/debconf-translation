@@ -91,7 +91,10 @@ sub binddb {
 
 	# Whee, LDAP away!  Net::LDAP tells us about all these methods.
 	my $ds = Net::LDAP->new($this->{server}, port => $this->{port});
-
+	if (! $ds) {
+		$this->error("Unable to connect to LDAP server");
+	}
+	
 	# Check for anon bind
 	my $rv = "";
 	if (!($this->{binddn} && $this->{bindpasswd})) {
