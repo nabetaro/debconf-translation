@@ -1,3 +1,10 @@
+debconf (0.1.33) unstable; urgency=low
+
+  * Fixed template merge bug. This was making old descriptions show up
+    even if a new template with changed descriptions was loaded.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 22 Sep 1999 15:07:03 -0700
+
 debconf (0.1.32) unstable; urgency=low
 
   * Now it properly handles config scripts and postinsts that exit with

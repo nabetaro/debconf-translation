@@ -39,8 +39,8 @@ sub getquestion {
 
 =head2 loadtemplatefile
 
-Loads up a file containing templates (pass the filename to load). Creates Template
-objects and corresponding Mapping objects.
+Loads up a file containing templates (pass the filename to load). Creates
+Template objects and corresponding Mapping objects.
 
 =cut
 
@@ -57,15 +57,16 @@ sub loadtemplatefile {
 		}
 		if ($_ eq "\n" || eof TEMPLATE_IN) {
 			# Have to be careful here to ensure that if a template
-			# already exists in the db and we load it up, the changes
-			# replace the old template without instantiating a new template.
+			# already exists in the db and we load it up, the
+			# changes replace the old template without
+			# instantiating# a new template.
 			my $template=Debian::DebConf::Template->new();
 			$template->parse($collect);
 			
 			if ($templates{$template->template}) {
-				# An old template with this name exists. Merge all info
-				# from the new template into it.
-				$templates{$template->template}->merge($template);
+				# An old template with this name exists. Merge
+				# all info from the new template into it.
+				$template->merge($templates{$template->template});
 			}
 			else {
 				$templates{$template->template}=$template;
