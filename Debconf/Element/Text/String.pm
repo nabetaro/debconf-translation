@@ -28,7 +28,10 @@ sub show {
 	$default=$this->question->value if defined $this->question->value;
 
 	# Prompt for input using the short description.
-	my $value=$this->frontend->prompt($this->question->description, $default);
+	my $value=$this->frontend->prompt(
+		prompt => $this->question->description,
+		default => $default,
+	);
 	return unless defined $value;
 	
 	# Handle defaults.

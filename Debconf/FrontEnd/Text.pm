@@ -194,7 +194,11 @@ sub display_nowrap {
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
 		if ($this->linecount($this->linecount+1) > $this->screenheight - 2) {
-			$this->prompt('['.gettext("More").']', '');
+			$this->prompt(
+				prompt => '['.gettext("More").']',
+				default => '',
+				completions => [],
+			);
 		}
 		print "$_\n";
 	}
@@ -224,22 +228,56 @@ sub title {
 
 =item prompt
 
-Pass it the text to prompt the user with, and an optional default. The
-user will be prompted to enter input, and their input returned. If a
-title is pending, it will be displayed before the prompt.
+Prompts the user for input, and returns it. If a title is pending,
+it will be displayed before the prompt.
 
 This function will return undef if the user opts to skip the question 
 (by backing up or moving on to the next question). Anything that uses this
 function should catch that and handle it, probably by exiting any
 read/validate loop it is in.
 
+The function uses named paramerters.
+
+Completion amoung available choices is supported. For this to work, if
+a reference to an array of all possible completions is passed in.
+
 =cut
 
 sub prompt {
 	my $this=shift;
-	my $prompt=(shift)." ";
-	my $default=shift;
-	my $noshowdefault=shift;
+	my %params=@_;
+	my $prompt=$params{prompt}." ";
+	my $default=$params{default};
+	my $noshowdefault=$params{noshowdefault};
+	my $completions=$params{completions};
+
+	if ($completions) {
+		# Set up completion function (a closure).
+		my @matches;
+		$this->readline->Attribs->{completion_entry_function} = sub {
+			my $text=shift;
+			my $state=shift;
+			
+			if ($state == 0) {
+				@matches=();
+				foreach (@{$completions}) {
+					push @matches, $_ if /^\Q$text\E/i;
+				}
+			}
+
+			return pop @matches;
+		};
+	}
+	else {
+		$this->readline->Attribs->{completion_entry_function} = undef;
+	}
+
+	if (exists $params{completion_append_character}) {
+		$this->readline->Attribs->{completion_append_character}=$params{completion_append_character};
+	}
+	else {
+		$this->readline->Attribs->{completion_append_character}='';
+	}
 	
 	$this->linecount(0);
 	my $ret;
@@ -271,21 +309,8 @@ Safely prompts for a password; arguments are the same as for prompt.
 
 sub prompt_password {
 	my $this=shift;
-	my $prompt=(shift)." ";	
+	my %params=@_;
 
-
-	# Turn off completion, since it is a stupid thing to do when entering
- 	# a password.
-	$this->readline->Attribs->{completion_entry_function} = sub {
-		my $text=shift;
-		my $state=shift;
-
- 		return '' if $state == 0;
- 		return;
-	};
-	# Don't add trailing spaces after completion.
-	$this->readline->Attribs->{completion_append_character} = '';
-	
 	# Force echoing off.
 	system('stty -echo');
 	my $ret;
@@ -293,14 +318,14 @@ sub prompt_password {
 		# I hate this library. Sigh. It always echos,
 		# so it is unusable here.
 		local $|=1;
-		print $prompt;
+		print $params{prompt}." ";	
 		$ret=<STDIN>;
 		chomp $ret;
 		# Their newline won't have registered, so simulate it.
 		$this->display_nowrap("\n");
 	}
 	else {
-		$ret=$this->prompt($prompt, @_);
+		$ret=$this->prompt(@_, noshowdefault => 1, completions => []);
 	}
 	system('stty sane');
 	$this->display_nowrap("\n");

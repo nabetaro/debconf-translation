@@ -26,35 +26,39 @@ sub show {
 	my $none_of_the_above=gettext("none of the above");
 
 	my @choices=$this->question->choices_split;
-	my %value = map { $_ => 1 } my @important=$this->translate_default;
+	my %value = map { $_ => 1 } $this->translate_default;
 	if ($this->frontend->promptdefault && $this->question->value ne '') {
 		push @choices, $none_of_the_above;
-		push @important, $none_of_the_above;
 	}
-	my %abbrevs=$this->pickabbrevs(\@important, @choices);
 	
 	# Print out the question.
 	$this->frontend->display($this->question->extended_description."\n");
-	$this->printlist(\%abbrevs, @choices);
+	$this->printlist(@choices);
 	$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
 
 	# Prompt until a valid answer is entered.
+	my $i=1;
+	my %choicenum=map { $_ => $i++ } @choices;
 	while (1) {
-		$_=$this->frontend->prompt($this->question->description,
-		 	join(" ", map { $abbrevs{$_} }
-				  grep { $value{$_} } @choices));
+		$_=$this->frontend->prompt(
+			prompt => $this->question->description,
+		 	default => join(" ", map { $choicenum{$_} }
+			                     grep { $value{$_} } @choices),
+			completions => [@choices, 1..@choices],
+			completion_append_character => " ",
+		);
 		return unless defined $_;
 
 		# Split up what they entered. They can separate items
-		# with whitespace, commas, etc.
+		# with whitespace or commas.
 		# TODO: i18n
-		@selected=split(/[^A-Za-z0-9]+/, $_);
+		@selected=split(/[	 ,]+/, $_);
 
-		# Expand the abbreviations in what they entered. If they
-		# ented something that does not expand, loop.
-		@selected=map { $this->expandabbrev($_, %abbrevs) } @selected;
+		# Expand what they entered.
+		@selected=map { $this->expandabbrev($_, @choices) } @selected;
 
 		# Test to make sure everything they entered expanded ok.
+		# If not loop.
 		next if grep { $_ eq '' } @selected;
 
 		# Make sure that they didn't select "none of the above"

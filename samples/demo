@@ -30,7 +30,7 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 		db_input low demo/password || true
 		db_input low demo/text || true
 		db_subst demo/select colors red, Yellow, green
-		db_input low demo/select || true
+		db_input high demo/select || true
 	;;
 	4)
 		db_beginblock

@@ -1,3 +1,21 @@
+debconf (0.9.63) unstable; urgency=low
+
+  * Man page section fixes, Closes: #100076
+  * Noted in description of shell library that yes, the protocol commands
+    are lower-cased (it already explained about the db_ prefixing). 
+    Closes: #100276
+  * Text frontend UI changes: select and multiselect lists no longer have
+    lettered choices. Instead, it uses numbers, and any unique anchored
+    substring of a choice is understood, too. The old system was great,
+    except when it sucked. This should scale more evenly.
+  * Added full completion to the text frontend! Now it really is the best
+    frontend, for sure..
+  * French po file update from Martin Quinson <Martin.Quinson@ens-lyon.fr>.
+  * Fixed an obscure bug that made the REGISTER command fail if the owner
+    was set to "" (or any other perlwise-false string).
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  6 Jun 2001 11:53:43 -0400
+
 debconf (0.9.62) unstable; urgency=low
 
   * Updated Korean translation (templates, not po file) from Eungkyu Song

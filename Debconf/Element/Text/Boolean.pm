@@ -42,30 +42,17 @@ sub show {
 
 	my $value='';
 
-	# Set up tab completion.
-	my @matches;
-	$this->frontend->readline->Attribs->{completion_entry_function} = sub {
-		my $text=shift;
-		my $state=shift;
-
-		if ($state == 0) {
-			@matches=();
-			push @matches, $y if $y=~/^\Q$text\E/i;
-			push @matches, $n if $n=~/^\Q$text\E/i;
-		}
-
-		return pop @matches;
-	};
-	# Don't add trailing spaces after completion.
-	$this->frontend->readline->Attribs->{completion_append_character} = '';
-	
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->description, $default);
+		$_=$this->frontend->prompt(
+			default => $default,
+			completions => [$y, $n],
+			prompt => $this->question->description
+		);
 		return unless defined $_;
 
 		# Handle defaults.
-		if ($_ eq '' && defined $default) {
+		if ($_ eq '' && length $default) {
 			$_=$default;
 		}
 

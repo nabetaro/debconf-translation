@@ -79,3 +79,6 @@ install-rest:
 			print $$_					\
 		'
 	find $(prefix) -name '*.bak' | xargs rm -f
+
+demo:
+	PERL5LIB=. ./frontend samples/demo

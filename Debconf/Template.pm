@@ -14,6 +14,7 @@ use Debconf::Gettext;
 use Text::Wrap;
 use Text::Tabs;
 use Debconf::Db;
+use Debconf::Iterator;
 use Debconf::Question;
 use fields qw(template);
 

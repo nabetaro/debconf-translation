@@ -503,13 +503,13 @@ sub command_register {
 	my $question=Debconf::Question->get($name) || 
 	             Debconf::Question->new($name, $this->owner);
 	if (! $question) {
-		return $codes{internalerror}, "Internal error";
+		return $codes{internalerror}, "Internal error making question";
 	}
-	if (! $question->addowner($this->owner)) {
-		return $codes{internalerror}, "Internal error";
+	if (! defined $question->addowner($this->owner)) {
+		return $codes{internalerror}, "Internal error adding owner";
 	}
 	if (! $question->template($template)) {
-		return $codes{internalerror}, "Internal error";
+		return $codes{internalerror}, "Internal error setting template";
 	}
 
 	return $codes{success};

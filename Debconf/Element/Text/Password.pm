@@ -18,7 +18,7 @@ interface.
 
 =head1 show
 
-Prompts for a passoword, without displaying it or echoing keystrokes.
+Prompts for a password, without displaying it or echoing keystrokes.
 
 =cut
 
@@ -32,7 +32,10 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
-	my $value=$this->frontend->prompt_password($this->question->description, $default, 1);
+	my $value=$this->frontend->prompt_password(
+		prompt => $this->question->description,
+		default => $default,
+	);
 	return unless defined $value;
 
 	# Handle defaults.
