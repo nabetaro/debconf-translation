@@ -27,7 +27,8 @@ use warnings;
 
 our $charmap;
 BEGIN {
-	# This module is not part of the base system, so don't demand it.
+	# Well, this module is needed for non-english users. For now, 
+	# it is only recommended.
 	no warnings;
 	eval "use Text::Iconv";
 	use warnings;

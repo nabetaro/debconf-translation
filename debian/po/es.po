@@ -1,19 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Spanish debconf templates for debconf
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# This file is distributed under the same license as the debconf package.
+# Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>, 2003.
 #
 #    Translators, please read /usr/share/doc/po-debconf/README-trans
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf 1.2.40\n"
 "POT-Creation-Date: 2003-03-07 12:15-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2003-06-09 19:20+0200\n"
+"Last-Translator: Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>\n"
+"Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,7 +58,7 @@ msgstr "crítica, alta, media, baja"
 #. Description
 #: ../templates:19
 msgid "See only questions that are of what priority and higher?"
-msgstr ""
+msgstr "Mostrar preguntas sólo con una prioridad mayor o igual que.."
 
 #. Description
 #: ../templates:19
@@ -71,17 +70,23 @@ msgid ""
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
-msgstr ""
+msgstr "Debconf prioriza las preguntas que le presenta. Escoja la prioridad "
+"más baja de las preguntas que desea ver:\n"
+"  - «crítica» es para asuntos vitales, que pueden romper el sistema. "
+"Escójala si es novato o tiene prisa.\n"
+"  - «alta» es para preguntas muy importantes\n"
+"  - «media» es para asuntos normales\n"
+"  - «baja» es para quienes quieran tener el máximo control del sistema, "
+"prestando atención a cada detalle"
 
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Observe que independiente de lo que escoja aquí, puede ver las preguntas "
-"antiguas de nuevo usando dpkg-reconfigure."
+"Observe que independientemente del nivel que elija, puede ver todas las "
+"preguntas de un paquete usando dpkg-reconfigure."
 
 #. Description
 #: ../templates:34
@@ -97,7 +102,7 @@ msgid ""
 "reinstall a package that asks them."
 msgstr ""
 "Normalmente debconf hace una determinada pregunta una sola vez. A partir de "
-"ahí recuerda su respuesta y no vuelve a repetir la pregunta más. Si usted "
+"ahí recuerda su respuesta y no vuelve a repetir la pregunta más. Si lo "
 "prefiere, debconf puede repetir las preguntas una y otra vez cada vez que "
 "actualice o reinstale un paquete que las haga."
 
@@ -107,52 +112,5 @@ msgid ""
 "Note that no matter what you choose here, you can see old questions again by "
 "using the dpkg-reconfigure program."
 msgstr ""
-"Observe que independiente de lo que escoja aquí, puede ver las preguntas "
+"Observe que con independencia de lo que escoja aquí, puede ver las preguntas "
 "antiguas de nuevo usando dpkg-reconfigure."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Los paquetes que usan debconf para la configuración le asignan una "
-#~ "prioridad a las preguntas que hacen. Sólo se mostrarán las preguntas con "
-#~ "una cierta prioridad o superior; no se mostrarán las preguntas menos "
-#~ "importantes."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ "  - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ "  - 'high' is for items that don't have reasonable defaults.\n"
-#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
-#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
-#~ "    vast majority of cases."
-#~ msgstr ""
-#~ "Puede escoger la prioridad más baja para las preguntas que desea ver:\n"
-#~ "  - 'crítica' es para asuntos que probablemente romperán el sistema si\n"
-#~ "    el usuario no interviene.\n"
-#~ "  - 'alta' es para asuntos para los que no hay valores predeterminados\n"
-#~ "    razonables.\n"
-#~ "  - 'media' es para asuntos normales, que tienen valores predeterminados\n"
-#~ "    razonables.\n"
-#~ "  - 'baja' es para asuntos triviales, que tienen valores predeterminados\n"
-#~ "    que funcionarán en la inmensa mayoría de casos."
-
-#~ msgid ""
-#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
-#~ "you only see the most important questions."
-#~ msgstr ""
-#~ "Si es un principiante en el sistema Debian GNU/Linux, escoja 'crítica' "
-#~ "por ahora, para ver únicamente las preguntas más importantes."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Por ejemplo, esta pregunta es de prioridad media, y si el valor escogido "
-#~ "para la prioridad fuese 'alta' o 'crítica', no hubiese visto esta "
-#~ "pregunta."
-
-#~ msgid "Ignore questions with a priority less than.."
-#~ msgstr "No mostrar preguntas con una prioridad menor que..."
