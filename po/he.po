@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-23 23:36+0200\n"
+"PO-Revision-Date: 2005-04-01 22:04+0200\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Hebrew <webmaster@guides.co.il>\n"
 "MIME-Version: 1.0\n"
@@ -19,29 +19,15 @@ msgstr ""
 "X-Poedit-Country: Israel\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"אתה משתמש בממשק מבוסס עורך של debconf כדי להגדיר את המערכת שלך. ראה את סופו "
-"של מסך זה להוראות מפורטות."
+msgid "You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."
+msgstr "אתה משתמש בממשק מבוסס עורך של debconf כדי להגדיר את המערכת שלך. ראה את סופו של מסך זה להוראות מפורטות."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"הממשק מבוסס עורך של debconf מציג לך אחד או יותר קבצי טקסט לעריכה. זהו קובץ "
-"כזה . אם אתה מכיר עם הסטנדרט של קבצי הגדרות ב-unix, קובץ זה יראה מוכר לך - "
-"הוא מכיל הערות משולבות בפרטי הגדרות. ערוך את הקובץ ושנה את כל הפריטים כנדרש, "
-"לאחר מכן שמור וצא. בשלב זה, debconf יקרא את הקובץ הערוך וישתמש בערכים שהכנסת "
-"כדי להגדיר את המערכת."
+msgid "The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."
+msgstr "הממשק מבוסס עורך של debconf מציג לך אחד או יותר קבצי טקסט לעריכה. זהו קובץ כזה . אם אתה מכיר עם הסטנדרט של קבצי הגדרות ב-unix, קובץ זה יראה מוכר לך - הוא מכיל הערות משולבות בפרטי הגדרות. ערוך את הקובץ ושנה את כל הפריטים כנדרש, לאחר מכן שמור וצא. בשלב זה, debconf יקרא את הקובץ הערוך וישתמש בערכים שהכנסת כדי להגדיר את המערכת."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Gnome.pm:96
+#: ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
 #, perl-format
 msgid "Debconf on %s"
@@ -73,23 +59,15 @@ msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "הממשק של Dialog אינו תואם עם באפרי המעטפת של emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"הממשק של Dialog לא יכול כמסוף טיפש, כבאפר מעטפת של emacs או בלי טרמינל שולט."
+msgid "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal."
+msgstr "הממשק של Dialog לא יכול כמסוף טיפש, כבאפר מעטפת של emacs או בלי טרמינל שולט."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"לא מותקנת תוכנה בסגנון dialog שהיא שמישה, כך שממשק המבוסס dailog לא יכול "
-"להיות בשימוש."
+msgid "No usable dialog-like program is installed, so the dialog based frontend cannot be used."
+msgstr "לא מותקנת תוכנה בסגנון dialog שהיא שמישה, כך שממשק המבוסס dailog לא יכול להיות בשימוש."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "הממשק Dialog דורש מסך שהוא לפחות בגובה 13 שורות וברוחב של 31 טורים."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
@@ -135,8 +113,7 @@ msgid "Choices"
 msgstr "בחירות"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(הכנס אפס או יותר פריטים מופרסים בפסיק ואחריו רווח (', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
@@ -154,8 +131,7 @@ msgid "no"
 msgstr "לא"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr "Debconf לא הוגדרה להציג את הערה זאת, אז היא נשלח אליך בדואר."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
@@ -175,14 +151,11 @@ msgstr "אף אחד מהרשומים"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "הכנס את הפריטים שאתה רוצה לבחור, מופרדים ברווחים."
 
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#: ../Debconf/Element/Select.pm:95
+#: ../Debconf/Element/Select.pm:110
 #, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"ערך הקלט, \"%s\" לא מוגדר באפשרויות C! זה לא אמור לקרות לעולם! אולי התבניות "
-"עברו לוקליזציה בצורה לא נכונה."
+msgid "Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."
+msgstr "ערך הקלט, \"%s\" לא מוגדר באפשרויות C! זה לא אמור לקרות לעולם! אולי התבניות עברו לוקליזציה בצורה לא נכונה."
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -216,11 +189,8 @@ msgid "Template database not specified in config file."
 msgstr "מסד התבניות לא מצויין בקובץ ההגדרות."
 
 #: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"האפשרויות של חותמים וסמיילים בקובץ ההגדרות כבר לא בשימוש. הסבר אותם בבקשה."
+msgid "The Sigils and Smileys options in the config file are no longer used. Please remove them."
+msgstr "האפשרויות של חותמים וסמיילים בקובץ ההגדרות כבר לא בשימוש. הסבר אותם בבקשה."
 
 #: ../Debconf/Config.pm:148
 #, perl-format
@@ -233,6 +203,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tציון ממשק ל-debconf.\n"
+"  -p,  --priority\t\tציון עדיפות מינימלית של שאלות להצגה.\n"
+"       --terse\t\t\tהפעלת מצב חסכוני.\n"
 
 #: ../Debconf/Config.pm:277
 #, perl-format
@@ -246,20 +219,13 @@ msgstr "עדיפויות חוקיות הן: %s"
 
 #: ../Debconf/Template.pm:90
 #, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"אזהרה: מסד הנתונים אולי מושחט. יתבצע ניסיון לתיקון ע\"י הוספת השאלה %s החסרה."
+msgid "warning: possible database corruption. Will attempt to repair by adding back missing question %s."
+msgstr "אזהרה: מסד הנתונים אולי מושחט. יתבצע ניסיון לתיקון ע\"י הוספת השאלה %s החסרה."
 
 #: ../Debconf/Template.pm:201
 #, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"התבנית #%s ב-%s מכילה שדה כפול \"%s\" עם הערך החדש \"%s\". כנראה ששתי תבניות "
-"אינן מופרדות באופן תקין ע\"י שורה ריקה.\n"
+msgid "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly seperated by a lone newline.\n"
+msgstr "התבנית #%s ב-%s מכילה שדה כפול \"%s\" עם הערך החדש \"%s\". כנראה ששתי תבניות אינן מופרדות באופן תקין ע\"י שורה ריקה.\n"
 
 #: ../Debconf/Template.pm:226
 #, perl-format
@@ -300,7 +266,8 @@ msgstr "חייב להגדיר כמה debs להגדרה מראש"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "דוחה את הגדרת החבילה, כי apt-utils אינה מותקנת"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:151
+#: ../dpkg-preconfigure:159
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates נכשל: %s"
@@ -332,6 +299,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"שימוש: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tהגדרה מחדש של כל החבילות.\n"
+"  -u,  --unseen-only\t\tהצגה של שאלות שלא הוצגו עד כה.\n"
+"       --default-priority\tשימוש בעדיפות ברירת המחדל במקום בעדיפות נמוכה.\n"
+"       --force\t\t\tכפיית הגדרה מחדש של חבילות שבורות."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -359,17 +331,15 @@ msgstr "לא יכול לקרוא את קובץ הסטטוס: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "שימוש: debconf-communicate [options] [package]"
 
 #: ../debconf-mergetemplate:14
-msgid ""
-"debconf-mergetemplate: This utility is deprecated. You should switch to "
-"using po-debconf's po2debconf program."
-msgstr ""
+msgid "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program."
+msgstr "debconf-mergetemplate: כלי זה הוא ישן. כדאי לעבור לשימוש בכלי po2debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "שימוש: debconf-mergetemplate [options] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -377,6 +347,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tמיזוג גם במקרה והתרגומים ישנים.\n"
+"\t--drop-old-templates\tהסרה של תרגומים ישנים.."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -410,13 +383,17 @@ msgstr "%s אינה מעודכנת; מוריד את כל התבנית!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "שימוש: debconf [options] command [args]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=package\t\tקביעת החבילה שהפקודה נמצאת בבעלותה."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "מגדיר מראש את %s (%s)"
+
+

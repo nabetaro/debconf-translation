@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-24 07:13+0100\n"
+"POT-Creation-Date: 2005-04-02 08:49+0200\n"
+"PO-Revision-Date: 2005-04-01 08:26+0200\n"
 "Last-Translator: Peter KLFMANiK Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Viac"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -64,6 +60,10 @@ msgstr "Späť"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Ďalej"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Viac"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -108,6 +108,103 @@ msgstr "Toto rozhranie vyžaduje riadiaci terminál."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU je nekompatibilné so shellovými buffermi emacsu."
 
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "prepína sa na rozhranie: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "nedá sa inicializovať rozhranie: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Nedá sa spustiť rozhranie: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "V konfiguračnom súbore nie je zadaná databáza nastavení."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "V konfiguračnom súbore nie je zadaná databáza šablón."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"V  konfiguračnom súbore sa už voľby Sigils a Smileys nepoužívajú. Odstráňte "
+"ich, prosím."
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problém pri nastavení databázy definovanej v časti %s z %s."
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tNastavenie rozhrania pre debconf.\n"
+"  -p,  --priority\t\tNastavenie minimálnej priority pre zobrazenie otázok.\n"
+"       --terse\t\t\tPovolenie stručného módu.\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignoruje sa neplatná priorita \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Dostupné priority sú: %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"varovanie: možné narušenie databázy. Pokus o opravu sa vykoná pridaním "
+"chýbajúcej otázky %s."
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Šablóna č.%s v %s má duplicitné pole \"%s\" s novou hodnotou \"%s\". Nejaké "
+"dve šablóny pravdepodobne nie sú oddelené prázdnym riadkom.\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Neznáme pole '%s' šablóny v časti č.%s z %s\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Chyba spracovania šablóny pred '%s' v časti č.%s z %s\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Šablóna č.%s v %s neobsahuje riadok 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Nápoveda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Nápoveda"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Uložiť poznámku (poslať poštou)"
@@ -133,8 +230,8 @@ msgid "Unable to save note."
 msgstr "Poznámka sa nedá uložiť."
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "Možnosti"
 
@@ -190,100 +287,6 @@ msgid ""
 msgstr ""
 "Vstupná hodnota \"%s\" nie je v C možnostiach! To by sa nikdy nemalo stať. "
 "Možno sú šablóny chybne lokalizované."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Nápoveda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Nápoveda"
-
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "prepína sa na rozhranie: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "nedá sa inicializovať rozhranie: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "Nedá sa spustiť rozhranie: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "V konfiguračnom súbore nie je zadaná databáza nastavení."
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "V konfiguračnom súbore nie je zadaná databáza šablón."
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"V  konfiguračnom súbore sa už voľby Sigils a Smileys nepoužívajú. Odstráňte "
-"ich, prosím."
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problém pri nastavení databázy definovanej v časti %s z %s."
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignoruje sa neplatná priorita \"%s\""
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "Dostupné priority sú: %s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"varovanie: možné narušenie databázy. Pokus o opravu sa vykoná pridaním "
-"chýbajúcej otázky %s."
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Šablóna č.%s v %s má duplicitné pole \"%s\" s novou hodnotou \"%s\". Nejaké "
-"dve šablóny pravdepodobne nie sú oddelené prázdnym riadkom.\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Neznáme pole '%s' šablóny v časti č.%s z %s\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Chyba spracovania šablóny pred '%s' v časti č.%s z %s\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Šablóna č.%s v %s neobsahuje riadok 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -341,6 +344,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Použitie: dpkg-reconfigure [voľby] balíky\n"
+"  -a,  --all\t\t\tRekonfigurácia všetkých balíkov.\n"
+"  -u,  --unseen-only\t\tZobrazenie iba doteraz nevidených otázok.\n"
+"       --default-priority\tPoužitie predvolenej priority namiesto nízkej.\n"
+"       --force\t\t\tNanútenie rekonfigurácie narušených balíkov."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -368,17 +376,19 @@ msgstr "Nedá sa načítať stavový súbor: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Použitie: debconf-communicate [voľby] [balík]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: tento nástroj už nepoužívajte. Namiesto neho skúste "
+"program po2debconf z balíka po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Použitie: debconf-mergetemplate [voľby] [šablóny.ll ...] šablóny"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -386,6 +396,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tSpojiť aj napriek zastaralým prekladom.\n"
+"\t--drop-old-templates\tZahodiť celé zastaralé šablóny."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -419,13 +432,15 @@ msgstr "%s je zastaralý; zahadzuje sa celá šablóna!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Použitie: debconf [voľby] príkaz [argumenty]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=balík\t\tNastavenie balíka, ktorý obsahuje príkaz."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "prednastavuje sa %s (%s)"
