@@ -11,31 +11,53 @@ else
 fi 
 
 db_version 2.0
-db_capb
+db_capb backup
 db_title Demo
-db_input high demo/boolean || true
-db_input low demo/multiselect || true
-db_subst demo/select colors red, Yellow, green
-db_input critical demo/string || true
-db_input low demo/password || true
-db_input low demo/text || true
-db_input low demo/select || true
-db_go || true
-db_set demo/select Your terminal lacks the ability to clear the screen or position the cursor.
-db_get demo/select
-db_beginblock
-db_input low demo/boolean || true
-db_input low demo/boolean || true
-db_endblock
-db_go || true
+
+# This implements a simple state machine so the back button can be handled.
+stage=1
+while [ "$stage" != 0 -a "$stage" != 6 ]; do
+	case $stage in
+	1)
+		db_input high demo/boolean || true
+	;;
+	2)
+		db_input low demo/multiselect || true
+	;;
+	3)
+		db_subst demo/select colors red, Yellow, green
+		db_input critical demo/string || true
+		db_input low demo/password || true
+		db_input low demo/text || true
+		db_input low demo/select || true
+	;;
+	4)
+		db_get demo/select
+		db_beginblock
+		db_input low demo/boolean || true
+		db_input low demo/boolean || true
+		db_endblock
+	;;
+	5)
+		db_input low demo/note || true
+		db_fset demo/boolean isdefault true
+		db_input high demo/boolean || true
+	;;
+	esac
+	
+	if db_go; then
+		stage=`expr $stage + 1`
+	else
+		stage=`expr $stage - 1`
+	fi
+	echo "ON STAGE: $stage"
+done
+
+# This is EVIL, never echo in your own config scripts!
 db_get demo/text
 echo $RET
 db_get demo/boolean
 echo $RET
 db_get demo/multiselect
 echo $RET
-db_input low demo/note || true
-db_fset demo/boolean isdefault true
-db_input high demo/boolean || true
-db_go
 

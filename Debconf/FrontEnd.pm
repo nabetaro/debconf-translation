@@ -138,34 +138,49 @@ sub add {
 Display accumulated Elements to the user. The Elements are in the elements
 field, and that field is cleared after the Elements are presented.
 
-After showing each element, checks to see if the object's backup field has
-been set; if so, doen't display any of the other pending questions (remove them
-from the buffer), and returns false. The default is to return true.
+The return value of each element's show() method is used to set the value
+of the question associated with that element.
 
-The return value of each element's show() method is used to set the value of
-the question associated with that element.
+This will normally return true, but if the user indicates they want to 
+back up, it returns false.
 
 =cut
 
 sub go {
 	my $this=shift;
 
+	# Keep track of whether the backup field was set last time.
+	my $oldbackup=$this->backup;
+	$this->backup('');
+
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
 		if ($this->backup && $this->capb_backup) {
 			$this->clear;
-			$this->backup('');
 			return;
 		}
 		$element->question->value($value);
-		# Only set isdefault if the element was visible, because we
-		# don't want to do it when showing noninteractive select 
-		# elements and so on.
-		$element->question->flag_isdefault('false')
-			if $element->visible;
+		if ($element->visible) {
+			# It doesn't matter if the backup field was set
+			# last time; an element was sucesfully shown.
+			$oldbackup='';
+			# Only set isdefault if the element was visible, 
+			# because we don't want to do it when showing 
+			# noninteractive select elements and so on.
+			$element->question->flag_isdefault('false');
+		}
 	}
 	$this->clear;
-	return 1;
+
+	# If $oldbackup is still set then we had nothing to display this
+	# time, and we backed up last time. So continue backing up.
+	if ($oldbackup && $this->capb_backup) {
+		$this->backup($oldbackup);
+		return;
+	}
+	else {
+		return 1;
+	}
 }
 
 =item clear

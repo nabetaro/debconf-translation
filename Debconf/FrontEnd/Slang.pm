@@ -178,7 +178,9 @@ sub go {
         my $this=shift;
 	my @elements=@{$this->elements};
 
-	return 1 unless @elements;
+	# Keep track of whether the backup field was set last time.
+	my $oldbackup=$this->backup;
+	$this->backup('');
 
 	# Set up all the widgets to be displayed on the panel.
 	$this->panel->clear;
@@ -238,8 +240,6 @@ sub go {
 		$this->panel->add($element->widget);
 	}
 
-	my $ret=1;
-
 	# Don't do any of this if there are no interactive widgets to show,
 	# since it causes output to the screen.
 	if ($firstwidget) {
@@ -273,7 +273,7 @@ sub go {
 			$this->button_next->display;
 		}
 		elsif ($this->button_back->active) {
-			$ret='';
+			$this->backup(1);
 			$this->button_back->deactivate;
 			$this->button_back->display;
 		}
@@ -284,12 +284,18 @@ sub go {
 		$this->screen->refresh;
 	}
 
-	if ($ret) {
+	if (! $this->backup) {
 		# Display all elements. This does nothing for slang
 		# elements, but it causes noninteractive elements to do
 		# their thing.
 		foreach my $element (@elements) {
 			$element->show;
+			if ($element->visible) {
+				# It doesn't matter if the backup field was
+				# set last time; an element was sucesfully
+				# shown.
+				$oldbackup='';
+			}
 		}
 		
 		# Run through slang the elements, and get the values that
@@ -303,7 +309,16 @@ sub go {
 	}
 
 	$this->clear;
-	return $ret;
+
+	# If $oldbackup is still set then we had nothing to display this
+	# time, and we backed up last time. So continue backing up.
+	if ($oldbackup && $this->capb_backup) {
+		$this->backup($oldbackup);
+		return;
+	}
+	else {
+		return ! $this->backup;
+	}
 }
 
 =item fillpanel

@@ -15,7 +15,7 @@ use Debconf::Element;
 use Debconf::Log qw(:all);
 use base qw(Debconf::FrontEnd);
 
-my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || '/var/lib/debconf/debconf.ipc';
+my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || die "DEBCONF_PIPE not set";
 
 =head1 DESCRIPTION
 
@@ -163,6 +163,10 @@ the UI agent.
 sub go {
 	my $this = shift;
 
+	# Keep track of whether the backup field was set last time.
+	my $oldbackup=$this->backup;
+	$this->backup('');
+
 	foreach my $element (@{$this->elements}) {
 		my $question = $element->question;
 		my $tag = $question->template->template;
@@ -199,6 +203,7 @@ sub go {
 	# Tell the agent to display the question(s), and check
 	# for a back button.
 	if ((scalar($this->talk('GO')) eq "30") && $this->{capb_backup}) {
+		$this->backup(1);
 		$this->clear;
 		return;
 	}
@@ -213,10 +218,25 @@ sub go {
 			$element->question->flag_isdefault('false');
 			debug developer => "Setting value of $tag to $val";
 		}
+
+		if ($element->visible) {
+			# It doesn't matter if the backup field was set
+			# last time; an element was sucesfully shown.
+			$oldbackup='';
+		}
 	}
 	
 	$this->clear;
-	return 1;
+
+	# If $oldbackup is still set then we had nothing to display this
+	# time, and we backed up last time. So continue backing up.
+	if ($oldbackup && $this->capb_backup) {
+		$this->backup($oldbackup);
+		return;
+	}
+	else {
+		return 1;
+	}
 }
 
 =back

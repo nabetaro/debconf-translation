@@ -1,3 +1,15 @@
+debconf (0.4.12) unstable; urgency=low
+
+* NOT READY FOR RELEASE
+  * Modified all the frontends to deal with this scenario:
+        A config scripts asks questions a, b, and c. a and c are asked at
+        priorities that make them visible, b is not. The user gets to c, 
+	and backs up.
+    Previously, debconf would loop back to b, skip it again, and return the
+    user to c. Now it is smart enough to go back to a once b is skipped.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 14 Nov 2000 21:07:19 -0800
+
 debconf (0.4.11) unstable; urgency=low
 
   * Swedish translation from peter karlsson <peter@softwolves.pp.se>

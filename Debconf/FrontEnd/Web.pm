@@ -134,6 +134,10 @@ parses the client's response and uses that to set values in the database.
 sub go {
 	my $this=shift;
 
+	# Keep track of whether the backup field was set last time.
+	my $oldbackup=$this->backup;
+	$this->backup('');
+
 	my $httpheader="HTTP/1.0 200 Ok\nContent-type: text/html\n\n";
 	my $form='';
 	my $id=0;
@@ -201,8 +205,15 @@ sub go {
 		next unless $idtoelt{$id};
 		
 		$idtoelt{$id}->question->value($idtoelt{$id}->process($query->param($id)));
-		$idtoelt{$id}->question->flag_isdefault('false')
-			if $idtoelt{$id}->visible;
+		if ($idtoelt{$id}->visible) {
+			# It doesn't matter if the backup field was set
+			# last time; an element was sucesfully shown.
+			$oldbackup='';
+			# Only set isdefault if the element was visible,
+			# because we don't want to do it when showing
+			# noninteractive select elements and so on.
+			$idtoelt{$id}->question->flag_isdefault('false');
+		}
 		delete $idtoelt{$id};
 	}
 	# If there are any elements that did not get a result back, that in
@@ -210,11 +221,21 @@ sub go {
 	# get anything back.
 	foreach my $elt (values %idtoelt) {
 		$elt->question->value($elt->process(''));
-		$elt->question->flag_isdefault('false')
-			if $elt->visible;
+		if ($idtoelt{$id}->visible) {
+			$oldbackup='';
+			$elt->question->flag_isdefault('false');
+		}
 	}
 	
-	return 1;
+	# If $oldbackup is still set then we had nothing to display this
+	# time, and we backed up last time. So continue backing up.
+	if ($oldbackup && $this->capb_backup) {
+		$this->backup($oldbackup);
+		return;
+	}
+	else {
+		return 1;
+	}
 }
 
 =back
