@@ -1,3 +1,13 @@
+debconf (0.2.83) unstable; urgency=low
+
+  * dpkg-reconfigure: detect perl confmodules properly, by making my regexp 
+    match case in-sensitively. This fixes a bug that made dpkg-reconfigure
+    not work at all to reconfigure packages that used ConfModule.pm.
+  * dpkg-reconfigure: assume all config scripts are confmodules, it would be
+    pretty weird for one not to be, and this speeds things up a tiny bit.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  8 Feb 2000 11:37:23 -0800
+
 debconf (0.2.82) unstable; urgency=low
 
   * Installed workaround from Joel Klecker to fix the annoying termcap 
