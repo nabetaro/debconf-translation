@@ -104,22 +104,22 @@ sub import {
 		autoflush CHILD_STDOUT 1;
 		$confmodule->write_handle->autoflush;
 
-		# See if the postinst or prerm of the package is being run, and
+		# See if the postinst of the package is being run, and
 		# if there is a config script associated with this package. If
 		# so, run it first as a confmodule (also loading the 
 		# templates). This is a bit of a nasty hack, that lets you
 		# dpkg -i somepackage.deb and have its config script be run
 		# first.
-		if ($0 =~/\.(?:postinst|postrm|preinst|prerm)$/) {
+		if ($0 =~/\.postinst$/) {
 			# Load templates, if any.
 			my $templates=$0;
-			$templates=~s/\.(?:postinst|postrm|preinst|prerm)$/.templates/;
+			$templates=~s/\.postinst$/.templates/;
 			Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 				if -e $templates;
 			
 			# Run config script, if any.
 			my $config=$0;
-			$config=~s/\.(?:postinst|postrm|preinst|prerm)$/.config/;
+			$config=~s/\.postinst$/.config/;
 			if (-e $config) {
 				my $version=$ARGV[1];
 				if ($version eq '') {

@@ -77,8 +77,7 @@
       Getting started
     </title>
     <para>
-      First, your package must depend on debconf (or pre-depend on it
-      if it uses debconf in its preinst). This is necessary since
+      First, your package must depend on debconf. This is necessary since
       debconf isn't part of the base system.
     </para>
     <para>
@@ -88,6 +87,12 @@
       they can generate and all input they prompt the user for. All
       this output and input must be eliminated for your package to use
       debconf. (Output to stderr can be left as is.)
+      <note>
+      <para>
+      Unfortunatly, it is currently not possible for your preinst to
+      use debconf.
+      </para>
+      </note>
     </para>
     <para>
       For example, a hypothetical package "foo" has the following postinst:

@@ -1,3 +1,11 @@
+debconf (0.2.15) unstable; urgency=low
+
+  * The last changelog lies: it's actually not possible to do any debconf
+    stuff in a preinst. The templates arn't available then.
+  * Documented this, until someone comes up with a workaround.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  4 Nov 1999 11:31:28 -0800
+
 debconf (0.2.14) unstable; urgency=low
 
   * I found that the currently installed version of the package was being

@@ -19,24 +19,24 @@ my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Set the default title.
 my $package=$ARGV[0];
-$package=~s/\.(?:postinst|postrm|preinst|prerm)$//;
+$package=~s/\.(?:postinst|postrm|prerm)$//;
 $package=~s:.*/::;
 $frontend->default_title($package);
 
-# See if the postinst or prerm of the package is being run, and if there is a
+# See if the postinst of the package is being run, and if there is a
 # config script associated with this package. If so, run it first as a
 # confmodule (also loading the templates). This is a bit of a nasty hack, that
 # lets you dpkg -i somepackage.deb and have its config script be run first.
 if ($ARGV[0] =~/\.postinst$/) {
 	# Load templates, if any.
 	my $templates=$ARGV[0];
-	$templates=~s/\.(?:postinst|prerm|preinst|postrm)$/.templates/;
+	$templates=~s/\.(?:postinst|prerm|postrm)$/.templates/;
 	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 		if -e $templates;
 
 	# Run config script, if any.
 	my $config=$ARGV[0];
-	$config=~s/\.(?:postinst|prerm|preinst|postrm)$/.config/;
+	$config=~s/\.(?:postinst|prerm|postrm)$/.config/;
 	if (-e $config) {
 		# If it is set, I assume that the third argument passed to this
 		# program (which should be the second argument passed to the
