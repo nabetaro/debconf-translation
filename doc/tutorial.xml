@@ -285,7 +285,7 @@ Template: ....
 	pagkage.
       </para>
       <para>
-        You may also find the dpkg-getlang program useful to start a
+        You may also find the debconf-getlang program useful to start a
 	translation file for a new language.
       </para>
     </sect2>
@@ -841,8 +841,8 @@ fi
       </title>
       <para>
       	It's actually possible to use debconf in standalone programs,
-	rather just from Debian package scripts. When doing this is a good
-	idea is a whole different matter.
+	rather just from Debian package scripts. Whether or not doing
+	this is a good idea, is a whole different matter.
 	<note><para>
 	  Remember, debconf is not intended to be a registry.
 	</para></note>

@@ -1,3 +1,13 @@
+debconf (0.3.49) unstable; urgency=low
+
+  * s/dpkg-getlang/debconf-getlang/ # Closes: #65918
+  * Typo fix, Closes: #65919
+  * More debug code added for bug #66484.
+  * Added italian translation of templates file (po still needs to be
+    translated), from Eugenia Franzoni <eugenia@pluto.linux.it>
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Jun 2000 15:50:35 -0700
+
 debconf (0.3.48) unstable; urgency=low
 
   * Added debug code to help track down bug #66484.
