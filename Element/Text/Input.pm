@@ -13,6 +13,7 @@ use vars qw(@ISA);
 # Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
+	my %selectindfromlet = ();
 
 	# Get the question that is bound to this element.
 	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
@@ -44,9 +45,30 @@ sub show {
 		# Output the list of choices, at the same time, generate
 		# a prompt with the full list in it.
 		# TODO: handle more than 26 choices.
+
+		my $uniquelet = 1;
+		my %selectletfromind;
+
+		%selectindfromlet = ();
+
 		foreach (0..$#choices) {
-			$this->frontend->display_nowrap("\t".chr(97 + $_).". $choices[$_]");
-			$prompt.=chr($_ + ($choices[$_] eq $default ? 65 : 97));
+			$uniquelet = 0 if ($selectindfromlet{lc substr($choices[$_], 0, 1)});
+			$selectindfromlet{lc substr($choices[$_], 0, 1)}=$_;
+		}
+		if (!$uniquelet) {
+			%selectindfromlet = ();
+		foreach (0..$#choices) {
+				$selectindfromlet{chr(97 + $_)} = $_;
+			}
+		}
+		%selectletfromind = reverse %selectindfromlet;
+		foreach (0..$#choices) {
+			$this->frontend->display_nowrap("\t".lc $selectletfromind{$_}.". $choices[$_]");
+			if ($choices[$_] eq $default) {
+				$prompt .= uc $selectletfromind{$_};
+			} else {
+				$prompt .= lc $selectletfromind{$_};
+			}
 		}
 		$this->frontend->display("\n");
 	}
@@ -83,8 +105,8 @@ sub show {
 		}
 		elsif ($type eq 'select') {
 			my @choices=@{$question->template->choices};
-			if (ord(lc $_) >= 97 && ord(lc $_) <= 97 + $#choices) {
-				$value=$choices[ord(lc $_) - 97];
+			if (defined $selectindfromlet{$_}) {
+				$value=$choices[$selectindfromlet{$_}]; 
 				last;
 			}
 		}
