@@ -56,7 +56,7 @@ sub value {
 	my $this=shift;
 	
 	my @choices=$this->question->choices_split;
-	return $this->widget->currentText();
+	return $this->translate_to_C($this->widget->currentText());
 }
 
 =back

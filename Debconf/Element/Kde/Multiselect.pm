@@ -67,7 +67,7 @@ sub value {
 	my @vals;
 	for (my $i = 0; $i <= $#choices; $i++) {
 	if ($buttons [$i] -> isChecked()) {
-		push @vals, $choices [$i];
+		push @vals, $this->translate_to_C($choices[$i]);
 	}
 	}
 	return join(', ', $this->order_values(@vals));
