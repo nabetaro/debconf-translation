@@ -196,6 +196,14 @@ sub accept {
 		return;
 	}
 
+	if (exists $this->{accept_type} || exists $this->{reject_type}) {
+		my $template=Debconf::Template::Persistent->get($item);
+		return 1 unless $template; # no type to act on
+		my $type=$template->type || '';
+		return if exists $this->{accept_type} && $name!~/$this->{accept_type}/;
+		return if exists $this->{reject_type} && $name=~/$this->{reject_type}/
+	}
+
 	return 1;
 }
 
