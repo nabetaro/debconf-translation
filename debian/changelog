@@ -1,3 +1,11 @@
+debconf (1.2.7) unstable; urgency=low
+
+  * Fixed name of french debconf-getlang(1) translation file so it will be
+    put into the binary package. Closes: #161879
+  * Similar for debconf-copydb and debconf.1. Closes: #161878
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 23 Sep 2002 22:35:05 -0400
+
 debconf (1.2.6) unstable; urgency=low
 
   * Turn on binmode on output to avoid encoding re-conversion.
