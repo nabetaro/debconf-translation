@@ -26,6 +26,7 @@ sub makewidget {
 	$default=$this->question->value if defined $this->question->value;
 	$this->widget(Term::Stool::Input->new(
 		text => $default,
+		preferred_width => 20,
 	));
 }
 
@@ -45,7 +46,7 @@ sub resize {
 	my $description=$widget->description;
 	my $maxwidth=$widget->container->width - 4;
 
-	if ($maxwidth > 20 + $description->width) {
+	if ($maxwidth > $widget->preferred_width + $description->width) {
 		$widget->sameline(1);
 		$widget->width($maxwidth - 1 - $description->width);
 		$widget->xoffset($description->width + 2);

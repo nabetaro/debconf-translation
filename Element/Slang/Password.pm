@@ -22,6 +22,7 @@ sub makewidget {
 	my $yoffset=shift;
 
 	$this->widget(Term::Stool::Password->new);
+	$this->widget->preferred_width($this->widget->width);
 }
 
 =head2 value
