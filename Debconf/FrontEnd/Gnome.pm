@@ -55,6 +55,7 @@ sub init {
 		Gnome->init('Debconf');
 		exit(0); # success
 	}
+	Gnome->init('Debconf');
 	
 	$this->SUPER::init(@_);
 	
@@ -95,7 +96,7 @@ my $back_pressed;
 
 sub help {
 	my $button = shift;
-	my $text = $button->help_text;
+	my $text = $button->{help_text};
 	my $dialog = Gnome::Dialog->new("Help", "Button_Ok");
 	my $label = Gtk::Label->new($text);
 	$label->set_line_wrap(1);
@@ -155,7 +156,7 @@ sub go {
 			if ($element->question->extended_description) {
 				$element->help_button(Gtk::Button->new_with_label("Help"));
 				$element->help_button->show;
-				$element->help_button->help_text = $element->question->extended_description;
+				$element->help_button->{help_text} = $element->question->extended_description;
 				$element->help_button->signal_connect("clicked", \&help,
 									$element->question->extended_description);
 				my $vbox = Gtk::VBox->new(0, 0);
