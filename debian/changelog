@@ -1,3 +1,16 @@
+debconf (0.2.25) unstable; urgency=low
+
+  * Removed gtk frontend from list of frontends. If you already have it
+    selected, you can continue using it, but I'm sick of people filing bugs
+    on it who didn't bother to read the note that said it had known problems
+    and should not be used.
+  * dpkg-reconfigure now doesn't do anything if it's told to reconfigure
+    packages that lack a config script. This makes it not fail on packages
+    that don't use debconf, though it is just a no-op with them. 
+    Closes: #48190
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 17:15:04 -0800
+
 debconf (0.2.24) unstable; urgency=low
 
   * Fixed the stty error messages, and screen size detection should work

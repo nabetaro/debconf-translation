@@ -69,23 +69,24 @@ foreach my $pkg (@ARGV) {
 		1 while ($confmodule->communicate);
 		
 		exit $confmodule->exitcode if $confmodule->exitcode > 0;
-	}
 
-	if (-x "/var/lib/dpkg/info/$pkg.postinst") {
-		# Run the postinst as a confmodule. First, get the version
-		# of this package that is installed to pass to it.
-		(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
-		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
-			"$infodir/$pkg.postinst configure $1");
+		if (-x "/var/lib/dpkg/info/$pkg.postinst") {
+			# Run the postinst as a confmodule. First, get the
+			# version of this package that is installed to pass
+			# to it.
+			(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
+			my $confmodule=Debian::DebConf::AutoSelect::confmodule(
+				"$infodir/$pkg.postinst configure $1");
 
-		# Make sure any questions the confmodule registers are owned
-		# by this package.
-		$confmodule->owner($pkg);
+			# Make sure any questions the confmodule registers are
+			# owned by this package.
+			$confmodule->owner($pkg);
 
-		# Talk to it until it is done.
-	        1 while ($confmodule->communicate);
+			# Talk to it until it is done.
+	        	1 while ($confmodule->communicate);
 		
-		exit $confmodule->exitcode if $confmodule->exitcode > 0;
+			exit $confmodule->exitcode if $confmodule->exitcode > 0;
+		}
 	}
 }
 

@@ -1,18 +1,15 @@
 Template: debconf/frontend
 Type: select
-Choices: Dialog, Text, Gtk, Web, Noninteractive
+Choices: Dialog, Text, Web, Noninteractive
 Default: Dialog
 Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
  .
  The dialog frontend provides a full-screen, character based interface using
- the ncurses library. The gtk frontend requires the X window system. The
- web frontend can be accessed using your favorite browser. The
- noninteractive frontend never asks you any questions.
- .
- Note that the gtk and web frontends still need some work; use them at your
- own risk.
+ the ncurses library, while the text frontend uses a more traditional plain
+ text interface. The web frontend can be accessed using your favorite
+ browser. The noninteractive frontend never asks you any questions.
 
 Template: debconf/priority
 Type: select
