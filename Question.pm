@@ -160,11 +160,11 @@ sub owners {
 	if (@_) {
 		# Generate hash on fly.
 		my %owners=map { $_, 1 } split(/,\s*/, shift);
-		$this->{owners}=\%owners;
+		$this->{'owners'}=\%owners;
 	}
 	
-	if ($this->{owners}) {
-		return join(", ", keys %{$this->{owners}});
+	if ($this->{'owners'}) {
+		return join(", ", keys %{$this->{'owners'}});
 	}
 	else {
 		return "";
@@ -185,11 +185,11 @@ sub addowner {
 	# I must be careful to access the real hash, bypassing the 
 	# method that stringifiys the owners property.
 	my %owners;
-	if ($this->{owners}) {
-		%owners=%{$this->{owners}};
+	if ($this->{'owners'}) {
+		%owners=%{$this->{'owners'}};
 	}
 	$owners{$owner}=1;
-	$this->{owners}=\%owners;
+	$this->{'owners'}=\%owners;
 }
 
 =head2 removeowner
@@ -206,11 +206,11 @@ sub removeowner {
 	# I must be careful to access the real hash, bypassing the
 	# method that stringifiys the owners property.
 	my %owners;
-	if ($this->{owners}) {
-		%owners=%{$this->{owners}};
+	if ($this->{'owners'}) {
+		%owners=%{$this->{'owners'}};
 	}
 	delete $owners{$owner};
-	$this->{owners}=\%owners;
+	$this->{'owners'}=\%owners;
 }
 
 # Set/get property.

@@ -42,9 +42,9 @@ sub show {
 	my $default=$this->question->value;
 	my @params=('--yesno', $text, $lines, $columns);
 	if ($default eq 'false') {
-		# Put it at the beginning of the option list,
-		# where dialog likes it.
-		unshift @params, '--defaultno';
+		# Put it at the end of the option list,
+		# where gdialog likes it.
+		push @params, '--defaultno';
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);

@@ -1,6 +1,14 @@
 debconf (0.1.47) unstable; urgency=low
 
   * Doh -- I need to update to use debhelper's debconf support! :-)
+  * Gdialog only takes --defaultno options at the end. Dialog only takes
+    than at the beginning. Whiptail takes them either place. Argh. I've
+    changed to using the end for now, since I don't use dialog at all yet.
+  * Disambiguated {owners} in Question.pm, Closes: #46347
+  * Killed EXAMPLES out of the debian package.
+  * Flipped ordering of short and long descriptions in notes and text in the
+    dialog frontend; makes more sense this way.
+  * dpkg-reconfigure aborts if you arn't root.
 
  -- Joey Hess <joeyh@master.debian.org>  Fri,  1 Oct 1999 13:31:06 -0700
 

@@ -86,13 +86,22 @@ A short description of the data types:
   password
   	Prompts for a password (with no echoing).
 
+Note that the Description field has two parts, a short description and a
+long description. Please note, that some frontends do not always display the
+long description, often only showing it if the user asks for additional
+help. So the short description should be entirely standalone.
+
+If you can't think up a long description, then first, think some more. If
+you still can't come up with anything, leave it blank. There is no point in
+duplicating the short description.
+
 Following along in our example, we create a templates file with two
 templates in it:
 
   Template: foo/like_debian
   Type: boolean
   Description: Do you like Debian?
-   We'd like to know if you like the Debian GNU/Linus system.
+   We'd like to know if you like the Debian GNU/Linux system.
 
   Template: foo/why_debian_is_great
   Type: note
@@ -273,8 +282,8 @@ called before entering the loop.
 Another fix is to use the "visible" command to test if the user will be
 prompted, and skip the loop if not.
 
-Choosing amoung related packages
-- - - - - - - - - - - - - - - - -
+Choosing among related packages
+- - - - - - - - - - - - - - - -
 
 Sometimes a set of related packages can be installed, and you want to prompt
 the user which of the set should be used by default. Examples of such sets

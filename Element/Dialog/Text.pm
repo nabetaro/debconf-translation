@@ -22,9 +22,8 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$this->frontend->showtext(
-		$this->question->extended_description."\n\n".
-		$this->question->description
+	$this->frontend->showtext($this->question->description."\n\n".
+		$this->question->extended_description
 	);	
 	$this->question->flag_isdefault('false');
 }

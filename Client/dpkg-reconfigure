@@ -15,6 +15,12 @@ use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
 
+# See if they are root.
+if ($> != 0) {
+	print STDERR "$0 must be run as root.\n";
+	exit 1;
+}
+
 my $infodir="/var/lib/dpkg/info";
 
 Getopt::Long::config qw(bundling no_ignore_case permute);
