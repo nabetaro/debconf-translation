@@ -1,15 +1,19 @@
 debconf (0.3.0) unstable; urgency=low
 
   * New custom slang frontend. Give it a try!
+  * * warning * *
+    This frontend does not yet support multiselect list boxes. So you might
+    not see a very few questions that packages may ask if you use this
+    frontend.
   * Build-depend on w3m, Closes: #60815
   * Added links in confmodule man page, Closes: #60780
   * Ignore backups if the client does not support them.
   * If asked to present the same question twice in a single block,
-    skips the second time.
+    skips the second occurrance.
   * Fairly large reorganization of code throughout debconf, and more
     internal module documentation.
 
- -- Joey Hess <joeyh@debian.org>  Thu, 23 Mar 2000 14:36:32 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri, 24 Mar 2000 14:36:32 -0800
 
 debconf (0.2.107) unstable; urgency=low
 
