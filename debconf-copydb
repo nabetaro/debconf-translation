@@ -66,7 +66,7 @@ Set option Foo to bar. This is similar to writing:
 In debconf.conf, except you probably want to leave off the space on the
 command line (or quote it: "Foo: bar"). Generally must be used multiple
 times, to build up a full configuration stanza. While blank lines are used
-to seperate stanzas in debconf.conf, this program will assume that
+to separate stanzas in debconf.conf, this program will assume that
 "Name:dbname" denotes the beginning of a new stanza.
 
 =back
