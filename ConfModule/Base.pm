@@ -79,20 +79,35 @@ sub communicate {
 	my $this=shift;
 
 	my $r=$this->{read_handle};
-	$_=<$r> || return;
+	$_=<$r> || return $this->_finish;
 	chomp;
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
-	return if (lc($command) eq "stop");
 	my $w=$this->{write_handle};
 	if (lc($command) eq "stop") {
 		print $w "\n";
-		return;
+		return $this->_finish;
 	}
 	$command="command_".lc($command);
 	print $w join(' ', $this->$command(@params))."\n";
 	return 1;
+}
+
+=head2 _finish
+
+This is an internal helper function for communicate. It just waits for the
+child process to finish so its return code can be examined. The return code
+is stored in the exitcode property of the object.
+
+=cut
+
+sub _finish {
+	my $this=shift;
+	
+	waitpid $this->pid, 0;
+	$this->exitcode($? >> 8);
+	return '';
 }
 
 =head2 command_input

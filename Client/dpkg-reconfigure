@@ -60,6 +60,8 @@ foreach my $pkg (@ARGV) {
 		
 		# Talk to it until it is done.
 		1 while ($confmodule->communicate);
+		
+		exit $confmodule->exitcode if $confmodule->exitcode > 0;
 	}
 
 	if (-x "/var/lib/dpkg/info/$pkg.postinst") {
@@ -76,3 +78,5 @@ foreach my $pkg (@ARGV) {
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+
+exit $confmodule->exitcode;

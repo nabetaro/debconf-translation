@@ -45,6 +45,8 @@ sub show {
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
 
+	exit $ret if $ret != 0 && $ret != 1;
+
 	$value=($ret eq 0 ? 'true' : 'false');
 
 	$this->question->value($value);

@@ -43,6 +43,8 @@ sub show {
 		$columns, $default);
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
+	
+	exit $ret if $ret != 0;
 
 	$this->question->value($value);
 	$this->question->flag_isdefault('false');

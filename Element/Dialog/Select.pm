@@ -66,6 +66,8 @@ sub show {
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
 
+	exit $ret if $ret != 0;
+
 	@choices=@{$this->question->choices};
 	$value=$choices[$value];
 

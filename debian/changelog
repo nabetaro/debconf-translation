@@ -1,3 +1,13 @@
+debconf (0.1.32) unstable; urgency=low
+
+  * Now it properly handles config scripts and postinsts that exit with
+    a return code, by propigating that return code up to dpkg.
+  * Killed dpkg-frnotend for good. It's in the Attic now only.
+  * In the dialog frontend, hitting cancel (or escape, maybe), will now
+    break out and cancel everything.
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 21 Sep 1999 15:01:00 -0700
+
 debconf (0.1.31) unstable; urgency=low
 
   * Added "visible" command to tell if a question will be displayed.

@@ -85,7 +85,9 @@ foreach my $deb (@debs) {
 
 	# Talk to it until it is done.
 	1 while ($confmodule->communicate);
-	
+
+	exit $confmodule->exitcode if $confmodule->exitcode > 0;
+
 	unlink $script;
 }
 

@@ -56,6 +56,8 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 		
 		# Talk to it until it is done.
 		1 while ($confmodule->communicate);
+		
+		exit $confmodule->exitcode if $confmodule->exitcode > 0;
 	}
 }
 
@@ -70,3 +72,5 @@ die $@ if $@;
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+
+exit $confmodule->exitcode;

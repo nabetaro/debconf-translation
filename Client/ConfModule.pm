@@ -131,6 +131,8 @@ sub import {
 				
 				# Talk to it until it is done.
 				1 while ($confmodule->communicate);
+				
+				exit $confmodule->exitcode if $confmodule->exitcode > 0;
 			}
 		}
 		
@@ -140,7 +142,8 @@ sub import {
 			
 			# Save state.
 			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
-			exit;
+			
+			exit $confmodule->exitcode;
 		}
 		
 		# Child process. Continue on as before. First, set STDIN and
