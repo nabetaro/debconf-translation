@@ -80,9 +80,8 @@ foreach my $in (Debian::DebConf::Template->load(shift)) {
 		}
 	}
 	my $field="default-$lang";
-	if (! defined $out->$field() &&
-	    $in->type ne 'select' && $in->type ne 'multiselct' &&
-	    $in->type ne 'note' && $in->type ne 'boolean') {
+	if (! defined $out->$field() && defined $in->default &&
+	    $in->type !~ /^((multi)?select|note|boolean)$/) {
 		# Default only needs to be translated for some types.
 		push @needfields, $field;
 	}
