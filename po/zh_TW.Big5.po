@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-09-29 23:28-0400\n"
+"POT-Creation-Date: 2001-10-04 19:44-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -165,19 +165,14 @@ msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:38
-#, fuzzy
-msgid "This frontend probably needs a controlling tty."
-msgstr "這個介面需求可控制的tty."
-
-#: ../Debconf/FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
 "您選擇了文字編輯器形式的debconf介面設定系統.留意這份文件最尾有關的方法."
 
-#: ../Debconf/FrontEnd/Editor.pm:118
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -257,6 +252,10 @@ msgstr "%s 並未完全安裝"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"
+
+#, fuzzy
+#~ msgid "This frontend probably needs a controlling tty."
+#~ msgstr "這個介面需求可控制的tty."
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "TERM 並未設定, Slang 介面不能執行."

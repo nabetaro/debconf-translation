@@ -30,14 +30,6 @@ sub init {
 	my $this=shift;
 
 	$this->SUPER::init(@_);
-
-	# Ok, so this is wrong for X-based editors. But I must try to
-	# balance getting them right vs. getting it wrong for console-based
-	# editors and making debconf impossible to use as the editor begins
-	# to fail.
-	open(TESTTY, "/dev/tty") || die gettext("This frontend probably needs a controlling tty.")."\n";
-	close TESTTY;
-	
 	$this->interactive(1);
 }
 

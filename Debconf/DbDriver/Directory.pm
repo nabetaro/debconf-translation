@@ -164,6 +164,7 @@ whenever something is saved.
 sub shutdown {
 	my $this=shift;
 	
+	$this->SUPER::shutdown(@_);
 	delete $this->{lock};
 	return 1;
 }

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-09-29 23:28-0400\n"
+"POT-Creation-Date: 2001-10-04 19:44-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -178,12 +178,7 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:38
-#, fuzzy
-msgid "This frontend probably needs a controlling tty."
-msgstr "Esse frontend requer um tty controlador."
-
-#: ../Debconf/FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -191,7 +186,7 @@ msgstr ""
 "Você está usando o frontend baseado em editor do debconf para configurar seu "
 "sistema. Veja o fim desse documento para instruções detalhadas."
 
-#: ../Debconf/FrontEnd/Editor.pm:118
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -275,6 +270,10 @@ msgstr "%s não está totalmente instalado"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossível ler o estado do arquivo: %s"
+
+#, fuzzy
+#~ msgid "This frontend probably needs a controlling tty."
+#~ msgstr "Esse frontend requer um tty controlador."
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "O TERM não está definido então o frontend Slang não pode ser usado."

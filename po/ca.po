@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-09-29 23:28-0400\n"
+"POT-Creation-Date: 2001-10-04 19:44-0400\n"
 "PO-Revision-Date: 2001-08-29 02:37+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan l10n Team <debian-l10n-catalan@lists.debian."
@@ -180,12 +180,7 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "Configuració de Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:38
-#, fuzzy
-msgid "This frontend probably needs a controlling tty."
-msgstr "Aquesta interfície requereix una tty controladora."
-
-#: ../Debconf/FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -194,7 +189,7 @@ msgstr ""
 "el vostre sistema. Vegeu el final d'aquest document per instruccions "
 "detallades."
 
-#: ../Debconf/FrontEnd/Editor.pm:118
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -278,3 +273,7 @@ msgstr "%s no està instal·lat completament"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No es pot llegir fitxer d'estat: %s"
+
+#, fuzzy
+#~ msgid "This frontend probably needs a controlling tty."
+#~ msgstr "Aquesta interfície requereix una tty controladora."

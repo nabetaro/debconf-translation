@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-09-29 23:28-0400\n"
+"POT-Creation-Date: 2001-10-04 19:44-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -171,12 +171,7 @@ msgstr ""
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 
-#: ../Debconf/FrontEnd/Editor.pm:38
-#, fuzzy
-msgid "This frontend probably needs a controlling tty."
-msgstr "이 frontend는 제어 tty를 필요로 합니다."
-
-#: ../Debconf/FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -184,7 +179,7 @@ msgstr ""
 "시스템을 설정하기 위해서 편집기 기반의 debconf frontend를 사용하고 있습니다. "
 "자세한 명령을 위해서는 이 문서의 끝부분을 보세요."
 
-#: ../Debconf/FrontEnd/Editor.pm:118
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -267,6 +262,10 @@ msgstr "%s은(는) 완전히 설치되지 않았습니다"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
+
+#, fuzzy
+#~ msgid "This frontend probably needs a controlling tty."
+#~ msgstr "이 frontend는 제어 tty를 필요로 합니다."
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "TERM이 정해지지 않았으므로, Slang frontend는 사용할 수 없습니다."
