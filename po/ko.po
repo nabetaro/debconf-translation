@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-04-13 12:45-0400\n"
+"POT-Creation-Date: 2004-08-16 23:12+0100\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -140,12 +140,12 @@ msgstr ""
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 
-#: ../Debconf/Config.pm:262
+#: ../Debconf/Config.pm:276
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr ""
 
-#: ../Debconf/Config.pm:263
+#: ../Debconf/Config.pm:277
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr ""
@@ -321,21 +321,21 @@ msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
 msgid "%s must be run as root"
 msgstr "root로 실행해야 합니다"
 
-#: ../dpkg-reconfigure:136
+#: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "다시 설정할 패키지를 지정하세요"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, fuzzy, c-format
 msgid "%s is not installed"
 msgstr "%s은(는) 완전히 설치되지 않았습니다"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, fuzzy, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s은(는) 완전히 설치되지 않았습니다"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
