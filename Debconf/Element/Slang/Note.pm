@@ -23,7 +23,7 @@ that can be pressed to save the note.
 sub make_widgets {
 	my $this=shift;
 
-	return Term::Stool::nutton->new(
+	return Term::Stool::Button->new(
 		text => gettext("Save Note"),
 		preferred_width => 13,
 		press_hook => sub {
