@@ -76,10 +76,21 @@ sub new {
 
 			# Fit at bottom of window, on right hand side.
 			$this->yoffset($this->container->height - 3);
-			$this->xoffset($this->container->width / 4 * 3 - $this->width);
+			$this->xoffset($this->container->width / 4 * 3
+				- $this->width);
 		},
 	));
-	$self->mainwindow->add($self->button_next, $self->button_back);
+	$self->panel(Term::Stool::Panel->new(
+		xoffset => 0, yoffset => 0, resize_hook => sub {
+			my $this=shift;
+
+			# Fill the window, with space for the buttons.
+			$this->width($this->container->width - 2);
+			$this->height($this->container->height - 3);
+		},
+	));
+	$self->mainwindow->add($self->panel, $self->button_next,
+		$self->button_back);
 	$self->screen->add($self->titlebar, $self->mainwindow,
 		$self->descwindow, $self->helpbar);
 	$self->screen->run($self->button_next);
