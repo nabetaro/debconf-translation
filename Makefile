@@ -16,52 +16,52 @@ clean:
 	rm -f *.db Version.pm
 	$(MAKE) -C doc clean
 
-install-common:
+install-man:
+	install -d $(prefix)/usr/share/man/man3
+	pod2man --section=3 Client/ConfModule.pm \
+		> $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
+	install -m 0644 Client/confmodule.3 $(prefix)/usr/share/man/man3/
+
+install:
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/ \
 		$(prefix)/var/lib/debconf \
 		$(prefix)/usr/share/debconf/templates
 	chmod 700 $(prefix)/var/lib/debconf
+	# Install modules.
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client Element FrontEnd -type d | grep -v CVS | \
 		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	find Client Element FrontEnd -type f | grep .pm\$$ | \
 		xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
+	# Other libs.
 	install -m 0644 Client/confmodule.sh Client/confmodule $(prefix)/usr/share/debconf/
 	install Client/frontend $(prefix)/usr/share/debconf/
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Config.pm > $(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
-
-install: install-common
-	# Generate man pages from POD docs.
-	install -d $(prefix)/usr/share/man/man3/
-	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
-	# Install bins
+	# Install programs.
 	install -d $(prefix)/usr/sbin
 	find Client -perm +1 -type f | grep -v frontend | \
 		xargs -i_ install _ $(prefix)/usr/sbin
-
-# This target installs a minimal debconf.
-tiny-install: install-common
-	# Delete the libs we don't need.
-	find $(prefix)/usr/lib/perl5/Debian/DebConf/ | egrep 'Text|Web|Gtk' \
-		| grep -v Dialog/ | xargs rm -rf
-	# Strip out POD documentation and all other comments
-	# from all .pm files. Also, don't use 'base'.
-	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.pm' | \
-		xargs perl -i.bak -ne ' \
-			$$cutting=!$$cutting if /^=/; \
-			next if $$cutting || /^(=|\s*#)/; \
-			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { \
+	# Make man pages for programs.
+	install -d $(prefix)/usr/share/man/man8
+	find Client -perm +1 -type f | grep -v frontend | \
+		xargs -i_ sh -c 'pod2man --section=8 _ > debian/tmp/usr/share/man/man8/`basename _`.8'
+	# Now strip all pod documentation from all .pm files.
+	# Also, don't use 'base'.
+	find $(prefix)/usr/lib/perl5/Debian/DebConf/ $(prefix)/usr/sbin \
+	     -name '*.pm' -or -name 'dpkg-*' | xargs perl -i.bak -ne ' 	\
+	     		print $$_."# This file has been preprocessed, do not edit directly.\n" \
+				if m:^#!/usr/bin/perl:; 		\
+	     		$$cutting=1 if /^=/; 				\
+	     		$$cutting="" if /^=cut/; 			\
+			next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";\
+			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { 	\
 				print "use vars qw{\@ISA}; use $$2; push \@ISA, q{$$2};\n" \
-			} \
-			else { \
-				print $$_ \
-			} \
+			} 						\
+			else {						\
+				print $$_				\
+			}						\
 		'
-	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.bak' | xargs rm -f
-	install -d $(prefix)/usr/sbin $(prefix)/usr/share/man/man8
-	install Client/dpkg-reconfigure Client/dpkg-preconfigure \
-		$(prefix)/usr/sbin/
-	cp Client/dpkg-reconfigure.8 Client/dpkg-preconfigure.8 \
-		$(prefix)/usr/share/man/man8
+	find $(prefix) -name '*.bak' | xargs rm -f
+

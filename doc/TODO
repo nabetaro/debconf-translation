@@ -1,0 +1,84 @@
+I18N:
+* I need to make translated selection lists work like this:
+  - the translation is displayed to the user. The Default: line does not
+    need translation; what it does is it uses the default to get the
+    positions(s) of the default values(s), and then it uses the translated
+    values.
+  - when the user enters stuff into a [multi]select element, it then
+    translates back to english, and sets Default: to the english values(s)
+    they selected. So all the backend code in the confmodule just deals with
+    the english values.
+* The text frontend uses lots of English text, and also makes other
+  assumptions about things that don't hold up in other locales. Slang
+  frontend too, probably.
+* I should "use locale" -- but it's not in the base perl package.
+  Get it in, or I could hack together my own locale enabler, it's one line
+  -- see locale.pm. This is necessary for proper sorting, and other stuff.
+
+General:
+* Once perlbug ID 20000212.001 is fixed and the fix in in debian, grep -v 
+  "perlbug" throughout the source to remove bug workaruond code.
+* Proper backend database, but that's a whole other ball of wax.
+* Config db browser, with AJ's config2 stuff.
+* Other frontends.
+* Should be able to jump to debconf config when debconf is interacting with
+  the user.
+* i8n
+* When Client::ConfModule launches a frontend, the frontend doesn't see
+  stuff echo'd to stdout, if it is echo'd inside a system. (Is this still
+  true? Test.)
+* Regression tests.
+* I need to implement the container template type. That's gonna be fun..
+  I've mostly done it now, except it won't work at all with the web
+  frontend. I need to make some architectural changes, probably.
+* The appendix should use a definition list. (maybe)
+* Something I see frequently is a select list that needs lots of explination
+  for each option. It'd be neat if the explination could be added as a
+  parallell list with the select list, to keep the actual tokens that the
+  confmodule script gets back short. See modconf for how such a list could
+  display in whiptail.
+* Finish dependncy checks. Currently, they don't handle conflicts, and they
+  only look for the first versioned debconf dependancy on a line.
+* Darxus <darxus@Op.Net>
+> I will probably leave debconf set to ask me every question for quite some
+> time.  But it would be nice, in addition the "yes" & "no" buttons, to have
+> a "don't ask me again" checkbox, so next time it'll just used the stored
+> answer.
+  Dialog frontend couldn't support this, but the rest could.
+
+Slang frontend:
+* I doubt resizing always works perfectly.
+* Large dropdown select boxes probably go off the screen.
+* The buttons should have help text associated with them too.
+
+Text frontend:
+* Add some way to go back in the Text.pm front end. I don't know how to
+  let the user signal it, which makes it hard to do. One suggestion is to use
+  pageup and pagedown -- but I dunnow how to catch those keys in readline.
+* If you are entering text, they're no way to enter "" because it is
+  interpreted as "use default"
+
+Dialog frontend:
+* It'd be nice if the Dialog stuff could catch text that was to be
+  displayed that is in the same block, buffer it, and display it up at the top
+  when it prompts for an input that is in the same block.
+
+Web based frontend:
+* Well, a little security would be nice! It only allows connections
+  from localhost, but even that isn't good enough at all.
+* Passwords are completly insecure.
+* It can support blocks, so add them. I guess they could be used for
+  arranging questions into tables or something.
+* It should have a config screen. In it, you configure the frontend itself.
+  One option would be to make it be in "quiet" mode -- this would make it
+  not display extended descriptions, just provide links them. Another thing
+  to configure would be what priority of questions it is displaying.
+
+GTK:
+* block support
+* Back should be disabled unless the confmodule supports it.
+* Lots of room here for UI improvements and really showing off everything
+  debconf can do.
+* segfaults on exit
+* I think it's currently completly broken right now. :-(
+* Handle multiselect items.

@@ -1,16 +1,9 @@
 #!/usr/bin/make -f
-# debian/rules that uses debhelper. GNU copyright 1999 by Joey Hess.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-fixlinks:
-	ln -sf templates debian/debconf-tiny.templates
-	ln -sf config debian/debconf-tiny.config 
-	ln -sf postinst debian/debconf-tiny.postinst         
-	ln -sf postrm debian/debconf-tiny.postrm
-
-build: fixlinks
+build:
 	$(MAKE)
 	dh_testdir
 
@@ -18,7 +11,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	$(MAKE) clean
-	dh_clean
+	dh_clean debian/debconf.changelog
 
 install: build
 	dh_testdir
@@ -26,9 +19,8 @@ install: build
 	dh_clean -k
 	dh_installdirs
 	$(MAKE) prefix=debian/tmp install
-	$(MAKE) prefix=debian/debconf-tiny tiny-install
+	$(MAKE) prefix=debian/debconf-doc install-man
 
-# Build architecture-independent files here.
 binary-indep: install
 	# Make sure debhelper is going to install the config and templates.
 	dh_testversion 2.0.49
@@ -37,31 +29,29 @@ binary-indep: install
 	# Don't modify postrm, I purge differently than normal packages
 	# using me.
 	dh_installdebconf -n
-	dh_installdocs doc/CREDITS doc/*.txt doc/*.html \
-		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
-		README TODO debian/Debian.bugtemplate
-	dh_installexamples samples/*
+	dh_installdocs
+	dh_installdocs -p debconf-doc doc/namespace.txt doc/hierarchy.txt \
+		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
+		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif
+	dh_installexamples -p debconf-doc samples/*
 	dh_installmenu
 	dh_installcron
-	dh_installmanpages -p debconf
+	# Changelog reduction hack for debconf. Only include top 5 entries.
+	perl -ne '$$c++ if /^debconf /; last if $$c > 5 ; print $$_' \
+		< debian/changelog > debian/debconf.changelog
+	echo "See /usr/share/doc/debconf-doc/changelog.gz for the" >> debian/debconf.changelog
+	echo "remainder of this changelog." >> debian/debconf.changelog
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
 	dh_suidregister
 	dh_installdeb
-	# Hack to make sure debconf-tiny has the same version.
-	mv debian/debconf-tiny.changelog debian/debconf-tiny.changelog.bak
 	dh_gencontrol
-	mv debian/debconf-tiny.changelog.bak debian/debconf-tiny.changelog
-	dh_md5sums -p debconf
+	dh_md5sums
 	dh_builddeb
 
-# Build architecture-dependent files here.
 binary-arch: build install
 # Nothing to do.
-
-source diff:
-	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install

@@ -26,6 +26,11 @@ use Debian::DebConf::Template;
 use Debian::DebConf::Question;
 use strict;
 use vars qw(%templates %questions);
+use base qw(Exporter);
+use vars qw(@EXPORT_OK);
+@EXPORT_OK = qw(getquestion gettree isunder loadtemplatefile
+		loadtemplatedata addquestion disownquestion disownall
+		savedb loaddb);
 
 =head2 getquestion
 

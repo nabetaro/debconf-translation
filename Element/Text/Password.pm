@@ -6,17 +6,17 @@ Debian::DebConf::Element::Text::Password - password input field
 
 =cut
 
+package Debian::DebConf::Element::Text::Password;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is a password input field, presented to the user using a plain text
 interface.
 
 =cut
-
-package Debian::DebConf::Element::Text::Password;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

@@ -15,13 +15,11 @@ use base qw(Debian::DebConf::Base);
 This is the base object on which many different types of input elements are
 built. Each element represents one user interface element in a FrontEnd. 
 
-=cut
-
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 visible
+=item visible
 
 Returns true if an Element is of a type that is displayed to the user.
 This is used to let confmodules know if the elements they have caused to be
@@ -36,7 +34,7 @@ sub visible {
 	return 1;
 }
 
-=head2 show
+=item show
 
 Causes the element to be displayed, allows the user to interact with it to
 specify a value, and returns the value they enter (this value is later used to
@@ -45,6 +43,8 @@ set the value of the accociated question).
 =cut
 
 sub show {}
+
+=back
 
 =head1 AUTHOR
 

@@ -6,6 +6,12 @@ DebConf::FrontEnd::Tty - Tty FrontEnd
 
 =cut
 
+package Debian::DebConf::FrontEnd::Tty;
+use strict;
+use vars '@ISA';
+use Debian::DebConf::FrontEnd; # perlbug
+use base qw(Debian::DebConf::FrontEnd);
+
 =head1 DESCRIPTION
 
 This FrontEnd is not useful by itself. It serves as a parent for any FrontEnds
@@ -13,17 +19,15 @@ that have a user interface that runs in a tty. The screenheight field is
 always set to the current height of the tty, while the screenwidth field is
 always set to its width.
 
-=cut
-
 =head1 METHODS
 
-=cut
+=over 4
 
-package Debian::DebConf::FrontEnd::Tty;
-use strict;
-use vars '@ISA';
-use Debian::DebConf::FrontEnd; # perlbug
-use base qw(Debian::DebConf::FrontEnd);
+=item init
+
+Sets up SIGWINCH handler and gets current screen size.
+
+=cut
 
 sub init {
 	my $this=shift;
@@ -34,7 +38,7 @@ sub init {
 	$SIG{'WINCH'}=sub { $this->resize };
 }
 
-=head2 resize
+=item resize
 
 This method is called whenever the tty is resized, and probes to determine the
 new screen size.
@@ -61,6 +65,8 @@ sub resize {
 		$this->screenwidth($cols || 80);
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

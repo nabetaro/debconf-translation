@@ -6,17 +6,6 @@ DebConf::FrontEnd::Text - Text FrontEnd
 
 =cut
 
-=head1 DESCRIPTION
-
-This FrontEnd is for a simple user interface that uses plain text output. It
-uses ReadLine to make the user interface just a bit nicer.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::FrontEnd::Text;
 use strict;
 use Text::Wrap;
@@ -25,6 +14,17 @@ use Debian::DebConf::FrontEnd::Tty; # perlbug
 use base qw(Debian::DebConf::FrontEnd::Tty);
 
 local $|=1;
+
+=head1 DESCRIPTION
+
+This FrontEnd is for a simple user interface that uses plain text output. It
+uses ReadLine to make the user interface just a bit nicer.
+
+=head1 METHODS
+
+=over 4
+
+=cut
 
 sub init {
 	my $this=shift;
@@ -44,7 +44,7 @@ sub init {
 	}
 }
 
-=head2 screenwidth
+=item screenwidth
 
 This method from my base class is overridden, so after the screen width
 changes, $Text::Wrap::columns is updated to match.
@@ -57,7 +57,7 @@ sub screenwith {
 	$Text::Wrap::columns=$this->SUPER::screenwidth(@_);
 }
 
-=head2 display
+=item display
 
 Displays text wrapped to fit on the screen. If too much text is displayed at
 once, it will page it. If a title has been set and has not yet been displayed,
@@ -72,7 +72,7 @@ sub display {
 	$this->display_nowrap(wrap('','',$text));
 }
 
-=head2 display_nowrap
+=item display_nowrap
 
 Display text, paging if necessary. If a title has been set and has not yet been
 displayed, displays it first.
@@ -98,7 +98,7 @@ sub display_nowrap {
 	}
 }
 
-=head2 title
+=item title
 
 Display a title. Only do so once per title. The title is stored in the title
 field of the object. If a value is passed in, this will set the title
@@ -120,7 +120,7 @@ sub title {
 	$this->{title}='';
 }
 
-=head2 prompt
+=item prompt
 
 Pass it the text to prompt the user with, and an optional default. The
 user will be prompted to enter input, and their input returned. If a
@@ -149,7 +149,7 @@ sub prompt {
 	return $ret;
 }
 
-=head2 prompt_password
+=item prompt_password
 
 Same as prompt, except what the user enters is not echoed to the screen
 and the default is never shown in the prompt.
@@ -170,7 +170,7 @@ sub prompt_password {
 	return $ret;
 }
 
-=head2 shutdown
+=item shutdown
 
 Before this frontend is shut down, it needs to prompt the user if some text
 has been printed out without a prompt. Otherwise, the rest of the apt/dpkg
@@ -185,9 +185,11 @@ sub shutdown {
 	my $this=shift;
 
 	if ($this->linecount > 0) {
-		$this->prompt('[Press Enter]', '');
+		$this->display('', '');
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

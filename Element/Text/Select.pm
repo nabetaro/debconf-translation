@@ -6,23 +6,21 @@ Debian::DebConf::Element::Text::Select - select from a list of values
 
 =cut
 
-=head1 DESCRIPTION
-
-This lets the user pick from a number of values, using a plain text interface.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Text::Select;
 use strict;
 use POSIX qw(ceil);
 use Debian::DebConf::Element::Select; # perlbug
 use base qw(Debian::DebConf::Element::Select);
 
-=head2 pickabbrevs
+=head1 DESCRIPTION
+
+This lets the user pick from a number of values, using a plain text interface.
+
+=head1 METHODS
+
+=over 4
+
+=item pickabbrevs
 
 This method picks what abbreviations the user should type to select items from
 a list. When possible, it uses the first letter of a list item as the
@@ -71,7 +69,7 @@ sub pickabbrevs {
 	return %abbrevs;
 }
 
-=head2 expandabbrev
+=item expandabbrev
 
 Pass this method what the user entered, followed by the hash returned by
 pickabbrevs. It will expand the abbreviation they entered and return the
@@ -89,7 +87,7 @@ sub expandabbrev {
 	return '';
 }
 
-=head2 printlist
+=item printlist
 
 Pass first a reference to an array containing abbreviation info, then a list
 of all the choices the user has to choose from. Formats and displays the
@@ -201,5 +199,13 @@ sub show {
 	$this->frontend->display("\n");
 	return $value;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

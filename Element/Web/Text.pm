@@ -6,22 +6,20 @@ Debian::DebConf::Element::Web::Text - A paragraph on a form
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a paragraph of text on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::Text;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 show
+=head1 DESCRIPTION
+
+This element handles a paragraph of text on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Generates and returns html for the paragraph of text.
 
@@ -36,5 +34,13 @@ sub show {
 
 	return "<b>".$this->question->description."</b>$_<p>";
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

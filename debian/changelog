@@ -1,3 +1,31 @@
+debconf (0.3.10) unstable; urgency=low
+
+  * Added dpkg-loadtemplate, a simple program that loads templates into the
+    debconf database. This is *not* intended to be used by debian packages,
+    but can be useful for debugging purposes and for pre-seeding the
+    database before installing a package.
+  * Moved all external manpages for perl programs into POD format.
+  * Updated all pod docs to fix formatting problems.
+  * debconf-tiny is no more. Instead, we now have debconf and debconf-doc.
+    This makes debconf proper be nearly as small as debconf-tiny used to be
+    and gets rid of the set of problems associated with debconf-tiny.
+  * This huge and unmanageable changelog is 20k compressed. To make debconf
+    a reasonable size, I am only including the last 5 changelog entries in
+    debconf; the rest go in -doc.
+  * Several modules are now Exporters, and I use that where possible to
+    reduce code size.
+  * Strip all pod docs out of modules in binary package. Ugly, but saves a
+    great deal of space.
+  * Killed off the gtk frontend. The code has been rotting, and it just
+    needs to be rewritten.
+  * Changed the AutoSelect fallbacks around, most frontends now fall back
+    to Slang.
+  * Text frontend no longer always prompts for a Enter press at the end of
+    a run.
+  * Moved some doc files into doc/ in the source package.
+ 
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Mar 2000 11:57:54 -0800
+
 debconf (0.3.01) unstable; urgency=low
 
   * AUTOLOAD function now creates field accessor functions on the fly.

@@ -6,29 +6,6 @@ DebConf::FrontEnd::Web - web FrontEnd
 
 =cut
 
-=head1 DESCRIPTION
-
-This is a FrontEnd that acts as a small, stupid web server. It is worth noting
-that this doesn't worry about security at all, so it really isn't ready for
-use. It's a proof-of-concept only. In fact, it's probably the crappiest web
-server ever. It only accpets one client at a time!
-
-=cut
-
-=head1 FIELDS
-
-=cut
-
-=head2 port
-
-The port to bind to.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::FrontEnd::Web;
 use IO::Socket;
 use IO::Select;
@@ -37,13 +14,35 @@ use strict;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
-=head2 init
+=head1 DESCRIPTION
+
+This is a FrontEnd that acts as a small, stupid web server. It is worth noting
+that this doesn't worry about security at all, so it really isn't ready for
+use. It's a proof-of-concept only. In fact, it's probably the crappiest web
+server ever. It only accpets one client at a time!
+
+=head1 FIELDS
+
+=over 4
+
+=item port
+
+The port to bind to.
+
+=cut
+
+=back
+
+=head1 METHODS
+
+=over 4
+
+=item init
 
 Bind to the port.
 
 =cut
 
-# Pass in the port to bind to, 8001 is default.
 sub init {
 	my $this=shift;
 
@@ -66,7 +65,7 @@ sub init {
 	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$this->port."/\n";
 }
 
-=head2 client
+=item client
 
 This method ensures that a client is connected to the web server and waiting for
 input. If there is no client, it blocks until one connects. As a side affect, when
@@ -93,7 +92,7 @@ sub client {
 	$this->client($client);
 }
 
-=head2 closeclient
+=item closeclient
 
 Forcibly close the current client's connection to the web server.
 
@@ -106,7 +105,7 @@ sub closeclient {
 	$this->client('');
 }
 
-=head2 showclient
+=item showclient
 
 Displays the passed text to the client. Can be called multiple times to build up
 a page.
@@ -121,9 +120,9 @@ sub showclient {
 	print $client $page;
 }
 
-=head2 go
+=item go
 
-This overrides to go method in the Base FrontEnd. It goes through each
+This overrides to go method in the parent FrontEnd. It goes through each
 pending Element and asks it to return the html that corresponds to that
 Element. It bundles all the html together into a web page and displays the
 web page to the client. Then it waits for the client to fill out the form,
@@ -216,6 +215,8 @@ sub go {
 	
 	return 1;
 }
+
+=back
 
 =head1 AUTHOR
 

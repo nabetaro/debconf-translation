@@ -6,17 +6,17 @@ Debian::DebConf::Element::Dialog::Password - A password input field in a dialog 
 
 =cut
 
+package Debian::DebConf::Element::Dialog::Password;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is an input element that can display a dialog box with a password input
 field on it.
 
 =cut
-
-package Debian::DebConf::Element::Dialog::Password;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

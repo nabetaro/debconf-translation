@@ -6,17 +6,17 @@ Debian::DebConf::Element::Text::Boolean - Yes/No question
 
 =cut
 
+package Debian::DebConf::Element::Text::Boolean;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is a yes or no question, presented to the user using a plain text
 interface.
 
 =cut
-
-package Debian::DebConf::Element::Text::Boolean;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

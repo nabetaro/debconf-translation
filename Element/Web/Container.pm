@@ -6,24 +6,23 @@ Debian::DebConf::Element::Web::Container - A group of releated questions
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a group of related questions on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::Container;
 use strict;
 use Debian::DebConf::Element::Container; # perlbug
 use base qw(Debian::DebConf::Element::Container);
 
-=head2 show
+=head1 DESCRIPTION
 
-Calls all elements inside it and collects the text they return.
+This element handles a group of related questions on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
+
+Asks all elements inside it to show themselves and collects the text they
+return.
 
 =cut
 
@@ -39,7 +38,7 @@ sub show {
 	return $ret;
 }
 
-=head2 process
+=item process
 
 This gets called once the user has entered a value, to process it before        
 it is stored.
@@ -51,5 +50,13 @@ sub process {
 
 	# TODO: need to process values of all elements contained within. Ugh.
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

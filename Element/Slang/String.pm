@@ -5,18 +5,24 @@
 Debian::DebConf::Element::Slang::String - text input widget
 
 =cut
-                
-=head1 DESCRIPTION
-
-This is a text input widget.
-
-=cut
 
 package Debian::DebConf::Element::Slang::String;
 use strict;
 use Term::Stool::Input;
 use Debian::DebConf::Element::Slang; # perlbug
 use base qw(Debian::DebConf::Element::Slang);
+
+=head1 DESCRIPTION
+
+This is a text input widget.
+
+=cut
+
+=head1 METHODS
+
+=over 4
+
+=cut
 
 sub init {
 	my $this=shift;
@@ -29,7 +35,7 @@ sub init {
 	));
 }
 
-=head2 resize
+=item resize
 
 Try to make the widget as wide as its preferred_width attrribute at a
 minimum. If there's room for a widget that wide to fix on the same line as the
@@ -55,7 +61,7 @@ sub resize {
 	}
 }
 
-=head2 value
+=item value
 
 The value is just the text field of the associated widget.
 
@@ -66,5 +72,13 @@ sub value {
 
 	return $this->widget->text;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

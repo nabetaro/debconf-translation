@@ -6,22 +6,20 @@ Debian::DebConf::Element::Web::Multiselect - A multi select box on a form
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a multi select box on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::Multiselect;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 show
+=head1 DESCRIPTION
+
+This element handles a multi select box on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Generates and returns html representing the multi select box.
 
@@ -54,7 +52,7 @@ sub show {
 	return $_;
 }
 
-=head2 process
+=item process
 
 This gets called once the user has entered a value. It expects to be passed
 all the values they selected. It processes these into the form used internally
@@ -74,5 +72,13 @@ sub process {
 
 	return join(', ', @parsedvalues);
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

@@ -6,22 +6,20 @@ Debian::DebConf::Element::Web::Select - A select box on a form
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a select box on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::Select;
 use strict;
 use Debian::DebConf::Element::Select; # perlbug
 use base qw(Debian::DebConf::Element::Select);
 
-=head2 show
+=head1 DESCRIPTION
+
+This element handles a select box on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Generates and returns html representing the select box.
 
@@ -52,7 +50,7 @@ sub show {
 	return $_;
 }
 
-=head2 process
+=item process
 
 This gets called once the user has entered a value. It is passed the
 value they entered. It saves the value in the associated Question.
@@ -66,5 +64,13 @@ sub process {
 	my @choices=$this->question->choices_split;
 	return $choices[$value];
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

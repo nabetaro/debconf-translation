@@ -6,22 +6,20 @@ Debian::DebConf::Element::Web::Boolean - A check box on a form
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a check box on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::Boolean;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 show
+=head1 DESCRIPTION
+
+This element handles a check box on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Generates and returns html representing the check box.
 
@@ -43,7 +41,7 @@ sub show {
 	return $_;
 }
 
-=head2 process
+=item process
 
 This gets called once the user has entered a value, to process it before
 it is stored.
@@ -56,5 +54,13 @@ sub process {
 
 	return $value eq 'on' ? 'true' : 'false';
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

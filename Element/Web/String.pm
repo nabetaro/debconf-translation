@@ -6,22 +6,20 @@ Debian::DebConf::Element::Web::String - A text input field on a form
 
 =cut
 
-=head1 DESCRIPTION
-
-This element handles a text input field on a web form.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Web::String;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 show
+=head1 DESCRIPTION
+
+This element handles a text input field on a web form.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Generates and returns html representing the text box.
 
@@ -41,5 +39,11 @@ sub show {
 
 	return $_;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

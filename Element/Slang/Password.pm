@@ -2,13 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Slang::Password - passowrd input widget
-
-=cut
-                
-=head1 DESCRIPTION
-
-This is a password input widget.
+Debian::DebConf::Element::Slang::Password - password input widget
 
 =cut
 
@@ -18,6 +12,18 @@ use Term::Stool::Password;
 use Debian::DebConf::Element::Slang; # perlbug
 use base qw(Debian::DebConf::Element::Slang);
 
+=head1 DESCRIPTION
+
+This is a password input widget.
+
+=cut
+
+=head1 METHODS
+
+=over 4
+
+=cut
+
 sub init {
 	my $this=shift;
 
@@ -25,7 +31,7 @@ sub init {
 	$this->widget->preferred_width($this->widget->width);
 }
 
-=head2 value
+=item value
 
 If the widget's value field is empty, return the default.
 
@@ -38,5 +44,13 @@ sub value {
 	$text=$this->question->value if $text eq '';
 	return $text;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

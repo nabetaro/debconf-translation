@@ -19,13 +19,11 @@ parameter is passed into the method, the field is set.
 Fields can be made up and used on the fly; I don't care what you call
 them.
 
-=cut
+=head1 METHODS
 
-=head2 METHODS
+=over 4
 
-=cut
-
-=head2 new
+=item new
 
 Returns a new object of this class. Optionally, you can pass in named
 parameters that specify the values of any fields in the class.
@@ -40,7 +38,7 @@ sub new {
 	return $this;
 }
 
-=head2 init
+=item init
 
 This is called by new(). It's a handy place to set fields, etc, without
 having to write your own new() method.
@@ -49,7 +47,7 @@ having to write your own new() method.
 
 sub init {}
 
-=head2 AUTOLOAD
+=item AUTOLOAD
 
 Handles all fields, by creating accessor methods for them the first time
 they are accessed.
@@ -69,6 +67,8 @@ sub AUTOLOAD {
 	};
 	goto &$AUTOLOAD;
 }
+
+=back
 
 =head1 AUTHOR
 

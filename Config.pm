@@ -9,6 +9,9 @@ Debian::DebConf::Config - Debconf meta-configuration module
 package Debian::DebConf::Config;
 use strict;
 use Debian::DebConf::ConfigDb;
+use base qw(Exporter);
+use vars qw(@EXPORT_OK);
+@EXPORT_OK = qw(dbdir tmpdir frontend priority helpvisible showold);
 
 =head1 DESCRIPTION
 
@@ -16,13 +19,11 @@ This package holds configuration values for debconf. It supplies defaults,
 and allows them to be overridden by values pulled right out of the debconf
 database itself.
 
-=cut
-
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 dbdir
+=item dbdir
 
 Where to store the database. 
 
@@ -32,7 +33,7 @@ sub dbdir {
 	"./" # CHANGE THIS AT INSTALL TIME
 }
 
-=head2 tmpdir
+=item tmpdir
 
 Where to put temporary files. /tmp isn't used because I don't bother
 opening these files safely, since that requires the use of Fcntl, which
@@ -44,7 +45,7 @@ sub tmpdir {
 	"./" # CHANGE THIS AT INSTALL TIME
 }
 
-=head2 frontend
+=item frontend
 
 The frontend to use. A value is pulled out of the database if possible,
 otherwise a default is used.
@@ -80,7 +81,7 @@ If DEBIAN_FRONTEND is set in the environment, it overrides all this.
 	}
 }
 
-=head2 priority
+=item priority
 
 The lowest priority of questions you want to see. A value is pulled out of the
 database if possible, otherwise a default is used.
@@ -117,7 +118,7 @@ If DEBIAN_PRIORITY is set in the environment, it overrides all this.
 	}
 }
 
-=head2 helpvisible
+=item helpvisible
 
 Whether extended help should be displayed in some frontends. A value is
 pulled out of the database if possible, otherwise a default is used.
@@ -139,7 +140,7 @@ sub helpvisible {
 	}
 }
 
-=head2 showold
+=item showold
 
 If true, then old questions the user has already seen are shown to them again.
 A value is pulled out of the database if possible, otherwise a default of
@@ -172,6 +173,8 @@ the lifetime of the program) to override what's in the database.
 		return $ret;
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

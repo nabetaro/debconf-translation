@@ -5,20 +5,20 @@
 Debian::DebConf::Element::Slang::Note - a note to show to the user
 
 =cut
-                
+
+package Debian::DebConf::Element::Slang::Note;
+use strict;
+use Term::Stool::Button;
+use Debian::DebConf::Element::Slang; # perlbug
+use base qw(Debian::DebConf::Element::Slang
+	    Debian::DebConf::Element::Noninteractive::Note);
+
 =head1 DESCRIPTION
 
 This is a note to show to the user. Notes have an associated button widget
 that can be pressed to save the note.
 
 =cut
-
-package Debian::DebConf::Element::Slang::Note;
-use strict;
-use Term::Stool::Button;
-use Debian::DebConf::Element::Slang; # perlbug
-use base qw(Debian::DebConf::Element::Slang 
-	    Debian::DebConf::Element::Noninteractive::Note);
 
 sub init {
 	my $this=shift;

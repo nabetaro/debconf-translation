@@ -5,18 +5,24 @@
 Debian::DebConf::Element::Slang::Boolean - check box widget
 
 =cut
-                
-=head1 DESCRIPTION
-
-This is a check box widget.
-
-=cut
 
 package Debian::DebConf::Element::Slang::Boolean;
 use strict;
 use Term::Stool::CheckBox;
 use Debian::DebConf::Element::Slang; # perlbug
 use base qw(Debian::DebConf::Element::Slang);
+
+=head1 DESCRIPTION
+
+This is a check box widget.
+
+=cut
+
+=head1 METHODS
+
+=over 4
+
+=cut
 
 sub init {
 	my $this=shift;
@@ -26,7 +32,7 @@ sub init {
 	));
 }
 
-=head2 resize
+=item resize
 
 The check box always must go on the same line as the description, on its left
 hand side.
@@ -46,7 +52,7 @@ sub resize {
 		$description->xoffset + 1);
 }
 
-=head2 value
+=item value
 
 The value is true if the checkbox is checked, false otherwise.
 
@@ -59,5 +65,13 @@ sub value {
 	$ret='true' if $this->widget->checked;
 	return $ret;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

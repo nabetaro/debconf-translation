@@ -1,9 +1,22 @@
 #!/usr/bin/perl -w
-# This is a helper program for confmodule. It expects to be passed
-# the name of the confmodule script to run, and any parameters for it.
-#
-# This whole thing is really a hack; in an ideal world, dpkg would handle
-# all this.
+
+=head1 NAME
+
+frontend - runs a debconf frontend
+
+=head1 SYNOPSIS
+
+ frontend confmodule [params]
+
+=head1 DESCRIPTION
+
+This is a helper program for confmodules. It expects to be passed
+the name of the confmodule script to run, and any parameters for it.
+
+This whole thing is really a hack; in an ideal world, dpkg would handle
+all this.
+
+=cut
 
 use strict;
 use lib '.';
@@ -125,3 +138,9 @@ $frontend->shutdown;
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 
 exit $confmodule->exitcode;
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut

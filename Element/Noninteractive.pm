@@ -6,22 +6,20 @@ Debian::DebConf::Element::Noninteractive - Dummy Element
 
 =cut
 
+package Debian::DebConf::Element::Noninteractive;
+use strict;
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is noninteractive dummy element. When told to display itself, it does
 nothing.
 
-=cut
-
 =head1 METHODS
 
-=cut
+=over 4
 
-package Debian::DebConf::Element::Noninteractive;
-use strict;
-use base qw(Debian::DebConf::Element);
-
-=head2 visible
+=item visible
 
 This type of element is not visible.
 
@@ -32,5 +30,13 @@ sub visible {
 	
 	return;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

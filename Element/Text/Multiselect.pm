@@ -6,6 +6,11 @@ Debian::DebConf::Element::Text::Multiselect - select multiple items
 
 =cut
 
+package Debian::DebConf::Element::Text::Multiselect;
+use strict;
+use Debian::DebConf::Element::Text::Select; # perlbug
+use base qw(Debian::DebConf::Element::Text::Select);
+
 =head1 DESCRIPTION
 
 This lets the user select multiple items from a list of values, using a plain
@@ -13,11 +18,6 @@ text interface. (This is hard to do in plain text, and the UI I have made isn't
 very intuitive.)
 
 =cut
-
-package Debian::DebConf::Element::Text::Multiselect;
-use strict;
-use Debian::DebConf::Element::Text::Select; # perlbug
-use base qw(Debian::DebConf::Element::Text::Select);
 
 sub show {
 	my $this=shift;

@@ -6,16 +6,16 @@ Debian::DebConf::Element::Text::Note - A note to the user
 
 =cut
 
+package Debian::DebConf::Element::Text::Note;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is a note to the user, presented using a plain text interface.
 
 =cut
-
-package Debian::DebConf::Element::Text::Note;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

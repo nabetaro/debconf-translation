@@ -1,9 +1,64 @@
 #!/usr/bin/perl -w
-#
-# Pre-config tool. This tool can be pointed at a number of .deb files
-# that have not yet been installed. It extracts the confmodules and templates
-# from them and asks any necessary questions, storing the results in the
-# database for later use.
+
+=head1 NAME
+
+dpkg-preconfigure - let packages ask questions prior to their installation
+
+=head1 SYNOPSIS
+
+ dpkg-preconfigure [--frontend=type] [--priority=value] package.deb
+
+=head1 DESCRIPTION
+
+B<dpkg-preconfigure> lets packages ask questions before they are installed.
+It operates on a set of debian packages, and all packages that use debconf
+will have their config script run so they can examine the system and ask
+questions.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-f>I<type>, B<--frontend=>I<type>
+
+Select the frontend to use. The default frontend can be permanently changed
+by:
+
+ dpkg-reconfigure --priority=medium debconf
+
+Currently available frontends are slang, dialog, text, and web.
+
+=item B<-p>I<value>, B<--priority=>I<value>
+
+Set the lowest priority of questions you are interested in. Valid
+priorities are currently low, medium, high, and critical. The default
+priority can be permanently changed by:
+
+ dpkg-reconfigure --priority=medium debconf
+
+Any questions with a priority below the selected priority will be ignored
+and their default answers will be used.
+
+=item B<--apt>
+
+Run in apt mode. It will expect to read a set of package filenames from
+stdin, rather than getting them as parameters. Typically this is used to
+make apt run dpkg-preconfigure on all packages before they are installed.
+To do this, add something like this to /etc/apt/apt.conf:
+
+ // Pre-configure all packages before
+ // they are installed.
+ DPkg::Pre-Install-Pkgs {
+ 	"dpkg-preconfigure --apt --priority=low";
+ };
+
+=item B<-h>, B<--help>
+
+Display usage help.
+
+=back
+
+=cut
 
 # This program may be running from apt. If so, if it fails, apt is going to
 # fail as well, which will make it hard for people to fix whatever the failure
@@ -251,3 +306,10 @@ Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 		return $versions{$package};
 	}
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
+

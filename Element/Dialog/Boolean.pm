@@ -6,17 +6,17 @@ Debian::DebConf::Element::Dialog::Boolean - Yes/No dialog box
 
 =cut
 
+package Debian::DebConf::Element::Dialog::Boolean;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is an input element that can display a dialog box with Yes and No buttons
 on it.
 
 =cut
-
-package Debian::DebConf::Element::Dialog::Boolean;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

@@ -6,16 +6,16 @@ Debian::DebConf::Element::Text::Text - show text to the user
 
 =cut
 
+package Debian::DebConf::Element::Text::Text;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is a peice of text to output to the user.
 
 =cut
-
-package Debian::DebConf::Element::Text::Text;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

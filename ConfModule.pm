@@ -10,8 +10,10 @@ package Debian::DebConf::ConfModule;
 use strict;
 use IPC::Open2;
 use FileHandle;
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Priority;
+use Debian::DebConf::Config qw(showold);
+use Debian::DebConf::ConfigDb qw(getquestion addquestion disownquestion
+				 disownall);
+use Debian::DebConf::Priority qw(priority_valid high_enough);
 use Debian::DebConf::FrontEnd::Noninteractive;
 use Debian::DebConf::Log ':all';
 use vars qw($AUTOLOAD);
@@ -30,58 +32,46 @@ prepended, and is fed in the parameters given after the command (split on
 whitespace), and whatever it returns is passed back to the configuration
 module. Each of them are described below.
 
-=cut
-
 =head1 FIELDS
 
-=cut
+=over 4
 
-=head2 frontend
+=item frontend
 
 The frontend object that is used to interact with the user.
 
-=cut
-
-=head2 version
+=item version
 
 The protocol version spoken.
 
-=cut
-
-=head2 pid
+=item pid
 
 The PID of the confmodule that is running and talking to this object, if
 any.
 
-=cut
-
-=head2 write_handle
+=item write_handle
 
 Writes to this handle are sent to the confmodule.
 
-=cut
-
-=head2 read_handle
+=item read_handle
 
 Reads from this handle read from the confmodule.
 
-=cut
-
-=head2 caught_sigpipe
+=item caught_sigpipe
 
 Set if we have caught a SIGPIPE signal. If it is set, the value of the
 field should be returned, rather than the normal exit code.
 
-=cut
-
-=head2 client_capb
+=item client_capb
 
 An array reference. If set, it will hold the capabilities the confmodule
 reports.
 
-=cut
+=back
 
 =head1 METHODS
+
+=over 4
 
 =cut
 
@@ -96,7 +86,7 @@ my %codes = (
 	internalerror => 100,
 );
 
-=head2 init
+=item init
 
 Called when a ConfModule is created.
 
@@ -111,7 +101,7 @@ sub init {
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
 }
 
-=head2 startup
+=item startup
 
 Pass this name name of a confmodule program, and it is started up. Any
 further options are parameters to pass to the confmodule. You enerally need
@@ -138,7 +128,7 @@ sub startup {
 	$SIG{PIPE}=sub { $this->caught_sigpipe(128) };
 }
 
-=head2 communicate
+=item communicate
 
 Read one command from the confmodule, process it, and respond
 to it. Returns true unless there were no more commands to read.
@@ -146,6 +136,7 @@ This is typically called in a loop. It in turn calls various
 command_* methods.
 
 =cut
+
 sub communicate {
 	my $this=shift;
 
@@ -170,7 +161,7 @@ sub communicate {
 	return 1;
 }
 
-=head2 _finish
+=item _finish
 
 This is an internal helper function for communicate. It just waits for the
 child process to finish so its return code can be examined. The return code
@@ -186,7 +177,7 @@ sub _finish {
 	return '';
 }
 
-=head2 command_input
+=item command_input
 
 Creates an Element to stand for the question that is to be asked and adds it to
 the list of elements in our associated FrontEnd.
@@ -199,10 +190,10 @@ sub command_input {
 	my $priority=shift;
 	my $question_name=shift;
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "\"$question_name\" doesn't exist";
 
-	if (! Debian::DebConf::Priority::valid($priority)) {
+	if (! priority_valid($priority)) {
 		return $codes{syntaxerror}, "\"$priority\" is not a valid priority";
 	}
 
@@ -214,10 +205,10 @@ sub command_input {
 	$visible='' if ! $this->frontend->interactive;
 
 	# Don't show items that are unimportant.
-	$visible='' unless Debian::DebConf::Priority::high_enough($priority);
+	$visible='' unless high_enough($priority);
 
 	# Unless showold is set, don't re-show already seen questions. 
-	$visible='' if Debian::DebConf::Config::showold() eq 'false' &&
+	$visible='' if showold() eq 'false' &&
 		$question->flag_isdefault eq 'false';
 
 	my $element;
@@ -253,7 +244,7 @@ sub command_input {
 	return $element->visible ? $codes{success} : $codes{input_invisible};
 }
 
-=head2 command_clear
+=item command_clear
 
 Clears out the list of elements in our accociated FrontEnd.
 
@@ -267,7 +258,7 @@ sub command_clear {
 	return $codes{success};
 }
 
-=head2 command_version
+=item command_version
 
 Compares protocol versions with the confmodule. The version field of the
 ConfModule is sent to the client.
@@ -287,7 +278,7 @@ sub command_version {
 	return $codes{success}, $this->version;
 }
 
-=head2 command_capb
+=item command_capb
 
 Sets the client_capb field of the ConfModule to the confmodules
 capb string, and also sets the capb_backup field of the ConfModules
@@ -308,7 +299,7 @@ sub command_capb {
 	return $codes{success}, @capb;
 }
 
-=head2 title
+=item command_title
 
 Stores the specified title in the associated FrontEnds title field.
 
@@ -321,7 +312,7 @@ sub command_title {
 	return $codes{success};
 }
 
-=head2 beginblock, endblock
+=item beginblock, endblock
 
 These are just stubs to be overridden by other modules.
 
@@ -334,7 +325,7 @@ sub command_endblock {
 	return $codes{success};
 }
 
-=head2 command_go
+=item command_go
 
 Tells the associated FrontEnd to display items to the user, by calling
 its go method. Returns whatever the FrontEnd returns.
@@ -348,7 +339,7 @@ sub command_go {
 	return $codes{success};
 }
 
-=head2 command_get
+=item command_get
 
 This must be passed a question name. It queries the question for the value
 set in it and returns that to the confmodule
@@ -359,7 +350,7 @@ sub command_get {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 
 	if (defined $question->value) {
@@ -370,7 +361,7 @@ sub command_get {
 	}
 }
 
-=head2 command_set
+=item command_set
 
 This must be passed a question name and a value. It sets the question's value.
 
@@ -382,13 +373,13 @@ sub command_set {
 	my $question_name=shift;
 	my $value=join(" ", @_);
 
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->value($value);
 	return $codes{success};
 }
 
-=head2 command_reset
+=item command_reset
 
 Reset a question to its default value.
 
@@ -399,14 +390,14 @@ sub command_reset {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->value($question->default);
 	$question->flag_isdefault('true');
 	return $codes{success};
 }
 
-=head2 command_subst
+=item command_subst
 
 This must be passed a question name, a key, and a value. It sets up variable
 substitutions on the questions description so all instances of the key
@@ -421,13 +412,13 @@ sub command_subst {
 	my $variable = shift;
 	my $value = (join ' ', @_);
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->variables($variable,$value);
 	return $codes{success};
 }
 
-=head2 command_register
+=item command_register
 
 This should be passed a template name and a question name. It creates a
 question that uses the template.
@@ -440,11 +431,11 @@ sub command_register {
 	my $template=shift;
 	my $name=shift;
 	
-	Debian::DebConf::ConfigDb::addquestion($template, $name, $this->owner);
+	addquestion($template, $name, $this->owner);
 	return $codes{success};
 }
 
-=head2 command_unregister
+=item command_unregister
 
 Pass this a question name, and it will give up ownership of the question,
 which typically causes it to be removed.
@@ -456,11 +447,11 @@ sub command_unregister {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $name=shift;
 	
-	Debian::DebConf::ConfigDb::disownquestion($name, $this->owner);
+	disownquestion($name, $this->owner);
 	return $codes{success};
 }
 
-=head2 command_purge
+=item command_purge
 
 This will give up ownership of all questions.
 
@@ -470,11 +461,11 @@ sub command_purge {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
 	
-	Debian::DebConf::ConfigDb::disownall($this->owner);
+	disownall($this->owner);
 	return $codes{success};
 }
 
-=head2 command_metaget
+=item command_metaget
 
 Pass this a question name and a field name. It returns the value of the
 specified field of the question.
@@ -487,12 +478,12 @@ sub command_metaget {
 	my $question_name=shift;
 	my $field=shift;
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	return $codes{success}, $question->$field();
 }
 
-=head2 command_fget
+=item command_fget
 
 Pass this a question name and a flag name. It returns the value of the
 specified flag on the question. Note that internally, any fields of
@@ -506,12 +497,12 @@ sub command_fget {
 	my $question_name=shift;
 	my $flag="flag_".shift;
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion},  "$question_name doesn't exist";
 	return $codes{success}, $question->$flag();
 }
 
-=head2 command_fset
+=item command_fset
 
 Pass this a question name, a flag name, and a value. It sets the value of
 the specified flag in the specified question.
@@ -525,12 +516,12 @@ sub command_fset {
 	my $flag="flag_".shift;
 	my $value=(join ' ', @_);
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	return $codes{success}, $question->$flag($value);
 }
 
-=head2 command_visible
+=item command_visible
 
 Deprecated.
 
@@ -542,12 +533,12 @@ sub command_visible {
 	my $priority=shift;
 	my $question_name=shift;
 	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+	my $question=getquestion($question_name) ||
 		return $codes{badquestion}, "$question_name doesn't exist";
 	return $codes{success}, $this->frontend->visible($question, $priority) ? "true" : "false";
 }
 
-=head2 command_exist
+=item command_exist
 
 Deprecated.
 
@@ -559,8 +550,17 @@ sub command_exist {
 	my $question_name=shift;
 	
 	return $codes{success}, 
-		Debian::DebConf::ConfigDb::getquestion($question_name) ? "true" : "false";
+		getquestion($question_name) ? "true" : "false";
 }
+
+=item AUTOLOAD
+
+Catches all other commands the confmodule may try to run, and returns
+errors.
+
+Also handles storing and loading fields of course.
+
+=cut
 
 sub AUTOLOAD {
 	my $field;
@@ -582,7 +582,7 @@ sub AUTOLOAD {
 	}
 }
 
-=head2 DESTROY
+=item DESTROY
 
 When the object is destroyed, the filehandles are closed and the confmodule
 script stopped.
@@ -598,6 +598,8 @@ sub DESTROY {
 		kill 'TERM', $this->pid;
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

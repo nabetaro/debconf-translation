@@ -6,17 +6,6 @@ Debian::DebConf::Element::Container - Container input element
 
 =cut
 
-=head1 DESCRIPTION
-
-This is a Container input element. A Container is an element that can
-hold other elements that are displayed when it is.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Container;
 use Debian::DebConf::ConfigDb;
 use strict;
@@ -24,7 +13,16 @@ use UNIVERSAL qw(isa);
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 question
+=head1 DESCRIPTION
+
+This is a Container input element. A Container is an element that can
+hold other elements that are displayed when it is.
+
+=head1 METHODS
+
+=over 4
+
+=item question
 
 This function sets/gets a Container's question field, as usual.
 It also handles creating and setting up all the Elements inside the
@@ -67,7 +65,7 @@ sub question {
 	return $this->{'question'};
 }
 
-=head2 visible
+=item visible
 
 Containers are visible if any of the items contained in them are visible.
 Or are they? This is still being decided -- TODO.
@@ -83,7 +81,7 @@ Or are they? This is still being decided -- TODO.
 #	return $this->SUPER::visible;
 #}
 
-=head2 show
+=item show
 
 When a container is displayed, it displays all elements inside it.
 
@@ -97,6 +95,8 @@ sub show {
 		$elt->show;
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

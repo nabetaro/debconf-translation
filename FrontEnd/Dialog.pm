@@ -6,31 +6,27 @@ DebConf::FrontEnd::Dialog - dialog FrontEnd
 
 =cut
 
+package Debian::DebConf::FrontEnd::Dialog;
+use strict;
+use Debian::DebConf::Priority;
+use Debian::DebConf::Log qw(:all);
+use Debian::DebConf::Config qw(tmpdir);
+use Text::Wrap qw(wrap $columns);
+use IPC::Open3;
+use Debian::DebConf::FrontEnd::Tty; # perlbug
+use base qw(Debian::DebConf::FrontEnd::Tty);
+
 =head1 DESCRIPTION
 
 This FrontEnd is for a user interface based on dialog, whiptail, or gdialog.
 It will use whichever is available, but prefers to use whiptail if available.
 It handles all the messy communication with thse programs.
 
-It currently uses only whiptail of gdialog, because dialog lacks --defaultno.
-
-=cut
-
 =head1 METHODS
 
-=cut
-   
-package Debian::DebConf::FrontEnd::Dialog;
-use strict;
-use Debian::DebConf::Priority;
-use Debian::DebConf::Log ':all';
-use Debian::DebConf::Config;
-use Text::Wrap qw(wrap $columns);
-use IPC::Open3;
-use Debian::DebConf::FrontEnd::Tty; # perlbug
-use base qw(Debian::DebConf::FrontEnd::Tty);
+=over 4
 
-=head2 init
+=item init
 
 Checks to see if whiptail, or dialog, or gdialog are available, in that
 order. To make it use dialog, set FORCE_DIALOG in the environment. To make
@@ -79,7 +75,7 @@ sub init {
 	}
 }
 
-=head2 sizetext
+=item sizetext
 
 Dialog and whiptail have an annoying field of requiring you specify
 their dimentions explicitly. This function handles doing that. Just pass in
@@ -109,7 +105,7 @@ sub sizetext {
 	       $window_columns + $this->borderwidth;
 }
 
-=head2 showtext
+=item showtext
 
 Pass this some text and it will display the text to the user in
 a dialog. If the text is too long to fit in one dialog, it will use a
@@ -135,7 +131,7 @@ sub showtext {
 		}
 		else {
 			# Dialog has to use a temp file.
-			my $name=Debian::DebConf::Config::tmpdir."/dialog-tmp.$$";
+			my $name=tmpdir()."/dialog-tmp.$$";
 			open(FH, ">$name") or die "$name: $!";
 			print FH join("\n", @lines);
 			close FH;
@@ -151,7 +147,7 @@ sub showtext {
 	}
 }
 
-=head2 makeprompt
+=item makeprompt
 
 This is a helper function used by some dialog Elements. Pass it the Question
 that is going to be displayed. It will use this to generate a prompt, using
@@ -187,7 +183,7 @@ sub makeprompt {
 	return ($text, $lines, $columns);
 }
 
-=head2 showdialog
+=item showdialog
 
 Displays a dialog. All parameters are passed to whiptail/dialog.
 
@@ -252,6 +248,8 @@ sub showdialog {
 		return $stderr;
 	}
 }
+
+=back
 
 =head1 AUTHOR
 

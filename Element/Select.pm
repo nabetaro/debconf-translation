@@ -6,22 +6,20 @@ Debian::DebConf::Element::Select - Base select input element
 
 =cut
 
-=head1 DESCRIPTION
-
-This is a base Select input element.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
 package Debian::DebConf::Element::Select;
 use strict;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
-=head2 show
+=head1 DESCRIPTION
+
+This is a base Select input element.
+
+=head1 METHODS
+
+=over 4
+
+=item show
 
 Select elements are not really visible if there are less than two choices
 for them.
@@ -34,6 +32,8 @@ sub visible {
 	my @choices=$this->question->choices_split;
 	return ($#choices > 0);
 }
+
+=back
 
 =head1 AUTHOR
 

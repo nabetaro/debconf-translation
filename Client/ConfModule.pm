@@ -4,22 +4,18 @@
 
 Debian::DebConf::Client::ConfModule - client module for ConfModules
 
-=cut
-
 =head1 SYNOPSIS
 
- 	use Debian::DebConf::Client::ConfModule ':all';
- 	version('2.0');
- 	my $capb=capb('backup');
- 	input("foo/bar");
- 	my @ret=go();
- 	if ($ret[0] == 30) {
- 		# Back button pressed.
- 		...
- 	}
+ use Debian::DebConf::Client::ConfModule ':all';
+ version('2.0');
+ my $capb=capb('backup');
+ input("foo/bar");
+ my @ret=go();
+ if ($ret[0] == 30) {
+ 	# Back button pressed.
  	...
-
-=cut
+ }
+ ...
 
 =head1 DESCRIPTION
 
@@ -34,6 +30,8 @@ textual return code will be returned.
 
 This module uses Exporter to export all functions it defines. To import
 everything, simply import ":all".
+
+=over 4
 
 =cut
 
@@ -60,7 +58,7 @@ map { $commands{uc $_}=1; } @EXPORT_OK;
 # Unbuffered output is required.
 $|=1;
 
-=head2 import
+=item import
 
 Ensure that a FrontEnd is running.  It's a little hackish. If
 DEBIAN_HAS_FRONTEND is set, a FrontEnd is assumed to be running.
@@ -78,7 +76,7 @@ sub import {
 	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
 }
 
-=head2 stop
+=item stop
 
 The frontend doesn't send a return code here, so we cannot try to read it
 or we'll block.
@@ -90,7 +88,7 @@ sub stop {
 	return;
 }
 
-=head2 AUTOLOAD
+=item AUTOLOAD
 
 Creates handler functions for commands on the fly.
 
@@ -122,6 +120,8 @@ sub AUTOLOAD {
 	}
 	goto &$AUTOLOAD;
 }
+
+=back
 
 =head1 AUTHOR
 

@@ -6,15 +6,9 @@ DebConf::FrontEnd::Slang - Nice GUI Slang frontend
 
 =cut
 
-=head1 DESCRIPTION
-
-This FrontEnd is a Slang UI for DebConf.
-
-=cut
-
 package Debian::DebConf::FrontEnd::Slang;
 use strict;
-use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
+#use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use Debian::DebConf::Config;
 use Term::Stool::Screen;
 use Term::Stool::Window;
@@ -28,11 +22,15 @@ use Term::Stool::WrappedText;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
+=head1 DESCRIPTION
+
+This FrontEnd is a Slang UI for DebConf.
+
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 init
+=item init
 
 Set up most of the GUI.
 
@@ -149,7 +147,7 @@ sub init {
 		$this->helpwindow, $this->helpbar);
 }
 
-=head2 go
+=item go
 
 Creates and lays out all the necessary widgets, then runs them to get
 input.
@@ -270,7 +268,7 @@ sub go {
 	return $ret;
 }
 
-=head2 fillpanel
+=item fillpanel
 
 Called when the panel is resized. This sets up the y offset's of all widgets
 on the panel. Sometimes a widget group fits on the same line, sometimes not.
@@ -293,7 +291,7 @@ sub fillpanel {
 	}
 }
 
-=head2 shutdown
+=item shutdown
 
 Reset the screen on shutdown.
 
@@ -304,6 +302,8 @@ sub shutdown {
 
 	$this->screen->reset if $this->screen;
 }
+
+=back
 
 =head1 AUTHOR
 

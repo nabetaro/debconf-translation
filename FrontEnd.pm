@@ -19,55 +19,43 @@ This is the base of the FrontEnd class. Each FrontEnd presents a
 user interface of some kind to the user, and handles generating and
 communicating with Elements to form that FrontEnd.
 
-=cut
-
 =head1 FIELDS
 
-=cut
+=over 4
 
-=head2 elements
+=item elements
 
 A reference to an array that contains all the elements that the FrontEnd
 needs to show to the user.
 
-=cut
-
-=head2 interactive
+=item interactive
 
 Is this an interactive FrontEnd?
 
-=cut
-
-=head2 capb
+=item capb
 
 Holds any special capabilities the FrontEnd supports.
 
-=cut
-
-=head2 title
+=item title
 
 The title of the FrontEnd.
 
-=cut
-
-=head2 backup
+=item backup
 
 A flag that Elements can set when they are displayed, to tell the FrontEnd
 that the user has indicated they want to back up.
 
-=cut
-
-=head2 capb_backup
+=item capb_backup
 
 This will be set if the confmodule states it has the backup capability.
 
-=cut
+=back
 
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 init
+=item init
 
 Sets several of the fields to defaults.
 
@@ -82,12 +70,11 @@ sub init {
 	$this->title('');
 }
 
-=head2 makeelement
+=item makeelement
 
-This helper function creates an Element of the type used by this FrontEnd.
-Pass in the question that will be bound to the Element. It returns the
-generated Element, or false if it was unable to make an Element of the given 
-type. 
+Creates an Element of the type used by this FrontEnd. Pass in the question
+that will be bound to the Element. It returns the generated Element, or false
+if it was unable to make an Element of the given  ype. 
 
 This may be called as either a class or an object method. 
 
@@ -125,7 +112,7 @@ sub makeelement {
 	return $element;
 }
 
-=head2 add
+=item add
 
 Adds an Element to the list to be displayed to the user. Just pass the
 Element to add. Note that it detects multiple Elements that point to the
@@ -145,7 +132,7 @@ sub add {
 	push @{$this->elements}, $element;
 }
 
-=head2 go
+=item go
 
 Display accumulated Elements to the user. The Elements are in the elements
 field, and that field is cleared after the Elements are presented.
@@ -181,9 +168,9 @@ sub go {
 	return 1;
 }
 
-=head2 clear
+=item clear
 
-Clear out the accumulated elements.
+Clear out the accumulated Elements.
 
 =cut
 
@@ -193,7 +180,7 @@ sub clear {
 	$this->elements([]);
 }
 
-=head2 default_title
+=item default_title
 
 This sets the title field to a default. Pass in the name of the
 package that is being configured.
@@ -206,13 +193,15 @@ sub default_title {
 	$this->title("Configuring ".ucfirst(shift));
 }
 
-=head2 shutdown
+=item shutdown
 
 This method should be called before a frontend is shut down.
 
 =cut
 
 sub shutdown {}
+
+=back
 
 =head1 AUTHOR
 

@@ -6,17 +6,17 @@ Debian::DebConf::Element::Dialog::Multiselect - a check list in a dialog box
 
 =cut
 
+package Debian::DebConf::Element::Dialog::Multiselect;
+use strict;
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
+
 =head1 DESCRIPTION
 
 This is an input element that can display a dialog box with a check list in
 it.
 
 =cut
-
-package Debian::DebConf::Element::Dialog::Multiselect;
-use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

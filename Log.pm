@@ -20,13 +20,11 @@ This is a log module for debconf. It can output messages at varying priorities.
 
 This module uses Exporter.
 
-=cut
-
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 debug
+=item debug
 
 Outputs an infomational message, if DEBCONF_DEBUG is set in the environment
 to a value >= the first parameter.
@@ -40,7 +38,7 @@ sub debug {
 	}
 }
 
-=head2 warn
+=item warn
 
 Outputs a warning message. This overrides the builtin perl warn() command.
 
@@ -49,6 +47,8 @@ Outputs a warning message. This overrides the builtin perl warn() command.
 sub warn {
 	print STDERR "debconf: ".join(" ", @_)."\n";
 }
+
+=back
 
 =head1 AUTHOR
 

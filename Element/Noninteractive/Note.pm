@@ -6,6 +6,12 @@ Debian::DebConf::Element::Noninteractive::Note - noninteractive note Element
 
 =cut
 
+package Debian::DebConf::Element::Noninteractive::Note;
+use strict;
+use Text::Wrap;
+use Debian::DebConf::Element::Noninteractive; # perlbug
+use base qw(Debian::DebConf::Element::Noninteractive);
+
 =head1 DESCRIPTION
 
 This is a noninteractive note Element. Notes are generally some important peice
@@ -17,15 +23,9 @@ root's mailbox.
 
 =head1 METHODS
 
-=cut
+=over 4
 
-package Debian::DebConf::Element::Noninteractive::Note;
-use strict;
-use Text::Wrap;
-use Debian::DebConf::Element::Noninteractive; # perlbug
-use base qw(Debian::DebConf::Element::Noninteractive);
-
-=head2 show
+=item show
 
 Calls sendmail to mail the note to root.
 
@@ -41,7 +41,7 @@ of the note:");
 	return '';
 }
 
-=head2 sendmail
+=item sendmail
 
 The show method mails the note to root if the note has not been displayed
 before. The external unix mail program is used to do this, if it is present.
@@ -85,5 +85,13 @@ sub sendmail {
 		return 1;
 	}
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

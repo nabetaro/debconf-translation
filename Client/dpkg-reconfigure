@@ -1,10 +1,65 @@
 #!/usr/bin/perl -w
-#
-# Reconfigure a package.
-# This has the same effect as re-installing the package, basically. I hope
-# one day this will be called by dpkg --reconfigure 
-#
-# Pass package name(s) to reconfigure on command line.
+
+=head1 NAME
+
+dpkg-reconfigure - reconfigure an already installed package
+
+=head1 SYNOPSIS
+
+ dpkg-reconfigure [--frontend=type] [--priority=value] packages
+
+=cut
+
+sub usage {
+	print STDERR "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages\n";
+	exit 1;
+}
+
+=head1 DESCRIPTION
+
+B<dpkg-reconfigure> reconfigures packages after they have already been
+installed. Pass it the names of a package or packages to reconfigure.
+
+This has the same effect as re-installing the package, basically. I hope
+one day this will be called by dpkg --reconfigure 
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-f>I<type>, B<--frontend=>I<type>
+
+Select the frontend to use. The default frontend can be permanently changed
+by:
+
+ dpkg-reconfigure debconf
+
+Currently availble frontends are slang, dialog, text, and web.
+
+=item B<-d>, B<--default-priority>
+
+Use your real default priority when reconfiguring, instead of low priority.
+dpkg-reconfigure normally shows low priority questions no matter what your
+default priority is.
+
+=item B<--all>
+
+Reconfigure all installed packages that use debconf. Warning: this may take
+a long time.
+
+=item B<-u>, B<--unseen-only>
+
+By default, all questions are shown, even if they have already been
+answered. If this parameter is set though, only questions that have not yet
+been seen will be asked.
+
+=item B<-h>, B<--help>
+
+Display usage help.
+
+=back
+
+=cut
 
 use strict;
 use Debian::DebConf::ConfigDb;
@@ -176,7 +231,8 @@ sub allpackages {
 	return sort @ret;
 }
 
-sub usage {
-	print STDERR "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages\n";
-	exit 1;
-}
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::AutoSelect -- automatic FrontEnd selection library.
+Debian::DebConf::AutoSelect - automatic FrontEnd selection library.
 
 =cut
 
@@ -10,7 +10,7 @@ package Debian::DebConf::AutoSelect;
 use strict;
 use Debian::DebConf::ConfModule;
 use Debian::DebConf::Config;
-use Debian::DebConf::Log ':all';
+use Debian::DebConf::Log qw(:all);
 
 =head1 DESCRIPTION
 
@@ -22,10 +22,10 @@ progressivly falls back to other types.
 
 my %fallback=(
 	# preferred frontend		# fall back to
-	'Web'			=>	'Gtk',
+	'Web'			=>	'Slang',
 	'Dialog'		=>	'Slang',
-	'Gtk'			=>	'Dialog',
-	'Text'			=>	'Dialog',
+	'Gtk'			=>	'Slang',
+	'Text'			=>	'Slang',
 	'Slang'			=>	'Dialog',
 );
 
@@ -34,9 +34,9 @@ my $type;
 
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 frontend
+=item frontend
 
 Creates and returns a FrontEnd object.
 
@@ -79,7 +79,7 @@ sub frontend {
 	return $frontend;
 }
 
-=head2 confmodule
+=item confmodule
 
 Pass the script (if any) the ConfModule will start up, (and optional
 arguments to pass to it) and this creates and returns a ConfModule.
@@ -93,6 +93,8 @@ sub confmodule {
 	
 	return $confmodule;
 }
+
+=back
 
 =head1 AUTHOR
 

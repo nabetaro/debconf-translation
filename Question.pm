@@ -22,17 +22,14 @@ and prefix the names of fields that are flags with "flag_". If a field that
 is not defined is read, and a field by the same name exists on the Template
 the Question is mapped to, the value of that field will be returned instead.
 
-=cut
-
-=head2 
-
 =head1 METHODS
 
-=cut
+=over 4
 
-=head2 init
+=item init
 
-Sets a few defaults.
+Sets a few defaults. New questions default to having their isdefault flag
+set to "true".
 
 =cut
 
@@ -62,7 +59,7 @@ sub _expand_vars {
 	return $result;
 }
 
-=head2 description
+=item description
 
 Returns the description of this Question. This value is taken from the Template
 the Question is mapped to, and then any substitutions in the description are
@@ -75,7 +72,7 @@ sub description {
 	return $this->_expand_vars($this->template->description);
 }
 
-=head2 extended_description
+=item extended_description
 
 Returns the extended description of this Question. This value is taken from the
 Template the Question is mapped to, and then any substitutions in the extended
@@ -88,7 +85,7 @@ sub extended_description {
 	return $this->_expand_vars($this->template->extended_description);
 }
 
-=head2 choices
+=item choices
 
 Returns the choices field of this Question. This value is taken from the
 Template the Question is mapped to, and then any substitutions in it
@@ -102,7 +99,7 @@ sub choices {
 	return $this->_expand_vars($this->template->choices);
 }
 
-=head2 choices_split
+=item choices_split
 
 This takes the result of the choices method and simply splits it up into
 individual choices and returns them as a list.
@@ -115,7 +112,7 @@ sub choices_split {
 	return split(/,\s+/, $this->choices);
 }
 
-=head2 variables
+=item variables
 
 Access the variables hash, which is a hash of values that are used in the above
 substitutions. Pass in no parameters to get the full hash. 
@@ -139,7 +136,7 @@ sub variables {
 	}
 }	
 
-=head2 value
+=item value
 
 Get the current value of this Question. Will return the default value is there
 is no value set. Pass in a value to set the value.
@@ -157,7 +154,7 @@ sub value {
 	}
 }
 
-=head2 value_split
+=item value_split
 
 This takes the result of the value method and simply splits it up into
 individual values and returns them as a list.
@@ -172,7 +169,7 @@ sub value_split {
 	return split(/,\s+/, $value);
 }
 
-=head2 owners
+=item owners
 
 This method allows you to get/set the owners of a Question. The owners are
 returned in a comma and space delimited list, a similar list should be
@@ -198,7 +195,7 @@ sub owners {
 	}
 }
 
-=head2 addowner
+=item addowner
 
 Add an owner to the list of owners of this Question. Pass the owner name.
 Adding an owner that is already listed has no effect.
@@ -219,7 +216,7 @@ sub addowner {
 	$this->{'owners'}=\%owners;
 }
 
-=head2 removeowner
+=item removeowner
 
 Remove an owner from the list of owners of this Question. Pass the owner name
 to remove.
@@ -240,7 +237,7 @@ sub removeowner {
 	$this->{'owners'}=\%owners;
 }
 
-=head2 AUTLOAD
+=item AUTLOAD
 
 Handles all fields, by creating accessor methods for them the first time
 they are accessed. Fields are first looked for in this object, and failing
@@ -263,6 +260,8 @@ sub AUTOLOAD {
 	};
 	goto &$AUTOLOAD;
 }
+
+=back
 
 =head1 AUTHOR
 

@@ -1,5 +1,5 @@
 #!/bin/sh -e
-# Only remove database if niether debconf nor debconf-tiny are installed.
+# Only remove database if neither debconf nor debconf-tiny are installed.
 if [ "$1" = "purge" -a \
      ! -e /usr/share/doc/debconf/copyright -a \
      ! -e /usr/share/doc/debconf-tiny/copyright ]; then

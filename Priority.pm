@@ -8,20 +8,14 @@ Debian::DebConf::Priority - priority level module
 
 package Debian::DebConf::Priority;
 use strict;
-use Debian::DebConf::Config;
+use Debian::DebConf::Config qw(priority);
+use base qw(Exporter);
+use vars qw(@EXPORT_OK);
+@EXPORT_OK = qw(high_enough priority_valid);
 
 =head1 DESCRIPTION
 
-This is a simple perl module, not an object. It is used to deal with
-the priorities of Questions.
-
-=cut
-
-=head1 METHODS
-
-=cut
-
-=head1
+This module deals with the priorities of Questions.
 
 Currently known priorities are low, medium, high, and critical.
 
@@ -36,12 +30,12 @@ my %priorities=(
 
 =head1 METHODS
 
-=cut
+=over 4
 
-=head1 high_enough
+=item high_enough
 
 Returns true iff the passed value is greater than or equal to the current
-priority level. Note that if an inknown pririty is passed in, it is assumed
+priority level. Note that if an unknown priority is passed in, it is assumed
 to be higher.
 
 =cut
@@ -50,20 +44,22 @@ sub high_enough {
 	my $priority=shift;
 
 	return 1 if ! exists $priorities{$priority};
-	return $priorities{$priority} >= $priorities{Debian::DebConf::Config::priority()};
+	return $priorities{$priority} >= $priorities{priority()};
 }
 
-=head1 valid
+=item priority_valid
 
 Returns true if the passed text is a valid priority.
 
 =cut
 
-sub valid {
+sub priority_valid {
 	my $priority=shift;
 
 	return exists $priorities{$priority};
 }
+
+=back
 
 =head1 AUTHOR
 

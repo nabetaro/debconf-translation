@@ -5,18 +5,24 @@
 Debian::DebConf::Element::Slang::Select - drop down select box widget
 
 =cut
-                
-=head1 DESCRIPTION
-
-This is a drop down select box widget.
-
-=cut
 
 package Debian::DebConf::Element::Slang::Select;
 use strict;
 use Term::Stool::DropDown;
 use Debian::DebConf::Element::Slang; # perlbug
 use base qw(Debian::DebConf::Element::Select Debian::DebConf::Element::Slang);
+
+=head1 DESCRIPTION
+
+This is a drop down select box widget.
+
+=cut
+
+=head1 METHODS
+
+=over 4
+
+=cut
 
 sub init {
 	my $this=shift;
@@ -45,7 +51,7 @@ sub init {
 	$this->widget->preferred_width($this->widget->list->width + 5);
 }
 
-=head2 value
+=item value
 
 The value is just the value field of the widget.
 
@@ -56,5 +62,13 @@ sub value {
 
 	return $this->widget->list->value;
 }
+
+=back
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1
