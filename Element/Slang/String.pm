@@ -20,7 +20,6 @@ use base qw(Debian::DebConf::Element);
 
 sub makewidget {
 	my $this=shift;
-	my $yoffset=shift;
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
@@ -34,9 +33,9 @@ sub makewidget {
 
 This is called when the widget is resized.
 
-Try to make the text box 20 characters wide at a minimum. If there's room
-for a text box that wide to fix on the same line as the description, do so.
-Otherwise, put the text box on the next line.
+Try to make the widget as wide as its preferred_width attrribute at a
+minimum. If there's room for a widget that wide to fix on the same line as the
+description, do so. Otherwise, put the widget on the next line.
 
 =cut
 

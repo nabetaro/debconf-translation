@@ -20,7 +20,6 @@ use base qw(Debian::DebConf::Element);
 
 sub makewidget {
 	my $this=shift;
-	my $yoffset=shift;
 
 	$this->widget(Term::Stool::CheckBox->new(
 		checked => ($this->question->value eq 'true') ? 1 : 0,

@@ -19,7 +19,6 @@ use base qw(Debian::DebConf::Element::Slang::String);
 
 sub makewidget {
 	my $this=shift;
-	my $yoffset=shift;
 
 	$this->widget(Term::Stool::Password->new);
 	$this->widget->preferred_width($this->widget->width);
