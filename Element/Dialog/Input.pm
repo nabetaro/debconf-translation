@@ -44,11 +44,18 @@ sub show {
 			$menu_height = $screen_lines - $lines;
 		}
 		$lines=$lines + $menu_height + $this->frontend->spacer;
-		@params=('--menu', $text, $lines, $columns, $menu_height);
 		my $c=0;
 		foreach (@choices) {
-			push @params, $c++, $_;
+			if ($_ ne $default) {
+				push @params, $c++, $_
+			}
+			else {
+				# Make the default go first so it is actually
+				# selected as the default.
+				@params=($c++, $_, @params);
+			}
 		}
+		@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 	}
 	elsif ($type eq 'text') {
 		@params=('--inputbox', $text, 
