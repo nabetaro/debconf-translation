@@ -11,10 +11,7 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$this->frontend->display($this->text.
-		"\n(This information has been saved to your mailbox.)\n");
-
-	$this->SUPER::show(@_);
+	$this->frontend->display($this->text.$this->SUPER::show(@_));
 }
 
 1

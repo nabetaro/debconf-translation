@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-package Element::DIalog::Note;
+package Element::Dialog::Note;
 use strict;
 use Element::Note;
 use ConfigDb;
@@ -11,11 +11,8 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$this->frontend->show_dialog('Note', "--msgbox", $this->text.
-		"\n(This information has been saved to your mailbox.)\n", 
-		16, 75);
-
-	$this->SUPER::show(@_);
+	$this->frontend->show_dialog('Note', "--msgbox",
+		$this->frontend->sizetext($this->text.$this->SUPER::show(@_)));
 }
 
 1

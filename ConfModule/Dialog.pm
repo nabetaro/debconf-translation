@@ -42,7 +42,7 @@ sub command_note {
 
 	my $note=Element::Dialog::Note->new($priority, $text);
 	$note->frontend($this->frontend);
-	$note->ask;
+	$note->show;
 	return;
 }
 

@@ -13,6 +13,8 @@ sub show {
 	my $this=shift;
 	
 	# TODO
+	
+	return "\n\n(This information has been saved to your mailbox.)\n";
 }
 
 1

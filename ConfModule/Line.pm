@@ -42,7 +42,7 @@ sub command_note {
 
 	my $note=Element::Line::Note->new($priority, $text);
 	$note->frontend($this->frontend);
-	$note->ask;
+	$note->show;
 	return;
 }
 
