@@ -1,0 +1,126 @@
+Template: debconf/frontend
+Type: select
+Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices-ko: Slang, 텍스트, 편집기, 대화상자, Noninteractive
+Default: Slang
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use.
+ .
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions.
+Description-ko: 패키지를 설정하기 위해 어떤 인터페이스를 사용할까요?
+ 설정하기 위해서 debconf를 사용하는 패키지는 공통의 겉모습과 느낌을
+ 공유합니다. 그것이 사용할 사용자 인터페이스의 유형을 선택할 수 있습니다.
+ .
+ Slang frontend는 화려하고 전체화면인 문자 기반의 창 인터페이스인 반면,
+ 텍스트 frontend는 좀 더 전통적인 단순한 텍스트 인터페이스를 사용합니다.
+ 편집기 frontend는 선호하는 텍스트 편집기를 사용해서 설정할 수 있게
+ 해줍니다. Noninteractive frontend는 어떠한 질문도 묻지 않습니다.
+
+Template: debconf/priority
+Type: select
+Choices: critical, high, medium, low
+Choices-ko: 중요, 높음, 보통, 낮음
+Default: medium
+Description: Ignore questions with a priority less than..
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are actually
+ shown to you; all less important questions are skipped.
+ .
+ You can select the lowest priority of question you want to see: 
+   - `critical' is for items that will probably break the system
+     without user intervention.
+   - `high' is for items that don't have reasonable defaults.
+   - `medium' is for normal items that have reasonable defaults.
+   - `low' is for trivial items that have defaults that will work in the
+     vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority were 
+ already `high' or `critical', you wouldn't see this question.
+ .
+ If you are new to the Debian GNU/Linux system choose `critical' now,
+ so you only see the most important questions.
+Description-ko: 선택한 것 보다 낮은 우선순위의 질문은 무시합니다.
+ 설정하기 위해서 debconf를 사용하는 패키지는 질문에 우선순위를 부여합니다.
+ 오직 특정한 우선순위 또는 그보다 높은 질문만이 보일 것입니다; 덜 중요한
+ 모든 질문은 건너 뜁니다.
+ .
+ 보고 싶은 질문의 최소 우선순위를 선택할 수 있습니다:
+   - `중요'는 사용자의 조정 없이는 시스템이 망가질 수도 있는 항목에
+     대한 것입니다.
+   - `높음'은 적당한 기본값이 없는 항목에 대한 것입니다.
+   - `보통'은 적당한 기본값이 있는 보통의 항목에 대한 것입니다.
+   - `낮음'은 대부분의 경우에 잘 작동하는 기본값을 가지고 있는 평범한
+     항목에 대한 것입니다.
+ .
+ 예를 들어, 이 질문은 보통의 우선순위이기 때문에, 만약 이전에 선택한
+ 우선순위가 `높음'이나 `중요'였다면, 이 질문은 보지 못했을 것입니다.
+ .
+ 만약 데비안 GNU/Linux 시스템에 처음이라면 `중요'를 선택하세요, 그러면
+ 가장 중요한 질문만 볼 것입니다.
+
+Template: debconf/preconfig
+Type: boolean
+Default: true
+Description: Pre-configure packages before they are installed?
+ Debconf can be used to configure packages before they are installed by apt.
+ This lets you answer most questions a package would ask at the beginning of
+ the install, so you do not need to be around to answer questions during the
+ rest of the install.
+Description-ko: 패키지가 설치되기 전에 미리 설정할까요?
+ Debconf는 패키지가 apt에 의해 설치되기 전에 설정을 하도록 할 수 있습니다.
+ 이것은 패키지 설치과정을 시작할 때 대부분의 질문을 받을 수 있게 해줍니다.
+ 그러므로 남은 설치과정이 진행되는 동안 질문에 대답하기 위해서 기다릴 필요가
+ 없어집니다.
+
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or reinstall
+ a package that asks them.
+ .
+ Note that no matter what you choose here, you can see old questions again by
+ using the dpkg-reconfigure program.
+Description-ko: 예전의 질문 모두를 반복해서 보여줄까요?
+ 보통 debconf는 주어진 질문이 무엇이든 한번만 물어봅니다. 그러면 그 대답을
+ 기억하고 그 질문을 절대로 다시 묻지 않습니다. 원한다면, debconf가 계속
+ 반복해서 질문을 하도록 할 수 있습니다. 그러면 패키지를 업그레이드하거나 다시
+ 설치할 때마다 질문을 할 것입니다.
+ .
+ 여기에서 어떤 것을 선택하더라도, dpkg-reconfigure 프로그램을 사용해서 예전의
+ 질문을 다시 볼 수 있다는 것을 주의하세요.
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-featured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now.
+Description-ko: 새롭고, 기능이 풍부한 slang frontend로 바꿀까요?
+ 지금 debconf의 대화상자 frontend를 사용하고 있습니다. 이 frontend는 slang
+ frontend라고 불리는 새로운 frontend로 교체되었습니다. 이것은 대화상자
+ frontend보다 기능이 많고 모든 것을 할 수 있습니다. 이것은 여러가지 질문을
+ 한번에 보면서 대답할 수 있고, 보통 좀 더 융통성있고 즐겁게 사용할 수 있게
+ 해줍니다. 원한다면, 이 frontend로 지금 바꿀 수 있습니다.
+
+Template: debconf/helpvisible
+Type: boolean
+Default: true
+Description: Should debconf display extended help for questions?
+ Debconf can display extended help for questions. Some frontends allow this
+ display to be turned off, which may make them run a bit faster, or be less
+ cluttered. This is mostly useful for experts.
+Description-ko: Debconf가 질문에 대한 확장 도움말을 표시하게 할까요?
+ Debconf는 질문에 대한 확장 도움말을 표시할 수 있습니다. 몇몇 frontend는
+ 조금 더 빠르게 하거나, 혼잡하지 않게 하기 위해 이 표시를 끌 수 있습니다.
+ 이것은 보통 전문가에게 유용합니다.

@@ -13,58 +13,52 @@ use Getopt::Long;
 
 =head1 SYNOPSIS
 
- debconf-getlang [--stats] [-q] lang file [file]
+ debconf-getlang lang master [translation]
+ debconf-getlang --stats master translation [...]
 
 =head1 DESCRIPTION
 
-This program is designed to be used when a templates file is being
-translated. It is useful to send the translators a file with only the
-fields they need to worry about translating, and the English equivialants
-of those fields. There are basically three situations in which this program
-might be called:
+This program helps make and manage translations of debconf templates.
+There are basically three situations in which this program might be called:
 
 =over 4
 
 =item A translation is just being started.
 
-You want to provide the translator
-with a file they can work on that has the English fields from your
-templates file, plus blank Field-ll fields for the traget language that
-they can fill in. 
+You want to provide the translator with a file they can work on that has the
+English fields from your templates file, plus blank Field-ll fields for the
+traget language that they can fill in. 
 
-To do this, run the program with first parameter being
-the code for the language that is being translated to, and the second
-parameter being the filename of the English templates file.
+To do this, run the program with first parameter being the code for the
+language that is being translated to, and the second parameter being the
+filename of the English templates file.
 
 =item A translation is well under way.
 
-You have changed some English text, or
-added more items to your templates file, and you want to send the
-translators a file with the English text plus their current translations
-(or you are the translator, and you want to generate such a file for your
-own use).
+You have changed some English text, or added more items to your templates
+file, and you want to send the translators a file with the English text plus
+their current translations (or you are the translator, and you want to
+generate such a file for your own use).
 
 To accomplish this, run the program with the first parameter being the the
 code for the language that is being translated to, the second parameter
-being the filename of the English (C) templates file, and the third
+being the filename of the master English templates file, and the third
 parameter being the filename of the current translated file.
 
 When run this way, the program is smart enough to notice fuzzy
 translations. For example a fuzzy Description will be output as
-X-Old-Description-<lang>, and a new, blank Description-<lang> will be added.
-Translators should remove the X-Old fields as they correct the fuzzy
+Description-<lang>-OLD, and a new, blank Description-<lang> will be added.
+Translators should remove the -OLD fields as they correct the fuzzy
 translations.
 
 =item Checking the status of a translation
 
-If you call this program with two a language, two filenames, and also pass
-it a -q flag, it will only output statisticts about the status of the
-translation. Even easier, if your master templates file is
-debian/templates, and the translated templates are in
-debian/templates.<lang>, you can just run
- debconf-getlang --stats
-to get stats on all of them. This can be useful to help figure out when a
-translation is very out of date.
+To check the status of a translation, use the --status flag, and pass 
+the english template file as the first parameter, and all the other
+translated templates after that. It will output statistics for each of
+them. For example:
+
+  debconf-getlang --stats debian/templates debian/templates.*
 
 =back
 
@@ -75,30 +69,32 @@ L<debconf-mergetemplate(8)|debconf-mergetemplate>
 =cut
 
 sub usage {
-	die "Usage: $0 lang file [file]\n";
+	print STDERR <<EOF;
+Usage:
+  debconf-getlang lang master [translation]
+  debconf-getlang --stats master translation [...]
+EOF
+	exit 1;
 }
 
 # Ignore the users locale settings.
 Debconf::Template::i18n(0);
 
-my $quiet=0;
 my $stats=0;
 GetOptions(
-	'quiet|q' => \$quiet,
 	'stats|s' => \$stats,
 ) or usage;
-$quiet=1 if $stats;
 
 if ($stats) {
-	foreach my $lfn (glob("debian/templates.??"), 
-		        glob("debian/templates.??_??")) {
-		my ($lang)=$lfn=~m/\.(.*)/;
-		getlang($lang, "debian/templates", $lfn);
+	my $master=shift || usage;
+	foreach my $fn (@ARGV) {
+		my ($lang)=$fn=~m/\.([^.]+)$/;
+		getlang($lang, $master, $fn);
 	}
 }
 else {
-	my $lang=shift || usage();
-	my $fn=shift || usage();
+	my $lang=shift || usage;
+	my $fn=shift || usage;
 	my $lfn=shift;
 	getlang($lang, $fn, $lfn);
 }
@@ -186,6 +182,15 @@ sub getlang {
 				$lvalue.="\n".$localized->$field_ext
 					if defined $localized->$field_ext;
 	
+				# Ignore leading/trailing whitespace,
+				# and collapse other whitespace.
+				$value=~s/^\s+//gm;
+				$value=~s/\s+$//gm;
+				$value=~tr/ \t\n/ /s;
+				$lvalue=~s/^s+//gm;
+				$lvalue=~s/\s+$//gm;
+				$lvalue=~tr/ \t\n/ /s;
+
 				if ($value eq $lvalue) {
 					$good++;
 					$master->$field_lang($localized->$field_lang);
@@ -215,13 +220,16 @@ sub getlang {
 		}
 	}
 	
-	print Debconf::Template->stringify(@out) unless $quiet;
-	
-	print STDERR "$lang: ".join(', ', grep { $_ ne "" } 
-		$good  ? "$good translated strings"  : "",
-		$fuzzy ? "$fuzzy fuzzy translations" : "",
-		$bad   ? "$bad untranslated strings" : "",
-	)."\n";
+	if (! $stats) {
+		print Debconf::Template->stringify(@out) unless $stats;
+	}
+	else {
+		print "$lang: ".join(', ', grep { $_ ne "" } 
+			$good  ? "$good translated strings"  : "",
+			$fuzzy ? "$fuzzy fuzzy translations" : "",
+			$bad   ? "$bad untranslated strings" : "",
+		)."\n";
+	}
 }
 
 =head1 AUTHOR

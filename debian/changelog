@@ -1,3 +1,15 @@
+debconf (0.5.53) unstable; urgency=low
+
+  * Updated the Swedish translation.
+  * Made debconf-getlang more or less ignore whitespace as a factor
+    in fuzzy translations.
+  * Now you have to list the files to look at in stats mode too,
+    seems hardcoding the lookup wasn't such a good idea.
+  * Removed the -q flag, just use --stats instead.
+  * Added Korean translation from Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 30 Jan 2001 11:19:11 -0800
+
 debconf (0.5.52) unstable; urgency=low
 
   * Now that policy includes the debconf spec, I have removed the spec
