@@ -50,7 +50,7 @@ sub AUTOLOAD {
 	my $property = $AUTOLOAD;
 	$property =~ s|.*:||; # strip fully-qualified portion
 	
-	$this->{$property}=shift if @_;
+	return $this->{$property}=shift if @_;
 	return $this->{$property};
 }
 
