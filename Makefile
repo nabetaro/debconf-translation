@@ -24,11 +24,11 @@ install-man:
 # Anything that goes in the debconf-utils package.
 install-utils:
 	install -d $(prefix)/usr/bin
-	find . -maxdepth 1 -perm +1 -type f -name 'debconf-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | \
 		xargs -i install {} $(prefix)/usr/bin
 	# Make man pages for utils.
 	install -d $(prefix)/usr/share/man/man1
-	find . -maxdepth 1 -perm +1 -type f -name 'debconf-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | \
 		xargs -i sh -c 'pod2man --section=1 {} > $(prefix)/usr/share/man/man1/`basename {}`.1'
 
 # Install all else.
@@ -58,11 +58,11 @@ install-rest:
 		< Debconf/Config.pm > $(prefix)/usr/lib/perl5/Debconf/Config.pm
 	# Install essential programs.
 	install -d $(prefix)/usr/sbin
-	find . -maxdepth 1 -perm +1 -type f -name 'dpkg-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i install {} $(prefix)/usr/sbin
 	# Make man pages for programs.
 	install -d $(prefix)/usr/share/man/man8
-	find . -maxdepth 1 -perm +1 -type f -name 'dpkg-*' | \
+	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i sh -c 'pod2man --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files.
 	find $(prefix)/usr/lib/perl5/ $(prefix)/usr/sbin		\
