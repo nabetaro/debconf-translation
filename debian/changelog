@@ -1,3 +1,36 @@
+debconf (1.1.15) unstable; urgency=low
+
+  * The "no, DebConf 2 is over there" release.
+  * Added a new dbdriver called "PackageDir" that stores items for each package
+    in separate files (shared items go in their own file) in a subdirectory.
+    This is a tradeoff between the load speed of DirTree and the
+    manageability and smaller size of the flat file that has been the default 
+    so far. Locality of reference is reasonable when debconf is used on a 
+    per-package basis, as in debian. This dbdriver is planned to superceed 
+    File as the default once it's gotten some testing.
+ 
+    If you want to test this, edit your debconf.conf to define new databases
+    of this type into it, use debconf-copydb to copy your existing databases
+    into the new ones, and then make the new ones be used by default.
+
+  * Applied a patch from ilmari@ping.uio.no (Dagfinn Ilmari Mannsåker) to the
+    LDAP dbdriver to change fields to IA5 text, skipping empty fields.
+    Closes: #139779
+  * Made more vocal about use of capitalized frontend names, which are
+    deprecated. Fixed the couple of places in the debconf tree that still used
+    the old style.
+  * Note that debconf.conf(5) pt_BR translation is outdated.
+  * Make Directory (and not just DirTree) dbdriver refuse to accept
+    names with .. in them.
+  * Added support for backup files to Directory, and thus to DirTree as well,
+    and defaulted it to on.
+  * Modified cache load methods to call a cacheadd method to add items back
+    to cache; this allows a load method to actually load up related items when
+    asked for one item.
+  * Doc updates.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  5 Jul 2002 22:18:33 -0400
+
 debconf (1.1.14) unstable; urgency=low
 
   * moved debconf.8 and debconf-devel.8 to section 7, and updated all

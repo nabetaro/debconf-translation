@@ -42,6 +42,15 @@ Database:
 * Debconf does not try to deal with things that were not passwords becoming
   passwords. They stay in config.dat, world-readable. I'm not sure it _can_
   detect this and move them to passwords.dat.
+* PackageDir dbdriver needs testing, and needs to become used by default..
+* Hmm, as a slight mod to PackageDir, it just might be possible to use
+  /var/lib/dpkg/info/*.templates as a packagedir database. The 822 module
+  does not currently handle the word-wrapped descriptions in there, and
+  it'd sorta have to be read-only and stacked under another db or something
+  to record owner info though. The overlying db would need to get copies of
+  templates if they got 2 owners, so the package they're in doesn't leave
+  the other owner stranded. Still, this would easily save 1 mb on most
+  debian installs, so I really should pursue it.
 
 Noninteractive frontend:
 * Just because it's noninteractive doesn't mean it can't output to the

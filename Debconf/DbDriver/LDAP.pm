@@ -219,6 +219,7 @@ sub shutdown
 		];
 		
 		foreach my $field (keys %{$data{fields}}) {
+			next if $data{fields}->{$field} eq ''; # skip empty fields
 			$modify_data{$field}=$data{fields}->{$field};
 			push(@{$add_data}, $field);
 			push(@{$add_data}, $data{fields}->{$field});

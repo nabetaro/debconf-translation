@@ -51,34 +51,8 @@ Derived classes need to implement these methods in most cases.
 
 =head2 load(itemname)
 
-Load up the given item, and return a rather complex hashed structure to
-represent the item. The structure is a reference to a hash with 4 items:
-
-=over 4
-
-=item owners
-
-The value of this key must be a reference to a hash whose hash keys are
-the owner names, and hash values are true.
-
-=item fields
-
-The value of this key must be a reference to a hash whose hash keys are
-the field names, and hash values are the field values.
-
-=item variables
-
-The value of this key must be a reference to a hash whose hash keys are
-the variable names, and hash values are the variable values.
-
-=item flags
-
-The value of this key must be a reference to a hash whose hash keys are
-the flag names, and hash values are the flag values.
-
-=back
-
-If the item does not exist, return undef instead of the structure.
+Ensure that the given item is loaded. It will want to call back to the
+cacheadd method (see below) to add an item or items to the cache.
 
 =head2 save(itemname,value)
 
@@ -112,8 +86,9 @@ sub iterator {
 		# So, the trick is we will first iterate over everything in
 		# the cache. Then, we will let the underlying driver take
 		# over and iterate everything outside the cache. If it
-		# returns something that is in the cache, or something that
-		# is marked deleted in cache, just ask it for the next thing.
+		# returns something that is in the cache (and we're
+		# weeding), or something that is marked deleted in cache, just
+		# ask it for the next thing.
 		while (my $item = pop @items) {
 			next unless defined $this->{cache}->{$item};
 			return $item;
@@ -164,12 +139,68 @@ sub init {
 	$this->{cache} = {} unless exists $this->{cache};
 }
 
+=head2 cacheadd(itemname, entry)
+
+Derived classes can call this method to add an item to the cache. If the item
+is already in the cache, no change will be made.
+
+The entry field is a rather complex hashed structure to represent
+the item. The structure is a reference to a hash with 4 items:
+
+=over 4
+
+=item owners
+
+The value of this key must be a reference to a hash whose hash keys are
+the owner names, and hash values are true.
+
+=item fields
+
+The value of this key must be a reference to a hash whose hash keys are
+the field names, and hash values are the field values.
+
+=item variables
+
+The value of this key must be a reference to a hash whose hash keys are
+the variable names, and hash values are the variable values.
+
+=item flags
+
+The value of this key must be a reference to a hash whose hash keys are
+the flag names, and hash values are the flag values.
+
+=back
+
 =cut
+
+sub cacheadd {
+	my $this=shift;
+	my $item=shift;
+	my $entry=shift;
+
+	return if exists $this->{cache}->{$item};
+
+	$this->{cache}->{$item}=$entry;
+	$this->{dirty}->{$item}=0;
+}
+
+=head2 cachedata(itemname)
+
+Looks up an item in the cache and returns a complex data structure of the same
+format as the cacheadd() entry parameter.
+
+=cut
+
+sub cachedata {
+	my $this=shift;
+	my $item=shift;
+	
+	return $this->{cache}->{$item};
+}
 
 =head2 cached(itemname)
 
-Ensure that a given item is loaded up in the cache. Returns the
-cache entry for the item.
+Ensure that a given item is loaded up in the cache.
 
 =cut
 
@@ -179,10 +210,7 @@ sub cached {
 
 	unless (exists $this->{cache}->{$item}) {
 		debug "db $this->{name}" => "cache miss on $item";
-		if (my $cache=$this->load($item)) {
-			$this->{cache}->{$item}=$cache;
-			$this->{dirty}->{$item}=0;
-		}
+		$this->load($item);
 	}
 	return $this->{cache}->{$item};
 }
@@ -217,7 +245,6 @@ sub shutdown {
 			$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
 			$this->{dirty}->{$item}=0;
 		}
-		
 	}
 	return $ret;
 }

@@ -69,21 +69,6 @@ sub save {
 	$this->SUPER::save($item, @_);
 }
 
-=head2 accept(itemname)
-
-Accept is overridden to reject any item names that contain either "../" or
-"/..". Either could be used to break out of the directory tree.
-
-=cut
-
-sub accept {
-	my $this=shift;
-	my $name=shift;
-
-	return if $name=~m#\.\./# or $name=~m#/\.\.#;
-	$this->SUPER::accept($name, @_);
-}	
-
 =head2 filename(itemname)
 
 We actually use the item name as the filename, subdirs and all.
@@ -104,7 +89,7 @@ sub filename {
 =head2 iterator
 
 Iterating over the whole directory hierarchy is the one annoying part of
-this driver.
+his driver.
 
 =cut
 
@@ -128,11 +113,11 @@ sub iterator {
 			}
 			$i=readdir($handle);
 			if (not defined $i) {
-				closedir $handle;
+			closedir $handle;
 				$handle=undef;
 				next;
 			}
-			next if $i eq '.lock'; # ignore lock files
+			next if $i eq '.lock' || $i =~ /-old$/;
 			if (-d "$this->{directory}/$currentdir$i") {
 				if ($i ne '..' and $i ne '.') {
 					push @stack, "$currentdir$i/";

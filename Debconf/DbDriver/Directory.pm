@@ -61,7 +61,8 @@ sub init {
 
 	$this->{extension} = "" unless exists $this->{extension};
 	$this->{format} = "822" unless exists $this->{format};
-
+	$this->{backup} = 1 unless exists $this->{backup};
+	
 	$this->error("No format specified") unless $this->{format};
 	eval "use Debconf::Format::$this->{format}";
 	if ($@) {
@@ -110,9 +111,8 @@ sub load {
 
 	my $fh=IO::File->new;
 	open($fh, $file) or $this->error("$file: $!");
-	my $ret=$this->{format}->read($fh);
+	$this->cacheadd($this->{format}->read($fh));
 	close $fh;
-	return $ret;
 }
 
 =head2 save(itemname,value)
@@ -128,6 +128,7 @@ sub save {
 	my $this=shift;
 	my $item=shift;
 	my $data=shift;
+	
 	return unless $this->accept($item);
 	return if $this->{readonly};
 	debug "db $this->{name}" => "saving $item";
@@ -153,12 +154,18 @@ sub save {
 	$fh->sync;
 	close $fh;
 	
+	# Now rename the old file to -old (if doing backups),
+	# and put -new in its place.
+	if (-e $file && $this->{backup}) {
+		rename($file, $file."-old") or
+			debug "db $this->{name}" => "rename failed: $!";
+	}
 	rename("$file-new", $file) or $this->error("rename failed: $!");
 }
 
 =sub shutdown
 
-All this function needs to do is unlcok the database. Saving happens
+All this function needs to do is unlock the database. Saving happens
 whenever something is saved.
 
 =cut
@@ -206,6 +213,7 @@ sub iterator {
 			next if $ret eq '.lock'; # ignore lock file
 			next if length $this->{extension} and
 			        not $ret=~s/$this->{extension}//;
+			next if $ret =~ /-old$/;
 		} while defined $ret and -d "$this->{directory}/$ret";
 		$ret=~tr#:#/#;
 		return $ret;
@@ -243,8 +251,27 @@ sub remove {
 
 	return if $this->{readonly} or not $this->accept($name);
 	debug "db $this->{name}" => "removing $name";
-	unlink $this->{directory}.'/'.$this->filename($name) or return undef;
+	my $file=$this->{directory}.'/'.$this->filename($name);
+	unlink $file or return undef;
+	if (-e $file."-old") {
+		unlink $file or return undef;
+	}
 	return 1;
+}
+
+=head2 accept(itemname)
+
+Accept is overridden to reject any item names that contain either "../" or
+"/..". Either could be used to break out of the directory tree.
+
+=cut
+
+sub accept {
+	my $this=shift;
+	my $name=shift;
+
+	return if $name=~m#\.\./# or $name=~m#/\.\.#;
+	$this->SUPER::accept($name, @_);
 }
 
 =head1 AUTHOR

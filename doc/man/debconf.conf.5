@@ -138,7 +138,7 @@ interesting systems. Let's start with the former.
 This database driver allows debconf to store a whole database in a single
 flat text file. This makes it easy to archive, transfer between machines,
 and edit. It is one of the more compact database formats in terms of disk
-space used.
+space used. It is also one of the slowest.
 .P
 On the downside, the entire file has to be read in each time debconf starts
 up, and saving it is also slow.
@@ -192,6 +192,10 @@ defaults to ".dat"
 .B Format
 The format of the file. See FORMATS below. Defaults to using a rfc-822
 like format.
+.TP
+.B Backup
+Whether a backup should be made of the old file before changing it.
+Defaults to true.
 .RE
 .P
 As example stanza setting up a database using this driver:
@@ -202,14 +206,34 @@ As example stanza setting up a database using this driver:
   Extension: .txt
 .RE
 .TP
+.B PackageDir
+.RS
+This database driver is a compromise between the File and DirTree
+databases. It uses a directory, in which there is (approximatly) one file
+per package that uses debconf. This is fairly fast, while using little more
+room than the File database driver. 
+.P
+This driver is configurable in the same ways as is the DirTree driver,
+plus:
+.TP
+.B Mode
+The permissions to create files with. Defaults to 600, since the files could
+contain passwords in some circumstances.
+.P
+As example stanza setting up a database using this driver:
+.P
+  Name: mydb
+  Driver: PackageDir
+  Directory: /var/cache/debconf/mydb
+.RE
+.TP
 .B Directory
 .RS
 This database driver is the same as the DirTree driver, except all the
 files are put in one directory. It is intended mainly for future
-compatibility with cdebconf. Also, unlike with DirTree, the Extension field
-is not required for this driver.
+compatibility with cdebconf and as a base for other more useful drivers.
+Unlike with DirTree, the Extension field is not required for this driver.
 .RE
-.P
 .TP
 .B LDAP
 .RS

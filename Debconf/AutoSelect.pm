@@ -61,7 +61,7 @@ sub make_frontend {
 	if (! defined $starttype || ! length $starttype) {
 		$starttype = Debconf::Config->frontend;
 		if ($starttype =~ /[A-Z]/) {
-			debug developer => "Please do not capitalize the first letter of the debconf frontend.";
+			warn "Please do not capitalize the first letter of the debconf frontend.";
 		}
 		$starttype=ucfirst($starttype);
 	}

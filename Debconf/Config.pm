@@ -168,10 +168,10 @@ sub frontend {
 	$config->{frontend}=shift if @_;
 	return $config->{frontend} if exists $config->{frontend};
 	
-	my $ret='Dialog';
+	my $ret='dialog';
 	my $question=Debconf::Question->get('debconf/frontend');
 	if ($question) {
-		$ret=$question->value || $ret;
+		$ret=lcfirst($question->value) || $ret;
 	}
 	return $ret;
 }

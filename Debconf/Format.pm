@@ -21,7 +21,7 @@ various ways, and can read in parse the result.
 
 Read one record from the filehandle, parse it, and return a list with two
 elements. The first is the name of the item that was read, and the second
-is a structure as required by Debconf::DbDriver::Cached. Note that the
+is a structure as required by Debconf::DbDriver::Cache. Note that the
 filehandle may contain multiple records, so it must be able to recognize an
 end-of-record delimiter of some kind and stop reading after it.
 
@@ -36,7 +36,7 @@ Format a record and and write it out to the filehandle. Should include an
 end-of-record marker of some sort that can be recognized by the parse
 function.
 
-data is the same structure parse should return.
+data is the same structure read should return.
 
 =head2 endfile(filehandle)
 

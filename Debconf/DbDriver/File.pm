@@ -145,7 +145,7 @@ sub shutdown {
 	# Write out the file to -new, locking it as we go.
 	sysopen(my $fh, $this->{filename}."-new",
 			O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or
-		$this->error("could not write $this->{filename}: $!");
+		$this->error("could not write $this->{filename}-new: $!");
 	flock($fh, LOCK_EX | LOCK_NB) or
 		$this->error("$this->{filename}-new is locked by another process");
 	$this->{format}->beginfile;

@@ -46,7 +46,7 @@ sub load {
 	}
 	$templates=Debconf::DbDriver->driver(Debconf::Config->templates);
 	if (not ref $templates) {
-		die "Template database \"".Debconf::Config->config.
+		die "Template database \"".Debconf::Templates->templates.
 			"\" was not initialized.\n";
 	}
 }

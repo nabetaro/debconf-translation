@@ -80,6 +80,7 @@ sub read {
 		}
 	}
 
+	return unless defined $name;
 	return $name, \%ret;
 }
 
