@@ -3,9 +3,6 @@
 # Uncomment this to turn on verbose mode. 
 #export DH_VERBOSE=1
 
-# This is the debhelper compatibility version to use.
-export DH_COMPAT=3
-
 # Ensure that builds are self-hosting, which means I have to use the .pm
 # files in this package, not any that may be on the system.
 export PERL5LIB=.
@@ -31,23 +28,20 @@ binary-indep: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs etc/apt/apt.conf.d
 
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
-
-	install -m 0644 debian/apt.conf \
-		debian/debconf/etc/apt/apt.conf.d/70debconf
 
 	# Don't modify postrm, I purge differently than normal packages
 	# using me
 	PATH=.:$(PATH) dh_installdebconf -n
 	
 	dh_installdocs 
-	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1
+	dh_install debian/apt.conf etc/apt/apt.conf.d/70debconf
+	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1 doc/man/gen/debconf-copydb*.1
 	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.8 \
 		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
-	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show`
+	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb`
 	dh_installexamples -pdebconf-doc samples/*
 	
 	# Changelog reduction hack for debconf. Only include top 5 entries.

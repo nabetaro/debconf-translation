@@ -29,10 +29,16 @@ $Debconf::Db::config->setfield(...)
 
 Loads up the database drivers.
 
+If a hash of parameters are passed, those parameters are used as the defaults
+for *every* database driver that is loaded up. Practically, setting 
+(readonly => "true") is the only use of this.
+
 =cut
 
 sub load {
-	Debconf::Config->load;
+	my $class=shift;
+
+	Debconf::Config->load('', @_); # load default config file
 	$config=Debconf::DbDriver->driver(Debconf::Config->config);
 	if (not ref $config) {
 		die "Configuration database \"".Debconf::Config->config.

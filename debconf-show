@@ -27,7 +27,7 @@ use Debconf::Question;
 
 my $package = shift || die "Syntax: debconf-show packagename\n";
 
-Debconf::Db->load;
+Debconf::Db->load(readonly => 'true');
 
 my $qi=Debconf::Question->iterator;
 while (my $q=$qi->iterate) {

@@ -1,3 +1,27 @@
+debconf (1.1.0) unstable; urgency=low
+
+  * Split the configdb into two files, a password database and a database for
+    all else. This allows normal users to query the debconf db for items that
+    are not passwords, which should be generally useful. The immediate
+    application is a bug report plugin that includes debconf-show output..
+  * The configdb split will happen automatically on systems with an unmodified
+    debconf.conf. Admins of systems with a modified debconf.conf will need to
+    do it manually, if it is done at all.
+  * I had to move debconf-copydb into the main debconf package, since it is
+    used to do the db split.
+  * Make failure to open a database cause the init method to abort, even if
+    the db is not required. Cuts down on ugly messages.
+  * Fixed accept method to look up the real template of a question instead of
+    assuming that there will be a template by the same name as the question.
+  * I had to add a third parameter to Debconf::Question->new to make
+    accept/rejecttype really work right. And similar to all the addowner
+    methods. And fixed a typo that had prevented it from working at all.
+  * Added a DEBCONF_NOWARNINGS environment variable.
+  * Have debconf-show open the db readonly, so it will not contend for locks.
+  * debhelper v4
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 12 Apr 2002 13:54:03 -0400
+
 debconf (1.0.33) unstable; urgency=low
 
   * Made fix_db.pl more robust in the face of really screwed up db's.

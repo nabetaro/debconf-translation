@@ -44,10 +44,10 @@ our %question;
 
 =over 4
 
-=item new(name, owner)
+=item new(name, owner, type)
 
-The name of the question to create, and an owner for the question must
-be passed to this function.
+The name of the question to create, an owner for the question, and the
+type of question it is must be passed to this function.
 
 New questions default to having their seen flag set to "false".
 
@@ -57,6 +57,7 @@ sub new {
 	my Debconf::Question $this=shift;
 	my $name=shift;
 	my $owner=shift;
+	my $type=shift || die "no type given for question";
 	die "A question called \"$name\" already exists"
 		if exists $question{$name};
 	unless (ref $this) {
@@ -64,7 +65,7 @@ sub new {
 	}
 	$this->{name}=$name;
 	# This is what actually creates the question in the db.
-	return unless defined $this->addowner($owner);
+	return unless defined $this->addowner($owner, $type);
 	$this->flag('seen', 'false');
 	return $question{$name}=$this;
 }
@@ -277,15 +278,16 @@ sub value_split {
 
 =item addowner
 
-Add an owner to the list of owners of this Question. Pass the owner name.
-Adding an owner that is already listed has no effect.
+Add an owner to the list of owners of this Question. Pass the owner name
+and the type of the Question. Adding an owner that is already listed has
+no effect.
 
 =cut
 
 sub addowner {
 	my $this=shift;
 
-	return $Debconf::Db::config->addowner($this->{name}, shift);
+	return $Debconf::Db::config->addowner($this->{name}, shift, shift);
 }
 
 =item removeowner
@@ -334,7 +336,7 @@ Returns a template object.
 sub template {
 	my $this=shift;
 	if (@_) {
-		# If the template is not chenged from the current one, do
+		# If the template is not changed from the current one, do
 		# nothing. This avoids deleting the template entirely by
 		# removing its last owner.
 		my $oldtemplate=$Debconf::Db::config->getfield($this->{name}, 'template');
@@ -347,7 +349,8 @@ sub template {
 			$Debconf::Db::config->setfield($this->{name}, 'template', $newtemplate);
 
 			# Register this question as an owner of the template.
-			$Debconf::Db::templates->addowner($newtemplate, $this->{name});
+			$Debconf::Db::templates->addowner($newtemplate, $this->{name},
+				$Debconf::Db::templates->getfield($newtemplate, "type"));
 		}
 	}
 	return Debconf::Template->get(

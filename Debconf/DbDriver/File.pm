@@ -91,8 +91,11 @@ sub init {
 		close $fh;
 	}
 
-	open ($this->{_fh}, $this->{filename}) or
+	if (! open ($this->{_fh}, $this->{filename})) {
 		$this->error("could not open $this->{filename}: $!");
+		return; # always abort, even if not throwing fatal error
+	}
+
 	if (! $this->{readonly}) {
 		# Now lock the file with flock locking. I don't wait on
 		# locks, just error out. Since I open a lexical filehandle,

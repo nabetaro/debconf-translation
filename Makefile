@@ -14,7 +14,7 @@ install: install-utils install-rest
 # Anything that goes in the debconf-utils package.
 install-utils:
 	install -d $(prefix)/usr/bin
-	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-show | \
+	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-show | grep -v debconf-copydb | \
 		xargs -i install {} $(prefix)/usr/bin
 
 # Install all else.
@@ -44,7 +44,7 @@ install-rest:
 	install -m 0755 transition_db.pl fix_db.pl $(prefix)/usr/share/debconf/
 	# Install essential programs.
 	install -d $(prefix)/usr/sbin
-	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -or -name debconf-show | \
+	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -or -name debconf-show -or -name debconf-copydb | \
 		xargs -i install {} $(prefix)/usr/sbin
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\

@@ -43,7 +43,7 @@ foreach my $item (keys %questions) {
 	next unless defined $questions{$item}->{template}->{_name};
 
 	my $question=Debconf::Question->new($item, pop @owners);
-	$question->addowner($_) foreach @owners;
+	$question->addowner($_, '') foreach @owners;
 }
 
 my $skipped=0;

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -181,11 +181,11 @@ msgstr "啟始前端介面失敗: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "不能開啟前端介面: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr "設定檔中沒有指定的設定資料庫"
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr "設定檔中沒有指定樣板資料庫"
 
@@ -199,7 +199,7 @@ msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 msgid "Configuring %s"
 msgstr "正設定 %s"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -208,12 +208,12 @@ msgstr ""
 "樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
 "的新行分格.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"

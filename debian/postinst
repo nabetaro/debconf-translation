@@ -20,10 +20,29 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 	fi
 fi
 
+   
 # Fix up broken db's before debconf starts up.
 if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
    dpkg --compare-versions "$2" lt 1.0.25; then
 	/usr/share/debconf/fix_db.pl
+fi
+
+# configdb splits into passworded and non-passworded parts, before debconf
+# starts up. Do so only if the debconf.conf has the new databases in it.
+if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
+   dpkg --compare-versions "$2" lt 1.1.0 &&
+   perl -e 'use Debconf::Db; Debconf::Db->load; for (@ARGV) { exit 1 unless
+            Debconf::DbDriver->driver($_) }' config passwords; then
+   	# copies in only the passwords, of course
+   	debconf-copydb config passwords
+	# makes a new config with only non-passwords in it
+	debconf-copydb config newconfig \
+		-c Name:newconfig \
+		-c Driver:File \
+		-c Reject-Type:password \
+		-c Filename:/var/cache/debconf/newconfig.dat \
+		-c Mode:644
+	mv -f /var/cache/debconf/newconfig.dat /var/cache/debconf/config.dat
 fi
 
 . /usr/share/debconf/confmodule

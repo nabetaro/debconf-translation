@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -192,11 +192,11 @@ msgstr "kan inte initiera skal: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kan inte starta skal: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr "Konfigurationsdatabas inte angiven i inställningsfil."
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr "Malldatabas inte angiven i inställningsfil."
 
@@ -210,7 +210,7 @@ msgstr "Kan inte ladda Debconf::Element::%s. Misslyckades eftersom: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -220,12 +220,12 @@ msgstr ""
 "beror troligen på att två mallar inte avdelats korrekt med en ensam "
 "radbrytning.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"

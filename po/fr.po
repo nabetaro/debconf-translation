@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -195,12 +195,12 @@ msgstr "Impossible d'initialiser le frontal : %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossible de démarrer le frontal : %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr ""
 "Le fichier de configuration ne spécifie pas la base de données des réglages."
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr ""
 "Le fichier de configuration ne spécifie pas la base de données des modèles."
@@ -215,7 +215,7 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -225,12 +225,12 @@ msgstr ""
 "valeur. Il manque probablement la ligne vide de séparation entre deux "
 "modèles.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"

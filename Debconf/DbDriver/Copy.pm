@@ -35,7 +35,10 @@ sub copy {
 	
 	# First copy the owners, which makes sure $dest has the item.
 	foreach my $owner ($src->owners($item)) {
-		$dest->addowner($item, $owner);
+		my $template = Debconf::Template->get($src->getfield($item, 'template'));
+		my $type;
+		$type = $template->type if $template;
+		$dest->addowner($item, $owner, $type);
 	}
 	# Now the fields.
 	foreach my $field ($src->fields($item)) {

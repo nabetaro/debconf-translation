@@ -516,15 +516,16 @@ sub command_register {
 	my $template=shift;
 	my $name=shift;
 	
-	if (! Debconf::Question->get($template)) {
+	my $tempobj = Debconf::Question->get($template);
+	if (! $tempobj) {
 		return $codes{badparams}, "No such template, \"$template\"";
 	}
 	my $question=Debconf::Question->get($name) || 
-	             Debconf::Question->new($name, $this->owner);
+	             Debconf::Question->new($name, $this->owner, $tempobj->type);
 	if (! $question) {
 		return $codes{internalerror}, "Internal error making question";
 	}
-	if (! defined $question->addowner($this->owner)) {
+	if (! defined $question->addowner($this->owner, $tempobj->type)) {
 		return $codes{internalerror}, "Internal error adding owner";
 	}
 	if (! $question->template($template)) {

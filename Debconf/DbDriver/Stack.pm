@@ -33,7 +33,7 @@ given item, and then perform the write.
 =item stack
 
 A reference to an array of drivers. The topmost driver should not be
-readonly.
+readonly, unless the whole stack is.
 
 In the config file, a comma-delimeted list of driver names can be specified
 for this field.
@@ -72,7 +72,7 @@ sub init {
 	$this->error("no stack set") if ! ref $this->{stack};
 	$this->error("stack is empty") if ! @{$this->{stack}};
 	$this->error("topmost driver not writable")
-		if $this->{stack}->[0]->{readonly};
+		if $this->{stack}->[0]->{readonly} && ! $this->{readonly};
 }
 
 =head2 iterator
@@ -205,6 +205,23 @@ sub _change {
 			debug "db $this->{name}" =>
 				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
 			return;
+		}
+		if (! $driver->{readonly}) {
+			# Adding an owner is a special case because the
+			# item may not exist yet, and so accept() should be
+			# told the type, if possible. Luckily the type is
+			# the second parameter of the addowner command, or
+			# $_[1].
+			if ($command eq 'addowner') {
+				if ($driver->accept($item, $_[1])) {
+					$writer=$driver;
+					last;
+				}
+			}
+			elsif ($driver->accept($item)) {
+				$writer=$driver;
+				last;
+			}
 		}
 		if (! $driver->{readonly} and $driver->accept($item)) {
 			$writer=$driver;

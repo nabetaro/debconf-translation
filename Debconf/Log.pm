@@ -64,7 +64,8 @@ Outputs a warning message. This overrides the builtin perl warn() command.
 =cut
 
 sub warn {
-	print STDERR "debconf: ".join(" ", @_)."\n";
+	print STDERR "debconf: ".join(" ", @_)."\n"
+		unless Debconf::Config->nowarnings eq 'yes';
 }
 
 =back

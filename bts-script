@@ -5,6 +5,7 @@
 (
 	echo
 	echo "--- Begin debconf db information"; 
-	debconf-show $(basename $0) || echo "debconf-show failed!"
+	DEBCONF_NOWARNINGS=yes debconf-show $(basename $0) || \
+		echo "debconf-show failed!"
 	echo "--- End debconf db information";
 ) 2>&3 >&3

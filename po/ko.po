@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -194,11 +194,11 @@ msgstr "frontend를 초기화할 수 없음: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
 
@@ -212,7 +212,7 @@ msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
 msgid "Configuring %s"
 msgstr "%s 설정중"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -222,12 +222,12 @@ msgstr ""
 "고 있습니다. 두 템플릿이 하나의 개행문자로 정확하게 분리되지 않은 것 같습니"
 "다.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"

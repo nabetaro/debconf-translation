@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -202,12 +202,12 @@ msgstr "falha ao inicializar frontend: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr ""
 "Banco de dados de configuração não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
@@ -222,7 +222,7 @@ msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -232,12 +232,12 @@ msgstr ""
 "Provavelmente dois templates não estão separados apropriadamente por uma "
 "única linha.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"

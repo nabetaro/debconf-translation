@@ -158,16 +158,12 @@ sub error {
 	my $this=shift;
 
 	if ($this->{required}) {
-		print STDERR 'debconf: DbDriver "'.$this->{name}.'" error: '.
-			shift()."\n";
-		exit(1);
+		warn('DbDriver "'.$this->{name}.'":', @_);
+		exit 1;
 	}
 	else {
-		print STDERR 'debconf: DbDriver "'.$this->{name}.'" warning: '.
-			shift()."\n";
+		warn('DbDriver "'.$this->{name}.'" warning:', @_);
 	}
-
-	$this->{failed}++;
 }
 
 =head2 driver(drivername)
@@ -184,31 +180,38 @@ sub driver {
 	return $drivers{$name};
 }
 
-=head2 accept(itemname)
+=head2 accept(itemname, [type])
 
 Return true if this driver will accept queries for the given item. Uses the
 various accept_* and reject_* fields to determine this.
+
+The type field should be passed when possible, giving the type of the item.
+If it is not passed, the function will try to look up the type in the item's
+template, but that may not always work, if the template is not yet set up.
 
 =cut
 
 sub accept {
 	my $this=shift;
 	my $name=shift;
+	my $type=shift;
 	
 	return if $this->{failed};
 	
-	if ((exists $this->{accept_name} && $name!~/$this->{accept_name}/) ||
-	    (exists $this->{reject_name} && $name=~/$this->{reject_name}/)) {
+	if ((exists $this->{accept_name} && $name !~ /$this->{accept_name}/) ||
+	    (exists $this->{reject_name} && $name =~ /$this->{reject_name}/)) {
 		debug "db $this->{name}" => "reject $name";
 		return;
 	}
 
 	if (exists $this->{accept_type} || exists $this->{reject_type}) {
-		my $template=Debconf::Template->get($name);
-		return 1 unless $template; # no type to act on
-		my $type=$template->type || '';
-		return if exists $this->{accept_type} && $name!~/$this->{accept_type}/;
-		return if exists $this->{reject_type} && $name=~/$this->{reject_type}/
+		if (! defined $type || ! length $type) {
+			my $template = Debconf::Template->get($this->getfield($name, 'template'));
+			return 1 unless $template; # no type to act on
+			$type=$template->type || '';
+		}
+		return if exists $this->{accept_type} && $type !~ /$this->{accept_type}/;
+		return if exists $this->{reject_type} && $type =~ /$this->{reject_type}/;
 	}
 
 	return 1;
@@ -225,7 +228,7 @@ sub ispassword {
 	my $this=shift;
 	my $item=shift;
 
-	my $template=Debconf::Template->get($item);
+	my $template=Debconf::Template->get($this->getfield($item, 'template'));
 	return unless $template;
 	my $type=$template->type || '';
 	return 1 if $type eq 'password';
@@ -256,13 +259,16 @@ Return true if the given item exists in the database.
 
 Each subclass must implement this method.
 
-=head2 addowner(itemname, ownername)
+=head2 addowner(itemname, ownername, type)
 
 Register an owner for the given item. Returns the owner name, or undef
 if this failed.
 
 Note that adding an owner can cause a new item to spring into
 existance.
+
+The type field is used to tell the DbDriver what type of item is
+being added (the DbDriver may decide to reject some types of items).
 
 Each subclass must implement this method.
 

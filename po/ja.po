@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -199,11 +199,11 @@ msgstr "フロントエンドの初期化に失敗しました: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr ""
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr ""
 
@@ -217,19 +217,19 @@ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-04-12 13:14-0400\n"
+"POT-Creation-Date: 2002-04-12 17:23-0400\n"
 "PO-Revision-Date: 2002-01-16 14:07+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -194,13 +194,13 @@ msgstr "no s'ha pogut iniciar l'interfície: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "No s'ha pogut iniciar una interfície: %s"
 
-#: ../Debconf/Config.pm:84
+#: ../Debconf/Config.pm:89
 msgid "Config database not specified in config file."
 msgstr ""
 "La base de dades de configuracions no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:88
+#: ../Debconf/Config.pm:93
 msgid "Template database not specified in config file."
 msgstr ""
 "La base de dades de plantilles no està especificada en el fitxer de "
@@ -216,7 +216,7 @@ msgstr "No s'ha pogut carregar Debconf::Element::%s. Error degut a: %s"
 msgid "Configuring %s"
 msgstr "Configurant %s"
 
-#: ../Debconf/Template.pm:176
+#: ../Debconf/Template.pm:177
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -226,12 +226,12 @@ msgstr ""
 "Probablement dos plantilles no estàn separades adequadament per un sol "
 "retorn de carro.\n"
 
-#: ../Debconf/Template.pm:222
+#: ../Debconf/Template.pm:223
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Error d'analisi de plantilla prop de \"%s\", en la estrofa #%s de %s\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:229
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "La plantilla #%s en %s no conté una línia \"Template:\"\n"

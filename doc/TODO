@@ -1,8 +1,5 @@
 General:
-* Change the default config over to having one db for passwords and
-  another for all else; this will allow most of the debconf config to be
-  world readable. Then I can put the bts-script into the deb and it will be
-  usable from bug even.
+* debconf-show should be able to open the db read-only.
 * The ConfModule should not return the backup return code, ever, if 
   the confmodule it talks to has not indicated it has that capability.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
@@ -47,6 +44,9 @@ Database:
   stuff and the copy does not. Perhaps it should copy items whole from db
   to copy if they do not already exist in the copy and an operation is done
   to them?
+* Debconf does not try to deal with things that were not passwords becoming
+  passwords. They stay in config.dat, world-readable. I'm not sure it _can_
+  detect this and move them to passwords.dat.
 
 Noninteractive frontend:
 * Just because it's noninteractive doesn't mean it can't output to the

@@ -178,7 +178,6 @@ sub cached {
 	my $item=shift;
 
 	unless (exists $this->{cache}->{$item}) {
-		return unless $this->accept($item);
 		debug "db $this->{name}" => "cache miss on $item";
 		if (my $cache=$this->load($item)) {
 			$this->{cache}->{$item}=$cache;
@@ -223,9 +222,10 @@ sub shutdown {
 	return $ret;
 }
 
-=head2 addowner(itemname, ownername)
+=head2 addowner(itemname, ownername, type)
 
-Add an owner, if the underlying db is not readonly.
+Add an owner, if the underlying db is not readonly, and if the given
+type is acceptable.
 
 =cut
 
@@ -233,12 +233,13 @@ sub addowner {
 	my $this=shift;
 	my $item=shift;
 	my $owner=shift;
+	my $type=shift;
 
 	return if $this->{readonly};
 	$this->cached($item);
 
 	if (! defined $this->{cache}->{$item}) {
-		return if ! $this->accept($item);
+		return if ! $this->accept($item, $type);
 		debug "db $this->{name}" => "creating in-cache $item";
 		# The item springs into existance.
 		$this->{cache}->{$item}={

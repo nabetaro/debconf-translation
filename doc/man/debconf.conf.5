@@ -65,6 +65,11 @@ permanently in a config file, you will only want to temporarily turn on
 debugging, and the DEBCONF_DEBUG environment variable can be set instead to
 accomplish that.
 .TP
+.B NoWarnings
+If set, this will make debconf not display warnings about various things. 
+This can be overridden on the fly with the DEBCONF_NOWARNINGS environment
+variable.
+.TP
 .B Log
 Makes debconf log debugging information as it runs, to the syslog. The
 value it is set to controls that is logged. See Debug, above for an

@@ -104,7 +104,6 @@ sub load {
 	my $this=shift;
 	my $item=shift;
 
-	return unless $this->accept($item);
 	debug "db $this->{name}" => "loading $item";
 	my $file=$this->{directory}.'/'.$this->filename($item);
 	return unless -e $file;
@@ -224,8 +223,6 @@ Simply check for file existance, after querying the cache.
 sub exists {
 	my $this=shift;
 	my $name=shift;
-	
-	return unless $this->accept($name);
 	
 	# Check the cache first.
 	my $incache=$this->SUPER::exists($name);

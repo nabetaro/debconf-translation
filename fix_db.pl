@@ -28,7 +28,7 @@ if (! @ARGV || $ARGV[0] ne 'end') {
 			# template field. Always a bug.
 			if (! defined $q->template) {
 				warn "question \"".$q->name."\" has no template field; removing it.";
-				$q->addowner("killme"); # make sure it has one owner at least, so removal is triggered
+				$q->addowner("killme",""); # make sure it has one owner at least, so removal is triggered
 				foreach my $owner (split(/, /, $q->owners)) {
 					$q->removeowner($owner);
 				}
@@ -57,7 +57,7 @@ if (! @ARGV || $ARGV[0] ne 'end') {
 			my @owners=$Debconf::Db::templates->owners($t);
 			if (! @owners) {
 				warn "template \"$t\" has no owners; removing it.";
-				$Debconf::Db::templates->addowner($t, "killme");
+				$Debconf::Db::templates->addowner($t, "killme","");
 				$Debconf::Db::templates->removeowner($t, "killme");
 				$fix=1;
 			}

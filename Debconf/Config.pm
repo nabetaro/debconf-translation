@@ -13,7 +13,7 @@ use Debconf::Gettext;
 use Debconf::Db;
 
 use fields qw(config templates frontend priority terse
-              showold admin_email log debug);
+              showold admin_email log debug nowarnings);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
@@ -36,7 +36,11 @@ a series of stanzas; the first stanza configures debconf as a whole, and
 then each of the rest sets up a database driver. This lacks the glorious
 nested bindish beauty of Wichert's original idea, but it captures the
 essence of it. It will load from a set of standard locations unless a file
-to load is specified.
+to load is specified as the first parameter.
+
+If a hash of parameters are passed, those parameters are used as the defaults
+for *every* database driver that is loaded up. Practically, setting 
+(readonly => "true") is the only use of this.
 
 =cut
 
@@ -65,6 +69,7 @@ sub _hashify ($$) {
 sub load {
 	my $class=shift;
 	my $cf=shift;
+	my @defaults=@_;
 	
 	if (! $cf) {
 		for my $file (@config_files) {
@@ -91,7 +96,7 @@ sub load {
 
 	# Now read in each database driver, and set it up.
 	while (<DEBCONF_CONFIG>) {
-		my %config=();
+		my %config=(@defaults);
 		next unless _hashify($_, \%config);
 		Debconf::Db->makedriver(%config);
 	}
@@ -207,6 +212,19 @@ sub terse {
 	return 'false';
 }
 
+=item nowarnings
+
+Set to disable warnings.
+
+=cut
+
+sub nowarnings {
+	my $class=shift;
+	return $ENV{DEBCONF_NOWARNINGS} if exists $ENV{DEBCONF_NOWARNINGS};
+	$config->{nowarnings}=$_[0] if @_;
+	return $config->{nowarnings} if exists $config->{nowarnings};
+	return 'false';
+}
 =item showold
 
 If true, then old questions the user has already seen are shown to them again.

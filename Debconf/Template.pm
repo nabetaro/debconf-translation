@@ -58,6 +58,7 @@ sub new {
 	my Debconf::Template $this=shift;
 	my $template=shift || die "no template name specified";
 	my $owner=shift || 'unknown';
+	my $type=shift || die "no template type specified";
 	
 	# See if we can use an existing template.
 	if ($Debconf::Db::templates->exists($template) and
@@ -66,7 +67,7 @@ sub new {
 		# the db, add the owner to it. This handles shared owner
 		# questions.
 		my $q=Debconf::Question->get($template);
-		$q->addowner($owner) if $q;
+		$q->addowner($owner, $type) if $q;
 		
 		$this = fields::new($this);
 		$this->{template}=$template;
@@ -84,15 +85,15 @@ sub new {
 	# to it.
 	if ($Debconf::Db::config->exists($template)) {
 		my $q=Debconf::Question->get($template);
-		$q->addowner($owner) if $q;
+		$q->addowner($owner, $type) if $q;
 	}
 	else {
-		my $q=Debconf::Question->new($template, $owner);
+		my $q=Debconf::Question->new($template, $owner, $type);
 		$q->template($template);
 	}
 	
 	# This is what actually creates the template in the db.
-	return unless $Debconf::Db::templates->addowner($template, $template);
+	return unless $Debconf::Db::templates->addowner($template, $template, $type);
 
 	return $template{$template}=$this;
 }
@@ -229,7 +230,7 @@ sub load {
 			unless $data{template};
 
 		# Create and populate template from hash.
-		my $template=$this->new($data{template}, @_);
+		my $template=$this->new($data{template}, @_, $data{type});
 		# Ensure template is empty, then fill with new data.
 		$template->clearall;
 		foreach my $key (keys %data) {
