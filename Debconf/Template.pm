@@ -170,7 +170,7 @@ sub parse {
 		chomp;
 		if (/^([-_.A-Za-z0-9]*):\s+(.*)/) {
 			# Beginning of new field. First, save the old one.
-			$this->_savefield($field, $value, $extended);
+			$this->_savefield($field, $value, $extended, $file);
 			$field=lc $1;
 			$value=$2;
 			$value=~s/\s*$//;
@@ -196,7 +196,7 @@ sub parse {
 		}
 	}
 
-	$this->_savefield($field, $value, $extended);
+	$this->_savefield($field, $value, $extended, $file);
 
 	# Sanity checks.
 	die sprintf(gettext("Template #%s in %s does not contain a `Template:' line\n"), $., $file)
@@ -211,6 +211,7 @@ sub _savefield {
 	my $field=shift;
 	my $value=shift;
 	my $extended=shift;
+	my $file=shift;
 
 	# Make sure there are no blank lines at the end of the extended 
 	# field, as that causes problems when stringifying and elsewhere,
@@ -218,6 +219,9 @@ sub _savefield {
 	$extended=~s/\n+$//;
 
 	if ($field ne '') {
+		if (defined $this->$field) {
+			die sprintf(gettext("Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly seperated by a lone newline.\n"), $., $file, $field, $value);
+		}
 		$this->$field($value);
 		my $e="extended_$field"; # silly perl..
 		$this->$e($extended) if length $extended;
