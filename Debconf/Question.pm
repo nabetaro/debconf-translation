@@ -312,7 +312,16 @@ Returns a template object.
 sub template {
 	my $this=shift;
 	if (@_) {
-		$Debconf::Db::config->setfield($this->{name}, 'template', shift);
+		# This question no longer owns the template it used to, if any.
+		my $oldtemplate=$Debconf::Db::config->getfield($this->{name}, 'template');
+		$Debconf::Db::templates->removeowner($oldtemplate, $this->{name})
+			if defined $oldtemplate and length $oldtemplate;
+
+		my $template=shift;
+		$Debconf::Db::config->setfield($this->{name}, 'template', $template);
+
+		# Register this question as an owner of the template.
+		$Debconf::Db::templates->addowner($template, $this->{name});
 	}
 	return Debconf::Template::Persistent->get(
 		$Debconf::Db::config->getfield($this->{name}, 'template'));

@@ -504,6 +504,9 @@ sub command_register {
 	if (! $question) {
 		return $codes{internalerror}, "Internal error";
 	}
+	if (! $question->addowner($this->owner) {
+		return $codes{internalerror}, "Internal error";
+	}
 	if ($question->template($template) eq undef) {
 		return $codes{internalerror}, "Internal error";
 	}
