@@ -1,0 +1,124 @@
+Template: debconf/frontend
+Type: select
+Choices: Slang, Text, Editor, Dialog, Noninteractive, Web
+Choices-ja: Slang, テキスト, エディタ, ダイアログ, 自動設定, Web
+Default: Slang
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use.
+ .
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions notes. The web frontend can be accessed using your favorite browser.
+Description-ja: どのインターフェースをパッケージ設定に使用しますか
+ debconfを設定に使用するパッケージは設定作業で同じ操作環境を使用します。
+ これらの設定に使用するユーザインターフェースを選択して下さい。
+ .
+ Slangフロントエンドはカラフルで全画面の文字ベースウインドウインター
+ フェースを提供し、一方テキストフロントエンドはそれ以前の世代の、素の
+ テキストインターフェースを使用します。エディタフロントエンドはあなた
+ の好みのエディタで項目を設定します。自動設定フロントエンドは一切の質
+ 問をしません。Webフロントエンドはあなたの好みのWebブラウザで設定を行
+ います。
+
+Template: debconf/priority
+Type: select
+Choices: critical, high, medium, low
+Choices-ja: 重要度=最高, 重要度=高, 重要度=中, 重要度=低
+Default: medium
+Description: Ignore questions with a priority less than..
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are actually
+ shown to you; all less important questions are skipped and the defaults are
+ used for them.
+ .
+ You can select the lowest priority of question you want to see: `low' is for
+ trivial items that have defaults that will work in the vast majority of
+ cases. `medium' is for normal items that have reasonable defaults.  `high'
+ is for items that don't have reasonable defaults. `critical' is for items
+ that will probably break the system without user intervention. For example,
+ this question is of medium priority, and if your priority were already
+ `high' or `critical', you wouldn't see this question.
+ .
+ If you are new to the Debian GNU/Linux system choose `critical' now,
+ so you only see the most important questions.
+Description-ja: どの重要度よりレベルが低い質問を省略しますか？
+ 設定にdebconfを使用するパッケージは、利用者に行う質問に重要度を定義で
+ きます。ある重要度以上の質問は実際に行われますが、それより重用度の低
+ い質問は省略され、その項目には既定値が使用されます。
+ .
+ 質問の重要度で最も低いものも選択できます:[重要度=低]は、ほとんどの場
+ 合既定値で構わない些細な項目用です。[重要度=中]は適当な既定値がある一
+ 般的な質問用です。[重要度=高]は適当な既定値のない項目用です。[重要度= 
+ 最高]はユーザの設定なしにはシステムを破壊しかねない重要な項目用です。
+ 例えば、ここでの設定が[重要度=高]または[重要度=最高]で、ある質問の重
+ 要度が中の場合、この質問は省略される事になります。
+ .
+ もしあなたが Debian GNU/Linux システムの初心者であれば、ここで[重要度
+ =最高]を選択して下さい。最も重要な項目以外は質問されなくなります。
+
+Template: debconf/preconfig
+Type: boolean
+Default: true
+Description: Pre-configure packages before they are installed?
+ Debconf can be used to configure packages before they are installed by apt.
+ This lets you answer most questions a package would ask at the beginning of
+ the install, so you do not need to be around to answer questions during the
+ rest of the install.
+Description-ja: パッケージをインストール前に設定しますか？
+ debconfはaptによってパッケージがインストールされる前にそのパッケージ
+ を設定する事ができます。これにより、パッケージが質問するほとんどの項
+ 目にインストールの最初の段階で回答する事ができ、残りのインストール作
+ 業の中でいちいち質問に答える必要がなくなります。
+
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or reinstall
+ a package that asks them.
+ .
+ Note that no matter what you choose here, you can see old questions again by
+ using the dpkg-reconfigure program.
+Description-ja: 古い質問を全て繰り返しますか？
+ debconfは通常１つの質問を１回しか行いません。debconfは前回のあなたの
+ 回答を記憶しているので、再度同じ質問をしないようになっています。しか
+ し、ご希望ならdebconfは同じパッケージの更新時や際インストール時の度に
+ 同じ質問を繰り返す事が出来ます。
+ .
+ ここではyesを選択する必要がないことに注意して下さい。dpkg-reconfigure
+ プログラムによって古い質問を再度行うことが出来ます。
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-freatured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now.
+Description-ja: 新型の全機能型slangフロントエンドを使用しますか？
+ 現在、debconfのダイアログフロントエンドを使用しています。これはslang
+ フロントエンドと呼ばれる新しいフロントエンドによって置き換えられまし
+ た。これはダイアログフロントエンドで可能な機能を全て持ち、それ以外の
+ 機能も持っています。これにより、複数の質問に同時に答える事が可能にな
+ り、使用において全体的により柔軟で快適になります。ご希望なら、今フロ
+ ントエンドを変更する事が出来ます。
+
+Template: debconf/helpvisible
+Type: boolean
+Default: true
+Description: Should debconf display extended help for questions?
+ Debconf can display extended help for questions. Some frontends allow this
+ display to be turned off, which may make them run a bit faster, or be less
+ cluttered. This is mostly useful for experts.
+Description-ja: debconfが質問時拡張ヘルプを表示しますか？
+ debconfは質問に関して拡張ヘルプを表示する事が出来ます。いくつかのフロ
+ ントエンドはこの表示をoffにする事ができ、その方が動作が若干高速で、不
+ 要な説明を省略する事が出来ます。これは熟練者にとって多くの場合に便利
+ でしょう。
