@@ -37,8 +37,11 @@ foreach my $t (keys %templates) {
 # Now make new Question objects for all the questions.
 foreach my $item (keys %questions) {
 	my @owners=grep { $_ ne '' } keys %{$questions{$item}->{owners}};
-	next unless @owners;
+	delete $questions{$item}, next unless @owners;
+
+	# Skip questions that have no listed owner.
 	next unless defined $questions{$item}->{template}->{_name};
+
 	my $question=Debconf::Question->new($item, pop @owners);
 	$question->addowner($_) foreach @owners;
 }

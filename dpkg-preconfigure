@@ -70,6 +70,7 @@ BEGIN {
 	eval qq{
 		use strict;
 		use FileHandle;
+		use Debconf::Log qw(:all);
 		use Debconf::Db;
 		use Debconf::Template;
 		use Debconf::Config qw(frontend priority showold);
@@ -82,6 +83,11 @@ BEGIN {
 		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
 		exit 0;
 	}
+}
+
+if (! -x "/usr/bin/apt-extracttemplates") {
+	warn "cannot preconfigure packages -- apt-utils is not installed";
+	exit;
 }
 
 # In apt mode, need unbuffered output.

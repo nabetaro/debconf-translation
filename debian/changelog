@@ -1,3 +1,16 @@
+debconf (0.9.16) unstable; urgency=low
+
+  * Updated transition_db.pl to fix skipping of items with no owner.
+    Closes: #88820
+  * Documented in the user's guide that it needs apt-utils 0.5 or above for
+    preconfiguration (really later, since that is currently broken in
+    apt..) Closes: #88705
+  * Made apt-extracttemplates be less scary if apt-utils is not installed.
+    We really need a better solution here, I think..
+  * Updated french translation from Martin Quinson <Martin.Quinson@ens-lyon.fr>
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Mar 2001 10:19:05 -0800
+
 debconf (0.9.15) unstable; urgency=low
 
   * Made the File DbDriver keep a backup file in -old, and

@@ -103,15 +103,19 @@
       your system. This is useful because it lets all the questions the
       packages are going to ask be asked at the beginning of an install,
       so the rest of the install can proceeed while you are away getting
-      a cup of coffee. If you use apt, you have probably already seen this
-      in action. Debconf sets up apt so debconf is run to preconfigure
-      all packages apt installes, just before it installs them.
+      a cup of coffee.
+    </para>
+    <para>
+      If you use apt (version 0.5 or above), and you have apt-utils installed,
+      pre-configuration will be done to all packages apt installs. This is
+      controlled via /etc/apt/apt.conf.d/70debconf.
     </para>
     <para>
       Sometimes you might want to preconfigure a package
       by hand, when you're not installing it with apt. You can use the
       <command>dpkg-preconfigure</command> command to do that, just pass it
-      the filenames of the packages you want to preconfigure.
+      the filenames of the packages you want to preconfigure. You will need
+      apt-utils installed for that to work.
     </para>
   </sect1>
   <sect1>
