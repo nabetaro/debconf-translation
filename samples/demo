@@ -15,10 +15,8 @@ db_capb
 db_title Demo
 db_subst demo/select colors red, Yellow, green
 db_input critical demo/string || true
-db_input low demo/note || true
 db_input low demo/password || true
 db_input low demo/text || true
-db_input low demo/boolean || true
 db_input low demo/select || true
 db_go || true
 db_beginblock

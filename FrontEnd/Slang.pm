@@ -149,9 +149,6 @@ sub go {
 
 	return 1 unless @elements;
 
-	# Make sure slang is up and running, and the screen size is known.
-	$this->screen->slang_init;
-
 	# Set up all the widgets to be displayed on the panel.
 	$this->panel->clear;
 	my $firstwidget='';
@@ -159,7 +156,16 @@ sub go {
 		# Noninteractive elemements have no widgets.
 		next unless $element->widget;
 
-		$firstwidget=$element->widget unless $firstwidget;
+		unless ($firstwidget) {
+			$firstwidget=$element->widget;
+			
+			# Make sure slang is up and running, and the screen
+			# size is known. Note that this is not done until
+			# now so the frontend doesn't pop up in debconf
+			# runs where no interactive questions are asked
+			$this->screen->slang_init;
+		}
+		
 		# Make the widget call the element's resize method when it
 		# is resized.
 		$element->widget->resize_hook(sub { $element->resize });
@@ -196,23 +202,52 @@ sub go {
 		$this->panel->add($element->widget);
 	}
 
-	$this->mainwindow->title($this->title);
-	# Make sure everything inside the panel is positioned ok.
-	$this->fillpanel;
+	my $ret=1;
 
-	# Now set it all in motion, with the first widget focused.
-	$this->helpbar->push("Tab and arrow keys move.");
-	$this->panel->display;
-	$this->screen->run($firstwidget);
-	$this->helpbar->pop;
-	
-	$this->button_next->deactivate;
-	$this->button_next->display;
-	$this->button_back->deactivate;
-	$this->button_next->display;
+	# Don't do any of this if there are no interactive widgets to show.
+	if ($firstwidget) {
+		$this->mainwindow->title($this->title);
+		# Make sure everything inside the panel is positioned ok.
+		$this->fillpanel;
+
+		# Unless the confmodule can backup, disable the back
+		# button.
+		$this->button_back->disabled(! $this->capb_backup);
+
+		# Now set it all in motion, with the first widget focused.
+		$this->helpbar->push("Tab and arrow keys move.");
+		$this->panel->display;
+		$this->screen->run($firstwidget);
+
+		# User interaction is done for now; clean up.
+		$this->helpbar->pop;
+		# See which button is active (and thus was pressed).
+		if ($this->button_next->active) {
+			$this->button_next->deactivate;
+			$this->button_next->display;
+		}
+		elsif ($this->button_back->active) {
+			$ret='';
+			$this->button_back->deactivate;
+			$this->button_back->display;
+		}
+	}
+
+	if ($ret) {
+		# Run through the elements, and get the values that were
+		# entered and shove them into the questions.
+		foreach my $element (@elements) {
+			$element->question->value($element->value);
+			# Only set isdefault if the element was visible,
+			# because we don't want to do it when showing
+			# noninteractive select elements and so on.
+			$element->question->flag_isdefault('false')
+				if $element->visible;
+		}
+	}
 
 	$this->clear;
-	return 1;
+	return $ret;
 }
 
 =head2 fillpanel
