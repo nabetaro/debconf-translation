@@ -242,9 +242,7 @@ sub getfield {
 	my $field=shift;
 	
 	return unless $this->cached($item);
-	return $this->{cache}->{$item}->{fields}->{$field}
-		if exists $this->{cache}->{$item}->{fields}->{$field};
-	return '';
+	return $this->{cache}->{$item}->{fields}->{$field};
 }
 
 =head2 setfield(itemname, fieldname, value)
@@ -338,9 +336,7 @@ sub getvariable {
 	my $variable=shift;
 
 	return unless $this->cached($item);
-	return $this->{cache}->{$item}->{variables}->{$variable}
-		if exists $this->{cache}->{$item}->{variables}->{$variable};
-	return '';
+	return $this->{cache}->{$item}->{variables}->{$variable};
 }
 
 =head2 setvariable(itemname, variablename, value)
