@@ -248,7 +248,14 @@ to write them!
   Driver: text
   Directory: /var/cache/debconf/templates
 .SH "PLANNED ENHANCEMENTS"
-More drivers.
+More drivers. Some ideas include:
+A SQL driver, with the capability to access a remote database.
+A driver that stores a whole database in a single file, perhaps using a .db
+file (useful for shipping from system to system).
+A LDAP driver.
+A driver that pulls values out of public DNS records TXT fields.
+A driver that is compatable with the output of cdebconf.
+.B
 .P
 Force-Flag-Foo: value to allow things like Force-Flag-Seen: false
 .SH FILES
