@@ -1,5 +1,17 @@
 #!/usr/bin/perl -w
 
+=head1 NAME
+
+Debian::DebConf::Element::Gtk::Note - Gtk text field
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a Gtk text field in the debconf dialog box.
+
+=cut
+
 package Debian::DebConf::Element::Gtk::Note;
 use Gtk;
 use strict;

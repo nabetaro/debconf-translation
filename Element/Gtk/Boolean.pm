@@ -1,5 +1,17 @@
 #!/usr/bin/perl -w
 
+=head1 NAME
+
+Debian::DebConf::Element::Gtk::Boolean - Gtk check box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a check box element in the debconf dialog box.
+
+=cut
+
 package Debian::DebConf::Element::Gtk::Boolean;
 use Gtk;
 use strict;

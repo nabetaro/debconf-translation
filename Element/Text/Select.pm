@@ -1,6 +1,16 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Line::Select lets the user select from a list of valid answers.
+
+=head1 NAME
+
+Debian::DebConf::Element::Line::Select - select from a list of values
+
+=cut
+
+=head1 DESCRIPTION
+
+This lets the user pick from a number of values, using a plain text interface.
+
+=cut
 
 package Debian::DebConf::Element::Line::Select;
 use strict;
@@ -9,7 +19,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 	my %selectindfromlet = ();

@@ -1,6 +1,16 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Line::Note is a note to the user.
+
+=head1 NAME
+
+Debian::DebConf::Element::Line::Note - A note to the user
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a note to the user, presented using a plain text interface.
+
+=cut
 
 package Debian::DebConf::Element::Line::Note;
 use strict;
@@ -9,7 +19,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element.
 sub show {
 	my $this=shift;
 

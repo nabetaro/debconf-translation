@@ -1,6 +1,16 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Dialog::Note is a note to show to the user.
+
+=head1 NAME
+
+Debian::DebConf::Element::Dialog::Note - A note in a dialog box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an input element that can display a dialog box with a note on it.
+
+=cut
 
 package Debian::DebConf::Element::Dialog::Note;
 use strict;
@@ -9,7 +19,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

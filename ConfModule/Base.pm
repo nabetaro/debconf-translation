@@ -121,6 +121,18 @@ sub command_input {
 	return;
 }
 
+=head2 command_clear
+
+Clears out the list of elements in our accociated FrontEnd.
+
+=cut
+
+sub command_clear {
+	my $this=shift;
+	
+	$this->frontend->clear;
+}
+
 =head2 command_version
 
 Compares protocol versions with the confmodule. The version property of the ConfModule
@@ -216,6 +228,22 @@ sub command_set {
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		die "$question_name doesn't exist";
 	$question->value($value);
+}
+
+=head2 command_reset
+
+Reset a question to its default value.
+
+=cut
+
+sub command_reset {
+	my $this=shift;
+	my $question_name=shift;
+
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
+	$question->value($question->default);
+	$question->flag_isdefault('true');
 }
 
 =head2 command_subst

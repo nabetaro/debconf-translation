@@ -89,6 +89,18 @@ sub go {
 	my $this=shift;
 
 	map { $_->show} @{$this->{elements}};
+	$this->clear;
+}
+
+=head2 clear
+
+Clear out the accumulated elements.
+
+=cut
+
+sub clear {
+	my $this=shift;
+	
 	$this->{elements}=[];
 	return '';
 }

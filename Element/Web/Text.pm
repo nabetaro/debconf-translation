@@ -1,5 +1,21 @@
 #!/usr/bin/perl -w
 
+=head1 NAME
+
+Debian::DebConf::Element::Web::Text - A paragraph on a form
+
+=cut
+
+=head1 DESCRIPTION
+
+This element handles a paragraph of text on a web form.
+
+=cut
+
+=head1 METHODS
+
+=cut
+
 package Debian::DebConf::Element::Web::Text;
 use strict;
 use Debian::DebConf::Element::Base;
@@ -7,7 +23,12 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Just generates and returns some html.
+=head2 show
+
+Generates and returns html for the paragraph of text.
+
+=cut
+
 sub show {
 	my $this=shift;
 
@@ -18,7 +39,13 @@ sub show {
 	return "<b>".$this->question->description."</b>$_<p>";
 }
 
-# The user has now see this text.
+=head2 set
+
+ This gets called once the user has seen the paragraph, and it just 
+ records that the user has seen it.
+ 
+=cut
+
 sub set {
 	my $this=shift;
 

@@ -1,5 +1,19 @@
 #!/usr/bin/perl -w
 
+=head1 NAME
+
+Debian::DebConf::Element::Gtk::Select - Gtk select box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an element on the debconf dialog box that lets the user
+pick from a list of valid choices.
+
+=cut
+
+
 package Debian::DebConf::Element::Gtk::Select;
 use Gtk;
 use strict;

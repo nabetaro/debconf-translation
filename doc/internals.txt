@@ -1,6 +1,3 @@
-Overview
---------
-
 This is an attempt at documenting the many objects that form debconf, their
 interfaces, methods, and how they interact. It presumes familiarity with the
 configuration management specification.
@@ -27,36 +24,3 @@ Debconf is composed of these type of objects:
 
 For detailed information about any of these modules, see the POD
 documentation embedded in them.
-
-Elements
---------
-
-Each element represents one user interface element in a FrontEnd. Elements
-can have associated values which are accessed and set in the usual way.
-There are 3 types of Elements right now:
-
-- Input: represents a UI element the user can enter input into. It may be a
-  button, a text box, a select box, etc. Typically has fields named
-  "priority" and "question"
-- Text: a peice of text to display to the user. These are intermixed with
-  Input items. Typically has field named "priority" and "text".
-- Note: a dialog box or similar construct, used for displaying text to the
-  user.
-
-For each different FrontEnd, each of these 3 types of Elements must be
-implemented. I'll skip all the individual details. Most Elements have the
-following method:
-
-	show()
-		Display the element, prompting the user for input if necessary.
-		Typically also sets the value of the Question bound to this
-		Element.
-
-Web based Elements have a show() that outputs html, plus this method:
-
-	set(value)
-		Receive a value from the user and deal with it as necessary.
-		Typically this sets the value of the Question bound to this
-		Element.
-
--- Joey Hess <joey@kitenet.net>

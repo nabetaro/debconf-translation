@@ -1,6 +1,16 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Line::Text is peice of text to show.
+
+=head1 NAME
+
+Debian::DebConf::Element::Line::Text - show text to the user
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a peice of text to output to the user.
+
+=cut
 
 package Debian::DebConf::Element::Line::Text;
 use strict;
@@ -9,7 +19,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element.
 sub show {
 	my $this=shift;
 

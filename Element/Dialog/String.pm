@@ -1,6 +1,17 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Dialog::String is a text input field.
+
+=head1 NAME
+
+Debian::DebConf::Element::Dialog::String - A text input field in a dialog box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an input element that can display a dialog box with a text input
+field on it.
+
+=cut
 
 package Debian::DebConf::Element::Dialog::String;
 use strict;
@@ -9,7 +20,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

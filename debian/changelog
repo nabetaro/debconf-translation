@@ -1,3 +1,17 @@
+debconf (0.1.18) unstable; urgency=low
+
+  * Expanded the tutorial, it's now a complete standalone document with
+    examples. <pant, pant>
+  * Oops, I never implemented the reset command! Fixed that.
+  * Oops, there are 2 different reset commands! Renamed one to clear,
+    contingent on Wichert's approval, and implemented the other as well.
+  * Removed dpkg-frontend from the binary package. I really don't want
+    people using it.
+  * Added pod docs for all Element files. Rather minimal right now.
+  * Tested the changes to Client::ConfModule; they work.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 15 Sep 1999 11:35:45 -0700
+
 debconf (0.1.17) unstable; urgency=low
 
   * Added COPYING file.

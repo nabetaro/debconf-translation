@@ -1,6 +1,17 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Dialog::Select is a list of choices.
+
+=head1 NAME
+
+Debian::DebConf::Element::Dialog::Select - A list of choices in a dialog box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an input element that can display a dialog box with a list of choices
+on it.
+
+=cut
 
 package Debian::DebConf::Element::Dialog::Select;
 use strict;
@@ -9,7 +20,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

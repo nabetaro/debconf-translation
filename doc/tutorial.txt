@@ -1,6 +1,8 @@
+Introduction
+------------
+
 This is a guide to using debconf with your packages, aimed at a Debian
-developer. This is all rather rough, and I have little experience as yet
-with this myself, so bear with me.
+developer. 
 
 So, what is debconf? To save you reading the spec
 (http://www.debian.org/~wakkerma/config6/), debconf is a backend database,
@@ -16,31 +18,85 @@ Debconf should be used whenever your package needs to output something to
 the user, or ask a question of the user. I'll assume you already have a
 package that does this and you want to convert it to use debconf.
 
-First, your package must depend on debconf (or pre-depend on it if it uses
-debconf in its preinst). This is necessary since debconf isn't (yet) part of
-the base system.
+Getting started
+---------------
 
-The first thing to do is look at your postinst, any program your
+First, your package must depend on debconf (or pre-depend on it if it uses
+debconf in its preinst). This is necessary since debconf isn't part of the
+base system.
+
+The first thing to do is look at your postinst, plus any program your
 postinst calls (like a "packageconfig" program), plus your preinst, and even
 your prerm and postrm. Take note of all output they can generate and all
 input they prompt the user for. All this output and input must be eliminated
 for your package to use debconf. (Output to stderr can be left as is.)
 
+For example, a hypothetical package "foo" has the following postinst:
+
+  #!/bin/sh -e
+  echo -n "Do you like debian? [yn] "
+  read like
+  case "$like" in
+  n*|N*)
+    echo "Poor misguided one. Why are you installing this package, then?"
+    /etc/init.d/subliminal_messages start "I like debian."
+  ;;
+  esac
+
+It's clear that it asks a question and sometimes outputs a message. We will
+need to use debconf to do both.
+
+The Templates file
+-------------------
+
 Start writing a debian/templates file. Each time you find a piece of output
 or a question, add it to the file as a new template. The format of this file
 is simple and quite similar to a Debian control file:
 
-Template: <packagename>/<something>
-Type: <select,string,boolean,note,text>
-Default: <optional default>
-Description: Blah blah blah?
- Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah blah blah. Blah
- blah. Blah blah blah. Blah blah.
- .
- Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah. Blah
- blah.
+  Template: <packagename>/<something>
+  Type: <select,string,boolean,note,text>
+  Default: <an optional default value>
+  Description: Blah blah blah?
+   Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah blah blah. Blah
+   blah. Blah blah blah. Blah blah.
+   .
+   Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah. Blah
+   blah.
 
-<next template here>
+  <next template here>
+
+A short description of the data types:
+
+  string
+  	Holds any arbitrary string of data.
+  boolean
+  	Holds "true" or "false".
+  select
+  	Holds one of a finite number of possible values. These
+  	values must be specified in a field named Choices:. Separate the
+  	possible values with commas and spaces, like this: 
+  		Choices: yes, no, maybe
+  note
+  	This template is a note that can be displayed to the user.
+  text
+	This template is a scrap of text that can be displayed to the user.
+
+Following laong in our example, we create a templates file with two
+templates in it:
+
+  Template: foo/like_debian
+  Type: boolean
+  Description: Do you like Debian?
+   We'd like to know if you like the Debian GNU/Linus system.
+
+  Template: foo/why_debian_is_great
+  Type: message
+  Description: Poor misguided one. Why are you installing this package, then?
+   Debian is great. As you continue using Debian, we hope you will discover
+   the error in your ways.
+
+The Config Script
+-----------------
 
 Next, decide what order the questions should be asked and the messages to
 the user should be displayed, figure out what tests you'll make before
@@ -49,33 +105,236 @@ debian/config file to ask and display them. Depending on what language you
 choose to write debian/config in, you have some choices about how to
 communicate with the frontend:
 
-shell script:
-	- You can use the dpkg-frontend program. See its man page for
-	  documentation.
-	- You can source /usr/share/debconf/confmodule.sh, which will make
-	  a number of shell functions available to you and is a little less
-	  unweildly to use than dpkg-frontend. For details, see confmodule.3
-	- Or you can speak to the frontend directly via standard input and
-	  standard output, but you'll have to read up on the protocol to do
-	  this. 
+  shell script:
+  
+  	You can source /usr/share/debconf/confmodule.sh, which will make
+  	a number of shell functions available to you. Each shell function
+  	corresponds to a command in the protocol (with "db_" prefixed to
+  	its name). You pass parameters to it and get a result back in the
+  	$RET variable.  For details, see confmodule.3. 
 
-perl:
-	- You can use the Debian::DebConf::Client::ConfModule perl module,
-	  It is quite similar to confmodule.sh except for perl, and is
-	  doumented on the Debian::Debconf::Client::ConfModule.2pm man page.
-	- Or you can speak the protocol directly.
+  perl:
+  
+  	You can use the Debian::DebConf::Client::ConfModule perl module,
+  	which makes a number of functions available to you. Each function
+  	corresponds to a command in the protocol -- you pass parameters into
+  	it and it returns the result. For details, see the 
+  	Debian::Debconf::Client::ConfModule.2pm man page.
 
-Consider supporting use of the back button to jump back from one question to
-the previous question. It's a bit more work, but a big plus for the user.
+  other:
+  
+  	You'll have to comminucate with the frontend directly via standard
+  	input and standard output. This isn't hard; read the protocol
+  	specification for details.
 
-At this point it's time to move on to actually modifying your postinst,
-preinst, etc. Remove all extraneous noise, like the starting and stopping of
-daemons. Use one of the methods mentioned above to pull the answers to any
-questions out of the database and also to display any messages it still
-needs to show (these should be very rare). When you're done with each
-program, it should run without outputting anything at all.
+A list and description of all the commands you can use to talk to the
+frontend is at the end of this document in Appendix A. The most common
+commands you will use in the config script are "input", "go", and "get".
+Briefly, "input <priority> <variable>" asks the frontend to make sure it has
+asked the user for the value of a variable, specifying how important it is
+the user be asked this. The variable names normally correspond to the names
+of the templates in the template files. "go" tells the frontend to display
+all accumulated input commands to the user. And "get <variable>" asks the
+frontend to return to you what value a variable is set to.
+
+Continuing the example, we need a config script to display the first
+question, and if the user says they do not like debian, it should display
+the message about that.
+
+  #!/bin/sh -e
+  
+  # Source debconf library.
+  . /usr/share/debconf/confmodule.sh
+
+  # Do you like debian?
+  db_input medium foo/like_debian
+  db_go
+  
+  # Check their answer.
+  db_get foo/like_debian
+  if [ "$RET" = "false" ]; then
+  	# Poor misguided one..
+	db_input high foo/why_debian_is_great
+	db_go
+  fi
+
+Note that the debian/config script is run before the package is unpacked. It
+should only use commands that are in the base system. Also, it shouldn't
+actually edit files on the system, or effect it in any other way.
+
+Modifying Existing Maintainer Scripts
+-------------------------------------
+
+Once you have a templates file and a config script, it's time to move on to
+using the data your config script collects in other maintainer scripts of
+your package, like your postinst. Just like the config script, the postinst
+and other maintainer scripts can use the confmodule.sh or
+Debian::DebConf::Client::ConfModule libraries, or they can speak directly to
+the frontend on standard output. 
+
+Anything your maintainer scripts output to standard output is passed into
+the frontend as a command, so you need to remove all extraneous noise, like
+the starting and stopping of daemons, etc.
+
+The only command postinsts normally use to communicate with the frontend is
+"get" (though in reality they can use any commands, including "input", you
+are advised not to do so). Typically, the config script prompts the user for
+input, and the postinst then pulls that input out of the database via the
+get command. 
+
+In the example, before debconf, the package's postinst did this:
+
+  #!/bin/sh -e
+  echo -n "Do you like debian? [yn] "
+  read like
+  case "$like" in
+  n*|N*)
+  	echo "Poor misguided one. Why are you installing this package, then?"
+	/etc/init.d/subliminal_messages start "I like debian."
+  ;;
+  esac
+
+Our config script already handles most of this. After debconf, the postinst
+becomes:
+
+  #!/bin/sh -e
+
+  # Source debconf library.
+  . /usr/share/debconf/confmodule.sh  
+
+  deb_get foo/like_debian
+  if [ "$RET" = "false" ]; then
+  	/etc/init.d/subliminal_messages start "I like debian."
+  fi
+
+Finishing Up
+------------
 
 Now you have a config script and a templates file. Install both into
-debian/tmp/DEBIAN. Make sure to make the config script executable.
+debian/tmp/DEBIAN. Make sure to make the config script executable. Your
+package now uses debconf!
 
--- Joey Hess <joey@kitenet.net>
+Appendix A.
+-----------
+
+Here is a complete list of the the commands you can use to communicate with 
+the  frontend (remember these are prefixed with "db_" if you are using
+confmodule.sh).
+
+version <number>
+
+	This exchanges with the frontend the protocol version number that is
+	being used. The current version is 1.0. Versions in the 1.x series
+	will be backwards-compatable. You can specify the protocol version
+	number you are speaking, but note that the perl and shell libraries
+	specify a good default for you. The frontend will return the version
+	of the protocol it speaks.
+
+capb <capabilities>
+	
+	This exchanges with the frontend the capabilities that are supported.
+	Capabilities both the frontend and you send will be used. Currently
+	supported capabilities:
+		backup - backing up to a previous step is supported.
+
+title <string>
+
+	You can use this command to set a title in the frontend. This
+	in different ways, depending on the frontend being used, for example
+	it might change the title of the frontend's window.
+
+stop
+
+	This command tells the frontend you're done talking to it.
+	
+input <priority> <variable>
+
+	This tells the frontend you are interested in the value of a variable.
+	<variable> is the name of the variable, which should correspond to
+	the Template: line of the template that defines this variable. 
+	<priority> is how important it is that the user be prompted for the
+	variable. Supported priorities:
+		low
+			Use this for very trivial items that have defaults that
+		        will work in the vast majority of cases.
+		medium 
+			Use this for normal items that have a reasonable 
+			default.      
+		high
+			Use this for items that don't have a reasonable
+			default.
+		critical
+			Use this only for items that will probably break
+			the system without user intervention.
+			
+	Note that the frontend decides if the user is actually prompted or
+	not. If the user has already answered a question, they are normally
+	not asked it again even if input is called again. And if the user is
+	ignoring low priority items, they will not see them.
+
+beginblock
+endblock
+
+	Some frontends are able to display a number of items to the user
+	at once. To do this, they need to be given blocks of input commands,
+	enclosed in the beginblock and endblock commands. Blocks can be
+	nested and very advanced frontends may use this as a user interface
+	hint.
+
+go
+
+	Shows the current set of accumulated items to the user and lets
+	them fill in values, etc.
+	
+clear
+
+	Clears the accumulated set of items without displaying them
+	to the user.
+	
+get <variable>
+
+	Ask the frontend to tell you the value of a variable. The value is
+	returned to you.
+
+set <variable> <value>
+
+	Ask the frontend to set a variable to a value.
+	
+reset <variable>
+
+	Reset the variable to its default value.
+
+subst <variable> <key> <value>
+
+	Variables can have sibstitutions embedded in their descritions.
+	These substitutions look like "${key}". When the description
+	is displayed, the substitutions are replaced with their values.
+	This command can be used to set the value of a substitution.
+
+fget <variable> <flag>
+
+	Variables can have flags associated with them. The flags have
+	a value of "true" or "false". This command returns the value
+	of a flag.
+
+fget <variable> <flag> <value>
+
+	This sets the value of a flag on a variable. Valid values for the
+	flag are "true" and "false". One common flag is the "isdefault"
+	flag. It is normally only set if the variable is set to its
+	default value and the user has not seen it. Typically, frontends
+	only display questions to users if they have the isdefault flag set.
+	Sometimes you want the user to see a question again -- in these cases
+	you can set the isdefault flag to true to force the frontend to
+	reddisplay it.
+
+register <template> <variable>
+
+	This creates a new variable that is bound to a template. By default
+	each template has an accociated variable with the same name. However,
+	any number of variables can really be associated with a template, and
+	this lets you create more such variables.
+
+unregister <variable>
+
+	This removes a variable from the database.

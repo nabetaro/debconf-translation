@@ -1,6 +1,17 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Line::Boolean is a yes or no question.
+
+=head1 NAME
+
+Debian::DebConf::Element::Line::Boolean - Yes/No question
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a yes or no question, presented to the user using a plain text
+interface.
+
+=cut
 
 package Debian::DebConf::Element::Line::Boolean;
 use strict;
@@ -9,7 +20,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

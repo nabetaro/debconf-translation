@@ -1,6 +1,17 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Dialog::Base is a yes or no question.
+
+=head1 NAME
+
+Debian::DebConf::Element::Dialog::Boolean - Yes/No dialog box
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an input element that can display a dialog box with Yes and No buttons
+on it.
+
+=cut
 
 package Debian::DebConf::Element::Dialog::Boolean;
 use strict;
@@ -9,7 +20,6 @@ use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 

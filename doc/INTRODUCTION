@@ -3,13 +3,13 @@ have interacted with the user so far, the problems this causes, and the
 things it prevents us from doing. Then I'll show how debconf can address
 these problems.
 
-Currently, if a package needs to prompt the user for input, it just does it,
+Currently, if a package needs to prompt the user for input, it just does,
 using standard input and standard output to communicate with them. A few
 packages use things like dialog for a user interface, while most use
-bare-bones textutal interfaces. There is little consitency between these
+bare-bones textual interfaces. There is little consistency between these
 interfaces, since they are each written from scratch. They use different
 methods to indicate default values, different ways to present lists of
-choices, and even prompted in different ways when the user just needed to
+choices, and even prompt in different ways when the user just needs to
 hit enter after being shown a message. Many packages ask the user a series
 of questions with no way to go back to a previous question, or to start
 over.
@@ -23,7 +23,7 @@ everything unattended, and so installs are a long, drawn out process.
 Upgrades often take a long time as well, because many packages ask the same
 questions over and over each time they are installed. Those that don't have
 to store the user's last response somewhere, and they do this in a variety
-of different ways.
+of different, inconsistent, ways.
 
 Moreover, there is no way to simply use default answers for all the
 questions asked, if you're in a hurry or don't want to be bothered with
@@ -37,15 +37,15 @@ large-scale debian installations can't afford to answer the same questions
 over and over again on each machine, and have hacked together various ways
 around this.
 
-Finally, several distrbiutions have appeared recently, based on debian but
+Finally, several distributions have appeared recently, based on debian but
 catering to inexperienced users. None of them want the user to see any
 questions at all when they install, and they have used various hacks to
-supress the questions.
+suppress the questions.
 
 
 It seems clear that we need something better to replace the traditional
 method of querying the user from a maintainer script. It needs to present a
-consitent user interface to the user. It needs to be able to prioritize
+consistent user interface to the user. It needs to be able to prioritize
 questions so non-interactive installs are possible, as well as installs with
 all questions asked, or only the most important ones. It needs to be able to
 ask questions only once. And it would be nice if the questions could be
@@ -57,28 +57,28 @@ configuration management system that would address these needs. It was
 refined on the debian lists over the next several months, and the final
 specification is at http://www.debian.org/~wakkerma/config6/ . 
 
-The specification is very flexable, allowing for multiple differnet backend
+The specification is very flexible, allowing for multiple different back-end
 databases (using arbitrary database formats from SQL to plain text), that
 can be layered together and accessed over the network or locally. It also
 allows for a variety of user interfaces to be presented to the user. The
-maintainer scripts communicate with the backend and frontend using a simple
+maintainer scripts communicate with the back-end and front-end using a simple
 language.
 
-Debconf is an implementation of this specification. At this point it consits
-of a variety of frontend user interfaces (plain text similar to the
+Debconf is an implementation of this specification. At this point it consists
+of a variety of front-end user interfaces (plain text similar to the
 traditional method, dialog based, web, and GTK). It doesn't yet include the
-flexible backend database system from the specification. It is already fully
-usable as a consitent way to configure packages.
+flexible back-end database system from the specification. It is already fully
+usable as a consistent way to configure packages.
 
 As it stands now, debconf is usable along-side traditional packages, and
 packages that use debconf will behave just like normal packages except they
-have a consitent UI. Debconf also hooks into apt so if you use apt to
+use a consistent UI. Debconf also hooks into apt so if you use apt to
 install several debconf-aware packages at once, the packages will prompt for
 configuration information _before_ they are installed. An example is in
-order -- this is using debconf's plain text frontend (which really can't
-show off all of debconf's features, but will give the the idea).
+order -- this is using debconf's plain text front-end. This really can't
+show off all of debconf's features, but it should give you the idea.
 
-root@gumdrop:~>apt-get install sash lynx
+root@gumdrop:~> apt-get install sash lynx
 Reading Package Lists... Done
 Building Dependency Tree... Done
 The following NEW packages will be installed:
