@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-30 12:08-0500\n"
+"POT-Creation-Date: 2004-03-31 17:48-0500\n"
 "PO-Revision-Date: 2002-09-27 14:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -127,27 +127,37 @@ msgstr "no s'ha pogut iniciar l'interfície: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "No s'ha pogut iniciar una interfície: %s"
 
-#: ../Debconf/Config.pm:125
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr ""
 "La base de dades de configuracions no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:129
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr ""
 "La base de dades de plantilles no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:134
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
 
-#: ../Debconf/Config.pm:145
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+
+#: ../Debconf/Config.pm:262
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr ""
+
+#: ../Debconf/Config.pm:263
+#, c-format
+msgid "Valid priorities are: %s"
 msgstr ""
 
 #: ../Debconf/Template.pm:90

@@ -10,6 +10,8 @@ package Debconf::Config;
 use strict;
 use Debconf::Question;
 use Debconf::Gettext;
+use Debconf::Priority qw(priority_valid priority_list);
+use Debconf::Log qw(warn);
 use Debconf::Db;
 
 use fields qw(config templates frontend priority terse reshow
@@ -204,8 +206,8 @@ EOF
 	require Getopt::Long;
 	Getopt::Long::Configure('bundling');
 	Getopt::Long::GetOptions(
-		'frontend|f=s',	sub { shift; $config->{frontend} = shift },
-		'priority|p=s',	sub { shift; $config->{priority} = shift },
+		'frontend|f=s',	sub { shift; $class->frontend(shift) },
+		'priority|p=s',	sub { shift; $class->priority(shift) },
 		'terse',	sub { $config->{terse} = 'true' },
 		'help|h',	$showusage,
 		@_,
@@ -254,7 +256,16 @@ file.
 sub priority {
 	my $class=shift;
 	return $ENV{DEBIAN_PRIORITY} if exists $ENV{DEBIAN_PRIORITY};
-	$config->{priority}=shift if @_;
+	if (@_) {
+		my $newpri=shift;
+		if (! priority_valid($newpri)) {
+			warn(sprintf(gettext("Ignoring invalid priority \"%s\""), $newpri));
+			warn(sprintf(gettext("Valid priorities are: %s"), join(" ", priority_list)));
+		}
+		else {
+			$config->{priority}=$newpri;
+		}
+	}
 	return $config->{priority} if exists $config->{priority};
 
 	my $ret='medium';

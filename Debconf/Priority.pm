@@ -10,7 +10,7 @@ package Debconf::Priority;
 use strict;
 use Debconf::Config;
 use base qw(Exporter);
-our @EXPORT_OK = qw(high_enough priority_valid);
+our @EXPORT_OK = qw(high_enough priority_valid priority_list);
 
 =head1 DESCRIPTION
 
@@ -56,6 +56,16 @@ sub priority_valid {
 	my $priority=shift;
 
 	return exists $priorities{$priority};
+}
+
+=item priority_list
+
+Returns an ordered list of all allowed priorities.
+
+=cut
+
+sub priority_list {
+	return sort { $priorities{$a} <=> $priorities{$b} } keys %priorities;
 }
 
 =back

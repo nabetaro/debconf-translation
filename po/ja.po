@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-30 12:08-0500\n"
+"POT-Creation-Date: 2004-03-31 17:48-0500\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -123,23 +123,33 @@ msgstr "フロントエンドの初期化に失敗しました: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/Config.pm:125
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr "設定データベースが設定ファイルで指定されていません"
 
-#: ../Debconf/Config.pm:129
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr "テンプレートデータベースが設定ファイルで指定されていません"
 
-#: ../Debconf/Config.pm:134
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
 
-#: ../Debconf/Config.pm:145
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+
+#: ../Debconf/Config.pm:262
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr ""
+
+#: ../Debconf/Config.pm:263
+#, c-format
+msgid "Valid priorities are: %s"
 msgstr ""
 
 #: ../Debconf/Template.pm:90
