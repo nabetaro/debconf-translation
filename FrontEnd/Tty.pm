@@ -20,10 +20,10 @@ screenwidth property is always set to its width.
 =cut
 
 package Debian::DebConf::FrontEnd::Tty;
-use Debian::DebConf::FrontEnd;
 use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
+use vars '@ISA';
+use Debian::DebConf::FrontEnd; # perlbug
+use base qw(Debian::DebConf::FrontEnd);
 
 sub new {
 	my $proto = shift;
@@ -48,6 +48,7 @@ sub resize {
 		$this->{'screenheight'}=$ENV{'LINES'};
 	}
 	else {
+		# Gotta be a better way..
 		($this->{'screenheight'})=`stty -a </dev/tty` =~ m/rows (\d+)/s;
 		$this->{'screenheight'}=25 if ! $this->{'screenheight'};
 	}

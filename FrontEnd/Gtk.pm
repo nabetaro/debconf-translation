@@ -18,13 +18,11 @@ same lines as the Wizards in Microsoft Windows. (Be afraid..)
 =cut
 
 package Debian::DebConf::FrontEnd::Gtk;
-use Debian::DebConf::FrontEnd;
+use strict;
 use Gtk;
 use Gtk::Atoms;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
-
-use strict;
+use Debian::DebConf::FrontEnd; # perlbug
+use base qw(Debian::DebConf::FrontEnd);
 
 =head2 new
 

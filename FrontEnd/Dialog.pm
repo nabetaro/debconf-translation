@@ -21,15 +21,14 @@ It currently uses only whiptail of gdialog, because dialog lacks --defaultno.
 =cut
    
 package Debian::DebConf::FrontEnd::Dialog;
-use Debian::DebConf::FrontEnd::Tty;
+use strict;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Log ':all';
 use Debian::DebConf::Config;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
-use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Tty);
+use Debian::DebConf::FrontEnd::Tty; # perlbug
+use base qw(Debian::DebConf::FrontEnd::Tty);
 
 =head2 new
 

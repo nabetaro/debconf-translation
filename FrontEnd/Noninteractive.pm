@@ -17,16 +17,8 @@ This FrontEnd is completly non-interactive.
 =cut
    
 package Debian::DebConf::FrontEnd::Noninteractive;
-use Debian::DebConf::FrontEnd;
-use Debian::DebConf::Log ':all';
 use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
-
-=head1 AUTHOR
-
-Joey Hess <joey@kitenet.net>
-
-=cut
+use Debian::DebConf::FrontEnd; # perlbug
+use base qw(Debian::DebConf::FrontEnd);
 
 1

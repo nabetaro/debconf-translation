@@ -15,9 +15,8 @@ This is an password input element on the debconf dialog box.
 package Debian::DebConf::Element::Gtk::Password;
 use Gtk;
 use strict;
-use Debian::DebConf::Element;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element);
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $self = shift;

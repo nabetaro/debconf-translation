@@ -17,8 +17,8 @@ foreach my $file (@ARGV) {
 		if (/package\s(\w+.*?);/) {
 			$package=$1;
 		}
-		# Gag. This just looks for @ISA= lines.
-		if (/\@ISA\s*=\s*(?:q(?:w|q)?(?:\(|{)|"|')(.*?)(?:}|\)|'|")/) {
+		# Gag. This just looks for @ISA= lines and use base.
+		if (/(?:use\s+base\s+|\@ISA\s*=\s*)(?:q(?:w|q)?(?:\(|{)|"|')(.*?)(?:}|\)|'|")/) {
 			push @isa, split(/\s+/, $1);
 		}
 	}

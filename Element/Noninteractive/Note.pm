@@ -21,9 +21,8 @@ root's mailbox.
 
 package Debian::DebConf::Element::Noninteractive::Note;
 use strict;
-use Debian::DebConf::Element::Noninteractive;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Noninteractive);
+use Debian::DebConf::Element::Noninteractive; # perlbug
+use base qw(Debian::DebConf::Element::Noninteractive);
 
 =head2 show
 

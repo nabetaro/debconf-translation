@@ -27,13 +27,12 @@ module. Each of them are described below.
 
 package Debian::DebConf::ConfModule;
 use strict;
-use Debian::DebConf::Base;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Log ':all';
-use vars qw($AUTOLOAD @ISA);
-@ISA=qw(Debian::DebConf::Base);
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
 
 # Here I define all the numeric result codes that are used.
 my %codes = (
@@ -106,6 +105,9 @@ sub communicate {
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
+	# Make sure $command is a valid perl function name so the autoloader
+	# will catch it if nothing else.
+	$command=~s/[^a-zA-Z0-9_]/_/g;
 	my $w=$this->{write_handle};
 	if (lc($command) eq "stop") {
 		return $this->_finish;

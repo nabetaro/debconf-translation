@@ -14,9 +14,8 @@ This is an input element that can display a dialog box with a message on it.
 
 package Debian::DebConf::Element::Dialog::Text;
 use strict;
-use Debian::DebConf::Element;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element);
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
 
 sub show {
 	my $this=shift;

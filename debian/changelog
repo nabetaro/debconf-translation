@@ -1,3 +1,16 @@
+debconf (0.2.89) unstable; urgency=low
+
+  * Use perl's "base" module throughout the code, cutting 2 lines from each
+    module. Due to a bug in the module, I had to throw lots of "use"'s back
+    in, in the case of child modules that had a name that just appeneded to
+    the name of their parent. I have filed a perlbug about that 
+    (ID 20000212.001). These additions are marked "# perlbug" so I can grep
+    them back out later.
+  * Warning: I expect this release is very buggy. But that's why you're
+    tracking unstable, right?
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 12 Feb 2000 01:51:48 -0800
+
 debconf (0.2.88) unstable; urgency=low
 
   * Add templates file, config script, postinst, and posrtm to debconf-tiny, 

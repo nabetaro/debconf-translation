@@ -20,14 +20,12 @@ server ever. It only accpets one client at a time!
 =cut
 
 package Debian::DebConf::FrontEnd::Web;
-use Debian::DebConf::FrontEnd;
-use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
 use CGI;
 use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
+use Debian::DebConf::FrontEnd; # perlbug
+use base qw(Debian::DebConf::FrontEnd);
 
 =head2 new
 

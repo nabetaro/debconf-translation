@@ -17,6 +17,8 @@ I18N:
   -- see locale.pm. This is necessary for proper sorting, and other stuff.
 
 General:
+* Once perlbug ID 20000212.001 is fixed and the fix in in debian, grep -v 
+  "# perlbug" throughout the source to remove bug workaruond code.
 * Proper backend database, but that's a whole other ball of wax.
 * Config db browser, with AJ's config2 stuff.
 * Other frontends.

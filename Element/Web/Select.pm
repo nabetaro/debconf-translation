@@ -18,9 +18,8 @@ This element handles a select box on a web form.
 
 package Debian::DebConf::Element::Web::Select;
 use strict;
-use Debian::DebConf::Element::Select;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Select);
+use Debian::DebConf::Element::Select; # perlbug
+use base qw(Debian::DebConf::Element::Select);
 
 =head2 show
 

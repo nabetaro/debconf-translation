@@ -18,9 +18,8 @@ This is dummy select element.
 
 package Debian::DebConf::Element::Noninteractive::Select;
 use strict;
-use Debian::DebConf::Element::Noninteractive;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Noninteractive);
+use Debian::DebConf::Element::Noninteractive; # perlbug
+use base qw(Debian::DebConf::Element::Noninteractive);
 
 =head2 show
 

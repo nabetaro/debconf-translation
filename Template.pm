@@ -29,9 +29,8 @@ variable is set, and you request a field from a template, it will see if
 package Debian::DebConf::Template;
 use strict;
 use POSIX;
-use Debian::DebConf::Base;
-use vars qw(@ISA $AUTOLOAD);
-@ISA=qw{Debian::DebConf::Base};
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
 
 # Helper for parse, sets a field to a value.
 sub _savefield {

@@ -25,9 +25,8 @@ the Question is mapped to, the value of that field will be returned instead.
 package Debian::DebConf::Question;
 use strict;
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Base;
-use vars qw($AUTOLOAD @ISA);
-@ISA=qw(Debian::DebConf::Base);
+use vars qw($AUTOLOAD);
+use base qw(Debian::DebConf::Base);
 
 =head2 new
 

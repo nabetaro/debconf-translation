@@ -18,12 +18,11 @@ uses ReadLine to make the user interface just a bit nicer.
 =cut
 
 package Debian::DebConf::FrontEnd::Text;
-use Debian::DebConf::FrontEnd::Tty;
+use strict;
 use Text::Wrap;
 use Term::ReadLine;
-use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd::Tty);
+use Debian::DebConf::FrontEnd::Tty; # perlbug
+use base qw(Debian::DebConf::FrontEnd::Tty);
 
 local $|=1;
 

@@ -18,12 +18,11 @@ hold other elements that are displayed when it is.
 =cut
 
 package Debian::DebConf::Element::Container;
-use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use strict;
 use UNIVERSAL qw(isa);
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element);
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element);
 
 =head2 question
 

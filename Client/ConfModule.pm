@@ -42,9 +42,8 @@ use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use strict;
-use Exporter;
-use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
+use vars qw($AUTOLOAD @EXPORT_OK %EXPORT_TAGS);
+use base qw(Exporter);
 
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go

@@ -19,13 +19,11 @@ communicating with Elements to form that FrontEnd.
 =cut
 
 package Debian::DebConf::FrontEnd;
+use strict;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
-use Debian::DebConf::Base;
 use Debian::DebConf::Log ':all';
-use strict;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Base);
+use base qw(Debian::DebConf::Base);
 
 =head2 new
 

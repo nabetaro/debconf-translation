@@ -19,9 +19,7 @@ built. Each element represents one user interface element in a FrontEnd.
 
 package Debian::DebConf::Element;
 use strict;
-use Debian::DebConf::Base;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Base);
+use base qw(Debian::DebConf::Base);
 
 =head2 visible
 

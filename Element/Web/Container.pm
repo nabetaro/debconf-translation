@@ -18,9 +18,8 @@ This element handles a group of related questions on a web form.
 
 package Debian::DebConf::Element::Web::Container;
 use strict;
-use Debian::DebConf::Element::Container;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Container);
+use Debian::DebConf::Element::Container; # perlbug
+use base qw(Debian::DebConf::Element::Container);
 
 =head2 show
 

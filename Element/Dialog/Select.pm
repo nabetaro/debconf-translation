@@ -15,9 +15,8 @@ on it.
 
 package Debian::DebConf::Element::Dialog::Select;
 use strict;
-use Debian::DebConf::Element::Select;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Select);
+use Debian::DebConf::Element; # perlbug
+use base qw(Debian::DebConf::Element::Select);
 
 sub show {
 	my $this=shift;

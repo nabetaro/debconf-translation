@@ -19,9 +19,7 @@ nothing.
 
 package Debian::DebConf::Element::Noninteractive;
 use strict;
-use Debian::DebConf::Element;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element);
+use base qw(Debian::DebConf::Element);
 
 =head2 visible
 

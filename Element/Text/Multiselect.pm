@@ -16,9 +16,8 @@ very intuitive.)
 
 package Debian::DebConf::Element::Text::Multiselect;
 use strict;
-use Debian::DebConf::Element::Text::Select;
-use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Text::Select);
+use Debian::DebConf::Element::Text::Select; # perlbug
+use base qw(Debian::DebConf::Element::Text::Select);
 
 sub show {
 	my $this=shift;

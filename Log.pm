@@ -19,11 +19,9 @@ This module uses Exporter.
 =cut
 
 package Debian::DebConf::Log;
-use Exporter;
 use strict;
-use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
-
-@ISA = qw(Exporter);
+use base qw(Exporter);
+use vars qw(@EXPORT_OK %EXPORT_TAGS);
 @EXPORT_OK=qw(debug warn);
 # Import :all to get everything.
 %EXPORT_TAGS = (all => [@EXPORT_OK]);
