@@ -31,13 +31,13 @@ install: clean
 # as the cvs changelog, then increments the version number
 commit: clean
 	cvs -Q commit -m "dpkg-parsechangelog | grep '^  '"
-	cvs -Q tag rel-`dpkg-parsechangelog | grep ^Version: \
-		|cut -d " " -f 2 |tr '.' '-'`
+	cvs -Q tag rel-$(shell dpkg-parsechangelog | grep ^Version: \
+		|cut -d " " -f 2 |tr '.' '-')
 	$(MAKE) new
 	
 new:
 	# Update w/o editing.
 	EDITOR=true dch -v $(shell date +%Y%m%d) 2>/dev/null
 	# Dch has to change the bloody directory name. Feh.
-	mv . ../perlmoo
+	mv . ../debconf
 	
