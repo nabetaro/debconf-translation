@@ -19,8 +19,8 @@ to the first driver in the stack that contains the item.
 Writing to the stack is more complex, because we meed to worry about
 readonly drivers. Instead of trying to write to a readonly driver and
 having it fail, this module will copy the item from the readonly driver
-to driver at the top of the stack, and then perform the write to the topmost
-driver.
+to the writable driver closest to the top of the stack that accepts the
+given item, and then perform the write.
 
 =cut
 
@@ -160,21 +160,32 @@ sub _change {
 		}
 	}
 
-	# Find out what (readonly) driver on the stack first
-	# contains the item, and do the copy to the top of the stack.
+	# Figure out what driver is writable and will accept the new item.
+	my $writer;
 	foreach my $driver (@{$this->{stack}}) {
-		if ($driver->exists($item)) {
-			my $ret=$this->_nochange($driver, $command, $item, @_);
-			return $ret if defined $ret;
-			
-			# Nope, we have to copy after all.
-			_copy($item, $driver, $this->{stack}->[0]);
+		if (! $driver->{readonly} and $driver->accept($item)) {
+			$writer=$driver;
 			last;
 		}
 	}
 
-	# Finally, do the write to the top of the stack.
-	return $this->{stack}->[0]->$command($item, @_);
+	# Find out what (readonly) driver on the stack first
+	# contains the item, and do the copy to the top of the stack.
+	foreach my $driver (@{$this->{stack}}) {
+		if ($driver->exists($item)) {
+			# Check if this modification would really have any
+			# effect.
+			my $ret=$this->_nochange($driver, $command, $item, @_);
+			return $ret if defined $ret;
+			
+			# Nope, we have to copy after all.
+			_copy($item, $driver, $writer);
+			last;
+		}
+	}
+
+	# Finally, do the write.
+	return $writer->$command($item, @_);
 }
 
 # This handles copying an item. The destination is assumed not to

@@ -42,6 +42,27 @@ debconf is usable if connections to them go down. Defaults to true.
 In the config file the literal strings "true" and "false" can be used.
 Internally it uses 1 and 0 and.
 
+=item accept_type
+
+A regular expression indicating types of items that may be added to this
+driver. Defaults to accepting all types of items.
+
+=item reject_type
+
+A regular expression indicating types of items that are rejected by this
+driver.
+
+=item accept_name
+
+A regular expression that is matched against item names to see if they are
+accepted by this driver and may be added to it. Defaults to accepting all
+item names.
+
+=item accept_name
+
+A regular expression that is matched against item names to see if they are
+rejected by this driver.
+
 =back
 
 =cut
@@ -79,6 +100,10 @@ sub new {
 			# Convert from true/false strings to numbers.
 			$this->{$field}=1,next if lc($params{$field}) eq "true";
 			$this->{$field}=0,next if lc($params{$field}) eq "false";
+		}
+		elsif ($field=~/^(accept|reject)_/) {
+			# Internally, store these as pre-compiled regexps.
+			$this->{$field}=qr/$params{$field}/i;
 		}
 		$this->{$field}=$params{$field};
 	}
@@ -127,7 +152,7 @@ sub error {
 	}
 }
 
-=head2 driver(name)
+=head2 driver(drivername)
 
 This is a class method that allows any driver to be looked up by name.
 If any driver with the given name exists, it is returned.
@@ -139,6 +164,32 @@ sub driver {
 	my $name=shift;
 	
 	return $drivers{$name};
+}
+
+=head2 accept(itemname)
+
+Return true if this driver will accept queries for the given item. Uses the
+various accept_* and reject_* fields to determine this.
+
+=cut
+
+# TODO: types are not yet implemented. We have to get at the Template to
+# determine type.
+
+sub accept {
+	my $this=shift;
+	my $name=shift;
+
+	return 1 unless (exists $this->{accept_type} or
+			 exists $this->{accept_name} or
+			 exists $this->{reject_type} or
+			 exists $this->{reject_name});
+	
+#	return if exists $this->{accept_type} && $type!~/$this->{accept_type}/;
+#       return if exists $this->{reject_type} && $type=~/$this->{reject_type}/;
+	return if exists $this->{accept_name} && $name!~/$this->{accept_name}/;
+	return if exists $this->{reject_name} && $name=~/$this->{reject_name}/;
+	return 1;
 }
 
 =head2 iterate([itarator])

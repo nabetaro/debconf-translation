@@ -84,17 +84,9 @@ but it captures the essence of it.
 =cut
 
 # TODO:
-# * I need to implement the accept and reject thingies; add the fields to
-#   DbDriver class I guess, and add a new method to check whether it 
-#   accepts a given item. (Or do I need to break out a new type of object to
-#   handle this? That would be a LOT more flexiable, and I could just
-#   use new stanzas in the config file for those objects. Hmmmm.)
 # * There's also the Force-Flag-Seen thing, which is really a more generic
 #   forcing of any given flag to any vale, and should expand to forcing any
 #   field to a value too, I'd think.
-# * I need to modify stacks a bit, to make this example work. When setting a
-#   value, call the accept method on each writable driver in turn, and write
-#   to the first that accepts it, rather than always writing to topmost.
 # * Hook into the Question class.
 # * DbDriver's need access to Templates so they can tell what Type a
 #   given item is.
@@ -119,6 +111,7 @@ sub _hashify($$) {
 	foreach my $line (split /\n/, $text) {
 		next if $line=~/^\s*#/; # comment
 		my ($key, $value)=split(/\s*:\s*/, $line, 2);
+		$key=~tr/-/_/;
 		die "Parse error" unless defined $key and length $key;
 		$hashref->{lc($key)}=$value;
 	}
