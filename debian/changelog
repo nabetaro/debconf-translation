@@ -1,3 +1,15 @@
+debconf (0.2.40) unstable; urgency=low
+
+  * dpkg-preconfig: Do a basic dependancy check before attempting to
+    preconfigure a package. If the package depends on a newer version of
+    debconf than is installed, do not preconfigure. (Closes: #50411, #50236)
+    Should prevent any further breakages of the type we've seen before.
+  * doc/tutorial.xml: If you use the multiselect data type, you should depend
+    on debconf 0.2.26.
+  * Version.pm: Added, to store the debconf version.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 19 Nov 1999 13:16:16 -0800
+
 debconf (0.2.38) unstable; urgency=low
 
   * When processing what dialog returns after showing a multiselct, there

@@ -20,6 +20,7 @@ BEGIN {
 		use Debian::DebConf::Config;
 		use Debian::DebConf::AutoSelect;
 		use Debian::DebConf::Config;
+		use Debian::DebConf::Version;
 	};
 	if ($@) {
 		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
@@ -66,37 +67,59 @@ my %todo;
 # Make two passes -- first load all templates, then run all             
 # confmodules. 
 
-{
-	# I want to slurp whole templates.
-	local $/="\n\n";
+foreach my $x (0..$#debs) {
+	# Display a little progress indicator similar to what apt uses.
+	# This is mostly for showing something is going on during huge
+	# upgrades.
+	if ($apt) {
+		print "\r".(int( ($x+1) / ($#debs+1) * 100)).
+			"% [Scanning packages]";
+	}
 
-	foreach my $x (0..$#debs) {
-		# Display a little progress indicator similar to what apt uses.
-		# This is mostly for showing something is going on during huge
-		# upgrades.
-		if ($apt) {
-			print "\r".(int( ($x+1) / ($#debs+1) * 100)).
-				"% [Scanning packages]";
+	# See if there are any templates in this deb.
+	open (TEMPLATES, "dpkg --info $debs[$x] templates 2>/dev/null |");
+	if (! eof(TEMPLATES)) {
+		# Now a sanity check: does this package depend
+		# on a newer version of debconf than the current
+		# version? If so, do nothing to prevent upgrade breaks.
+		# The configuration of the package will still happen
+		# when its postinst runs.
+		#
+		# This will also figure out the package name, since
+		# that information is needed later.
+		my $ok=1;
+		open (INFO, "dpkg --info $debs[$x] |");
+		while (<INFO>) {
+			# Check for versioned debconf dependancy or
+			# pre-dependancy, store relation in $1, depended-upon
+			# version in $2.
+			#
+			# NOTE: if there are two debconf dependancies on a
+			# line, this only looks at the first
+			if (/^ (?i)(?:Pre-)?Depends(?i-):\s+.*?debconf\s+\(\s*([><=]*)\s+(.*?)\s*\)/) {
+				if (system('dpkg', '--compare-versions', $Debian::DebConf::Version::version, $1, $2) / 256 != 0) {
+					$ok='';
+				}
+			}
+			elsif (/^ Package:\s+(.*)/i) {
+				$packages{$debs[$x]}=$1;
+			}
 		}
+		close INFO;
 	
-		# See if there are any templates in this deb.
-		open (TEMPLATES, "dpkg --info $debs[$x] templates 2>/dev/null |");
-		if (! eof(TEMPLATES)) {
-			# There are templates, so we need to continue with
-			# other expensive stuff.
+		if ($ok) {
+			# There are templates, so we need to continue
+			# with other expensive stuff.
 			$todo{$debs[$x]}=1;
-			
-			# Figure out the package name.
-			$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
-			$packages{$debs[$x]}=~s/\n$//;
-
 			# Process the templates.
+			# I want to slurp whole templates.
+			local $/="\n\n";
 			while (<TEMPLATES>) {
 				Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});
 			}
 		}
-		close TEMPLATES;
-	}
+	}	
+	close TEMPLATES;
 }
 
 # Clear progress output.
@@ -158,12 +181,12 @@ Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 
 # Pass a package name, and the version of that package is returned.
 #
-# This function is memoized. I parse the dpkg status file
-# the first time it's called and return all else from a cache.
-# I probably need to know the versions of several packages that are
-# being installed, and calling dpkg -s for each would be unbearably
-# slow. Since this program should be in dpkg anyway, I have few compunctions
-# about parsing the file directly.
+# The function in this block deals with the dpkg status file and is
+# memoized. I parse the dpkg status file the first time it's called and
+# return all else from a cache. I probably need to know the versions of
+# several packages that are being installed, and calling dpkg -s for each
+# would be unbearably slow. Since this program should be in dpkg anyway,
+# I have few compunctions about parsing the file directly.
 {
 	my $haveversions='';
 	my %versions;

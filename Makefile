@@ -1,12 +1,16 @@
-all:
+all: Version.pm
 	$(MAKE) -C doc
+
+VERSION=$(shell expr "`dpkg-parsechangelog 2>/dev/null |grep Version:`" : '.*Version: \(.*\)')
+Version.pm:
+	echo -e "package Debian::DebConf::Version;\n\$$version='$(VERSION)';" > Version.pm
 
 test:
 	samples/$(PACKAGE)
 
 clean:
 	find . -name \*~ | xargs rm -f
-	rm -f *.db
+	rm -f *.db Version.pm
 	$(MAKE) -C doc clean
 
 install-libs:

@@ -184,6 +184,13 @@ Template: ....
 	      <literal>Default:</literal> field and the actual value of the
 	      question may be a comma and space delimited list of values,
 	      just like the <literal>Choices:</literal> field.
+	      <note>
+	        <para>
+	          For compatability with old versions of Debconf, if you use
+	          this data type, please make your package depend on
+	          <literal>debconf (>= 0.2.26)</literal>
+	        </para>
+	      </note>
 	    </entry>
 	  </row>
 	  <row>
