@@ -1,23 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of debconf_1.3.14.po to russian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 #    Translators, please read /usr/share/doc/po-debconf/README-trans
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf_1.3.14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-08-21 17:15-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Serge Winitzki <winitzki@yahoo.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2003-10-04 23:04+0600\n"
+"Last-Translator: Ilgiz Kalmetev <translator@ilgiz.pp.ru>\n"
+"Language-Team: russian <debian-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=KOI8-R\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.1\n"
 
 #. Choices
 #: ../templates:3
@@ -35,7 +34,7 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Пакеты,  использущие debconf для своей настройки, обладаютединым "
+"Пакеты,  использующие debconf для своей настройки, обладают единым "
 "интерфейсом. Вы можете выбрать наиболее подходящий."
 
 #. Description
@@ -47,10 +46,10 @@ msgid ""
 "configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Диалоговая  оболочка  -  полноэкранная,  в то время как \"строка ввода\" "
-"использует более  традиционный  простой текстовый интерфейс, а Gnome - "
-"современный  X интерфейс. Режим редактора позволит вам задавать настройки в "
-"вашем   любимом   редакторе.  Неинтерактивный  режим  избавит  вас  от "
+"Диалоговая  оболочка - полноэкранная, в то время как \"строка ввода\" "
+"использует более традиционный простой текстовый интерфейс, а Gnome - "
+"современный X интерфейс. Режим редактора позволит Вам задавать настройки в "
+"Вашем любимом редакторе. Неинтерактивный режим избавит вас от "
 "необходимости отвечать на какие-либо вопросы."
 
 #. Choices
@@ -61,7 +60,7 @@ msgstr "критичный, высокий, средний, низкий"
 #. Description
 #: ../templates:19
 msgid "See only questions that are of what priority and higher?"
-msgstr ""
+msgstr "Показывать только вопросы с текущим или более высоким приоритетом?"
 
 #. Description
 #: ../templates:19
@@ -74,16 +73,22 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf различает приоритеты задаваемых Вам вопросов. Выберите "
+"наименьший приоритет вопросов, которые Вы хотите видеть: "
+" - 'критический' выдает только вопросы, критичные для работы системы.\n"
+" Выберите этот уровень, если Вы новичок или если торопитесь.\n"
+" - 'высокий' выдает наиболее важные вопросы.\n"
+" - 'средний' - для обычных вопросов.\n"
+" - 'низкий' - для тех, кто хочет видеть все вопросы."
 
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Заметьте, что независимо от вашего выбора, вы всегда сможете увидеть старые "
-"вопросы, с помощью программы dpkg-reconfigure."
+"Заметьте, что независимо от выбранного сейчас уровня приоритета, Вы "
+"всегда сможете увидеть старые вопросы, с помощью программы dpkg-reconfigure."
 
 #~ msgid "Show all old questions again and again?"
 #~ msgstr "Всегда задавать старые вопросы еще раз?"
@@ -150,3 +155,4 @@ msgstr ""
 
 #~ msgid "Ignore questions with a priority less than.."
 #~ msgstr "Игнорировать вопросы с приоритетом меньше, чем.."
+
