@@ -530,7 +530,7 @@ command once, and adding a Build-Dependency on po-debconf and on debhelper
 .SH "PUTTING IT ALL TOGETHER"
 So you have a config script, a templates file, a postinst script that uses
 debconf, and so on. Putting these pieces together into a debian package
-isn't hard. You can do it by hand, or use can use
+isn't hard. You can do it by hand, or can use
 .BR dh_installdebconf (1)
 which will merge your translated templates, copy the files into the right
 places for you, and can even generate the call to PURGE that should go in
