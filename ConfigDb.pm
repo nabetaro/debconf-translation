@@ -28,7 +28,7 @@ use strict;
 use vars qw(%templates %questions);
 use base qw(Exporter);
 use vars qw(@EXPORT_OK);
-@EXPORT_OK = qw(getquestion gettree isunder loadtemplatefile
+@EXPORT_OK = qw(getquestion gettree isunder registertemplates
 		addquestion disownquestion disownall
 		savedb loaddb);
 
@@ -78,23 +78,25 @@ sub isunder {
 	return $name=~m:^\Q$root/\E:;
 }
 
-=head2 loadtemplatefile
+=head2 registertemplates
 
-Loads up a file containing templates (pass the filename or filehandle to load).
-Creates Template objects and corresponding Question objects. The second
-parameter is the name of the owner of the created templates and questions.
+Registers a set of templates into the database. Call this after loading up
+and instanitating the templates. Registering the templates in the database
+means other code can look them up, and means they will be saved. It also
+causes questions to be created with the same names as each new template.
+
+First pass the name of the owner of the templates and any questions that
+will be created, and then any number of Templates.
 
 =cut
 
-sub loadtemplatefile {
-	my $fn=shift;
+sub registertemplates {
 	my $owner=shift;
-	
-	foreach (Debian::DebConf::Template->load($fn, $owner)) {
+	foreach (@_) {
 		# Have to be careful here to ensure that if a template
-		# already exists in the db and we load it up, the
-		# changes replace the old template without
-		# instantiating a new template.
+		# already exists in the db and we load it up, the changes
+		# replace the old template without instantiating a new
+		# template.
 		if ($templates{$_->template}) {
 			# An old template with this name exists. Clear it
 			# and replace its data with the data from the new

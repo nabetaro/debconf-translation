@@ -70,8 +70,7 @@ BEGIN {
 	eval qq{
 		use strict;
 		use FileHandle;
-		use Debian::DebConf::ConfigDb qw(loaddb savedb 
-					         loadtemplatefile);
+		use Debian::DebConf::ConfigDb qw(loaddb savedb registertemplates);
 		use Debian::DebConf::Config qw(frontend priority showold
 					       dbdir tmpdir);
 		use Debian::DebConf::AutoSelect qw(:all);
@@ -170,7 +169,7 @@ unless (open(INFO, "-|")) {
 # the user watches their ui lock up until it scans all the way to the last..
 # Blowing a bit of memory on abuffer seems like a saner approach.
 my @buffer=<INFO>;
-if (@buffer) {
+if ($apt && @buffer) {
 	print "Preconfiguring packages ..\n";
 }
 foreach (@buffer) {
@@ -179,7 +178,7 @@ foreach (@buffer) {
 	# Load templates if any.
 	if (defined $template && length $template) {
 		eval q{
-			loadtemplatefile($template, $package);
+			registertemplates($package, Debian::DebConf::Template->load($template))
 		};
 		unlink $template;
 		if ($@) {

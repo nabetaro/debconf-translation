@@ -67,7 +67,8 @@ Display usage help.
 
 use strict;
 use Debian::DebConf::Gettext;
-use Debian::DebConf::ConfigDb qw(loaddb savedb loadtemplatefile);
+use Debian::DebConf::Template;
+use Debian::DebConf::ConfigDb qw(loaddb savedb registertemplates);
 use Debian::DebConf::Config qw(frontend priority dbdir showold);
 use Debian::DebConf::AutoSelect qw(:all);
 use Debian::DebConf::Log qw(:all);
@@ -164,7 +165,7 @@ foreach my $pkg (@packages) {
 	}
 	
 	# Load up templates just in case they arn't already.
-	loadtemplatefile("$infodir/$pkg.templates", $pkg)
+	registertemplates($pkg,Debian::DebConf::Template->load("$infodir/$pkg.templates"))
 		if -e "$infodir/$pkg.templates";
 
 	# Run postrm, config, and postinst scripts in sequence, with args.

@@ -119,19 +119,15 @@ sub stringify {
 =head2 load
 
 This class method reads a templates file, instantiates a template for each
-item in it, and returns all the instantiated templates.
-
-It takes two parameters: the file to load (or an already open FileHandle), and
-the owner of the instantiated templates.
+item in it, and returns all the instantiated templates. Pass it the file to
+load (or an already open FileHandle).
 
 =cut
 
 sub load {
 	my $this=shift;
 	my $file=shift;
-	my $owner=shift;
 
-	my $data;
 	my @ret;
 	my $fh;
 
@@ -141,16 +137,11 @@ sub load {
 	else {
 		$fh=FileHandle->new($file) || die "$file: $!";
 	}
+	local $/="\n\n"; # read a template at a time.
 	while (<$fh>) {
-		if ($_ ne "\n") {
-			$data.=$_;
-		}
-		if ($_ eq "\n" || $fh->eof) {
-			my $template=$this->new;
-			$template->parse($data);
-			push @ret, $template;
-			$data='';
-		}
+		my $template=$this->new;
+		$template->parse($_);
+		push @ret, $template;
 	}
 
 	return @ret;
