@@ -7,7 +7,8 @@ all: $(FILES) spec
 
 %.html: %.xml html.dsl
 	jade -V nochunks -t sgml -d html.dsl \
-		/usr/lib/sgml/declaration/xml.dcl $< | sed 's/&#13;//' > $@
+		/usr/lib/sgml/declaration/xml.dcl $< > $@
+	-tidy -i -m -f /dev/null $@
 
 %.txt: %.html
 	w3m -dump $< > $@
