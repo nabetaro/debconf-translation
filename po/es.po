@@ -3,14 +3,14 @@
 # Enrique Zanardi <ezanard@debian.org>, 2000.
 # Jordi Mallach <jordi@debian.org>, 2001.
 # Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>, 2003.
-#
+# Javier Fernández-Sanguino <jfs@debian.org>, 2004
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-19 15:43+0100\n"
-"PO-Revision-Date: 2003-09-23 18:35+0200\n"
-"Last-Translator: Carlos Valdivia Yagüe <valyag@dat.etsit.upm.es>\n"
+"PO-Revision-Date: 2004-09-30 01:20+0200\n"
+"Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -83,13 +83,10 @@ msgstr ""
 "de emacs, o sin una terminal controladora."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr ""
-"No están instalados whiptail ni dialog, así que no se puede usar la interfaz "
-"basada en dialog."
+msgstr "No hay ningún programa tipo dialog instalado, así que no se puede usar la interfaz basada en dialog."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
@@ -141,22 +138,22 @@ msgstr ""
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr ""
+msgstr "Ya no se utilizan las opciones «Sigils» y «Smileys» en el fichero de configuración. Por favor, elimínelas."
 
 #: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
+msgstr "Se produjo un problema al configurar la base de datos definida por la instancia %s de %s."
 
 #: ../Debconf/Config.pm:276
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr ""
+msgstr "Se ignorará la prioridad inválidad «%s»"
 
 #: ../Debconf/Config.pm:277
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr ""
+msgstr "Las prioridades válidas son: %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -194,9 +191,8 @@ msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "La plantilla #%s in %s no contiene una línea 'Template:'\n"
 
 #: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
 msgid "_Help"
-msgstr "Ayuda"
+msgstr "_Ayuda"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
@@ -214,7 +210,7 @@ msgstr ""
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
@@ -222,7 +218,7 @@ msgstr "La nota ha sido enviada por correo."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
