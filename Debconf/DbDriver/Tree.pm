@@ -8,7 +8,7 @@ Debconf::DbDriver::Tree - mount drivers onto a tree
 
 package Debconf::DbDriver::Tree;
 use strict;
-use base qw(Debconf::DbDriver);
+use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
 
@@ -28,6 +28,10 @@ use "" as a mountpoint to mount something at the root of the tree, "foo/" to
 mount it at "directory" foo, and so on. 
 
 =back
+
+=cut
+
+use fields qw(tree _map);
 
 =head1 METHODS
 

@@ -8,7 +8,7 @@ Debconf::DbDriver::Cache - caching database driver
 
 package Debconf::DbDriver::Cache;
 use strict;
-use base qw(Debconf::DbDriver);
+use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
 
@@ -31,6 +31,12 @@ A reference to a hash that holds the data for each loaded item in the
 database. Each hash key is a item name; hash values are either undef
 (used to indicate that a item used to exist here, but was deleted), or
 are themselves references to hashes that hold the item data.
+
+=back
+
+=cut
+
+use fields qw(cache);
 
 =head1 ABSTRACT METHODS
 
@@ -98,7 +104,7 @@ On initialization, the cache is empty.
 sub init {
 	my $this=shift;
 
-	$this->cache({});
+	$this->{cache} = {} unless exists $this->{cache};
 }
 
 =cut
@@ -114,10 +120,10 @@ sub cached {
 	my $this=shift;
 	my $item=shift;
 
-	unless (exists $this->cache->{$item}) {
-		$this->cache->{$item}=$this->load($item);
+	unless (exists $this->{cache}->{$item}) {
+		$this->{cache}->{$item}=$this->load($item);
 	}
-	return $this->cache->{$item};
+	return $this->{cache}->{$item};
 }
 
 =head2 savedb
@@ -135,12 +141,12 @@ underlying db to remove it.
 sub savedb {
 	my $this=shift;
 	
-	return if $this->readonly;
+	return if $this->{readonly};
 
-	foreach my $item (keys %{$this->cache}) {
-		if (defined $this->cache->{$item}) {
+	foreach my $item (keys %{$this->{cache}}) {
+		if (defined $this->{cache}->{$item}) {
 
-			return $this->save($item, $this->cache->{$item});
+			return $this->save($item, $this->{cache}->{$item});
 		}
 		else {
 			return $this->remove($item);
@@ -159,12 +165,12 @@ sub addowner {
 	my $item=shift;
 	my $owner=shift;
 
-	return if $this->readonly;
+	return if $this->{readonly};
 	$this->cached($item);
 
-	if (! defined $this->cache->{$item}) {
+	if (! defined $this->{cache}->{$item}) {
 		# The item springs into existance.
-		$this->cache->{$item}={
+		$this->{cache}->{$item}={
 			owners => {},
 			fields => {},
 			variables => {},
@@ -172,7 +178,7 @@ sub addowner {
 		}
 	}
 
-	$this->cache->{$item}->{owners}->{$owner}=1;
+	$this->{cache}->{$item}->{owners}->{$owner}=1;
 	return $owner;
 }
 
@@ -188,12 +194,12 @@ sub removeowner {
 	my $item=shift;
 	my $owner=shift;
 
-	return if $this->readonly;
+	return if $this->{readonly};
 	return unless $this->cached($item);
 
-	delete $this->cache->{$item}->{owners}->{$owner};
-	unless (keys %{$this->cache->{$item}->{owners}}) {
-		$this->cache->{$item}=undef;
+	delete $this->{cache}->{$item}->{owners}->{$owner};
+	unless (keys %{$this->{cache}->{$item}->{owners}}) {
+		$this->{cache}->{$item}=undef;
 	}
 	return $owner;
 }
@@ -210,7 +216,7 @@ sub getfield {
 	my $field=shift;
 
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{fields}->{$field};
+	return $this->{cache}->{$item}->{fields}->{$field};
 }
 
 =head2 setfield(itemname, fieldname, value)
@@ -225,9 +231,9 @@ sub setfield {
 	my $field=shift;
 	my $value=shift;
 
-	return if $this->readonly;
+	return if $this->{readonly};
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{fields}->{$field} = $value;	
+	return $this->{cache}->{$item}->{fields}->{$field} = $value;	
 }
 
 =head2 fields(itemname)
@@ -241,7 +247,7 @@ sub fields {
 	my $item=shift;
 	
 	return unless $this->cached($item);
-	return keys %{$this->cache->{$item}->{fields}};
+	return keys %{$this->{cache}->{$item}->{fields}};
 }
 
 =head2 getflag(itemname, flagname)
@@ -256,7 +262,7 @@ sub getflag {
 	my $flag=shift;
 	
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{flags}->{$flag};
+	return $this->{cache}->{$item}->{flags}->{$flag};
 }
 
 =head2 setflag(itemname, flagname, value)
@@ -271,9 +277,9 @@ sub setflag {
 	my $flag=shift;
 	my $value=shift;
 
-	return if $this->readonly;
+	return if $this->{readonly};
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{flags}->{$flag} = $value;
+	return $this->{cache}->{$item}->{flags}->{$flag} = $value;
 }
 
 =head2 flags(itemname)
@@ -287,7 +293,7 @@ sub flags {
 	my $item=shift;
 
 	return unless $this->cached($item);
-	return keys %{$this->cache->{$item}->{flags}};
+	return keys %{$this->{cache}->{$item}->{flags}};
 }
 
 =head2 getvariable(itemname, variablename)
@@ -302,7 +308,7 @@ sub getvariable {
 	my $variable=shift;
 
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{variables}->{$variable};
+	return $this->{cache}->{$item}->{variables}->{$variable};
 }
 
 =head2 setvariable(itemname, variablename, value)
@@ -317,9 +323,9 @@ sub setvariable {
 	my $variable=shift;
 	my $value=shift;
 
-	return if $this->readonly;
+	return if $this->{readonly};
 	return unless $this->cached($item);
-	return $this->cache->{$item}->{variables}->{$variable} = $value;
+	return $this->{cache}->{$item}->{variables}->{$variable} = $value;
 }
 
 =head2 variables(itemname)
@@ -333,7 +339,7 @@ sub variables {
 	my $item=shift;
 
 	return unless $this->cached($item);
-	return keys %{$this->cache->{$item}->{variables}};
+	return keys %{$this->{cache}->{$item}->{variables}};
 }
 
 =head1 AUTHOR

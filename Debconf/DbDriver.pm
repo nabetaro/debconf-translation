@@ -8,7 +8,6 @@ Debconf::DbDriver - base class for debconf db drivers
 
 package Debconf::DbDriver;
 use strict;
-use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
 
@@ -28,12 +27,38 @@ Set to true if this database driver is read only.
 
 =back
 
+=cut
+
+# I rarely base objects on fields, but I want strong compile-time type
+# checking for this class of objects, and speed.
+use fields qw(readonly);
+
 =head1 METHODS
 
 =head2 new
 
 Create a new object of this class. A hash of fields and values may be
 passed in to set initial state.
+
+=cut
+
+sub new {
+	my Debconf::DbDriver $this=shift;
+	unless (ref $this) {
+		$this = fields::new($this);
+	}
+	my %params=@_;
+	foreach my $field (keys %params) {
+		if ($field eq 'readonly') {
+			# Convert from true/false strings to numbers.
+			$this->{$field}=1,next if lc($params{$field}) eq "true";
+			$this->{$field}=1,next if lc($params{$field}) eq "false";
+		}
+		$this->{$field}=$params{$field};
+	}
+	$this->init;
+	return $this;
+}
 
 =head2 init
 

@@ -8,7 +8,7 @@ Debconf::Db::Text - plain text debconf db driver
 
 package Debconf::DbDriver::Text;
 use strict;
-use base qw(Debconf::DbDriver::Cache Debconf::DbDriver::FlatDir);
+use base qw(Debconf::DbDriver::FlatDir);
 
 =head1 DESCRIPTION
 
@@ -27,7 +27,7 @@ control file. An example:
 
 All listed flags are set; unset flags will not be listed.
 
-=head1 FIELDS
+=head1 METHODS
 
 =head2 load(itemname)
 
@@ -105,7 +105,7 @@ sub save {
 	my %data=%{shift()};
 	my $file=$this->filename($item);
 
-	return if $this->readonly;
+	return if $this->{readonly};
 
 	open(TEXTDB_OUT, ">$file") or die "$file: $!";
 	foreach my $field (sort keys %{$data{fields}}) {

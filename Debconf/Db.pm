@@ -20,12 +20,12 @@ a database driver. For example:
 
   # This is my own local database.
   Database: mydb
-  Driver: text
+  Driver: Text
   Directory: /var/lib/debconf
 
   # This is another database that I use to hold only X server configuration.
   Database: X
-  Driver: text
+  Driver: Text
   Directory: /etc/X11/debconf/
   # It's sorta hard to work out what questions belong to X; it
   # should be using a deeper tree structure so I could just match on ^X/
@@ -34,30 +34,41 @@ a database driver. For example:
   
   # This is our company's global, read-only (for me!) debconf database.
   Database: company
-  Driver: sql
+  Driver: SQL
   Server: debconf.foo.com
   Readonly: 1
   Username: foo
   Password: bar
   # I don't want any passwords that might be floating around in there.
-  Rehect-Type: password
+  Reject-Type: password
+  Force-Flag-Seen: false
+  # If this db is not accessible for whatever reason, carry on anyway.
+  Required: 0
+
+  # This special driver provides a few items from dhcp.
+  Database: dhcp
+  Driver: DHCP
+  Required: 0
+  Reject-Type: password
 
   # And I use this database to hold passwords safe and secure.
   Database: passwords
-  Driver: flatfile
-  File: /etc/passwords.debconf.db
-  FileMode: 600
+  Driver: FlatFile
+  File: /etc/debconf/passwords
+  Mode: 600
+  Owner: root
+  Group: root
   Accept-Type: password
 
-  # So let's put them all together. I'll make a database stack.
+  # Let's put them all together in a database stack.
   Database: main
-  Driver: stack
-  Stack: passwords, X, mydb, company
+  Driver: Stack
+  Stack: passwords, X, mydb, company, dhcp
   # So, all passwords go to the password database. Most X configuration
   # stuff goes to the x database, and anything else goes to my main
   # database. Values are looked up in each of those in turn, and if none has 
-  # a particular value, it is looked up in the company-wide database (unless
-  # it's a password).
+  # a particular value, it is looked up in the company-wide database 
+  # or maybe dhcp (unless it's a password).
 
 This lacks the glorious nested bindish beauty of Wichert's original idea,
 but it captures the essence of it.
@@ -70,11 +81,14 @@ but it captures the essence of it.
 #   accepts a given item. (Or do I need to break out a new type of object to
 #   handle this? That would be a LOT more flexiable, and I could just
 #   use new stanzas in the config file for those objects. Hmmmm.)
+# * There's also the Force-Flag-Seen thing, which is really a more generic
+#   forcing of any given flag to any vale, and should expand to forcing any
+#   field to a value too, I'd think.
 # * I need to modify stacks a bit, to make this example work. When setting a
 #   value, call the accept method on each writable driver in turn, and write
 #   to the first that accepts it, rather than always writing to topmost.
 # * Parser for config file; object instantiation will be straightforward.
-# * Hook this into the Question class.
+# * Hook into the Question class.
 # * DbDriver's need access to Templates so they can tell what Type a
 #   given item is.
 # * Make FlatDir write out password type thing mode 600.

@@ -8,7 +8,7 @@ Debconf::DbDriver::FlatDir - debconf db driver that stores items in files
 
 package Debconf::DbDriver::FlatDir;
 use strict;
-use base qw(Debconf::DbDriver);
+use base 'Debconf::DbDriver::Cache';
 
 =head1 DESCRIPTION
 
@@ -32,6 +32,12 @@ The directory to put the files in.
 
 An optional extention to tack on the end of each filename.
 
+=back
+
+=cut
+
+use fields qw(directory extention);
+
 =head2 init
 
 On initialization, we ensure that the directory exists.
@@ -41,14 +47,15 @@ On initialization, we ensure that the directory exists.
 sub init {
 	my $this=shift;
 
-	$this->extention("") unless $this->extention;
+	$this->{extention} = "" unless defined $this->{extention};
 
-	die "No directory specified\n" unless $this->directory;
-	if (not -d $this->directory and not $this->readonly) {
-		mkdir $this->directory || die "mkdir ".$this->directory.":$!";
+	die "No directory specified\n" unless $this->{directory};
+	if (not -d $this->{directory} and not $this->{readonly}) {
+		mkdir $this->{directory} ||
+			die "mkdir $this->{directory}:$!";
 	}
-	if (not -d $this->directory) {
-		die $this->directory." does not exist\n";
+	if (not -d $this->{directory}) {
+		die $this->{directory}." does not exist\n";
 	}
 	# TODO: lock the directory too, for read, or write. (Fctrnl
 	# locking?)
@@ -64,7 +71,7 @@ sub filename {
 	my $this=shift;
 	my $item=shift;
 	$item =~ tr#/#:#;
-	return $this->directory."/$item".$this->extention;
+	return $this->{directory}."/$item".$this->{extention};
 }
 
 =head2 iterate([iterator])
@@ -79,7 +86,7 @@ sub iterate {
 	
 	if (not $iterator) {
 		# uses dirhandle autovivification..
-		opendir($iterator, $this->directory) || die "opendir: $!";
+		opendir($iterator, $this->{directory}) || die "opendir: $!";
 		return $iterator;
 	}
 
@@ -107,7 +114,7 @@ Unlink a file.
 
 sub remove {
 	my $this=shift;
-	return if $this->readonly;
+	return if $this->{readonly};
 	my $file=$this->filename(shift);
 	unlink $file or return undef;
 }
