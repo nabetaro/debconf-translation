@@ -7,13 +7,13 @@
 #include <wait.h>
 #include <fstream.h>
 
+#include <apt-pkg/init.h>
 #if APT_PKG_MAJOR >= 3
 #define APT_COMPATIBILITY 986
 #include <apt-pkg/debversion.h>
 #endif
 #include <apt-pkg/pkgcache.h>
 #include <apt-pkg/configuration.h>
-#include <apt-pkg/init.h>
 #include <apt-pkg/progress.h>
 #include <apt-pkg/sourcelist.h>
 #include <apt-pkg/pkgcachegen.h>
