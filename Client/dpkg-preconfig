@@ -63,41 +63,46 @@ if (-e Debian::DebConf::Config::dbfn()) {
 
 my $frontend=Debian::DebConf::AutoSelect::frontend();
 
-# Parse the dpkg status file. I probably need to know the versions of 
-# several packages that are being installed, and calling dpkg -s for each
-# would be unbearably slow. Since this program should be in dpkg anyway,
-# I have few compunctions about parsing this file directly.
-my %versions;
-{
-	local $/="\n\n"; # only takes effect in this closure.
-	open (STATUS, "</var/lib/dpkg/status");
-	while (<STATUS>) {
-		my ($package)=m/Package:\s*(.*?)\n/;
-		($versions{$package})=m/Version:\s*(.*?)\n/;
-	}
-	close STATUS;
-}
-
 # Caches package names so they are only looked up once.
 my %packages;
 
-# Make two passes -- first load all templates, then run all confmodules.
-foreach my $x (0..$#debs) {
-	# Display a little progress indicator similar to what apt uses.
-	# This is mostly for showing something is going on during huge
-	# upgrades.
-	if ($apt) {
-		print "\r".(int( ($x+1) / ($#debs+1) * 100)).
-			"% [Scanning packages]";
+# Packages that have templates
+my %todo;
+
+# Make two passes -- first load all templates, then run all             
+# confmodules. 
+
+{
+	# I want to slurp whole templates.
+	local $/="\n\n";
+
+	foreach my $x (0..$#debs) {
+		# Display a little progress indicator similar to what apt uses.
+		# This is mostly for showing something is going on during huge
+		# upgrades.
+		if ($apt) {
+			print "\r".(int( ($x+1) / ($#debs+1) * 100)).
+				"% [Scanning packages]";
+		}
+	
+		# See if there are any templates in this deb.
+		open (TEMPLATES, "dpkg --info $debs[$x] templates 2>/dev/null |");
+		if (! eof(TEMPLATES)) {
+			# There are templates, so we need to continue with
+			# other expensive stuff.
+			$todo{$debs[$x]}=1;
+			
+			# Figure out the package name.
+			$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
+			chomp $packages{$debs[$x]};
+			
+			# Process the templates.
+			while (<TEMPLATES>) {
+				Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});
+			}
+		}
+		close TEMPLATES;
 	}
-
-	$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
-	chomp $packages{$debs[$x]};
-
-	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile(
-		"dpkg --info $debs[$x] templates 2>/dev/null |",
-	        $packages{$debs[$x]});
 }
 
 if ($apt) {
@@ -106,15 +111,18 @@ if ($apt) {
 my $runconfig='';
 
 foreach my $deb (@debs) {
+	# Check to see if this deb had any templates. If not, we skip
+	# it as an optimization. (It's very unlikely it has any config
+	# and if it does, the postinst will run it.)
+	next unless $todo{$deb};
+
 	# Check to see if this deb has a confmodule in it. If not,
 	# we will skip it. If so, we need to save the confmodule
 	# to disk so it can be run.
 	open (IN, "dpkg --info $deb config 2>/dev/null |") or
 		die "Unable to spawn dpkg: $!";
-	my @config=<IN>;
-	close IN;
 	
-	next unless @config;
+	next if eof(IN);
 	
 	if ($apt && ! $runconfig) {
 		$runconfig=1;
@@ -125,18 +133,20 @@ foreach my $deb (@debs) {
 	my $script;
 	do { $script = tmpnam() }
 		until sysopen(OUT, $script, O_RDWR|O_CREAT|O_EXCL);
-	print OUT @config;
+	print OUT <IN>; # TODO: optimize.
+	close IN;
 	close OUT;
 	chmod(0755, $script) or 
 		die "Can't chmod: $!";
 
 	$frontend->default_title($packages{$deb});
 
-	# Figure out what version of the package is currently installed.
+getversion($packages{$deb});
+next;
 
 	# Start up the confmodule, passing in the package version.
 	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,
-		'configure', $versions{$packages{$deb}});
+		'configure', getversion($packages{$deb}));
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});
@@ -151,3 +161,34 @@ foreach my $deb (@debs) {
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbfn());
+
+# Pass a package name, and the version of that package is returned.
+#
+# This function is memoized. I parse the dpkg status file
+# the first time it's called and return all else from a cache.
+# I probably need to know the versions of several packages that are
+# being installed, and calling dpkg -s for each would be unbearably
+# slow. Since this program should be in dpkg anyway, I have few compunctions
+# about parsing the file directly.
+{
+	my $haveversions='';
+	my %versions;
+	
+	sub getversion {
+		my $package=shift;
+		
+		return $versions{$package} if $haveversions;
+		{
+			local $/="\n\n"; # only takes effect in this closure.
+			open (STATUS, "</var/lib/dpkg/status");
+			while (<STATUS>) {
+				my ($package)=m/Package:\s*(.*?)\n/;
+				($versions{$package})=m/Version:\s*(.*?)\n/;
+			}
+			close STATUS;
+		}
+		$haveversions=1;
+		
+		return $versions{$package};
+	}
+}
