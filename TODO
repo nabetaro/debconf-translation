@@ -14,10 +14,9 @@ Line at a time frontend:
   interpreted as "use default"
 
 Dialog frontend:
-* there is no way to make it prompt for a password, because defaults are
+* Input.pm has too many magic numbers in it.
+* there is no good way to make it prompt for a password, because defaults are
   passed in in cleartext. There should probably be a CAPB setting for this.
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
-* See that the demo repleats "several" on the list dialog message boxes.
-* list sizing problems

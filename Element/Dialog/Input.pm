@@ -27,7 +27,7 @@ sub show {
         if ($lines > ($ENV{LINES} || 25) - 2) {
 		$this->frontend->showtext($question->template->description, $text);
 		$text='';
-		$lines=0;
+		$lines=6;
 	}
 
 	# How dialog is called depends on what type of question this is.
