@@ -208,7 +208,9 @@ sub shutdown
 	foreach my $item (keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item};  # skip deleted
 		next unless $this->{dirty}->{$item};	# skip unchanged
-		my $entry_dn = "cn=$item,$this->{basedn}";
+		# These characters must be quoted in the DN
+		(my $entry_cn = $item) =~ s/([,+="<>#;])/\\$1/g;
+		my $entry_dn = "cn=$entry_cn,$this->{basedn}";
 		debug "db $this->{name}" => "writing out to $entry_dn";
 		
 		my %data = %{$this->{cache}->{$item}};

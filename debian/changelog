@@ -4,8 +4,12 @@ debconf (1.1.17) unstable; urgency=low
     were part of an existing package.
   * Directory DbDriver is pure virtual now; I had to move exists and iterator
     out of it, and it is fairly useless by itself.
+  * Seems that LDAP has no end of quoting problems, and Dagfinn Ilmari
+    Mannsåker sent in a patch to update more of them (changes the schema again
+    amoung other things). Closes: #152477
+  * Stop leaking priority fields into the config database.
 
- -- Joey Hess <joeyh@debian.org>  Tue,  9 Jul 2002 22:34:54 -0400
+ -- Joey Hess <joeyh@debian.org>  Wed, 10 Jul 2002 00:38:55 -0400
 
 debconf (1.1.16) unstable; urgency=low
 

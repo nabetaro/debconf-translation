@@ -39,7 +39,7 @@ Holds the priority of the Question.
 
 =cut
 
-use fields qw(name);
+use fields qw(name priority);
 
 # Class data
 our %question;
@@ -380,6 +380,20 @@ sub name {
 	my $this=shift;
 
 	return $this->{name};
+}
+
+=item priority
+
+Holds the priority the question is asked at.
+
+=cut
+
+sub priority {
+	my $this=shift;
+
+	$this->{priority}=shift if @_;
+
+	return $this->{priority};
 }
 
 =item AUTOLOAD
