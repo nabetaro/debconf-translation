@@ -8,12 +8,12 @@ Debconf::Db::Text - plain text debconf db driver
 
 package Debconf::DbDriver::Text;
 use strict;
-use base qw(Debconf::DbDriver::Cacheable Debconf::DbDriver::FlatDir);
+use base qw(Debconf::DbDriver::Cache Debconf::DbDriver::FlatDir);
 
 =head1 DESCRIPTION
 
-This is a cacheable debconf database driver that uses a plain text file for
-each individual item. The file format is rfc-822-ishl; similar to a Debian
+This is a debconf database driver that uses a plain text file for each
+individual item. The file format is rfc-822-ishl; similar to a Debian
 control file. An example:
 
   Template: foo/template
@@ -31,8 +31,8 @@ All listed flags are set; unset flags will not be listed.
 
 =head2 load(itemname)
 
-Load up entire item, and return a structure as required by Cacheable
-drivers.
+Load up entire item, and return a structure as required by
+Debconf::DbDriver::Cached.
 
 =cut
 
@@ -108,7 +108,7 @@ sub save {
 	return if $this->readonly;
 
 	open(TEXTDB_OUT, ">$file") or die "$file: $!";
-	foreach my $field (keys %{$data{fields}}) {
+	foreach my $field (sort keys %{$data{fields}}) {
 		print TEXTDB_OUT ucfirst($field).": ".$data{fields}->{$field}."\n";
 	}
 	if (keys %{$data{owners}}) {
@@ -117,11 +117,11 @@ sub save {
 	if (keys %{$data{flags}}) {
 		print TEXTDB_OUT "Flags: ".join(", ",
 			grep { $data{flags}->{$_} eq 'true' }
-				keys(%{$data{flags}}))."\n";
+				sort keys(%{$data{flags}}))."\n";
 	}
 	if (keys %{$data{variables}}) {
 		print TEXTDB_OUT "Variables:\n";
-		foreach my $var (keys %{$data{variables}}) {
+		foreach my $var (sort keys %{$data{variables}}) {
 			print TEXTDB_OUT " $var = ".$data{variables}->{$var}."\n";
 		}
 	}

@@ -12,11 +12,14 @@ use base qw(Debconf::DbDriver);
 
 =head1 DESCRIPTION
 
-This is a debconf database driver that layers over top of another driver,
-accessing it as little as possible, and caching data in memory.
+This is a base class for cacheable database drivers. Use this as the base
+class for your driver if it makes sense to load and store items as a whole
+(eg, if you are using text files to reprosent each item, or downloading whole
+items over the net).
 
-This driver can be layered over any database driver that is derived from
-Debconf::DbDriver::Cacheable.
+Don't use this base class for your driver if it makes more sense for your
+driver to access individual parts of each item independantly (by
+querying a (fast) database, for example).
 
 =head1 FIELDS
 
@@ -29,126 +32,120 @@ database. Each hash key is a item name; hash values are either undef
 (used to indicate that a item used to exist here, but was deleted), or
 are themselves references to hashes that hold the item data.
 
-=item db
+=head1 ABSTRACT METHODS
 
-A Debconf::Db object, this is the real database driver the cache is layered
-over. Requests will be passed on to it as necessary. This object should be
-passed in on object creation.
+Derived classes need to implement these methods.
+
+=head2 iterate(itemname)
+
+Iterate over all available items. If called with no arguments, it returns
+an itarator. If called with the iterator passed in, it retuns the next
+item in the sequence, or undef if there are no more.
+
+=head2 exists(itemname)
+
+Return true if the given item exists in the database.
+
+=head2 load(itemname)
+
+Load up the given item, and return a rather complex hashed structure to
+represent the item. The structure is a reference to a hash with 4 items:
+
+=over 4
+
+=item owners
+
+The value of this key must be a reference to a hash whose hash keys are
+the owner names, and hash values are true.
+
+=item fields
+
+The value of this key must be a reference to a hash whose hash keys are
+the field names, and hash values are the field values.
+
+=item variables
+
+The value of this key must be a reference to a hash whose hash keys are
+the variable names, and hash values are the variable values.
+
+=item flags
+
+The value of this key must be a reference to a hash whose hash keys are
+the flag names, and hash values are the flag values.
 
 =back
+
+If the item does not exist, return undef instead of the structure.
+
+=head2 save(itemname,value)
+
+This method will be passed a an identical hash reference with the same
+format as what the load method should return. The data in the hash should
+be saved.
+
+=head2 remove(itemname)
+
+Remove a item from the database.
 
 =head1 METHODS
 
 =head2 init
 
-On initialization, the cache is empty. A db must exist, and it must be
-cacheable, or we abort.
+On initialization, the cache is empty.
 
 =cut
 
 sub init {
 	my $this=shift;
 
-	die "No database specified" unless $this->db;
-	die "Underlying database not cachable"
-		unless UNIVERSAL::isa($this->db, "Debconf::DbDriver::Cacheable");
-
 	$this->cache({});
 }
 
-=head2 iterate([iterator])
+=cut
 
-Since we don't know the full set of available items, we pass
-this on entirely to the underlying db driver.
+=head2 cached(itemname)
+
+Ensure that a given item is loaded up in the cache. Returns the
+cache entry for the item.
 
 =cut
 
-sub iterate {
-	my $this=shift;
-	$this->db->iterate(@_);
-}
-
-=cut
-
-=head2 load(itemname)
-
-Load a item up from the underlying db if it is not already in the
-cache.
-
-=cut
-
-sub load {
+sub cached {
 	my $this=shift;
 	my $item=shift;
 
-	if (! exists $this->cache->{$item}) {
-		# Try to load it up from the underlying db.
-		$this->cache->{$item}=$this->db->load($item);
+	unless (exists $this->cache->{$item}) {
+		$this->cache->{$item}=$this->load($item);
 	}
 	return $this->cache->{$item};
 }
 
-=head2 save(itemname)
+=head2 savedb
 
-Saving a item involves feeding the item from the cache 
-into the underlying database, and then telling the underlying db to save
-it.
+Synchronizes the underlying database with the cache.
+
+Saving a item involves feeding the item from the cache into the underlying
+database, and then telling the underlying db to save it.
 
 However, if the item is undefined in the cache, we instead tell the
-underlying db to delete it.
+underlying db to remove it.
 
 =cut
 
-sub save {
+sub savedb {
 	my $this=shift;
-	my $item=shift;
-	my $value=shift;
 	
-	return if $this->db->readonly;
-	if (! exists $this->cache->{$item}) {
-		# We never touched this item, so don't bother trying to
-		# save it. However, if it doesn't exist in the underlying
-		# db, trying to save it is certianly an error.
-		return not $this->db->exists($item);
+	return if $this->readonly;
+
+	foreach my $item (keys %{$this->cache}) {
+		if (defined $this->cache->{$item}) {
+
+			return $this->save($item, $this->cache->{$item});
+		}
+		else {
+			return $this->remove($item);
+		}
 	}
-	
-	if (defined $this->cache->{$item}) {
-		return $this->db->save($item, $this->cache->{$item});
-	}
-	else {
-		return $this->db->remove($item);
-	}
-}
-
-=head2 exists(itemname)
-
-Return true if the item exists in the cache or database.
-
-=cut
-
-sub exists {
-	my $this=shift;
-	my $item=shift;
-	
-	return 1 if defined $this->cache->{$item};
-	return 0 if exists $this->cache->{$item}; # item marked as removed
-	# Otherwise, forward the request to the real database driver.
-	return $this->db->exists($item);
-}
-
-=head2 remove(itemname)
-
-Mark the item as removed in the cache.
-
-=cut
-
-sub remove {
-	my $this=shift;
-	my $item=shift;
-
-	return if $this->db->readonly;
-
-	$this->cache->{$item}=undef;
 }
 
 =head2 addowner(itemname, ownername)
@@ -162,8 +159,8 @@ sub addowner {
 	my $item=shift;
 	my $owner=shift;
 
-	return if $this->db->readonly;
-	$this->load($item);
+	return if $this->readonly;
+	$this->cached($item);
 
 	if (! defined $this->cache->{$item}) {
 		# The item springs into existance.
@@ -191,12 +188,12 @@ sub removeowner {
 	my $item=shift;
 	my $owner=shift;
 
-	return if $this->db->readonly;
-	return unless $this->load($item);
+	return if $this->readonly;
+	return unless $this->cached($item);
 
 	delete $this->cache->{$item}->{owners}->{$owner};
 	unless (keys %{$this->cache->{$item}->{owners}}) {
-		$this->remove($item);
+		$this->cache->{$item}=undef;
 	}
 	return $owner;
 }
@@ -212,7 +209,7 @@ sub getfield {
 	my $item=shift;
 	my $field=shift;
 
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{fields}->{$field};
 }
 
@@ -228,8 +225,8 @@ sub setfield {
 	my $field=shift;
 	my $value=shift;
 
-	return if $this->db->readonly;
-	return unless $this->load($item);
+	return if $this->readonly;
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{fields}->{$field} = $value;	
 }
 
@@ -243,7 +240,7 @@ sub fields {
 	my $this=shift;
 	my $item=shift;
 	
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return keys %{$this->cache->{$item}->{fields}};
 }
 
@@ -258,7 +255,7 @@ sub getflag {
 	my $item=shift;
 	my $flag=shift;
 	
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{flags}->{$flag};
 }
 
@@ -274,8 +271,8 @@ sub setflag {
 	my $flag=shift;
 	my $value=shift;
 
-	return if $this->db->readonly;
-	return unless $this->load($item);
+	return if $this->readonly;
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{flags}->{$flag} = $value;
 }
 
@@ -289,7 +286,7 @@ sub flags {
 	my $this=shift;
 	my $item=shift;
 
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return keys %{$this->cache->{$item}->{flags}};
 }
 
@@ -304,7 +301,7 @@ sub getvariable {
 	my $item=shift;
 	my $variable=shift;
 
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{variables}->{$variable};
 }
 
@@ -320,8 +317,8 @@ sub setvariable {
 	my $variable=shift;
 	my $value=shift;
 
-	return if $this->db->readonly;
-	return unless $this->load($item);
+	return if $this->readonly;
+	return unless $this->cached($item);
 	return $this->cache->{$item}->{variables}->{$variable} = $value;
 }
 
@@ -335,7 +332,7 @@ sub variables {
 	my $this=shift;
 	my $item=shift;
 
-	return unless $this->load($item);
+	return unless $this->cached($item);
 	return keys %{$this->cache->{$item}->{variables}};
 }
 

@@ -99,7 +99,7 @@ sub exists {
 	return -e $this->filename(shift);
 }
 
-=head2 remove(itemame)
+=head2 remove(itemname)
 
 Unlink a file.
 
