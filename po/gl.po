@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -50,6 +50,30 @@ msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"O patrón número %s en %s tén un campo \"%s\" duplicado co novo valor \"%s\". "
+"É posible que dous patróns non estén correctamente separados cun retorno de "
+"carro.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Axuda"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -58,33 +82,6 @@ msgid ""
 msgstr ""
 "¡Non se atopou o valor de entrada, \"%s\", nas opcións de C! Isto non "
 "debería ocorrer nunca. Se cadra localizáronse os patróns incorrectamente."
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Axuda"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
-msgid "Save (mail) Note"
-msgstr "Gravar Nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
-msgid "Debconf was asked to save this "
-msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
-
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-msgid "The note has been mailed."
-msgstr "Enviouse a nota por correo."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Unable to save note."
-msgstr "Non se puido grava-la nota."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -110,6 +107,29 @@ msgstr ""
 "(Introduza cero ou máis elementos separados por unha coma seguida dun "
 "espacio (', ')."
 
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
+msgstr "Gravar Nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this "
+msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+#, fuzzy
+msgid "note, so it mailed it to you."
+msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+msgid "The note has been mailed."
+msgstr "Enviouse a nota por correo."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Unable to save note."
+msgstr "Non se puido grava-la nota."
+
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -121,7 +141,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, executándose en %s"
@@ -160,11 +180,11 @@ msgstr ""
 "Non están instalados whiptail nin dialog, así que non se pode emprega-la "
 "interface baseada en dialog."
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -172,7 +192,7 @@ msgstr ""
 "Está empregando a interface baseada en editores de debconf para configura-lo "
 "seu sistema. Vexa o final deste documento para obter instruccións detalladas."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -189,6 +209,14 @@ msgstr ""
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configura-lo sistema."
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Esta interface precisa dun terminal de control."
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "Máis"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -202,34 +230,6 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Seguinte"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Máis"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Esta interface precisa dun terminal de control."
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"O patrón número %s en %s tén un campo \"%s\" duplicado co novo valor \"%s\". "
-"É posible que dous patróns non estén correctamente separados cun retorno de "
-"carro.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -1,3 +1,13 @@
+debconf (1.0.23) unstable; urgency=low
+
+  * Delete vanishing extended descriptions when merging templates.
+    Closes: #126239
+  * Set $Text::Wrap::break=q/\s+/ everywhere I use Text::Wrap,
+    see bug #126202
+  * zh_TW.Big5.po update
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 17 Dec 2001 17:13:39 -0500
+
 debconf (1.0.22) unstable; urgency=HIGH
 
   * I've had a number of reports of truncated templates files (that make

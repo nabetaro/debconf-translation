@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -48,6 +48,30 @@ msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
+"Provavelmente dois templates não estão separados apropriadamente por uma "
+"única linha.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Ajuda"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -57,9 +81,29 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Ajuda"
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "sim"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "não"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Escolhas"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
+"(', ').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -88,30 +132,6 @@ msgstr "A nota foi enviada por email."
 msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
-#: ../Debconf/Element/Editor/Boolean.pm:35
-#: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "sim"
-
-#: ../Debconf/Element/Editor/Boolean.pm:38
-#: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "não"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Escolhas"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
-"(', ').)"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -124,7 +144,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, rodando em %s"
@@ -163,11 +183,11 @@ msgstr ""
 "Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
 "dialog não pode ser usado"
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -175,7 +195,7 @@ msgstr ""
 "Você está usando o frontend baseado em editor do debconf para configurar seu "
 "sistema. Veja o fim desse documento para instruções detalhadas."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -193,6 +213,14 @@ msgstr ""
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Esse frontend requer um tty controlador."
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "Mais"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -205,34 +233,6 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Mais"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Esse frontend requer um tty controlador."
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
-"Provavelmente dois templates não estão separados apropriadamente por uma "
-"única linha.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

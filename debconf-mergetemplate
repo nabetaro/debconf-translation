@@ -34,13 +34,15 @@ more up-to-date).
 This program handles that case properly, just list each of the translated
 templates files, and then your main templates file last.
 
+=head1 OPTIONS
+
 =head1 SEE ALSO
 
 L<debconf-getlang(1)>
 
 =cut
 
-# Ignore the users locale settings.
+# Ignore the user's locale settings.
 Debconf::Template::Transient->i18n(0);
 
 my %templates;

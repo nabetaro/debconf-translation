@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2001-08-29 04:20+02:00\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -51,6 +51,31 @@ msgstr "No se pudo cargar Debconf::Element::%s. Error porque: %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"La plantilla #%s en %s tiene un campo \"%s\" duplicado con el nuevo valor \"%"
+"s\". Probablemente dos plantillas no están separadas correctamente con un "
+"sólo retorno de carro.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr ""
+"Error de análisis de plantilla cerca de `%s', en la estrofa #%s de %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "La plantilla #%s in %s no contiene una línea 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Ayuda"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -61,9 +86,29 @@ msgstr ""
 "debiera suceder nunca. Tal vez las plantillas estaban localizadas "
 "incorrectamente."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Ayuda"
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "sí"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "no"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Opciones"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Introduzca cero o más elementos separados por una coma seguida de un "
+"espacio (', ').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -92,30 +137,6 @@ msgstr "La nota ha sido enviada por correo."
 msgid "Unable to save note."
 msgstr "No pude grabar la nota."
 
-#: ../Debconf/Element/Editor/Boolean.pm:35
-#: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "sí"
-
-#: ../Debconf/Element/Editor/Boolean.pm:38
-#: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "no"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Opciones"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Introduzca cero o más elementos separados por una coma seguida de un "
-"espacio (', ').)"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -128,7 +149,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, ejecutándose en %s"
@@ -168,11 +189,11 @@ msgstr ""
 "Ni whiptail ni dialog están instalados, así que no se puede usar la interfaz "
 "basada en dialog."
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -180,7 +201,7 @@ msgstr ""
 "Está usando el interfaz de debconf basado en editor para configurar su "
 "sistema. Encontrará instrucciones detalladas al final de este documento."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -198,6 +219,14 @@ msgstr ""
 "debconf leerá el fichero editado, y usará los valores que usted ha "
 "introducido para configurar su sistema."
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Este interfaz requiere una tty controladora"
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "Más"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -211,35 +240,6 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Siguiente"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Más"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Este interfaz requiere una tty controladora"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"La plantilla #%s en %s tiene un campo \"%s\" duplicado con el nuevo valor \"%"
-"s\". Probablemente dos plantillas no están separadas correctamente con un "
-"sólo retorno de carro.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"Error de análisis de plantilla cerca de `%s', en la estrofa #%s de %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "La plantilla #%s in %s no contiene una línea 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

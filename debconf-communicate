@@ -63,6 +63,7 @@ while (<>) {
 }
 
 $frontend->shutdown;
+$confmodule->finish;
 Debconf::Db->save;
 exit $code;
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -47,6 +47,27 @@ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:220
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+
+#: ../Debconf/Template.pm:226
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "テンプレートに `Template:' 行がありません"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "ヘルプ"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -57,9 +78,27 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "ヘルプ"
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "はい"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "いいえ"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "選択"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -87,28 +126,6 @@ msgstr "この注意は root にメールされました。"
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
-#: ../Debconf/Element/Editor/Boolean.pm:35
-#: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "はい"
-
-#: ../Debconf/Element/Editor/Boolean.pm:38
-#: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "いいえ"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "選択"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 #, fuzzy
 msgid ""
@@ -121,7 +138,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
@@ -157,11 +174,11 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -169,7 +186,7 @@ msgstr ""
 "システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
 "しています。詳しい説明はこのドキュメントの最後を見てください。"
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -186,6 +203,14 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "移動"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -200,31 +225,6 @@ msgstr "戻る"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "次へ"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "移動"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr ""
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:220
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
-
-#: ../Debconf/Template.pm:226
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "テンプレートに `Template:' 行がありません"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

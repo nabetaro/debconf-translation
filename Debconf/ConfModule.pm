@@ -166,7 +166,7 @@ sub communicate {
 	my $this=shift;
 
 	my $r=$this->read_handle;
-	$_=<$r> || return $this->_finish;
+	$_=<$r> || return $this->finish;
 	chomp;
 	my $ret=$this->process_command($_);
 	my $w=$this->write_handle;
@@ -191,7 +191,7 @@ sub process_command {
 	$command=lc($command);
 	# This command could not be handled by a sub.
 	if (lc($command) eq "stop") {
-		return $this->_finish;
+		return $this->finish;
 	}
 	# Make sure that the command is valid.
 	if (! $this->can("command_$command")) {
@@ -205,16 +205,15 @@ sub process_command {
 	return $ret;
 }
 
-=item _finish
+=item finish
 
-This is an internal helper function. It just waits for the child process
-to finish so its return code can be examined. The return code is stored
-in the exitcode field of the object. It also marks all questions that were
-shown as seen.
+Waits for the child process (f any) to finish so its return code can be
+examined.  The return code is stored in the exitcode field of the object.
+It also marks all questions that were shown as seen.
 
 =cut
 
-sub _finish {
+sub finish {
 	my $this=shift;
 
 	waitpid $this->pid, 0 if defined $this->pid;

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "Language-Team: none <>\n"
@@ -44,6 +44,31 @@ msgstr "Kunne ikke loade Debconf::Element::%s. Fejlede p.g.a.: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerer %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Skabelon #%s i %s har et duplikeret felt \"%s\" med en ny værdi \"%s\". Det "
+"kan være fordi at to skabeloner ikke er sepereret rigtigt med en tom ny "
+"linje.\n"
+
+# FIXME 'stanza'?
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Skabelon #%s i %s indeholder ikke en 'Template:' linje\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Hjælp"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -53,9 +78,29 @@ msgstr ""
 "Input værdi, \"%s\" fandtes ikke i C valg! Dette burde aldrig ske. Måske "
 "blev skabelonerne initialiseret forkert"
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Hjælp"
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ja"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nej"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Valg"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Vælg 0 eller flere ting sepereret af komma, efterfulgt a et mellemrum (', "
+"').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -82,30 +127,6 @@ msgstr "Noten er blevet mailet."
 msgid "Unable to save note."
 msgstr "Kunne ikke gemme note."
 
-#: ../Debconf/Element/Editor/Boolean.pm:35
-#: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "ja"
-
-#: ../Debconf/Element/Editor/Boolean.pm:38
-#: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "nej"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Valg"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Vælg 0 eller flere ting sepereret af komma, efterfulgt a et mellemrum (', "
-"').)"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -118,7 +139,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, kørende på %s"
@@ -155,11 +176,11 @@ msgstr ""
 "Whiptail og dialog er ikke installeret, så den dialog baserede grænseflade "
 "kan ikke bruges."
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Debian Konfiguration"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -167,7 +188,7 @@ msgstr ""
 "Du bruger den editor-baserede debconf grænseflade til at konfigurere dit "
 "system. Se slutningen af dette dokument for detaljerede instruktioner."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -184,6 +205,14 @@ msgstr ""
 "debconf læse den redigerede fil, og bruge værdierne du indtastede til at "
 "konfigurere systemet."
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Denne grænseflade kræver en kontrollerende tty."
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "Mere"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -196,35 +225,6 @@ msgstr "Tilbage"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Næste"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Mere"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Denne grænseflade kræver en kontrollerende tty."
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Skabelon #%s i %s har et duplikeret felt \"%s\" med en ny værdi \"%s\". Det "
-"kan være fordi at to skabeloner ikke er sepereret rigtigt med en tom ny "
-"linje.\n"
-
-# FIXME 'stanza'?
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Skabelon #%s i %s indeholder ikke en 'Template:' linje\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

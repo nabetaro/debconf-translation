@@ -43,6 +43,7 @@ sub comment {
 	my $this=shift;
 	my $comment=shift;
 
+	$Text::Wrap::break=q/\s+/;
 	print $fh wrap('# ','# ',$comment);
 	$this->filecontents(1);
 }

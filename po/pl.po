@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -47,6 +47,27 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:220
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s'"
+
+#: ../Debconf/Template.pm:226
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nie zawiera linii `Template:'"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Pomoc"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
@@ -56,9 +77,28 @@ msgstr ""
 "Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
 "siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Pomoc"
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "tak"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nie"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Pozycje do wyboru"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -86,29 +126,6 @@ msgstr "Uwaga zosta³a przes³ana do administratora"
 msgid "Unable to save note."
 msgstr "Nie uda³o siê zapisaæ uwagi."
 
-#: ../Debconf/Element/Editor/Boolean.pm:35
-#: ../Debconf/Element/Editor/Boolean.pm:58
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "tak"
-
-#: ../Debconf/Element/Editor/Boolean.pm:38
-#: ../Debconf/Element/Editor/Boolean.pm:61
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "nie"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Pozycje do wyboru"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 #, fuzzy
 msgid ""
@@ -121,7 +138,7 @@ msgstr ""
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
@@ -157,11 +174,11 @@ msgstr ""
 "Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
 "mo¿e zostaæ u¿yta."
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -169,7 +186,7 @@ msgstr ""
 "U¿ywasz nak³adki debconf opartej na edytorze. Dok³adne instrukcje znajduj± "
 "siê na koñcu dokumentu"
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -186,6 +203,14 @@ msgstr ""
 "przeczyta zapisany plik i u¿yje wprowadzonych przez Ciebie warto¶ci do "
 "konfiguracji systemu."
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "Dalej"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -198,31 +223,6 @@ msgstr "Powrót"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Dalej"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Dalej"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr ""
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:220
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
-
-#: ../Debconf/Template.pm:226
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

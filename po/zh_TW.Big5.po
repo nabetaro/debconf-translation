@@ -1,25 +1,26 @@
-# debconf zh_TW.Big5.po
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# Shell Hung <shell@linux.org.hk>, 2001
+# debconf Tranditional Chinese Translation (Big5)
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Shell Hung <shell@debian.org>, 2001
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-12-03 23:48-0500\n"
-"PO-Revision-Date: 2001-08-04 00:55+08:00\n"
-"Last-Translator: Shell Hung <shell@linux.org.hk>\n"
-"Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
+"Project-Id-Version: debconf 1.0.22\n"
+"POT-Creation-Date: 2001-12-25 21:13-0500\n"
+"PO-Revision-Date: 2001-12-18 04:09+800\n"
+"Last-Translator: Shell Hung <shell@debian.org>\n"
+"Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=Big5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:68
-#, fuzzy, c-format
+#, c-format
 msgid "falling back to frontend: %s"
-msgstr "啟始前端介面失敗: %s"
+msgstr "返回前端介面: %s"
 
 #: ../Debconf/AutoSelect.pm:76
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
@@ -46,42 +47,37 @@ msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 msgid "Configuring %s"
 msgstr "正設定 %s"
 
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
+"的新行分格.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "求助"
+
 #: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的. 或許樣板受到不正確的本"
+"輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的.可能樣板受到不正確的本"
 "地化."
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "求助"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
-msgid "Save (mail) Note"
-msgstr "儲存備忘"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
-msgid "Debconf was asked to save this "
-msgstr "Debconf 要求儲存這個備忘, 並且郵寄給您."
-
-#: ../Debconf/Element/Gnome/Note.pm:49
-#, fuzzy
-msgid "note, so it mailed it to you."
-msgstr "Debconf 要求儲存這個備忘, 並且郵寄給您."
-
-#: ../Debconf/Element/Gnome/Note.pm:51
-#, fuzzy
-msgid "The note has been mailed."
-msgstr "這個備忘已經郵寄了給root."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Unable to save note."
-msgstr "不能儲存備忘."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -105,6 +101,26 @@ msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(輸入零或多個項目以逗號及一個空格 (', ')以分格.)"
 
+#: ../Debconf/Element/Gnome/Note.pm:45
+msgid "Save (mail) Note"
+msgstr "儲存備忘"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+msgid "Debconf was asked to save this "
+msgstr "Debconf 要求儲存這個 "
+
+#: ../Debconf/Element/Gnome/Note.pm:49
+msgid "note, so it mailed it to you."
+msgstr "備忘, 並且郵寄給您."
+
+#: ../Debconf/Element/Gnome/Note.pm:51
+msgid "The note has been mailed."
+msgstr "這個備忘已經郵寄了."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Unable to save note."
+msgstr "不能儲存備忘."
+
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -115,17 +131,16 @@ msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:82
+#: ../Debconf/Element/Noninteractive/Note.pm:83
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, 執行在 %s"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "已經完成"
+msgstr "以上都沒有"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "在您想選擇的項目中輸入, 以空格分開."
 
@@ -141,7 +156,7 @@ msgstr "對話介面與Emacs 外殼綬沖不兼容"
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "對話介面並不能在純終端上運作, 例如Emacs 外殼綬沖, 或沒有控制終端."
+msgstr "對話介面並不能在純終端上運作, 例如Emacs 外殼綬沖,或沒有控制終端."
 
 #: ../Debconf/FrontEnd/Dialog.pm:88
 msgid ""
@@ -149,18 +164,18 @@ msgid ""
 "cannot be used."
 msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 
-#: ../Debconf/FrontEnd/Dialog.pm:239
+#: ../Debconf/FrontEnd/Dialog.pm:240
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:93
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"您選擇了文字編輯器形式的debconf介面設定系統.留意這份文件最尾有關的方法."
+"您選擇了文字編輯器形式的debconf介面設定系統. 留意這份文件最尾有關的方法."
 
-#: ../Debconf/FrontEnd/Editor.pm:110
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -169,50 +184,31 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"以編輯器為出現一個以上的檔案 要修改. 這是其中一個檔案. 如果您熟識標準的 Unix "
-"設定檔案, 這個檔案會是很簡單的 -- 這個檔案 包含了不同的設定項目. 修改檔案, 更"
+"以編輯器為出現一個以上的檔案 要修改. 這是其中一個檔案.如果您熟識標準的 Unix "
+"設定檔案, 這個檔案會是很簡單的 --這個檔案 包含了不同的設定項目. 修改檔案, 更"
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
-"而且會使用您的設定值設定系統."
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, c-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "注: Debconf 執行在 Web 模式. 請到 http://localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "上一個"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "下一個"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "更多"
+"而且會使用您的設定值設定系統. "
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "這個介面需求可控制的tty."
 
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"樣板 #%s 在 %s 中有重覆方格 \"%s\" 及新資料 \"%s\". 可能是兩個樣板沒有以很長"
-"的新行分格.\n"
+#: ../Debconf/FrontEnd/Teletype.pm:97
+msgid "More"
+msgstr "更多"
 
-#: ../Debconf/Template.pm:220
+#: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "注意: Debconf 執行在 Web 模式. 請到 http://localhost:%i/"
 
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "返回"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "下一版"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -221,12 +217,11 @@ msgstr "重新開動標準輸入失敗: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr "需要指定deb檔為預設定"
+msgstr "在預自設定時需要指定 deb 檔"
 
 #: ../dpkg-preconfigure:131
-#, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "(在 apt-utils 未安裝前不會預設定包件)"
+msgstr "因為 apt-utils 並未安裝, 設定包件將被延遲"
 
 #: ../dpkg-preconfigure:189
 #, c-format
@@ -260,35 +255,3 @@ msgstr "%s 並未完全安裝"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"
-
-#, fuzzy
-#~ msgid "This frontend probably needs a controlling tty."
-#~ msgstr "這個介面需求可控制的tty."
-
-#~ msgid "TERM is not set, so the Slang frontend is not usable."
-#~ msgstr "TERM 並未設定, Slang 介面不能執行."
-
-#~ msgid "Slang frontend is incompatible with emacs shell buffers"
-#~ msgstr "Slang 介面與Emacs 外殼綬沖不兼容"
-
-#~ msgid ""
-#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
-#~ "or without a controlling terminal."
-#~ msgstr ""
-#~ "Slang 介面並不能在純終端上運作, 例如Emacs 外殼綬沖, 或 沒有控制終端."
-
-#~ msgid "Hide Help"
-#~ msgstr "隱藏求助"
-
-#~ msgid "Show Help"
-#~ msgstr "顯示求助"
-
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr "Tab 及 方向控制移動; 空白鍵顯示清單."
-
-#~ msgid "Working, please wait..."
-#~ msgstr "工作中, 請等侯..."
-
-#, fuzzy
-#~ msgid "The note has been mailed to root"
-#~ msgstr "這個備忘已經郵寄了給root."

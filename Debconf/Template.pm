@@ -291,7 +291,11 @@ sub merge {
 	my $this=shift;
 	my $other=shift;
 
-	foreach my $field ($other->fields) {
+	foreach my $field (grep { $_ !~ /extended_/ } $other->fields) {
+		$this->$field($other->$field);
+		# If the other template has no extended part of the field,
+		# coply in nothing.
+		$field="extended_$field";
 		$this->$field($other->$field);
 	}
 }
@@ -329,6 +333,7 @@ sub stringify {
 			my $ext=$_->$e;
 			if (defined $ext) {
 				# Add extended field.
+				$Text::Wrap::break=q/\s+/;
 				my $extended=expand(wrap(' ', ' ', $ext));
 				# The word wrapper sometimes outputs multiple
 				# " \n" lines, so collapse those into one.
