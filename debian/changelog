@@ -1,3 +1,14 @@
+debconf (1.2.25) unstable; urgency=low
+
+  * To find .debconfrc, look up the home directory of the current user with
+    getpwuid, instead of trusting $HOME, which is untrustworthy thanks to
+    programs like sudo. Closes: #181288
+  * Sylvain Ferriol enhanced debconf-show so it can list debconf databases,
+    owners of questions, and so it can be limited to list only owners or
+    questions in a given database.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 17 Feb 2003 18:20:17 -0500
+
 debconf (1.2.24) unstable; urgency=low
 
   * French man page updates from Julien Louis.
