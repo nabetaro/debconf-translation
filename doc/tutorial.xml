@@ -276,7 +276,12 @@ Template: ....
 	they appear in the main <literal>Choices</literal> field. It is
 	<emphasis>very</emphasis> important the order is the same. You do not
 	need to translate the <literal>Default</literal> field of a select
-	or a multiselect question, and the answer returned when you display
+	or a multiselect question
+	<footnote>
+		<para>
+			Unless the default value is locale dependent.
+		</para>
+	</footnote>, and the answer returned when you display
 	the question will always be in English.
       </para>
       <para>

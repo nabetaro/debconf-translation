@@ -20,7 +20,7 @@ so the rest of the install can proceeed while you are away getting
 a cup of coffee.
 .P
 If you use apt (version 0.5 or above), and you have apt-utils installed,
-each package apt installs will be automatically peconfigured. This is
+each package apt installs will be automatically preconfigured. This is
 controlled via
 .I /etc/apt/apt.conf.d/70debconf
 .P
@@ -31,7 +31,7 @@ to do that, just pass it the filenames of the packages you
 want to preconfigure. You will need apt-utils installed for that to work.
 .SH Reconfiguring packages
 Suppose you installed the package, and answered debconf's questions, but
-now that you've used it a while, you realize you want to go back and change
+now that you've used it awhile, you realize you want to go back and change
 some of your answers. In the past, reinstalling a package was often the thing
 to do when you got in this situation, but when you reinstall the package,
 debconf seems to remember you have answered the questions, and doesn't ask
@@ -90,16 +90,16 @@ libgnome-perl package installed.
 .TP
 .B editor
 This is for those fanatics who have to do everything in a
-text editor. It runs the your editor on a file that looks
-something like typical unix config file, and you edit the
+text editor. It runs your editor on a file that looks
+something like a typical unix config file, and you edit the
 file to communicate with debconf. Debconf's author takes the
-fifth amendment regarding the circumstances that lead to this
+fifth amendment regarding the circumstances that led to this
 frontend being written.
 .TP
 .B web
 .RS
 This frontend acts as a web server, that you connect to
-with your web browser, to browse the questions and anser them.
+with your web browser, to browse the questions and answer them.
 It has a lot of promise, but is a little rough so far.
 When this frontend starts up, it will print out the location
 you should point your web browser to. You have to run the web
@@ -198,7 +198,7 @@ display. See above.
 .TP
 .B DEBCONF_DEBUG
 .RS
-Tuuns on debugging output on standard error. May be set to a facility name
+Turns on debugging output on standard error. May be set to a facility name
 or a regular expression which matches a facility name (such as '.*' to output
 all debug info). The facility names include:
 .TP
@@ -214,7 +214,7 @@ Debugging info about the backend database.
 .TP
 .B DEBCONF_TERSE
 Set to "yes" to enable terse mode, in which debconf frontends cut down on
-the verbiage as much as possible.
+the verbage as much as possible.
 .SH BUGS
 Probably quite a few, there's a lot of code here.
 .P

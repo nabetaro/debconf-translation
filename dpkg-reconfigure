@@ -48,6 +48,11 @@ By default, all questions are shown, even if they have already been
 answered. If this parameter is set though, only questions that have not yet
 been seen will be asked.
 
+=item B<--force>
+
+Force dpkg-reconfigure to reconfigure a package even if the package is in an
+inconsistent or broken state. Use with caution.
+
 =item B<-h>, B<--help>
 
 Display usage help.
@@ -84,12 +89,15 @@ Debconf::Config->priority('low');
 
 my $unseen_only=0;
 my $all=0;
+my $force=0;
 Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
 qq{Syntax: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
-  -u,  --unseen-only		Show only not yet seen questions.},
+  -u,  --unseen-only		Show only not yet seen questions.
+       --force			Force reconfiguration of broken packages.},
 	"all|a"			=> \$all,
 	"unseen-only|u"		=> \$unseen_only,
+	"force"			=> \$force,
 );
 
 # If the frontend is noninteractive, change it temporarily to dialog.
@@ -127,7 +135,7 @@ foreach my $pkg (@packages) {
 	$_=`dpkg --status $pkg`;
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
-	if (! defined $status || $status !~ m/ ok installed$/) {
+	if (! $force && (! defined $status || $status !~ m/ ok installed$/)) {
 		print STDERR "$0: ".sprintf(gettext("%s is not fully installed"), $pkg)."\n";
 		exit 1;
 	}
