@@ -18,10 +18,6 @@ install-common:
 		$(prefix)/var/lib/debconf \
 		$(prefix)/usr/share/debconf/templates \
 		$(prefix)/usr/sbin $(prefix)/usr/share/man/man8
-	install Client/apt-setup $(prefix)/usr/sbin/
-	cp Client/apt-setup.templates $(prefix)/usr/share/debconf/templates/
-	cp Client/apt-setup.8 $(prefix)/usr/share/man/man8/
-	cp Client/Mirrors.masterlist $(prefix)/usr/share/debconf/
 	chmod 700 $(prefix)/var/lib/debconf
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client Element FrontEnd -type d | grep -v CVS | \
@@ -40,7 +36,7 @@ install: install-common
 	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man3/Debian::Debconf::Client::ConfModule.3pm
 	# Install bins
 	install -d $(prefix)/usr/bin
-	find Client -perm +1 -type f | grep -v frontend | grep -v apt-setup | \
+	find Client -perm +1 -type f | grep -v frontend | \
 		xargs -i_ install _ $(prefix)/usr/bin
 
 # This target installs a minimal debconf.
