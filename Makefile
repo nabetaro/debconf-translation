@@ -65,9 +65,10 @@ install-rest:
 	install -d $(prefix)/usr/share/man/man8
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i sh -c '$(pod2man) --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
-	# Now strip all pod documentation from all .pm files.
+	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\
+	     $(prefix)/usr/share/debconf/*.pl				\
 	     -name '*.pm' -or -name 'dpkg-*' | 				\
 	     grep -v Client/ConfModule | xargs perl -i.bak -ne ' 	\
 	     		print $$_."# This file was preprocessed, do not edit directly.\n" \

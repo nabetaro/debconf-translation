@@ -34,24 +34,27 @@ foreach my $t (keys %templates) {
 	$templates{$t}->{_name}=$t;
 }
 
-# Now make new Question objects for all the questions, pulling out
-# Templates as need be, and registering them as owners of the templates.
-# Kill empty owner fields as I go, they are a vestiage of an old bug.
+# Now make new Question objects for all the questions.
 foreach my $item (keys %questions) {
 	my @owners=grep { $_ ne '' } keys %{$questions{$item}->{owners}};
 	next unless @owners;
+	next unless defined $questions{$item}->{template}->{_name};
 	my $question=Debconf::Question->new($item, pop @owners);
 	$question->addowner($_) foreach @owners;
 }
 
+my $skipped=0;
+
 # Now that all the Question objects are made, we can fill them in.
 # Have to do it in two passes to prevent duplicate questions trying to 
-# be made.
+# be made. This converts the templates too.
 my %seen_templates;
 foreach my $item (keys %questions) {
 	my $question=Debconf::Question->get($item);
 	# Make sure that the template used by this item exists.
 	my $tname=$questions{$item}->{template}->{_name};
+	# I'm not sure why, but some db's have undef templates.
+	$skipped++, next unless defined $tname;
 	my $template=Debconf::Template->get($tname);
 	unless (defined $template) {
 		# Template does not exist yet, so we have to pull it out of
@@ -101,3 +104,7 @@ foreach my $item (keys %questions) {
 }
 
 Debconf::Db->save;
+
+if ($skipped) {
+	print STDERR "While upgrading the debconf database, $skipped corrupt items were skipped.\n";
+}

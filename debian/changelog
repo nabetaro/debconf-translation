@@ -1,3 +1,13 @@
+debconf (0.9.13) unstable; urgency=low
+
+  * Modified the transition script to detect corrupt old databases that
+    have some questions with undefined templates. Those are just skipped,
+    and it prints out a warning. I've only had one report of this problem
+    so far. Closes: #88731
+  * Strip the transition script.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2001 04:38:59 -0800
+
 debconf (0.9.12) unstable; urgency=low
 
   * I think the haikus are over. :-)
