@@ -218,10 +218,7 @@ sub prompt {
 	$this->_skip(0);
 	my $sigil='';
 	$sigil=$this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
-	if (! $noshowdefault && $this->promptdefault && $default ne '') {
-		$ret=$this->readline->readline($sigil.$prompt."[$default] ", $default);
-	}
-	elsif (! $noshowdefault) {
+	if (! $noshowdefault) {
 		$ret=$this->readline->readline($sigil.$prompt, $default);
 	}
 	else {
@@ -231,9 +228,6 @@ sub prompt {
 	return if $this->_skip;
 	$this->_direction(1);
 	$this->readline->addhistory($ret);
-	if ($ret eq '' && $this->promptdefault) {
-		return $default;
-	}
 	return $ret;
 }
 

@@ -137,12 +137,8 @@ sub prompt {
 	local $|=1;
 	print $this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
 	print "$params{prompt} ";
-	print "[$params{default}] " if exists $params{default} and length $params{default};
 	chomp(my $ret=<STDIN>);
 	$this->display_nowrap("\n");
-	if ($ret eq '' and exists $params{default}) {
-		return $params{default};
-	}
 	return $ret;
 }
 
