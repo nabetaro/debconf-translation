@@ -33,6 +33,9 @@ driver.
 A reference to an array of drivers. The topmost driver should not be
 readonly.
 
+In the config file, a comma-delimeted list of driver names can be specified
+for this field.
+
 =back
 
 =cut
@@ -50,9 +53,24 @@ On initialization, the topmost driver is checked for writability.
 sub init {
 	my $this=shift;
 
-	$this->error("No stack set!") if ! $this->{stack};
-	$this->error("Topmost driver not writable!") if $this->{stack}->[0]->{readonly};
-	
+	# Handle value from config file.
+	if (! ref $this->{stack}) {
+		my @stack;
+		foreach my $name (split(/\s*,\s/, $this->{stack})) {
+			my $driver=$this->driver($name);
+			unless (defined $driver) {
+				$this->error("could not find a driver named \"$name\" to use in the stack (it should be defined before the stack in the config file)");
+				next;
+			}
+			push @stack, $driver;
+		}
+		$this->{stack}=[@stack];
+	}
+
+	$this->error("no stack set") if ! ref $this->{stack};
+	$this->error("stack is empty") if ! @{$this->{stack}};
+	$this->error("topmost driver not writable")
+		if $this->{stack}->[0]->{readonly};
 }
 
 =head2 iterate
@@ -146,7 +164,7 @@ sub _change {
 	# contains the item, and do the copy to the top of the stack.
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver->exists($item)) {
-			my $ret=_nochange($driver, $command, $item, @_);
+			my $ret=$this->_nochange($driver, $command, $item, @_);
 			return $ret if defined $ret;
 			
 			# Nope, we have to copy after all.
@@ -191,6 +209,7 @@ sub _copy {
 # such null writes, and do nothing but return whatever the current value is.
 # Gar gar gar!
 sub _nochange {
+	my $this=shift;
 	my $driver=shift;
 	my $command=shift;
 	my $item=shift;
