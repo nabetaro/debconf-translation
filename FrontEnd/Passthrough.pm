@@ -2,7 +2,7 @@
 
 =head NAME
 
-Debian::DebConf::FrontEnd::Passthrough - passt-hrough meta-frontend for DebConf
+Debian::DebConf::FrontEnd::Passthrough - pass-through meta-frontend for DebConf
 
 =cut
 
@@ -123,7 +123,7 @@ sub capb_backup
 
 =head2 capb
 
-Gets UI agent capabilities
+Gets UI agent capabilities.
 
 =cut
 
@@ -134,7 +134,7 @@ sub capb
 	return $this->{capb} if exists $this->{capb};
 
 	($ret, $this->{capb}) = $this->talk('CAPB');
-	return $this->{capb} if ($ret eq '0');
+	return $this->{capb} if $ret eq '0';
 }
 
 =head2 title
@@ -162,12 +162,10 @@ the UI agent.
 
 sub go {
 	my $this = shift;
-	my $datasent = 0;
 
 	foreach my $element (@{$this->elements}) {
 		# TODO: I think only elements with flag_isdefault = true
 		#       should be shown here. -JEH
-		$datasent++;
 		my $question = $element->question;
 		my $tag = $question->template->template;
 		my $type = $question->template->type;
@@ -192,7 +190,11 @@ sub go {
 			$this->talk('DATA', $tag, 'choices', $choices);
 		}
 
-		$this->talk('SET', $tag, $default) if ($default);
+		$this->talk('SET', $tag, $default) if $default ne '';
+		# TODO: This INPUT command doesn't meet the protocol spec.
+		#       It should pass the priority and the question name,
+		#       not the type. I suppose type should be passed by
+		#       a DATA command.
 		$this->talk('INPUT', $tag, $type);
 	}
 
