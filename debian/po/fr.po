@@ -8,10 +8,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.2.34\n"
+"Project-Id-Version: debconf 1.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-12-28 19:07-0500\n"
-"PO-Revision-Date: 2003-04-17 10:07+0200\n"
+"PO-Revision-Date: 2003-12-31 11:01+0100\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,15 +21,14 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:3
-#, fuzzy
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr "Dialogue, Readline, Gnome, Éditeur, Non-interactif"
+msgstr "Dialogue, Readline, Gnome, KDE, Éditeur, Non-interactif"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr "Quelle interface utiliser pour configurer les paquets ?"
+msgstr "Quelle interface faut-il utiliser pour configurer les paquets ?"
 
 #. Type: select
 #. Description
@@ -44,7 +43,6 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:5
-#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -53,11 +51,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"« Dialogue » est une interface couleur en mode caractère et en plein écran. "
-"« Readline » est une interface plus traditionelle en mode texte. « Gnome » "
-"est une interface X moderne. L'interface « Éditeur » vous permet de faire "
-"vos configurations depuis votre éditeur favori. Si vous choisissez « Non-"
-"interactif », le système ne vous posera jamais de question."
+"« Dialogue » est une interface couleur en mode caractère et en plein écran, "
+"alors que l'interface « Readline » est une interface plus traditionelle en "
+"mode texte. Les interfaces « Gnome » et « KDE » sont des interfaces X "
+"modernes, adaptées respectivement à ces environnements (mais peuvent être "
+"utilisées depuis n'importe quel environnement X). L'interface « Éditeur » "
+"vous permet de faire vos configurations depuis votre éditeur favori. Si vous "
+"choisissez « Non-interactif », le système ne vous posera jamais de question."
 
 #. Type: select
 #. Choices
@@ -83,7 +83,7 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf définit les priorités des questions qu'il vous pose. Choisissez la "
+"Debconf gère les priorités des questions qu'il vous pose. Choisissez la "
 "priorité la plus basse des questions que vous souhaitez voir :\n"
 "  - la priorité « critique » n'affiche que les questions pouvant casser\n"
 "    le système.\n"
