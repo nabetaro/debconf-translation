@@ -1,3 +1,17 @@
+debconf (1.4.3) unstable; urgency=low
+
+  * Port of the gnome frontend to GNOME2 libs:
+  * Debconf/Frontend/Gnome.pm, Debconf/Element/Gnome.pm, 
+    Debconf/Element/Gnome/*.pm:
+    - fixed debian logo exibition
+  * Makefile, debian-logo.png, debian-logo.xpm:
+    - use a png instead of a xpm to have a cuter interface =P
+  * Above changes from Gustavo Noronha Silva. Closes: #225503
+  * Fix broken fallback from noninteractive frontend in dpkg-reconfgure.
+    Closes: #226205
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  1 Jan 2004 21:49:21 -0500
+
 debconf (1.4.2) unstable; urgency=low
 
   * Deal better with hostname -f during debootstrap.
