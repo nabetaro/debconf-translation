@@ -1,0 +1,840 @@
+.TH DEBCONF-DEVEL 8
+.SH NAME
+debconf \- developers guide
+.SH DESCRIPTION
+This is a guide for developing packages that use debconf.
+.P 
+This manual assumes that you are familiar with debconf as a user, and are
+familiar with the basics of debian package construction.
+.P
+This manual begins by explaining two new files that are added to debian
+packages that use debconf. Then it explains how the debconf protocol works,
+and points you at some libraries that will let your programs speak the
+protocol. It discusses other maintainer scripts that debconf is typically
+used in: the postinst and postrm scripts. Then moves on to more advanced
+topics like shared debconf templates, debugging, and some common techniques
+and pitfalls of programming with debconf. It closes with a discussion of
+debconf's current shortcomings.
+.SH "THE CONFIG SCRIPT"
+Debconf adds an additional maintainer script, the config script, to the set
+of maintainer scripts that can be in debian packages (the postinst,
+preinst, postrm, and prerm). The config script is responsible for asking
+any questions necessary to configure the package.
+.P
+Note: It is a little confusing that dpkg refers to running a package's
+postinst script as "configuring" the package, since a package that uses
+debconf is often fully pre-configured, by its config script, before the
+postinst ever runs. Oh well.
+.P
+Like the postinst, the config script is passed two parameters when it is
+run. The first tells what action is being performed, and the second is the
+version of the package that is currently installed. So, like in a postinst,
+you can use dpkg --compare-versions on $2 to make some behavior happen only
+on upgrade from a particular version of a package, and things like that.
+.P
+The config script can be run in one of three ways:
+.TP
+.B 1
+If a package is pre-configured, with dpkg-preconfigure, its config script
+is run, and is passed the parameters "configure", and installed-version.
+.TP
+.B 2
+When a package's postinst is run, debconf will try to run the config
+script then too, and it will be passed the same parameters it was passed
+when it is pre-configured. This is necessary because the package might
+not have been pre-configured, and the config script still needs to get a
+chance to run. See HACKS for details.
+.TP
+.B 3
+If a package is reconfigured, with dpkg-reconfigure, its config script
+it run, and is passed the parameters "reconfigure" and
+installed-version.
+.P  
+Note that since a typical package install or upgrade using apt runs steps 1
+and 3, the config script will typically be run twice. It should do nothing
+the second time (to ask questions twice in a row is annoying), and it should
+definitely be idempotent. Luckily, debconf avoids repeating questions by
+default, so this is generally easy to accomplish.
+.P
+Note that the config script is run before the package is
+unpacked. It should only use commands that are in essential packages. The
+only dependency of your package that is guaranteed to be met when
+its config script is run is a dependency (possibly versioned) on debconf
+itself.
+.P
+The config script should not need to modify the filesystem at all. It just
+examines the state of the system, and asks questions, and debconf stores
+the answers to be acted on later by the postinst script. Conversely, the
+postinst script should almost never use debconf to ask questions, but should
+instead act on the answers to questions asked by the config script.
+.SH "THE TEMPLATES FILE"
+A package that uses debconf probably wants to ask some questions. These
+questions are stored, in template form, in the templates file. 
+.P
+Like the config script, the templates file is put in the control.tar.gz
+section of a deb. Its format is similar to a debian control file; a set of
+stanzas separated by blank lines, with each stanza having a RFC822-like
+form:
+.P
+  Template: foo/bar
+  Type: string
+  Default: foo
+  Description: This is a sample string question.
+   This is its extended description.
+   .
+   Notice that:
+    - Like in a debian package description, a dot
+      on its own line sets off a new paragraph.
+    - Most text is word-wrapped, but doubly-indented
+      text is left alone, so you can use it for lists
+      of items, like this list.
+
+  Template: foo/baz
+  Type: boolean
+  Description: Clear enough, no?
+   This is another question, of boolean type.
+.P
+For some real-life examples of templates files, see
+/var/lib/dpkg/info/debconf.templates, and other .templates files in that
+directory.
+.P
+Let's look at each of the fields in turn..
+.TP
+.B Template
+The name of the template, in the 'Template' field, is generally prefixed
+with the name of the package. After that the namespace is wide open; you
+can use a simple flat layout like the one above, or set up "subdirectories"
+containing related questions.
+.TP
+.B Type
+The type of the template determines what kind of widget is displayed to the
+user. The currently supported types are:
+.RS
+.TP
+.B string
+Results in a free-form input field that the user can type any string into.
+.TP
+.B password
+Prompts the user for a password. Use this with caution; be aware that the
+password the user enters will be written to debconf's database. You should
+probably clean that value out of the database as soon as is possible.
+.TP
+.B boolean
+A true/false choice.
+.TP
+.B select
+A choice between one of a number of values. The choices must be specified
+in a field named 'Choices'. Separate the possible values
+with commas and spaces, like this:
+.RS
+  Choices: yes, no, maybe
+.RE
+.TP
+.B multiselect
+Like the select data type, except the user can choose any number of items
+from the choices list (or chose none of them).
+.TP
+.B note
+Rather than being a question per sé, this datatype indicates a note that
+can be displayed to the user. It should be used only for important notes
+that the user really should see, since debconf will go to great pains to
+make sure the user sees it; halting the install for them to press a key,
+and even mailing the note to them in some cases. It's best to use these
+only for warning about very serious problems.
+.RE
+.TP
+.B Default
+.RS
+The 'Default' field tells debconf what the default value should be. For
+multiselect, it can be a list of choices, separated by commas and spaces,
+similar to the 'Choices' field. For select, it should be one of the
+choices. For boolean, it is "true" or "false", while it can be anything for
+a string, and it is ignored for passwords.
+.P
+Don't make the mistake of thinking that the default field contains the
+"value" of the question, or that it can be used to change the value of the
+question. It does not, and cannot, it just provides a default value for the
+first time the question is displayed. To provide a default that changes on
+the fly, you'd have to use the SET command to change the value of a
+question.
+.RE
+.TP
+.B Description
+.RS
+The 'Description' field, like the description of a Debian package, has
+two parts: A short description and an extended description. Note that some
+debconf frontends don't displays the long description, or might only
+display it if the user asks for help. So the short description should be
+able to stand on its own.
+.P
+If you can't think up a long description, then first, think some more. Post
+to debian-devel. Ask for help. Take a writing class! That extended
+description is important. If after all that you still can't come up with
+anything, leave it blank. There is no point in duplicating the short
+description.
+.P
+Text in the extended description will be word-wrapped, unless it is
+prefixed by additional whitespace (beyond the one required space).  You can
+break it up into separate paragraphs by putting " ." on a line by itself
+between them.
+.RE
+.SH QUESTIONS
+A question is an instantiated template. By asking debconf to display a
+question, your config script can interact with the user. When debconf
+loads a templates file, it instantiates a question from each template. It
+is actually possible to instantiate several independent questions from the
+same template (using the REGISTER command), but that is rarely necessary.
+Templates are static data that comes from the templates file, while
+questions are used to store dynamic data, like the current value of the
+question, whether a user has seen a question, and so on. Keep the distinction
+between a template and a question in mind, but don't worry too much about it.
+.SH "SHARED TEMPLATES"
+It's actually possible to have a template and a question that are shared
+among a set of packages. All the packages have to provide an identical
+copy of the template in their templates files. This can be useful if a
+bunch of packages need to ask the same question, and you only want to
+bother the user with it once. Shared templates are generally put in the
+shared/ pseudo-directory in the debconf template namespace.
+.SH "THE DEBCONF PROTOCOL"
+Config scripts communicate with debconf using the debconf protocol. This is
+a simple line-oriented protocol, similar to common internet protocols such
+as SMTP. The config script sends debconf a command by writing the command
+to standard output. Then it can read debconf's reply from standard
+input.
+.P
+Debconf's reply can be broken down into two parts: A numeric result
+code (the first word of the reply), and an optional extended result code
+(the remainder of the reply). The numeric code uses 0 to indicate success,
+and other numbers to indicate various kinds of failure. For full details,
+see the table in Debian policy's debconf specification document.
+.P
+Generally you'll want to use a language-specific library that handles
+the nuts and bolts of setting up these connections to debconf and
+communicating with it.
+.P
+For now, here are the commands in the protocol. This is not the definitive
+definition, see Debian policy's debconf specification document for that.
+.TP
+.B VERSION number
+You generally don't need to use this command. It exchanges with debconf the
+protocol version number that is being used. The current protocol version is
+2.0, and versions in the 2.x series will be backwards-compatible. You may
+specify the protocol version number you are speaking and debconf will return
+the version of the protocol it speaks in the. If the version you specify is
+too low, debconf will reply with numeric code 30.
+.TP
+.B CAPB capabilities
+You generally don't need to use this command. It exchanges with debconf a
+list of supported capabilities. Capabilities that both you and debconf
+support will be used, and debconf will reply with all the capabilities it
+supports.
+.TP
+.B TITLE string
+This sets the title debconf displays to the user. You rarely need to use
+this commands since debconf can automatically generate a title based on
+your package's name.
+.TP
+.B INPUT priority question
+.RS
+Ask debconf to prepare to display a question to the user. The question is 
+not actually displayed until a GO command is issued; this lets several
+INPUT commands be given in series, to build up a set of questions, which
+might all be asked on a single screen.
+.P
+The priority field tells debconf how important it is that this question be
+shown to the user. The priority values are:
+.TP
+.B low
+Very trivial items that have defaults that will work in the vast majority
+of cases; only control freaks see these.
+.TP
+.B medium
+Normal items that have reasonable defaults.
+.TP
+.B high
+Items that don't have a reasonable default.
+.TP
+.B critical
+Items that will probably break the system without user intervention.
+.P
+Debconf decides if the question is actually displayed, based on its
+priority, and whether the user has seen it before, and which frontend is
+being used. If the question will not be displayed, debconf replies with
+code 30.
+.RE
+.TP
+.B GO
+.RS
+Tells debconf to display the accumulated set of questions (from INPUT
+commands) to the user.
+.P
+If the backup capability is supported and the user indicates they want
+to back up a step, debconf replies with code 30.
+.RE
+.TP
+.B CLEAR
+Clears the accumulated set of questions (from INPUT commands) without
+displaying them.
+.TP
+.B BEGINBLOCK
+.TP
+.B ENDBLOCK
+Some debconf frontends can display a number of question to the user at once.
+Maybe in the future a frontend will even be able to group these questions
+into blocks on screen. BEGINBLOCK and ENDBLOCK can be placed around a set
+of INPUT commands to indicate blocks of questions (and blocks can even be
+nested). Since no debconf frontend is so sophisticated yet, these commands
+are ignored for now.
+.TP
+.B STOP
+This command tells debconf that you're done talking to it. Often debconf
+can detect termination of your program and this command is not necessary.
+.TP
+.B GET question
+After using INPUT and GO to display a question, you can use this command to
+get the value the user entered. The value is returned in the extended
+result code.
+.TP
+.B SET question value
+This sets the value of a question, and it can be used to override the
+default value with something your program calculates on the fly.
+.TP
+.B RESET question
+This resets the question to its default value (as is specified in the 'Default'
+field of its template).
+.TP
+.B SUBST question key value
+Questions can have substitutions embedded in their 'Description' and 'Choices'
+fields (use of substitutions in 'Choices' fields is a bit of a hack though,
+and better mechanism will eventually be developed). These substitutions
+look like "${key}". When the question is displayed, the substitutions are
+replaced with their values. This command can be used to set the value of a
+substitution. This is useful if you need to display some message to the
+user that you can't hard-code in the templates file.
+.TP
+.B FGET question flag
+Questions can have flags associated with them. The flags can have a value
+of "true" or "false". This command returns the value of a flag.
+.TP
+.B FSET question flag value
+.RS
+This sets the value of a question's flag. The value must be either "true"
+or "false".
+.P
+One common flag is the "seen" flag. It is normally only set if a user already
+seen a question. Debconf usually only displays questions to users if they
+have the seen flag set to "false" (or if it is reconfiguring a package).
+Sometimes you want the user to see a question again -- in these cases you can
+set the seen flag to false to force the debconf to redisplay it.
+.RE
+.TP
+.B METAGET question field
+This returns the value of any field of a question's associated template
+(the Description, for example).
+.TP
+.B REGISTER template question
+This creates a new question that is bound to a template. By default
+each template has an associated question with the same name. However,
+any number of questions can really be associated with a template, and
+this lets you create more such questions.
+.TP
+.B UNREGISTER question
+This removes a question from the database.
+.TP
+.B PURGE
+Call this in your postinst when your package is purged. It removes
+all of your package's questions from debconf's database.
+.P
+Here is a simple example of the debconf protocol in action.
+.P
+  INPUT medium debconf/frontend
+  30 question skipped
+  FSET debconf/frontend seen false
+  0 false
+  INPUT high debconf/frontend
+  0 question will be asked
+  GO
+  [ Here debconf displays a question to the user. ]
+  0 ok
+  GET no/such/question
+  10 no/such/question doesn't exist
+  GET debconf/frontend
+  0 Dialog
+.SH LIBRARIES
+Setting things up so you can talk to debconf, and speaking the debconf
+protocol by hand is a little too much work, so some thin libraries exist
+to relieve this minor drudgery.
+.P
+For shell programming, there is the
+/usr/share/debconf/confmodule library, which you can source at the top of 
+a shell script, and talk to debconf in a fairly natural way, using lower-case
+versions of the debconf protocol commands, that are prefixed with "db_" 
+(ie, "db_input" and "db_go"). For details, see
+.BR confmodule(3) .
+.P
+Perl programmers can use the
+.BR Debconf::Client::ConfModule(3)
+perl module.
+.P
+The rest of this manual will use the /usr/share/debconf/confmodule library
+in example shell scripts. Here is an example config script using that library,
+that just asks a question:
+.P
+  #!/bin/sh
+  set -e
+  . /usr/share/debconf/confmodule
+  db_set mypackage/reboot-now false
+  db_input high mypackage/reboot-now || true
+  db_go || true
+.P
+Notice the uses of "|| true" to prevent the script from dying if debconf
+decides it can't display a question, or the user tries to back up. In those
+situations, debconf returns a non-zero exit code, and since this shell
+script is set -e, an untrapped exit code would make it abort.
+.P
+And here is a corresponding postinst script, that uses the user's answer to
+the question to see if the system should be rebooted (a rather absurd
+example..):
+.P
+  #!/bin/sh
+  set -e
+  . /usr/share/debconf/confmodule
+  db_get mypackage/reboot-now
+  if [ "$RET" = true ]; then
+  	shutdown -r now
+  fi
+.P
+Notice the use of the $RET variable to get at the extended return code from
+the GET command, which holds the user's answer to the question.
+.SH "THE POSTINST SCRIPT"
+The last section had an example of a postinst script that uses debconf to
+get the value of a question, and act on it. Here are some things to keep in
+mind when writing postinst scripts that use debconf:
+.TP
+.B *
+Avoid asking questions in the postinst. Instead, the config script should
+ask questions using debconf, so that pre-configuration will work.
+.TP
+.B *
+Always source /usr/share/debconf/confmodule at the top of your postinst,
+even if you won't be running any db_* commands in it.
+This is required to make sure the config script gets a change to run
+(see HACKS for details).
+.TP
+.B *
+Avoid outputting anything to stdout in your postinst, since that can confuse
+debconf, and postinst should not be verbose anyway. Output to stderr is ok,
+if you must.
+.TP
+.B *
+If your postinst launches a daemon, make sure you tell debconf to STOP at
+the end, since debconf can become a little confused about when your postinst
+is done otherwise.
+.SH "OTHER SCRIPTS"
+Besides the config script and postinst, you can use debconf in any of the
+other maintainer scripts. Most commonly, you'll be using debconf in your
+postrm, to call the PURGE command when your package is removed, to clean
+out its entries in the debconf database. (This is automatically set up for
+you by
+.BR dh_installdebconf (1) ,
+by the way.
+.P
+A more involved use of debconf would be if you want to use it in the
+postrm when your package is purged, to ask a question about deleting
+something. Or maybe you find you need to use it in the preinst or prerm for
+some reason. All of these uses will work, though they'll probably involve
+asking questions and acting on the answers in the same program, rather than
+separating the two activities as is done in the config and postinst
+scripts. That's ok.
+.P
+You can also use debconf in other, stand alone programs. The issue to watch
+out for here is that debconf is not intended to be, and must not be used as
+a registry. This is unix after all, and programs are configured by files in
+/etc, not by some nebulous debconf database (that is only a cache anyway
+and might get blown away). So think long and hard before using debconf in a
+standalone program. 
+.P
+There are times when it can make sense, as in the apt-setup program which
+uses debconf to prompt the user in a manner consistent with the rest of the
+debian install process, and immediately acts on their answers to set up
+apt's sources.list.
+.SH LOCALIZATION
+Debconf supports localization of templates files. This is accomplished by
+adding more fields, with translated text in them. Any of the fields can be
+translated. For example, you might want to translate the description into
+Spanish. Just make a field named 'Description-es' that holds the
+translation. If a translated field is not available, debconf falls back to
+the normal English field.
+.P
+Besides the 'Description' field, you should translate the 'Choices' field
+of a select or multiselect template. Be sure to list the translated choices
+in the same order as they appear in the main 'Choices' field. You do not
+need to translate the 'Default' field of a select of multiselect question,
+and the value of the question will be automatically returned in English.
+.P
+You will find it easier to manage translations if you keep them
+in separate files; one file per translation. The
+.BR debconf-getlang (1)
+program can generate and update such files, and the
+.BR debconf-mergetemplate (1)
+program can merge several such templates files together to produce a
+combined file to put in your binary package. For more details on
+maintaining translations, see their man pages.
+.SH "PUTTING IT ALL TOGETHER"
+So you have a config script, a templates file, a postinst script that uses
+debconf, and so on. Putting these pieces together into a debian package
+isn't hard. You can do it by hand, or use can use
+.BR dh_installdebconf (1)
+which will merge your translated templates, copy the files into the right
+places for you, and can even generate the call to PURGE that should go in
+your postrm script. Make sure that your package depends on debconf (>= 0.5),
+since earlier versions were not compatible with everything described in this
+manual. And you're done.
+.P
+Well, except for testing, debugging, and actually using debconf for more
+interesting things than asking a few basic questions. For that, read on..
+.SH DEBUGGING
+So you have a package that's supposed to use debconf, but it doesn't quite
+work. Maybe debconf is just not asking that question you set up. Or maybe
+something weirder is happening; it spins forever in some kind of loop, or
+worse. Luckily, debconf has plenty of debugging facilities. 
+.TP
+.B DEBCONF_DEBUG
+.RS
+The first thing to reach for is the DEBCONF_DEBUG environment variable.
+If you set and export DEBCONF_DEBUG=developer, debconf will output to stderr
+a dump of the debconf protocol as your program runs. It'll look something
+like this -- the typo is made clear:
+.P
+ debconf (developer): <-- input high debconf/frontand
+ debconf (developer): --> 10 "debconf/frontand" doesn't exist
+ debconf (developer): <-- go
+ debconf (developer): --> 0 ok
+.P
+It's rather useful to use debconf's readline frontend when you're debugging
+(in the author's opinion), as the questions don't get in the way, and all
+the debugging output is easily preserved and logged.
+.RE
+.TP
+.B debconf-communicate
+Another useful tool is the
+.BR debconf-communicate (1)
+program. Fire it up and you can speak the raw debconf protocol to debconf,
+interactively. This is a great way to try stuff out on the fly.
+.TP
+.B debconf-show
+If a user is reporting a problem,
+.BR debconf-show (1)
+can be used to dump out all the questions owned by your package, displaying
+their values and whether the user has seen them.
+.TP
+.B .debconfrc
+.RS
+To avoid the often tedious build/install/debug cycle, it can be useful to
+load up your templates (with
+.BR debconf-loadtemplate (1)
+) and run your config script by hand. However, you still have to do that as
+root, right? Not so good. And ideally you'd like to be able to see what a
+fresh installation of your package looks like, with a clean debconf
+database.
+.P
+It turns out that if you set up a ~/.debconfrc file for a normal
+user, pointing at a personal config.dat and template.dat for the user, you
+can load up templates and run config scripts all you like, without any root
+access. If you want to start over with a clean database, just blow away the
+*.dat files. 
+.P
+For details about setting this up, see
+.BR debconf.conf (5) ,
+and note that /etc/debconf.conf makes a good template for a personal
+~/.debconfrc file.
+.RE
+.SH "ADVANCED PROGRAMING WITH DEBCONF"
+.SS "Config file handling"
+Many of you seem to want to use debconf to help manage config files that
+are part of your package. Perhaps there is no good default to ship in a
+conffile, and so you want to use debconf to prompt the user, and write out
+a config file based on their answers. That seems easy enough to do, but
+then you consider upgrades, and what to do when someone modifies the config
+file you generate, and dpkg-reconfigure, and ...
+.P
+There are a lot of ways to do this, and most of them are wrong, and will
+often earn you annoyed bug reports. Here is one right way to do it. It
+assumes that your config file is really just a series of shell variables
+being set, with comments in between, and so you can just source the file to
+"load" it. If you have a more complicated format, reading (and writing) it
+becomes a bit trickier.
+.P
+Your config script will look something like this:
+.P
+ #!/bin/sh
+ CONFIGFILE=/etc/foo.conf
+ set -e
+ . /usr/share/debconf/confmodule
+
+ # Load config file, if it exists.
+ if [ -e $CONFIGFILE ]; then
+ 	. $CONFIGFILE || true
+
+ 	# Store values from config file into
+ 	# debconf db.
+ 	db_set mypackage/foo FOO
+ 	db_set mypackage/bar BAR
+ fi
+
+ # Ask questions.
+ db_input medium mypackage/foo || true
+ db_input medium mypackage/bar || true
+ db_go || true
+.P
+And the postinst will look something like this:
+.P
+ #!/bin/sh
+ CONFIGFILE=/etc/foo.conf
+ set -e
+ . /usr/share/debconf/confmodule
+ 
+ # Generate config file, if it doesn't exist.
+ # An alternative is to copy in a template
+ # file from elsewhere.
+ if [ ! -e $CONFIGFILE ]; then
+ 	echo "# Config file for my package" > $CONFIGFILE
+ 	echo "FOO=" > $CONFIGFILE
+ 	echo "BAR=" > $CONFIGFILE
+ fi
+
+ # Substitute in the values from the debconf db.
+ # There are obvious optimizations possible here.
+ db_get mypackage/foo
+ FOO="$RET"
+ db_get mypackage/bar
+ BAR="$RET"
+ sed -e "s/^ *FOO=.*/FOO=\"$FOO\"/" \
+     -e "s/^ *FOO=.*/BAR=\"$BAR\"/" \
+     < $CONFIGFILE > $CONFIGFILE.tmp
+ mv -f $CONFIGFILE.tmp CONFIGFILE
+.P
+Consider how these two scripts handle all the cases. On fresh installs the
+questions are asked by the config script, and a new config file generated
+by the postinst. On upgrades and reconfigures, the config file is read in,
+and the values in it are used to change the values in the debconf database,
+so the admin's manual changes are not lost. The questions are asked again
+(and may or may not be displayed). Then the postinst substitutes the values
+back into the config file, leaving the rest of it unchanged.
+.SS "Letting the user back up"
+Few things are more frustrating when using a system like debconf than being
+asked a question, and answering it, then moving on to another screen with a
+new question on it, and realizing that hey, you made a mistake, with that
+last question, and you want to go back to it, and discovering that you
+can't.
+.P
+Since debconf is driven by your config script, it can't jump back to
+a previous question on its own but with a little help from you, it can
+accomplish this feat. The first step is to make your config script let
+debconf know it is capable of handling the user pressing a back button.
+You use the CAPB command to do this, passing backup as a parameter.
+.P
+Then after each GO command, you must test to see if the user asked to back
+up (debconf returns a code of 30), and if so jump back to the previous
+question.
+.P
+There are several ways to write the control structures of your program so it
+can jump back to previous questions when necessary. You can write goto-laden
+spaghetti code. Or you can create several functions and use recursion. But
+perhaps the cleanest and easiest way is to construct a state machine. Here
+is a skeleton of a state machine that you can fill out and expand.
+.P
+ #!/bin/sh
+ set -e
+ . /usr/share/debconf/confmodule
+ db_capb backup
+ 
+ STATE=1
+ LASTSTATE=2
+ while [ "$STATE" != 0 -a "$STATE" -le "$LASTSTATE" ]; do
+ 	case "$STATE" in
+  	1)
+  		# Two unrelated questions.
+ 		db_input medium my/question || true
+ 		db_input medium my/other_question || true
+ 	;;
+ 	2)
+ 		# Only ask this question if the
+ 		# first question was answered in
+ 		# the affirmative.
+        	db_get my/question
+ 		if [ "$RET" = "false" ]; then
+ 			db_input medium my/dep_question || true
+ 		fi
+  	;;
+ 	# Add additional states here, making sure to
+ 	# increment LASTSTATE.
+ 	esac
+
+ 	if db_go; then
+ 		STATE=$(($STATE + 1))
+ 	else
+ 		STATE=$(($STATE - 1))
+ 	fi
+ done
+.P
+Note that if all your config script does is ask a few unrelated questions,
+then there is no need for the state machine. Just ask them all, and GO;
+debconf will do its best to present them all in one screen, and the user
+won't need to back up.
+.SS "Preventing infinite loops"
+One gotcha with debconf comes up if you have a loop in your
+config script.  Suppose you're asking for input and validating
+it, and looping if it's not valid:
+.P
+ ok=''
+ do while [ ! "$ok" ];
+ 	db_input low foo/bar || true
+ 	db_go || true
+ 	db_get foo/bar
+ 	if [ "$RET" ]; then
+ 		ok=1
+ 	fi
+ done
+.P
+This looks ok at first glance. But consider what happens if
+the value of foo/bar is "" when this loop is entered, and the
+user has their priority set high, or is using a
+non-interactive frontend, and so they are not really asked for
+input. The value of foo/bar is not changed by the db_input,
+and so it fails the test and loops. And loops ...
+.P
+One fix for this is to make sure that before the loop is
+entered, the value of foo/bar is set to something that will
+pass the test in the loop. So for example if the default value
+of foo/bar is "1", then you could RESET foo/bar just
+before entering the loop.
+.P
+Another fix is to check the return code of the
+INPUT command. If it is 30 then the user is not being shown the
+question you asked them, and you should break out of the loop.
+.SS "Choosing among related packages"
+Sometimes a set of related packages can be installed, and you
+want to prompt the user which of the set should be used by
+default. Examples of such sets are window managers, or ispell
+dictionary files.
+.P
+While it would be possible for each package in the set to simply prompt,
+"Should this package be default?", this leads to a lot of repetitive
+questions if several of the packages are installed. It's possible with
+debconf to present a list of all the packages in the set and allow the user
+to choose between them. Here's how.
+.P
+Make all the packages in the set use a shared
+template. Something like this:
+.P
+ Template: shared/window-manager
+ Type: select
+ Choices: ${choices}
+ Description: Select the default window manager.
+  Select the window manager that will be started by
+  default when X starts.
+.P
+Each package should include a copy of the template. Then it
+should include some code like this in its config script:
+.P
+ db_metaget shared/window-manager owners
+ OWNERS=$RET
+ db_metaget shared/window-manager choices
+ CHOICES=$RET
+ 
+ if [ "$OWNERS" != "$CHOICES" ]; then
+ 	db_subst shared/window-manager choices $OWNERS
+ 	db_fset shared/window-manager seen false
+ fi
+ 
+ db_input medium shared/window-manager || true
+ db_go || true
+.P
+A bit of an explanation is called for. By the time your config
+script runs, debconf has already read in all the templates for
+the packages that are being installed. Since the set of
+packages share a question, debconf records that fact in the
+owners field. By a strange coincidence, the format of the
+owners field is the same as that of the choices field (a comma
+and space delimited list of values).
+.P
+The METAGET command can be used to get the list of owners and the list of
+choices. If they are different, then a new package has been
+installed. So use the SUBST command to change the list of choices
+to be the same as the list of owners, and ask the question.
+.P
+When a package is removed, you probably want to see if that package
+is the currently selected choice, and if so, prompt the user to
+select a different package to replace it.
+.P
+This can be accomplished by adding something like this to the
+prerm scripts of all related packages (replacing <package> with
+the package name):
+.P
+ if [ -e /usr/share/debconf/confmodule ]; then
+ 	. /usr/share/debconf/confmodule
+ 	# I no longer claim this question.
+ 	db_unregister shared/window-manager
+ 
+ 	# See if the shared question still exists.
+ 	if db_get shared/window-manager; then
+ 		db_metaget shared/window-manager owners
+ 		db_subst shared/window-manager choices $RET
+ 		db_metaget shared/window-manager value
+ 		if [ "<package>" = "$RET" ] ; then
+ 			db_fset shared/window-manage seen false
+ 			db_input high shared/window-manager || true
+ 			db_go || true
+ 		fi
+ 
+ 		# Now do whatever the postinst script did
+ 		# to update the window manager symlink.
+ 	fi
+ fi
+.SH HACKS
+Debconf is currently not fully integrated into dpkg (but I want to change
+this in the future), and so some messy hacks are currently called for. 
+.P
+The worst of these involves getting the config script to run. The way that
+works now is the config script will be run when the package is
+pre-configured. Then, when the postinst script runs, it starts up debconf
+again. Debconf notices it is being used by the postinst script, and so it
+goes off and runs the config script. This can only work if your postinst
+loads up one of the debconf libraries though, so postinsts always have to
+take care to do that. We hope to address this later by adding explicit
+support to dpkg for debconf.
+.P
+A related hack is getting debconf running when a config script, postinst,
+or other program that uses it starts up. After all, they expect to be able
+to talk to debconf right away. The way this is accomplished for now is that
+when such a script loads a debconf library (like
+/usr/share/debconf/confmodule), and debconf is not already running, it is
+started up, and a new copy of the script is re-execed. The only noticeable
+result is that you need to put the line that loads a debconf library at the
+very top of the script, or weird things will happen. We hope to address
+this later by changing how debconf is invoked, and turning it into
+something more like a transient daemon.
+.P
+Finally, /usr/share/debconf/confmodule's historic behavior of playing with
+file descriptions and setting up a fd #3 that talks to debconf, can cause
+all sorts of trouble when a postinst runs a daemon, since the daemon ends
+up talking to debconf, and debconf can't figure out when the script
+terminates. The STOP command can work around this. In the future, we are
+considering making debconf communication happen over a socket or some other
+mechanism than stdio.
+.SH "SEE ALSO"
+.BR debconf (1)
+is the debconf user's guide.
+.P
+The debconf specification in debian policy is the canonical definition of
+the debconf protocol. /usr/doc/debian-policy/debconf_specification.txt.gz
+.P
+.BR debconf.conf (5)
+has much useful information, including some info about the backend
+database.
+.P
+The debconf tutorial walks you through converting an existing package to
+use debconf. /usr/doc/debconf-doc/tutorial.txt.gz
+.SH AUTHOR
+Joey Hess <joeyh@debian.org>
