@@ -299,6 +299,9 @@ Feel free to write them!
   Driver: File
   Format: db
   Directory: /var/cache/debconf/templates
+.SH NOTES
+If you use something like ${HOME} in this file, it will be replaces with
+the value of the named environment variable.
 .SH "PLANNED ENHANCEMENTS"
 More drivers and formats. Some ideas include:
 A SQL driver, with the capability to access a remote database.

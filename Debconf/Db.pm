@@ -40,11 +40,13 @@ $Debconf::Db::config->setfield(...)
 =cut
 
 # Turns a chunk of text into a hash. Returns number of lines of data
-# that were processed.
-sub _hashify($$) {
+# that were processed. Also handles env variable expansion.
+sub _hashify ($$) {
 	my $text=shift;
 	my $hashref=shift;
 
+	$text =~ s/\${([^}]+)}/$ENV{$1}/eg;
+	
 	my %ret;
 	my $i;
 	foreach my $line (split /\n/, $text) {
@@ -68,9 +70,11 @@ Reads from the standard locations unless a filename to read is specified.
 sub load {
 	my $class=shift;
 	my $cf=shift;
+	
 	if (! $cf) {
-		$cf="$ENV{HOME}/.debconfrc"	if -e "$ENV{HOME}/.debconfrc";
-		$cf="/etc/debconf.conf"		if -e "/etc/debconf.conf";
+		for my $file ("$ENV{HOME}/.debconfrc", "/etc/debconf.conf") {
+			$cf=$file, last if -e $file;
+		}
 	}
 	die "No config file found" unless $cf;
 
