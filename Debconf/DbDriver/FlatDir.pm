@@ -108,6 +108,9 @@ sub exists {
 	my $this=shift;
 	my $name=shift;
 	
+	# Check the cache first.
+	return 1 if $this->SUPER::exists($name);
+
 	return unless $this->accept($name);
 	return -e $this->filename($name);
 }

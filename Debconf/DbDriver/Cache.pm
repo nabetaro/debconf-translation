@@ -43,7 +43,7 @@ use fields qw(cache);
 
 Derived classes need to implement these methods.
 
-=head2 iterate(itemname)
+=head2 real_iterate(itemname)
 
 Iterate over all available items. If called with no arguments, it returns
 an itarator. If called with the iterator passed in, it retuns the next
@@ -51,7 +51,9 @@ item in the sequence, or undef if there are no more.
 
 =head2 exists(itemname)
 
-Return true if the given item exists in the database.
+Return true if the given item exists in the database. Be sure to call
+SUPER::exists(itemname) first, and return true if it returns true, to chack
+if the item exists in the cache first!
 
 =head2 load(itemname)
 
@@ -160,6 +162,18 @@ sub savedb {
 		}
 	}
 	return $ret;
+}
+
+=head2 exists(itemname)
+
+Does an item exist in the cache?
+
+=cut
+
+sub exists {
+	my $this=shift;
+
+	return exists $this->{cache}->{shift()};
 }
 
 =head2 addowner(itemname, ownername)
