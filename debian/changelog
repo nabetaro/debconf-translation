@@ -1,3 +1,16 @@
+debconf (1.2.30) unstable; urgency=low
+
+  * Now provides the debconf-2.0 virtual package. Note that 2.0 is the debconf
+    protocol version, not the package version. Packages that depend on debconf
+    should begin to migrate over to the new virtual package, as it will
+    eventually let cdebconf be used as an alternate.
+    (However, I will wait for this to get into testing before changing
+    dh_installdebconf's generated dependencies, to avoid blocking too much
+    from testing.)
+  * No longer provides debconf-tiny.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 27 Feb 2003 22:06:18 -0500
+
 debconf (1.2.29) unstable; urgency=low
 
   * confmodule: split on only one whitespace. Closes: #182287
