@@ -182,9 +182,6 @@ various accept_* and reject_* fields to determine this.
 
 =cut
 
-# TODO: types are not yet implemented. We have to get at the Template to
-# determine type.
-
 sub accept {
 	my $this=shift;
 	my $name=shift;

@@ -68,11 +68,24 @@ sub save {
 	$this->SUPER::save($item, @_);
 }
 
+=head2 accept(itemname)
+
+Accept is overridden to reject any item names that contain either "../" or
+"/..". Either could be used to break out of the directory tree.
+
+=cut
+
+sub accept {
+	my $this=shift;
+	my $name=shift;
+
+	return if $name=~m#\.\./# or $name=~m#/\.\.#;
+	$this->SUPER::accept($name, @_);
+}	
+
 =head2 filename(itemname)
 
-We actually use the item name as the filename, subdirs and all. However,
-this means that we have to beware things like '/../..' as item names, so
-some minimal sanity checking and sanitization is done.
+We actually use the item name as the filename, subdirs and all.
 
 We also still append the extention to the item name. And the extention is
 _mandatory_ here; otherwise this would try to use filenames and directories
@@ -94,28 +107,46 @@ this driver.
 
 =cut
 
-# TODO
-
 sub iterator {
 	my $this=shift;
 	
-	# uses dirhandle autovivification..
+	# Stack of pending directories.
+	my @stack=();
+	my $currentdir="";
 	my $handle;
-	opendir($handle, $this->{directory}) ||
-		$this->error("opendir: $!");
-
+	opendir($handle, $this->{directory}) or
+		$this->error("opendir: $this->{directory}: $!");
+		
 	my $iterator=Debconf::Iterator->new(callback => sub {
-		my $ret;
-		do {
-			$ret=readdir($handle);
-			closedir($handle) if not defined $ret;
-			next if $ret eq '.lock'; # ignore lock file
-		} while defined $ret and -d $this->filename($ret);
-		$ret=~tr#:#/#;
-		return $ret;
+		my $i;
+		while ($handle or @stack) {
+			while (@stack and not $handle) {
+				$currentdir=pop @stack;
+				opendir($handle, "$this->{directory}/$currentdir") or
+					$this->error("opendir: $this->{directory}/$currentdir: $!");
+			}
+			$i=readdir($handle);
+			if (not defined $i) {
+				closedir $handle;
+				$handle=undef;
+				next;
+			}
+			next if $i eq '.lock'; # ignore lock files
+			if (-d "$this->{directory}/$currentdir$i") {
+				if ($i ne '..' and $i ne '.') {
+					push @stack, "$currentdir$i/";
+				}
+				next;
+			}
+			# Ignore files w/o our extention, and strip it.
+			next unless $i=~s/$this->{extention}$//;
+			return $currentdir.$i;
+		}
+		return undef;
 	});
 
-	$this->SUPER::iterator($iterator);
+	# Gag. Perhaps my parent needs some work..
+	$this->Debconf::DbDriver::Cache::iterator($iterator);
 }
 
 =head2 remove(itemname)

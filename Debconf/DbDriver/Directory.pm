@@ -178,7 +178,9 @@ sub iterator {
 			$ret=readdir($handle);
 			closedir($handle) if not defined $ret;
 			next if $ret eq '.lock'; # ignore lock file
-		} while defined $ret and -d $this->{directory}.'/'.$this->filename($ret);
+			next if length $this->{extention} and
+				not $ret=~s/$this->{extention}//;
+		} while defined $ret and -d "$this->{directory}/$ret";
 		$ret=~tr#:#/#;
 		return $ret;
 	});
