@@ -39,13 +39,14 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 		db_endblock
 	;;
 	5)
-		db_input low demo/note || true
 		# Will be displayed again.
 		db_input high demo/password || true
+		
 	;;
 	6)
 		db_subst demo/subst user joeuser
 		db_input high demo/subst || true
+		db_input low demo/note || true
 	;;
 	esac
 	

@@ -1,3 +1,19 @@
+debconf (0.9.61) unstable; urgency=low
+
+  * Added some space after prompts in text frontend, which seems to
+    visually set off each new question more clearly.
+  * Made the text frontend's long-broken shutdown() method work, to
+    always ensure you have hit enter at a prompt if a message is printed
+    out as the last part of a debconf run. After trying that out for a bit,
+    I found I hated it, so I removed the method.
+  * Put a blank line between short description and long description for
+    notes.
+  * In template parsing, don't add leading spaces before new paragraphs.
+    (This was manifesting as an ugly one-space indent on paragraphs 2 and
+    on, in the text frontend.)
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 27 May 2001 20:03:47 -0400
+
 debconf (0.9.60) unstable; urgency=low
 
   * Make dpkg-preconfigure read all of its input in --apt mode, even if it

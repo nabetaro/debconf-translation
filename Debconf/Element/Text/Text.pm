@@ -19,7 +19,7 @@ This is a peice of text to output to the user.
 sub show {
 	my $this=shift;
 
-	$this->frontend->display($this->question->description."\n".
+	$this->frontend->display($this->question->description."\n\n".
 		$this->question->extended_description."\n");
 
 	$this->value('');

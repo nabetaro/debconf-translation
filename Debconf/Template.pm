@@ -197,8 +197,10 @@ sub load {
 			}
 			elsif ($line=~/^\s(.*)/) {
 				# Continuation of field.
-				$extended.=' ' if length $extended;
-				$extended.=$1;
+				my $bit=$1;
+				$extended.=' ' if length $extended &&
+				                  $extended !~ /\n$/;
+				$extended.=$bit;
 			}
 			else {
 				die sprintf(gettext("Template parse error near `%s', in stanza #%s of %s\n"), $line, $., $file);

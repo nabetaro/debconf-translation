@@ -19,7 +19,7 @@ This is a note to the user, presented using a plain text interface.
 sub show {
 	my $this=shift;
 
-	$this->frontend->display($this->question->description."\n".
+	$this->frontend->display($this->question->description."\n\n".
 		$this->question->extended_description."\n");
 
 	$this->value('');

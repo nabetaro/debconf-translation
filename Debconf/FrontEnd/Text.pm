@@ -253,6 +253,7 @@ sub prompt {
 	else {
 		$ret=$this->readline->readline($prompt);
 	}
+	$this->display_nowrap("\n");
 	return if $this->_skip;
 	$this->_direction(1);
 	$this->readline->addhistory($ret);
@@ -295,33 +296,15 @@ sub prompt_password {
 		print $prompt;
 		$ret=<STDIN>;
 		chomp $ret;
+		# Their newline won't have registered, so simulate it.
+		$this->display_nowrap("\n");
 	}
 	else {
 		$ret=$this->prompt($prompt, @_);
 	}
 	system('stty sane');
-	# Their newline won't have registered, so simulate it.
-	$this->display("\n");
+	$this->display_nowrap("\n");
 	return $ret;
-}
-
-=item shutdown
-
-Before this frontend is shut down, it needs to prompt the user if some text
-has been printed out without a prompt. Otherwise, the rest of the apt/dpkg
-run will probably scroll that text offscreen without a guarentee the user has
-seen it. 
-
-(This isn't in DESTROY because it doesn't work there. Why, I dunno.)
-
-=cut
-
-sub shutdown {
-	my $this=shift;
-
-	if ($this->linecount > 0) {
-		$this->display('', '');
-	}
 }
 
 =back
