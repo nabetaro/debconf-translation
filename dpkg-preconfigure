@@ -200,7 +200,7 @@ foreach (@buffer) {
 		# other packages can still be configured and installed.
 		if ($confmodule->exitcode > 0) {
 			print STDERR sprintf(
-				gettext("%s failed to configure, with exit code %s"),
+				gettext("%s failed to preconfigure, with exit status %s"),
 				$package, $confmodule->exitcode)."\n";
 		}
 		unlink $config;

@@ -24,7 +24,7 @@ This program returns the return code of the program it runs.
 =cut
 
 sub usage {
-	die "Usage: $0 template program args\n";
+	die "Usage: $0 [-t template] program args\n";
 }
 
 use strict;
