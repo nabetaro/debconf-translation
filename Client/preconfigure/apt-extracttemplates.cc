@@ -22,7 +22,7 @@
 
 void help(void)
 {
-	fprintf(stderr, "dpkg-preconfigure [--apt] [--frontend=<f>] [--priority=<p>] [--help]\n");
+	fprintf(stderr, "apt-extracttemplates deb [deb]\n");
 	exit(0);
 }
 
