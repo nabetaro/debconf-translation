@@ -387,7 +387,7 @@
 	# Source debconf library.
 	. /usr/share/debconf/confmodule.sh  
 
-	deb_get foo/like_debian
+	db_get foo/like_debian
 	if [ "$RET" = "false" ]; then
 	/etc/init.d/subliminal_messages start "I like debian."
 	fi

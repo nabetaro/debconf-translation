@@ -31,7 +31,7 @@ sub show {
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";
-		$default='n';
+		$default='y';
 	}
 	elsif ($default eq 'false') {
 		$prompt="yN";
