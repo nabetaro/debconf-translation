@@ -1,3 +1,12 @@
+debconf (1.4.35) unstable; urgency=low
+
+  * Fix debconf-get-selections to not choke on files with comments followed
+    by nothing.
+  * Allow multiple spaces between all values except the last one in preseed
+    files.
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 12 Sep 2004 13:30:42 -0400
+
 debconf (1.4.34) unstable; urgency=low
 
   * Skip questions with no known type also in debconf-get-selections.
