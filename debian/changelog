@@ -1,10 +1,15 @@
 debconf (0.1.43) unstable; urgency=low
 
   * Fixed the problems with the purge command, which were really package
-    name guessing problems.
+    name guessing problems and some errors in the new purge code. BenC, it's
+    ready for you.
   * Don't install frontend in /bin (Closes: #46149)
+  * Fixed a problem with interpretation of the set command. The second
+    parameter can have spaces in it.
+  * Added data-dumper dependancy, since some perl's don't include it.
+    (Closes: #46147)
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 27 Sep 1999 17:17:42 -0700
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 28 Sep 1999 17:17:42 -0700
 
 debconf (0.1.42) unstable; urgency=low
 

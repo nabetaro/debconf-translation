@@ -124,17 +124,18 @@ sub disownquestion {
 	$questions{$name}->removeowner($owner);
 	if ($questions{$name}->owners eq '') {
 		my $template=$questions{$name}->template;
-		# Does the template go away too?
+		# Does the template go away too? Look at how many questions
+		# use it.
 		my $users=0;
 		foreach my $question (keys %questions) {
-			$users++ if $question->template eq $template;
+			$users++ if $questions{$question}->template eq $template;
 		}
-		
-		if ($users == 0) {
-			delete $templates{$template};
-		}
-		
 		delete $questions{$name};
+
+		# Only the current question uses it.
+		if ($users == 1) {
+			delete $templates{$template->template};
+		}
 	}
 }
 

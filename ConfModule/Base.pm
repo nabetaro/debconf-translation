@@ -256,7 +256,7 @@ This must be passed a question name and a value. It sets the question's value.
 sub command_set {
 	my $this=shift;
 	my $question_name=shift;
-	my $value=shift;
+	my $value=join(" ", @_);
 
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
 		die "$question_name doesn't exist";
