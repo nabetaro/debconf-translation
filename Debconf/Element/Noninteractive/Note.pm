@@ -80,7 +80,11 @@ sub sendmail {
 			print MAIL wrap('', '', $this->question->description);
 		}
 		print MAIL "\n\n";
-		print MAIL "-- \n", sprintf(gettext("Debconf, running at %s"), `hostname -f`);
+		my $hostname=`hostname -f 2>/dev/null`;
+		if (! defined $hostname) {
+			$hostname="unknown system";
+		}
+		print MAIL "-- \n", sprintf(gettext("Debconf, running at %s"), $hostname, "\n");
 		print MAIL "[ ", wrap('', '', $footer), " ]\n" if $footer;
 		close MAIL or return '';
 
