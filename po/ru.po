@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -47,10 +47,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Далее"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -64,6 +60,10 @@ msgstr "Возврат"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
+msgstr "Далее"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
 msgstr "Далее"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
@@ -188,6 +188,15 @@ msgstr "Ошибка разбора шаблона около `%s', в строфе номер %s из %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон номер %s в %s не содержит строки `Template:'"
 
+#: ../Debconf/Element/Gnome.pm:183
+#, fuzzy
+msgid "_Help"
+msgstr "Подсказка"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Подсказка"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 #, fuzzy
 msgid "Save (mail) Note"
@@ -217,15 +226,6 @@ msgstr ""
 msgid "Unable to save note."
 msgstr "Сообщение сохранить не удалось."
 
-#: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
-msgid "_Help"
-msgstr "Подсказка"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Подсказка"
-
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
@@ -253,16 +253,6 @@ msgstr "да"
 msgid "no"
 msgstr "нет"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "ни один из предложенных выше"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
-msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 #, fuzzy
 msgid ""
@@ -279,6 +269,16 @@ msgstr "Debconf"
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, работающий на %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ни один из предложенных выше"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

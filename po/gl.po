@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -45,10 +45,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Máis"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -62,6 +58,10 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Seguinte"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Máis"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 #, fuzzy
@@ -187,6 +187,15 @@ msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
 
+#: ../Debconf/Element/Gnome.pm:183
+#, fuzzy
+msgid "_Help"
+msgstr "Axuda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Axuda"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 #, fuzzy
 msgid "Save (mail) Note"
@@ -213,15 +222,6 @@ msgstr ""
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "Non se puido grava-la nota."
-
-#: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
-msgid "_Help"
-msgstr "Axuda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Axuda"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
@@ -250,16 +250,6 @@ msgstr "si"
 msgid "no"
 msgstr "non"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "ningunha das anteriores"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
-msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Premas as letras dos elementos que quere seleccionar, separadas por espacios."
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -274,6 +264,16 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, executándose en %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ningunha das anteriores"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Premas as letras dos elementos que quere seleccionar, separadas por espacios."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

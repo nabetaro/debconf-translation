@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: 2004-05-31 00:07+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -47,10 +47,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Més"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -64,6 +60,10 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Següent"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Més"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -198,6 +198,14 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "La plantilla #%s en %s no conté una línia «Template:»\n"
 
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "A_juda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Ajuda"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Desa (envia per correu) la nota"
@@ -223,14 +231,6 @@ msgstr "Error"
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "No s'ha pogut desar la nota."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "A_juda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Ajuda"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
@@ -259,14 +259,6 @@ msgstr "sí"
 msgid "no"
 msgstr "no"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "cap de les anteriors"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Introduïu els elements que voleu seleccionar, separats per espais."
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -282,6 +274,14 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, executan-se a %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "cap de les anteriors"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Introduïu els elements que voleu seleccionar, separats per espais."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

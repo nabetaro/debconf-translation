@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: 2004-03-03 19:40+1300\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -43,10 +43,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf 运行于 %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "更多"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -59,6 +55,10 @@ msgstr "返回"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "下一步"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "更多"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -173,6 +173,14 @@ msgstr "%3$s 中第 %2$s 部分“%1$s”附近的模板解析出错\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s 中第 %1$s 模板未包含“Template:”行\n"
 
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "帮助"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "保存(信件)备忘"
@@ -196,14 +204,6 @@ msgstr "错误"
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "不能保存备忘。"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "帮助"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
@@ -230,14 +230,6 @@ msgstr "是"
 msgid "no"
 msgstr "否"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "以上都不是"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "输入您想选择的项目，各项目之间以空格分开。"
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -251,6 +243,14 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf，正在 %s 上运行"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "以上都不是"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "输入您想选择的项目，各项目之间以空格分开。"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -45,10 +45,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Mer"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -61,6 +57,10 @@ msgstr "Föregående"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Nästa"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Mer"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 #, fuzzy
@@ -182,6 +182,15 @@ msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
+#: ../Debconf/Element/Gnome.pm:183
+#, fuzzy
+msgid "_Help"
+msgstr "Hjälp"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Hjälp"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Spara (e-post-)notis"
@@ -208,15 +217,6 @@ msgstr ""
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "Kan inte spara notis."
-
-#: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
-msgid "_Help"
-msgstr "Hjälp"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Hjälp"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
@@ -245,14 +245,6 @@ msgstr "ja"
 msgid "no"
 msgstr "nej"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "inget av ovanstående"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Ange de alternativ du vill markera, avdelade med blanksteg."
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -268,6 +260,14 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf på %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "inget av ovanstående"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Ange de alternativ du vill markera, avdelade med blanksteg."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

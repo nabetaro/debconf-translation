@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-16 23:12+0100\n"
+"POT-Creation-Date: 2004-08-19 15:43+0100\n"
 "PO-Revision-Date: 2004-08-10 06:26+0300\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -47,10 +47,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Daha"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -64,6 +60,10 @@ msgstr "Geri"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Sonraki"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Daha"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -188,6 +188,14 @@ msgstr "Şablon ayrıştırma hatası; '%1$s' civarında (%3$s #%2$s)\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s #%1$s şablonu 'Template:' satırı içermiyor\n"
 
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Yardım"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Notu (eposta) Kaydet"
@@ -211,14 +219,6 @@ msgstr "Hata"
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "Not kaydedilemedi."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Yardım"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Yardım"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
@@ -247,14 +247,6 @@ msgstr "evet"
 msgid "no"
 msgstr "hayır"
 
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "yukarıdakilerden hiçbiri"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Seçmek istediğiniz öğeleri boşluklarla ayırarak girin."
-
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
@@ -270,6 +262,14 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf %s ile çalışıyor"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "yukarıdakilerden hiçbiri"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Seçmek istediğiniz öğeleri boşluklarla ayırarak girin."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format

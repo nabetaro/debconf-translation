@@ -6,12 +6,16 @@ debconf-get-selections
 
 =head1 SYNOPSIS
 
-debconf-get-selections
+debconf-get-selections [--installer]
 
-=head1
+=head1 DESCRIPTION
 
 Output the current debconf database in a format understandable by
 debconf-set-selections.
+
+To dump the debconf database of the debian-installer, from
+/var/log/debian-installer/cdebconf, use the --installer
+parameter.
 
 =cut
 
@@ -21,13 +25,41 @@ use Debconf::Db;
 use Debconf::Template;
 use Debconf::Question;
 
-Debconf::Db->load;
+Debconf::Db->load(readonly => "true");
+
+my $defaultowner="unknown";
+
+if (@ARGV && $ARGV[0] eq '--installer') {
+	# A bit of a hack..
+	my $di_path="/var/log/debian-installer/cdebconf";
+	$Debconf::Db::config=Debconf::Db->makedriver(
+		driver => "File", 
+		name => "di_questions",
+		filename => "$di_path/questions.dat",
+		readonly => "true",
+	);
+	$Debconf::Db::templates=Debconf::Db->makedriver(
+		driver => "File", 
+		name => "di_templates",
+		filename => "$di_path/templates.dat",
+		readonly => "true",
+	);
+	$defaultowner="d-i";
+}
+
 my $qi = Debconf::Question->iterator;
 
 while (my $q = $qi->iterate) {
 	my ($name, $type, $value) = ($q->name, $q->type, $q->value);
-	foreach my $owner (split ", ", $q->owners) {
-		print "$owner\t$name\t$type\t$value\n";
+	next if ($type eq 'text' || $type eq 'note' || $type eq 'error');
+	print "# ".$q->description."\n";
+	if ($q->owners) {
+		foreach my $owner (split ", ", $q->owners) {
+			print "$owner\t$name\t$type\t$value\n";
+		}
+	}
+	else {		
+		print "$defaultowner\t$name\t$type\t$value\n";
 	}
 }
 
