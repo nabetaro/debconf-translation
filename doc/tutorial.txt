@@ -68,9 +68,6 @@ perl:
 Consider supporting use of the back button to jump back from one question to
 the previous question. It's a bit more work, but a big plus for the user.
 
-Once you have a config script, *** need some easy way to load up the
-templates and test it ***.
-
 At this point it's time to move on to actually modifying your postinst,
 preinst, etc. Remove all extraneous noise, like the starting and stopping of
 daemons. Use one of the methods mentioned above to pull the answers to any

@@ -21,9 +21,11 @@ sub show {
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";
+		$default='y';
 	}
 	elsif ($default eq 'false') {
 		$prompt="yN";
+		$default='n';
 	}
 	else {
 		$prompt="yn";
@@ -39,7 +41,6 @@ sub show {
 		# Handle defaults.
 		if ($_ eq '' && defined $default) {
 			$value=$default;
-			last;
 		}
 
 		# Validate the input.

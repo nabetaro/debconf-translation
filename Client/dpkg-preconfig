@@ -14,7 +14,7 @@ use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
 
-my $frontend_type='Dialog';
+my $frontend_type=$Debian::DebConf::Config::frontend;
 my $priority;
 my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);

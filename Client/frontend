@@ -26,12 +26,13 @@ die $@ if $@;
 # See if the postinst or prerm of the package is being run, and if there is a
 # config script associated with this package. If so, run it first as a
 # confmodule (alos loading the templates). This is a bit of a nasty hack, that
-# lets you dpkg -i somepackage.deb and have its config scriptbe run first.
+# lets you dpkg -i somepackage.deb and have its config script be run first.
 if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	# Load templates, if any.
 	my $templates=$ARGV[0];
 	$templates=~s/\.(?:postinst|prerm)$/.templates/;
-	Debian::DebConf::ConfigDb::loadtemplatefile($templates) if -e $templates;
+	Debian::DebConf::ConfigDb::loadtemplatefile($templates)
+		if -e $templates;
 
 	# Instantiate all questions.
 	Debian::DebConf::ConfigDb::makequestions();

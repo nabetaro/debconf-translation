@@ -34,6 +34,7 @@ A few functions have special features, as documented below:
 
 package Debian::DebConf::Client::ConfModule;
 use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Config;
 use strict;
 use lib '.';
 use Exporter;
@@ -66,11 +67,12 @@ module is loaded in the usual way.
 =cut
 
 sub import {
-	my $type=ucfirst($Debian::DebConf::Config::frontend);
-
-	# Ensure a frontend is running. If not, turn into one and fork off
+	# Ensure a frontend is running. If not, turn into one,
+	# see if we can run a config script, then fork off
 	# a child to continue.
 	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
+		my $type=ucfirst($Debian::DebConf::Config::frontend);
+
 		my $frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
 			Debian::DebConf::FrontEnd::$type->new();
@@ -89,30 +91,49 @@ sub import {
 		# Prevent deadlocks.
 		autoflush CHILD_STDOUT 1;
 		$confmodule->write_handle->autoflush;
+
+		# Load up previous state information.
+		if (-e $Debian::DebConf::Config::dbfn) {
+			Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+		}
+		
+		# See if the postinst or prerm of the package is being run, and
+		# if there is a config script associated with this package. If
+		# so, run it first as a confmodule (also loading the 
+		# templates). This is a bit of a nasty hack, that lets you
+		# dpkg -i somepackage.deb and have its config script be run
+		# first.
+		if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
+			# Load templates, if any.
+			my $templates=$ARGV[0];
+			$templates=~s/\.(?:postinst|prerm)$/.templates/;
+			Debian::DebConf::ConfigDb::loadtemplatefile($templates)
+				if -e $templates;
+
+			# Instantiate all questions.
+			Debian::DebConf::ConfigDb::makequestions();
+			
+			# Run config script, if any.
+			my $config=$ARGV[0];
+			$config=~s/\.(?:postinst|prerm)$/.config/;
+			if (-e $config) {
+				my $confmodule=eval qq{
+					Debian::DebConf::ConfModule::$type->new(\$frontend, \$config);
+				};
+				die $@ if $@;
+				
+				# Talk to it until it is done.
+				1 while ($confmodule->communicate);
+			}
+		}
 		
 		if ($confmodule->pid(fork)) {
-			# Parent process. This is the FrontEnd now.
-			# More modules a FrontEnd needs.
-			eval q{
-				use Debian::DebConf::ConfigDb;
-				use Debian::DebConf::Config;
-			};
-			die $@ if $@;
-			
-			# Load up previous state information.
-			if (-e $Debian::DebConf::Config::dbfn) {
-				Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
-			}
-			
-			# Talk to my child until it is done. Reading from the child actually
-			# blocks when the child exits, so to tell if it's done, I'll use a
-			# SIGCHLD handler.
-			$SIG{CHLD}=sub {
-				# Save state.
-				Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
-				exit;
-			};
+			# Now I'm the frontend. Talk to my child until it is done.
 			1 while ($confmodule->communicate);
+			
+			# Save state.
+			Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
+			exit;
 		}
 		
 		# Child process. Continue on as before. First, set STDIN and

@@ -127,13 +127,18 @@ sub display_nowrap {
 =head2 title
 
 Display a title. Only do so once per title. The title is stored in the title
-property of the object.
+property of the object. If a value is passed in, this will set the title
+instead.
 
 =cut
 
 sub title {
 	my $this=shift;
-	
+
+	if (@_) {
+		return $this->{title}=shift;
+	}
+
 	my $title=$this->{'title'};
 	if ($title) {
 		$this->display_nowrap($title."\n".('-' x length($title)). "\n", 1);

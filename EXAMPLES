@@ -1,5 +1,5 @@
-This is a demo frontend for the Debian Configuration Management system. To
-test it, try these commands. (The Line frontend works best if
+This is a demo of the the Debian Configuration Management system. To test
+it, try these commands. (The Line frontend works best if
 libterm-readline-gnu-perl is installed, but it does not depend on it. The
 Gtk frontend requires libgtk-perl.)
 
@@ -26,5 +26,3 @@ connect to localhost port 8001:
 make test FRONTEND=Web PACKAGE=demo
 make test FRONTEND=Web PACKAGE=cvs
 make test FRONTEND=Web PACKAGE=exim
-
-The copyright of this is GPL, by Joey Hess <joey@kitenet.net>

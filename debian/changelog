@@ -1,3 +1,20 @@
+debconf (0.1.17) unstable; urgency=low
+
+  * Added COPYING file.
+  * Renamed README to EXAMPLES.
+  * Wrote a new README that just points to the other files.
+  * Wrote doc/INTRODUCTION, giving some history of how things
+    have worked, and why debconf is better.
+  * Suggests libterm-readline-gnu-perl, which is best for the Line
+    frontend.
+  * dpkg-preconfig uses the frontend specified in the conffile now.
+  * Element::Line::Boolean now uses the correct values as the default.
+  * FrontEnd::Line now actually displays titles.
+  * Client::ConfModule should now run the config script like confmodule.sh
+    does, for transparent installation of debconf packages. Needs testing.
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue, 14 Sep 1999 12:48:32 -0700
+
 debconf (0.1.16) unstable; urgency=low
 
   * Got rid of the DEBIAN_FRONTEND environment variable entirely. Instead,
