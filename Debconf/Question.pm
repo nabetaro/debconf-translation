@@ -9,6 +9,7 @@ Debconf::Question - Question object
 package Debconf::Question;
 use strict;
 use Debconf::Db;
+use Debconf::Template::Persistent;
 use Debconf::Log qw(:all);
 
 =head1 DESCRIPTION
@@ -249,7 +250,7 @@ from the template if no value is set. Pass in a value to set the value.
 sub value {
 	my $this = shift;
 	
-	if (@_ == 0) {
+	unless (@_) {
 		my $ret=$Debconf::Db::config->getfield($this->{name}, 'value');
 		return $ret if defined $ret;
 		return $this->template->default if ref $this->template;
@@ -299,6 +300,24 @@ sub removeowner {
 	return $Debconf::Db::config->removeowner($this->{name}, shift);
 }
 
+=item template
+
+Get/set the template used by this object. If a parameter is passed in, it
+is the _name_ of the template to associate with this object.
+
+Returns a template object.
+
+=cut
+
+sub template {
+	my $this=shift;
+	if (@_) {
+		$Debconf::Db::config->setfield($this->{name}, 'template', shift);
+	}
+	return Debconf::Template::Persistent->get(
+		$Debconf::Db::config->getfield($this->{name}, 'template'));
+}
+
 =item AUTOLOAD
 
 Handles all fields except name, by creating accessor methods for them the
@@ -322,7 +341,7 @@ sub AUTOLOAD {
 		my $ret=$Debconf::Db::config->getfield($this->{name}, $field);
 		return $ret if defined $ret;
 		# Fall back to template values.
-		return $this->{template}->$field() if ref $this->{template};
+		return $this->template->$field() if ref $this->template;
 	};
 	goto &$AUTOLOAD;
 }
