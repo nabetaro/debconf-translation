@@ -2,14 +2,14 @@ debconf (0.2.44) unstable; urgency=low
 
   * w3m -dump works again, so use it.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 22 Nov 1999 15:48:20 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 22 Nov 1999 15:48:20 -0800
 
 debconf (0.2.43) unstable; urgency=low
 
   * dpkg-preconfig: modified regexp to work under perl 5.004
     (Closes: #50854, #50880)
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 21 Nov 1999 13:36:37 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun, 21 Nov 1999 13:36:37 -0800
 
 debconf (0.2.42) unstable; urgency=low
 
@@ -18,7 +18,7 @@ debconf (0.2.42) unstable; urgency=low
   * Element::Text::MultiSelect can now inherit from Element::Text::Select,
     making it much shorter.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 20 Nov 1999 18:22:09 -0800
+ -- Joey Hess <joeyh@debian.org>  Sat, 20 Nov 1999 18:22:09 -0800
 
 debconf (0.2.41) unstable; urgency=low
 
@@ -34,7 +34,7 @@ debconf (0.2.41) unstable; urgency=low
     string input elements..
   * Since w3m is currently broken, dump pages with lynx for now.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 20 Nov 1999 14:08:55 -0800
+ -- Joey Hess <joeyh@debian.org>  Sat, 20 Nov 1999 14:08:55 -0800
 
 debconf (0.2.40) unstable; urgency=low
 
@@ -46,7 +46,7 @@ debconf (0.2.40) unstable; urgency=low
     on debconf 0.2.26.
   * Version.pm: Added, to store the debconf version.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 19 Nov 1999 13:16:16 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri, 19 Nov 1999 13:16:16 -0800
 
 debconf (0.2.38) unstable; urgency=low
 
@@ -54,14 +54,14 @@ debconf (0.2.38) unstable; urgency=low
     may be trailing space after the last double quote. Nodified to handle
     that, Closes: #50471
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 17 Nov 1999 15:58:38 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed, 17 Nov 1999 15:58:38 -0800
 
 debconf (0.2.37) unstable; urgency=low
 
   * Client/frontend: be less aggressive when trying to guess a template
     filename. Fixes sslwrap purge problem.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 17 Nov 1999 14:55:59 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed, 17 Nov 1999 14:55:59 -0800
 
 debconf (0.2.36) unstable; urgency=low
 
@@ -69,14 +69,14 @@ debconf (0.2.36) unstable; urgency=low
     new installs. This doesn't change the default for people who already
     have debconf installed.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 16 Nov 1999 16:12:04 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue, 16 Nov 1999 16:12:04 -0800
 
 debconf (0.2.35) unstable; urgency=low
 
   * Update database files atomically, should fix the isolated empty db files
     that have been reported twice now.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 16 Nov 1999 13:47:31 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue, 16 Nov 1999 13:47:31 -0800
 
 debconf (0.2.34) unstable; urgency=low
 
@@ -86,7 +86,7 @@ debconf (0.2.34) unstable; urgency=low
   * Specifically, now that ConfModule doesn't send a return code for STOP,
     frontends can't try to read such a return code, or they hang.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 15 Nov 1999 20:04:16 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 15 Nov 1999 20:04:16 -0800
 
 debconf (0.2.33) unstable; urgency=low
 
@@ -103,7 +103,7 @@ debconf (0.2.33) unstable; urgency=low
   * Documented everywhere that when reconfiguring debconf, --priority=medium
     is a good idea. Closes: #50225
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 15 Nov 1999 09:46:22 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 15 Nov 1999 09:46:22 -0800
 
 debconf (0.2.32) unstable; urgency=low
 
@@ -121,7 +121,7 @@ debconf (0.2.32) unstable; urgency=low
       changes specific to it. debconf-tiny is now 12k.
   * Removed /etc from package.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 14 Nov 1999 17:08:58 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun, 14 Nov 1999 17:08:58 -0800
 
 debconf (0.2.31) unstable; urgency=low
 
@@ -132,7 +132,7 @@ debconf (0.2.31) unstable; urgency=low
   * The better, long term fix is basic dependancy checking in
     dpkg-preconfig, and that is now the top of my todo list.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 14 Nov 1999 13:58:13 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun, 14 Nov 1999 13:58:13 -0800
 
 debconf (0.2.30) unstable; urgency=low
 
@@ -141,7 +141,7 @@ debconf (0.2.30) unstable; urgency=low
   * debug messages are now prioritized, DEBCONF_DEBUG can be set to 1 to see
     some, 2 for more, etc.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 13 Nov 1999 19:40:50 -0800
+ -- Joey Hess <joeyh@debian.org>  Sat, 13 Nov 1999 19:40:50 -0800
 
 debconf (0.2.29) unstable; urgency=low
 
@@ -153,14 +153,14 @@ debconf (0.2.29) unstable; urgency=low
     to display the title...)
   * With doogie's help, simplified Client/confmodule a bit.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 12 Nov 1999 15:38:11 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri, 12 Nov 1999 15:38:11 -0800
 
 debconf (0.2.28) unstable; urgency=low
 
   * Added a Debconf user's guide.
   * Cleaned up the doc Makefile.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 12 Nov 1999 01:06:19 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri, 12 Nov 1999 01:06:19 -0800
 
 debconf (0.2.27) unstable; urgency=low
 
@@ -168,7 +168,7 @@ debconf (0.2.27) unstable; urgency=low
     functions is called in scalar context. It was returning the result code
     by mistake, now it returns the value, like it is documented to do.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 11 Nov 1999 21:18:40 -0800
+ -- Joey Hess <joeyh@debian.org>  Thu, 11 Nov 1999 21:18:40 -0800
 
 debconf (0.2.26) unstable; urgency=low
 
@@ -178,7 +178,7 @@ debconf (0.2.26) unstable; urgency=low
     handle this, I think.
   * Made dpkg-preconfig properly accept -f and --frontend, Closes: #49920
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 11 Nov 1999 12:30:39 -0800
+ -- Joey Hess <joeyh@debian.org>  Thu, 11 Nov 1999 12:30:39 -0800
 
 debconf (0.2.25) unstable; urgency=low
 
@@ -191,7 +191,7 @@ debconf (0.2.25) unstable; urgency=low
     that don't use debconf, though it is just a no-op with them. 
     Closes: #48190
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 17:15:04 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed, 10 Nov 1999 17:15:04 -0800
 
 debconf (0.2.24) unstable; urgency=low
 
@@ -201,14 +201,14 @@ debconf (0.2.24) unstable; urgency=low
   * Change undefined values to '' when starting confmodules, Closes: #49797
   * Fixed web frontend to never display empty forms.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 15:29:53 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed, 10 Nov 1999 15:29:53 -0800
 
 debconf (0.2.23) unstable; urgency=low
 
   * Added sane defaults if stty -a fails. (Closes: a whole slew of bug
     reports people will file over the next 2 days. :-P)
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 15:00:16 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed, 10 Nov 1999 15:00:16 -0800
 
 debconf (0.2.22) unstable; urgency=low
 
@@ -220,7 +220,7 @@ debconf (0.2.22) unstable; urgency=low
   * Reworked how Elements are created to use eval, which kills the
     duplicated makelement() code in all the FrontEnds.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  9 Nov 1999 21:10:26 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Nov 1999 21:10:26 -0800
 
 debconf (0.2.21) unstable; urgency=low
 
@@ -230,14 +230,14 @@ debconf (0.2.21) unstable; urgency=low
     and they now also detect screen resizes. Debconf in a 30x5 xterm is
     beautiful!
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  9 Nov 1999 16:12:38 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Nov 1999 16:12:38 -0800
 
 debconf (0.2.20) unstable; urgency=low
 
   * Fixed the text frontend to not lower-case choices in a select list.
     (Closes: #49650)
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  9 Nov 1999 15:18:15 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Nov 1999 15:18:15 -0800
 
 debconf (0.2.19) unstable; urgency=low
 
@@ -249,7 +249,7 @@ debconf (0.2.19) unstable; urgency=low
     configuration management spec is now available as an xml document, in
     Debian CVS. For convenience, debconf includes that document now.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun,  7 Nov 1999 17:34:02 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun,  7 Nov 1999 17:34:02 -0800
 
 debconf (0.2.18) unstable; urgency=low
 
@@ -259,7 +259,7 @@ debconf (0.2.18) unstable; urgency=low
   * Don't crash if told to remove a nonexistant question.
   * Rationalized debug and warning message printing.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  8 Nov 1999 11:56:07 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon,  8 Nov 1999 11:56:07 -0800
 
 debconf (0.2.17) unstable; urgency=low
 
@@ -271,7 +271,7 @@ debconf (0.2.17) unstable; urgency=low
   * ConfModule.pm now just execs a frontend, instead of turning into one. Not
     quite as cool, but a lot easier to maintain.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  5 Nov 1999 12:36:13 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri,  5 Nov 1999 12:36:13 -0800
 
 debconf (0.2.16) unstable; urgency=low
 
@@ -279,7 +279,7 @@ debconf (0.2.16) unstable; urgency=low
   * Split the template data out of the main debconf database and into
     templates.db. This reduces the chances of it getting corrupted.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  5 Nov 1999 11:19:49 -0800
+ -- Joey Hess <joeyh@debian.org>  Fri,  5 Nov 1999 11:19:49 -0800
 
 debconf (0.2.15) unstable; urgency=low
 
@@ -287,7 +287,7 @@ debconf (0.2.15) unstable; urgency=low
     stuff in a preinst. The templates arn't available then.
   * Documented this, until someone comes up with a workaround.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  4 Nov 1999 11:31:28 -0800
+ -- Joey Hess <joeyh@debian.org>  Thu,  4 Nov 1999 11:31:28 -0800
 
 debconf (0.2.14) unstable; urgency=low
 
@@ -298,7 +298,7 @@ debconf (0.2.14) unstable; urgency=low
     Needed for packages like ssh that need to ask questions before install
     time always.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed,  3 Nov 1999 15:22:17 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed,  3 Nov 1999 15:22:17 -0800
 
 debconf (0.2.13) unstable; urgency=low
 
@@ -307,7 +307,7 @@ debconf (0.2.13) unstable; urgency=low
      - call set_locale so gtk frontend can display text in any language,
        Closes: #49075
 
- -- Joey Hess <joeyh@master.debian.org>  Wed,  3 Nov 1999 12:26:45 -0800
+ -- Joey Hess <joeyh@debian.org>  Wed,  3 Nov 1999 12:26:45 -0800
 
 debconf (0.2.12) unstable; urgency=low
 
@@ -315,14 +315,14 @@ debconf (0.2.12) unstable; urgency=low
     outputs an error message, but continues so as much as possible of the
     install can still complete.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  2 Nov 1999 13:08:07 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue,  2 Nov 1999 13:08:07 -0800
 
 debconf (0.2.11) unstable; urgency=low
 
   * Fixed spelling error, Closes: #49032, which was filed on base for
     unfathomable reasons.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  2 Nov 1999 12:47:39 -0800
+ -- Joey Hess <joeyh@debian.org>  Tue,  2 Nov 1999 12:47:39 -0800
 
 debconf (0.2.10) unstable; urgency=low
 
@@ -330,7 +330,7 @@ debconf (0.2.10) unstable; urgency=low
     looks nasty in w3m. Fixed that, and also use w3m to dump html to text
     now, so tables are legible.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 16:55:15 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon,  1 Nov 1999 16:55:15 -0800
 
 debconf (0.2.9) unstable; urgency=low
 
@@ -339,7 +339,7 @@ debconf (0.2.9) unstable; urgency=low
   * _Really_ fixed problem with newline after owner. Tested and retested
    this time. Closes: #48450
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 12:45:54 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon,  1 Nov 1999 12:45:54 -0800
 
 debconf (0.2.8) unstable; urgency=low
 
@@ -348,7 +348,7 @@ debconf (0.2.8) unstable; urgency=low
     confmodules. Closes: #48824, #48853
   * Closes: 47458 (been fixed for a while)
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 11:31:28 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon,  1 Nov 1999 11:31:28 -0800
 
 debconf (0.2.7) unstable; urgency=low
 
@@ -356,7 +356,7 @@ debconf (0.2.7) unstable; urgency=low
    for conistency, even if not shown, the value of the Question they represent
    is changed as if they were shown.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 31 Oct 1999 21:28:40 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun, 31 Oct 1999 21:28:40 -0800
 
 debconf (0.2.6) unstable; urgency=low
 
@@ -369,38 +369,38 @@ debconf (0.2.6) unstable; urgency=low
     So I dug around and fixed it all, I think.
   * Fixed entering of '0' into text box in dialog frontend, which was broken.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 31 Oct 1999 12:11:44 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun, 31 Oct 1999 12:11:44 -0800
 
 debconf (0.2.5) unstable; urgency=low
 
   * Removed stupid debugging code. (oops)
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 30 Oct 1999 22:38:59 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 30 Oct 1999 22:38:59 -0700
 
 debconf (0.2.4) unstable; urgency=low
 
   * Just for Culus, sped up dpkg-preconfig by a factor of 3.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 30 Oct 1999 20:26:29 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 30 Oct 1999 20:26:29 -0700
 
 debconf (0.2.3) unstable; urgency=low
 
   * Fixed confmodule.sh reentrancy bug again.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 30 Oct 1999 18:34:30 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 30 Oct 1999 18:34:30 -0700
 
 debconf (0.2.2) unstable; urgency=low
 
   * Corrected debconf upgrade problem. If an old version of debconf
     preconfig'd a newer version, the config script failed.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 30 Oct 1999 17:15:53 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 30 Oct 1999 17:15:53 -0700
 
 debconf (0.2.1) unstable; urgency=low
 
   * Confmodule.pm fixes I forgot in the last version.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 29 Oct 1999 18:20:46 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 29 Oct 1999 18:20:46 -0700
 
 debconf (0.2.0) unstable; urgency=low
 
@@ -445,7 +445,7 @@ debconf (0.2.0) unstable; urgency=low
     fact is noted.
   * Added debconf-loadtemplate to the .deb.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 28 Oct 1999 14:04:13 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 28 Oct 1999 14:04:13 -0700
 
 debconf (0.1.75) unstable; urgency=low
 
@@ -453,13 +453,13 @@ debconf (0.1.75) unstable; urgency=low
   * Fixed a problem with empty text input fields in the Dialog frontend
     setting the value of the question back to default instead of to ''
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 28 Oct 1999 12:41:41 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 28 Oct 1999 12:41:41 -0700
 
 debconf (0.1.74) unstable; urgency=low
 
   * Added a very important note to the tutorial.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 27 Oct 1999 15:38:42 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 27 Oct 1999 15:38:42 -0700
 
 debconf (0.1.73) unstable; urgency=low
 
@@ -474,14 +474,14 @@ debconf (0.1.73) unstable; urgency=low
   * Fixed yet another bug in dialog select box sizing. WIll they never end?
   * Dialog select boxes no longer have numbered items. Looks better.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 27 Oct 1999 14:14:51 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 27 Oct 1999 14:14:51 -0700
 
 debconf (0.1.72) unstable; urgency=low
 
   * dpkg-preconfig: fixed so it chomps the package name, to prevent ugliness
     like \n in the owners field. Closes: #48450
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 27 Oct 1999 12:48:54 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 27 Oct 1999 12:48:54 -0700
 
 debconf (0.1.71) unstable; urgency=low
 
@@ -490,7 +490,7 @@ debconf (0.1.71) unstable; urgency=low
   * Added a section to the tutorail on adding backup capabilities to config
     scripts. (Closes: #47676)
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 26 Oct 1999 15:02:10 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue, 26 Oct 1999 15:02:10 -0700
 
 debconf (0.1.70) unstable; urgency=low
 
@@ -499,14 +499,14 @@ debconf (0.1.70) unstable; urgency=low
     installed when they are run, which is normally the old version of the
     package. (Analagous to postinst scripts.)
   
- -- Joey Hess <joeyh@master.debian.org>  Wed, 13 Oct 1999 06:35:34 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 13 Oct 1999 06:35:34 -0700
 
 debconf (0.1.69) unstable; urgency=low
 
   * Fixed the web frontend to send a HTTP reponse header, patch from
     Fumitoshi UKAI <ukai@debian.or.jp>, Closes: #47937
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 16:19:43 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 24 Oct 1999 16:19:43 -0700
 
 debconf (0.1.68) unstable; urgency=low
 
@@ -517,20 +517,20 @@ debconf (0.1.68) unstable; urgency=low
     where I have to do nasty re-ordering to make the default be first. If
     you want, file a seperate (wishlist) bug on this.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 15:26:34 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 24 Oct 1999 15:26:34 -0700
 
 debconf (0.1.67) unstable; urgency=low
 
   * Fixed a truely braindead problem in Container.pm, which was breaking
     Select Elements a bit. (Closes: #47683)
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 15:14:17 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 24 Oct 1999 15:14:17 -0700
 
 debconf (0.1.66) unstable; urgency=low
 
   * Fixed typo in debconf template. (Closes: #47458)
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 14:44:24 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 24 Oct 1999 14:44:24 -0700
 
 debconf (0.1.65) unstable; urgency=low
 
@@ -538,14 +538,14 @@ debconf (0.1.65) unstable; urgency=low
     Be warned that this command is probably only temporary, I am looking
     for a better solution. (Closes: #46927)
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 12 Oct 1999 13:52:43 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue, 12 Oct 1999 13:52:43 -0700
 
 debconf (0.1.64) unstable; urgency=low
 
   * Slighly better handing of select element in text frontend if it has more
     than 26 choices.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 10 Oct 1999 22:30:13 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 10 Oct 1999 22:30:13 -0700
 
 debconf (0.1.63) unstable; urgency=low
 
@@ -553,19 +553,19 @@ debconf (0.1.63) unstable; urgency=low
     the default. (Closes: #47049)
   * Fixed tutorial typo. (Closes: #47050)
 
- -- Joey Hess <joeyh@master.debian.org>  Sat,  9 Oct 1999 18:11:24 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat,  9 Oct 1999 18:11:24 -0700
 
 debconf (0.1.62) unstable; urgency=low
 
   * Added stylesheet to turn on toc's.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  8 Oct 1999 21:31:31 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri,  8 Oct 1999 21:31:31 -0700
 
 debconf (0.1.61) unstable; urgency=low
 
   * Converted the tutorial and introduction to xml and docbook.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  8 Oct 1999 16:26:17 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri,  8 Oct 1999 16:26:17 -0700
 
 debconf (0.1.60) unstable; urgency=low
 
@@ -575,7 +575,7 @@ debconf (0.1.60) unstable; urgency=low
   * Documented a confmodule.sh gotcha in a tew troubleshooting section of
     the tutorial.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  8 Oct 1999 09:36:02 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri,  8 Oct 1999 09:36:02 -0700
 
 debconf (0.1.59) unstable; urgency=low
 
@@ -586,13 +586,13 @@ debconf (0.1.59) unstable; urgency=low
     - Made cancel button work.
     It still segfaults on exit though. 
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 18:21:35 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  7 Oct 1999 18:21:35 -0700
 
 debconf (0.1.58) unstable; urgency=low
 
   * Allowed confmodule.sh to be loaded twice. Closes: #46843
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 14:44:30 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  7 Oct 1999 14:44:30 -0700
 
 debconf (0.1.57) unstable; urgency=low
 
@@ -600,7 +600,7 @@ debconf (0.1.57) unstable; urgency=low
     Closes: #46871
   * Another patch from Rafael to fix a mistake in the tutorial. Closes: #46873
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 13:40:02 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  7 Oct 1999 13:40:02 -0700
 
 debconf (0.1.56) unstable; urgency=low
 
@@ -616,13 +616,13 @@ debconf (0.1.56) unstable; urgency=low
     objects per FrontEnd type. To make this work, I had to move the capb
     property into the FrontEnd.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  7 Oct 1999 02:52:02 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  7 Oct 1999 02:52:02 -0700
 
 debconf (0.1.55) unstable; urgency=low
 
   * Reorganized some modules. No user-visible changes.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed,  6 Oct 1999 16:20:43 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed,  6 Oct 1999 16:20:43 -0700
 
 debconf (0.1.54) unstable; urgency=low
 
@@ -631,7 +631,7 @@ debconf (0.1.54) unstable; urgency=low
   * metaget'ing choices now returns a list. Fixes the other half of #46606.
   * Select boxes that consist of one item are not displayed.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed,  6 Oct 1999 11:21:01 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed,  6 Oct 1999 11:21:01 -0700
 
 debconf (0.1.53) unstable; urgency=low
 
@@ -639,13 +639,13 @@ debconf (0.1.53) unstable; urgency=low
   * Corrected typo in confmodule.3 man page, Closes: #46651
   * Corrected whiptail window sizing problems, Closes: #46498, #46655
 
- -- Joey Hess <joeyh@master.debian.org>  Tue,  5 Oct 1999 11:21:25 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue,  5 Oct 1999 11:21:25 -0700
 
 debconf (0.1.52) unstable; urgency=low
 
   * Fixed fatal dpkg-reconfig typo.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 15:45:32 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon,  4 Oct 1999 15:45:32 -0700
 
 debconf (0.1.51) unstable; urgency=low
 
@@ -655,7 +655,7 @@ debconf (0.1.51) unstable; urgency=low
     passed.
   * dpkg-reconfigure will only work on packages that are fully installed.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 14:12:56 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon,  4 Oct 1999 14:12:56 -0700
 
 debconf (0.1.50) unstable; urgency=low
 
@@ -664,7 +664,7 @@ debconf (0.1.50) unstable; urgency=low
   * No longer parses the choices field at template load time. This is a
     big change and might break stuff -- we'll see.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 11:26:32 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon,  4 Oct 1999 11:26:32 -0700
 
 debconf (0.1.49) unstable; urgency=low
 
@@ -672,14 +672,14 @@ debconf (0.1.49) unstable; urgency=low
     when apt passes it 200 packages to be upgraded on a 386, it's clear
     that something is actually going on.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun,  3 Oct 1999 18:04:38 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun,  3 Oct 1999 18:04:38 -0700
 
 debconf (0.1.48) unstable; urgency=low
 
   * Quoted a few more bareword hash keys that were causing a perl warning. What
     puzzles me is I cannot reproduce the warning at all.. (Closes: #46545)
 
- -- Joey Hess <joeyh@master.debian.org>  Sun,  3 Oct 1999 17:18:36 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun,  3 Oct 1999 17:18:36 -0700
 
 debconf (0.1.47) unstable; urgency=low
 
@@ -693,14 +693,14 @@ debconf (0.1.47) unstable; urgency=low
     dialog frontend; makes more sense this way.
   * dpkg-reconfigure aborts if you arn't root.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri,  1 Oct 1999 13:31:06 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri,  1 Oct 1999 13:31:06 -0700
 
 debconf (0.1.46) unstable; urgency=low
 
   * Yesterday's changes to the choices field broke all select lists -- fixed.
   * Added regression tests to TODO, it's clear I need them.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 30 Sep 1999 23:06:49 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Sep 1999 23:06:49 -0700
 
 debconf (0.1.45) unstable; urgency=low
 
@@ -708,7 +708,7 @@ debconf (0.1.45) unstable; urgency=low
     .deb, rather than the tarball, now that most people are installing debs.
     Closes: #46302.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 30 Sep 1999 11:49:12 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Sep 1999 11:49:12 -0700
 
 debconf (0.1.44) unstable; urgency=low
 
@@ -722,7 +722,7 @@ debconf (0.1.44) unstable; urgency=low
     the user once for which one they want. Added a section to the tutorial
     about this.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 29 Sep 1999 15:52:14 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 29 Sep 1999 15:52:14 -0700
 
 debconf (0.1.43) unstable; urgency=low
 
@@ -735,13 +735,13 @@ debconf (0.1.43) unstable; urgency=low
   * Added data-dumper dependancy, since some perl's don't include it.
     (Closes: #46147)
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 28 Sep 1999 17:17:42 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 28 Sep 1999 17:17:42 -0700
 
 debconf (0.1.42) unstable; urgency=low
 
   * Fixed a problem with Client::ConfModule.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 27 Sep 1999 16:12:32 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 27 Sep 1999 16:12:32 -0700
 
 debconf (0.1.41) unstable; urgency=low
 
@@ -754,7 +754,7 @@ debconf (0.1.41) unstable; urgency=low
     sure to always show the short description when it actually prompts for
     input. This is a lot less disorienting.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 27 Sep 1999 14:41:57 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 27 Sep 1999 14:41:57 -0700
 
 debconf (0.1.40) unstable; urgency=low
 
@@ -765,7 +765,7 @@ debconf (0.1.40) unstable; urgency=low
   * AutoSelect only starts up the script if it's actually passed once. TRhis
     should fix your problem, BenC.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 26 Sep 1999 18:16:47 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 26 Sep 1999 18:16:47 -0700
 
 debconf (0.1.39) unstable; urgency=low
 
@@ -781,7 +781,7 @@ debconf (0.1.39) unstable; urgency=low
     easier to get at debug messages. (Closes: #46048)
   * dpkg-reconfigure was trashing ownerships, fixed.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 26 Sep 1999 16:50:02 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 26 Sep 1999 16:50:02 -0700
 
 debconf (0.1.38) unstable; urgency=low
 
@@ -791,7 +791,7 @@ debconf (0.1.38) unstable; urgency=low
   * Fixed a nasty bug in the fallback code.
   * Read-protected the debconf db directory.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 20:13:20 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 24 Sep 1999 20:13:20 -0700
 
 debconf (0.1.37) unstable; urgency=low
 
@@ -802,7 +802,7 @@ debconf (0.1.37) unstable; urgency=low
     (Closes: #45927)
   * Fixed a dpkg-preconfig type introduced last version.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 15:55:51 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 24 Sep 1999 15:55:51 -0700
 
 debconf (0.1.36) unstable; urgency=low
 
@@ -815,7 +815,7 @@ debconf (0.1.36) unstable; urgency=low
     was unset; added a fix to that so it falls back instead.
   * Removed some dpkg-preconfig spam.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 24 Sep 1999 13:25:12 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 24 Sep 1999 13:25:12 -0700
 
 debconf (0.1.35) unstable; urgency=low
 
@@ -851,20 +851,20 @@ debconf (0.1.35) unstable; urgency=low
   * Fixed question default value code so it always inherits from the current
     template, whatever that might be.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 23 Sep 1999 12:52:14 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 23 Sep 1999 12:52:14 -0700
 
 debconf (0.1.34) unstable; urgency=low
 
   * Fixed dpkg-reconfigure, which was broken since yesterday.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 22 Sep 1999 15:48:57 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 22 Sep 1999 15:48:57 -0700
 
 debconf (0.1.33) unstable; urgency=low
 
   * Fixed template merge bug. This was making old descriptions show up
     even if a new template with changed descriptions was loaded.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 22 Sep 1999 15:07:03 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 22 Sep 1999 15:07:03 -0700
 
 debconf (0.1.32) unstable; urgency=low
 
@@ -874,14 +874,14 @@ debconf (0.1.32) unstable; urgency=low
   * In the dialog frontend, hitting cancel (or escape, maybe), will now
     break out and cancel everything.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 21 Sep 1999 15:01:00 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue, 21 Sep 1999 15:01:00 -0700
 
 debconf (0.1.31) unstable; urgency=low
 
   * Added "visible" command to tell if a question will be displayed.
     Very useful for preventing some kinds of loops.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 20 Sep 1999 17:12:00 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 20 Sep 1999 17:12:00 -0700
 
 debconf (0.1.30) unstable; urgency=low
 
@@ -890,7 +890,7 @@ debconf (0.1.30) unstable; urgency=low
   * Added doc/namespace.ttx, which explains the variable namespace.
   * First upload to unstable.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 12:28:14 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Sep 1999 12:28:14 -0700
 
 debconf (0.1.29) unstable; urgency=low
 
@@ -899,19 +899,19 @@ debconf (0.1.29) unstable; urgency=low
     - man page enhancements
     - better debian/templates text
 
- -- Joey Hess <joeyh@master.debian.org>  Sun, 19 Sep 1999 13:04:50 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun, 19 Sep 1999 13:04:50 -0700
 
 debconf (0.1.28) unstable; urgency=low
 
   * Fixed a bug.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 17:00:55 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Sep 1999 17:00:55 -0700
 
 debconf (0.1.27) unstable; urgency=low
 
   * Added default title support.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 14:51:36 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Sep 1999 14:51:36 -0700
 
 debconf (0.1.26) unstable; urgency=low
 
@@ -933,7 +933,7 @@ debconf (0.1.26) unstable; urgency=low
     much sense. If you're following long in CVS, I also probably broke your
     repository again; a clean checkout is reccommended. Sorry.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 12:56:43 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Sep 1999 12:56:43 -0700
 
 debconf (0.1.25) unstable; urgency=low
 
@@ -944,20 +944,20 @@ debconf (0.1.25) unstable; urgency=low
     thing to do.
   * Fixed link.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 11:48:53 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Sep 1999 11:48:53 -0700
 
 debconf (0.1.24) unstable; urgency=low
 
   * Added advanced topics section to the tutorial.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 18:13:51 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Sep 1999 18:13:51 -0700
 
 debconf (0.1.23) unstable; urgency=low
 
   * Force use of gnu readline perl library. The other one is too bad.
   * dpkg-reconfigure allows you to configure it's frontend now.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 18:03:19 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Sep 1999 18:03:19 -0700
 
 debconf (0.1.22) unstable; urgency=low
 
@@ -966,7 +966,7 @@ debconf (0.1.22) unstable; urgency=low
   * Depend on whiptail || dialog || gnome-utils so some kind of dialog is
     installed always.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 17:48:12 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 17 Sep 1999 17:48:12 -0700
 
 debconf (0.1.21) unstable; urgency=low
 
@@ -974,13 +974,13 @@ debconf (0.1.21) unstable; urgency=low
     and making it fragile in various ways. Removed it. Instead, I have
     modified update-menus to DTRT, and I depend on that version.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 16 Sep 1999 17:10:06 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Sep 1999 17:10:06 -0700
 
 debconf (0.1.20) unstable; urgency=low
 
   * Fixed Line::Boolean default stuff, last time, I hope.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 16 Sep 1999 16:18:47 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Sep 1999 16:18:47 -0700
 
 debconf (0.1.19) unstable; urgency=low
 
@@ -989,7 +989,7 @@ debconf (0.1.19) unstable; urgency=low
     the config script was run. It looks like this was due to reentrancy
     problems in my sigchld handler and I think I've squashed it.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 16 Sep 1999 12:22:48 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Sep 1999 12:22:48 -0700
 
 debconf (0.1.18) unstable; urgency=low
 
@@ -1005,7 +1005,7 @@ debconf (0.1.18) unstable; urgency=low
     occasional segfaults if using dialog.
   * UI tewak to text boolean element.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 15 Sep 1999 11:35:45 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 15 Sep 1999 11:35:45 -0700
 
 debconf (0.1.17) unstable; urgency=low
 
@@ -1022,7 +1022,7 @@ debconf (0.1.17) unstable; urgency=low
   * Client::ConfModule should now run the config script like confmodule.sh
     does, for transparent installation of debconf packages. Needs testing.
 
- -- Joey Hess <joeyh@master.debian.org>  Tue, 14 Sep 1999 12:48:32 -0700
+ -- Joey Hess <joeyh@debian.org>  Tue, 14 Sep 1999 12:48:32 -0700
 
 debconf (0.1.16) unstable; urgency=low
 
@@ -1038,7 +1038,7 @@ debconf (0.1.16) unstable; urgency=low
   * This, barring a little bit of docs and a few packages built to use it, 
     is basically ready to be shown to the world.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 13 Sep 1999 15:40:15 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 13 Sep 1999 15:40:15 -0700
 
 debconf (0.1.15) unstable; urgency=low
 
@@ -1057,13 +1057,13 @@ debconf (0.1.15) unstable; urgency=low
     workaround needed for dpkg not preconfiguring stuff on it's own -- now
     debconf use is completly transparent.
 
- -- Joey Hess <joeyh@master.debian.org>  Mon, 13 Sep 1999 12:58:00 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon, 13 Sep 1999 12:58:00 -0700
 
 debconf (0.1.14) unstable; urgency=low
 
   * Don't use dh_link, so it can still build on va.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 10 Sep 1999 15:08:13 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 10 Sep 1999 15:08:13 -0700
 
 debconf (0.1.13) unstable; urgency=low
 
@@ -1071,20 +1071,20 @@ debconf (0.1.13) unstable; urgency=low
   * /etc/debconf.cfg now holds configurable debconf settings. Config.pm is
     just a link to it now.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 18:54:53 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Sep 1999 18:54:53 -0700
 
 debconf (0.1.12) unstable; urgency=low
 
   * dpkg-reconfigure now sets a flag in FrontEnd::Base that makes old
     questions be shown as well. This is very nice for reconfiguring stuff..
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 16:19:21 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Sep 1999 16:19:21 -0700
 
 debconf (0.1.11) unstable; urgency=low
 
   * Added db_set command to confmodule.sh
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 16:05:25 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Sep 1999 16:05:25 -0700
 
 debconf (0.1.10) unstable; urgency=low
 
@@ -1093,7 +1093,7 @@ debconf (0.1.10) unstable; urgency=low
     prefix all the commands in the shell interface with "db_". So dh_set,
     db_get, etc. Most packages that use debconf thus need to be changed.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 14:31:45 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Sep 1999 14:31:45 -0700
 
 debconf (0.1.9) unstable; urgency=low
 
@@ -1104,7 +1104,7 @@ debconf (0.1.9) unstable; urgency=low
   * Added doc/packages-prompt, just a list of some packages that need to be
     modified.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 12:05:01 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Sep 1999 12:05:01 -0700
 
 debconf (0.1.8) unstable; urgency=low
 
@@ -1115,7 +1115,7 @@ debconf (0.1.8) unstable; urgency=low
     already significently better in there.
   * Added Element/Gtk/*, from AJ.
 
- -- Joey Hess <joeyh@master.debian.org>  Sun,  8 Aug 1999 16:00:44 -0700
+ -- Joey Hess <joeyh@debian.org>  Sun,  8 Aug 1999 16:00:44 -0700
 
 debconf (0.1.7) unstable; urgency=low
 
@@ -1125,7 +1125,7 @@ debconf (0.1.7) unstable; urgency=low
     still need to be converted.
   * Fixed unset bug in confmodule.sh
 
- -- Joey Hess <joeyh@master.debian.org>  Mon,  2 Aug 1999 16:06:33 -0700
+ -- Joey Hess <joeyh@debian.org>  Mon,  2 Aug 1999 16:06:33 -0700
 
 debconf (0.1.6) unstable; urgency=low
 
@@ -1143,7 +1143,7 @@ debconf (0.1.6) unstable; urgency=low
   * Minor mods to above patch.
   * Documented template substitutions in the draft spec.
 
- -- Joey Hess <joeyh@master.debian.org>  Sat, 31 Jul 1999 00:57:58 -0700
+ -- Joey Hess <joeyh@debian.org>  Sat, 31 Jul 1999 00:57:58 -0700
 
 debconf (0.1.5) unstable; urgency=low
 
@@ -1180,7 +1180,7 @@ debconf (0.1.5) unstable; urgency=low
     have been built so far that use debconf. Have to do it to comply with
     the spec.
 
- -- Joey Hess <joeyh@master.debian.org>  Fri, 30 Jul 1999 11:16:25 -0700
+ -- Joey Hess <joeyh@debian.org>  Fri, 30 Jul 1999 11:16:25 -0700
 
 debconf (0.1.3) unstable; urgency=low
 
@@ -1188,7 +1188,7 @@ debconf (0.1.3) unstable; urgency=low
     FrontEnds that will really be used. Faster startup time.
   * TODO updates.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 15 Jul 1999 15:36:53 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 15 Jul 1999 15:36:53 -0700
 
 debconf (0.1.2) unstable; urgency=low
 
@@ -1202,7 +1202,7 @@ debconf (0.1.2) unstable; urgency=low
     dpkg-preconfig to configure packages. (The file's not actually part of
     apt, so this is not too evil).
 
- -- Joey Hess <joeyh@master.debian.org>  Thu, 15 Jul 1999 11:41:29 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu, 15 Jul 1999 11:41:29 -0700
 
 debconf (0.1.1) unstable; urgency=low
 
@@ -1211,13 +1211,13 @@ debconf (0.1.1) unstable; urgency=low
   * doc/maintainer.txt is a guide for maintainers who want to convert
     packages to use debconf.
 
- -- Joey Hess <joeyh@master.debian.org>  Wed, 14 Jul 1999 20:37:50 -0700
+ -- Joey Hess <joeyh@debian.org>  Wed, 14 Jul 1999 20:37:50 -0700
 
 debconf (0.1.0) unstable; urgency=low
 
   * Killed the cvs date stuff. Too much bother.
 
- -- Joey Hess <joeyh@master.debian.org>  Thu,  8 Jul 1999 13:38:37 -0700
+ -- Joey Hess <joeyh@debian.org>  Thu,  8 Jul 1999 13:38:37 -0700
 
 Local variables:
 mode: debian-changelog
