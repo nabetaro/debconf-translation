@@ -1,3 +1,10 @@
+debconf (0.2.45) unstable; urgency=low
+
+  * Discovered dialog's --separate-output parameter, and use it for
+    multiselect boxes, since it simplfies parsing.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 24 Nov 1999 10:52:03 -0800
+
 debconf (0.2.44) unstable; urgency=low
 
   * w3m -dump works again, so use it.

@@ -59,18 +59,16 @@ sub show {
 		
 	}
 	
-	@params=('--checklist', $text, $lines, $columns, $menu_height, @params);
+	@params=('--separate-output','--checklist', $text, $lines, $columns, $menu_height, @params);
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
 
 	exit $ret if $ret != 0;
 
-	# Dialog returns a list of the selected items, quoted, with spaces
-	# in between. Parse that and change it into the style we use
-	# internally.
-	$value=~s/^"//;
-	$value=~s/"\s*$//;
-	$value=~s/" "/, /g;
+	# Dialog returns the selected items, each on a line.
+	# Turn that into our internal format.
+	$value=~s/\n$//;
+	$value=~s/\n/, /g;
 
 	$this->question->value($value);
 	$this->question->flag_isdefault('false');
