@@ -1,3 +1,11 @@
+debconf (0.3.70) unstable; urgency=low
+
+  * Don't strip Client::ConfModule of pod docs.
+  * Build depends on a links that support -dump. Don't know when this was
+    added, so I'll just build-depend on the current version.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 15 Aug 2000 10:30:04 -0700
+
 debconf (0.3.69) unstable; urgency=low
 
   * Questions w/o extended descriptions are a bad thing. The tutorial
