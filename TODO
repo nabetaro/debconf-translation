@@ -9,6 +9,13 @@ General:
 * i8n
 * Debhelper should auto-add the purge stuff to the postrm when it detects a
   package using debconf.
+* When Clinet::ConfModule launches a frontend, the frontend doesn't see
+  stuff echo'd to stdout, if it is echo'd inside a system. A short program
+  illistrating the problem:
+
+  *STDOUT=\*NO_STDOUT;
+  print "HI 1\n";
+  system 'echo HI 2';
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which
