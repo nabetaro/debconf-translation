@@ -1,3 +1,13 @@
+debconf (0.2.34) unstable; urgency=low
+
+  * Fixed 3 bugs reports that will get filed in the next 36 hours. The
+    debconf bug betting pool is now open -- how many times will this be
+    reported now that it's been fixed? :-p
+  * Specifically, now that ConfModule doesn't send a return code for STOP,
+    frontends can't try to read such a return code, or they hang.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 15 Nov 1999 20:04:16 -0800
+
 debconf (0.2.33) unstable; urgency=low
 
   * Debconf scripts now automatically load their templates when they are

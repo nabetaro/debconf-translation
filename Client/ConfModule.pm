@@ -80,6 +80,13 @@ sub import {
 	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
 }
 
+# The frontend doesn't send a return code here, so we cannot try to read it
+# or we'll block.
+sub stop {
+	print "STOP\n";
+	return;
+}
+
 # Default command handler.
 sub AUTOLOAD {
 	my $command = uc $AUTOLOAD;

@@ -42,7 +42,7 @@ echo "WARNING: Using deprecated debconf compatibility library."
 # Doing that saves us a lot of calls to tr at load time. I just wish shell had
 # an upper-case function.
 old_opts="$@"
-for i in "capb CAPB" "stop STOP" "set SET" "reset RESET" "title TITLE" \
+for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
@@ -89,4 +89,9 @@ db_go () {
 # text, since displaying text isn't really asking for input.
 db_text () {
 	db_input $@
+}
+
+# Cannot read a return code, since there is none and we would block.            
+db_stop () {                                                                    
+	echo STOP >&3                                                           
 }
