@@ -1,3 +1,9 @@
+debconf (1.4.34) unstable; urgency=low
+
+  * Skip questions with no known type also in debconf-get-selections.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  1 Sep 2004 01:25:20 -0400
+
 debconf (1.4.33) unstable; urgency=low
 
   * Skip title questions in debconf-get-selections along with the notes, text,
