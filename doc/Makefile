@@ -3,7 +3,7 @@ FILES=$(patsubst %.xml,%.txt,$(wildcard *.xml)) \
 
 all: $(FILES)
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
-	$(MAKE) -C spec all
+	-$(MAKE) -C spec all
 
 %.html: %.xml html.dsl
 	jade -V nochunks -t sgml -d html.dsl \
@@ -15,4 +15,4 @@ all: $(FILES)
 
 clean:
 	rm -f $(FILES) hierarchy.txt *.css *.html
-	$(MAKE) -C spec clean
+	-$(MAKE) -C spec clean
