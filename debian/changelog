@@ -1,5 +1,7 @@
-debconf (1.4.47) UNRELEASED; urgency=low
+debconf (1.4.47) unstable; urgency=low
 
+  * Since python confmodule checks only to see if DEBIAN_HAS_FRONTEND
+    exists, dpkg-reconfigure needs to delete it, not unset it. Closes: #302004
   * Translations:
     - Galician updated. Closes: #296470
     - Spanish updated. Closes: #301126

@@ -212,7 +212,7 @@ foreach my $pkg (@packages) {
 			# and re-initialize it when the script finishes.
 			Debconf::Db->save;
 			
-			$ENV{DEBIAN_HAS_FRONTEND}='';
+			delete $ENV{DEBIAN_HAS_FRONTEND};
 			my $ret=system("$infodir/$pkg.$script", @$info);
 			if (int($ret / 256) != 0) {
 				exit int($ret / 256);
