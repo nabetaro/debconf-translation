@@ -24,15 +24,22 @@ use base qw(Debian::DebConf::Element::Noninteractive);
 =head2 show
 
 The show method does not display anything. However, if the value of the
-Question associated with it is not set, then it will be set to the first
-item in the select list. This is for consitancy with other select Elements.
+Question associated with it is not set, or is not one of the available
+choices, then it will be set to the first item in the select list. This is
+for consitancy with other select Elements.
 
 =cut
 
 sub show {
 	my $this=shift;
 
-	if (! defined $this->question->value || $this->question->value eq '') {
+	my @choices=$this->question->choices_split;
+	my $value=$this->question->value;
+	$value='' unless defined $value;
+	my $inlist=0;
+	map { $inlist=1 if $_ eq $value } @choices;
+
+	if (! $inlist) {
 		my @choices=$this->question->choices_split;
 		if (@choices) {
 			$this->question->value($choices[0]);
