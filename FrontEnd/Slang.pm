@@ -42,6 +42,7 @@ sub init {
 	$this->SUPER::init(@_);
 
 	$this->interactive(1);
+	$this->capb('backup');
 
 	$this->screen(Term::Stool::Screen->new);
 	$this->titlebar(Term::Stool::TitleBar->new(

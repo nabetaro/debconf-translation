@@ -6,6 +6,16 @@ Debian::DebConf::FrontEnd::Passthrough - Passthrough meta-frontend for DebConf
 
 =cut
 
+package Debian::DebConf::FrontEnd::Passthrough;
+use strict;
+use Carp;
+use IO::Socket;
+use Debian::DebConf::FrontEnd;
+use Debian::DebConf::Log qw(:all);
+use base qw(Debian::DebConf::FrontEnd);
+
+my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || '/var/lib/debconf/debconf.ipc';
+
 =head1 DESCRIPTION
 
 This is a IPC pass-through frontend for DebConf. It is meant to enable 
@@ -15,22 +25,13 @@ The basic idea of this frontend is to reply messages between the
 ConfModule and an arbitrary UI agent. For the most part, messages are
 simply relayed back and forth unchanged.
 
-=cut
-
-package Debian::DebConf::FrontEnd::Passthrough;
-
-use strict;
-use Carp;
-use IO::Socket;
-use Debian::DebConf::FrontEnd;
-use Debian::DebConf::Log qw(:all);
-
-use vars qw(@ISA);
-push @ISA, qw(Debian::DebConf::FrontEnd);
-
-my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || '/var/lib/debconf/debconf.ipc';
-
 =head1 METHODS
+
+=over 4
+
+=item init
+
+Set up the pipe to the UI agent.
 
 =cut
 
@@ -51,6 +52,8 @@ sub init {
 
 =head2 shutdown
 
+The the UI agent know we're shutting down.
+
 =cut
 
 sub shutdown {
@@ -64,6 +67,10 @@ sub shutdown {
 
 =head2 makeelement
 
+This frontend doesn't really make use of Elements to interact with the user,
+so it uses generic Elements as placeholders. This method simply makes
+one.
+
 =cut
 
 sub makeelement
@@ -76,6 +83,8 @@ sub makeelement
 }
 
 =head2 capb_backup
+
+Pass capability information along to the UI agent.
 
 =cut
 
@@ -95,6 +104,8 @@ sub capb_backup
 
 =head2 title
 
+Pass title along to the UI agent.
+
 =cut
 
 sub title
@@ -109,6 +120,10 @@ sub title
 }
 
 =head2 go
+
+Asks the UI agent to display all pending questions, first using the special 
+data command to tell it necessary data about them. Then read answers from
+the UI agent.
 
 =cut
 
