@@ -32,7 +32,7 @@ sub show {
 
 	# The password isn't passed in, so if nothing is entered,
 	# use the default.
-	if ($ret eq '') {
+	if (! defined $ret || $ret eq '') {
 		my $default='';
 		$default=$this->question->value
 			if defined $this->question->value;
