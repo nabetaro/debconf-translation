@@ -1,3 +1,10 @@
+debconf (0.2.98) unstable; urgency=low
+
+  * When debconf or debconf-tiny is purged, the database is not deleted if
+    debconf or debconf-tiny is still installed. Closes: #59029
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 28 Feb 2000 13:19:56 -0800
+
 debconf (0.2.97) unstable; urgency=low
 
   * word-wrap all text that is mailed at 75 columns, Closes: #58911

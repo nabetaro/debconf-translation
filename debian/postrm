@@ -1,5 +1,8 @@
 #!/bin/sh -e
-if [ "$1" = "purge" ]; then
+# Only remove database if niether debconf nor debconf-tiny are installed.
+if [ "$1" = "purge" -a \
+     ! -e /usr/share/doc/debconf/copyright -a \
+     ! -e /usr/share/doc/debconf-tiny/copyright ]; then
 	rm -f /var/lib/debconf/debconf.db /var/lib/debconf/templates.db
 fi
 if [ -e /etc/apt/apt.conf ]; then
