@@ -1,5 +1,5 @@
 # Tagalog translation of debconf.
-# Copyright (C) 2005 THE debconf'S COPYRIGHT HOLDER
+# Copyright (C) 2005 Eric Pareja <xenos@upm.edu.ph>
 # This file is distributed under the same license as the debconf package.
 # Eric Pareja <xenos@upm.edu.ph>, 2005.
 # 
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-02-20 05:39+0800\n"
+"POT-Creation-Date: 2005-04-04 08:40+0200\n"
+"PO-Revision-Date: 2005-04-05 15:23+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -248,6 +248,10 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tItakda ang mukha na gagamitin ng debconf.\n"
+"  -p,  --priority\t\tItakda ang pinakamababang antas ng tanong na "
+"ipapakita.\n"
+"       --terse\t\t\tGamitin ang modong tuwiran.\n"
 
 #: ../Debconf/Config.pm:277
 #, perl-format
@@ -351,6 +355,12 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Pag-gamit: dpkg-reconfigure [mga opsyon] pakete\n"
+"  -a,  --all\t\t\tIsaayos muli ang lahat ng mga pakete.\n"
+"  -u,  --unseen-only\t\tIpakita lamang ang mga hindi pa naitanong.\n"
+"       --default-priority\tGamitin ang default na antas sa halip ng mababang "
+"antas\n"
+"       --force\t\t\tIpilit ang pagsasaayos muli ng mga sirang mga pakete."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -378,17 +388,20 @@ msgstr "Hindi mabasa ang taklasang status: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Pag-gamit: debconf-communicate [mga opsyon] [pakete]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Ang kasangkapan na ito ay hindi na ginagamit.     "
+"Gamitin niyo na lamang ang po2debconf na programa ng po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
 msgstr ""
+"Pag-gamit: debconf-mergetemplate [mga opsyon] [templates.|| ...] mga template"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -396,6 +409,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tIsama pati ang laos na pagsasalin.\n"
+"\t--drop-old-templates\tKalimutan ang buong template na laos."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -429,13 +445,15 @@ msgstr "%s ay laos na; tinatapon ang buong template!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Pag-gamit: debconf [mga opsyon] utos [mga arg]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=pakete\t\tItakda ang pakete na may-ari ng utos na ito."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "isinasaayos bago instolahin %s (%s)"
