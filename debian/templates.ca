@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
 Choices: Dialog, Text, Gnome, Editor, Noninteractive
-Choices-es: Dialog, Texto, Gnome, Editor, No-interactivo
+Choices-ca: Dialog, Text, Gnome, Editor, No-interactiu
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
@@ -12,19 +12,20 @@ Description: What interface should be used for configuring packages?
  frontend is a modern X interface. The editor frontend lets you configure
  things using your favorite text editor. The noninteractive frontend never
  asks you any questions.
-Description-es: ¿Qué interfaz quiere usar para configurar paquetes?
- Los paquetes que usan debconf para configurarse comparten un aspecto común.
- Puede elegir el tipo de interfaz de usuario que quiere que usen.
+Description-ca: Quina interfície voleu fer servir per configurar paquets?
+ Els paquets que utilitzen debconf per a configurar-se comparteixen un
+ aspecte comú.
+ Pot triar el tipus d'interfície d'usuari que vol que utilitzen.
  .
- Dialog és un interfaz de texto a pantalla completa, mientras que el de
- texto es más tradicional, de solo texto y gnome es un moderno interfaz
- para X. Editor le permite configurar el sistema usando su editor favorito.
- El interfaz no-interactivo no hace ninguna pregunta.
+ Dialog és un interfície de text a pantalla completa, mentre que el de text
+ és més tradicional, de sols text i gnome és un modern interfície per X.
+ Editor li permet configurar el sistema utilitzant el seu editor
+ preferit. L'interfície no-interactiu no fa cap pregunta.
 
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
-Choices-es: crítica, alta, media, baja
+Choices-ca: crítica, alta, mitjana, baixa
 Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
@@ -44,28 +45,24 @@ Description: Ignore questions with a priority less than..
  .
  If you are new to the Debian GNU/Linux system choose `critical' now, so
  you only see the most important questions.
-Description-es: No mostrar preguntas con una prioridad más baja que..
- Los que paquetes que usan debconf para la configuración le asignan una
- prioridad a las preguntas que hacen. Sólo se mostrarán las preguntas con
- una cierta prioridad o superior; no se mostrarán las preguntas menos
- importantes.
+Description-ca: No mostrar preguntes amb una prioritat mes baixa que..
+ Els paquets que fan servir debconf per la seva configuració priorititzen les
+ preguntes que van a preguntar. Solament es mostraran preguntes amb una certa
+ prioritat o superior; la resta de preguntes menys importants no es
+ mostraran.
  .
- Puede escoger la prioridad más baja para las preguntas que desea ver:
-   - `crítica' es para asuntos que probablemente romperán el sistema si
-     el usuario no interviene. 
-   - `alta' es para asuntos para los que no hay valores predeterminados
-     razonables. 
-   - `media' es para asuntos normales, que tienen valores predeterminados
-     razonables.
-   - `baja' es para asuntos triviales, que tienen valores predeterminados
- que
-     funcionarán en la inmensa mayoría de casos.
- Por ejemplo, esta pregunta es de prioridad media, y si el valor escogido
- para la prioridad fuese `alta' o `crítica', usted no habría visto esta
- pregunta.
+ Pot escollir la prioritat mes baixa per a les preguntes que desitja veure:
+   - `crítica' és per elements que probablement trencaran el sistema si
+     el usuari no intervé.
+   - `alta' és per elements que no tenen valors per defecte raonables.
+   - `mitjana' és per elements normals que tenen valors raonables per defecte.
+   - `baixa' és per elements trivials que tenen valors predeterminats que
+     funcionaran en la gran majoria dels casos.
+ Per exemple, aquesta pregunta és de prioritat mitjana, i si la vostra
+ prioritat ja fora `alta' o `crítica', no hauríeu vist aquesta pregunta.
  .
- Si usted es un principiante en el sistema Debian GNU/Linux, escoja
- `crítica' por ahora, para ver sólo las preguntas más importantes.
+ Si sou un usuari nou de sistemes Debian GNU/Linux trieu `crítica' ara,
+ així veureu sols les preguntes mes importants.
 
 Template: debconf/showold
 Type: boolean
@@ -78,11 +75,12 @@ Description: Show all old questions again and again?
  .
  Note that no matter what you choose here, you can see old questions again
  by using the dpkg-reconfigure program.
-Description-es: ¿Mostrar las preguntas antiguas una y otra vez?
- Normalmente debconf hace una determinada pregunta una sola vez. A partir
- de ahí recuerda su respuesta y no vuelve a repetir la pregunta más. Si
- usted prefiere, debconf puede repetir las preguntas una y otra vez cada
- vez que actualice o reinstale un paquete que las haga.
+Description-ca: Mostrar les preguntes antigues una i altra vegada?
+ Normalment debconf fa una determinada pregunta una sola vegada. Després
+ recorda la vostra resposta i mai torna a preguntar eixa pregunta un altre
+ cop. Si ho preferiu, debconf pot preguntar-vos les preguntes una i altra
+ vegada, cada volta que actualitzeu o reinstal·leu un paquet que les
+ pregunte.
  .
- Observe que independiente de lo que escoja aquí, puede ver las preguntas
- antiguas de nuevo usando dpkg-reconfigure .
+ Observeu que independentment de lo que trieu ací, podeu tornar a veure les
+ preguntes antigues utilitzant el programa dpkg-reconfigure.
