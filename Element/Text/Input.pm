@@ -52,8 +52,9 @@ sub show {
 		%selectindfromlet = ();
 
 		foreach (0..$#choices) {
-			$uniquelet = 0 if ($selectindfromlet{lc substr($choices[$_], 0, 1)});
-			$selectindfromlet{lc substr($choices[$_], 0, 1)}=$_;
+			my $let = lc substr($choices[$_], 0, 1);
+			$uniquelet = 0 if (defined $selectindfromlet{$let});
+			$selectindfromlet{$let}=$_;
 		}
 		if (!$uniquelet) {
 			%selectindfromlet = ();

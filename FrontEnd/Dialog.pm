@@ -19,22 +19,30 @@ sub new {
 	my $self  = bless $proto->SUPER::new(@_), $class;
 	
 	# Autodetect if whiptail or dialog is available and set magic numbers.
-	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG}) {
+	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
+	    ! defined $ENV{FORCE_GDIALOG}) {
 		$self->{program}='whiptail';
 		$self->{borderwidth}=5;
 		$self->{borderheight}=6;
 		$self->{spacer}=1;
 		$self->{titlespacer}=10;
 	}
-	elsif (-x "/usr/bin/dialog") {
+	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$self->{program}='dialog';
 		$self->{borderwidth}=4;
 		$self->{borderheight}=4;
 		$self->{spacer}=3;
 		$self->{titlespacer}=4;
 	}
+	elsif (-x "/usr/bin/gdialog") {
+		$self->{program}='gdialog';
+		$self->{borderwidth}=5;
+		$self->{borderheight}=6;
+		$self->{spacer}=1;
+		$self->{titlespacer}=10;
+	}
 	else {
-		die "Neither whiptail nor dialog is installed, so the dialog based frontend cannot be used.";
+		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
 	}
 
 	# Things look better in an xterm if I clear the screen now. It cuts

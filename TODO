@@ -1,8 +1,9 @@
 General:
 * blah: Illegal seek at /usr/lib/perl5/Debian/DebConf/ConfModule/Base.pm line
   52, <GEN0> chunk 5.
-* run DEBIAN_FRONTEND=line samples/exim.config -- notice it doesn't
-  come up with unique letters for everything.
+* Modify apt to preconfig stuff.
+  [Culus(jgg@tmmi196-038.telusvelocity.net)] apt-pkg/deb/dpkgpm.cc, stick
+  another loop at the top of the go function
 * dpkg --reconfigure package should run the confmodule and then the
   postinst. Then we don't need special packageconfig scripts anymore.
   W/o modifiying dpkg, a dpkg-reconfig program could handle this.
