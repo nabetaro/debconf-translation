@@ -258,7 +258,7 @@ sub clearall {
 	my $this=shift;
 
 	foreach my $field ($this->fields) {
-		$this->field('');
+		$this->$field('');
 	}
 }
 
