@@ -1,3 +1,10 @@
+debconf (1.2.42) unstable; urgency=low
+
+  * Make the conflict with whiptail-utf8 versioned (to the last version
+    before it was removed) since whiptail provides it. Closes: #197863
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 18 Jun 2003 12:01:37 -0400
+
 debconf (1.2.41) unstable; urgency=low
 
   * Follow up with a Spanish template update, also from Carlos. 
