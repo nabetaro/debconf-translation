@@ -21,6 +21,8 @@ sub show {
 
 	$this->frontend->comment($this->question->extended_description."\n\n".
 		$this->question->description."\n\n");
+	
+	$this->value('');
 }
 
 1

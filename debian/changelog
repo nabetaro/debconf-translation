@@ -1,3 +1,10 @@
+debconf (0.9.66) unstable; urgency=low
+
+  * Prevent Editor::Note's from feeding undef values into the db, 
+    Closes: #100776
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 14 Jun 2001 12:37:14 -0400
+
 debconf (0.9.65) unstable; urgency=low
 
   * Fixed unsupported command message to include the syntax error code.
