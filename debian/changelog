@@ -1,3 +1,12 @@
+debconf (0.2.42) unstable; urgency=low
+
+  * Improved abbreviation finding algorythm for text select elements.
+  * Cleaned up the show method of Element::Text::Select.
+  * Element::Text::MultiSelect can now inherit from Element::Text::Select,
+    making it much shorter.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 20 Nov 1999 18:22:09 -0800
+
 debconf (0.2.41) unstable; urgency=low
 
   * Changed how text frontend's select element indicates which choice is

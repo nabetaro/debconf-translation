@@ -35,7 +35,6 @@ sub show {
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	my $type=$this->question->type;
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 	my $id=$this->id;

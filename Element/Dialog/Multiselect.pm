@@ -27,8 +27,6 @@ sub show {
 		$this->frontend->makeprompt($this->question);
 
 	my $screen_lines=$this->frontend->screenheight - $this->frontend->spacer;
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
 	my @params=();
 	my @choices=$this->question->choices_split;
 	# Make a hash of which of the choices are currently selected.
