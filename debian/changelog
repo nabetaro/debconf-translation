@@ -1,3 +1,17 @@
+debconf (1.0.27) unstable; urgency=low
+
+UNRE
+  * Wrote debconf-devel(8) man page, which attempts to be a complete
+    reference for developing packages that use debconf. Read it.
+  * Fixed the doc-base name of the debconf tutorial.
+  * Minor change to debconf-mergetemplate man page synopsis.
+  * Refuse to use the dialog frontend if the screen is too small,
+    it'll fall back to the text frontend which will work on screens
+    down to about 2 lines of 20 characters each. I want a pager with ssh.
+    Closes: #132972
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  5 Feb 2002 20:37:19 -0500
+
 debconf (1.0.26) unstable; urgency=low
 
   * Removed uninitialized value warning in Teletype frontend.
