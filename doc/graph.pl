@@ -3,14 +3,19 @@
 # Pass this program a list of .pm files. It parses them (halfheartedly,
 # it works on my code, may not on your code), and generates an inheritcance
 # graph of the modules.
+#
+# Remember: I have a copy of this in debconf and a copy in stool. Keep them
+# sync'd.
 
 use strict;
 
 my %kids;
 my %iskid;
+my %descs;
 
 foreach my $file (@ARGV) {
 	my $package='';
+	my $desc='';
 	my @isa=();
 	open (IN,$file) || die "$file: $!";
 	while (<IN>) {
@@ -21,10 +26,14 @@ foreach my $file (@ARGV) {
 		if (/(?:use\s+base\s+|\@ISA\s*=\s*)(?:q(?:w|q)?(?:\(|{)|"|')(.*?)(?:}|\)|'|")/) {
 			push @isa, split(/\s+/, $1);
 		}
+		if (/.*::.* - (.*)/) {
+			$desc=$1;
+		}
 	}
 	close IN;
 	
 	if ($package) {
+		$descs{$package}=$desc;
 		foreach (@isa) {
 			$kids{$_}{$package}=1;
 			$iskid{$package}=1;
@@ -33,6 +42,15 @@ foreach my $file (@ARGV) {
 }
 
 my %seen;
+
+# Print out one item.
+sub printitem {
+	my $text=shift;
+	my $item=shift;
+	print $text . (' ' x (40 - length $text));
+	print $descs{$item} if exists $descs{$item};
+	print "\n";
+}
 
 # Recursively print out tree structure.
 sub printkids {
@@ -47,8 +65,8 @@ sub printkids {
 		foreach my $p (split(/::/,$parent)) {
 			s/^$p\:://;
 			
-		}	
-		print "$spacer$_\n";
+		}
+		printitem($spacer.$_, $kid);
 		printkids($kid, "  $spacer");
 	}
 }
@@ -57,7 +75,7 @@ sub printkids {
 # It's important to only print toplevel parents, which is why
 # %iskid comes into play.
 foreach my $parent (sort keys %kids) {
-	next if $iskid{$parent};	
-	print "$parent\n";
+	next if $iskid{$parent};
+	printitem($parent, $parent);
 	printkids($parent, "  ");
 }
