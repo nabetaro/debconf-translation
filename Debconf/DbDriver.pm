@@ -225,11 +225,10 @@ sub ispassword {
 	return 0;
 }
 
-=head2 iterate([itarator])
+=head2 iterator
 
-Iterate over all available items. If called with no arguments, it returns
-an itarator. If called with the iterator passed in, it returns the next
-item in the sequence, or undef if there are no more.
+Create an object of type Debconf::Iterator that can be used to iterate over
+each item in the db, and return it.
 
 =cut
 

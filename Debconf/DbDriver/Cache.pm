@@ -43,18 +43,6 @@ use fields qw(cache);
 
 Derived classes need to implement these methods.
 
-=head2 iterate(itemname)
-
-Iterate over all available items. If called with no arguments, it returns
-an itarator. If called with the iterator passed in, it retuns the next
-item in the sequence, or undef if there are no more.
-
-=head2 exists(itemname)
-
-Return true if the given item exists in the database. Be sure to call
-SUPER::exists(itemname) first, and return true if it returns true, to chack
-if the item exists in the cache first!
-
 =head2 load(itemname)
 
 Load up the given item, and return a rather complex hashed structure to
@@ -97,6 +85,64 @@ be saved.
 Remove a item from the database.
 
 =head1 METHODS
+
+=head2 iterator
+
+Derived classes should override this method and construct their own
+iterator. Then at the end call:
+
+	 $this->SUPER::iterator($myiterator);
+
+This method will take it from there.
+
+=cut
+
+sub iterator {
+	my $this=shift;
+	my $subiterator=shift || die "subclass did not create an iterator";
+
+	my @items=keys %{$this->{cache}};
+	my $iterator=Debconf::Iterator->new(callback => sub {
+		# So, the trick is we will first iterate over everything in
+		# the cache. Then, we will let the underlying driver take
+		# over and iterate everything outside the cache. If it
+		# returns something that is in the cache, or something that
+		# is marked deleted in cache, just ask it for the next thing.
+		while (my $item = pop @items) {
+			next unless defined $this->{cache}->{$item};
+			return $item;
+		}
+		my $ret;
+		do {
+			$ret=$subiterator->iterate;
+		} while defined $ret and exists $this->{cache}->{$ret};
+		return $ret;
+	});
+	return $iterator;
+}
+
+=head2 exists(itemname)
+
+Derived classes should override this method. Be sure to call
+SUPER::exists(itemname) first, returns thatever it returns *unless* it
+returns 0, to check if the item exists in the cache first!
+
+This method returns one of three values:
+
+true  -- yes, it's in the cache
+undef -- marked as deleted in the cache, so does not exist
+0     -- not in the cache; up to derived class now
+
+=cut
+
+sub exists {
+	my $this=shift;
+	my $item=shift;
+
+	return $this->{cache}->{$item}
+		if exists $this->{cache}->{$item};
+	return 0;
+}
 
 =head2 init
 
@@ -162,27 +208,6 @@ sub savedb {
 		}
 	}
 	return $ret;
-}
-
-=head2 exists(itemname)
-
-Does an item exist in the cache?
-
-Actually returns one of three values:
-
-true  -- yes, it's in the cache
-undef -- marked as deleted in the cache
-0     -- not in the cache
-
-=cut
-
-sub exists {
-	my $this=shift;
-	my $item=shift;
-
-	return $this->{cache}->{$item}
-		if exists $this->{cache}->{$item};
-	return 0;
 }
 
 =head2 addowner(itemname, ownername)

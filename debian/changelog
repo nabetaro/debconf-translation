@@ -21,28 +21,6 @@ Before release, I must:
   owned by the question, inverse for unregister. -- implemented, needs a
   lot of testing.
 * When I run the transition script, the db is started up 3 or 4 times?!
-* Iteration over cached items is broken. Why? Well, imagine that a and b
-  exist in the real db. Then c is added to the cache only. Now we ask to
-  iterate over the db, iterate is called in the real db, and iterates over
-  a and b, skipping c.
-
-  To fix, I will need to add an iterator function to the cache driver
-  that first iterates over the cache, then over the real db. But wait, it
-  gets worse! Because if an iten is deleted in the cache (undef), we shouldn't
-  let the iterator in the real db return it.
-
-  I also have a similar problem with exists, which is what is causing
-  transition_db.pl to fail right now. Exists returns false if an item
-  doesn't exist in the real db, but does in the cche. The solution here
-  would seem to be to make a real_exists function that the real db
-  implements, and that the cache calls if it doesn't see the item in cache.
-
-  An alternate fix for both would be to make the cache actually pass create
-  requests and delete requests on to the real db when they occur, but that
-  is ugly because it means that the db state is not saved as a transaction
-  at the end. Better to do the work.
- 
-  Ok, I fixed exists by using SUPER. Can I do the same with the iterator?
 * I think a flat directory rapidly becomes ugly. Make it a tree!
  
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800

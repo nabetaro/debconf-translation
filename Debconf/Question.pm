@@ -70,7 +70,8 @@ sub new {
 
 =item get(name)
 
-Get an existing question.
+Get an existing question. It will be pulled out of the database if
+necessary.
 
 =cut
 

@@ -504,7 +504,7 @@ sub command_register {
 	if (! $question) {
 		return $codes{internalerror}, "Internal error";
 	}
-	if (! $question->addowner($this->owner) {
+	if (! $question->addowner($this->owner)) {
 		return $codes{internalerror}, "Internal error";
 	}
 	if ($question->template($template) eq undef) {
@@ -542,10 +542,9 @@ sub command_purge {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
 	
-	my $i=Debconf::Question->iterate;
-	my $q;
-	while ($q = Debconf::Question->iterate($i)) {
-		$q->removeowner($this->owner);
+	my $iterator=Debconf::Question->iterator;
+	while (my $q=$iterator->iterate) {
+		Debconf::Question->get($q)->removeowner($this->owner);
 	}
 
 	return $codes{success};

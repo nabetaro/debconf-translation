@@ -9,6 +9,7 @@ Debconf::DbDriver::FlatDir - debconf db driver that stores items in files
 package Debconf::DbDriver::FlatDir;
 use strict;
 use Debconf::Log qw{:all};
+use Debconf::Iterator;
 use base 'Debconf::DbDriver::Cache';
 
 =head1 DESCRIPTION
@@ -77,25 +78,31 @@ sub filename {
 	return $this->{directory}."/$item".$this->{extention};
 }
 
-=head2 iterate([iterator])
+=head2 iterator
 
-Iterate over the files with readdir.
+Returns an iterator that can iterate over the files with readdir.
 
 =cut
 
-sub iterate {
+sub iterator {
 	my $this=shift;
-	my $iterator=shift;
 	
-	if (not $iterator) {
-		# uses dirhandle autovivification..
-		opendir($iterator, $this->{directory}) || $this->error("opendir: $!");
-		return $iterator;
-	}
+	# uses dirhandle autovivification..
+	my $handle;
+	opendir($handle, $this->{directory}) ||
+		$this->error("opendir: $!");
 
-	my $ret=readdir($iterator);
-	closedir($iterator) if not defined $ret;
-	return $ret;
+	my $iterator=Debconf::Iterator->new(callback => sub {
+		my $ret;
+		do {
+			$ret=readdir($handle);
+			closedir($handle) if not defined $ret;
+		} while defined $ret and -d $this->filename($ret);
+		$ret=~tr#:#/#;
+		return $ret;
+	});
+
+	$this->SUPER::iterator($iterator);
 }
 
 =head2 exists(itemname)
