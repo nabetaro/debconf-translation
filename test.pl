@@ -8,12 +8,6 @@
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::FrontEnd::Line;
-use Debian::DebConf::FrontEnd::Dialog;
-use Debian::DebConf::FrontEnd::Web;
-use Debian::DebConf::ConfModule::Dialog;
-use Debian::DebConf::ConfModule::Line;
-use Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 
@@ -41,10 +35,16 @@ if (exists $ENV{PRIORITY}) {
 	Debian::DebConf::Priority::set($ENV{PRIORITY});
 }
 
-# Start up the FrontEnd and ConfModule.
-my $frontend=eval "Debian::DebConf::FrontEnd::$type->new()";
+# Load modules and start up the FrontEnd and ConfModule.
+my $frontend=eval qq{
+	use Debian::DebConf::FrontEnd::$type;
+	Debian::DebConf::FrontEnd::$type->new();
+};
 die $@ if $@;
-my $confmodule=eval 'Debian::DebConf::ConfModule::'.$type.'->new($frontend, $script)';
+my $confmodule=eval qq{
+	use Debian::DebConf::ConfModule::$type;
+	Debian::DebConf::ConfModule::$type->new(\$frontend, \$script);
+};
 die $@ if $@;
 
 # Talk to it until it is done.

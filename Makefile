@@ -30,7 +30,7 @@ install: clean
 # number, then commits the current code using the contents of the changelog
 # as the cvs changelog, then increments the version number
 commit: clean
-	cvs -Q commit -m "$(shell dpkg-parsechangelog | grep '^  ')"
+	cvs -Q commit -m "`dpkg-parsechangelog | grep '^  '`"
 	cvs -Q tag rel-$(shell dpkg-parsechangelog | grep ^Version: \
 		|cut -d " " -f 2 |tr '.' '-')
 	$(MAKE) new

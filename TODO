@@ -1,26 +1,25 @@
 General:
+* When dpkg-preconfig is run, it still dumps out dups of the templates, in 2
+  places. The crazy thing is, this only seems to happen if you run it in an
+  already-installed package. Running it from the source tree doesn't do
+  this. (This may not be so.)
+* The various ConfModules have a lot of code in common that might be able to
+  all be put in the Base one.
 * Make messages really be saved to root's mailbox. (What about messages
   they've already seen?)
 * blah: Illegal seek at /usr/lib/perl5/Debian/DebConf/ConfModule/Base.pm line
   52, <GEN0> chunk 5.
-* Modify apt to preconfig stuff.
-  [Culus(jgg@tmmi196-038.telusvelocity.net)] apt-pkg/deb/dpkgpm.cc, stick
-  another loop at the top of the go function
 * dpkg --reconfigure package should run the confmodule and then the
   postinst. Then we don't need special packageconfig scripts anymore.
   W/o modifiying dpkg, a dpkg-reconfig program could handle this.
 * The spec says there should be an "isdefault" flag on each variable, that
   is set if the variable is changed from its default.
 * Other frontends.
-* Working .deb's using the system -- slrn is started as is netbase.
-* Proper backend database, but that's a whole other ball of wax.
 * The web based frontend displays blank pages with just the bottom buttons
   if low priority questions are asked.
 * The debian package needs to have the examples working or removed. Right
   now, they don't really work if used from an installed .deb.
-* When dpkg-preconfig is run, it still dumps out dups of the templates, in 2
-  places. The crazy thing is, this only seems to happen if you run it in an
-  already-installed package. Running it from the source tree doesn't do this.
+* Proper backend database, but that's a whole other ball of wax.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which

@@ -10,12 +10,6 @@ my $dbfn="/var/lib/debconf/debconf.db";
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
-use Debian::DebConf::FrontEnd::Line;
-use Debian::DebConf::FrontEnd::Dialog;
-use Debian::DebConf::FrontEnd::Web;
-use Debian::DebConf::ConfModule::Dialog;
-use Debian::DebConf::ConfModule::Line;
-use Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Config;
 use Getopt::Long;
@@ -50,8 +44,12 @@ if (-e $Debian::DebConf::Config::dbfn) {
 	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
 }
 
-# Start up the FrontEnd.
-my $frontend=eval "Debian::DebConf::FrontEnd::$frontend_type->new()";
+# Load up appropriate modules and start up the FrontEnd.
+my $frontend=eval qq{
+	use Debian::DebConf::ConfModule::$frontend_type;
+	use Debian::DebConf::FrontEnd::$frontend_type;
+	Debian::DebConf::FrontEnd::$frontend_type->new()
+};	
 die $@ if $@;
 
 foreach my $deb (@debs) {
