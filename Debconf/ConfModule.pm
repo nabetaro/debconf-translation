@@ -588,6 +588,7 @@ sub command_fget {
 	
 	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams},  "$question_name doesn't exist";
+		
 	return $codes{success}, $question->flag($flag);
 }
 
@@ -607,6 +608,17 @@ sub command_fset {
 	
 	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
+
+	if ($flag eq 'seen') {
+		# If this question we're being asked to modify is one that was
+		# shown in the current session, it will be in our seen
+		# cache, and changing its value here will not persist
+		# after this session, because the seen property overwrites
+		# the values at the end of the session. Therefore, remove
+		# it from our seen cache.
+		$this->seen([grep {$_ ne $question} @{$this->seen}]);
+	}
+		
 	return $codes{success}, $question->flag($flag, $value);
 }
 

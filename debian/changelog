@@ -1,3 +1,10 @@
+debconf (0.9.79) unstable; urgency=low
+
+  * Cute, debconf was ignoring fsets of seen of questions that were asked
+    previously in the same session. Overagressive caching. Closes: #104490
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 13 Jul 2001 13:28:52 -0400
+
 debconf (0.9.78) unstable; urgency=low
 
   * Allow for spaces and options in $EDITOR. Closes: #104445
