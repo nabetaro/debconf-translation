@@ -40,6 +40,13 @@ General:
   Dialog frontend couldn't support this, but the rest could.
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
+* isdefault flag is horrobly misnamed. It should be called "hasbeenseen"
+  or something like that. But how to rename it now, when lots of code
+  already uses it?
+
+  I could add some special case code that makes accesses to isdefault act
+  on hasbeenseen. Then encourage people to switch to using it, and making
+  their packages depend on the new version of debconf if they do.
 
 Slang frontend:
 * I doubt resizing always works perfectly.

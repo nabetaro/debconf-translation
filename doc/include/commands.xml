@@ -84,13 +84,14 @@
     This tells the frontend you are interested in the value of
     a variable. <parameter>variable</parameter> is the name of the
     variable, all other information about the variable is retrieved
-            from the templates described previously. 
+    from the templates described previously. 
     <parameter>priority</parameter> is how important it is that the
     user be prompted for the variable. The frontend need  
-            only ask this question if the priority is high enough. The
+    only ask this question if the priority is high enough. The
     question is not displayed until a go command is given. This
-            allows us to ask multiple questions in a single screen. Once a
-            question has been asked the frontend will clear the 
+    allows us to ask multiple questions in a single screen. Once a
+    question has been displayed to the user and the user has
+    provided input, the frontend will clear the 
     <literal>isdefault</literal> flag.
     &priority_table;
   </para>
@@ -208,14 +209,22 @@
   <para>
     This sets the state of a flag on a variable. Valid
     states for the flag are "<literal>true</literal>" and 
-    "<literal>false</literal>". One common flag is the 
+    "<literal>false</literal>".
+  </para>
+  <para>
+    One common flag is the 
     "<literal>isdefault</literal>" flag. It is normally only set if
-    the variable is set to its default value and the user
-    has not seen it. Typically, frontends only display
-    questions to users if they have the isdefault flag set to "true".
-    Sometimes you want the user to see a question again --
-    in these cases you can set the isdefault flag to true to
-    force the frontend to redisplay it.
+    a user has not yet been asked a question.
+    <note>
+    <para>
+    The name of this flag was badly chosen; "<literal>hasbeenseen</literal>"
+    would be a better name.
+    </para>
+    </note>
+    Typically, frontends only display questions to users if they have the
+    isdefault flag set to "true". Sometimes you want the user to see a
+    question again -- in these cases you can set the isdefault flag to
+    true to force the frontend to redisplay it.
   </para>
 </listitem>
 <listitem id="command_metaget">
