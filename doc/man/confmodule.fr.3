@@ -1,0 +1,56 @@
+.TH CONFMODULE 3
+.SH NOM
+confmodule \- Communiquer avec l'interface de configuration système Debian
+.SH SYNOPSIS
+  #!/bin/sh -e
+  . /usr/share/debconf/confmodule
+  db_version 2.0
+  db_capb 'backup'
+  CAPB=$RET
+  db_input 'foo/bar' || true
+  db_go || true
+.SH DESCRIPTION
+C'est une bibliothèque de fonctions shell qui allège la communication avec le
+gestionnaire de configuration système Debian. Elle peut communiquer avec une
+interface via le protocole debconf. Chaque commande du protocole est représentée
+par une fonction de cette bibliothèque. Le nom de la fonction est le même que
+celui de la commande, excepté qu'il est préfixé avec « db_ » et est en minuscule.
+Appelez la fonction et transmettez-lui les paramètres que vous voulez pour la
+commande. Un code de retour textuel de l'interface vous sera renvoyé dans la
+variable $RET, et le code de retour numérique de l'interface sera renvoyé comme
+code de retour (ces codes de retour doivent être pris ou ignorés).
+
+gestionnaire de configuration système Debian. Il peut communiquer avec une
+interface via le protocole debconf Le plan de ce module est que chaque commande
+du protocole est représentée par une fonction. Le nom de la fonction est le même
+que celui de la commande, excepté qu'il est préfixé avec « db_ » et est en
+minuscules. Appelez la fonction et transmettez-lui les paramètres que vous voulez
+suivre à la commande. N'importe quel code de retour textuel de l'interface vous
+sera renvoyé dans la variable $RET, pendant que le code de retour numérique de
+l'interface sera renvoyé comme code de retour (donc ces codes de retour seront
+pris ou ignorés).
+.SH NOTES
+Une fois que cette bibliothèque est chargée, le texte que vous sortirez ira sur
+l'erreur standard, plutôt que sur la sortie standard. C'est une bonne chose en
+général, car le texte envoyé à la sortie standard est interprété par l'interface
+comme une commande. Si vous voulez envoyer une commande directement à
+l'interface, vous devez la faire sortir sur le descripteur de fichier 3, comme
+ceci\ :
+  echo GET foo/bar >&3
+.P
+La bibliothèque s'assure qu'elle communique réellement avec une interface en
+examinant la variable DEBIAN_HAS_FRONTEND. Si elle est fixée, une interface est
+supposée être lancée. Si non, la bibliothèque en devient une et lance une copie
+du script qui chargea la bibliothèque et se connecta à elle. Cela signifie que
+si vous chargez cette bibliothèque, vous devez le faire presque au début de
+votre script, parce que tout ce qui a été fait  avant le chargement de la
+bibliothèque sera peut-être exécuté une fois de plus.
+.SH VOIR AUSSI
+.BR dpkg-preconfigure (8),
+.BR dpkg-reconfigure (8),
+Les spécifications debconf dans le paquet debian-policy
+.BR
+.SH AUTEUR
+Joey Hess <joeyh@debian.org>
+.SH TRADUCTION
+Julien Louis <leonptitlouis@ifrance.com>

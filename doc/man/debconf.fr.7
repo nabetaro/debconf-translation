@@ -1,0 +1,366 @@
+.TH DEBCONF 7
+.SH NOM
+debconf \- Système de configuration des paquets Debian
+.SH DESCRIPTION
+Debconf est un système de configuration pour les paquets Debian. Il y a une
+commande rarement utilisée nommée debconf, documentée dans
+.BR debconf (1)
+.P
+Debconf fournit une interface cohérente pour la configuration des paquets et
+donne à l'utilisateur le choix entre plusieurs interfaces. Il peut configurer
+des paquets avant qu'ils ne soient installés, ce qui permet à des installations
+et des mises à niveau importantes de demander toutes les informations
+nécessaires au préalable, et vous laisse faire ce que vous voulez pendant qu'il
+fait son travail. Il vous permet, si vous êtes pressé, de  sauter les questions
+les moins importantes au moment de l'installation d'un paquet (on peut y revenir
+plus tard).
+.SH "Préconfiguration des paquets"
+Debconf peut configurer les paquets avant même qu'ils ne soient installés sur
+votre système. C'est utile, car toutes les questions qui vous seront posées par
+les paquets, le seront au début de l'installation, donc le reste de
+l'installation peut continuer pendant que vous êtes en train de prendre un café.
+.P
+Si vous utilisez apt (version 0.5 ou supérieure) et que vous avez installé
+apt-utils, chaque paquet installé par apt sera automatiquement préconfiguré.
+C'est contrôlé via
+.I /etc/apt/apt.conf.d/70debconf
+.P
+Quelquefois vous voudrez préconfigurer un paquet manuellement, quand vous 
+l'installez sans apt. Vous pouvez utiliser
+.B dpkg-preconfigure (8)
+pour le faire. Donnez-lui seulement le nom du paquet que vous voulez
+préconfigurer. Vous aurez besoin d'installer apt-utils pour que cela fonctionne.
+.SH Reconfiguration des paquets
+Supposez que vous avez installé un paquet et que vous avez répondu aux questions
+de debconf, mais maintenant que vous l'utilisez de temps en temps,  vous réalisez
+que vous voulez revenir sur quelques unes de vos réponses et les changer.
+Autrefois, il fallait faire une réinstallation quand vous étiez dans cette
+situation\ ; mais quand vous réinstallez le paquet, debconf semble se souvenir
+que vous avez déjà répondu aux questions et ne vous les pose pas (c'est voulu).
+.P
+Heureusement, debconf facilite la reconfiguration des paquets qui l'utilisent.
+Supposez que vous voulez reconfigurer debconf lui-même. Exécutez seulement, en
+tant que root\ :
+  dpkg-reconfigure debconf
+.P
+Il vous posera toutes les questions que vous avez vues lors de la première
+installation de debconf. Il peut aussi vous poser d'autres questions, puisqu'il
+vous demande même les questions de priorité basse qui ont pu être sautées quand
+le paquet a été installé. Vous pouvez aussi bien l'utiliser avec n'importe quel
+autre paquet utilisant debconf.
+.SH Interfaces
+Une fonctionnalité remarquable  de debconf est qu'il possède plusieurs
+interfaces et l'on peut les échanger à loisir. Voici les interfaces
+disponibles\ :
+.TP
+.B dialog
+L'interface par défaut\ : elle utilise les programmes
+.B whiptail (1)
+ou
+.B dialog (1)
+pour afficher les questions. Elle fonctionne en mode texte.
+.TP
+.B readline
+.RS
+C'est l'interface la plus traditionnelle. Elle ressemble à la
+configuration Debian classique\ : une série de questions, imprimées sur la
+console en mode texte et des invites affichées avec la bibliothèque readline.
+Elle reconnaît même le complètement avec « tab ». Le paquet
+libterm-readline-gnu-perl est fortement recommandé si vous choisissez d'utiliser
+cette interface\ ; le module readline par défaut a vraiment des lacunes.
+.P
+Cette interface a quelques commandes spéciales. Pageup (ou ctrl-u)
+reviendra à la question précédente (si cela est supporté par le paquet utilisant
+debconf) et pagedown (ou
+ctrl-v) passera à la question suivante.
+.P
+C'est la meilleure interface pour les administrateurs à distance travaillant par
+une connexion lente, ou pour ceux qui sont à l'aise avec unix.
+.RE
+.TP
+.B non-interactive
+C'est l'anti-interface. Elle n'interagit jamais avec vous et utilise les
+réponses par défaut pour toutes les questions. Elle enverra parfois un courriel
+à root avec les messages que le paquet voulait afficher, mais c'est tout\ ! À
+part ça, elle est silencieuse et discrète, c'est une interface parfaite pour des
+installations automatiques. Si vous utilisez cette interface et si vous voulez
+que les réponses aux questions ne soient pas celles par défaut, vous aurez besoin
+de renseigner d'abord la base de données de debconf\ ; pour plus de détails,
+voir la section ci-dessous sur l'installation de paquets sans surveillance.
+.TP
+.B gnome
+C'est une interface homme/machine X moderne utilisant les bibliothèques gtk et
+gnome. Bien sûr, elle nécessite une variable DISPLAY valide pour fonctionner\ ;
+si elle ne peut pas fonctionner, debconf se rabattra sur d'autres interfaces.
+Remarquez que cette interface nécessite que vous ayez installé le paquet
+libgnome-perl.
+.TP
+.B editor
+C'est pour ces fanatiques qui veulent tout faire à l'aide d'un éditeur de texte.
+Elle lance votre éditeur sur un fichier qui ressemble à un fichier de
+configuration unix, et vous modifiez le fichier qui sert à communiquer avec debconf. Les
+auteurs de Debconf se retranchent derrière le cinquième amendement quant aux
+circonstances qui ont conduit à l'écriture de cette interface.
+.TP
+.B web
+.RS
+Cette interface agit comme un serveur web auquel vous vous connectez avec votre
+navigateur web, pour parcourir les questions et y répondre. Elle est très
+prometteuse, mais pour l'instant elle est un peu abrupte. Quand cette interface
+se met en route, elle indiquera le lieu où vous devrez pointer votre navigateur
+web. Pour des raisons de sécurité, vous devez exécuter votre navigateur web sur
+la machine que vous configurez.
+.P
+Gardez à l'esprit que ce n'est pas une interface sécurisée. Tous ceux qui ont
+accès à l'ordinateur configuré peuvent aussi accéder au serveur web et configurer
+certaines choses tandis que cette interface tourne. C'est plus la preuve d'un
+concept qu'autre chose.
+.RE
+.P
+Vous pouvez changer l'interface par défaut qu'utilise debconf en le
+reconfigurant. D'un autre côté, si vous voulez juste changer l'interface pour 
+un instant, vous pouvez positionner la variable d'environnement DEBIAN_FRONTEND avec
+le nom de l'interface à utiliser. Par exemple\ :
+  DEBIAN_FRONTEND=readline apt-get install slrn
+.P
+Les commandes
+.B dpkg-reconfigure (8)
+et
+.B dpkg-preconfigure (8)
+permettent aussi de leur passer 
+.I --frontend=
+en argument, suivi de l'interface que vous voulez qu'elles utilisent.
+.P
+Notez que les interfaces ne fonctionneront pas en toutes circonstances. Si le
+démarrage d'une interface échoue pour quelque raison que ce soit, debconf
+imprimera un message expliquant pourquoi et se rabattra sur l'interface la plus
+proche.
+.
+.SH Priorités
+Pouvoir donner des priorités aux questions que vous pose debconf est une
+fonctionnalité agréable. Si vous ne voulez pas être ennuyé par les questions
+sans importance, vous pouvez configurer debconf pour qu'il vous ne pose que les
+questions les plus importantes. D'un autre côté, si vous aimez tout contrôler,
+vous pouvez lui faire afficher toutes les questions. Chaque question a une
+priorité. Par ordre croissant d'importance\ :
+.TP
+.B low
+Questions peu importantes dont les valeurs par défaut suffisent dans la majorité
+des cas.
+.TP
+.B medium
+Questions normales avec des valeurs par défaut raisonnables.
+.TP
+.B high
+Questions qui n'ont pas de valeur par défaut convenable.
+.TP
+.B critical
+Questions que vous avez vraiment besoin de voir (ou autre).
+.P
+Seules les questions avec une priorité égale ou supérieure à la priorité que
+vous avez choisie seront affichées. Vous pouvez fixer la valeur de la priorité en
+reconfigurant debconf, ou temporairement en passant l'option
+.I --priority=
+suivie de la valeur aux commandes
+.B dpkg-reconfigure (8)
+et
+.B dpkg-preconfigure (8)
+, ou en positionnant la variable d'environnement DEBIAN_PRIORITY.
+.SH Base de données principale
+Debconf utilise une base de données principale plutôt flexible et potentiellement
+compliquée pour garder les réponses déjà données aux questions. Le fichier
+.B /etc/debconf.conf
+est utilisé pour configurer cette base de données. Si vous avez besoin de
+configurer quelque chose de compliqué, comme faire lire à debconf une base de
+données distante pour obtenir les valeurs par défaut, annulées par des
+variables locales, lisez la page de manuel
+.B debconf.conf (5)
+pour tous les détails sanglants. La base de données principale se trouve
+généralement dans
+.B /var/cache/debconf/
+.SH Installation des paquets sans surveillance
+Si vous avez beaucoup de machines à gérer, vous vous trouverez sûrement dans
+une position où vous aurez besoin de faire une installation ou une mise à niveau
+sans surveillance, alors que les réponses par défaut à certaines questions de
+configuration ne sont pas acceptables. Il y a beaucoup de manières pour faire
+cela\ ; toutes impliquent la configuration d'une base de données que debconf
+utilisera pour obtenir les réponses par défaut que vous voulez.
+.P
+Avant de lire cette section, vous devriez vraiment lire 
+.B debconf.conf (5)
+car vous avez besoin de comprendre le fonctionnement de la base de données de
+debconf.
+.P
+Le plus simple pour configurer la base de données est d'installer les paquets
+sur une machine et de répondre aux questions comme d'habitude. Vous pouvez aussi
+utiliser
+.BR dpkg-preconfigure (8)
+pour configurer un ensemble de paquets sans réellement les installer. Vous
+pouvez même décider d'écrire une base de données debconf à la main, comme un
+simple texte...
+.P
+Une fois que vous avez la base de données, vous avez besoin de trouver comment
+faire pour que les systèmes distants l'utiliseint. Cela dépend bien sûr de la
+configuration de ces systèmes et de la base de données qu'ils doivent utiliser.
+.P
+Si vous utilisez la base de données LDAP de debconf, un seul serveur LDAP peut
+répondre à toutes les questions d'installation des paquets d'un réseau complet
+de machines Debian.
+.P
+Mais peut-être que vous utilisez quelque chose d'un peu plus facile à
+configurer, comme par exemple, la base de données de configuration de debconf
+par défaut, ou vous ne voulez tout simplement pas que vos systèmes distants
+utilisent LDAP continuellement. Dans ce cas, la meilleure approche est de
+configurer temporairement les systèmes distants pour qu'ils ajoutent votre base
+de données sous leurs propres bases, de manière à ce qu'ils obtiennent les
+valeurs par défaut de celle-ci. Debconf offre deux variables d'environnement,
+DEBCONF_DB_FALLBACK et DEBCONF_DB_OVERRIDE, pour le faire à la volée et plus
+simplement. Ici, un exemple d'utilisation\ :
+.P
+   cat /var/cache/debconf/config.dat | \\
+   ssh root@target "DEBCONF_FRONTEND=noninteractive \\
+                  DEBCONF_DB_FALLBACK=Pipe apt-get upgrade"
+.P	
+Cela fait que le debconf de l'hôte distant lit les données passées dans le
+tube à travers la connexion ssh et les interprète comme une base de données
+debconf en mode texte. Il n'utilise cette base de données qu'en dernier lieu --
+c'est une base de données, lisible seulement, où l'on cherche les réponses
+que la base principale du système ne peut fournir.
+.P
+Une autre manière d'utiliser la variable d'environnement DEBCONF_DB_FALLBACK\ :
+.P
+  ssh -R 389:ldap:389 root@target \\
+  	"DEBCONF_DB_FALLBACK='LDAP{host:localhost}' apt-get upgrade"
+.P
+ssh est utilisé ici pour configurer une connexion LDAP dans un tunnel et lancer
+debconf. On indique à debconf d'utiliser le serveur LDAP comme base de données de
+secours. Remarquez l'utilisation de «\ {host:localhost}\ » pour configurer
+l'accès de debconf à la base de données LDAP.
+.P
+Encore une autre méthode\ :
+.P
+  scp config.dat root@target:
+  ssh root@target "DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get upgrade
+.P
+Ici, vous copiez la base de données avec scp, puis ssh, et vous faites utiliser
+à debconf la base de données que vous avez copiée. Cela illustre un raccourci
+que vous pouvez utiliser dans les paramètres de DEBCONF_DB_FALLBACK -- si le nom
+n'est pas indiqué, celui par défaut est «\ filename\ ».
+.P
+Il y a un problème avec l'utilisation des paramètres de DEBCONF_DB_FALLBACK\ :
+Alors que la base de données de secours peut fournir des réponses à des
+questions que les autres bases de données debconf n'ont jamais vu, on ne
+l'interroge qu'en dernier lieu\ : après les autres bases de données. Si vous
+avez besoin d'annuler temporairement une valeur existante sur l'hôte distant,
+vous devriez plutôt utiliser la variable DEBCONF_DB_OVERRIDE. Comme
+DEBCONF_DB_FALLBACK, elle configure une base de données temporaire, mais cette
+base de données est consultée avant les autres et peut être utilisée pour
+remplacer les valeurs existantes
+.SH Développer pour debconf
+Les développeurs de paquets et ceux qui veulent construire des paquets qui
+utilisent debconf devraient lire
+.BR debconf-devel (7) .
+.P
+Brièvement, debconf communique avec des scripts de maintenances ou d'autres
+programmes via les entrée et sortie standards, en utilisant un langage orienté
+ligne de commandes semblable à ce qui est utilisé par les protocoles interne
+communs comme SMTP. Les programmes utilisent ce protocole pour demander à
+debconf d'afficher les questions et de récupérer les réponses de l'utilisateur.
+Les questions elles-mêmes sont définies dans des fichiers éparés, appelés
+«\ questionnaires\ », dont le format n'est pas très différent de celui d'un
+fichier de contrôle de Debian.
+.P
+Les paquets Debian qui utilisent debconf fournissent généralement un
+questionnaire et un script de «\ configuration\ » (exécuté pour préconfigurer le
+paquet) dans la partie metadonnées du paquet.
+.SH ENVIRONNEMENT
+.TP
+.B DEBIAN_FRONTEND
+Utilisée pour changer temporairement l'interface debconf utilisée. Voir plus
+haut.
+.TP
+.B DEBIAN_PRIORITY
+Utilisée pour changer temporairement la priorité minimum des questions
+qu'affichera debconf. Voir plus haut.
+.TP
+.B DEBCONF_DEBUG
+.RS
+Active l'affichage du débogage sur la sortie standard d'erreur. Elle peut être
+fixée par le nom d'un outil ou par une expression régulière qui correspond au
+nom d'un outil (comme «\.*\ » pour afficher toutes les informations de
+débogage). Les noms d'outils incluent\ :
+.TP
+.B user
+Informations de débogage intéressantes pour un utilisateur de debconf.
+.TP
+.B developer
+Informations de débogage intéressantes pour un développeur de paquets.
+.TP
+.B db
+Informations de débogage sur la base de données principale.
+.RE
+.TP
+.B DEBCONF_NOWARNINGS
+Positionnez-la à «\ yes\ » pour désactiver certains avertissements que debconf
+pourrait afficher. Elle ne supprime pas l'affichage des erreurs fatales.
+.TP
+.B DEBCONF_TERSE
+Positionnez-la à «\ yes\ » pour activer le mode concis dans lequel les
+interfaces debconf suppriment autant que possible le verbiage.
+.TP
+.B DEBCONF_SHOWOLD
+Positionnez-la à «\ yes\ » pour forcer debconf à réafficher les questions qui
+ont déjà été posées auparavant.
+.TP
+.B DEBCONF_DB_FALLBACK
+Ajoute une base de données en plus de celles utilisées habituellement, elle est
+donc utilisée en secours pour obtenir les informations de configuration. Voir la
+section «\ Installation des paquets sans surveillance\ » plus haut. Si la valeur
+de la variable est le nom d'une base de données existante dans debconf.conf, la
+base de données sera alors utilisée.
+Néanmoins, la variable d'environnement peut être utilisée pour configurer une
+base de données à la volée, en donnant le type de la base de données et des
+paramètres optionnels (champ:valeur) après le type et entre accolades.
+La ligne suivante demande l'utilisation de fallbackdb dans debconf.conf\ :
+  DEBCONF_DB_FALLBACK=fallbackdb
+
+alors que cette ligne configure une nouvelle base de données de type fichier, 
+donne un nom de fichier à utiliser et supprime toute sauvegarde\ :
+  DEBCONF_DB_FALLBACK=File{Filename:/root/config.dat Backup:no}
+
+En résumé, cette ligne configure une base de données de type Fichier avec un nom de
+fichier\ :
+  DEBCONF_DB_FALLBACK=File{/root/config.dat}
+
+Remarquez que si la base de données de secours est configurée à la volée, elle
+sera par défaut seulement lisible.
+.TP
+.B DEBCONF_DB_OVERRIDE
+Ajoute une base de données avant celles utilisées normalement, elle peut donc
+remplacer les valeurs des autres. La valeur de la variable fonctionne aussi
+bien que la valeur de DEBCONF_DB_FALLBACK.
+.SH BOGUES
+Probablement beaucoup, il y a beaucoup de code ici.
+.P
+Si vous présentez un rapport de bogue, soyez sûr d'inclure les informations
+suivantes\ :
+.TP
+.B *
+l'interface debconf que vous utilisiez lorsque le problème est survenu\ ;
+.TP
+.B *
+ce que vous avez fait pour déclencher le problème\ ;.
+.TP
+.B *
+Le texte complet des messages d'erreur. Si vous pouvez reproduire le bogue,
+faites-le avec DEBCONF_DEBUG='.*' fixée et inclue. Cela accélère beaucoup le
+débogage.
+.SH VOIR AUSSI
+.BR debconf.conf (5),
+.BR dpkg-preconfigure (8),
+.BR dpkg-reconfigure (8),
+.BR debconf (1),
+.SH AUTEUR
+Joey Hess <joeyh@debian.org>
+.SH TRADUCTION
+Julien Louis <leonptitlouis@ifrance.com>
