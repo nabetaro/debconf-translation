@@ -37,7 +37,7 @@ commit: clean
 	
 new:
 	# Update w/o editing.
-	EDITOR=true dch -v "0.0.$(shell date +%Y%m%d)" 2>/dev/null
+	EDITOR=true dch -i 2>/dev/null
 	# Dch has to change the bloody directory name. Feh.
 #	mv . ../debconf
 	
