@@ -6,6 +6,8 @@ I18N:
   of a character were used.
 
 General:
+* The ConfModule should not return the backup return code, ever, if 
+  the confmodule it talks to has not indicated it has that capability.
 * When preconfiguring from apt, SIGWINCH signals are ignored. This is an
   apt bug -- a patch is in the BTS and it should be fixed soon.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
