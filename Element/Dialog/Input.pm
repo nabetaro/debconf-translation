@@ -59,7 +59,6 @@ sub show {
 		die "Unsupported data type \"$type\"";
 	}
 
-	my $value;
 	my ($ret, $value)=$this->frontend->show_dialog(
 		$question->template->description, @params);
 
