@@ -60,5 +60,5 @@ db_version () {
 # Just an alias for input. It tends to make more sense to use this to display
 # text, since displaying text isn't really asking for input.
 db_text () {
-	input $@
+	db_input $@
 }

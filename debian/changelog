@@ -1,3 +1,17 @@
+debconf (0.1.53) unstable; urgency=low
+
+  * Corrected db_text command in confmodule.sh, Closes: #46640
+  * Corrected typo in confmodule.3 man page, Closes: #46651
+  * Corrected whiptail window sizing problems, Closes: #46498, #46655
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue,  5 Oct 1999 11:21:25 -0700
+
+debconf (0.1.52) unstable; urgency=low
+
+  * Fixed fatal dpkg-reconfig typo.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 15:45:32 -0700
+
 debconf (0.1.51) unstable; urgency=low
 
   * Debconf config scripts are now called with options. "configure" is

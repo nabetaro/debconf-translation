@@ -33,7 +33,7 @@ sub show {
 
 	# If it is more than will fit on the screen, just display the prompt
 	# first in a series of message boxes.
-        if ($lines > $screen_lines - 2) {
+        if ($lines > $screen_lines - $this->frontend->borderheight - 2) {
 		$this->frontend->showtext($text);
 		# Now make sure the short description is displayed in the
 		# dialog they actually enter info into.

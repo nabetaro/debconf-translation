@@ -84,7 +84,7 @@ foreach my $x (0..$#debs) {
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile(
 		"dpkg --info $debs[$x] templates 2>/dev/null |",
-	        $packages{$debs[$x]);
+	        $packages{$debs[$x]});
 }
 
 if ($apt) {
