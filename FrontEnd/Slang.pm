@@ -44,7 +44,7 @@ sub new {
 		text => "Debian Configuration",
 	));
 	$this->helpbar(Term::Stool::HelpBar->new(
-		helpstack => [ "" ],
+		helpstack => [ "Please wait.." ],
 	));
 	$this->mainwindow(Term::Stool::Window->new(
 		xoffset => 2,
@@ -211,11 +211,14 @@ sub go {
 		$this->panel->add($element->widget);
 	}
 
+	$this->mainwindow->title($this->title);
 	# Make sure everything inside the panel is positioned ok.
 	$this->fillpanel;
 
 	# Now set it all in motion, with the first widget focused.
+	$this->helpbar->push("Tab and arrow keys move.");
 	$this->screen->run($firstwidget);
+	$this->helpbar->pop;
 
 	$this->clear;
 	return 1;
