@@ -20,10 +20,12 @@ it.
 
 sub show {
 	my $this=shift;
-
+	
 	# Figure out how much space in the dialog box the prompt will take.
+	# The -2 tells makeprompt to leave at least two lines to use to
+	# display the list.
 	my ($text, $lines, $columns)=
-		$this->frontend->makeprompt($this->question);
+		$this->frontend->makeprompt($this->question, -2);
 
 	my $screen_lines=$this->frontend->screenheight - $this->frontend->spacer;
 	my @params=();
