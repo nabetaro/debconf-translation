@@ -6,7 +6,6 @@
 VARDIR=$1
 GROUP=$2
 METHOD=$3
-
 # Pass something as parameter 4 to enable cd autoprobing on startup.
 CDPROBE=$4
 
@@ -28,7 +27,7 @@ country_list () {
 			($c)=/Country: (.*?)\s*\n/;
 			$countries{$c}=1 if $c;
 		}
-		END { print join(", ", sort(keys %countries)) }
+		END { print join(", ", sort(keys %countries)).", " if %countries }
 	' $1 $MIRRORLIST
 }
 
@@ -123,16 +122,10 @@ add_another () {
 	db_go
 	db_get aptconf/another
 	if [ "$RET" = true ]; then
-		# Before looping, make a new backup.
-		cp -f $APTETC/sources.list $APTETC/sources.list.bak
 		return 0
 	fi
 	return 1
 }
-
-# Make sure the file exists, and back it up.
-touch $APTETC/sources.list
-cp -f $APTETC/sources.list $APTETC/sources.list.bak
 
 # Establish the preliminaries.
 db_version 2.0
@@ -294,8 +287,13 @@ while [ "$MAINLOOP" ] || add_another; do
 		db_go
 	esac
 
+	                                        
 	# Generate the sources.list line if we haven't already.
 	if [ "$URI" != cdrom ]; then
+		# The temporary file to use as sources.list for testing
+		# new items.
+		tmpsources=`tempfile`
+		
 		if [ "$URI" != "manual entry" ]; then
 			db_get aptconf/hostname
 			HOST="$RET"
@@ -316,11 +314,11 @@ while [ "$MAINLOOP" ] || add_another; do
 				SEP=//
 			fi
 	
-			echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $APTETC/sources.list
-			echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $APTETC/sources.list
+			echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $tmpsources
+			echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> $tmpsources
 		else
 			db_get aptconf/wholeline
-			echo $RET >> $APTETC/sources.list
+			echo $RET >> $tmpsources
 			echo 
 		fi
 
@@ -330,7 +328,7 @@ while [ "$MAINLOOP" ] || add_another; do
 		tempfile=`tempfile`
 		clear
 		echo "Testing apt sources ..."
-		if ! apt-get update 2>$tempfile; then
+		if ! apt-get -o APT::Get::List-Cleanup=false -o Dir::Etc::sourcelist=$tmpsources update 2>$tempfile; then
 			# Show the user the error message, remove the bad
 			# entry, and loop.
 			db_subst aptconf/badsource apt_error `tr '\n' ' ' < $tempfile`
@@ -341,5 +339,9 @@ while [ "$MAINLOOP" ] || add_another; do
 			cp $APTETC/sources.list.bak $APTETC/sources.list
 			MAINLOOP=1
 		fi
+		# Success, so add the entry to the real sources.list
+		touch $APTETC/sources.list
+		echo "" >> $APTETC/sources.list
+		cat $tmpsources >> $APTETC/sources.list
 	fi
 done
