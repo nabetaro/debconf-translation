@@ -12,7 +12,7 @@ use vars qw(@ISA);
 @ISA=qw(ConfModule::Base);
 
 # Add to the list of elements in our associated FrontEnd.
-sub input {
+sub command_input {
 	my $this=shift;
 	my $priority=shift;
 	my $question=shift;
@@ -24,7 +24,7 @@ sub input {
 }
 
 # Add text to the list of elements.
-sub text {
+sub command_text {
 	my $this=shift;
 	my $priority=shift;
 	my $text=join ' ', @_;
@@ -35,7 +35,7 @@ sub text {
 }
 
 # Display a note to the user, which will also make it be saved.
-sub note {
+sub command_note {
 	my $this=shift;
 	my $priority=shift;
 	my $text=join ' ', @_;

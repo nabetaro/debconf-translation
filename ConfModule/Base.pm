@@ -10,7 +10,7 @@
 # parameters given after the command (split on whitespace), and whatever it
 # returns is passed back to the configuration module.
 
-package ConfModule;
+package ConfModule::Base;
 use strict;
 use IPC::Open2;
 use FileHandle;
@@ -44,7 +44,7 @@ sub communicate {
 	return unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
-	$command=lc $command;
+	$command="command_".lc($command);
 	my $w=$this->{write_handle};
 	print $w join(' ', $this->$command(@params))."\n";
 	return 1;
@@ -54,21 +54,21 @@ sub communicate {
 # Communication with the frontend. Each function corresponds to a command
 # from the frontend.
 
-sub version {
+sub command_version {
 	my $this=shift;
 	my $version=shift;
 	die "Version too low ($version)" if $version < 1;
 	return "1.0";
 }
 
-sub capb {
+sub command_capb {
 	my $this=shift;
 	$this->{capb}=[@_];
 	return;
 }
 
 # Just store the title.
-sub title {
+sub command_title {
 	my $this=shift;
 	$this->{'title'}=join(' ',@_);
 
@@ -76,11 +76,11 @@ sub title {
 }
 
 # Don't handle blocks.
-sub beginblock {}
-sub endblock {}
+sub command_beginblock {}
+sub command_endblock {}
 
 # Tell the frontend to display items to the user.
-sub go {
+sub command_go {
 	my $this=shift;
 	$this->frontend->go;
 
@@ -88,7 +88,7 @@ sub go {
 }
 
 # Pull a value out of a question.
-sub get {
+sub command_get {
 	my $this=shift;
 	my $question=shift;
 	
@@ -97,12 +97,17 @@ sub get {
 	return $question->template->default;
 }
 
-# This handles a command that is not listed above.
 sub AUTOLOAD {
 	my $this=shift;
-	my $command = $AUTOLOAD;
-	$command =~ s|.*:||; # strip fully-qualified portion
-	die "Unsupported command \"$command\" received from client configuration module.";
+	my $property = $AUTOLOAD;
+	$property =~ s|.*:||; # strip fully-qualified portion
+	if ($property=~/^command_/) {
+		die "Unsupported command \"$property\" received from client configuration module.";
+	}
+	else {
+		$this->{$property}=shift if @_;
+		return $this->{$property};
+	}
 }
 
 # Close filehandles and stop the script.
