@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-05-03 15:36-0400\n"
+"POT-Creation-Date: 2001-05-07 19:01-0400\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,26 @@ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
+
+#: ../Debconf/Template.pm:163
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
+"beror troligen på att två mallar inte avdelats korrekt med en ensam "
+"radbrytning.\n"
+
+#: ../Debconf/Template.pm:203
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
+
+#: ../Debconf/Template.pm:209
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -236,26 +256,6 @@ msgstr "Detta skal kräver en kontrollerande tty."
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Obs: Debconf kör i webbläge. Gå till http://localhost:%i/"
-
-#: ../Debconf/Template.pm:163
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
-"beror troligen på att två mallar inte avdelats korrekt med en ensam "
-"radbrytning.\n"
-
-#: ../Debconf/Template.pm:203
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
-
-#: ../Debconf/Template.pm:209
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

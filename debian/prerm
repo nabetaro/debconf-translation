@@ -1,7 +1,6 @@
 #!/bin/sh -e
 #DEBHELPER#
 
-VARDIR=/var/lib/debconf
 if [ "$1" = upgrade ] && dpkg --compare-versions "$2" "<<" "0.9"; then
 	echo "WARNING: Downgrading debconf to versions prior to 0.9" >&2
 	echo "is not well supported! Old versions of debconf will" >&2

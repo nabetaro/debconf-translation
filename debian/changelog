@@ -1,3 +1,14 @@
+debconf (0.9.50) unstable; urgency=low
+
+  * Remove /var/lib/debconf on upgrade. Nothing uses it anymore,
+    and it contains some large old database files, and on most systems,
+    a large amount of cruft (temporary files, editor backup files, backups
+    of the db, sockets, the list goes on and on).
+  * Expunged all remaining traces of the directory from debconf and its
+    documentation.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  7 May 2001 18:59:09 -0400
+
 debconf (0.9.41) unstable; urgency=low
 
   * Correcgted bashism in docs, Closes: #96139

@@ -11,8 +11,6 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
    dpkg --compare-versions "$2" lt 0.9.00; then
 	if [ -e /var/lib/debconf/config.db -o -e /var/lib/debconf/templates.db ]; then
 		/usr/share/debconf/transition_db.pl
-		# Temporarily, I will leave the old db around. Later, I may
-		# want to delete..
 	fi
 	# This package used to add itself to apt.conf. That could result in
 	# a zero-byte file, since it no longer does. Detect that and remove
@@ -20,6 +18,14 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 	if [ ! -s /etc/apt/apt.conf ]; then
 		rm -f /etc/apt/apt.conf
 	fi
+fi
+
+# Remove old debconf database, and associated cruft in /var/lib/debconf.
+# In fact, the whole directory can go! Earlier versions of debconf in the
+# 0.9.x series kept it just in case, so make sure to delete it on upgrade
+# from any of those versions, or even older versions.
+if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.50; then
+	rm -rf /var/lib/debconf
 fi
 
 . /usr/share/debconf/confmodule

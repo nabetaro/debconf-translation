@@ -58,9 +58,8 @@ the Frontend.
 Communications
 ~~~~~~~~~~~~~~
 Communication between the Passthrough module and the Frontend takes place
-over a Unix domain socket connection. The default location for the socket is
-	/var/lib/debconf/debconf.ipc
-but can be changed by setting the DEBCONF_PIPE environment variable
+over a Unix domain socket connection. The DEBCONF_PIPE environment variable
+must be set to the filename to use for the socket.
 
 When the Passthrough module starts up, it expects the socket to already
 exist. The Frontend is responsible for creating the socket and be ready
