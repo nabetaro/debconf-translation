@@ -53,13 +53,42 @@ sub init {
 
 =head2 iterate
 
-TODO
+Iterates over all the items in all the drivers in the whole stack. However,
+only return each item twice, even if multiple drivers contain it.
 
 =cut
 
-# TODO:
-
 sub iterate {
+	my $this=shift;
+	my $iterator=shift;
+
+	if (not $iterator) {	
+		# Use a reference to a list as the iterator.
+		# The list is composed of pairs of items. The first item in
+		# a pair is the db driver, while the second is the
+		# iterator. A final item is tacked on the back of the list;
+		# this is a hash reference; the hash lists items that
+		# the iterator has already seen.
+		$iterator=[(map { $_ => $_->iterate } @{$this->stack}), {} ];
+	}
+
+	# Iterate the first thing in our list.
+	my $ret;
+	do {
+		$ret=$iterator->[0]->iterate($iterator->[1]);
+		if (defined $ret and ! $iterator->[-1]->{$ret}) {
+			# Well this is new.
+			$iterator->[-1]->{$ret}=1;
+			return $ret;
+		}
+	} while defined $ret;
+	
+	# If we got to here, an item is done, so remove it and its iterator
+	# from the list, and move on to the next.
+	shift @{$iterator};
+	shift @{$iterator};
+	return if @{$iterator} == 1; # all done
+	return $this->iterate($iterator); # look, ma! useless tail recursion!
 }
 
 =head2 savedb
