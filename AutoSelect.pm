@@ -87,7 +87,7 @@ arguments to pass to it) and this creates and returns a ConfModule.
 =cut
 
 sub confmodule {
-	my $confmodule=Debian::DebConf::ConfModule->new($frontend);
+	my $confmodule=Debian::DebConf::ConfModule->new(frontend => $frontend);
 
 	$confmodule->startup(@_) if @_;
 	

@@ -17,7 +17,7 @@ This FrontEnd is a Slang UI for DebConf.
 =cut
 
 package Debian::DebConf::FrontEnd::Slang;
-use lib '../libterm-stool-perl';
+use lib '../libterm-stool-perl'; # TODO: remove, just for bootstrap.
 use strict;
 use Term::Stool;
 use Term::Stool::Screen;
@@ -31,10 +31,10 @@ use Term::Stool::WrappedText;
 use Debian::DebConf::FrontEnd; # perlbug
 use base qw(Debian::DebConf::FrontEnd);
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
+
+	$this->SUPER::init(@_);
 
 	$this->interactive(1);
 
@@ -129,8 +129,6 @@ sub new {
 	$this->descwindow->add($this->desctext);
 	$this->screen->add($this->titlebar, $this->mainwindow,
 		$this->descwindow, $this->helpbar);
-	
-	return $this;
 }
 
 =head2 go
@@ -148,30 +146,30 @@ sub go {
 
 	# Make sure slang is up and running, and the screen size is known.
 	$this->screen->slang_init;
-	
+
 	# Create all the widgets in the panel.
 	$this->panel->clear;
 	my $firstwidget='';
 	foreach my $element (@elements) {
-		$element->makewidget;
+		# Noninteractive elemements have no widgets.
+		next unless $element->widget;
+
 		$firstwidget=$element->widget unless $firstwidget;
 		# Make the widget call the element's resize method when it
 		# is resized.
 		$element->widget->resize_hook(sub { $element->resize });
 		$element->widget->activate_hook(sub {
 			my $this=shift;
-			# Make sure the text describing this widget is
-			# also visible.
-			$this->container->scrollto($this->description);
 			
-			# Show the element's description. My, this is
-			# nasty. We get $element from the closure we're
-			# in..
-			$element->frontend->desctext->text(
-				$element->question->extended_description);
+			# My, this is nasty. We get $element from the closure
+			# we're in..
+			# First, make sure the short description is visible.
+			$this->container->scrollto($element->widget_description);
+			# Now show the long description.
+			$element->frontend->desctext->text($element->question->extended_description);
 			$element->frontend->desctext->display;
 		});
-		$element->widget->description(Term::Stool::Text->new(
+		$element->widget_description(Term::Stool::Text->new(
 			text => $element->question->description,
 			xoffset => 1,
 			resize_hook => sub {
@@ -189,7 +187,7 @@ sub go {
 				}
 			},
 		));
-		$this->panel->add($element->widget->description);
+		$this->panel->add($element->widget_description);
 		$this->panel->add($element->widget);
 	}
 
@@ -218,12 +216,12 @@ sub fillpanel {
 	
 	my $y=0;
 	foreach my $element (@{$this->elements}) {
-		my $widget=$element->widget || next;
-		$widget->description->yoffset($y);
-		$widget->description->resize;
+		$element->widget_description || next;
+		$element->widget_description->yoffset($y);
+		$element->widget_description->resize;
 		$element->resize;
-		$y++ unless $widget->sameline;
-		$widget->yoffset($y++);
+		$y++ unless $element->widget->sameline;
+		$element->widget->yoffset($y++);
 		$y++; # a blank line between widget groups.
 	}
 }

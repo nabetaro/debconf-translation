@@ -15,7 +15,8 @@ This is a password input widget.
 package Debian::DebConf::Element::Slang::Password;
 use strict;
 use Term::Stool::Password;
-use base qw(Debian::DebConf::Element::Slang::String);
+use Debian::DebConf::Element::Slang; # perlbug
+use base qw(Debian::DebConf::Element::Slang);
 
 sub makewidget {
 	my $this=shift;
@@ -26,7 +27,7 @@ sub makewidget {
 
 =head2 value
 
-If the field is blank, return the default.
+If the widget's value field is empty, return the default.
 
 =cut
 

@@ -15,10 +15,10 @@ This is a check box widget.
 package Debian::DebConf::Element::Slang::Boolean;
 use strict;
 use Term::Stool::CheckBox;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Slang; # perlbug
+use base qw(Debian::DebConf::Element::Slang);
 
-sub makewidget {
+sub init {
 	my $this=shift;
 
 	$this->widget(Term::Stool::CheckBox->new(
@@ -28,15 +28,15 @@ sub makewidget {
 
 =head2 resize
 
-This is called when the widget is resized. The check box always must go on
-the same line as the description, on its left hand side.
+The check box always must go on the same line as the description, on its left
+hand side.
 
 =cut
 
 sub resize {
 	my $this=shift;
 	my $widget=$this->widget;
-	my $description=$widget->description;
+	my $description=$this->widget_description;
 	my $maxwidth=$widget->container->width - 4;
 
 	$widget->sameline(1);
@@ -45,6 +45,12 @@ sub resize {
 	$description->width($widget->container->width - 4 -
 		$description->xoffset + 1);
 }
+
+=head2 value
+
+The value is true if the checkbox is checked, false otherwise.
+
+=cut
 
 sub value {
 	my $this=shift;

@@ -61,22 +61,19 @@ that the user has indicated they want to back up.
 
 =cut
 
-=head2 new
+=head2 init
 
-Creates a new FrontEnd object and returns it.
+Sets several of the fields to defaults.
 
 =cut
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
+sub init {
+	my $this=shift;
 	
 	$this->elements([]);
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
-	return $this
 }
 
 =head2 makeelement
@@ -113,11 +110,12 @@ sub makeelement {
 	debug 2, "Trying to make element of type $type";
 	my $element=eval qq{
 		use Debian::DebConf::Element::$type;
-		Debian::DebConf::Element::$type->new;
+		Debian::DebConf::Element::$type->new(
+			question => \$question,
+		);
 	};
 	debug 2, "Failed with $@" if $@ && ! $nodebug;
 	return if ! ref $element;
-	$element->question($question);
 	return $element;
 }
 

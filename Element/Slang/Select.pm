@@ -15,10 +15,10 @@ This is a drop down select box widget.
 package Debian::DebConf::Element::Slang::Select;
 use strict;
 use Term::Stool::DropDown;
-use Debian::DebConf::Element::Select; # perlbug
-use base qw(Debian::DebConf::Element::Select);
+use Debian::DebConf::Element::Slang; # perlbug
+use base qw(Debian::DebConf::Element::Select Debian::DebConf::Element::Slang);
 
-sub makewidget {
+sub init {
 	my $this=shift;
 
 	my @choices=$this->question->choices_split;
@@ -32,7 +32,7 @@ sub makewidget {
 			$cursor=$x;
 			last;
 		}
-	}	
+	}
 
 	$this->widget(Term::Stool::DropDown->new(
 		list => Term::Stool::List->new(
@@ -45,38 +45,11 @@ sub makewidget {
 	$this->widget->preferred_width($this->widget->list->width + 5);
 }
 
-=head2 resize
+=head2 value
 
-This is called when the widget is resized.
-
-Try to make the widget as wide as its preferred_width attrribute. If there's
-room for a widget that wide to fix on the same line as the description, do so.
-Otherwise, put the widget on the next line.
+The value is just the value field of the widget.
 
 =cut
-
-sub resize {
-	my $this=shift;
-	my $widget=$this->widget;
-	my $description=$widget->description;
-	my $maxwidth=$widget->container->width - 4;
-
-	if ($maxwidth > $widget->preferred_width + $description->width) {
-		$widget->sameline(1);
-		$widget->width($widget->preferred_width);
-		$widget->xoffset($description->width + 2);
-	}
-	elsif ($maxwidth > $widget->preferred_width) {
-		$widget->sameline(0);
-		$widget->width($widget->preferred_width);
-		$widget->xoffset(1);
-	}
-	else {
-		$widget->sameline(0);
-		$widget->width($maxwidth);
-		$widget->xoffset(1);
-	}
-}
 
 sub value {
 	my $this=shift;

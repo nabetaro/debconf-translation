@@ -38,7 +38,7 @@ module. Each of them are described below.
 
 =head2 frontend
 
-The frontend object that is use to interact with the user.
+The frontend object that is used to interact with the user.
 
 =cut
 
@@ -96,25 +96,19 @@ my %codes = (
 	internalerror => 100,
 );
 
-=head2 new
+=head2 init
 
-Create a new ConfModule. Pass in a FrontEnd object that this object
-can use.
+Called when a ConfModule is created.
 
 =cut
 
-sub new {
-	my $proto = shift;
-	my $class = ref($proto) || $proto;
-	my $this  = bless $proto->SUPER::new(@_), $class;
-	
-	$this->frontend(shift);
+sub init {
+	my $this=shift;
+
 	$this->version("2.0");
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
-
-	return $this;
 }
 
 =head2 startup

@@ -15,10 +15,10 @@ This is a text input widget.
 package Debian::DebConf::Element::Slang::String;
 use strict;
 use Term::Stool::Input;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Slang; # perlbug
+use base qw(Debian::DebConf::Element::Slang);
 
-sub makewidget {
+sub init {
 	my $this=shift;
 
 	my $default='';
@@ -31,8 +31,6 @@ sub makewidget {
 
 =head2 resize
 
-This is called when the widget is resized.
-
 Try to make the widget as wide as its preferred_width attrribute at a
 minimum. If there's room for a widget that wide to fix on the same line as the
 description, do so. Otherwise, put the widget on the next line.
@@ -42,7 +40,7 @@ description, do so. Otherwise, put the widget on the next line.
 sub resize {
 	my $this=shift;
 	my $widget=$this->widget;
-	my $description=$widget->description;
+	my $description=$this->widget_description;
 	my $maxwidth=$widget->container->width - 4;
 
 	if ($maxwidth > $widget->preferred_width + $description->width) {
@@ -56,6 +54,12 @@ sub resize {
 		$widget->xoffset(1);
 	}
 }
+
+=head2 value
+
+The value is just the text field of the associated widget.
+
+=cut
 
 sub value {
 	my $this=shift;
