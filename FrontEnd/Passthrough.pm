@@ -22,7 +22,7 @@ my $DEBCONFPIPE = $ENV{DEBCONF_PIPE} || '/var/lib/debconf/debconf.ipc';
 This is a IPC pass-through frontend for DebConf. It is meant to enable 
 integration of DebConf frontend components with installation systems.
 
-The basic idea of this frontend is to reply messages between the
+The basic idea of this frontend is to replay messages between the
 ConfModule and an arbitrary UI agent. For the most part, messages are
 simply relayed back and forth unchanged.
 
@@ -65,12 +65,12 @@ sub _getreply {
 	my ($tag, $val) = split(/ /, $_, 2);
 
 	return ($tag, $val) if (wantarray);
-	return $tag 
+	return $tag;
 }
 
 =head2 shutdown
 
-The the UI agent know we're shutting down.
+Let the UI agent know we're shutting down.
 
 =cut
 
@@ -161,21 +161,20 @@ sub go {
 		my $choices = $question->choices;
 		my $default = $question->value;
 
-		$desc =~ s/\n/\\n/g if (defined($extdesc));
-		$extdesc =~ s/\n/\\n/g if (defined($extdesc));
-		$choices =~ s/\n/\\n/g if (defined($choices));
-
 		if ($desc) {
+			$desc =~ s/\n/\\n/g;
 			print $fh "DATA $tag description $desc\n";
 			_getreply($fh);
 		}
 
 		if ($extdesc) {
+			$extdesc =~ s/\n/\\n/g;
 			print $fh "DATA $tag extended-description $extdesc\n";
 			_getreply($fh);
 		}
 
 		if ($choices) {
+			$choices =~ s/\n/\\n/g if (defined($choices));
 			print $fh "DATA $tag choices $choices\n";
 			_getreply($fh);
 		}
@@ -192,7 +191,7 @@ sub go {
 		return;
 	}
 	
-	# Assign the answers
+	# Retrieve the answers
 	foreach my $element (@{$this->elements}) {
 		my $tag = $element->question->template->template;
 
