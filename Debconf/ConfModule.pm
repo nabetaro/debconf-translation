@@ -212,7 +212,7 @@ sub process_command {
 
 =item finish
 
-Waits for the child process (f any) to finish so its return code can be
+Waits for the child process (if any) to finish so its return code can be
 examined.  The return code is stored in the exitcode field of the object.
 It also marks all questions that were shown as seen.
 

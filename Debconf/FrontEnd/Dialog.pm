@@ -39,6 +39,10 @@ sub init {
 
 	$this->SUPER::init(@_);
 
+	# This environment variable screws up at least whiptail with the
+	# way we call it.
+	delete $ENV{POSIXLY_CORRECT} if exists $ENV{POSIXLY_CORRECT};
+	
 	# Detect all the ways people have managed to screw up their
 	# terminals (so far...)
 	if (! exists $ENV{TERM} || ! defined $ENV{TERM} || $ENV{TERM} eq '') { 

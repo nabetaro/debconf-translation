@@ -1,3 +1,13 @@
+debconf (1.2.17) unstable; urgency=low
+
+  * Updated da.po. Closes: #171890
+  * Force unset POSIXLY_CORRECT in dialog frontend; whiptail cannot use
+    sleect list params after -- (the only truely safe way to pass them) if
+    this variable is set. Closes: #170646
+  * Fixed a typo in debconf-devel man page. Closes: #172152
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  7 Dec 2002 16:01:43 -0500
+
 debconf (1.2.16) unstable; urgency=low
 
   * Mention text data-type in deconf-devel(7). #168761

@@ -644,7 +644,7 @@ And the postinst will look something like this:
  BAR="$RET"
  cp -a -f $CONFIGFILE $CONFIGFILE.tmp
  sed -e "s/^ *FOO=.*/FOO=\\"$FOO\\"/" \\
-     -e "s/^ *FOO=.*/BAR=\\"$BAR\\"/" \\
+     -e "s/^ *BAR=.*/BAR=\\"$BAR\\"/" \\
      < $CONFIGFILE > $CONFIGFILE.tmp
  mv -f $CONFIGFILE.tmp $CONFIGFILE
 .P
