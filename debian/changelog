@@ -2,8 +2,30 @@ debconf (0.3.37) unstable; urgency=low
 
   * Now that I have a real localization to work with, I can find some
     related problems.
-  * Made frontend fallback even more robust.
-
+    - Fixed all select elements to translate back to C locale whatever is
+      input into them. They had been storing it internally in the language
+      that was being used, and passing those localized values to the
+      config scripts that used them, which didn't exactly work very well..
+    - Similarly, translate the default value, which is in the C locale, to
+      the current locale before using it to prompt the user.
+  * Made frontend fallback even more robust, mainly to deal with the results
+    of the above mentioned select element nastiness.
+  * Element::Editor::Select had the wrong parent; this is corrected.
+  * Added a newline at the end of the files the editor frontend generates,
+    since vim likes to see one there.
+  * Failure to make an input element has been upgraded to be a warning
+    message, instead of the debug message it was before. This should not
+    happen in normal use, if it does, I want to know. (Of course, the slang
+    frontend still has no multiselct elements, maybe this will remind me to
+    fix that sometime..)
+  * Fixed a really nasty infinite recusion error in the web frontend, which
+    actually works now.
+  * Reworked the debconf debug mechanism. It now uses symbolic names for
+    various types of debug messages, and DEBCONF_DEBUG specifies which
+    types are shown. See the User's Guide for details.
+  * Some reorganizations to the Tutorial; split out some big sections into
+    entities to aid maintenance.
+ 
  -- Joey Hess <joeyh@debian.org>  Fri, 19 May 2000 15:17:54 -0700
 
 debconf (0.3.36) unstable; urgency=low

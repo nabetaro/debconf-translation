@@ -5,6 +5,8 @@
 <!ENTITY tutorial_back_config SYSTEM "../samples/tutorial-back">
 <!ENTITY tutorial_templates SYSTEM "../samples/tutorial.templates">
 <!ENTITY priority_table SYSTEM "include/priorities.xml">
+<!ENTITY statuscodes_table SYSTEM "include/statuscodes.xml">
+<!ENTITY command_list SYSTEM "include/commands.xml">
 ]>
 <article>
   <artheader>
@@ -38,7 +40,7 @@
     </copyright>
     <legalnotice>
       <para>
-	This text is distributed under the terms of the
+	This text is copyright by the author under the terms of the
 	<ulink url="http://www.gnu.org/copyleft/gpl.html">
 	  General Public License</ulink>.
       </para>
@@ -363,9 +365,9 @@ Template: ....
       to the frontend is in the
       <link linkend="commands" endterm="commands"/> appendix. The most common 
       commands you will use in the config script 
-      are "<literal><link linkend="db_input">input</link></literal>", 
-      "<literal><link linkend="db_go">go</link></literal>", and 
-      "<literal><link linkend="db_get">get</link></literal>".
+      are "<literal><link linkend="command_input">input</link></literal>", 
+      "<literal><link linkend="command_go">go</link></literal>", and 
+      "<literal><link linkend="command_get">get</link></literal>".
       Briefly, "<literal>input <parameter>priority</parameter> 
       <parameter>variable</parameter></literal>" 
       asks the frontend to make sure it has asked the user for the value
@@ -430,7 +432,7 @@ Template: ....
     </para>
     <para>
       The only command postinsts normally use to communicate with the
-      frontend is "<literal><link linkend="db_get">get</link></literal>" 
+      frontend is "<literal><link linkend="command_get">get</link></literal>" 
       <footnote><para>Though in reality they can use any commands, including
       "<literal>input</literal>", you are strongly encouraged not to do 
       so.</para></footnote>. Typically, the config script prompts the user
@@ -471,7 +473,7 @@ fi
       script. When your package is purged, it should get rid of all
       the questions and templates it was using in the
       database. Accomplishing this is simple; use the 
-      "<literal><link linkend="db_purge">purge</link></literal>" command
+      "<literal><link linkend="command_purge">purge</link></literal>" command
       (make sure you don't fail if debconf has already been removed, though):
       <programlisting>
 if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule ]; then
@@ -588,7 +590,7 @@ fi
 	      </listitem>
 	      <listitem>
 		<para>
-		  Or call the "<literal><link linkend="db_stop">stop</link>
+		  Or call the "<literal><link linkend="command_stop">stop</link>
 		  </literal>" command at the end of your postinst, to let the
 		  frontend know you're done.
 		</para>
@@ -602,10 +604,11 @@ fi
 	    going on.
 	  </para>
 	  <para>
-	    Try setting DEBCONF_DEBUG to 1 in the environment. This makes
-	    debconf output debugging information, including the commands
-	    your scripts send to it and its responses. You can also set it to
-	    2 for even more debugging information.
+	    Try setting DEBCONF_DEBUG to 'developer' in the environment. This
+	    makes debconf output debugging information, including the commands
+	    your scripts send to it and its responses. See the User's
+	    Manual for more information on the DEBCONF_DEBUG environment
+	    variable.
 	  </para>
 	</listitem>
       </itemizedlist>
@@ -632,10 +635,10 @@ fi
 	if question b should only be asked if question a is true, you obviously
 	can't display them at the same time.</para>
 	</footnote>
-	Just wrap the <literal><link linkend="db_input">input</link></literal>
+	Just wrap the <literal><link linkend="command_input">input</link></literal>
 	commands inside
-	<literal><link linkend="db_beginblock">beginblock</link></literal> and
-	<literal><link linkend="db_endblock">endblock</link></literal>
+	<literal><link linkend="command_beginblock">beginblock</link></literal> and
+	<literal><link linkend="command_endblock">endblock</link></literal>
 	commands.
       </para>
     </sect2>
@@ -652,14 +655,14 @@ fi
       <para>
         The first step is to make your config script let debconf know it
 	is capable of handling the user pressing a back button. You use the
-	<literal><link linkend="db_capb">capb</link></literal> command to
+	<literal><link linkend="command_capb">capb</link></literal> command to
 	do this, passing <quote>backup</quote> as a parameter.
       </para>
       <para>
-        Then after each <literal><link linkend="db_go">go</link></literal>
+        Then after each <literal><link linkend="command_go">go</link></literal>
 	command, you must test to see if the user hit the back button, and
 	if so jump back to the previous question. If the user hit the back
-	button, the <literal><link linkend="db_go">go</link></literal> command
+	button, the <literal><link linkend="command_go">go</link></literal> command
 	will return <literal>30</literal>.
       </para>
       <para>
@@ -722,12 +725,12 @@ done
 	entered, the value of foo/bar is set to something that will
 	pass the test in the loop. So for example if the default value
 	of foo/bar is "<literal>1</literal>", then the
-	"<literal><link linkend="db_reset">reset</link></literal>" command
+	"<literal><link linkend="command_reset">reset</link></literal>" command
 	can just be called before entering the loop.
       </para>
       <para>
 	Another fix is to check the return code of the 
-	"<literal><link linkend="db_input">input</link></literal>" command.
+	"<literal><link linkend="command_input">input</link></literal>" command.
 	If it is <literal>30</literal> then the user is not being shown the
 	question you asked them, and you should break out of the loop.
       </para>
@@ -794,11 +797,11 @@ fi
 	and space delimited list of values).
       </para>
       <para>
-	The "<literal><link linkend="db_metaget">metaget</link></literal>"
+	The "<literal><link linkend="command_metaget">metaget</link></literal>"
 	command can be used to get the list of owners and the list of
 	choices. If they are different, then a new package has been
 	installed. So use the 
-	"<literal><link linkend="db_subst">subst</link></literal>"
+	"<literal><link linkend="command_subst">subst</link></literal>"
 	command to change the list of choices to be the same as
 	the list of owners, and ask the question.
       </para>
@@ -864,47 +867,7 @@ fi
     <para>
       The commands may return a textual value, but they always return a numeric
       status code, which is in the following ranges:
-      <table frame="all">
-        <title>Numeric status codes</title>
-	<tgroup cols="2">
-        <thead>
-	  <row>
-            <entry>Range</entry>
-	    <entry>Description</entry>
-	  </row>
-        </thead>
-      	<tbody>
-	  <row>
-	    <entry>0</entry>
-	    <entry>success</entry>
-	  </row>
-	  <row>
-	    <entry>1-9</entry>
-	    <entry>reserved</entry>
-	  </row>
-	  <row>
-	    <entry>10-19</entry>
-	    <entry>invalid question</entry>
-	  </row>
-	  <row>
-	    <entry>20-29</entry>
-	    <entry>syntax errors</entry>
-	  </row>
-	  <row>
-	    <entry>30-99</entry>
-	    <entry>command-specific return codes</entry>
-	  </row>
-	  <row>
-	    <entry>100-109</entry>
-	    <entry>internal debconf errors</entry>
-	  </row>
-	  <row>
-	    <entry>110-255</entry>
-	    <entry>reserved</entry>
-	  </row>
-	</tbody>
-	</tgroup>
-      </table>
+      &statuscodes_table;
     </para>
     <para>
       Here is a complete list of the the commands you can use to        
@@ -916,270 +879,20 @@ fi
         </para>                              
       </footnote>        
       <itemizedlist>
-	<listitem id="db_version">
-	  <para>
-	    version
-	    <parameter>number</parameter>
-	  </para>
-	  <para>
-	    This exchanges with the frontend the protocol version
-	    number that is being used. The current version is
-	    2.0. Versions in the 2.x series will be
-	    backwards-compatible. You may specify the protocol version
-	    number you are speaking. The frontend will return the version
-	    of the protocol it speaks. If the version you specify is too
-	    low, this command will return the numeric return code
-	    <literal>30</literal>.
-	  </para>
-	</listitem>
-	<listitem id="db_capb">
-	  <para>
-	    capb 
-	    <parameter>capabilities</parameter>
-	  </para>
-	  <para> 
-	    This exchanges with the frontend the capabilities
-	    that are supported. Capabilities both the frontend and your
-	    confmodule support will be used; the capabilities supported by
-	    the frontend are returned by this command.
-	    <table frame="all">
-	      <title>Currently known capabilities</title>
-	      <tgroup cols="2">
-	      <thead>
-	        <row>
-	          <entry>capability</entry>
-		  <entry>description</entry>
-	        </row>
-	      </thead>
-	      <tbody>
-	        <row>
-	          <entry>backup</entry>
- 		  <entry>Backing up to a previous step is supported.</entry>
-	        </row>
-		<row>
-		  <entry>multiselect</entry>
-		  <entry>
-		    The multiselect data type is supported. For compatability
-		    reasons, you should not ask questions of this type unless
-		    this capability is returned.
-		  </entry>
-		</row>
-	      </tbody>
-	      </tgroup>
-	    </table>
-	  </para>
-	</listitem>
-	<listitem id="db_title">
-	  <para>
-	    title
-	    <parameter>string</parameter>
-	  </para>
-	  <para>
-	    You can use this command to set a title in the
-	    frontend. This in different ways, depending on the
-	    frontend being used, for example it might change the title
-	    of the frontend's window. If you don't specify anything, a
-	    title will automatically be generated.
-	  </para>
-	</listitem> 
-	<listitem id="db_stop">
-	  <para>
-	    stop
-	  </para>
-	  <para>
-	    This command tells the frontend you're done talking to it.
-	    If transactions are used, changes to variables will be stored
-	    only when this command is called.
-	  </para>
-	</listitem>
-	<listitem id="db_input">
-	  <para>
-	    input
-	    <parameter>priority</parameter>
-	    <parameter>variable</parameter>
-	  </para>
-	  <para>
-	    This tells the frontend you are interested in the value of
-	    a variable. <parameter>variable</parameter> is the name of the
-	    variable, all other information about the variable is retrieved
-            from the templates described previously. 
-	    <parameter>priority</parameter> is how important it is that the
-	    user be prompted for the variable. The frontend need  
-            only ask this question if the priority is high enough. The
-	    question is not displayed until a go command is given. This
-            allows us to ask multiple questions in a single screen. Once a
-            question has been asked the frontend will clear the 
-	    <literal>isdefault</literal> flag.
-	    &priority_table;
-	  </para>
-	  <para>
-	    Note that the frontend decides if the user is actually
-	    prompted or not. If the user has already answered a
-	    question, they are normally not asked it again even if
-	    input is called again. And if the user is ignoring low
-	    priority items, they will not see them. In either of
-	    these cases, this command returns the numeric return code
-	    <literal>30</literal>.
-	  </para>
-	</listitem>
-	<listitem id="db_beginblock">
-	  <para>
-	    beginblock
-	  </para>
-	</listitem>
-	<listitem id="db_endblock">
-	  <para>
-	    endblock
-	  </para>
-	  <para>
-	    Some frontends are able to display a number of items to
-	    the user at once. To do this, they need to be given blocks
-	    of input commands, enclosed in the beginblock and endblock
-	    commands. Blocks can be nested and very advanced frontends
-	    may use this as a user interface hint.
-	  </para>
-	</listitem>
-	<listitem id="db_go">
-	  <para>
-	    go
-	  </para>
-	  <para>
-	    Shows the current set of accumulated items to the user and lets
-	    them fill in values, etc. If the backup capability is supported
-	    and the user indicates they want to back up a step, this command
-	    returns the numeric return code <literal>30</literal>.
-	  </para>
-	</listitem>
-	<listitem id="db_clear">
-	  <para>
-	    clear
-	  </para>
-	  <para>
-	    Clears the accumulated set of input commands without displaying
-	    them to the user.
-	  </para>
-	</listitem>
-	<listitem id="db_get">
-	  <para>
-	    get <parameter>variable</parameter>
-	  </para>
-	  <para>
-	    Ask the frontend to tell you the value of a variable. The
-	    value is returned to you.
-	  </para>
-	</listitem>
-	<listitem id="db_set">
-	  <para>
-	    set
-	    <parameter>variable</parameter>
-	    <parameter>value</parameter>
-	  </para>
-	  <para>
-	    Ask the frontend to set a variable to a value.
-	  </para>
-	</listitem>
-	<listitem id="db_reset">
-	  <para>
-	    reset
-	    <parameter>variable</parameter>
-	  </para>
-	  <para>
-	    Reset the variable to its default value. This includes
-	    resetting flags to their defaults.
-	  </para>
-	</listitem>
-	<listitem id="db_subst">
-	  <para>
-	      subst
-	      <parameter>variable</parameter>
-	      <parameter>key</parameter>
-	      <parameter>value</parameter>
-	  </para>
-	  <para>
-	    Variables can have substitutions embedded in their
-	    descriptions. These substitutions look like
-	    "<literal>${key}</literal>". When the description is displayed,
-	    the substitutions are replaced with their values. This
-	    command can be used to set the value of a substitution.
-	    </para>
-	  </listitem>
-	  <listitem id="db_fget">
-	    <para>
-	      fget
-	      <parameter>variable</parameter>
-	      <parameter>flag</parameter>
-	    </para>
-	    <para>
-	      Variables can have flags associated with them. The flags
-	      have a value of "<literal>true</literal>" or 
-	      "<literal>false</literal>". This command returns
-	      the value of a flag.
-	    </para>
-	  </listitem>
-	  <listitem id="db_fset">
-	    <para>
-	      fset
-	      <parameter>variable</parameter>
-	      <parameter>flag</parameter>
-	      <parameter>value</parameter>
-	    </para>
-	    <para>
-	      This sets the state of a flag on a variable. Valid
-	      states for the flag are "<literal>true</literal>" and 
-	      "<literal>false</literal>". One common flag is the 
-	      "<literal>isdefault</literal>" flag. It is normally only set if
-	      the variable is set to its default value and the user
-	      has not seen it. Typically, frontends only display
-	      questions to users if they have the isdefault flag set to "true".
-	      Sometimes you want the user to see a question again --
-	      in these cases you can set the isdefault flag to true to
-	      force the frontend to redisplay it.
-	    </para>
-	  </listitem>
-	  <listitem id="db_metaget">
-	    <para>
-	      metaget 
-	      <parameter>variable</parameter>
-	      <parameter>field</parameter>
-	    </para>
-	    <para>
-	      This returns the value of any field of a variable.
-	    </para>
-	  </listitem>
-	  <listitem id="db_register">
-	    <para>
-	      register
-	      <parameter>template</parameter>
-	      <parameter>variable</parameter>
-	    </para>
-	    <para>
-	      This creates a new variable that is bound to a
-	      template. By default each template has an associated
-	      variable with the same name. However, any number of
-	      variables can really be associated with a template, and
-	      this lets you create more such variables.
-	    </para>
-	  </listitem>
-	  <listitem id="db_unregister">
-	    <para>
-	      unregister
-	      <parameter>variable</parameter>
-	    </para>
-	    <para>
-	      This removes a variable from the database.
-	    </para>
-	  </listitem>
-	  <listitem id="db_purge">
-	    <para>
-	      purge
-	    </para>
-	    <para>
-	      Call this in your postinst when your package is
-	      purged. It removes all templates and variables your
-	      package has generated.
-	    </para>
-	  </listitem>
+        &command_list;
       </itemizedlist>
+    </para>
+  </appendix>
+
+  <appendix>
+    <title id="hierarchy">
+      Question hierarchy
+    </title>
+    <para>
+      Templates and questions in the debconf database are arranged in a
+      hierarchical namespace. It can be arbitrarily deep, and is separated
+      by '/' characters, like a unix directory hierarchy. Here are the
+      conventions we're using so far to divide up the namespace.
     </para>
   </appendix>
 </article>

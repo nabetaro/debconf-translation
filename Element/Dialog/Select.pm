@@ -26,8 +26,7 @@ sub show {
 		$this->frontend->makeprompt($this->question);
 
 	my $screen_lines=$this->frontend->screenheight - $this->frontend->spacer;
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
+	my $default=$this->translate_default;
 	my @params=();
 	my @choices=$this->question->choices_split;
 		
@@ -64,7 +63,7 @@ sub show {
 	
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
-	return $this->frontend->showdialog(@params);
+	return $this->translate_to_C(scalar $this->frontend->showdialog(@params));
 }
 
 1

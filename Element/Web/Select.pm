@@ -32,8 +32,7 @@ sub show {
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
+	my $default=$this->translate_default;
 	my $id=$this->id;
 	$_.="<b>".$this->question->description."</b>\n<select name=\"$id\">\n";
 	my $c=0;
@@ -61,7 +60,10 @@ sub process {
 	my $this=shift;
 	my $value=shift;
 
+	# Get the choices in the C locale.
+	$this->question->template->i18n('');
 	my @choices=$this->question->choices_split;
+	$this->question->template->i18n(1);
 	return $choices[$value];
 }
 

@@ -24,7 +24,7 @@ use Debian::DebConf::Config qw(dbdir);
 use Debian::DebConf::AutoSelect qw(:all);
 use Debian::DebConf::Log qw(:all);
 
-debug 2, "frontend started";
+debug developer => "frontend started";
 
 # Load up previous state information.
 loaddb(dbdir());
@@ -53,11 +53,11 @@ else {
 	# Being run some other way, not via a dpkg script.
 	$package='';
 
-	debug 2, "Trying to find a templates file..";
+	debug developer => 'Trying to find a templates file..';
 	sub trytemplate {
 		my $fn=shift;
 		if (-e $fn) {
-			debug 2, "I guess it is $fn";
+			debug developer => 'I guess it is $fn';
 			return loadtemplatefile($fn, $package);
 		}
 		else {
@@ -74,13 +74,13 @@ else {
 			# Finally, look in debconf lib directory for the base
 			# filename with .templates appended.
 			unless ($ARGV[0]=~m!^(?:.*/)?(.*)! && trytemplate("/usr/share/debconf/templates/${1}.templates")) {
-				debug 2, "Couldn't find a templates file."
+				debug developer => "Couldn't find a templates file."
 			}
 		}
 	}
 }
 
-debug 2, "frontend running, package name is $package";
+debug developer => "frontend running, package name is $package";
 $frontend->default_title($package);
 
 # See if the preinst or postinst of the package is being run, and if there

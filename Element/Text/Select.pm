@@ -168,16 +168,10 @@ COLUMN:	for ($num_cols = $max_cols; $num_cols > 0; $num_cols--) {
 
 sub show {
 	my $this=shift;
+	
+	my $default=$this->translate_default;
+	my @choices=$this->question->choices_split;	
 
-	my @choices=$this->question->choices_split;
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
-	
-	# Make sure the default is in the set of choices, else ignore it.
-	if (! grep { $_ eq $default } @choices) {
-		$default='';
-	}
-	
 	# Come up with the set of abbreviations to use.
 	my @important;
 	push @important, $default if $default ne '';
@@ -196,9 +190,9 @@ sub show {
 						$default ne '' ? $abbrevs{$default} : ''),
 					   %abbrevs);
 		last if $value ne '';
-	}	
+	}
 	$this->frontend->display("\n");
-	return $value;
+	return $this->translate_to_C($value);
 }
 
 =back

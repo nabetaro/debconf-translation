@@ -128,7 +128,7 @@ sub startup {
 		Carp::cluck(gettext("debconf: Undefined values detected at confmodule startup! Please file a bug report, and include the stack trace below"));
 	}
 	
-	debug 2, "starting ".join(' ',@args);
+	debug developer => "starting ".join(' ',@args);
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
 			 @args)) || die $!;
@@ -169,7 +169,7 @@ Pass in a raw command, and it will be processed and handled.
 sub process_command {
 	my $this=shift;
 	
-	debug 1, "<-- $_";
+	debug developer => "<-- $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
@@ -181,7 +181,7 @@ sub process_command {
 	}
 	$command="command_".lc($command);
 	my $ret=join(' ', $this->$command(@params));
-	debug 1, "--> $ret";
+	debug developer => "--> $ret";
 	return $ret;
 }
 

@@ -78,8 +78,8 @@ in the commands field.
 sub client {
 	my $this=shift;
 	
-	$this->client(shift) if @_;
-	return $this->client if $this->client;
+	$this->{client}=shift if @_;
+	return $this->{client} if $this->{client};
 
 	my $select=IO::Select->new($this->server);
 	1 while ! $select->can_read(1);
@@ -90,7 +90,7 @@ sub client {
 		$commands.=$_;
 	}
 	$this->commands($commands);
-	$this->client($client);
+	$this->{client}=$client;
 }
 
 =item closeclient

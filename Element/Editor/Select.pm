@@ -9,8 +9,8 @@ Debian::DebConf::Element::Editor::Select - select from a list of choices
 package Debian::DebConf::Element::Editor::Select;
 use strict;
 use Debian::DebConf::Gettext;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Select; # perlbug
+use base qw(Debian::DebConf::Element::Select);
 
 =head1 DESCRIPTION
 
@@ -25,20 +25,12 @@ Presents a list of choices to be selected amoung.
 sub show {
 	my $this=shift;
 
+	my $default=$this->translate_default;
 	my @choices=$this->question->choices_split;
 
 	$this->frontend->comment($this->question->extended_description."\n\n".
 		"(".gettext("Choices").": ".join(", ", @choices).")\n".
 		$this->question->description."\n");
-
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
-
-	# Make sure the default is in the set of choices, else ignore it.
-	if (! grep { $_ eq $default } @choices) {
-		$default='';
-	}
-
 	$this->frontend->item($this->question->name, $default);
 }
 
@@ -54,7 +46,7 @@ sub process {
 	my $value=shift;
 	my %valid=map { $_ => 1 } $this->question->choices_split;
 	
-	return $value if $valid{$value};
+	return $this->translate_to_C($value) if $valid{$value};
 	return $this->question->value;
 }
 

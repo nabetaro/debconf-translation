@@ -199,7 +199,7 @@ or cancel, this frontend will assume they wanted to back up.
 sub showdialog {
 	my $this=shift;
 
-	debug 2, "preparing to run dialog. Params are:" ,
+	debug debug => "preparing to run dialog. Params are:" ,
 		join(",", $this->program, @_);
 
 	# Save stdout, stdin, the open3 below messes with them.

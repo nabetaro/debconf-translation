@@ -35,7 +35,7 @@
     </copyright>
     <legalnotice>
       <para>
-	This text is distributed under the terms of the
+	This text is copyright by the author under the terms of the
 	<ulink url="http://www.gnu.org/copyleft/gpl.html">
 	  General Public License</ulink>.
       </para>
@@ -81,6 +81,19 @@
 	<link linkend="frontend">frontend</link> you were using when the
 	problem occurred, what you did to trigger the problem, and paste any
 	error messages you can into the bug report.
+      </para>
+      <para>
+        Before you report a bug, it is a good idea to enable some debugging
+	output, which might indicate what the problem is. Debconf looks at
+	the DEBCONF_DEBUG environment variable to determine what kinds of
+	debugging information to display. You may find it useful to set
+	DEBCONF_DEBUG to 'user' (and export it), which will make debconf
+	display user-level debug information. Other settings include 
+	'developer', which outputs debug information nore suited to Debian
+	developers, and 'debug', which outputs information useful for
+	debugging debconf itself. DEBCONF_DEBUG is actually treated as a
+	regulr expression, so it can be set to '.*' to make all debugging
+	information be shown.
       </para>
     </sect2>
   </sect1>

@@ -101,14 +101,14 @@ sub makeelement {
 	}
 	my $type=$frontend_type.'::'.ucfirst($question->template->type);
 
-	debug 2, "Trying to make element of type $type for $frontend_type";
 	my $element=eval qq{
 		use Debian::DebConf::Element::$type;
 		Debian::DebConf::Element::$type->new(
 			question => \$question,
 		);
 	};
-	debug 2, "Failed with $@" if $@ && ! $nodebug;
+	warn sprintf(gettext("Unable to make element of type %s. Failed because: %s"), $type, $@)
+		if $@ && ! $nodebug;
 	return if ! ref $element;
 	return $element;
 }

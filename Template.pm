@@ -27,7 +27,7 @@ named "extended_description" holds the extended description, if any.
 
 Templates support internationalization. If LANG or a related environment
 variable is set, and you request a field from a template, it will see if
-"$LANG-field" exists, and if so return that instead.
+"fieldname-$LANG" exists, and if so return that instead.
 
 =cut
 
@@ -228,6 +228,21 @@ sub _getlangs {
 	return $language;
 }
 
+=head2 i18n
+
+This class method controls whether internationalzation is enabled for all 
+templates. Sometimes it may be necessary to get at the C values of fields,
+bypassing internationalization. To enable this, set i18n to a false value.
+
+=cut
+
+my $i18n=1;
+
+sub i18n {
+	my $class=shift;
+	$i18n=shift;
+}
+
 =head2 AUTOLOAD
 
 Creates and calls accessor methods to handle fields. 
@@ -249,12 +264,10 @@ This supports internationalization.
 			$this->{$field}=shift if @_;
 		
 			# Check to see if i18n should be used.
-			if (@langs) {
+			if ($i18n && @langs) {
 				foreach my $lang (@langs) {
-					if (exists $$this{$field.'-'.$lang}) {
-						$field.='-'.$lang;
-						last;
-					}
+					return $this->{$field.'-'.$lang}
+						if exists $this->{$field.'-'.$lang};
 				}
 			}
 		

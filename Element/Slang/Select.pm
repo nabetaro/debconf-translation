@@ -27,9 +27,8 @@ This is a drop down select box widget.
 sub init {
 	my $this=shift;
 
+	my $default=$this->translate_default;
 	my @choices=$this->question->choices_split;
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
 
 	# Find cursor position.
 	my $cursor=1;
@@ -52,14 +51,15 @@ sub init {
 
 =item value
 
-The value is just the value field of the widget.
+The value is just the value field of the widget, translated back to the C
+locale.
 
 =cut
 
 sub value {
 	my $this=shift;
 
-	return $this->widget->list->value;
+	return $this->translate_to_C($this->widget->list->value);
 }
 
 =back

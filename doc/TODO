@@ -1,20 +1,19 @@
 I18N:
-* I need to make translated selection lists work like this:
-  - the translation is displayed to the user. The Default: line does not
-    need translation; what it does is it uses the default to get the
-    positions(s) of the default values(s), and then it uses the translated
-    values.
-  - when the user enters stuff into a [multi]select element, it then
-    translates back to english, and sets Default: to the english values(s)
-    they selected. So all the backend code in the confmodule just deals with
-    the english values.
+* The i18n fixes I made to Select elements in version 0.3.37 still need to
+  be done for Multiselect elements.
 * I should "use locale" -- but it's not in the base perl package.
   Get it in, or I could hack together my own locale enabler, it's one line
   -- see locale.pm. This is necessary for proper sorting, and other stuff.
+* "n. najwy¿szy  w. wysoki  a. ¶redni  b. niski"
+  Notice that it did not use ¶ as a letter here. Perhaps it should. OTOH,
+  doing so might cause problems with wide character sets, if the first half
+  of a character were used.
 
 General:
 * Once perlbug ID 20000212.001 is fixed and the fix in in debian, grep -v 
-  "perlbug" throughout the source to remove bug workaruond code.
+  "perlbug" throughout the source to remove bug workaruond code. I think
+  this is fixed in perl 5.6, but I'd have to depend on that version to use
+  it, so not quite yet (23 may 00)
 * Proper backend database, but that's a whole other ball of wax.
 * Config db browser, with AJ's config2 stuff.
 * Other frontends.

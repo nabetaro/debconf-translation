@@ -69,7 +69,6 @@ sub show {
 		last;
 	}
 
-
 	if (defined $selected[0] && $selected[0] eq $none_of_the_above) {
 		$value='';
 	}

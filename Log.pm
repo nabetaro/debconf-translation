@@ -16,7 +16,7 @@ use vars qw(@EXPORT_OK %EXPORT_TAGS);
 
 =head1 DESCRIPTION
 
-This is a log module for debconf. It can output messages at varying priorities.
+This is a log module for debconf.
 
 This module uses Exporter.
 
@@ -26,14 +26,17 @@ This module uses Exporter.
 
 =item debug
 
-Outputs an infomational message, if DEBCONF_DEBUG is set in the environment
-to a value >= the first parameter.
+Outputs an infomational message. The first parameter specifies the type of
+information that is being logged. If DEBCONF_DEBUG is set in the
+environment to something that matches the parameter, the message is output.
+
+Note that DEBCONF_DEBUG can be set to a regular expression, like '.*'.
 
 =cut
 
 sub debug {
-	my $priority=shift;
-	if (exists $ENV{DEBCONF_DEBUG} && $priority <= int($ENV{DEBCONF_DEBUG})) {
+	my $type=shift;
+	if (exists $ENV{DEBCONF_DEBUG} && $type =~ /$ENV{DEBCONF_DEBUG}/) {
 		print STDERR "debconf: ".join(" ", @_)."\n";
 	}
 }

@@ -57,7 +57,7 @@ sub make_frontend {
 
 	my %seen;
 	while ($type ne '') {
-		debug 1, "trying frontend $type" ;
+		debug user => "trying frontend $type";
 		$frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
 			Debian::DebConf::FrontEnd::$type->new();
@@ -65,7 +65,7 @@ sub make_frontend {
 		last if defined $frontend;
 		
 		warn sprintf(gettext("failed to initialize frontend: %s"), $type);
-		debug 1, "(Error: $@)";
+		debug user => "(Error: $@)";
 
 		# Only try each type once to prevent loops.
 		$seen{$type}=1;
