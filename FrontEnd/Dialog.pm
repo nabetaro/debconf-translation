@@ -28,6 +28,7 @@ use Debian::DebConf::Element::Dialog::Select;
 use Debian::DebConf::Element::Dialog::Text;
 use Debian::DebConf::Element::Dialog::Note;
 use Debian::DebConf::Element::Dialog::Password;
+use Debian::DebConf::Element::Container;
 use Debian::DebConf::Priority;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
@@ -119,6 +120,9 @@ sub makeelement {
 	}
 	elsif ($type eq 'password') {
 		$elt=Debian::DebConf::Element::Dialog::Password->new;
+	}
+	elsif ($type eq 'container') {
+		$elt=Debian::DebConf::Element::Container->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";

@@ -25,6 +25,7 @@ use Debian::DebConf::Element::Text::Select;
 use Debian::DebConf::Element::Text::Text;
 use Debian::DebConf::Element::Text::Note;
 use Debian::DebConf::Element::Text::Password;
+use Debian::DebConf::Element::Container;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
@@ -75,6 +76,9 @@ sub makeelement {
 	}
 	elsif ($type eq 'password') {
 		$elt=Debian::DebConf::Element::Text::Password->new;
+	}
+	elsif ($type eq 'container') {
+		$elt=Debian::DebConf::Element::Container->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";

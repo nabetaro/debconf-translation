@@ -25,6 +25,7 @@ use Debian::DebConf::Element::Gtk::Select;
 use Debian::DebConf::Element::Gtk::Text;
 use Debian::DebConf::Element::Gtk::Note;
 use Debian::DebConf::Element::Gtk::Password;
+use Debian::DebConf::Element::Container;
 use Gtk;
 use Gtk::Atoms;
 use vars qw(@ISA);
@@ -168,6 +169,9 @@ sub makeelement {
 	}
 	elsif ($type eq 'password') {
 		$elt=Debian::DebConf::Element::Gtk::Password->new;
+	}
+	elsif ($type eq 'container') {
+		$elt=Debian::DebConf::Element::Container->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";
