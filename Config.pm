@@ -88,12 +88,16 @@ database if possible, otherwise a default is used.
 If a value is passed to this function, it changes it temporarily (for
 the lifetime of the program) to override what's in the database.
 
+If DEBIAN_PRIORITY is set in the environment, it overrides all this.
+
 =cut
 
 {
 	my $override_priority='';
 
 	sub priority {
+		return $ENV{DEBIAN_PRIORITY} if exists $ENV{DEBIAN_PRIORITY};
+	
 		if (@_) {
 			$override_priority=shift;
 		}

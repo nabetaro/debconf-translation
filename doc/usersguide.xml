@@ -247,7 +247,8 @@
       <link linkend="reconfigure">reconfiguring debconf</link>, or temporarily
       by passing <literal>--priority=</literal> followed by the value to
       the <command>dpkg-reconfigure</command> and 
-      <command>dpkg-preconfigure</command> commands.
+      <command>dpkg-preconfigure</command> commands or by setting the
+      DEBIAN_PRIORITY environment variable.
     </para>
   </sect1>
 </article>

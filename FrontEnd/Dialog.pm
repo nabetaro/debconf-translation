@@ -44,35 +44,35 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
 
-	$self->{interactive}=1;
-	$self->{capb} = 'backup';
+	$self->interactive(1);
+	$self->capb('backup');
 
 	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
 	    ! defined $ENV{FORCE_GDIALOG}) {
-		$self->{program}='whiptail';
-		$self->{borderwidth}=5;
-		$self->{borderheight}=6;
-		$self->{spacer}=1;
-		$self->{titlespacer}=10;
-		$self->{columnspacer}=3;
+		$self->program('whiptail');
+		$self->borderwidth(5);
+		$self->borderheight(6);
+		$self->spacer(1);
+		$self->titlespacer(10);
+		$self->columnspacer(3);
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
-		$self->{program}='dialog';
-		$self->{borderwidth}=7;
-		$self->{borderheight}=6;
-		$self->{spacer}=4;
-		$self->{titlespacer}=4;
-		$self->{columnspacer}=2;
+		$self->program('dialog');
+		$self->borderwidth(7);
+		$self->borderheight(6);
+		$self->spacer(4);
+		$self->titlespacer(4);
+		$self->columnspacer(2);
 	}
 # Disabled until it supports --passwordbox
 #	elsif (-x "/usr/bin/gdialog") {
-#		$self->{program}='gdialog';
-#		$self->{borderwidth}=5;
-#		$self->{borderheight}=6;
-#		$self->{spacer}=1;
-#		$self->{titlespacer}=10;
-#		$self->{columnspacer}=0;
+#		$self->program}(gdialog);
+#		$self->borderwidth(5);
+#		$self->borderheight(6);
+#		$self->spacer(1);
+#		$self->titlespacer(10);
+#		$self->columnspacer(0);
 #	}
 	else {
 		die "Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.";

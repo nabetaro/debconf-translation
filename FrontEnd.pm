@@ -35,10 +35,11 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->{elements}=[];
-	$self->{interactive}='';
-	$self->{capb}='';
-	$self->{title}="";
+	
+	$self->elements([]);
+	$self->interactive('');
+	$self->capb('');
+	$self->title('');
 	return $self
 }
 
@@ -96,7 +97,7 @@ sub add {
 	my $element=shift;
 
 	$element->frontend($this);
-	push @{$this->{elements}}, $element;
+	push @{$this->elements}, $element;
 }
 
 =head2 go
@@ -120,7 +121,7 @@ sub go {
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
 		if ($this->backup) {
-			$this->{elements}=[];
+			$this->elements([]);
 			$this->backup('');
 			return;
 		}
@@ -144,7 +145,7 @@ Clear out the accumulated elements.
 sub clear {
 	my $this=shift;
 	
-	$this->{elements}=[];
+	$this->elements([]);
 }
 
 =head2 default_title
@@ -159,6 +160,14 @@ sub default_title {
 	
 	$this->title("Configuring ".ucfirst(shift));
 }
+
+=head2 shutdown
+
+This method should be called before a frontend is shut down.
+
+=cut
+
+sub shutdown {}
 
 =head1 AUTHOR
 

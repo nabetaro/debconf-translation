@@ -106,7 +106,7 @@ sub parse {
 
 	# Sanity checks.
 	die "Template does not contain a Template: line"
-		unless $this->{template};
+		unless $this->template;
 }
 
 # Calculate the current locale, with aliases expanded, and normalized.

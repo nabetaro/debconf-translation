@@ -30,15 +30,17 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
+	
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
-	$self->{'readline'}=Term::ReadLine->new('debian');
-	$self->{'readline'}->ornaments(1);
-	$self->{'interactive'}=1;
+	$self->readline(Term::ReadLine->new('debian'));
+	$self->readline->ornaments(1);
+	$self->interactive(1);
+	$self->linecount(0);
 	
 	# Figure out which readline module has been loaded, to tell if
 	# prompts must include defaults or not.
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
-		$self->{'promptdefault'}=1;
+		$self->promptdefault(1);
 	}
 	
 	return $self;
@@ -46,15 +48,15 @@ sub new {
 
 =head2 resize
 
-This method from my base class is overridden, so after the screen size changes,
-$Text::Wrap::columns is updated to match.
+This method from my base class is overridden, so after the screen width
+changes, $Text::Wrap::columns is updated to match.
 
 =cut
 
-sub resize {
+sub screenwith {
 	my $this=shift;
-	$this->SUPER::resize(@_);
-	$Text::Wrap::columns=$this->screenwidth;
+	
+	$Text::Wrap::columns=$this->SUPER::screenwidth(@_);
 }
 
 =head2 display
@@ -91,7 +93,7 @@ sub display_nowrap {
 	# Silly split elides trailing null matches.
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
-		if (++$this->{'linecount'} > $this->screenheight - 2) {
+		if ($this->linecount($this->linecount+1) > $this->screenheight - 2) {
 			$this->prompt("[More]", '');
 		}
 		print "$_\n";
@@ -110,14 +112,14 @@ sub title {
 	my $this=shift;
 
 	if (@_) {
-		return $this->{'title'}=shift;
+		return $this->{title}=shift;
 	}
 
-	my $title=$this->{'title'};
+	my $title=$this->{title};
 	if ($title) {
 		$this->display_nowrap($title."\n".('-' x length($title)). "\n", 1);
 	}
-	$this->{'title'}='';
+	$this->{title}='';
 }
 
 =head2 prompt
@@ -133,17 +135,17 @@ sub prompt {
 	my $prompt=(shift)." ";
 	my $default=shift;
 	my $noshowdefault=shift;
-
-	$this->{'linecount'}=0;
+	
+	$this->linecount(0);
 	my $ret;
-	if (! $noshowdefault && $this->{'promptdefault'} && $default ne '') {
-		$ret=$this->{'readline'}->readline($prompt."[$default] ", $default);
+	if (! $noshowdefault && $this->promptdefault && $default ne '') {
+		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
 	else {
-		$ret=$this->{'readline'}->readline($prompt, $default);
+		$ret=$this->readline->readline($prompt, $default);
 	}
-	$this->{'readline'}->addhistory($ret);
-	if ($ret eq '' && $this->{'promptdefault'}) {
+	$this->readline->addhistory($ret);
+	if ($ret eq '' && $this->promptdefault) {
 		return $default;
 	}
 	return $ret;
@@ -161,13 +163,32 @@ sub prompt_password {
 	my $prompt=shift;
 	my $default=shift;
 	
-	my $attribs=$this->{'readline'}->Attribs;
+	my $attribs=$this->readline->Attribs;
 	my $oldfunc=$attribs->{'redisplay_function'};
 	$attribs->{'redisplay_function'} = $attribs->{'shadow_redisplay'};
 	my $ret=$this->prompt($prompt, $default, 1);
 	$attribs->{'redisplay_function'} = $oldfunc;
 
 	return $ret;
+}
+
+=head2 shutdown
+
+Before this frontend is shut down, it needs to prompt the user if some text
+has been printed out without a prompt. Otherwise, the rest of the apt/dpkg
+run will probably scroll that text offscreen without a guarentee the user has
+seen it. 
+
+(This isn't in DESTROY because it doesn't work there. Why, I dunno.)
+
+=cut
+
+sub shutdown {
+	my $this=shift;
+
+	if ($this->linecount > 0) {
+		$this->prompt('[Press Enter]', '');
+	}
 }
 
 =head1 AUTHOR

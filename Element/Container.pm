@@ -62,7 +62,7 @@ sub question {
 			}
 			push @contained, $element;
 		}
-		$this->{'contained'}=\@contained;
+		$this->contained(\@contained);
 	}
 	return $this->{'question'};
 }

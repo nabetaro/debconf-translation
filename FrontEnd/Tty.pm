@@ -45,20 +45,20 @@ sub resize {
 	my $this=shift;
 
 	if (exists $ENV{'LINES'}) {
-		$this->{'screenheight'}=$ENV{'LINES'};
+		$this->screenheight($ENV{'LINES'});
 	}
 	else {
 		# Gotta be a better way..
-		($this->{'screenheight'})=`stty -a </dev/tty` =~ m/rows (\d+)/s;
-		$this->{'screenheight'}=25 if ! $this->{'screenheight'};
+		my ($rows)=`stty -a </dev/tty` =~ m/rows (\d+)/s;
+		$this->screenheight($rows || 25);
 	}
 
 	if (exists $ENV{'COLUMNS'}) {
-		$this->{'screenwidth'}=$ENV{'COLUMNS'};
+		$this->screenwidth($ENV{'COLUMNS'});
 	}
 	else {
-		($this->{'screenwidth'})=`stty -a </dev/tty` =~ m/columns (\d+)/s;
-		$this->{'screenwidth'}=80 if ! $this->{'screenwidth'};
+		my ($cols)=`stty -a </dev/tty` =~ m/columns (\d+)/s;
+		$this->screenwidth($cols || 80);
 	}
 }
 

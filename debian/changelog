@@ -1,3 +1,19 @@
+debconf (0.2.106) unstable; urgency=low
+
+  * Added DEBIAN_PRIORITY for consitency.
+  * Text frontend now prompts you to hit return if text has been displayed
+    w/o a prompt. This is to prevent said text from running off the screen
+    during a dpkg run. To make this work, I had to add a shutdown method to
+    frontends, to be called before a frontend is destroyed.
+  * Denastified the object property references all over. I just hope I didn't
+    remove any direct accesses that were meant to be there (often a good
+    way to introduce infinite loops, so use this version with care..)
+  * Optimized the Text frontend's handling of resize events.
+  * Fixed a compile error in the specification, and actually installs the
+    spec's gif.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  2 Mar 2000 18:44:30 -0800
+
 debconf (0.2.105) unstable; urgency=low
 
   * Fixed noninteractive note element to not mark the item as seen if

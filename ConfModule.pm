@@ -58,8 +58,9 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->{frontend} = shift;
-	$self->{version} = "2.0";
+	
+	$self->frontend(shift);
+	$self->version("2.0");
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -105,7 +106,7 @@ command_* methods.
 sub communicate {
 	my $this=shift;
 
-	my $r=$this->{read_handle};
+	my $r=$this->read_handle;
 	$_=<$r> || return $this->_finish;
 	chomp;
 	debug 1, "<-- $_";
@@ -115,7 +116,7 @@ sub communicate {
 	# Make sure $command is a valid perl function name so the autoloader
 	# will catch it if nothing else.
 	$command=~s/[^a-zA-Z0-9_]/_/g;
-	my $w=$this->{write_handle};
+	my $w=$this->write_handle;
 	if (lc($command) eq "stop") {
 		return $this->_finish;
 	}
@@ -542,10 +543,10 @@ script stopped.
 sub DESTROY {
 	my $this=shift;
 	
-	$this->{read_handle}->close;
-	$this->{write_handle}->close;
-	if ($this->{pid} > 1) {
-		kill 'TERM', $this->{pid};
+	$this->read_handle->close;
+	$this->write_handle->close;
+	if ($this->pid > 1) {
+		kill 'TERM', $this->pid;
 	}
 }
 

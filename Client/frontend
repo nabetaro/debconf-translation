@@ -118,6 +118,8 @@ $confmodule->owner($package);
 # Talk to it until it is done.
 1 while ($confmodule->communicate);
 
+$frontend->shutdown;
+
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 

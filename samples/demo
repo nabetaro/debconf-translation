@@ -25,7 +25,6 @@ db_input low demo/multiselect || true
 db_input low demo/boolean || true
 db_input low demo/string || true
 db_input low demo/password || true
-db_input low demo/note || true
 db_input low demo/text || true
 db_endblock
 db_go || true
@@ -35,5 +34,6 @@ db_get demo/boolean
 echo $RET
 db_get demo/multiselect
 echo $RET
+db_input low demo/note || true
 db_go
 

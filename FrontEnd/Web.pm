@@ -39,21 +39,22 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->{port}=shift || 8001;
-	$self->{formid}=0;
-	$self->{interactive}=1;
-	$self->{capb} = 'backup';
+	
+	$self->port(shift || 8001);
+	$self->formid(0);
+	$self->interactive(1);
+	$self->capb('backup');
 
 	# Bind to the port.
-	$self->{server}=IO::Socket::INET->new(
-		LocalPort => $self->{port},
+	$self->server(IO::Socket::INET->new(
+		LocalPort => $self->port,
 		Proto => 'tcp',
 		Listen => 1,
 		Reuse => 1,
 		LocalAddr => '127.0.0.1',
-	) || die "Can't bind to ".$self->{port}.": $!";
+	)) || die "Can't bind to ".$self->port.": $!";
 
-	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->{port}."/\n";
+	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->port."/\n";
 
 	return $self;
 }
@@ -70,8 +71,8 @@ in the commands property.
 sub client {
 	my $this=shift;
 	
-	$this->{'client'}=shift if @_;
-	return $this->{'client'} if $this->{'client'};
+	$this->client(shift) if @_;
+	return $this->client if $this->client;
 
 	my $select=IO::Select->new($this->server);
 	1 while ! $select->can_read(1);
@@ -82,7 +83,7 @@ sub client {
 		$commands.=$_;
 	}
 	$this->commands($commands);
-	$this->{'client'}=$client;
+	$this->client($client);
 }
 
 =head2 closeclient
@@ -130,7 +131,7 @@ sub go {
 	my $form='';
 	my $id=0;
 	my %idtoelt;
-	foreach my $elt (@{$this->{elements}}) {
+	foreach my $elt (@{$this->elements}) {
 		# Each element has a unique id that it'll use on the form.
 		$idtoelt{$id}=$elt;
 		$elt->id($id++);
@@ -143,7 +144,7 @@ sub go {
 	# don't display empty pages.
 	return 1 if $form eq '';
 
-	$this->{elements}=[];
+	$this->elements([]);
 
 	# Each form sent out has a unique id.
 	my $formid=$this->formid(1 + $this->formid);

@@ -214,6 +214,8 @@ foreach my $deb (@debs) {
 	unlink $script;
 }
 
+$frontend->shutdown;
+
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 
