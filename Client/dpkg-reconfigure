@@ -86,9 +86,10 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 		my $script=shift @$info;
 		next unless -x "$infodir/$pkg.$script";
 
+		my $is_confmodule='';
+
 		if ($script ne 'config') {
 			# Test to see if the script uses debconf.
-			my $is_confmodule='';
 			open (IN, "<$infodir/$pkg.$script");
 			while (<IN>) {
 				if (/confmodule/i) {
@@ -99,7 +100,7 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 			close IN;
 		}
 		
-		if ($script eq 'config' $is_confmodule) {
+		if ($script eq 'config' || $is_confmodule) {
 			# Start up the confmodule.
 			my $confmodule=Debian::DebConf::AutoSelect::confmodule(
 				"$infodir/$pkg.$script", @$info);
