@@ -1,0 +1,372 @@
+# translation of debconf_po.po to Arabic
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Ossama M. Khayat <okhayat@yahoo.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_po\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-23 09:18+0100\n"
+"PO-Revision-Date: 2005-01-29 16:38+0300\n"
+"Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
+"Language-Team: Arabic <support@arabeyes.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"تستخدم الآن واجهة debconf المبنية على المُحرّر لتهيئة نظامك. "
+"راجع نهاية هذا المستند للتعليمات المفصلة."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"واجهة debconf المبنية على المُحرّر تقدم لك ملفاً نصيّاً أو أكثر لتحريرها. وهذا أحد هذه الملفات. إن كنت تألف ملفات تهيئة يونكس القياسيّة، سيكون هذا الملف مألوفاً لك، حيث أنه يحتوي ملاحظات مُدمجة مع عناصر التهيئة. قم بتحرير الملف، بتغيير أي عناصر كما يلزم، ثم احفظ الملف واخرج من البرنامج. "
+"عند هذا، سيقرأ debconf الملف، ويستخدم القيم التي أدخلتها لتهيئة نظامك."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, c-format
+msgid "Debconf on %s"
+msgstr "Debconf على %s"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "ملاحظة: يعمل Debconf في وضع الوب. اذهب إلى http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "السابق"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "التالي"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "المزيد"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM ليست مُعيّنة، لذا لا يمكن استخدام واجهة dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "واجهة dialog ليست متوافقة مع مخازن صدفة emacs"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr "لن يعمل dialog على طرفيّة وهمية، أو مخزن صدفة emacs، أو بدون طرفيّة تحكّم."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "ليس هناك برنامج مشابه لـdialog مثبّت، لذا لا يمكن استخدام الواجهة المبنيّة على dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "تتطلب واجهة dialog شاشة بطول 13 سطراً على الأقل وعرض 31 عموداً."
+
+#: ../Debconf/FrontEnd/Dialog.pm:282
+msgid "Debian Configuration"
+msgstr "تهيئة ديبيان"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "تحتاج هذه الواجهة إلى مبرقة (tty) تحكّم."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU ليس متوافق مع مخازن صدفة emacs."
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "التّراجع إلى الواجهة: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+## CHECK
+msgid "unable to initialize frontend: %s"
+msgstr "لم يمكن ابتداء الواجهة: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "لم يمكن تشغيل واجهة: %s"
+
+#: ../Debconf/Config.pm:127
+msgid "Config database not specified in config file."
+msgstr "قاعدة بيانات التهيئة غير مُحدّدة في ملف التهيئة."
+
+#: ../Debconf/Config.pm:131
+msgid "Template database not specified in config file."
+msgstr "قالب قاعدة البيانات غير مُحدّد في ملف التهيئة."
+
+#: ../Debconf/Config.pm:136
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "الخيارات Sigils و Smileys في ملف التهيئة غير مستخدمة بعد الآن. الرجاء إزالتها."
+
+#: ../Debconf/Config.pm:147
+#, c-format
+## CHECK
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "مشكلة في إعداد قاعدة البيانات المُعرفة في المَقْطع %s من %s."
+
+#: ../Debconf/Config.pm:262
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "تجاهل الأولويّة الغير صالحة \"%s\""
+
+#: ../Debconf/Config.pm:263
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "الأولويات الصالحة هي: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "تحذير: احتمال فساد قاعدة البيانات. ستتم محاولة إصلاحها بإعادة السؤال المفقود %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"القالب #%s في %s يحتوي حقلاً مُزدوج \"%s\" بقيمة جديدة \"%s\". "
+"على الأرجح أن القالبين الجديدين غير مفصولين بشكل صحيح بسطر جديد.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+## CHECK
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "## CHECKحقل قالب مجهول '%s'، في المَقْطع #%s من %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+## CHECK
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "خطأ في إعراب القالب قُرْب `%s'، في المَقْطع #%s من %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "القالب #%s في %s لا يحتوي على سطر 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_مساعدة"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "مساعدة"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "حفظ (البريد) الملاحظة"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "طُلب من debconf حفظ هذه الملاحظة، فقام بإرساله إليك بالبريد."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "معلومات"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "تم إرسال هذه الملاحظة بالبريد."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "خطأ"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "تعذر حفظ الملاحظة."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "الخيارات"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+## CHECK
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "نعم"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "لا"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf، يعمل على %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ليس أياً مما أعلاه"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "أدخل العناصر التي تريد اختيارها، مفصولة بمسافات."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, c-format
+## CHECK
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"لم يُعثر على قيمة الإدخال، \"%s\" في خيارات C! يجب أن لا يحدث هذا أبداً. "
+"يبدو أن القوالب تُرجمت بشكل غير صحيح."
+
+#: ../Debconf/FrontEnd.pm:131
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "لم يمكن تحميل Debconf::Element::%s. فشل ذلك بسبب: %s"
+
+#: ../Debconf/FrontEnd.pm:203
+#, c-format
+msgid "Configuring %s"
+msgstr "تهيئة %s"
+
+#: ../dpkg-preconfigure:113
+#, c-format
+msgid "unable to re-open stdin: %s"
+msgstr "لم يمكن إعادة فتح stdin: %s"
+
+#: ../dpkg-preconfigure:116
+msgid "must specify some debs to preconfigure"
+msgstr "يجب تحديد بعض حزم deb لتهيئتها مسبقاً"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "تأجيل تهيئة الحزم، حيث أن apt-utils غير مثبتة"
+
+#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#, c-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "فشل apt-extracttemplates: %s"
+
+#: ../dpkg-preconfigure:167
+msgid "Preconfiguring packages ...\n"
+msgstr "تهيئة الحزم مسبقاً ...\n"
+
+#: ../dpkg-preconfigure:179
+#, c-format
+msgid "template parse error: %s"
+msgstr "خطأ في إعراب القالب: %s"
+
+#: ../dpkg-preconfigure:191
+#, c-format
+msgid "preconfiguring %s (%s)"
+msgstr "تهيئة %s مسبقاً (%s)"
+
+#: ../dpkg-preconfigure:193
+#, c-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: لايمكن تنفيذ chmod: %s"
+
+#: ../dpkg-preconfigure:203
+#, c-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "فشلت تهيئة %s مسبقاً، مع حالة خروج %s"
+
+#: ../dpkg-reconfigure:104
+#, c-format
+msgid "%s must be run as root"
+msgstr "يجب تشغيل %s كمستخدم جذر"
+
+#: ../dpkg-reconfigure:136
+msgid "please specify a package to reconfigure"
+msgstr "الرجاء تحديد حزمة لتهيئتها مسبقاً"
+
+#: ../dpkg-reconfigure:156
+#, c-format
+msgid "%s is not installed"
+msgstr "%s غير مُثبّتة"
+
+#: ../dpkg-reconfigure:160
+#, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s معطوبة أو غير مُثبّتة بالكامل"
+
+#: ../dpkg-reconfigure:237
+#, c-format
+msgid "Cannot read status file: %s"
+msgstr "لا يمكن قراءة ملف الحالة: %s"
+
+#: ../debconf-mergetemplate:119
+#, c-format
+msgid "%s is missing"
+msgstr "%s مفقودة"
+
+#: ../debconf-mergetemplate:123
+#, c-format
+msgid "%s is missing; dropping %s"
+msgstr "%s مفقودة، إسقاط %s"
+
+#: ../debconf-mergetemplate:146
+#, c-format
+## CHECK
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s مبهمة عند البايت %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, c-format
+## CHECK
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s مبهمة عند البايت %s: %s؛ جاري إسقاطها"
+
+#: ../debconf-mergetemplate:168
+#, c-format
+msgid "%s is outdated"
+msgstr "%s انتهت صلاحيتها"
+
+#: ../debconf-mergetemplate:173
+#, c-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s انتهت صلاحيتها، إسقاط القالب بالكامل"
+
