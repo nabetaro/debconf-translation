@@ -2,6 +2,8 @@ debconf (1.4.31) UNRELEASED; urgency=low
 
   * State machine improvements and better back out handling from Bruce Perens.
   * Minor Danish po file update. Closes: #262131
+  * Patch from David Schweikert to let dpkg-reconfigure use the noninteractive
+    frontend if forced to do so. Closes: #263398
 
  -- Joey Hess <joeyh@debian.org>  Thu, 29 Jul 2004 13:54:40 -0400
 
