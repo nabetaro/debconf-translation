@@ -824,6 +824,9 @@ if [ -e /usr/share/debconf/confmodule ]; then
 			db_input critical shared/window-manager || true
 			db_go || true
 		fi
+
+		# Now do whatever the postinst script did tp upsate
+		# the window manager symlink or whatever.
 	fi
 fi
 	</programlisting>
