@@ -43,21 +43,21 @@ install-rest:
 	chmod 700 $(prefix)/var/lib/debconf
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
-		xargs -i install -d $(prefix)/usr/lib/perl5/{}
+		xargs -i install -d $(prefix)/usr/share/perl5/{}
 	# Install modules.
 	find Debconf -type f -name '*.pm' |grep -v CVS | \
-		xargs -i install -m 0644 {} $(prefix)/usr/lib/perl5/{}
+		xargs -i install -m 0644 {} $(prefix)/usr/share/perl5/{}
 	# Special case for back-compatability.
-	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/Client
+	install -d $(prefix)/usr/share/perl5/Debian/DebConf/Client
 	cp Debconf/Client/ConfModule.stub \
-		$(prefix)/usr/lib/perl5/Debian/DebConf/Client/ConfModule.pm
+		$(prefix)/usr/share/perl5/Debian/DebConf/Client/ConfModule.pm
 	# Other libs and helper stuff.
 	install -m 0644 confmodule.sh confmodule $(prefix)/usr/share/debconf/
 	install frontend $(prefix)/usr/share/debconf/
 	install -s apt/apt-extracttemplates $(prefix)/usr/lib/debconf/
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
-		< Debconf/Config.pm > $(prefix)/usr/lib/perl5/Debconf/Config.pm
+		< Debconf/Config.pm > $(prefix)/usr/share/perl5/Debconf/Config.pm
 	# Install essential programs.
 	install -d $(prefix)/usr/sbin
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
@@ -67,7 +67,7 @@ install-rest:
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i sh -c '$(pod2man) --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files.
-	find $(prefix)/usr/lib/perl5/ $(prefix)/usr/sbin		\
+	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\
 	     -name '*.pm' -or -name 'dpkg-*' | 				\
 	     grep -v Client/ConfModule | xargs perl -i.bak -ne ' 	\
