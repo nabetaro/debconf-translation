@@ -1,13 +1,13 @@
 # Swedish translation of debconf.
-# Copyright 2000-2001 Peter Karlsson
-# Peter Karlsson <peterk@debian.org>, 2000-2001.
+# Copyright 2000-2005 Peter Karlsson
+# Peter Karlsson <peterk@debian.org>, 2000-2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.5.52\n"
+"Project-Id-Version: debconf 1.4.42\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2001-12-03 19:18+0100\n"
+"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"PO-Revision-Date: 2005-01-24 19:23+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -41,9 +41,9 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf på %s"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
@@ -63,7 +63,6 @@ msgid "More"
 msgstr "Mer"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr "TERM är inte satt, så dialogskalet kan inte användas."
 
@@ -80,18 +79,18 @@ msgstr ""
 "utan en kontrollerande terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Varken whiptail eller dialog är installerade, så det dialogbaserade skalet "
-"kan inte användas."
+"Inget användbart dialogliknande program har installerats, så det "
+"dialogbaserade skalet kan inte användas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Dialogskalet kräver en skärm som minst är 13 rader hög och 31 kolumner bred."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -102,9 +101,8 @@ msgid "This frontend requires a controlling tty."
 msgstr "Detta skal kräver en kontrollerande tty."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Slangskalet är inkompatibelt med emacs-skalbuffertar"
+msgstr "Term::ReadLine::GNU kan inte användas i Emacs skalbuffert."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
@@ -121,34 +119,36 @@ msgstr "kan inte initiera skal: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kan inte starta skal: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr "Konfigurationsdatabas inte angiven i inställningsfil."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr "Malldatabas inte angiven i inställningsfil."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
+"Sigils- och Smileys-inställningarna i konfigurationsfilen används inte "
+"längre. Ta bort dem."
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
+msgstr "Problem med att skapa databasen som anges av strof %s av %s."
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr ""
+msgstr "Ignorerar ogiltig prioritet \"%s\""
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
-msgstr ""
+msgstr "Giltiga prioriteter är: %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -156,6 +156,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"varning: databasen kan vara trasig. Försöker reparera genom att lägga "
+"tillbaka den saknade frågan %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -168,9 +170,9 @@ msgstr ""
 "radbrytning.\n"
 
 #: ../Debconf/Template.pm:226
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
+msgstr "Okänt fält \"%s\" i mall, i strof %s av %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
@@ -183,9 +185,8 @@ msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
 msgid "_Help"
-msgstr "Hjälp"
+msgstr "_Hjälp"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
@@ -196,15 +197,13 @@ msgid "Save (mail) Note"
 msgstr "Spara (e-post-)notis"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
-#, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
-"per e-post."
+"Debconf ombads bevara notisen, så den har sänts till dig per e-post."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
@@ -212,7 +211,7 @@ msgstr "Notisen har sänts per e-post."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
-msgstr ""
+msgstr "Fel"
 
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
@@ -304,11 +303,11 @@ msgstr "fördröjer paketkonfigurering eftersom apt-utils ej är installerat"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates misslyckades: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Förkonfigurerar paket ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -316,9 +315,9 @@ msgid "template parse error: %s"
 msgstr "malltolkfel: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Konfigurerar %s"
+msgstr "Konfigurerar %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -331,23 +330,23 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s misslyckades med förkonfigurering, med slutkod %s"
 
 #: ../dpkg-reconfigure:104
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "måste köras som root"
+msgstr "%s måste köras som root"
 
 #: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "ange ett paket att konfigurera om"
 
 #: ../dpkg-reconfigure:156
-#, fuzzy, c-format
+#, c-format
 msgid "%s is not installed"
-msgstr "%s är inte helt installerat"
+msgstr "%s är inte installerat"
 
 #: ../dpkg-reconfigure:160
-#, fuzzy, c-format
+#, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s är inte helt installerat"
+msgstr "%s är trasigt eller inte helt installerat"
 
 #: ../dpkg-reconfigure:237
 #, c-format
@@ -357,42 +356,38 @@ msgstr "Kan inte läsa statusfil: %s"
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "%s saknas"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "%s saknas; kastar %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s är luddig vid byte %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s är luddig vid byte %s: %s; kastar den"
 
 #: ../debconf-mergetemplate:168
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s är inte helt installerat"
+msgstr "%s är föråldrad"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
+msgstr "%s är föråldrad; kastar hela mallen!"
 
 #~ msgid "Debconf was asked to save this "
 #~ msgstr "Debconf ombads spara denna "
 
 #~ msgid "note, so it mailed it to you."
 #~ msgstr "notis, så den har sänts till dig per e-post."
-
-#, fuzzy
-#~ msgid "This frontend probably needs a controlling tty."
-#~ msgstr "Detta skal kräver en kontrollerande tty."
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "TERM är inte satt, så slang-skalet kan inte användas."
@@ -416,9 +411,8 @@ msgstr ""
 #~ msgid "Working, please wait..."
 #~ msgstr "Arbetar, var god vänta..."
 
-#, fuzzy
 #~ msgid "The note has been mailed to root"
-#~ msgstr "Notisen har sänts till root per e-post."
+#~ msgstr "Notisen har sänts till root per e-post"
 
 #~ msgid ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "

@@ -6,13 +6,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-10-11 19:36+0700\n"
+"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"PO-Revision-Date: 2005-01-25 13:04+0700\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
-"Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui."
-"ac.id>\n"
+"Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Bahasa Indonesia\n"
 "X-Poedit-Country: Indonesia\n"
@@ -34,14 +33,13 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih "
-"berkas teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika "
-"Anda tidak akrab dengan berkas konfigurasi standar unix, berkas ini akan "
-"tampak akrab bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
-"item konfigurasi. Ubahlah file ini, ganti sebarang item yang diperlukan, dan "
-"simpanlah lalu keluar. Pada titik inim debconf akan membaca berkas yang "
-"telah diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi "
-"sistem."
+"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih berkas "
+"teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika Anda tidak "
+"akrab dengan berkas konfigurasi standar unix, berkas ini akan tampak akrab bagi Anda "
+"-- berkas ini berisi keterangan yang diikuti dengan item konfigurasi. Ubahlah file ini, "
+"ganti sebarang item yang diperlukan, dan simpanlah lalu keluar. Pada titik ini debconf "
+"akan membaca berkas yang telah diubah, dan menggunakan nilai yang Anda masukkan untuk "
+"mengonfigurasi sistem."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
@@ -80,7 +78,7 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Antar muka dialog tidak akan bekerta pada sebuah terminal dumb, sebuah "
+"Antar muka dialog tidak akan bekerja pada sebuah terminal dumb, sebuah "
 "penyangga shell emacs, atau tanpa sebuah terminal pengendali"
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
@@ -125,15 +123,15 @@ msgstr "Tidak dapat menyiapkan antarmuka: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Tidak dapat memulai sebuah antarmuka: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr "Basis data konfigurasi tidak ditentukan dalam berkas konfigurasi."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr "Basis data template tidak ditentukan dalam berkas konfigurasi."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -141,18 +139,18 @@ msgstr ""
 "Pilihan Sigils dan Smileys dalam berkas konfigurasi tidak lagi digunakan. "
 "Silakan hapus saja."
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ada masalah saat menyetel basis data yang dinyatakan oleh bait %s dari %s."
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Abaikan prioritas \"%s\" yang tidak sah"
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Prioritas yang sah adalah: %s"
@@ -311,11 +309,11 @@ msgstr "menunda konfigurasi paket karena apt-utils tidak terpasang"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates gagal: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Prakonfigurasi paket ... \n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -323,9 +321,9 @@ msgid "template parse error: %s"
 msgstr "Kesalahan penguraian template: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Sedang mengonfigurasi %s"
+msgstr "Prakonfigurasi %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format

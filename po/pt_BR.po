@@ -1,14 +1,14 @@
 # Debian e Debian-BR: por um Debian mais universal =)
 # Copyright (C) 2001 Free Software Foundation, Inc.
 # Gustavo Noronha Silva <kov@debian.org>, 2001.
-# André Luís Lopes <andrelop@debian.org>, 2004.
+# André Luís Lopes <andrelop@debian.org>, 2004-2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-09-28 19:47-0300\n"
+"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"PO-Revision-Date: 2005-01-24 10:30-0200\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,17 +123,17 @@ msgstr "falha ao inicializar frontend: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr ""
 "Banco de dados de configuração não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -141,17 +141,17 @@ msgstr ""
 "As opções Sigils e Smileys no arquivo de configuração não são mais usadas. "
 "Por favor, removas as mesmas."
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ignorando prioridade \"%s\" inválida"
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Prioridades válidas são : %s"
@@ -310,11 +310,11 @@ msgstr "adiando configuração de pacotes, já que o apt-utils não está instalado"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates falhou : %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Pré-configurando pacotes ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -322,9 +322,9 @@ msgid "template parse error: %s"
 msgstr "erro na análise de template: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "Configurando %s"
+msgstr "pré-configurando %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format

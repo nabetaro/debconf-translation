@@ -1,14 +1,14 @@
 # Finnish translation of debconf
 # Copyright (C) 2001 Jaakko Kangasharju
 # Jaakko Kangasharju <ashar@iki.fi>, 2001.
-# Tommi Vainikainen, 2004.
+# Tommi Vainikainen, 2004-2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:02+0100\n"
-"PO-Revision-Date: 2004-11-11 10:07+0200\n"
+"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"PO-Revision-Date: 2005-01-23 18:48+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -122,15 +122,15 @@ msgstr "liittymän alustus epäonnistui: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Liittymän käynnistys epäonnistui: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:127
 msgid "Config database not specified in config file."
 msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:131
 msgid "Template database not specified in config file."
 msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:136
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -138,18 +138,18 @@ msgstr ""
 "Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa "
 "ne."
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:262
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ohitetaan virheellinen prioriteetti \"%s\""
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:263
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Kelvolliset prioriteetit ovat: %s"
@@ -307,11 +307,11 @@ msgstr "pakettien esiasetusta ei tehdä, koska apt-utils:ia ei ole asennettu"
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates epäonnistui: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Esiräätälöidään paketteja...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -319,9 +319,9 @@ msgid "template parse error: %s"
 msgstr "kyselypohjan jäsennysvirhe: %s"
 
 #: ../dpkg-preconfigure:191
-#, fuzzy, c-format
+#, c-format
 msgid "preconfiguring %s (%s)"
-msgstr "%s:n asetusten säätö"
+msgstr "esiräätälöidään %s (%s)"
 
 #: ../dpkg-preconfigure:193
 #, c-format
