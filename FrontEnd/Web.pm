@@ -202,7 +202,7 @@ sub go {
 		
 		$idtoelt{$id}->question->value($idtoelt{$id}->process($query->param($id)));
 		$idtoelt{$id}->question->flag_isdefault('false')
-			if $$idtoelt{$id}->visible;
+			if $idtoelt{$id}->visible;
 		delete $idtoelt{$id};
 	}
 	# If there are any elements that did not get a result back, that in
