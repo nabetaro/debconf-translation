@@ -134,8 +134,7 @@ sub AUTOLOAD {
 =head1 SEE ALSO
 
 The debconf specification
-(/usr/share/doc/debian-policy/debconf_specification.html.gz),
-and tutorial (/usr/share/doc/debconf-doc/tutorial.html).
+(/usr/share/doc/debian-policy/debconf_specification.txt.gz).
 
 =head1 AUTHOR
 

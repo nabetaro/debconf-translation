@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
 Standards-Version: 3.6.1.0
-Build-Depends-Indep: perl, python, debhelper (>= 4.1.27), gettext, html2text (>= 1.2.4-7), jade, sp, docbook-xml, docbook-dsssl, sgml-data (>= 1.2), tidy, po-debconf
+Build-Depends: perl, python, debhelper (>= 4.1.27), gettext, po-debconf
 
 Package: debconf
 Priority: important
@@ -49,8 +49,9 @@ Section: doc
 Architecture: all
 Description: debconf documentation
  This package contains lots of additional documentation for Debconf,
- including an introduction to Debconf, a user's guide, a programmer's
- tutorial, and the specification Debconf is based on.
+ including the debconf user's guide, documentation about using different
+ backend databases via the /etc/debconf.conf file, and a developer's guide
+ to debconf.
 
 Package: debconf-utils
 Section: devel

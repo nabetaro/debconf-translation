@@ -1,7 +1,4 @@
-FILES=$(patsubst %.xml,%.txt,$(wildcard *.xml)) \
-      $(patsubst %.xml,%.html,$(wildcard *.xml))
-
-all: $(FILES) manpages
+all: manpages
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
 
 pod2man=pod2man -c Debconf -r ''
@@ -18,14 +15,6 @@ manpages:
 	find .. -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -printf '%P\n' | \
 		xargs -i sh -c "cd .. ; $(pod2man) --section=8 {} > doc/man/gen/{}.8"
 
-%.html: %.xml html.dsl
-	jade -V nochunks -t sgml -d html.dsl \
-		/usr/lib/sgml/declaration/xml.dcl $< > $@
-	-tidy -i -m -f /dev/null $@
-
-%.txt: %.html
-	perl -pe 's/[\r\0]//g' $< | html2text -style pretty -nobs > $@
-
 clean:
-	rm -f $(FILES) hierarchy.txt *.css *.html
+	rm -f hierarchy.txt
 	rm -rf man/gen

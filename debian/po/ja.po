@@ -6,15 +6,14 @@
 #    Translators, please read /usr/share/doc/po-debconf/README-trans
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.35\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-08-21 17:15-0400\n"
-"PO-Revision-Date: 2003-05-18 23:30+0900\n"
+"PO-Revision-Date: 2003-09-11 12:13+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
-"Language-Team: Japanese <LL@li.org>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=EUC-JP\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,9 +33,7 @@ msgstr "パッケージの設定にどのインターフェースを用いますか?"
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr ""
-"設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。 どの"
-"種類のユーザインターフェースを用いるかを選んで下さい。"
+msgstr "設定に debconf を用いるパッケージは、共通のルック＆フィールを用います。どの種類のユーザインターフェースを用いるかを選んで下さい。"
 
 #. Description
 #: ../templates:5
@@ -46,11 +43,7 @@ msgid ""
 "gnome frontend is a modern X interface. The editor frontend lets you "
 "configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr ""
-"「ダイアログ」は全画面の文字ベースのインターフェースです。「readline」 はより"
-"伝統的なプレーンテキストのインターフェースです。「gnome」は近代 的な X のイン"
-"ターフェースです。「エディタ」を用いるとあなたの好きなテ キストエディタを用い"
-"ることができます。「非対話的」を選ぶと全く質問をし なくなります。"
+msgstr "「ダイアログ」は全画面の文字ベースのインターフェースです。「readline」はより伝統的なプレーンテキストのインターフェースです。「gnome」は近代 的な X のインターフェースです。「エディタ」を用いるとあなたの好きなテキストエディタを用いることができます。「非対話的」を選ぶとまったく質問をしなくなります。"
 
 #. Choices
 #: ../templates:17
@@ -64,7 +57,6 @@ msgstr "どの優先度以上の質問のみしか表示しないようにしますか?"
 
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -75,53 +67,15 @@ msgid ""
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
 "あなたが答えたい質問のうち、最低の優先度のものを選択してください。\n"
-" - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目\n"
-"   用です。\n"
+" - 「重要」は、ユーザが介在しないとシステムを破壊しかねないような項目用です。\n"
+"   あなたが初心者か、あるいは急いでいるのであればこれを選んでください。\n"
 " - 「高」は、適切なデフォルトの回答がないような項目用です。\n"
 " - 「中」は、適切なデフォルトの回答があるような普通の項目用です。\n"
-" - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささい\n"
-"   な項目用です。"
+" - 「低」は、ほとんどの場合にデフォルトの回答で構わないような、ささいな項目用です。"
 
 #. Description
 #: ../templates:19
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ グラム"
-"を使用して表示できます。"
-
-#~ msgid "Show all old questions again and again?"
-#~ msgstr "以前に問い合わせた質問をすべて何度も表示しますか?"
-
-#~ msgid ""
-#~ "Debconf normally only asks you any given question once. Then it remembers "
-#~ "your answer and never asks you that question again. If you prefer, "
-#~ "debconf can ask you questions over and over again, each time you upgrade "
-#~ "or reinstall a package that asks them."
-#~ msgstr ""
-#~ "通常、debconf はいかなる質問も一度しか問い合わせません。debconf は、以 前"
-#~ "の回答を記憶して、再度同じ質問はしないようになっています。しかし、お 望み"
-#~ "なら、同じパッケージのアップグレード時や再インストール時に繰り返し 同じ質"
-#~ "問をさせることができます。"
-
-#~ msgid ""
-#~ "Note that no matter what you choose here, you can see old questions again "
-#~ "by using the dpkg-reconfigure program."
-#~ msgstr ""
-#~ "注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プロ グ"
-#~ "ラムを使用して表示できます。"
-
-#~ msgid ""
-#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
-#~ "you only see the most important questions."
-#~ msgstr ""
-#~ "もしあなたが Debian GNU/Linux システムの初心者ならば、ここで「重要」 を選"
-#~ "択すれば、非常に重要な質問のみが行なわれます。"
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "例えば、ある質問の重要度が「中」で、この重要度の設定がすでに「高」や 「重"
-#~ "要」になっていると、その質問は行なわれません。"
+msgstr "注意: ここで何を選択しても、以前に行なった質問は dpkg-reconfigure プログラムを使用して表示できます。"

@@ -1,3 +1,17 @@
+debconf (1.3.14) unstable; urgency=low
+
+  * Move from build-depends-indep to build-depends, to match current policy.
+  * Updated Japanese template po file from Kenshi Muto. Closes: #210374
+  * Removed the outdated debconf tutorial which was aimed at converting
+    pre-debconf packages to debconf. Use debconf-devel(7) for all your debconf
+    development needs.
+  * Got rid of all the xml stuff, trimmed build deps down.
+  * Lots of other doc reference updates.
+  * Removed the pre 0.9 downgrade warning from prerm.
+  * Removed the debconf.cfg removal code from postinst.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 11 Sep 2003 17:18:16 -0400
+
 debconf (1.3.13) unstable; urgency=low
 
   * pt_BR template po update. Closes: # 207963

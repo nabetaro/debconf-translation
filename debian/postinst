@@ -73,7 +73,4 @@ if [ "$1" = configure -a -n "$2" ] && dpkg --compare-versions "$2" lt 1.0.10; th
 	fi
 fi
 
-# This file is long obsolete, and was a conffile, so wasn't auto-removed.
-rm -f /etc/debconf.cfg
-
 #DEBHELPER#
