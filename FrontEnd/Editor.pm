@@ -95,7 +95,7 @@ sub go {
 	# so make it 0600.
 	mkdir $tmpdir, 0700;
 	open (TMP, ">$tmpfile") ||
-		die gettext(sprintf("debconf: Unable to write to temporary file %s: %s", $tmpfile, $!));
+		die sprintf(gettext("debconf: Unable to write to temporary file %s: %s"), $tmpfile, $!);
 	chmod(0600, $tmpfile);
 
 	$this->comment(gettext("You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."));
@@ -134,7 +134,7 @@ sub go {
 	# FIXME: this isn't really very robust. Syntax errors are ignored.
 	my %eltname=map { $_->question->name => $_ } @elements;
 	open (IN, "<$tmpfile")
-		|| die gettext(sprintf("debconf: Unable to read %s: %s", $tmpfile, $!));
+		|| die sprintf(gettext("debconf: Unable to read %s: %s"), $tmpfile, $!);
 	while (<IN>) {
 		next if /^\s*#/;
 

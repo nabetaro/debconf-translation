@@ -186,7 +186,7 @@ sub parse {
 			$extended.=$1." ";
 		}
 		else {
-			die gettext(sprintf("Template parse error near `%s'", $_));
+			die sprintf(gettext("Template parse error near `%s'"), $_);
 		}
 	}
 

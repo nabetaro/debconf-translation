@@ -190,7 +190,7 @@ package that is being configured.
 sub default_title {
 	my $this=shift;
 	
-	$this->title(gettext(sprintf("Configuring %s", ucfirst shift)));
+	$this->title(sprintf(gettext("Configuring %s"), ucfirst shift));
 }
 
 =item shutdown

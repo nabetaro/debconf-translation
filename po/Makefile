@@ -18,7 +18,7 @@ debconf.pot: $(POTFILES)
 # xgettext can mostly handle perl files as C files, though it gets a bit
 # confused about single quotes in comments, and the gettext() calls have to
 # use double-quoted strings or it will ignore them.
-	xgettext $(POTFILES) -o debconf.pot -Lc --keyword=sprintf
+	xgettext $(POTFILES) -o debconf.pot -Lc
 
 clean:
 	rm -f debconf.pot $(MOFILES)

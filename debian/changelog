@@ -1,3 +1,14 @@
+debconf (0.3.35) unstable; urgency=low
+
+  * Updated and completed the Polish l10n thanks to Marcin Owsiany
+    <porridge@pandora.info.bielsko.pl>.
+  * Now build depends on the latest debhelper to automatically merge
+    translated templates files.
+  * Corrected stupid mistake I made when I added sprintf() calls. Now new
+    Polish translation is fully functional.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 19 May 2000 14:21:49 -0700
+
 debconf (0.3.34) unstable; urgency=low
 
   * Fixed minor bug in Template stringification.
