@@ -120,19 +120,19 @@ A value is pulled out of the database if possible, otherwise a default of
 false is used.
 
 If a value is passed to this function, it changes it temporarily (for
-the lifetime of the program) ro override what's in the database.
+the lifetime of the program) to override what's in the database.
 
 =cut
 
 {
-	my $override_showold='';
+	my $override_showold;
 	
 	sub showold {
 		if (@_) {
 			$override_showold=shift;
 		}
 		
-		if ($override_showold) {
+		if (defined $override_showold) {
 			return $override_showold;
 		}
 		

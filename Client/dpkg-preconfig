@@ -50,6 +50,16 @@ if ($apt) {
 	# Future reads from stdin will get input from the user.
 
 	exit unless @debs;
+
+	# Since we are running from apt, we will be preconfiguring some
+	# packages prior to installing them. If the user has debconf configured
+	# to re-ask seen questions, they will see the questions twice --
+	# once when the package is preconfigured, and once when it is installed
+	# to avoid that, turn off reasking of questions for the lifetime of
+	# this program. The user will thus see the questions only once, when
+	# the package is actually installed.
+	# This is a hack, but it's the best I can do.
+	Debian::Debconf::showold('');
 }
 
 # Load up previous state information.
