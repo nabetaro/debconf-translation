@@ -1,0 +1,42 @@
+#!/bin/sh
+# This lets debconf configure itself.
+
+. /usr/share/debconf/confmodule.sh
+
+# Establish the preliminaries.
+db_version
+db_capb 'can_backup'
+db_title 'Debconf Configuration'
+
+# Ask about frontend and priority.
+ask_1 () {
+	db_input medium debconf/frontend
+	db_input medium debconf/priority
+	db_go
+	if [ "$RET" = 'back' ]; then
+		# Going back at this point is up to the frontend,
+		# since it involves jumping out of this configmodule.
+		# This is just a placeholder for something not in the spec.
+		previous_module
+		exit
+	fi
+
+	# Proceed with next question block.
+	ask_2
+}
+
+# Ask if old questions should be shown only after
+# asking about priority, because I don't want to bother people
+# with it unless they pick low priority.
+ask_2 () {
+	db_input low debconf/showold
+	go
+	if [ "$RET" = 'back' ]; then
+		# Back to block 1
+		ask_1
+		exit
+	fi	
+}
+
+# This launches the whole thing.
+ask_1
