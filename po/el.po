@@ -10,9 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-17 20:50+0100\n"
+"POT-Creation-Date: 2004-09-27 22:16-0400\n"
 "PO-Revision-Date: 2004-09-15 23:06EEST\n"
-"Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian.org>\n"
+"Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
+"org>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,8 +55,8 @@ msgstr "Debconf στο %s"
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. "
-"Δείτε τη http://localhost:%i/"
+"Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. Δείτε τη http://"
+"localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -98,7 +99,8 @@ msgstr ""
 "να χρησιμοποιηθεί το διαλογικό περιβάλλον."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
 "τουλάχιστον."
@@ -113,7 +115,8 @@ msgstr "Το περιβάλλον αυτό απαιτεί ένα τυλέτυπ�
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
+msgstr ""
+"Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
@@ -143,8 +146,8 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Οι χαρακτήρες Sigils και Smileys στο αρχείο ρυθμίσεων δε χρησιμοποιούνται πλέον. Παρακαλώ, "
-"αφαιρέστε τους."
+"Οι χαρακτήρες Sigils και Smileys στο αρχείο ρυθμίσεων δε χρησιμοποιούνται "
+"πλέον. Παρακαλώ, αφαιρέστε τους."
 
 #: ../Debconf/Config.pm:147
 #, c-format
@@ -153,12 +156,12 @@ msgstr ""
 "Σφάλμα κατά την ρύθμιση της βάσης δεδομένων όπως ορίστηκε κατά το τμήμα %s "
 "του %s."
 
-#: ../Debconf/Config.pm:262
+#: ../Debconf/Config.pm:276
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Θα αγνοηθεί η μή έγκυρη ιδιότητα \"%s\""
 
-#: ../Debconf/Config.pm:263
+#: ../Debconf/Config.pm:277
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Οι έγκυρες ιδιότητες είναι : %s"
@@ -169,8 +172,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"προειδοποίηση: πιθανή καταστροφή της βάσης. Θα γίνει προσπάθεια επιδιόρθωσής της "
-"προσθέτοντας την εκλιπόμμενη ερώτηση %s."
+"προειδοποίηση: πιθανή καταστροφή της βάσης. Θα γίνει προσπάθεια επιδιόρθωσής "
+"της προσθέτοντας την εκλιπόμμενη ερώτηση %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -237,8 +240,10 @@ msgid "Choices"
 msgstr "Επιλογές"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -255,7 +260,8 @@ msgid "no"
 msgstr "όχι"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
 "έστειλε μέσω ηλ. ταχυδρομείου."
@@ -331,21 +337,21 @@ msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λά
 msgid "%s must be run as root"
 msgstr "Το %s πρέπει να εκτελεστεί ως χρήστης root"
 
-#: ../dpkg-reconfigure:136
+#: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "παρακαλώ δηλώστε το πακέτο προς επαναρύθμιση"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
 msgstr "το %s δεν είναι εγκατεστημένο"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "το %s είναι κατεστραμμένο ή όχι πλήρως εγκατεστημένο"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Αδύνατη η ανάγνωση του αρχείου κατάστασης: %s"
@@ -379,4 +385,3 @@ msgstr "το %s είναι απηρχαιωμένο"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "το %s είναι απηρχαιωμένο, παραλείπεται ολόκληρο το πρότυπο!"
-
