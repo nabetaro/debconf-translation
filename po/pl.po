@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:02+0100\n"
+"POT-Creation-Date: 2005-01-31 11:30-0500\n"
 "PO-Revision-Date: 2004-02-03 02:17+0200\n"
 "Last-Translator: Emil Nowak <emil5@go2.pl>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Dalej"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -56,10 +60,6 @@ msgstr "Powrót"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr "Dalej"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
 msgstr "Dalej"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
@@ -104,6 +104,98 @@ msgstr "Ten interfejst wymaga terminala steruj±cego."
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU nie jest zgodny z buforami pow³oki emacsa"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Zapisz (wy¶lij poczt±) uwagê"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informacja"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Uwaga zosta³a wys³ana."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "B³±d"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Nie uda³o siê zapisaæ uwagi."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Pozycje do wyboru"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "tak"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nie"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf zosta³ skonfigurowany tak, aby nie wy¶wietlaæ tej uwagi, wiêc "
+"zosta³a przes³ana do Ciebie."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, dzia³aj±cy na %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "¿adna z powy¿ych"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
+"siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Pomoc"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Pomoc"
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
@@ -182,98 +274,6 @@ msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Pomoc"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Pomoc"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Zapisz (wy¶lij poczt±) uwagê"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informacja"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Uwaga zosta³a wys³ana."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "B³±d"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Nie uda³o siê zapisaæ uwagi."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-msgid "Choices"
-msgstr "Pozycje do wyboru"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "tak"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "nie"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf zosta³ skonfigurowany tak, aby nie wy¶wietlaæ tej uwagi, wiêc "
-"zosta³a przes³ana do Ciebie."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, dzia³aj±cy na %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "¿adna z powy¿ych"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
-"siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"POT-Creation-Date: 2005-01-31 11:30-0500\n"
 "PO-Revision-Date: 2005-01-25 13:04+0700\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
-"Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
+"Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui."
+"ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,19 +34,23 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih berkas "
-"teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika Anda tidak "
-"akrab dengan berkas konfigurasi standar unix, berkas ini akan tampak akrab bagi Anda "
-"-- berkas ini berisi keterangan yang diikuti dengan item konfigurasi. Ubahlah file ini, "
-"ganti sebarang item yang diperlukan, dan simpanlah lalu keluar. Pada titik ini debconf "
-"akan membaca berkas yang telah diubah, dan menggunakan nilai yang Anda masukkan untuk "
-"mengonfigurasi sistem."
+"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih "
+"berkas teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika "
+"Anda tidak akrab dengan berkas konfigurasi standar unix, berkas ini akan "
+"tampak akrab bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
+"item konfigurasi. Ubahlah file ini, ganti sebarang item yang diperlukan, dan "
+"simpanlah lalu keluar. Pada titik ini debconf akan membaca berkas yang telah "
+"diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
 #, c-format
 msgid "Debconf on %s"
 msgstr "Debconf pada %s"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Lagi"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
@@ -60,10 +65,6 @@ msgstr "Kembali"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Lanjut"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Lagi"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -108,95 +109,6 @@ msgstr "Antarmuka ini membutuhkan sebuah tty pengendali."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU tidak sesuai dengan penyangga shell emacs."
 
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "kembali ke antarmuka: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "Tidak dapat menyiapkan antarmuka: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Tidak dapat memulai sebuah antarmuka: %s"
-
-#: ../Debconf/Config.pm:127
-msgid "Config database not specified in config file."
-msgstr "Basis data konfigurasi tidak ditentukan dalam berkas konfigurasi."
-
-#: ../Debconf/Config.pm:131
-msgid "Template database not specified in config file."
-msgstr "Basis data template tidak ditentukan dalam berkas konfigurasi."
-
-#: ../Debconf/Config.pm:136
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Pilihan Sigils dan Smileys dalam berkas konfigurasi tidak lagi digunakan. "
-"Silakan hapus saja."
-
-#: ../Debconf/Config.pm:147
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Ada masalah saat menyetel basis data yang dinyatakan oleh bait %s dari %s."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Abaikan prioritas \"%s\" yang tidak sah"
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr "Prioritas yang sah adalah: %s"
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"Peringatan: ada kemungkinan basis data terkorupsi. Akan diperbaiki dengan "
-"menanyakan kembali hal-hal yang hilang %s."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s dalam %s memiliki ruas ganda \"%s\" dengan nilai \"%s\". "
-"Kemungkinan kedua template tidak dipisahkan oleh baris baru yang benar.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Ruas template '%s' tidak dikenal, dalam bait #%s dari %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"Ada kesalahan penguraian template sekitar '%s', dalam bait #%s dari %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s dalam %s tidak berisi sebuah baris 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Panduan"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Panduan"
-
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Simpan (kirim) Catatan"
@@ -224,8 +136,8 @@ msgid "Unable to save note."
 msgstr "Catatan tidak dapat disimpan"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "PIlihan"
 
@@ -282,6 +194,95 @@ msgid ""
 msgstr ""
 "Nilai masukkan, \"%s\" tidak ditemukan dalam pilihan C! Hal ini tidak boleh "
 "terjadi. Mungkin template salah diterjemahkan."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Panduan"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Panduan"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "kembali ke antarmuka: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "Tidak dapat menyiapkan antarmuka: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Tidak dapat memulai sebuah antarmuka: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Basis data konfigurasi tidak ditentukan dalam berkas konfigurasi."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Basis data template tidak ditentukan dalam berkas konfigurasi."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Pilihan Sigils dan Smileys dalam berkas konfigurasi tidak lagi digunakan. "
+"Silakan hapus saja."
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+"Ada masalah saat menyetel basis data yang dinyatakan oleh bait %s dari %s."
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Abaikan prioritas \"%s\" yang tidak sah"
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Prioritas yang sah adalah: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"Peringatan: ada kemungkinan basis data terkorupsi. Akan diperbaiki dengan "
+"menanyakan kembali hal-hal yang hilang %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s dalam %s memiliki ruas ganda \"%s\" dengan nilai \"%s\". "
+"Kemungkinan kedua template tidak dipisahkan oleh baris baru yang benar.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Ruas template '%s' tidak dikenal, dalam bait #%s dari %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr ""
+"Ada kesalahan penguraian template sekitar '%s', dalam bait #%s dari %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s dalam %s tidak berisi sebuah baris 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

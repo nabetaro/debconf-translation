@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"POT-Creation-Date: 2005-01-31 11:30-0500\n"
 "PO-Revision-Date: 2005-01-24 10:30-0200\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -47,6 +47,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Mais"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -59,10 +63,6 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Mais"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -108,96 +108,6 @@ msgstr "Esse frontend requer um tty controlador."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "A Term::ReadLine::GNU é incompatível com buffers shell do Emacs."
 
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "tentando com frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "falha ao inicializar frontend: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Impossível iniciar um frontend: %s"
-
-#: ../Debconf/Config.pm:127
-msgid "Config database not specified in config file."
-msgstr ""
-"Banco de dados de configuração não especificado no arquivo de configuração."
-
-#: ../Debconf/Config.pm:131
-msgid "Template database not specified in config file."
-msgstr ""
-"Banco de dados de templates não especificado no arquivo de configuração."
-
-#: ../Debconf/Config.pm:136
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"As opções Sigils e Smileys no arquivo de configuração não são mais usadas. "
-"Por favor, removas as mesmas."
-
-#: ../Debconf/Config.pm:147
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignorando prioridade \"%s\" inválida"
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr "Prioridades válidas são : %s"
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"aviso: possível corrupção da base de dados. Vou tentar consertar adicionando "
-"a questão %s que está faltando de volta."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
-"Provavelmente dois templates não estão separados apropriadamente por uma "
-"única linha.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Campo de template desconhecido '%s', na stanza #%s de %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "Aj_uda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Ajuda"
-
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Salvar Nota (enviar por email)"
@@ -225,8 +135,8 @@ msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Escolhas"
 
@@ -283,6 +193,96 @@ msgid ""
 msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "Aj_uda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "tentando com frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "falha ao inicializar frontend: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Impossível iniciar um frontend: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr ""
+"Banco de dados de configuração não especificado no arquivo de configuração."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr ""
+"Banco de dados de templates não especificado no arquivo de configuração."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"As opções Sigils e Smileys no arquivo de configuração não são mais usadas. "
+"Por favor, removas as mesmas."
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignorando prioridade \"%s\" inválida"
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Prioridades válidas são : %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"aviso: possível corrupção da base de dados. Vou tentar consertar adicionando "
+"a questão %s que está faltando de volta."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Template #%s em %s tem um campo duplicado \"%s\" com novo valor \"%s\". "
+"Provavelmente dois templates não estão separados apropriadamente por uma "
+"única linha.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Campo de template desconhecido '%s', na stanza #%s de %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

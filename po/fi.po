@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 09:06+0100\n"
+"POT-Creation-Date: 2005-01-31 11:30-0500\n"
 "PO-Revision-Date: 2005-01-23 18:48+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf @ %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Lisää"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -58,10 +62,6 @@ msgstr "Takaisin"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Seuraava"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Lisää"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -107,96 +107,6 @@ msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr ""
 "Term::ReadLine::GNU ei ole yhteensopiva Emacsin komentotulkkipuskureihin."
 
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "siirryn vaihtoehtoiseen liittymään: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "liittymän alustus epäonnistui: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Liittymän käynnistys epäonnistui: %s"
-
-#: ../Debconf/Config.pm:127
-msgid "Config database not specified in config file."
-msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
-
-#: ../Debconf/Config.pm:131
-msgid "Template database not specified in config file."
-msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
-
-#: ../Debconf/Config.pm:136
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa "
-"ne."
-
-#: ../Debconf/Config.pm:147
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Ohitetaan virheellinen prioriteetti \"%s\""
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr "Kelvolliset prioriteetit ovat: %s"
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"varoitus: mahdollinen tietokannan turmelus.  Yritetään korjata lisäämällä "
-"takaisin puuttuva kysymys %s."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
-"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
-"toisistaan.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Tuntematon kenttä \"%s\", säkeistössä #%s tiedostossa %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"Kyselypohjan jäsennysvirhe lähellä \"%s\":a rivillä #%s tiedostossa %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Ohje"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Ohje"
-
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Tallenna (postita) ilmoitus"
@@ -222,8 +132,8 @@ msgid "Unable to save note."
 msgstr "Ilmoituksen tallennus epäonnistui."
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Valinnat"
 
@@ -280,6 +190,96 @@ msgid ""
 msgstr ""
 "Arvoa \"%s\" ei löytynyt C-valinnoista! Näin ei pitäisi koskaan käydä. "
 "Kyselypohjien paikallistamisessa saattaa olla vikaa."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Ohje"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Ohje"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "siirryn vaihtoehtoiseen liittymään: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "liittymän alustus epäonnistui: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Liittymän käynnistys epäonnistui: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa "
+"ne."
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+"Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ohitetaan virheellinen prioriteetti \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Kelvolliset prioriteetit ovat: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"varoitus: mahdollinen tietokannan turmelus.  Yritetään korjata lisäämällä "
+"takaisin puuttuva kysymys %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
+"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
+"toisistaan.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Tuntematon kenttä \"%s\", säkeistössä #%s tiedostossa %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr ""
+"Kyselypohjan jäsennysvirhe lähellä \"%s\":a rivillä #%s tiedostossa %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format

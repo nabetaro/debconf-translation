@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-23 03:47-0700\n"
+"POT-Creation-Date: 2005-01-31 11:30-0500\n"
 "PO-Revision-Date: 2005-01-28 16:25+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2, plural=n>1;"
+"Plural-Forms: nplurals=2, plural=n>1;\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
-msgstr "Gumagamit kayo ng mukha ng debconf na editor-based upang isaayos "
-"ang inyong sistema. Basahin ang sukdulan ng babasahin para sa "
-"detalyadong instruksyon."
+msgstr ""
+"Gumagamit kayo ng mukha ng debconf na editor-based upang isaayos ang inyong "
+"sistema. Basahin ang sukdulan ng babasahin para sa detalyadong instruksyon."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -32,14 +32,15 @@ msgid ""
 "comments interspersed with configuration items. Edit the file, changing any "
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
-msgstr "Ang mukha ng debconf na editor-based ay nagpi-prisinta ng ilang mga "
-"tipunang teksto na inyong ie-edit. Ito ay halimbawa ng ganoong tipunang "
-"teksto. Kung kayo'y pamilyar sa tipunang pagsasaayos na karaniwan sa "
-"unix, itong tipunan ay makikilala ninyo -- naglalaman ito ng mga komento "
-"na may kahalong mga aytem ng pagsasaayos. Iedit ang tipunan, baguhin "
-"ang mga aytem na kailangan, imbakin ang tipunan at lumabas. Sa puntong "
-"iyon, babasahin ng debconf ang na-edit na tipunan, at gagamitin ang mga "
-"halagang inyong pinasok upang masaayos ang sistema."
+msgstr ""
+"Ang mukha ng debconf na editor-based ay nagpi-prisinta ng ilang mga tipunang "
+"teksto na inyong ie-edit. Ito ay halimbawa ng ganoong tipunang teksto. Kung "
+"kayo'y pamilyar sa tipunang pagsasaayos na karaniwan sa unix, itong tipunan "
+"ay makikilala ninyo -- naglalaman ito ng mga komento na may kahalong mga "
+"aytem ng pagsasaayos. Iedit ang tipunan, baguhin ang mga aytem na kailangan, "
+"imbakin ang tipunan at lumabas. Sa puntong iyon, babasahin ng debconf ang na-"
+"edit na tipunan, at gagamitin ang mga halagang inyong pinasok upang masaayos "
+"ang sistema."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
@@ -47,10 +48,16 @@ msgstr "Ang mukha ng debconf na editor-based ay nagpi-prisinta ng ilang mga "
 msgid "Debconf on %s"
 msgstr "Debconf sa %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Meron pa"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Paunawa: Ang debconf ay tumatakbo sa modang web. Tignan sa http://localhost:%i/"
+msgstr ""
+"Paunawa: Ang debconf ay tumatakbo sa modang web. Tignan sa http://localhost:%"
+"i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -59,10 +66,6 @@ msgstr "Bumalik"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Susunod"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Meron pa"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -76,18 +79,24 @@ msgstr "Hindi maaring gamitin ang mukha na dialog sa emacs shell buffer"
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "Hindi gagana ang mukha na dialog sa dumb terminal, sa emacs shell buffer, o kung walang controlling terminal."
+msgstr ""
+"Hindi gagana ang mukha na dialog sa dumb terminal, sa emacs shell buffer, o "
+"kung walang controlling terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr "Walang magamit na programang katulad ng dialog na naka-instol, kaya't hindi magamit ang mukha na batay sa dialog."
+msgstr ""
+"Walang magamit na programang katulad ng dialog na naka-instol, kaya't hindi "
+"magamit ang mukha na batay sa dialog."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "Ang mukha na dialog ay nangangailangan ng tabing na di kukulang sa 13 linya kataas at 31 sunuran ang lapad."
+msgstr ""
+"Ang mukha na dialog ay nangangailangan ng tabing na di kukulang sa 13 linya "
+"kataas at 31 sunuran ang lapad."
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
@@ -101,101 +110,15 @@ msgstr "Ang mukha na ito ay nangangailangan ng controlling tty."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU ay hindi compatible sa emacs shell buffer."
 
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "nanumbalik sa mukhang: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "hini maihanda ang mukha: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Hindi mapatakbo ang mukha: %s"
-
-#: ../Debconf/Config.pm:127
-msgid "Config database not specified in config file."
-msgstr "Hindi nakatakda ang database ng pagsasaayos sa tipunang pagkaayos."
-
-#: ../Debconf/Config.pm:131
-msgid "Template database not specified in config file."
-msgstr "Hindi nakatakda ang template database sa tipunang pagkaayos."
-
-#: ../Debconf/Config.pm:136
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Ang mga option ng Sigil at Smiley sa tipunang pagkaayos ay hindi na ginagamit. "
-"Paki-tanggal ang mga ito."
-
-#: ../Debconf/Config.pm:147
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Nagka-problema sa paghanda ng database na tinutukoy ng estropa %s ng %s."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Di pinansin ang di tanggap na antas \"%s\""
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr "Mga tanggap na mga antas ay: %s"
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"babala: maaring nasira ang database. Susubukan itong ayusin sa pag-dagdag "
-"muli ng nawawalang tanong %s."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Ang template #%s sa %s ay may nadobleng field \"%s\" na may bagong "
-"halagang \"%s\". Maaring ang dalawang template ay hindi nahiwalay ng "
-"tugma na mag-isang newline.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Di kilalang template field '%s', sa estropa #%s ng %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Tulong"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Tulong"
-
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Imbakin (koreo) Tanda"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa inyo."
+msgstr ""
+"Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa "
+"inyo."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -273,6 +196,95 @@ msgstr ""
 "Ibinigay na halaga, \"%s\" hindi nahanap sa mga pagpipilian! Hindi ito dapat "
 "mangyari. Maaaring ang mga template ay hindi akma ang pagka-lokalisado."
 
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Tulong"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Tulong"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "nanumbalik sa mukhang: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "hini maihanda ang mukha: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Hindi mapatakbo ang mukha: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Hindi nakatakda ang database ng pagsasaayos sa tipunang pagkaayos."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Hindi nakatakda ang template database sa tipunang pagkaayos."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Ang mga option ng Sigil at Smiley sa tipunang pagkaayos ay hindi na "
+"ginagamit. Paki-tanggal ang mga ito."
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr ""
+"Nagka-problema sa paghanda ng database na tinutukoy ng estropa %s ng %s."
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Di pinansin ang di tanggap na antas \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Mga tanggap na mga antas ay: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"babala: maaring nasira ang database. Susubukan itong ayusin sa pag-dagdag "
+"muli ng nawawalang tanong %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Ang template #%s sa %s ay may nadobleng field \"%s\" na may bagong halagang "
+"\"%s\". Maaring ang dalawang template ay hindi nahiwalay ng tugma na mag-"
+"isang newline.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Di kilalang template field '%s', sa estropa #%s ng %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
+
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
@@ -294,7 +306,9 @@ msgstr "kailangan magtakda ng ilang mga deb na isasaayos bago ng instol"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi naka-instol"
+msgstr ""
+"ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi naka-"
+"instol"
 
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
@@ -378,4 +392,3 @@ msgstr "%s ay laos na"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ay laos na; tinatapon ang buong template!"
-

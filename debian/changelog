@@ -1,4 +1,4 @@
-debconf (1.4.43) UNRELEASED; urgency=low
+debconf (1.4.43) unstable; urgency=low
 
   * Christian Perrier
     - Mark more strings as translatable. Closes: #225463
@@ -8,6 +8,9 @@ debconf (1.4.43) UNRELEASED; urgency=low
       invisible questions as the confmodule expects it to. It now sets the
       value of invisible questions in the same way as the noninteractive
       frontend.
+  * Joey Hess
+    - In dpkg-reconfigure man page, note that -a works as --all.
+      Closes: #292416
   * Translations:
     - French updated
     - Italian updated. Closes: #291797
@@ -34,7 +37,7 @@ debconf (1.4.43) UNRELEASED; urgency=low
     - Tagalog added. Closes: #292608
     - Arabic added (from Arabeyes CVS)
 
- -- Christian Perrier <bubulle@debian.org>  Sun, 30 Jan 2005 08:16:28 +0100
+ -- Joey Hess <joeyh@debian.org>  Mon, 31 Jan 2005 11:29:10 -0500
 
 debconf (1.4.42) unstable; urgency=low
 
