@@ -61,12 +61,12 @@ Description-nl: Negeer vragen met een prioriteit lager dan..
  belangrijke vragen worden overgeslagen.
  .
  U kunt selecteren wat de laagste prioriteit is die u wilt zien:
-   - 'kritiek' is voor vragen die waarschijnlijk uw systeem onbruikbaar
-     maken zonder interventie door de gebruiker
-   - 'hoog' is voor vragen die onredelijke standaardwaarden hebben
-   - 'gemiddeld' is voor vragen met redelijke standaardwaarden
-   - 'laag' is voor triviale vragen met standaardwaarden die in bijna
-     alle voorkomende gevallen werken
+  - 'kritiek' is voor vragen die waarschijnlijk uw systeem onbruikbaar
+    maken zonder interventie door de gebruiker
+  - 'hoog' is voor vragen die onredelijke standaardwaarden hebben
+  - 'gemiddeld' is voor vragen met redelijke standaardwaarden
+  - 'laag' is voor triviale vragen met standaardwaarden die in bijna
+    alle voorkomende gevallen werken
  .
  Deze vraag bijvoorbeeld is van gemiddelde prioriteit en als uw
  prioritering al op 'hoog' of 'kritiek' staat, dan had u deze vraag niet
@@ -79,17 +79,19 @@ Description-nl: Negeer vragen met een prioriteit lager dan..
 Template: debconf/frontend
 Type: select
 Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-nl: Slang, Text, Editor, Dialog, Noninteractive
+Choices-nl:
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
  .
  The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions.
-Description-nl: Welke interface moet gebruikt worden bij het instellen van pakketten?
+ windowing interface, while the text frontend uses a more traditional
+ plain text interface. The editor frontend lets you configure things using
+ your favorite text editor. The noninteractive frontend never asks you any
+ questions. The dialog frontend is a primative frontend that is being
+ phased out.
+Description-nl: Welke interface moet gebruikt worden bij het instellen
+van pakketten?
  Pakketten die debconf gebruiken voor hun configuratie delen een
  gezamelijke look-and-feel. U kunt selecteren welk type interface u wilt
  gebruiken.
@@ -98,7 +100,8 @@ Description-nl: Welke interface moet gebruikt worden bij het instellen van pakke
  karaktergebaseerde interface, terwijl de 'text' interface een meer
  traditionele tekst interface gebruikt. De 'editor' interface laat u uw
  favoriete editor gebruiken om de pakketten in te stellen. De
- 'noninteractive' interface stelt u in het geheel geen vragen.
+ 'noninteractive' interface stelt u in het geheel geen vragen. De
+ 'dialog' schil is een primitieve schil en wordt binnenkort verwijderd.
 
 Template: debconf/helpvisible
 Type: boolean
