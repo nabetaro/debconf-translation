@@ -168,6 +168,8 @@ sub import {
 sub save {
 	$config->savedb if $config;
 	$templates->savedb if $templates;
+	$config='';
+	$templates='';
 }
 
 =head1 AUTHOR

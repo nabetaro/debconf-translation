@@ -70,10 +70,10 @@ sub AUTOLOAD : lvalue {
 	goto &$AUTOLOAD;
 }
 
-#sub DESTROY {
+sub DESTROY {
 #	my $this=shift;
 #	debug debug => "DESTROY $this";
-#}
+}
 
 =back
 

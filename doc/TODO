@@ -36,22 +36,14 @@ General:
   since debconf-loadtemplate and debconf-communicate should make it easier.
 
 Database:
-* everything that uses Debconf::Question probably needs to be changed
-  since I changed so much in that class.
 * There's also the Force-Flag-Seen thing, which is really a more generic
   forcing of any given flag to any vale, and should expand to forcing any
   field to a value too, I'd think.
-* Hook into the Question class.
-  -- well, I'm getting there. Things to do:
-  	* Question.pm needs a template sub that returns a Template object,
-	  rather than the template name that's in the db. I don't know if
-	  it needs to handle sets at all (check).
 * DbDriver's need access to Templates so they can tell what Type a
   given item is. Until then accept-type and reject-type are just hot air.
   Once Template.pm has class data, they will be able to use
   Debconf::Template->get(templatename), I suppose.
 * Make FlatDir write out password type thing mode 600.
-* Do something about backing store for Templates. What, I dunno.
 * Transition from perldb (blech).
 
 Slang frontend:

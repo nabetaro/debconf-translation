@@ -66,10 +66,10 @@ Display usage help.
 =cut
 
 use strict;
+use Debconf::Db;
 use Debconf::Gettext;
-use Debconf::Template;
-use Debconf::ConfigDb qw(loaddb savedb registertemplates);
-use Debconf::Config qw(frontend priority dbdir showold);
+use Debconf::Template::Persistent;
+use Debconf::Config qw(frontend priority showold);
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
@@ -119,14 +119,13 @@ for (my $x=0; $x < @ARGV;) {
 	}
 }
 
+usage unless @packages;
+
 # See if they are root.
 if ($> != 0) {
 	warn "$0 ".gettext("must be run as root");
 	exit 1;
 }
-
-# Load up previous state information.
-loaddb(dbdir());
 
 # If the default frontend is noninteractive, change it temporarily to
 # slang.
@@ -160,7 +159,7 @@ foreach my $pkg (@packages) {
 	}
 	
 	# Load up templates just in case they arn't already.
-	registertemplates($pkg,Debconf::Template->load("$infodir/$pkg.templates"))
+	Debconf::Template::Persistent->load("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
 	# Run config, and postinst scripts in sequence, with args.
@@ -204,8 +203,8 @@ foreach my $pkg (@packages) {
 			# Since it might run other programs that do use
 			# debconf, checkpoint the current database state
 			# and re-initialize it when the script finishes.
-			savedb(dbdir());
-			
+			Debconf::Db->save;
+						
 			$ENV{DEBIAN_HAS_FRONTEND}='';
 			my $ret=system("$infodir/$pkg.$script", @$info);
 			if (int($ret / 256) != 0) {
@@ -213,16 +212,14 @@ foreach my $pkg (@packages) {
 			}
 			$ENV{DEBIAN_HAS_FRONTEND}=1;
 			
-			loaddb(dbdir());
-			showold('true');
+			Debconf::Db->import;
 		}
 	}
 }
 
 $frontend->shutdown;
 
-# Save state.
-savedb(dbdir());
+Debconf::Db->save;
 
 # Returns a list of all installed packages.
 sub allpackages {

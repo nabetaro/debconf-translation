@@ -24,13 +24,12 @@ This program returns the return code of the program it runs.
 =cut
 
 sub usage {
-	die "Usage: $0 [-t template] program args\n";
+	die "Usage: $0 [-t template] package program args\n";
 }
 
 use strict;
-use Debconf::Template;
-use Debconf::ConfigDb qw(loaddb savedb registertemplates);
-use Debconf::Config qw(dbdir);
+use Debconf::Db;
+use Debconf::Template::Persistent;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
@@ -58,14 +57,14 @@ usage unless $package and @command;
 
 # Initialize.
 debug developer => "debconf started";
-loaddb(dbdir());
+
 my $frontend=make_frontend();
 $frontend->default_title($package);
 
 # Load templates.
 foreach my $fn (@templates) {
 	debug developer => "loading templates from $fn";
-	registertemplates($package, Debconf::Template->load($fn));
+	Debconf::Template::Persistent->load($fn, $package);
 }
 
 # Start up the confmodule we were asked to run.
@@ -79,7 +78,7 @@ $confmodule->owner($package);
 
 # End.
 $frontend->shutdown;
-savedb(dbdir());
+Debconf::Db->save;
 exit $confmodule->exitcode;
 
 =head1 AUTHOR

@@ -70,9 +70,9 @@ BEGIN {
 	eval qq{
 		use strict;
 		use FileHandle;
-		use Debconf::ConfigDb qw(loaddb savedb registertemplates);
-		use Debconf::Config qw(frontend priority showold
-					       dbdir tmpdir);
+		use Debconf::Db;
+		use Debconf::Template::Persistent;
+		use Debconf::Config qw(frontend priority showold tmpdir);
 		use Debconf::AutoSelect qw(:all);
 		use Debconf::Gettext;
 	};
@@ -148,8 +148,6 @@ if ($apt) {
 	showold('false');
 }
 
-# Load up previous state information and start the frontend.
-loaddb(dbdir());
 my $frontend=make_frontend();
 
 # Use the external package scanner for speed. It takes a list of debs
@@ -177,7 +175,7 @@ foreach (@buffer) {
 	# Load templates if any.
 	if (defined $template && length $template) {
 		eval q{
-			registertemplates($package, Debconf::Template->load($template))
+			Debconf::Template::Persistent->load($template, $package)
 		};
 		unlink $template;
 		if ($@) {
@@ -210,7 +208,7 @@ foreach (@buffer) {
 $frontend->shutdown;
 
 # Save state.
-savedb(dbdir());
+Debconf::Db->save;
 
 =head1 AUTHOR
 

@@ -346,6 +346,10 @@ sub AUTOLOAD {
 	goto &$AUTOLOAD;
 }
 
+# Do nothing
+sub DESTROY {
+}
+
 =back
 
 =head1 AUTHOR
