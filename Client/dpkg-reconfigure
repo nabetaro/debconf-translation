@@ -155,9 +155,7 @@ foreach my $pkg (@packages) {
 	}
 }
 
-# Don't call this, becuase nothing that uses it (so far, anyway)
-# should be called during reconfiguration.
-#$frontend->shutdown;
+$frontend->shutdown;
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
