@@ -131,7 +131,7 @@ sub go {
 	# Loop through the elements from starting point until we move
 	# out of either side. The property named "_direction" will indicate
 	# which direction to go next; it is changed elsewhere.
-	$this->direction(1);
+	$this->_direction(1);
 	for (; $current > -1 && $current < @elements; $current += $this->_direction) {
 		my $value=$elements[$current]->show;
 	}

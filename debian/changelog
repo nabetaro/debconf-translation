@@ -1,3 +1,10 @@
+debconf (0.5.26) unstable; urgency=low
+
+  * Corrected uninitialized value leading to looping bahavior in text
+    frontend, Closes: 77923
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 25 Nov 2000 16:37:21 -0800
+
 debconf (0.5.25) unstable; urgency=low
 
   * dpkg-reconfigure: Wait until after loading db before doing frontend 
