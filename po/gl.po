@@ -1,0 +1,313 @@
+# Galician translation of debconf.
+# Copyright (C) 2001 Jacobo Tarrío Barreiro.
+# Jacobo Tarrio <jtarrio@iname.com>, 2001.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf 0.9.29\n"
+"POT-Creation-Date: 2001-03-25 14:50-0800\n"
+"PO-Revision-Date: 2001-03-26 00:43+02:00\n"
+"Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
+"Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/AutoSelect.pm:64
+#, c-format
+msgid "failed to initialize frontend: %s"
+msgstr "non se puido inicializa-la interface: %s"
+
+#: ../Debconf/AutoSelect.pm:69
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Non se puido arrincar unha interface: %s"
+
+#: ../Debconf/ConfModule.pm:141
+msgid ""
+"debconf: Undefined values detected at confmodule startup! Please file a bug "
+"report, and include the stack trace below"
+msgstr ""
+"debconf: ¡Detectáronse valores sen definir no inicio do módulo de "
+"configuración! Por favor, informe do erro e inclúa a traza da pila que "
+"aparece embaixo"
+
+#: ../Debconf/Config.pm:86
+msgid "Config database not specified in config file."
+msgstr ""
+"Non se especificou unha base de datos de configuracións no ficheiro de "
+"configuración."
+
+#: ../Debconf/Config.pm:90
+msgid "Template database not specified in config file."
+msgstr ""
+"Non se especificou unha base de datos de patróns no ficheiro de "
+"configuración."
+
+#: ../Debconf/FrontEnd.pm:114
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
+
+#: ../Debconf/FrontEnd.pm:186
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurando %s"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"¡Non se atopou o valor de entrada, \"%s\", nas opcións de C! Isto non "
+"debería ocorrer nunca. Se cadra localizáronse os patróns incorrectamente."
+
+#: ../Debconf/Element/Editor/Boolean.pm:35
+#: ../Debconf/Element/Editor/Boolean.pm:58
+#: ../Debconf/Element/Text/Boolean.pm:14
+msgid "yes"
+msgstr "si"
+
+#: ../Debconf/Element/Editor/Boolean.pm:38
+#: ../Debconf/Element/Editor/Boolean.pm:61
+#: ../Debconf/Element/Text/Boolean.pm:15
+msgid "no"
+msgstr "non"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Opcións"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Introduza cero ou máis elementos separados por unha coma seguida dun "
+"espacio (', ')."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:37
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:60
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:78
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, executándose en %s"
+
+#: ../Debconf/Element/Slang/Note.pm:27
+msgid "Save Note"
+msgstr "Gravar Nota"
+
+#: ../Debconf/Element/Slang/Note.pm:31
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
+
+#: ../Debconf/Element/Slang/Note.pm:32
+msgid "The note has been mailed to root."
+msgstr "Envióuselle a nota a root."
+
+#: ../Debconf/Element/Slang/Note.pm:35
+msgid "Unable to save note."
+msgstr "Non se puido grava-la nota."
+
+#: ../Debconf/Element/Text/Multiselect.pm:26
+msgid "none of the above"
+msgstr "ningunha das anteriores"
+
+#: ../Debconf/Element/Text/Multiselect.pm:39
+msgid ""
+"Type in the letters of the items you want to select, separated by spaces."
+msgstr ""
+"Premas as letras dos elementos que quere seleccionar, separadas por espacios."
+
+#: ../Debconf/FrontEnd/Dialog.pm:45
+msgid "TERM is not set, so the Dialog frontend is not usable."
+msgstr "Non se estabreceu TERM, así que a interface Dialog non é utilizable."
+
+#: ../Debconf/FrontEnd/Dialog.pm:48
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "A interface Dialog é incompatible cos buffers shell de emacs."
+
+#: ../Debconf/FrontEnd/Dialog.pm:51
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"A interface Dialog non funciona nun terminal parvo, un buffer shell de "
+"emacs, ou sen un terminal de control."
+
+#: ../Debconf/FrontEnd/Dialog.pm:85
+msgid ""
+"Neither whiptail nor dialog are installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Non están instalados whiptail nin dialog, así que non se pode emprega-la "
+"interface baseada en dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
+msgid "Debian Configuration"
+msgstr "Configuración de Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:93
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Está empregando a interface baseada en editores de debconf para configura-lo "
+"seu sistema. Vexa o final deste documento para obter instruccións detalladas."
+
+#: ../Debconf/FrontEnd/Editor.pm:110
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"A interface baseada en editores de debconf preséntalle un ou máis ficheiros "
+"de texto para editar. Este é un deses ficheiros. Se está familiarizado cos "
+"ficheiros de configuración estándar de unix, este ficheiro faráselle "
+"familiar -- contén comentarios intercalados cos elementos de configuración. "
+"Edite o ficheiro, cambiando os elementos que sexan necesarios, e despois "
+"gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
+"valores introducidos para configura-lo sistema."
+
+#: ../Debconf/FrontEnd/Slang.pm:51
+msgid "TERM is not set, so the Slang frontend is not usable."
+msgstr "Non se estabreceu TERM, así que a interface Slang non é utilizable."
+
+#: ../Debconf/FrontEnd/Slang.pm:54
+msgid "Slang frontend is incompatible with emacs shell buffers"
+msgstr "A interface Slang é incompatible cos buffers shell de emacs."
+
+#: ../Debconf/FrontEnd/Slang.pm:57
+msgid ""
+"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"A interface Slang non funciona nun terminal parvo, un buffer shell de emacs, "
+"ou sen un terminal de control."
+
+#: ../Debconf/FrontEnd/Slang.pm:72
+msgid "Help"
+msgstr "Axuda"
+
+#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Seguinte"
+
+#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Anterior"
+
+#: ../Debconf/FrontEnd/Slang.pm:97
+msgid "Hide Help"
+msgstr "Oculta-la Axuda"
+
+#: ../Debconf/FrontEnd/Slang.pm:98
+msgid "Show Help"
+msgstr "Amosa-la Axuda"
+
+#: ../Debconf/FrontEnd/Slang.pm:260
+msgid "Tab and arrow keys move; space drops down lists."
+msgstr "Tabulador e frechas, movemento; barra espaciadora, expandir listas."
+
+#: ../Debconf/FrontEnd/Slang.pm:283
+msgid "Working, please wait..."
+msgstr "Traballando, agarde..."
+
+#: ../Debconf/FrontEnd/Text.pm:197
+msgid "More"
+msgstr "Máis"
+
+#: ../Debconf/FrontEnd/Tty.pm:37
+msgid "This frontend requires a controlling tty."
+msgstr "Esta interface precisa dun terminal de control."
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Nota: Debconf está a se executar en modo web. Vaia a http://localhost:%i/"
+
+#: ../Debconf/Template.pm:163
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"O patrón número %s en %s tén un campo \"%s\" duplicado co novo valor \"%s\". "
+"É posible que dous patróns non estén correctamente separados cun retorno de "
+"carro.\n"
+
+#: ../Debconf/Template.pm:203
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
+
+#: ../Debconf/Template.pm:209
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
+
+#: ../dpkg-preconfigure:120
+msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+msgstr ""
+"Emprego: dpkg-preconfigure [--frontend=tipo] [--priority=valor] ficheiros-deb"
+
+#: ../dpkg-preconfigure:124
+#, c-format
+msgid "Unknown option: %s"
+msgstr "Opción descoñecida: %s"
+
+#: ../dpkg-preconfigure:144
+#, c-format
+msgid "dpkg-preconfigure: unable to re-open stdin: %s"
+msgstr "dpkg-preconfigure: non se puido volver abri-la entrada estándar: %s"
+
+#: ../dpkg-preconfigure:157
+msgid "Usage: dpkg-preconfigure deb [...]"
+msgstr "Emprego: dpkg-preconfigure deb [...]"
+
+#: ../dpkg-preconfigure:192
+#, c-format
+msgid "template parse error: %s"
+msgstr "erro na análise dos patróns: %s"
+
+#: ../dpkg-preconfigure:206
+#, c-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: non se puido facer chmod: %s"
+
+#: ../dpkg-preconfigure:216
+#, c-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "Non se puido preconfigurar %s, co estado de saída %s"
+
+#: ../dpkg-reconfigure:14
+msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
+msgstr ""
+"Emprego: dpkg-reconfigure [--frontend=tipo] [--priority=valor] paquetes"
+
+#: ../dpkg-reconfigure:128
+msgid "must be run as root"
+msgstr "débese executar coma root"
+
+#: ../dpkg-reconfigure:159
+#, c-format
+msgid "%s is not fully installed"
+msgstr "%s non está completamente instalado"
+
+#: ../dpkg-reconfigure:232
+#, c-format
+msgid "Cannot read status file: %s"
+msgstr "Non se puido le-lo ficheiro de estado: %s"
