@@ -1,3 +1,12 @@
+debconf (0.3.16) unstable; urgency=low
+
+  * This is a quick build w/o the -doc package, to allow debconf to get
+    quickly through incoming without waiting for manual approval (I have
+    some important bugs fixed in the many versions below that are stuck in
+    Incoming.)
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  4 Apr 2000 16:00:44 -0700
+
 debconf (0.3.15) unstable; urgency=low
 
   * Don't crash if a question has no associated template. That should never
