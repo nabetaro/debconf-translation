@@ -621,8 +621,8 @@ script stopped.
 sub DESTROY {
 	my $this=shift;
 	
-	$this->read_handle->close;
-	$this->write_handle->close;
+	$this->read_handle->close if $this->read_handle;
+	$this->write_handle->close if $this->write_handle;
 	if ($this->pid > 1) {
 		kill 'TERM', $this->pid;
 	}
