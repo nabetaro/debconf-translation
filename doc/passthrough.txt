@@ -71,10 +71,11 @@ It should be removed when the Frontend exits.
 
 DATA/INPUT/GO/GET mechanism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Unlike existing DebConf frontends, the Frotnend does not have access
-to the template information directly. In order to get that information,
-the Passthrough module is responsible for sending it that information.
-This is done via the DATA mechanism, by sending commands like this:
+Unlike existing DebConf frontends, the Frontend does not have access
+to the template information directly. In order for it to have that
+information, the Passthrough module is responsible for sending it
+the information. This is done via the DATA mechanism, by sending
+commands like this:
 
 	DATA <tag> <item> <value>
 
@@ -126,7 +127,6 @@ to which the Frontend should reply with:
 	0 <value>
   where:
 	<value> was the answer to the question of the given <tag>
-
 
 Shutdown
 ~~~~~~~~
