@@ -32,7 +32,7 @@ A few functions have special features, as documented below:
 
 =cut
 
-package Debian::DebConf::ConfModule;
+package Debian::DebConf::Client::ConfModule;
 use strict;
 use Exporter;
 use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
