@@ -64,6 +64,7 @@ sub load {
 			if ($line =~ /^\s/) {
 				$line =~ s/^\s+//;
 				my ($var, $value)=split(/\s*=\s*/, $line, 2);
+				$value=~s/\\n/\n/g;
 				$ret{variables}->{$var}=$value;
 				next;
 			}
@@ -89,6 +90,7 @@ sub load {
 			$invars=1;	
 		}
 		elsif (length $key) {
+			$value=~s/\\n/\n/g;
 			$ret{fields}->{$key}=$value;
 		}
 	}
@@ -114,7 +116,9 @@ sub save {
 
 	open(TEXTDB_OUT, ">$file") or $this->error("$file: $!");
 	foreach my $field (sort keys %{$data{fields}}) {
-		print TEXTDB_OUT ucfirst($field).": ".$data{fields}->{$field}."\n";
+		my $val=$data{fields}->{$field};
+		$val=~s/\n/\\n/g;
+		print TEXTDB_OUT ucfirst($field).": $val\n";
 	}
 	if (keys %{$data{owners}}) {
 		print TEXTDB_OUT "Owners: ".join(", ", keys(%{$data{owners}}))."\n";
@@ -127,7 +131,9 @@ sub save {
 	if (keys %{$data{variables}}) {
 		print TEXTDB_OUT "Variables:\n";
 		foreach my $var (sort keys %{$data{variables}}) {
-			print TEXTDB_OUT " $var = ".$data{variables}->{$var}."\n";
+			my $val=$data{variables}->{$var};
+			$val=~s/\n/\\n/g;
+			print TEXTDB_OUT " $var = $val\n";
 		}
 	}
 	print TEXTDB_OUT "\n";
