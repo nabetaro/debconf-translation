@@ -820,6 +820,29 @@ fi
 	</programlisting>
       </para>
     </sect2>
+    <sect2>
+      <title>
+        Standalone programs that use debconf
+      </title>
+      <para>
+      	It's actually possible to use debconf in standalone programs,
+	rather just from Debian package scripts. When doing this is a good
+	idea is a whole different matter.
+	<note><para>
+	  Remember, debconf is not intended to be a registry.
+	</para></note>
+	It might occasionally make sense to write a standalone program
+	that uses debconf to prompt the user for questions. Standalone
+	programs that use debconf work just like a debian config script:
+	load up the debconf library for your language and proceed as usual.
+      </para>
+      <para>
+        If you're doing this type of thing, you might find it useful to
+	drop template files in /usr/share/debconf/$0.templates, where $0 is
+	the name of the program that is running. Debconf will load such
+	templates up when the program runs.
+      </para>
+    </sect2>
   </sect1>
 
   <appendix>
