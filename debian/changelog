@@ -1,3 +1,11 @@
+debconf (0.2.54) unstable; urgency=low
+
+  * In the dialog frontend, do not pass the default password to dialog. This
+    is a security hole, and besides it's very confusing since dialog doesn't
+    display the passowrd, and the user might inaverdently append to it.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 10 Dec 1999 19:09:13 -0800
+
 debconf (0.2.53) unstable; urgency=low
 
   * "Cancel" (or hitting escape) in the dialog frontend is now interpreted

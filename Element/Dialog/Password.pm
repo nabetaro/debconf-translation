@@ -25,13 +25,22 @@ sub show {
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);
 
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
-	my @params=('--passwordbox', $text, 
-		$lines + $this->frontend->spacer, 
-		$columns, $default);
+	my @params=('--passwordbox', $text,
+		$lines + $this->frontend->spacer, $columns);
 
-	return $this->frontend->showdialog(@params);
+	my $ret=$this->frontend->showdialog(@params);
+
+	# The password isn't passed in, so if nothing is entered,
+	# use the default.
+	if ($ret eq '') {
+		my $default='';
+		$default=$this->question->value
+			if defined $this->question->value;
+		return $default
+	}
+	else {
+		return $ret;
+	}
 }
 
 1
