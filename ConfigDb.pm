@@ -6,8 +6,9 @@
 package ConfigDb;
 use Template;
 use Question;
+use Mapping;
 use strict;
-use vars qw($AUTOLOAD %templates %questions);
+use vars qw($AUTOLOAD %templates %questions %mappings);
 
 # Pass in the name of the question and this will return the specified question
 # object.
@@ -39,11 +40,32 @@ sub loadtemplatefile {
 	return 1;
 }
 
+# Loads up a file containing mappings.
+sub loadmappingfile {
+	my $fn=shift;
+	
+	die "No filename to load specified" unless $fn;
+	my $collect;
+	open (MAPPING_IN, $fn) || die "$fn: $!";
+	while (<MAPPING_IN>) {
+		if ($_ ne "\n") {
+			$collect.=$_;
+		}
+		if ($_ eq "\n" || eof MAPPING_IN) {
+			my $mapping=Mapping->new();
+			$mapping->parse($collect);
+			$mappings{$mapping->question}=$mapping;
+			$collect='';
+		}	
+	}
+	close MAPPING_IN;
+	return 1;
+}
+
 # Instantiate Questions from templates and question mapping data.
 sub makequestions {
-	# TODO: currently, since I don't know what we're going to do for
-	# mapping, I just instantiate one question per template.
-	foreach my $template (values %templates) {
+	foreach my $mapping (values %mappings) {
+		my $template=$templates{$mapping->template};
 		my $question=Question->new;
 		$question->name($template->template);
 		$question->template($template);

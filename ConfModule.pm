@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #
 # Configuration module communication package for the Debian configuration
-# management system. it can launch a configuration module script and
+# management system. It can launch a configuration module script and
 # communicate with it. Each instance of a ConfModule is connected to a
 # separate, running configuration module.
 #

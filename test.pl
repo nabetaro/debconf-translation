@@ -3,7 +3,7 @@
 # Test framework for the Debian configuration management system.
 # This can multiplex a variety of frontends, just pass the name of
 # the frontend as the first parameter. Pass in the name of the templates
-# file and the config script.
+# file and then the mapping file and finally the config script.
 
 use strict;
 use ConfigDb;
@@ -16,12 +16,16 @@ use ConfModule::Web;
 
 my $type=shift;
 my $template=shift;
+my $mapping=shift;
 my $script=shift;
 
 # Load up templates.
 ConfigDb::loadtemplatefile($template);
 
-# Instantiate all questions.
+# Load up mappings.
+ConfigDb::loadmappingfile($mapping);
+
+# Instantiate all questions that have mappings.
 ConfigDb::makequestions();
 
 # Start up the FrontEnd and ConfModule.

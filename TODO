@@ -1,8 +1,16 @@
-* Mappings!
+Add (un)register commands:
+
+<wichert>   REGISTER <template> <location>
+<wichert>      Add a mapping to create an instantiation of <template> at <location>
+<wichert>   UNREGISTER <location>
+<wichert>      Remove the mapping starting at <location>
+
+* Check protocol version against wichert's spec.
+* Finish demos, add some more.
 * Other frontends.
 * Other demo package files.
 * Shell client program.
-* Perl client library.
+* Working .deb's using the system.
 * Backend database, but that's a whole other ball of wax.
 
 Line at a time frontend:
