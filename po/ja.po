@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2000-11-14 21:02-0800\n"
+"POT-Creation-Date: 2000-11-15 16:27-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,17 +14,30 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:65
+#: ../Debconf/Client/ConfModule.pm:108
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "`%s' は未サポートのコマンドです。"
+
+#: ../Debconf/Client/ConfModule.pm:118
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "This will probably cause strange things to happen!"
+msgstr "このためにおそらくおかしなことが起こります!"
+
+#: ../Debconf/AutoSelect.pm:64
 #, c-format
 msgid "failed to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:70
+#: ../Debconf/AutoSelect.pm:69
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/ConfModule.pm:134
+#: ../Debconf/ConfModule.pm:140
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -32,49 +45,36 @@ msgstr ""
 "debconf: confmodule の起動時に未定義値が見つかりました!\n"
 "以下のスタックトレースとともにバグレポートを出してください"
 
-#: ../Debconf/FrontEnd.pm:110
+#: ../Debconf/FrontEnd.pm:111
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../Debconf/FrontEnd.pm:208
+#: ../Debconf/FrontEnd.pm:182
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
-#: ../Debconf/Template.pm:163
+#: ../Debconf/Template.pm:162
 msgid "unknown file"
 msgstr ""
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:195
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:202
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"
 
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "`%s' は未サポートのコマンドです。"
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "このためにおそらくおかしなことが起こります!"
-
-#: ../Debconf/Element/Container.pm:40
+#: ../Debconf/Element/Container.pm:39
 msgid "Container element question method called before frontend was set."
 msgstr ""
 "フロントエンドが設定される前にコンテナ要素質問メソッドが呼び出されました。"
 
-#: ../Debconf/Element/Select.pm:86
+#: ../Debconf/Element/Select.pm:85
 #, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
@@ -84,71 +84,71 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:50
-#: ../Debconf/Element/Text/Boolean.pm:35 ../Debconf/Element/Text/Boolean.pm:57
+#: ../Debconf/Element/Editor/Boolean.pm:29
+#: ../Debconf/Element/Editor/Boolean.pm:49
+#: ../Debconf/Element/Text/Boolean.pm:34 ../Debconf/Element/Text/Boolean.pm:56
 msgid "yes"
 msgstr "はい"
 
-#: ../Debconf/Element/Editor/Boolean.pm:33
-#: ../Debconf/Element/Editor/Boolean.pm:51
-#: ../Debconf/Element/Text/Boolean.pm:38 ../Debconf/Element/Text/Boolean.pm:58
+#: ../Debconf/Element/Editor/Boolean.pm:32
+#: ../Debconf/Element/Editor/Boolean.pm:50
+#: ../Debconf/Element/Text/Boolean.pm:37 ../Debconf/Element/Text/Boolean.pm:57
 msgid "no"
 msgstr "いいえ"
 
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-#: ../Debconf/Element/Editor/Select.pm:32
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "選択"
 
-#: ../Debconf/Element/Editor/Multiselect.pm:33
+#: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:38
+#: ../Debconf/Element/Noninteractive/Note.pm:37
 #, fuzzy
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:59
+#: ../Debconf/Element/Noninteractive/Note.pm:58
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:75
+#: ../Debconf/Element/Noninteractive/Note.pm:74
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Slang/Note.pm:29
+#: ../Debconf/Element/Slang/Note.pm:28
 msgid "Save Note"
 msgstr "注意を保存する"
 
-#: ../Debconf/Element/Slang/Note.pm:33
+#: ../Debconf/Element/Slang/Note.pm:32
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Slang/Note.pm:34
+#: ../Debconf/Element/Slang/Note.pm:33
 msgid "The note has been mailed to root."
 msgstr "この注意は root にメールされました。"
 
-#: ../Debconf/Element/Slang/Note.pm:37
+#: ../Debconf/Element/Slang/Note.pm:36
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
-#: ../Debconf/Element/Text/Multiselect.pm:28
+#: ../Debconf/Element/Text/Multiselect.pm:26
 msgid "none of the above"
 msgstr "上記以外"
 
-#: ../Debconf/Element/Text/Multiselect.pm:41
+#: ../Debconf/Element/Text/Multiselect.pm:39
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:83
+#: ../Debconf/FrontEnd/Dialog.pm:82
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -156,16 +156,16 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:229 ../Debconf/FrontEnd/Slang.pm:64
+#: ../Debconf/FrontEnd/Dialog.pm:228 ../Debconf/FrontEnd/Slang.pm:63
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:98
+#: ../Debconf/FrontEnd/Editor.pm:97
 #, c-format
 msgid "debconf: Unable to write to temporary file %s: %s"
 msgstr "debconf: 一時ファイル %s に書き込みができません: %s"
 
-#: ../Debconf/FrontEnd/Editor.pm:101
+#: ../Debconf/FrontEnd/Editor.pm:100
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -173,7 +173,7 @@ msgstr ""
 "システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
 "しています。詳しい説明はこのドキュメントの最後を見てください。"
 
-#: ../Debconf/FrontEnd/Editor.pm:124
+#: ../Debconf/FrontEnd/Editor.pm:117
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -190,44 +190,44 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Editor.pm:138
+#: ../Debconf/FrontEnd/Editor.pm:131
 #, c-format
 msgid "debconf: Unable to read %s: %s"
 msgstr "debconf: %s の読み込みに失敗しました: %s"
 
-#: ../Debconf/FrontEnd/Slang.pm:69
+#: ../Debconf/FrontEnd/Slang.pm:68
 msgid "Help"
 msgstr "ヘルプ"
 
-#: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:172
+#: ../Debconf/FrontEnd/Slang.pm:91 ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "次へ"
 
-#: ../Debconf/FrontEnd/Slang.pm:93 ../Debconf/FrontEnd/Web.pm:170
+#: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
 msgstr "戻る"
 
-#: ../Debconf/FrontEnd/Slang.pm:94
+#: ../Debconf/FrontEnd/Slang.pm:93
 msgid "Hide Help"
 msgstr "ヘルプを非表示"
 
-#: ../Debconf/FrontEnd/Slang.pm:95
+#: ../Debconf/FrontEnd/Slang.pm:94
 msgid "Show Help"
 msgstr "ヘルプを表示"
 
-#: ../Debconf/FrontEnd/Slang.pm:261
+#: ../Debconf/FrontEnd/Slang.pm:256
 msgid "Tab and arrow keys move."
 msgstr "タブか矢印キーで移動"
 
-#: ../Debconf/FrontEnd/Slang.pm:282
+#: ../Debconf/FrontEnd/Slang.pm:278
 msgid "Working, please wait..."
 msgstr "処理しています、お待ちください…"
 
-#: ../Debconf/FrontEnd/Text.pm:96
+#: ../Debconf/FrontEnd/Text.pm:95
 msgid "More"
 msgstr "移動"
 
-#: ../Debconf/FrontEnd/Web.pm:66
+#: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""

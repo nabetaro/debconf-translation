@@ -13,7 +13,6 @@ use FileHandle;
 use Debconf::Gettext;
 use Text::Wrap;
 use Text::Tabs;
-use vars qw($AUTOLOAD);
 use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
@@ -260,7 +259,7 @@ sub i18n {
 =head2 AUTOLOAD
 
 Creates and calls accessor methods to handle fields. 
-This supports internationalization.
+This supports internationalization, but not lvalues.
 
 =cut
 
@@ -268,8 +267,7 @@ This supports internationalization.
 	my @langs=_getlangs();
 
 	sub AUTOLOAD {
-		my $field;
-		($field = $AUTOLOAD) =~ s/.*://;
+		(my $field = our $AUTOLOAD) =~ s/.*://;
 
 		no strict 'refs';
 		*$AUTOLOAD = sub {

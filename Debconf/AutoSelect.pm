@@ -13,9 +13,8 @@ use Debconf::ConfModule;
 use Debconf::Config qw(frontend);
 use Debconf::Log qw(:all);
 use base qw(Exporter);
-use vars qw(@EXPORT_OK %EXPORT_TAGS);
-@EXPORT_OK = qw(make_frontend make_confmodule);
-%EXPORT_TAGS = (all => [@EXPORT_OK]);
+our @EXPORT_OK = qw(make_frontend make_confmodule);
+our %EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 =head1 DESCRIPTION
 

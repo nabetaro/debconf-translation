@@ -17,7 +17,7 @@ db_capb backup
 
 # Use a state machine to allow jumping back to previous questions.
 STATE=1
-while [ "$STATE" != 0 && "$STATE" != 3 ]; do
+while [ "$STATE" != 0 -a "$STATE" != 3 ]; do
 	case "$STATE" in
 	1)
 		# Ask about frontend and priority.

@@ -3,7 +3,7 @@ debconf (0.5.00) unstable; urgency=low
   * Modified all the frontends to deal with this scenario:
         A config scripts asks questions a, b, and c. a and c are asked at
         priorities that make them visible, b is not. The user gets to c, 
-	and backs up.
+        and backs up.
     Previously, debconf would loop back to b, skip it again, and return the
     user to c. Now it is smart enough to go back to a once b is skipped.
   * Changed how debconf keeps track of what questions have been seen
@@ -27,10 +27,10 @@ debconf (0.5.00) unstable; urgency=low
   * Updated all docs.
   * Added nasty code to transition from the isdefault flag to the new flag.
   * Fixed backup in dialog frontend, 255 == -1
-  * Just to make life more interesting, I made debconf depend on perl-base 5.6;
+  * Just to make life more interesting, I made debconf depend on perl 5.6;
     which allows me to remove all my crud working around bugs in perl
-    5.005, and lets me use lots of nifty 5.6-specific features, especially 
-    lvalue methods.
+    5.005, and lets me use lots of nifty 5.6-specific features, but not,
+    sadly, lvalues.
   * Probability of all this breaking something: 99.99%
   .
   [1] Unless they are to be displayed in the same block.

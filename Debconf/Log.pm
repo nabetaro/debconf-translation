@@ -9,10 +9,9 @@ Debconf::Log - debconf log module
 package Debconf::Log;
 use strict;
 use base qw(Exporter);
-use vars qw(@EXPORT_OK %EXPORT_TAGS);
-@EXPORT_OK=qw(debug warn);
+our @EXPORT_OK=qw(debug warn);
 # Import :all to get everything.
-%EXPORT_TAGS = (all => [@EXPORT_OK]);
+our %EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 =head1 DESCRIPTION
 

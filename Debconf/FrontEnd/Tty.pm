@@ -8,7 +8,6 @@ Debconf::FrontEnd::Tty - Tty FrontEnd
 
 package Debconf::FrontEnd::Tty;
 use strict;
-use vars '@ISA';
 use base qw(Debconf::FrontEnd);
 
 =head1 DESCRIPTION

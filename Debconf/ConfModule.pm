@@ -17,7 +17,6 @@ use Debconf::ConfigDb qw(getquestion addquestion disownquestion
 use Debconf::Priority qw(priority_valid high_enough);
 use Debconf::FrontEnd::Noninteractive;
 use Debconf::Log ':all';
-use vars qw($AUTOLOAD);
 use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
@@ -394,9 +393,6 @@ sub command_go {
 	if ($ret && (! $this->backed_up ||
 	             grep { $_->visible } @{$this->frontend->elements})) {
 		foreach (@{$this->frontend->elements}) {
-			if ($_->visible) {
-				print STDERR "!!! ".$_->question."\n";
-			}
 			push @{$this->seen}, $_->question if $_->visible && $_->question;
 		}
 		$this->frontend->clear;
@@ -633,13 +629,12 @@ sub command_exist {
 Catches all other commands the confmodule may try to run, and returns
 errors.
 
-Also handles storing and loading fields of course.
+Also handles storing and loading fields of course, with lvalue support.
 
 =cut
 
-sub AUTOLOAD {
-	my $field;
-	($field = $AUTOLOAD) =~ s/.*://;
+sub AUTOLOAD : lvalue {
+	(my $field = our $AUTOLOAD) =~ s/.*://;
 
 	if ($field=~/^command_(.*)/) {
 		return $codes{syntaxerror},
@@ -647,11 +642,13 @@ sub AUTOLOAD {
 	}
 	else {
 		no strict 'refs';
-		*$AUTOLOAD = sub {
+		*$AUTOLOAD = sub : lvalue {
 			my $this=shift;
 			
 			$this->{$field}=shift if @_;
-			return $this->{$field};
+			# Ensure lvalue calls work the first time through (grr).
+			$this->{$field}=undef unless exists $this->{$field};
+			$this->{$field};
 		};
 		goto &$AUTOLOAD;
 	}

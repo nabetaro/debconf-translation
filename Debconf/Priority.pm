@@ -10,8 +10,7 @@ package Debconf::Priority;
 use strict;
 use Debconf::Config qw(priority);
 use base qw(Exporter);
-use vars qw(@EXPORT_OK);
-@EXPORT_OK = qw(high_enough priority_valid);
+our @EXPORT_OK = qw(high_enough priority_valid);
 
 =head1 DESCRIPTION
 

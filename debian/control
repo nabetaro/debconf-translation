@@ -8,10 +8,10 @@ Build-Depends-Indep: perl5, debhelper (>= 2), links (>= 0.92), jade, sp, docbook
 
 Package: debconf
 Architecture: any
-Conflicts: debconf-utils (<< 0.4), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), gnome-utils (<< 1.0.13-2), dialog (<< 0.9a-17), whiptail (<< 0.50-1)
+Conflicts: debconf-utils (<< 0.4), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), gnome-utils (<< 1.0.13-2), dialog (<< 0.9a-17), whiptail (<< 0.50-1), libterm-stool-perl (<< 0.20)
 Provides: debconf-tiny
 Replaces: debconf-tiny
-Depends: perl-5.006-base, fileutils (>= 4.0-5), ${shlibs:Depends}
+Depends: perl-5.6-base, fileutils (>= 4.0-5), ${shlibs:Depends}
 Recommends: libterm-stool-perl | libterm-readline-gnu-perl
 Suggests: debconf-doc, whiptail | dialog | gnome-utils, liblocale-gettext-perl
 Description: Debian configuration management system

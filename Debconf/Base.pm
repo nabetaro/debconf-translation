@@ -8,7 +8,6 @@ Debconf::Base - Debconf base class
 
 package Debconf::Base;
 use strict;
-use vars qw($AUTOLOAD);
 
 =head1 DESCRIPTION
 
@@ -50,20 +49,21 @@ sub init {}
 =item AUTOLOAD
 
 Handles all fields, by creating accessor methods for them the first time
-they are accessed.
+they are accessed. Lvalue is supported.
 
 =cut
 
-sub AUTOLOAD {
-	my $field;
-	($field = $AUTOLOAD) =~ s/.*://;
+sub AUTOLOAD : lvalue {
+	(my $field = our $AUTOLOAD) =~ s/.*://;
 
 	no strict 'refs';
-	*$AUTOLOAD = sub {
+	*$AUTOLOAD = sub : lvalue {
 		my $this=shift;
 
-		return $this->{$field} unless @_;
-		return $this->{$field}=shift;
+		$this->{$field}=shift if @_;
+		# Ensure lvalue calls work the first time through (grr).
+		$this->{$field}=undef unless exists $this->{$field};
+		$this->{$field};
 	};
 	goto &$AUTOLOAD;
 }

@@ -9,7 +9,6 @@ Debconf::Question - Question object
 package Debconf::Question;
 use strict;
 use Debconf::ConfigDb;
-use vars qw($AUTOLOAD);
 use base qw(Debconf::Base);
 use Debconf::Log qw(:all);
 
@@ -256,17 +255,18 @@ sub removeowner {
 	$this->{'owners'}=\%owners;
 }
 
-=item AUTLOAD
+=item AUTOLOAD
 
 Handles all fields, by creating accessor methods for them the first time
 they are accessed. Fields are first looked for in this object, and failing
 that, the associated Template is queried for fields.
 
+Lvalues are not supported.
+
 =cut
 
 sub AUTOLOAD {
-	my $field;
-	($field = $AUTOLOAD) =~ s/.*://;
+	(my $field = our $AUTOLOAD) =~ s/.*://;
 
 	no strict 'refs';
 	*$AUTOLOAD = sub {

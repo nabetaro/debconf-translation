@@ -78,7 +78,7 @@ install-rest:
 				$$what=$$2; \
 				$$use=""; \
 				map { $$use.="use $$_;" } split(/\s+/, $$what); \
-				print "use vars qw{\@ISA}; $$use push \@ISA, qw{$$what};\n" \
+				print "our \@ISA; $$use push \@ISA, qw{$$what};\n" \
 			} 						\
 			else {						\
 				print $$_				\

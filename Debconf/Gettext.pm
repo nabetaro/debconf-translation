@@ -42,8 +42,7 @@ BEGIN {
 # Now there is a gettext symbol in our symbol table, which must be exported
 # to our caller.
 use base qw(Exporter);
-use vars qw(@EXPORT);
-@EXPORT=qw(gettext);
+our @EXPORT=qw(gettext);
 
 =head1 AUTHOR
 

@@ -40,16 +40,15 @@ use Debconf::Gettext;
 use Debconf::ConfigDb;
 use Debconf::Config;
 use strict;
-use vars qw($AUTOLOAD @EXPORT_OK %EXPORT_TAGS);
 use base qw(Exporter);
 
 # List all valid commands here.
-@EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
+our @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister previous_module clear
 	      start_frontend fset fget subst purge metaget visible exist);
 
 # Import :all to get everything.		   
-%EXPORT_TAGS = (all => [@EXPORT_OK]);
+our %EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 # Set up valid command lookup hash.
 my %commands;
@@ -103,7 +102,7 @@ Creates handler functions for commands on the fly.
 =cut
 
 sub AUTOLOAD {
-	my $command = uc $AUTOLOAD;
+	my $command = uc our $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 
 	die sprintf(gettext("Unsupported command `%s'."), $command)

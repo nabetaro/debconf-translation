@@ -25,12 +25,12 @@ package Debconf::ConfigDb;
 use Debconf::Template;
 use Debconf::Question;
 use strict;
-use vars qw(%templates %questions);
 use base qw(Exporter);
-use vars qw(@EXPORT_OK);
-@EXPORT_OK = qw(getquestion gettree isunder registertemplates
+our @EXPORT_OK = qw(getquestion gettree isunder registertemplates
 		addquestion disownquestion disownall
 		savedb loaddb);
+our %templates;
+our %questions;
 
 =head2 getquestion
 
@@ -243,7 +243,7 @@ sub loaddb {
 	# flag to the seen flag.
 	foreach (values %questions) {
 		if (exists $_->{flag_isdefault}) {
-			$_->flag_seen = $_->{flag_isdefault} eq "true" ? "false" : "true";
+			$_->flag_seen($_->{flag_isdefault} eq "true" ? "false" : "true");
 			delete $_->{flag_isdefault};
 		}
 	}

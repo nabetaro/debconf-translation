@@ -10,8 +10,7 @@ package Debconf::Config;
 use strict;
 use Debconf::ConfigDb;
 use base qw(Exporter);
-use vars qw(@EXPORT_OK);
-@EXPORT_OK = qw(dbdir tmpdir frontend priority helpvisible showold);
+our @EXPORT_OK = qw(dbdir tmpdir frontend priority helpvisible showold);
 
 =head1 DESCRIPTION
 
