@@ -167,7 +167,7 @@ sub _change {
 	}
 
 	# Set if we need to copy from something.
-	my $src;
+	my $src=0;
 
 	# Find out what (readonly) driver on the stack first contains the item.
 	foreach my $driver (@{$this->{stack}}) {
