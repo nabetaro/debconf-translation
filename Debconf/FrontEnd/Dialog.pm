@@ -45,7 +45,7 @@ sub init {
 		die gettext("TERM is not set, so the Dialog frontend is not usable.")."\n";
 	}
 	elsif ($ENV{TERM} =~ /emacs/i) {
-		die gettext("Dialog frontend is incompatable with emacs shell buffers")."\n";
+		die gettext("Dialog frontend is incompatible with emacs shell buffers")."\n";
 	}
 	elsif ($ENV{TERM} eq 'dumb') {
 		die gettext("Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";

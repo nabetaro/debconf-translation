@@ -1,14 +1,14 @@
 # debconf fr.po
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@debian.org>, 2000
-# Martin Quinson <mquinson@ens-lyon.fr>, 2000
+# Martin Quinson <mquinson@ens-lyon.fr>, 2000,2001
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-01-31 14:51-0800\n"
-"PO-Revision-Date: 2000-10-19 12:43+02:00\n"
-"Last-Translator: Vincent Renardias <vincent@debian.org>\n"
+"POT-Creation-Date: 2001-02-01 14:06-0800\n"
+"PO-Revision-Date: 2001-01-31 10:09+01:00\n"
+"Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -33,9 +33,9 @@ msgstr ""
 "Envoyez un rapport de bug et mentionnez la trace de pile qui suit"
 
 #: ../Debconf/FrontEnd.pm:115
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossible de créer un élément de type %s. Cause de l'échec : %s."
+msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 
 #: ../Debconf/FrontEnd.pm:123
 #, c-format
@@ -52,9 +52,9 @@ msgid "unknown file"
 msgstr "fichier inconnu"
 
 #: ../Debconf/Template.pm:203
-#, fuzzy, c-format
+#, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erreur d'analyse de modèle vers `%s'"
+msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
 
 #: ../Debconf/Template.pm:210
 #, c-format
@@ -67,6 +67,9 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
+"Dans le modèle #%s de %s, le champ \"%s\" est dupliqué avec \"%s\" nouvelle "
+"valeur. Il manque probablement la ligne vide de séparation entre deux "
+"modèles.\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -102,11 +105,10 @@ msgstr ""
 "espace (', ').)"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:37
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
+"Debconf n'a pas été configuré pour montrer cette note, il vous l'a donc "
 "envoyée par email."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:58
@@ -114,9 +116,9 @@ msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:76
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf"
+msgstr "Debconf, s'exécutant sur %s"
 
 #: ../Debconf/Element/Slang/Note.pm:27
 msgid "Save Note"
@@ -149,17 +151,20 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the Dialog frontend is not usable."
-msgstr ""
+msgstr "TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
-msgid "Dialog frontend is incompatable with emacs shell buffers"
-msgstr ""
+#, fuzzy
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "L'interface Dialog est incompatible avec les buffers shell d'emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"L'interface Dialog ne fonctionnera pas avec un terminal stupide (dumb), un "
+"buffer shell d'emacs ou sans terminal de contrôle."
 
 #: ../Debconf/FrontEnd/Dialog.pm:85
 msgid ""
@@ -211,17 +216,20 @@ msgstr "debconf : Impossible de lire %s : %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr ""
+msgstr "TERM n'a pas de valeur, l'interface Slang est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatable with emacs shell buffers"
-msgstr ""
+#, fuzzy
+msgid "Slang frontend is incompatible with emacs shell buffers"
+msgstr "L'interface Slang est incompatible avec les buffers shell d'emacs"
 
 #: ../Debconf/FrontEnd/Slang.pm:57
 msgid ""
 "Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"L'interface Slang ne fonctionnera pas avec un terminal stupide (dumb), un "
+"buffer shell d'emacs ou sans terminal de contrôle."
 
 #: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
@@ -244,9 +252,8 @@ msgid "Show Help"
 msgstr "Montrer l'aide"
 
 #: ../Debconf/FrontEnd/Slang.pm:260
-#, fuzzy
 msgid "Tab and arrow keys move; space drops down lists."
-msgstr "Touches Tab et flèches pour se déplacer."
+msgstr "Touches Tab et flèches pour se déplacer ; espace pour voir les listes."
 
 #: ../Debconf/FrontEnd/Slang.pm:283
 msgid "Working, please wait..."
@@ -258,7 +265,7 @@ msgstr "Suite"
 
 #: ../Debconf/FrontEnd/Tty.pm:37
 msgid "This frontend requires a controlling tty."
-msgstr ""
+msgstr "Cette interface a besoin d'un tty de contrôle."
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format

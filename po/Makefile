@@ -35,7 +35,6 @@ clean:
 	@if [ "`diff $@ $@.new | grep '[<>]' | wc -l`" -ne 2 ]; then \
 		mv -f $@.new $@; \
 	else \
-		echo kill; \
 		rm -f $@.new; \
 	fi
 	@msgfmt --statistics $@

@@ -51,7 +51,7 @@ sub init {
 		die gettext("TERM is not set, so the Slang frontend is not usable.")."\n";
 	}
 	elsif ($ENV{TERM} =~ /emacs/i) {
-		die gettext("Slang frontend is incompatable with emacs shell buffers")."\n";
+		die gettext("Slang frontend is incompatible with emacs shell buffers")."\n";
 	}
 	elsif ($ENV{TERM} eq 'dumb') {
 		die gettext("Slang frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";

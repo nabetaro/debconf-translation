@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-01-30 13:46-0800\n"
+"POT-Creation-Date: 2001-02-01 14:06-0800\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,17 @@ msgstr ""
 "debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd en "
 "felrapport och inkludera stackspårningen nedan"
 
-#: ../Debconf/FrontEnd.pm:111
+#: ../Debconf/FrontEnd.pm:115
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
+
+#: ../Debconf/FrontEnd.pm:123
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 
-#: ../Debconf/FrontEnd.pm:178
+#: ../Debconf/FrontEnd.pm:190
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
@@ -146,7 +151,8 @@ msgid "TERM is not set, so the Dialog frontend is not usable."
 msgstr "TERM är inte satt, så dialogskalet kan inte användas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
-msgid "Dialog frontend is incompatable with emacs shell buffers"
+#, fuzzy
+msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "Dialogskalet är inkompatibelt med emacs-skalbuffertar"
 
 #: ../Debconf/FrontEnd/Dialog.pm:51
@@ -209,7 +215,8 @@ msgid "TERM is not set, so the Slang frontend is not usable."
 msgstr "TERM är inte satt, så slang-skalet kan inte användas."
 
 #: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatable with emacs shell buffers"
+#, fuzzy
+msgid "Slang frontend is incompatible with emacs shell buffers"
 msgstr "Slangskalet är inkompatibelt med emacs-skalbuffertar"
 
 #: ../Debconf/FrontEnd/Slang.pm:57

@@ -1,3 +1,13 @@
+debconf (0.5.55) unstable; urgency=low
+
+  * Updated Franch translation from Martin Quinson
+    <Martin.Quinson@ens-lyon.fr>
+  * debconf-getlang now preserves fuzzy translations accross multiple runs,
+    if a new translation is not put in. I also had to rename the -OLD 
+    fields to -fuzzy.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  1 Feb 2001 13:39:25 -0800
+
 debconf (0.5.54) unstable; urgency=low
 
   * Fixed a couple of memory leaks that the absurd bug in magicfilter
