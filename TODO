@@ -12,6 +12,7 @@ General:
 * When Clinet::ConfModule launches a frontend, the frontend doesn't see
   stuff echo'd to stdout, if it is echo'd inside a system. A short program
   illistrating the problem:
+* I need to implement the container template type. That's gonna be fun..
 
   *STDOUT=\*NO_STDOUT;
   print "HI 1\n";

@@ -38,7 +38,10 @@ if ($ARGV[0] =~/\.postinst$/) {
 	my $config=$ARGV[0];
 	$config=~s/\.(?:postinst|prerm)$/.config/;
 	if (-e $config) {
-		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config);
+		$_=`dpkg --status $package`;
+		my ($version)=m/Version: (.*)\n/;
+		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config,
+			"configure", $version);
 
 		# Make sure any questions the confmodule generates
 		# are owned by this package.

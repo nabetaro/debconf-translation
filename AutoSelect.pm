@@ -74,14 +74,13 @@ sub frontend {
 
 =head2 confmodule
 
-Pass the script (if any) the ConfModule will start up, and this creates and
-returns a ConfModule to match the last FrontEnd returned by frontend()
+Pass the script (if any) the ConfModule will start up, (and optional
+arguments to pass to it and this creates and returns a ConfModule to match
+the last FrontEnd returned by frontend()
 
 =cut
 
 sub confmodule {
-	my $script=shift;
-	
 	# For some reason, if I don't reference $frontend here in some way, it
 	# doesn't make it into the eval. Odd.
 	my $a=$frontend;
@@ -92,7 +91,7 @@ sub confmodule {
 	};
 	die $@ if $@;
 	
-	$confmodule->startup($script) if $script;
+	$confmodule->startup(@_) if @_;
 	
 	return $confmodule;
 }

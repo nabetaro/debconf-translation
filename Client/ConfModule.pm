@@ -116,7 +116,7 @@ sub import {
 			my $config=$0;
 			$config=~s/\.(?:postinst|postrm|preinst|prerm)$/.config/;
 			if (-e $config) {
-				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config);
+				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config, @ARGV);
 				
 				# Make sure that any questions the confmodule
 				# registers are owned by the current package.

@@ -63,21 +63,28 @@ my $frontend=Debian::DebConf::AutoSelect::frontend();
 
 # Caches package names so they are only looked up once.
 my %packages;
+# Caches package versions.
+my %versions;
 
 # Make two passes -- first load all templates, then run all confmodules.
 foreach my $x (0..$#debs) {
 	# Display a little progress indicator similar to what apt uses.
-	# This is mostly for showing something is going on during huge upgrades.
+	# This is mostly for showing something is going on during huge
+	# upgrades.
 	if ($apt) {
-		print "\r".(int( ($x+1) / ($#debs+1) * 100))."% [Scanning packages]";
+		print "\r".(int( ($x+1) / ($#debs+1) * 100)).
+			"% [Scanning packages]";
 	}
 
-	my $package=`dpkg-deb -f $debs[$x] Package`;
-	chomp $package;
-	$packages{$debs[$x]}=$package;
+	# A little optimization: run it once to get 2 values. We have to parse
+	# the output though.
+	$_=`dpkg-deb -f $debs[$x] Package Version`;
+	($packages{$debs[$x]}, $versions{$debs[$x]})=m/^Package: (.*)\nVersion: (.*)\n/;
 
 	# Load up templates.
-	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $debs[$x] templates 2>/dev/null |", $package);
+	Debian::DebConf::ConfigDb::loadtemplatefile(
+		"dpkg --info $debs[$x] templates 2>/dev/null |",
+	        $packages{$debs[$x]);
 }
 
 if ($apt) {
@@ -93,6 +100,7 @@ foreach my $deb (@debs) {
 		die "Unable to spawn dpkg: $!";
 	my @config=<IN>;
 	close IN;
+	
 	next unless @config;
 	
 	if ($apt && ! $runconfig) {
@@ -111,8 +119,9 @@ foreach my $deb (@debs) {
 
 	$frontend->default_title($packages{$deb});
 
-	# Start up the confmodule.
-	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script);
+	# Start up the confmodule, passing in the package version.
+	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,
+		'configure', $versions{$deb});
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});

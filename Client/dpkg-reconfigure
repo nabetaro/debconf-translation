@@ -44,14 +44,25 @@ TOP:
 foreach my $pkg (@ARGV) {
 	# Set default title.
 	$frontend->default_title($pkg);
+	
+	# Get the package version. Also check to make sure it is installed.
+	$_=`dpkg --status $pkg`;
+	my ($version)=m/Version: (.*)\n/;
+	my ($status)=m/Status: (.*)\n/;
+	if (! defined $status || $status !~ m/ ok installed$/) {
+		print STDERR "Package \"$pkg\" is not fully installed.\n";
+		exit 1;
+	}
+	
 	# Load up templates just in case they arn't already.
 	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
 	if (-x "/var/lib/dpkg/info/$pkg.config") {
-		# Start up the confmodule.
+		# Start up the confmodule, passing in package version.
+		
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
-			"$infodir/$pkg.config");
+			"$infodir/$pkg.config", "reconfigure", $version);
 		
 		# Make sure any questions the confmodule registers are owned 
 		# by this package.

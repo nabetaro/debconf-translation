@@ -1,3 +1,13 @@
+debconf (0.1.51) unstable; urgency=low
+
+  * Debconf config scripts are now called with options. "configure" is
+    normally passed, "reconfigure" is passed if dpkg-reconfig is
+    reconfiguring the package. After that, the version of the package is
+    passed.
+  * dpkg-reconfigure will only work on packages that are fully installed.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  4 Oct 1999 14:12:56 -0700
+
 debconf (0.1.50) unstable; urgency=low
 
   * Corrected several errors with how the choices field is accessed.

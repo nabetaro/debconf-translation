@@ -83,6 +83,9 @@ A short description of the data types:
 	saved to a log file or mailbox for them to see later.
   text
 	This template is a scrap of text that can be displayed to the user.
+	It's intended to be used for mostly cosmetic reasons, touching up
+	around other questions that are asked at the same time. Unlike
+	a note, it isn't treated as something the user should definitly see.
   password
   	Prompts for a password (with no echoing).
 
@@ -150,6 +153,12 @@ the user be asked this. The variable names normally correspond to the names
 of the templates in the template files. "go" tells the frontend to display
 all accumulated input commands to the user. And "get <variable>" asks the
 frontend to return to you what value a variable is set to.
+
+Some other notes about config scripts: Just like other maintainer scripts,
+config scripts must be idempotent. The config script is passed 2 parameters.
+The first is either "configure" or "reconfigure". The latter occurs only if
+a package is being reconfigured by dpkg-reconfig. The second parameter is
+the version of the package that is being installed.
 
 Continuing the example, we need a config script to display the first
 question, and if the user says they do not like debian, it should display

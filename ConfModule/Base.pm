@@ -57,9 +57,10 @@ sub new {
 
 =head2 startup
 
-Pass this name name of a confmodule program, and it is started up. You 
-enerally need to do this before trying to use any of the rest of this object.
-The alternative is to launch a confmodule manually, and connect the read_handle
+Pass this name name of a confmodule program, and it is started up. Any
+further options are parameters to pass to the confmodule. You enerally need
+to do this before trying to use any of the rest of this object. The
+alternative is to launch a confmodule manually, and connect the read_handle
 and write_handle properties of this object to it.
 
 =cut
@@ -68,10 +69,9 @@ sub startup {
 	my $this=shift;
 	my $confmodule=shift;
 	
-	$this->confmodule($confmodule);
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
-			 $this->confmodule($confmodule))) || die $!;
+			 $this->confmodule($confmodule, @_))) || die $!;
 }
 
 =head2 communicate
