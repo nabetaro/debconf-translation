@@ -6,7 +6,6 @@ debconf-getlang - extract a language from a templates file
 
 =cut
 
-use lib '.';
 use strict;
 use Debconf::Template;
 use Getopt::Long;
@@ -108,9 +107,10 @@ sub getlang {
 	my %master;
 	my @out;
 	foreach my $in (Debconf::Template->load($fn)) {
-		my $out=Debconf::Template->new;
+		my $out=Debconf::Template->new($in->template);
 		
 		foreach my $field ($in->fields) {
+			next if $field eq 'template';
 			if ($field =~ m/-(..)/) {
 				if ($1 eq $lang) {
 					$out->$field($in->$field());

@@ -7,9 +7,8 @@ debconf-loadtemplate - load template file into debconf database
 =cut
 
 use strict;
-use Debconf::Config qw(dbdir);
-use Debconf::Template;
-use Debconf::ConfigDb qw(loaddb registertemplates savedb);
+use Debconf::Db;
+use Debconf::Template::Persistent;
 
 =head1 SYNOPSIS
 
@@ -41,13 +40,11 @@ sub usage {
 my $owner=shift || usage();
 usage() unless @ARGV;
 
-loaddb(dbdir());
-registertemplates($owner, Debconf::Template->load($_)) foreach @ARGV;
-savedb(dbdir());
+Debconf::Template::Persistent->load($_, $owner) foreach @ARGV;
+Debconf::Db->save;
 
 =head1 AUTHOR
 
 Joey Hess <joey@kitenet.net>
 
 =cut
-
