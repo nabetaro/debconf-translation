@@ -226,7 +226,7 @@ sub savedb {
 	}
 	$dumper->Seen({%seen});
 	$dumper->Indent(1);
-	open (OUT, ">$dir/debconf.db") || die "$dir/debconf.db: $!";
+	open (OUT, ">$dir/debconf.new") || die "$dir/debconf.new: $!";
 	print OUT $dumper->Dump;
 	print OUT "\n1;\n"; # Return a true value so require works.
 	close OUT;
@@ -234,10 +234,14 @@ sub savedb {
 	$dumper=Data::Dumper->new([\%templates],
 		[qw{*templates}]);
 	$dumper->Indent(1);
-	open (OUT, ">$dir/templates.db") || die "$dir/templates.db: $!";
+	open (OUT, ">$dir/templates.new") || die "$dir/templates.new: $!";
 	print OUT $dumper->Dump;
 	print OUT "\n1;\n"; # Return a true value so require works.
 	close OUT;
+	
+	# Now atomically move the files into place.
+	system 'mv', "-f", "$dir/templates.new", "$dir/templates.db";
+	system 'mv', "-f", "$dir/debconf.new", "$dir/debconf.db";
 }
 
 =head2 loaddb
