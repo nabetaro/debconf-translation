@@ -52,6 +52,8 @@ if ($apt) {
 	}
 	# We have now reached the end of the first file on stdin.
 	# Furure reads from stdin will get input from the user.
+	
+	exit unless @debs;
 }
 
 # Load up previous state information.
