@@ -9,40 +9,64 @@ debconf-getlang - extract a language from a templates file
 use lib '.';
 use strict;
 use Debconf::Template;
+use Getopt::Long;
 
 =head1 SYNOPSIS
 
- debconf-getlang lang file
+ debconf-getlang [--stats] [-q] lang file [file]
 
 =head1 DESCRIPTION
 
 This program is designed to be used when a templates file is being
 translated. It is useful to send the translators a file with only the
 fields they need to worry about translating, and the English equivialants
-of those fields. There are basically two situations in which this program
+of those fields. There are basically three situations in which this program
 might be called:
 
 =over 4
 
-=item
+=item A translation is just being started.
 
-A translation is just being started. You want to provide the translator
+You want to provide the translator
 with a file they can work on that has the English fields from your
 templates file, plus blank Field-ll fields for the traget language that
-they can fill in.
+they can fill in. 
 
-=item
+To do this, run the program with first parameter being
+the code for the language that is being translated to, and the second
+parameter being the filename of the English templates file.
 
-A translation is well under way. You have changed some English text, or
+=item A translation is well under way.
+
+You have changed some English text, or
 added more items to your templates file, and you want to send the
-translators a file with the English text plus their current translations,
-so they can update them.
+translators a file with the English text plus their current translations
+(or you are the translator, and you want to generate such a file for your
+own use).
+
+To accomplish this, run the program with the first parameter being the the
+code for the language that is being translated to, the second parameter
+being the filename of the English (C) templates file, and the third
+parameter being the filename of the current translated file.
+
+When run this way, the program is smart enough to notice fuzzy
+translations. For example a fuzzy Description will be output as
+X-Old-Description-<lang>, and a new, blank Description-<lang> will be added.
+Translators should remove the X-Old fields as they correct the fuzzy
+translations.
+
+=item Checking the status of a translation
+
+If you call this program with two a language, two filenames, and also pass
+it a -q flag, it will only output statisticts about the status of the
+translation. Even easier, if your master templates file is
+debian/templates, and the translated templates are in
+debian/templates.<lang>, you can just run
+ debconf-getlang --stats
+to get stats on all of them. This can be useful to help figure out when a
+translation is very out of date.
 
 =back
-
-In both cases, this program just does the right thing. Run it with the
-first parameter being the code for the language that is being translated
-to, and the second parameter being the filename of the templates file.
 
 =head1 SEE ALSO
 
@@ -51,51 +75,154 @@ L<debconf-mergetemplate(8)|debconf-mergetemplate>
 =cut
 
 sub usage {
-	die "Usage: $0 lang file\n";
+	die "Usage: $0 lang file [file]\n";
 }
 
-my $lang=shift || usage();
-my $fn=shift || usage();
+# Ignore the users locale settings.
+Debconf::Template::i18n(0);
 
-# I apologize for the silly baseball puns.
-my @out;
-foreach my $in (Debconf::Template->load($fn)) {
-	my $out=Debconf::Template->new;
-	
-	foreach my $field ($in->fields) {
-		if ($field =~ m/-(..)/) {
-			if ($1 eq $lang) {
+my $quiet=0;
+my $stats=0;
+GetOptions(
+	'quiet|q' => \$quiet,
+	'stats|s' => \$stats,
+) or usage;
+$quiet=1 if $stats;
+
+if ($stats) {
+	foreach my $lfn (glob("debian/templates.??"), 
+		        glob("debian/templates.??_??")) {
+		my ($lang)=$lfn=~m/\.(.*)/;
+		getlang($lang, "debian/templates", $lfn);
+	}
+}
+else {
+	my $lang=shift || usage();
+	my $fn=shift || usage();
+	my $lfn=shift;
+	getlang($lang, $fn, $lfn);
+}
+
+sub getlang {
+	my $lang=lc(shift);
+	my $fn=shift;
+	my $lfn=shift;
+
+	# First read in the master file.
+	my %master;
+	my @out;
+	foreach my $in (Debconf::Template->load($fn)) {
+		my $out=Debconf::Template->new;
+		
+		foreach my $field ($in->fields) {
+			if ($field =~ m/-(..)/) {
+				if ($1 eq $lang) {
+					$out->$field($in->$field());
+				}
+				# Skip fields that are for some other language.
+			}
+			else {
 				$out->$field($in->$field());
 			}
-			# Skip fields that are for some other language.
 		}
-		else {
-			$out->$field($in->$field());
+	
+		$master{$out->template}=$out;
+		push @out, $out;
+	}
+	
+	# Now read in the localized file, if there is one.
+	my %localized;
+	if ($lfn) {
+		foreach my $in (Debconf::Template->load($lfn)) {
+			$localized{$in->template}=$in;
 		}
 	}
+	
+	# Now go merge together the master template and any corresponding
+	# localized template. Determine which translations are good, and
+	# which are fuzzy. Finally, stub in any fields that should exist
+	# for the target language, but do not yet exist. This gets complex
+	# because only some fields need to be translated, depending on
+	# template type.
+	
+	my $good=0;
+	my $fuzzy=0;
+	my $bad=0;
 
-	# Add any fields that need to exist for the target language, but do
-	# not yet exist. This is actually rather complex, because some
-	# fields only need translating for certian types of templates.
-	my @needfields;
-	foreach my $field (qw{choices description extended_description}) {
-		my $newfield=$field."-".$lang;
-		if (! defined $out->$newfield() && defined $in->$field()) {
-			push @needfields, $newfield;
+	foreach my $master (@out) {
+		my $localized=$localized{$master->template};
+	
+		# Work out what fields need to be translated.
+		my @needfields=qw{description};
+		if ($master->type !~ /^((multi)?select|note|boolean)$/) {
+			push @needfields, 'default';
+		}
+		if ($master->type =~ /(multi)?select/) {
+			push @needfields, 'choices';
+		}
+	
+		# Merge in localized, including fuzzy translations.
+		#
+		# Note that extended_ fields are looked for, and if they exist,
+		# compared along with the field they extend. That's what makes
+		# the code ugly... it probably points out that Templates need
+		# to handle extended values better, allowing either the short
+		# part only, or the extended part only, or both, to be retreived
+		# easily. TODO
+		if ($localized) {
+			foreach my $field (@needfields) {
+				my $field_lang="$field-$lang";
+				my $field_ext="extended_$field";
+				my $field_lang_ext="extended_$field_lang";
+				
+				my $value=$master->$field;
+				next unless defined $value;
+				next unless defined $localized->$field_lang;
+				$value.="\n".$master->$field_ext
+					if defined $master->$field_ext;
+				my $lvalue='';
+				$lvalue=$localized->$field
+					if defined $localized->$field;
+				$lvalue.="\n".$localized->$field_ext
+					if defined $localized->$field_ext;
+	
+				if ($value eq $lvalue) {
+					$good++;
+					$master->$field_lang($localized->$field_lang);
+					$master->$field_lang_ext($localized->$field_lang_ext)
+						if defined $localized->$field_lang_ext;
+				}
+				else {
+					$fuzzy++;
+					my $old="$field_lang-OLD";
+					my $old_ext="extended_$old";
+					$master->$old($localized->$field_lang);
+					$master->$old_ext($localized->$field_lang_ext)
+						if defined $localized->$field_lang_ext;
+					$master->$field_lang("");
+				}
+			}
+		}
+		
+		# Now make sure that at least stubs exist for every needed
+		# translated field.
+		foreach my $field (@needfields) {
+			my $field_lang="$field-$lang";
+			unless (defined $master->$field_lang) {
+				$bad++;
+				$master->$field_lang("");
+			}
 		}
 	}
-	my $field="default-$lang";
-	if (! defined $out->$field() && defined $in->default &&
-	    $in->type !~ /^((multi)?select|note|boolean)$/) {
-		# Default only needs to be translated for some types.
-		push @needfields, $field;
-	}
-	map { $out->$_("") } @needfields;
-
-	push @out, $out;
+	
+	print Debconf::Template->stringify(@out) unless $quiet;
+	
+	print STDERR "$lang: ".join(', ', grep { $_ ne "" } 
+		$good  ? "$good translated strings"  : "",
+		$fuzzy ? "$fuzzy fuzzy translations" : "",
+		$bad   ? "$bad untranslated strings" : "",
+	)."\n";
 }
-
-print Debconf::Template->stringify(@out);
 
 =head1 AUTHOR
 

@@ -1,3 +1,12 @@
+debconf (0.5.51) unstable; urgency=low
+
+  * debconf-getlang supports detection of fuzzy translations now,
+    and can display translation stats for a package too. See man page.
+  * Added dialog frontend back to template description for now.
+    Closes: #83670
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 29 Jan 2001 16:01:07 -0800
+
 debconf (0.5.50) unstable; urgency=low
 
   * Changes to do with -ll_LL field localizations. These should actually

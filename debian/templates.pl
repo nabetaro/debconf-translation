@@ -99,7 +99,7 @@ Description-pl: Czy zawsze zadawaæ stare pytania?
 Template: debconf/switch-to-slang
 Type: boolean
 Default: true
-Description: Switch to the new, full-freatured slang frontend?
+Description: Switch to the new, full-featured slang frontend?
  You are currently using debconf's dialog frontend. This frontend has been
  superceded by a new frontend, called the slang frontend, that does
  everything the dialog frontend does and more. It lets you see and answer

@@ -12,11 +12,11 @@ differently.
      debconf-getlang <lang> debian/templates > debian/templates.<lang>
   Then edit the generated file, and fill in translations for all the empty
   lines. When I change the main templates file, you can merge in my changes
-  via the debconf-mergetemplate command:
-     debconf-mergetemplate debian/templates debian/templates.<lang> > new
-  Then edit the new file. There is not currently a really easy way to see
-  what parts have changed and need their translations updated, but you
-  can always use diff.
+  like this:
+     debconf-getlang <lang> debian/templates debian/templates.<lang> > new
+  Then edit the new file, keeping an eye out for fields with "-OLD" in
+  their names. Those are out of date translations, which you should update
+  based on the English text (and then remove the -OLD fields).
 
 * Finally, you might want to translate some of debconf's docs. I don't yet
   have a mechanism for translating the xml documentation. It is possible to
@@ -31,7 +31,7 @@ differently.
   with translated text.
 
 Once you have translated file(s), send them to me and I'll include them in
-debhelper. After that, we have to worry about maintenance. I'll try to let
+debconf. After that, we have to worry about maintenance. I'll try to let
 you know if I make changes, but a better way might be for you to subscribe
 to the debconf-commits mailing list, where you can watch the cvs commits.
     http://kitenet.net/cgi-bin/mailman/listinfo/debconf-commits

@@ -280,11 +280,9 @@ This supports internationalization, but not lvalues.
 
 	sub AUTOLOAD {
 		(my $field = our $AUTOLOAD) =~ s/.*://;
-
 		no strict 'refs';
 		*$AUTOLOAD = sub {
 			my $this=shift;
-		
 			$this->{$field}=shift if @_;
 		
 			# Check to see if i18n should be used.

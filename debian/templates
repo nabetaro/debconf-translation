@@ -10,7 +10,8 @@ Description: What interface should be used for configuring packages?
  windowing interface, while the text frontend uses a more traditional plain
  text interface. The editor frontend lets you configure things using your
  favorite text editor. The noninteractive frontend never asks you any
- questions.
+ questions. The dialog frontend is a primative frontend that is being
+ phased out.
 
 Template: debconf/priority
 Type: select
