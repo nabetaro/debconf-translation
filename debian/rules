@@ -19,7 +19,6 @@ install:
 	dh_clean -k
 	dh_installdirs
 	$(MAKE) prefix=`pwd`/debian/tmp install
-	touch install-stamp
 
 # Build architecture-independent files here.
 binary-indep: build install
