@@ -87,7 +87,6 @@ sub load {
 		print STDERR gettext("Template database not specified in config file.");
 		exit(1);
 	}
-	$config->{admin_email}='root' unless exists $config->{admin_email};
 
 	# Now read in each database driver, and set it up.
 	while (<DEBCONF_CONFIG>) {
@@ -211,6 +210,21 @@ sub debug {
 	return $ENV{DEBCONF_DEBUG} if exists $ENV{DEBCONF_DEBUG};
 	return $config->{debug} if exists $config->{debug};
 	return '';
+}
+
+=item admin_email
+
+Returns an email address to use to send notes to. This is pulled out of the
+config file, and may be overridden by the DEBCONF_ADMIN_MAIL environment
+variable. If neither is set, it defaults to root.
+
+=cut
+
+sub admin_mail {
+	my $class=shift;
+	return $ENV{DEBCONF_ADMIN_EMAIL} if exists $ENV{DEBCONF_ADMIN_EMAIL};
+	return $config->{admin_email} if exists $config->{admin_email};
+	return 'root';
 }
 
 =back

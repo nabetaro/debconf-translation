@@ -1,3 +1,14 @@
+debconf (0.9.52) unstable; urgency=low
+
+  * Dialog is the default frontend for new installs again, since slang
+    still need work, and cannot work on the base system anyway. 
+    Closes: #96381
+  * DEBCONF_ADMIN_EMAIL can be used to change where debconf mails notes and
+    stuff to, overriding whatever is in the config file. Note that it may
+    be set to "" to disable mails. Closes: #95956
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  8 May 2001 21:36:50 -0400
+
 debconf (0.9.51) unstable; urgency=low
 
   * Changed to converting html with html2text, which does better than
