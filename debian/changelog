@@ -1,9 +1,14 @@
-debconf (1.0.21) unstable; urgency=low
+debconf (1.0.21) unstable; urgency=high
 
+  * High urgency upload to get this into testing before the freeze, as it
+    fixes a bug that can cripple upgrades from stable.
+  * Conflict with whiptail << 0.50.17-7, as some version between that one and
+    the 0.50-7 in stable changes something that is required to make the 
+    fix I put in for values starting with dashes work. Closes: #122182
   * Added a number of Brazilian Portuguese man pages.
     Closes: #122011, #122012, #122017, #122018, #122019, #122026, #122028
     Closes: #122027, #121982, #122001
-UNRELEASED
+  * Updated Swedish translation.
 
  -- Joey Hess <joeyh@debian.org>  Sat,  1 Dec 2001 20:55:23 -0500
 

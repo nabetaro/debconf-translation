@@ -138,7 +138,9 @@ my $frontend=make_frontend();
 # and outputs to stdout a table with these fields separated by spaces:
 my ($package, $version, $template, $config);
 # Note that it also handles making sure the current version of debconf can
-# deal with the package.
+# deal with the package, because apt-extracttemplates skips over any
+# package that depends on a version of debconf newer than what is
+# installed.
 unless (open(INFO, "-|")) {
 	# The kernel can accept command lines up to 20k worth of
 	# characters. It has happened that the list of packages to
