@@ -305,6 +305,19 @@ sub removeowner {
 	}
 }
 
+=item owners
+
+Returns a single string listing all owners of this Question, separated by
+commas followed by spaces.
+
+=cut
+
+sub owners {
+	my $this=shift;
+
+	return join(", ", $Debconf::Db::config->owners($this->{name}));
+}
+
 =item template
 
 Get/set the template used by this object. If a parameter is passed in, it
