@@ -1,29 +1,36 @@
 debconf (0.1.35) unstable; urgency=low
 
-  * Added the concept that each template and mapping is owned by one or
-    more packages. When the number of owners goes to zero, the object is
-    removed (along with all mappings and questions that use it). Lots of
-    changes everywhere to implement this.
-  * What this lets us do is it allows packages to give up ownership of the
-    templates and mappings they created when they are purged.
-  * Added a "purge" command that can be called when a package is purged that
-    makes the package give up ownership of everything it owned.
+  * Mappings. What good are they? None, that I could see, so I completely
+    removed them! This doesn't influence debconf's behavior at all, just
+    removes many lines of code and makes it all easier to understand.
+  * Added the concept that each question is owned by one or more packages.
+    When the number of owners goes to zero, the question is removed.
+  * Whenever a question is removed, I check to see if the template it used
+    is no longer used as well. If so, it's also removed.
+  * What this lets us do is it allows packages to get rid of questions and
+    templates they created when they are purged. And shared questions are
+    fully supported and won't go away until the last package that uses them
+    does.
+  * Added a "purge" command that accomplishes this easily. (You could of
+    course always call unregister by hand for each question, but this is
+    easier.)
   * Modifed dpkg-preconfig so all the templates in all the packages that
     are being installed are read first, and then all the config scripts are
     run.
-  * The changes above have an intriguing side benefit that fixes a vexing
-    problem. There is now a field in each and template (and mapping) called
-    "owners", that is a list of the packages that have registered ownership.
-    This list is up to date as soon as all the templates are loaded. A set of
-    related packages can all provide the same template in them; and their
-    config scripts can then look at the owners field to get the list of all
-    related packages that is/will be installed. Then they can do things like
-    turn that into a list of choices of window managers, or ispell
-    dictionaries, etc, and prompt the user to pick one. This feels only a
-    little hackish.
-  * Upgrading to this version will make most of the questions you've already
-    ansered disappear. I'm not worrying about back-compatability to that
-    degree, yet..
+  * The changes above have an intriguing side benefit that offers a fix to a
+    vexing problem. There is now a field in each question called "owners", that
+    is a comma and space delimited list of the packages that have registered
+    ownership. This list is up to date as soon as all the templates are
+    loaded if apt is used. A set of related packages can all provide the same
+    template in them; and their config scripts can then look at the owners
+    field to get the list of all related packages that is/will be installed.
+    Then they can do things like turn that into a list of choices of window
+    managers, or ispell dictionaries, etc, and prompt the user to pick one.
+    This feels only a little hackish, and the only problem with it is that if
+    they are not installing with apt, the list isn't fully complete until each
+    and every package has been installed.
+  * Fixed question default value code so it always inherits from the current
+    template, whatever that might be.
 
  -- Joey Hess <joeyh@master.debian.org>  Thu, 23 Sep 1999 12:52:14 -0700
 

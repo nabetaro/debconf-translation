@@ -5,10 +5,8 @@ configuration management specification.
 Debconf is composed of these type of objects:
 
 - The backend database. This is responsible for storing and loading
-  Templates and Mappings and initiating Questions from them. The following
-  modules compose it:
+  Templates and Questions. The following modules compose it:
   	- ConfigDb.pm
-	- Mapping.pm
 	- Question.pm
 	- Template.pm
 	- Priority.pm

@@ -10,11 +10,9 @@ General:
   locally? Etc.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
-* When a package is purged, all items in the db it owns and other packages
-  don't share with it should be purged.
 * i8n
-* Get rid of the hack that is a Mapping. They should be unnecessary, just
-  have Questions that are linked directly to Templates.
+* Debhelper should auto-add the purge stuff to the postrm when it detects a
+  package using debconf.
 
 Text frontend:
 * It can't tell how high the screen is unless LINES is exported, which

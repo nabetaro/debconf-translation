@@ -41,9 +41,6 @@ die $@ if $@;
 # Since this is a reconfigure program, they may want to change their choices.
 Debian::DebConf::Config::showold('true');
 
-# Instantiate all questions.
-Debian::DebConf::ConfigDb::makequestions();
-
 TOP:
 foreach my $pkg (@ARGV) {
 	# Set default title.
@@ -62,8 +59,8 @@ foreach my $pkg (@ARGV) {
 		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.config')";
 		die $@ if $@;
 		
-		# Make sure any mappings the confmodule registers are owned by 
-		# this package.
+		# Make sure any questions the confmodule registers are owned 
+		# by this package.
 		$confmodule->owner($pkg);
 		
 		# Talk to it until it is done.
@@ -79,8 +76,8 @@ foreach my $pkg (@ARGV) {
 		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.postinst configure $1')";
 		die $@ if $@;
 
-		# Make sure any mappings the confmodule registers are owned by
-		# this package.
+		# Make sure any questions the confmodule registers are owned
+		# by this package.
 		$confmodule->owner($pkg);
 
 		# Talk to it until it is done.

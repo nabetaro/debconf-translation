@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 #
 # Pre-config tool. This tool can be pointed at a number of .deb files
-# that have not yet been installed. It extracts the confmodules, templates,
-# and mappings from them and asks any necessary questions, storing the results
-# in the database for later use.
+# that have not yet been installed. It extracts the confmodules and templates
+# from them and asks any necessary questions, storing the results in the
+# database for later use.
 
 use strict;
 use lib '.';
@@ -61,9 +61,6 @@ foreach my $deb (@debs) {
 	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|", $package);
 }
 
-# Instantiate all questions.
-Debian::DebConf::ConfigDb::makequestions();
-
 foreach my $deb (@debs) {
 	# Check to see if this deb has a confmodule in it. If not,
 	# we will skip it. If so, we need to save the confmodule
@@ -89,7 +86,7 @@ foreach my $deb (@debs) {
 	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($frontend, $script)';
 	die $@ if $@;
 
-	# Make sure any mappings created are owned by the correct package.
+	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});
 
 	# Talk to it until it is done.

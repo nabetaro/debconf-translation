@@ -54,7 +54,7 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 		};
 		die $@ if $@;
 
-		# Make sure any mappings the confmodule generates
+		# Make sure any questions the confmodule generates
 		# are owned by this package.
 		$confmodule->owner($package);
 
@@ -71,7 +71,7 @@ $confmodule=eval qq{
 };
 die $@ if $@;
 
-# Make sure any mappings the confmodule generates are owned by this package.
+# Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);
 
 # Talk to it until it is done.

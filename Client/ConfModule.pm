@@ -44,7 +44,7 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister previous_module
-	      start_frontend fset fget subst visible);
+	      start_frontend fset fget subst visible purge);
 
 # Import :all to get everything.		   
 %EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -96,7 +96,7 @@ sub import {
 		};
 		die $@ if $@;
 
-		# Make sure that any mappings the confmodule registers are
+		# Make sure that any questions confmodule registers are
 		# owned by the current package.
 		$confmodule->owner($package);
 
@@ -120,9 +120,6 @@ sub import {
 			$templates=~s/\.(?:postinst|prerm)$/.templates/;
 			Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 				if -e $templates;
-
-			# Instantiate all questions.
-			Debian::DebConf::ConfigDb::makequestions();
 			
 			# Run config script, if any.
 			my $config=$0;
@@ -133,7 +130,7 @@ sub import {
 				};
 				die $@ if $@;
 				
-				# Make sure that any mappings the confmodule
+				# Make sure that any questions the confmodule
 				# registers are owned by the current package.
 				$confmodule->owner($package);
 				

@@ -24,6 +24,7 @@ the Question is mapped to, the value of that field will be returned instead.
 
 package Debian::DebConf::Question;
 use strict;
+use Debian::DebConf::ConfigDb;
 use vars qw($AUTOLOAD);
 
 =head2 new
@@ -123,10 +124,78 @@ sub value {
 	
 	if (@_ == 0) {
 		return $this->{value} if (defined $this->{value});
-		return $this->default;
+		return $this->template->default || '';
 	} else {
 		return $this->{value} = shift;
 	}
+}
+
+=head2 owner
+
+This method allows you to get/set the owners of a Question. The owners are
+returned in a comma and space delimited list, a similar list should be
+passed in if you wish to use this function to set them. (Internally, the
+owners are stored quite differently..)
+
+=cut
+
+sub owner {
+	my $this=shift;
+	
+	if (@_) {
+		# Generate hash on fly.
+		my %owners=map { $_, 1 } split(/,\s*/, shift);
+		$this->{owners}=\%owners;
+	}
+	
+	if ($this->{owners}) {
+		return join(", ", keys %{$this->{owners}});
+	}
+	else {
+		return "";
+	}
+}
+
+=head2 addowner
+
+Add an owner to the list of owners of this Question. Pass the owner name.
+Adding an owner that is already listed has no effect.
+
+=cut
+
+sub addowner {
+	my $this=shift;
+	my $owner=shift;
+
+	# I must be careful to access the real hash, bypassing the 
+	# method that stringifiys the owners property.
+	my %owners;
+	if ($this->{owners}) {
+		%owners=%{$this->{owners}};
+	}
+	$owners{$owner}=1;
+	$this->{owners}=\%owners;
+}
+
+=head2 removeowner
+
+Remove an owner from the list of owners of this Question. Pass the owner name
+to remove.
+
+=cut
+
+sub removeowner {
+	my $this=shift;
+	my $owner=shift;
+	
+	# I must be careful to access the real hash, bypassing the
+	# method that stringifiys the owners property.
+	my %owners;
+	if ($this->{owners}) {
+		%owners=%{$this->{owners}};
+	}
+	delete $owners{$owner};
+	$this->{owners}=\%owners;
 }
 
 # Set/get property.

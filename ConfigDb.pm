@@ -9,7 +9,7 @@ Debian::DebConf::ConfigDb -- debian configuration database
 =head1 DESCRIPTION
 
 Debian configuration database. This is an interface to the actual
-backend databases. It keeps track of Questions, Mappings, and Templates.
+backend databases. It keeps track of Questions and Templates.
 This is a simple perl module, not a full-fledged object. It's a bit of a
 catchall, and perhaps the ugliest part of debconf.
 
@@ -24,9 +24,8 @@ It will probably need to be rewritten when we actually get a backend db.
 package Debian::DebConf::ConfigDb;
 use Debian::DebConf::Template;
 use Debian::DebConf::Question;
-use Debian::DebConf::Mapping;
 use strict;
-use vars qw($AUTOLOAD %templates %questions %mappings);
+use vars qw($AUTOLOAD %templates %questions);
 
 =head2 getquestion
 
@@ -42,8 +41,8 @@ sub getquestion {
 =head2 loadtemplatefile
 
 Loads up a file containing templates (pass the filename to load). Creates
-Template objects and corresponding Mapping objects. The second parameter is
-the name of the owner of the created templates and mappings.
+Template objects and corresponding Question objects. The second parameter is
+the name of the owner of the created templates and questions.
 
 =cut
 
@@ -74,19 +73,10 @@ sub loadtemplatefile {
 				$templates{$template->template}=$template;
 			}
 
-			$templates{$template->template}->addowner($owner);
+			# Make a question to go with this template.
+			addquestion($template->template, $template->template,
+				    $owner);
 
-			# If a mapping by this name exists, just use it.
-			# Else make a new one.
-			my $mapping=$mappings{$template->template};
-			if (! $mapping) {
-				$mapping=Debian::DebConf::Mapping->new();
-			}
-			$mapping->question($template->template);
-			$mapping->template($template->template);
-			$mapping->addowner($owner);
-			$mappings{$template->template}=$mapping;
-			
 			$collect='';
 		}
 	}
@@ -94,122 +84,70 @@ sub loadtemplatefile {
 	return 1;
 }
 
-=head2 makequestions
+=head2 addquestion
 
-Instantiates Questions from Templates and Mappings.
+Create a Question and add it to the database. Pass the name of the template
+the question will use, and the name to use for the question. Finally, pass
+the name of the owner of the new question.
 
-=cut
-
-sub makequestions {
-	foreach my $mapping (values %mappings) {
-		my $template=$templates{$mapping->template};
-		
-		# Is this question already instantiated?
-		next if exists $questions{$mapping->question};
-
-		my $question=Debian::DebConf::Question->new;
-		$question->name($mapping->question);
-		$question->template($template);
-		$question->value($template->default);
-		$questions{$question->name}=$question;
-	}
-}
-
-=head2 addmapping
-
-Create a Mapping and add it to the database. Pass the name of the template and
-the name of the question it is mapped to, and also the name of the owner of
-the new mapping.
+If a question by this name already exists, it will be modified to add the
+new owner and to use the correct template.
 
 =cut
 
-sub addmapping {
-	my $template_text=shift;
-	my $location=shift;
+sub addquestion {
+	my $template=shift;
+	my $name=shift;
 	my $owner=shift;
 
-	my $template=$templates{$template_text};
+	my $question=$questions{$name} || Debian::DebConf::Question->new;
 
-	# One might think that I need to make the template this new mapping
-	# points to be owned by $owner, so the template doesn't accidentually
-	# go away any time soon while it's still being used. However, doing
-	# that causes a different problem: If this mapping is removed later,
-	# how will we know if the template should remained owned by $owner
-	# or not? After all, other mappings may still use it, or they may not.
-	# So instead, I added some code to removetemplate() to handle
-	# these cases, and I do not set the ownership of the template here.
-
-	# Instantiate or change the mapping to point to the right question.
-	my $mapping;
-	if (exists $mappings{$location}) {
-		$mapping=$mappings{$location};
-		$mapping->addowner($owner);
-		# Short circuit; no question change necessary.
-		return if $mapping->template eq $template_text;
-	}
-	else {
-		$mapping=Debian::DebConf::Mapping->new();
-		$mapping->addowner($owner);
-	}
-	$mapping->question($location);
-	$mapping->template($template_text);
-	$mappings{$location}=$mapping;
-	
-	# Instantiate or change the question.
-	my $question;
-	if (exists $questions{$location}) {
-		$question=$questions{$location};
-	}
-	else {
-		$question=Debian::DebConf::Question->new;
-	}
-	$question->name($location);
-	$question->template($template);
-	$question->value($template->default);
-	$questions{$question->name}=$question;
-	$questions{$location}=$question;
+	$question->name($name);
+	$question->template($templates{$template});
+	$question->addowner($owner);
+	$questions{$name}=$question;
 }
 
-=head2 removemapping
+=head2 disownquestion
 
-Give up ownership of a given mapping. Pass the name of the mapping and the
-owner that is giving it up. When the number of owners reaches 0, the mapping
-itself is removed as is the question associated with it.
+Give up ownership of a given question. Pass the name of the question and the
+owner that is giving it up. When the number of owners reaches 0, the question
+itself is removed. If the template the question used has no more questions
+using it, it too is removed.
 
 =cut
 
-sub removemapping {
-	my $location=shift;
+sub disownquestion {
+	my $name=shift;
 	my $owner=shift;
 	
-	$mappings{$location}->removeowner($owner);
-	if ($mappings{$location}->owners eq '') {
-		delete $mappings{$location};
-		delete $questions{$location}
-	}
-}
-
-=head2 removetemplate
-
-Give up ownership of a given template. Pass the name of the template and the
-owner that is giving it up. When the number of owners reaches 0, the template
-itself is removed as are any mappings that use it, and any questions that use
-them.
-
-=cut
-
-sub removetemplate {
-	my $location=shift;
-	my $owner=shift;
-	
-	$templates{$location}->removeowner($owner);
-	if ($templates{$location}->owners eq '') {
-		foreach my $maploc (keys %mappings) {
-			if ($mappings{$maploc}->template eq $location) {
-				removemapping($maploc, $owner);
-			}
+	$questions{$name}->removeowner($owner);
+	if ($questions{$name}->owners eq '') {
+		my $template=$questions{$name}->template;
+		delete $questions{$name};
+		# Does the template go away too?
+		my $users=0;
+		foreach my $question (keys %questions) {
+			$users++ if $question->template eq $template;
 		}
-		delete $templates{$location};
+		
+		if ($users == 0) {
+			delete $templates{$template};
+		}
+	}
+}
+
+=head2 disownall
+
+This runs disownquestion() on all Questions. Pass the owner.
+
+=cut
+
+sub disownall {
+	my $owner=shift;
+	
+	foreach my $question (keys %questions) {
+		disownquestion($question, $owner);
 	}
 }
 
@@ -224,12 +162,12 @@ use Data::Dumper;
 sub savedb {
 	my $fn=shift;
 
-	my $dumper=Data::Dumper->new([\%mappings, \%templates, \%questions],
-		[qw{*mappings *templates *questions}]);
+	my $dumper=Data::Dumper->new([\%templates, \%questions],
+		[qw{*templates *questions}]);
 	$dumper->Indent(1);
 	open (OUT, ">$fn") || die "$fn: $!";
 	print OUT $dumper->Dump;
-	print OUT "\n1;\n"; # Return a true value.
+	print OUT "\n1;\n"; # Return a true value so require works.
 	close OUT;
 }
 

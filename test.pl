@@ -23,9 +23,6 @@ if (-e Debian::DebConf::Config::dbfn()) {
 # Load up templates.
 Debian::DebConf::ConfigDb::loadtemplatefile($template, $script);
 
-# Instantiate all questions.
-Debian::DebConf::ConfigDb::makequestions();
-
 # Set priority.
 if (exists $ENV{PRIORITY}) {
 	Debian::DebConf::Config::priority($ENV{PRIORITY});
@@ -46,6 +43,9 @@ my $confmodule=eval qq{
 	Debian::DebConf::ConfModule::$type->new(\$frontend, \$script);
 };
 die $@ if $@;
+
+# Make sure any questions that are created are owned by this script.
+$confmodule->owner($script);
 
 # Talk to it until it is done.
 1 while ($confmodule->communicate);

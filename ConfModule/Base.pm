@@ -294,30 +294,42 @@ sub command_subst {
 =head2 command_register
 
 This should be passed a template name and a question name. It creates a
-mapping from the question to the template.
+question that uses the template.
 
 =cut
 
 sub command_register {
 	my $this=shift;
 	my $template=shift;
-	my $location=shift;
+	my $name=shift;
 	
-	Debian::DebConf::ConfigDb::addmapping($template, $location, $this->owner);
+	Debian::DebConf::ConfigDb::addquestion($template, $name, $this->owner);
 }
 
 =head2 command_unregister
 
-Pass this a question name, and it will remove the mapping that creates that
-question, and remove the question itself.
+Pass this a question name, and it will give up ownership of the question,
+which typically causes it to be removed.
 
 =cut
 
 sub command_unregister {
 	my $this=shift;
-	my $location=shift;
+	my $name=shift;
 	
-	Debian::DebConf::ConfigDb::removemapping($location, $this->owner);
+	Debian::DebConf::ConfigDb::disownquestion($name, $this->owner);
+}
+
+=head2 command_purge
+
+This will give up ownership of all questions.
+
+=cut
+
+sub command_purge {
+	my $this=shift;
+	
+	Debian::DebConf::ConfigDb::disownall($this->owner);
 }
 
 =head2 command_fget

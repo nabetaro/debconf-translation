@@ -210,6 +210,18 @@ becomes:
   	/etc/init.d/subliminal_messages start "I like debian."
   fi
 
+There is one other alteration you need to make to the postrm script. When
+your package is purged, it should get rid of all the questions and templates
+it was using in the database. Accomplishing this is simple; use the "purge"
+command:
+
+  if [ "$1" = "purge" ]; then
+  	# Source debconf library.
+	. /usr/share/debconf/confmodule.sh
+	# Remove my changes to the db.
+	db_purge
+  fi
+
 Finishing Up
 ------------
 
@@ -386,4 +398,4 @@ unregister <variable>
 purge
 
 	Call this in your postinst when your package is purged. It removes all
-	templates, mappings and variables your package has generated.
+	templates and variables your package has generated.
