@@ -38,17 +38,4 @@ sub show {
 	return "<b>".$this->question->description."</b>$_<p>";
 }
 
-=head2 set
-
- This gets called once the user has seen the paragraph, and it just 
- records that the user has seen it.
- 
-=cut
-
-sub set {
-	my $this=shift;
-
-	$this->question->flag_isdefault('false');
-}
-
 1

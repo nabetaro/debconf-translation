@@ -50,8 +50,13 @@ eof
 		print MAIL $this->question->extended_description || $this->question->description;
 		print MAIL "\n";
 		close MAIL;
-		$this->question->flag_isdefault('false');
 	}
+	
+	# Mark this note as shown. The frontend doesn't do this for us,
+	# since we are marked as not visible.
+	$this->question->flag_isdefault('false');
+
+	return '';
 }
 
 1

@@ -32,10 +32,7 @@ sub show {
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
-	exit $ret if $ret != 0 && $ret != 1;
-
-	$this->question->value($ret eq 0 ? 'true' : 'false');
-	$this->question->flag_isdefault('false');
+	return $ret eq 0 ? 'true' : 'false';
 }
 
 1

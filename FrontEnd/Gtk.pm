@@ -134,20 +134,6 @@ sub new {
 	return $self;
 }
 
-=head2 go
-
-This overides the inherited go() method, to detect if the back button was hit
-and inform the ConfModule about that.
-
-=cut
-
-sub go {
-	my $this=shift;
-	
-	$this->SUPER::go(@_);
-	return 1 unless $this->result eq 'back';
-}
-
 =head2 newques
 
 =cut
@@ -208,7 +194,8 @@ sub Cancel {
 
 sub Back {
 	my $self = shift;
-	$self->{result} = "back";
+	$self->{result} = "backup";
+	$self->backup(1);
 	Gtk->main_quit;
 }
 

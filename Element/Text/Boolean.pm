@@ -56,11 +56,9 @@ sub show {
 			last;
 		}
 	}
-
-	$this->question->value($value);
-	$this->question->flag_isdefault('false');
 	
 	$this->frontend->display("\n");
+	return $value;
 }
 
 1

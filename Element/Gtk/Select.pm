@@ -43,12 +43,7 @@ sub show {
 	my $result = $self->frontend->newques(
 			$self->question->description, $vbox);
 
-	if ($result eq "change" && !$self->{unchanged}) {
-		$self->question->value($self->{newvalue});
-		$self->question->flag_isdefault(0);
-	}
-
-	return $result;
+	return $self->{newvalue};
 }
 
 sub radio {

@@ -44,19 +44,18 @@ sub show {
 	return $_;
 }
 
-=head2 set
+=head2 process
 
-This gets called once the user has entered a value. It's passed the
-value they entered. It saves the value in the associated Question.
+This gets called once the user has entered a value, to process it before
+it is stored.
 
 =cut
 
-sub set {
+sub process {
 	my $this=shift;
 	my $value=shift;
 
-	$this->question->value($value eq 'on' ? 'true' : 'false');
-	$this->question->flag_isdefault('false');
+	return $value eq 'on' ? 'true' : 'false';
 }
 
 1

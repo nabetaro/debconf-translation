@@ -196,7 +196,7 @@ Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 		
 		return $versions{$package} if $haveversions;
 		{
-			local $/="\n\n"; # only takes effect in this closure.
+			local $/="\n\n";
 			open (STATUS, "</var/lib/dpkg/status");
 			while (<STATUS>) {
 				my ($package)=m/Package:\s*(.*?)\n/;

@@ -40,20 +40,17 @@ sub show {
 	return $ret;
 }
 
-=head2 set
+=head2 process
 
- This gets called once the user has seen the container, and it just 
- records that the user has seen it.
- 
+This gets called once the user has entered a value, to process it before        
+it is stored.
+
 =cut
 
-sub set {
+sub process {
 	my $this=shift;
 
-	$this->question->flag_isdefault('false');
-
-
-	# TODO: need to set values of all elements contained within. Ugh.
+	# TODO: need to process values of all elements contained within. Ugh.
 }
 
 1

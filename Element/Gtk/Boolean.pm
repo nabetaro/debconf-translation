@@ -36,11 +36,7 @@ sub show {
 	my $result = $self->frontend->newques(
 			$self->question->description, $vbox);
 
-	if ($result eq "change") {
-		$self->question->value($check->active ? "true" : "false");
-		$self->question->flag_isdefault("false");
-	}
-	return $result;
+	return $check->active ? "true" : "false";
 }
 
 1

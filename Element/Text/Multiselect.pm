@@ -72,18 +72,19 @@ sub show {
 		last;
 	}
 
+
 	if (defined $selected[0] && $selected[0] eq $none_of_the_above) {
-		$this->question->value('');
+		$value='';
 	}
 	else {
 		# Make sure that no item was entered twice. If so, remove
 		# the duplicate.
 		my %selected=map { $_ => 1 } @selected;
-		$this->question->value(join(', ', sort keys %selected));
+		$value=join(', ', sort keys %selected);
 	}
 
-	$this->question->flag_isdefault('false');
 	$this->frontend->display("\n");
+	return $value;
 }
 
 1

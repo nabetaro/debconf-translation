@@ -1,3 +1,14 @@
+debconf (0.2.53) unstable; urgency=low
+
+  * "Cancel" (or hitting escape) in the dialog frontend is now interpreted
+    to mean back up a step. Not quite intuitive, but it is the bast thing I
+    can do with a cancel button, and I need the ability to backup.
+    Closes: #51887
+  * Reworked how question values are set. This is now done in FrontEnd::go(),
+    instead of in each Element's show() method.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 10 Dec 1999 14:27:49 -0800
+
 debconf (0.2.52) unstable; urgency=low
 
   * Debconf install now asks if you want to preconfigure packages, and
@@ -417,8 +428,8 @@ debconf (0.2.8) unstable; urgency=low
 debconf (0.2.7) unstable; urgency=low
 
   * Select Elements are not shown if they have less than 2 choices. However,
-   for conistency, even if not shown, the value of the Question they represent
-   is changed as if they were shown.
+    for conistency, even if not shown, the value of the Question they represent
+    is changed as if they were shown.
 
  -- Joey Hess <joeyh@debian.org>  Sun, 31 Oct 1999 21:28:40 -0800
 

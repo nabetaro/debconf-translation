@@ -121,7 +121,7 @@ This overrides to go method in the Base FrontEnd. It goes through each
 pending Element and asks it to return the html that corresponds to that
 Element. It bundles all the html together into a web page and displays the
 web page to the client. Then it waits for the client to fill out the form,
-parses the client's response and uses that to set values on the Elements.
+parses the client's response and uses that to set values in the database.
 
 =cut
 
@@ -141,7 +141,8 @@ sub go {
 			$form.=$html."<hr>\n";
 		}
 	}
-	# If the elements generated no html, return now.
+	# If the elements generated no html, return now so we
+	# don't display empty pages.
 	return 1 if $form eq '';
 
 	$this->{elements}=[];
@@ -189,18 +190,22 @@ sub go {
 
 	# Now it's just a matter of matching up the element id's with values
 	# from the form, and passing the values from the form into the
-	# elements, for them to deal with.
+	# elements, for them to process, and then storing the processed data.
 	foreach my $id ($query->param) {
 		next unless $idtoelt{$id};
 		
-		$idtoelt{$id}->set($query->param($id));
+		$idtoelt{$id}->question->value($idtoelt{$id}->process($query->param($id)));
+		$idtoelt{$id}->question->flag_isdefault('false')
+			if $$idtoelt{$id}->visible;
 		delete $idtoelt{$id};
 	}
 	# If there are any elements that did not get a result back, that in
 	# itself is significant. For example, an unchecked checkbox will not
 	# get anything back.
 	foreach my $elt (values %idtoelt) {
-		$elt->set('');
+		$elt->question->value($elt->process(''));
+		$elt->question->flag_isdefault('false')
+			if $elt->visible;
 	}
 	
 	return 1;

@@ -43,19 +43,4 @@ sub show {
 	return $_;
 }
 
-=head2 set
-
-This gets called once the user has entered a value. It's passed the
-value they entered. It saves the value in the associated Question.
-
-=cut
-
-sub set {
-	my $this=shift;
-	my $value=shift;
-
-	$this->question->value($value);
-	$this->question->flag_isdefault('false');
-}
-
 1

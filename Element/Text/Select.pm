@@ -129,9 +129,8 @@ sub show {
 		last if $value ne '';
 	}	
 	$value='' if $value eq $none_of_the_above;
-	$this->question->value($value);
-	$this->question->flag_isdefault('false');
 	$this->frontend->display("\n");
+	return $value;
 }
 
 1

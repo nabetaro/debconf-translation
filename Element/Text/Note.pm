@@ -24,7 +24,7 @@ sub show {
 	$this->frontend->display($this->question->description."\n".
 		$this->question->extended_description."\n");
 
-	$this->question->flag_isdefault('false');
+	return '';
 }
 
 1

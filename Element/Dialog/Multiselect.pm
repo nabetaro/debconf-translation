@@ -61,17 +61,14 @@ sub show {
 	
 	@params=('--separate-output','--checklist', $text, $lines, $columns, $menu_height, @params);
 
-	my ($ret, $value)=$this->frontend->showdialog(@params);
-
-	exit $ret if $ret != 0;
+	my $value=$this->frontend->showdialog(@params);
 
 	# Dialog returns the selected items, each on a line.
 	# Turn that into our internal format.
 	$value=~s/\n$//;
 	$value=~s/\n/, /g;
 
-	$this->question->value($value);
-	$this->question->flag_isdefault('false');
+	return $value;
 }
 
 1

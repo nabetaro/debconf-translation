@@ -30,17 +30,15 @@ sub show {
 	$default=$this->question->value if defined $this->question->value;
 
 	# Prompt for input using the short description.
-	$_=$this->frontend->prompt_password($this->question->description." ", $default);
+	my $value=$this->frontend->prompt_password($this->question->description." ", $default);
 
 	# Handle defaults.
-	if ($_ eq '') {
-		$_=$default;
+	if ($value eq '') {
+		$value=$default;
 	}
-
-	$this->question->value($_);
-	$this->question->flag_isdefault('false');
 	
 	$this->frontend->display("\n");
+	return $value;
 }
 
 1

@@ -35,7 +35,7 @@ binary-indep: install
 	# using me.
 	dh_installdebconf -n
 	dh_installdocs doc/CREDITS doc/*.txt doc/*.html \
-		doc/packages-that-prompt doc/spec/*.txt doc/spec/*.html \
+		doc/spec/*.txt doc/spec/*.html \
 		README TODO
 	dh_installexamples samples/*
 	dh_installmenu

@@ -53,22 +53,19 @@ sub show {
 	return $_;
 }
 
-=head2 set
+=head2 process
 
 This gets called once the user has entered a value. It is passed the
 value they entered. It saves the value in the associated Question.
 
 =cut
 
-sub set {
+sub process {
 	my $this=shift;
 	my $value=shift;
 
 	my @choices=$this->question->choices_split;
-	$value=$choices[$value];
-
-	$this->question->value($value);
-	$this->question->flag_isdefault('false');
+	return $choices[$value];
 }
 
 1

@@ -23,7 +23,7 @@ db_input low demo/password || true
 db_input low demo/note || true
 db_input low demo/text || true
 db_endblock
-db_go
+db_go || true
 db_get demo/select
 echo $RET
 db_get demo/boolean

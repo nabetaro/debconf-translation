@@ -29,6 +29,7 @@ sub show {
 	$vbox->pack_start($label, 0,1,0);
 	$text->show(); $label->show();
 	$self->frontend->newques($self->question->description, $vbox);
+	return '';
 }
 
 1

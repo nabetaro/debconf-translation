@@ -32,11 +32,7 @@ sub show {
 	$text->show(); $entry->show();
 	my $result = $self->frontend->newques(
 		$self->question->description, $vbox);
-	if ($result eq "change") {
-		$self->question->value($entry->get_text);
-		$self->question->flag_isdefault(0);
-	}
-	return $result;
+	return $entry->get_text;
 }
 
 1

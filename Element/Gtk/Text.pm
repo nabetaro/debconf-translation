@@ -25,6 +25,7 @@ sub show {
 		$self->question->description, 
 		$self->frontend->maketext(
 			$self->question->extended_description));
+	return '';
 }
 
 1

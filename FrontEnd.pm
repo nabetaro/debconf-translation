@@ -131,8 +131,12 @@ sub add {
 Display accumulated Elements to the user. The Elements are in the elements
 property, and that property is cleared after the Elements are presented.
 
-Returns true. (Children may override it to return false if the user
-hits a back button.)
+After showing each element, checks to see if the object's backup property has
+been set; if so, doesn't display any of the other pending questions, and 
+return false. The default is to return true.
+
+The return value of each element's show() method is used to set the value of
+the question associated with that element.
 
 =cut
 
@@ -140,7 +144,19 @@ sub go {
 	my $this=shift;
 
 	debug 2, "preparing to ask questions";
-	map { $_->show} @{$this->{elements}};
+	foreach my $element (@{$this->elements}) {
+		my $value=$element->show;
+		if ($this->backup) {
+			$this->backup('');
+			return;
+		}
+		$element->question->value($value);
+		# Only set isdefault if the element was visible, because we
+		# don't want to do it when showing noninteractive select 
+		# elements and so on.
+		$element->question->flag_isdefault('false')
+			if $element->visible;
+	}
 	$this->clear;
 	return 1;
 }

@@ -46,6 +46,7 @@ sub new {
 	my $self  = bless $proto->SUPER::new(@_), $class;
 
 	$self->{interactive}=1;
+	$self->{capb} = 'backup';
 
 	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
@@ -194,8 +195,12 @@ sub makeprompt {
 
 Displays a dialog. All parameters are passed to whiptail/dialog.
 
-It returns a list with two elements. The first is the return code of dialog.
-The second, anything it outputs to stderr.
+If called in a scalar context, returns whatever dialog outputs to stderr.
+If called in a list context, returns the return code of dialog, then the
+stderr output.
+
+Note that the return code of dialog is examined, and if the user hit escape
+or cancel, this frontend will assume they wanted to back up.
 
 =cut
 
@@ -234,7 +239,22 @@ sub showdialog {
 	open(STDOUT, ">&SAVEOUT");
 	open(STDERR, ">&SAVEERR");
 
-	return ($? >> 8), $stderr;
+	# Now check dialog's return code to see if escape (-1) or
+	# Cancel (1) were hit. If so, make a note that we should back up.
+	#
+	# To complicate things, a return code of 1 also means that yes was
+	# selected from a yes/no dialog, so we must parse the parameters
+	# to see if such a dialog was displayed.
+	my $ret=$? >> 8;
+	if ($ret == -1 || ($ret == 1 && join(' ', @_) !~ m/--yesno\s/)) {
+		$this->backup(1);
+	}
+	if (wantarray) {
+		return $ret, $stderr;
+	}
+	else {
+		return $stderr;
+	}
 }
 
 =head1 AUTHOR

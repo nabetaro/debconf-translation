@@ -55,15 +55,15 @@ sub show {
 	return $_;
 }
 
-=head2 set
+=head2 process
 
 This gets called once the user has entered a value. It expects to be passed
-all the values they selected. It processes these into the form used internally,
-and saves it in the associated question.
+all the values they selected. It processes these into the form used internally
+and returns that.
 
 =cut
 
-sub set {
+sub process {
 	my $this=shift;
 	# This forces the function that provides values to this method
 	# to be called in scalar context, so we are passed a list of
@@ -73,8 +73,7 @@ sub set {
 	my @choices=$this->question->choices_split;
 	my @parsedvalues=map { $choices[$_] } @values;
 
-	$this->question->value(join(', ', @parsedvalues));
-	$this->question->flag_isdefault('false');
+	return join(', ', @parsedvalues);
 }
 
 1
