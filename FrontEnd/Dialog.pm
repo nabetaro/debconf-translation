@@ -70,6 +70,9 @@ sub sizetext {
 	       $window_columns + $this->borderwidth;
 }
 
+use Fcntl;
+use POSIX qw(tmpnam);
+
 # Pass this a title and some text and it will display the text to the user in
 # a dialog. If the text is too long to fit in one dialog, it will use as many
 # as are required.
@@ -81,18 +84,33 @@ sub showtext {
 	my $lines = ($ENV{LINES} || 25);
 	my ($text, $height, $width)=$this->sizetext($title, $intext);
 	my @lines = split(/\n/, $text);
-	for (my $c = 0; $c <= $#lines; $c += $lines - 4 - $this->borderheight) {
-		my ($text, $num);
-		if ($c + $lines - 4 - $this->borderheight <= $#lines) {
-			$num=$lines - 4 - $this->borderheight;
-			$text=join("\n", @lines[$c..$c + $num]);
+	my $num;
+	my @args=('--msgbox', join("\n", @lines));
+	if ($lines - 4 - $this->borderheight <= $#lines) {
+		$num=$lines - 4 - $this->borderheight;
+		if ($this->{program} eq 'whiptail') {
+			# Whiptail can scroll text easily.
+			push @args, '--scrolltext';
 		}
 		else {
-			$num=$#lines - $c + 1;
-			$text=join("\n", @lines[$c..$#lines]);
+			# Dialog has to use a temp file.
+			my $name;
+			# try new temporary filenames until we get one that
+			# didn't already exist; the check should be
+			# unnecessary, but you can't be too careful
+			do { $name = tmpnam() }
+				until sysopen(FH, $name, O_RDWR|O_CREAT|O_EXCL);
+			print FH join("\n", @lines);
+			close FH;
+			@args=("--textbox", $name);
 		}
-		$this->showdialog($title, "--msgbox", $text,
-			$num + $this->borderheight, $width);
+	}
+	else {
+		$num=$#lines + 1;
+	}
+	$this->showdialog($title, @args, $num + $this->borderheight, $width);
+	if ($args[0] eq '--textbox') {
+		unlink $args[1];
 	}
 }
 
