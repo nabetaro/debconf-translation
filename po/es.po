@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2000-11-28 14:07-0800\n"
+"POT-Creation-Date: 2000-11-29 16:55-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -314,20 +314,18 @@ msgstr "Uso: dpkg-reconfigure [--frontend=tipo] [--priority=valor] paquetes"
 msgid "must be run as root"
 msgstr "debe ejecutarse como root"
 
-#: ../dpkg-reconfigure:153
-#, c-format
-msgid "%s is not installed or does not use debconf"
-msgstr "%s no está instalado o no usa debconf"
-
-#: ../dpkg-reconfigure:165
+#: ../dpkg-reconfigure:158
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s no está instalado totalmente"
 
-#: ../dpkg-reconfigure:240
+#: ../dpkg-reconfigure:233
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No puedo leer el fichero de estado: %s"
+
+#~ msgid "%s is not installed or does not use debconf"
+#~ msgstr "%s no está instalado o no usa debconf"
 
 #~ msgid "Container element question method called before frontend was set."
 #~ msgstr ""

@@ -147,13 +147,6 @@ unless ($unseen_only) {
 priority('low') if $change_priority;
 
 foreach my $pkg (@packages) {
-	# If this doesn't exist, the package probably doesn't use debconf,
-	# so skip it, becuase a normal package may misbehave when run here.
-	if (! -x "/var/lib/dpkg/info/$pkg.config") {
-		warn sprintf(gettext("%s is not installed or does not use debconf"), $pkg) unless $all;
-		next;
-	}
-
 	# Set default title.
 	$frontend->default_title($pkg);
 

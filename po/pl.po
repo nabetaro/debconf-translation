@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-11-28 14:07-0800\n"
+"POT-Creation-Date: 2000-11-29 16:55-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -305,20 +305,18 @@ msgstr "U¿ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto¶æ] pakiety"
 msgid "must be run as root"
 msgstr "musi byæ uruchamiany jako root"
 
-#: ../dpkg-reconfigure:153
-#, c-format
-msgid "%s is not installed or does not use debconf"
-msgstr "%s nie jest zainstalowany lub nie u¿ywa debconfa"
-
-#: ../dpkg-reconfigure:165
+#: ../dpkg-reconfigure:158
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s nie jest w pe³ni zainstalowany"
 
-#: ../dpkg-reconfigure:240
+#: ../dpkg-reconfigure:233
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid "%s is not installed or does not use debconf"
+#~ msgstr "%s nie jest zainstalowany lub nie u¿ywa debconfa"
 
 #~ msgid "Container element question method called before frontend was set."
 #~ msgstr "Wywo³ano metodê pytania przed ustawieniem nak³adki."

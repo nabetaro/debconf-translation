@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2000-11-28 14:07-0800\n"
+"POT-Creation-Date: 2000-11-29 16:55-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -307,20 +307,18 @@ msgstr "使用方法: dpkg-reconfigure [--frontend=型] [--priority=値] パッケージ"
 msgid "must be run as root"
 msgstr "root で実行する必要があります"
 
-#: ../dpkg-reconfigure:153
-#, c-format
-msgid "%s is not installed or does not use debconf"
-msgstr "%s はインストールされていないか、debconf を使用していません"
-
-#: ../dpkg-reconfigure:165
+#: ../dpkg-reconfigure:158
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s は完全にインストールされていません"
 
-#: ../dpkg-reconfigure:240
+#: ../dpkg-reconfigure:233
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
+
+#~ msgid "%s is not installed or does not use debconf"
+#~ msgstr "%s はインストールされていないか、debconf を使用していません"
 
 #~ msgid "Container element question method called before frontend was set."
 #~ msgstr ""
