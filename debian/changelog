@@ -1,3 +1,14 @@
+debconf (0.5.31) unstable; urgency=low
+
+  * Put README.translators in debconf-doc.
+  * Finally broke in and implemented multiselect support for the slang
+    frontend. Closes: #65782, #67242, #67340, #71095, #78571
+  * That was harer than it seems, I had to change Slang Elements to hold
+    groups of widgets, and support that everywhere. I also found it best to
+    move all the wiget positioning code into Elements from the frontend.
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  2 Dec 2000 14:51:53 -0800
+
 debconf (0.5.30) unstable; urgency=low
 
   * Modified tutorial, Closes: #78537

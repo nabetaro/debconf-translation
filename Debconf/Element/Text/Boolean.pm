@@ -80,7 +80,10 @@ sub show {
 		}
 		# I suppose this would break in a language where $y is a
 		# anchored substring of $n. Any such language should be taken
-		# out and shot.
+		# out and shot. TODO: I hear Chinese actually needs this..
+		# Also, I should just gettext("y") and "n", and use those,
+		# rather than taking the first character, may not makse
+		# sense in multi-byte encodings.
 		if (/^\Q$y\E/i) {
 			$value='true';
 			last;

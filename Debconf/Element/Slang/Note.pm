@@ -23,8 +23,7 @@ that can be pressed to save the note.
 sub init {
 	my $this=shift;
 
-	$this->widget(Term::Stool::Button->new(
-		sameline => 1,
+	$this->widgets([Term::Stool::Button->new(
 		text => gettext("Save Note"),
 		preferred_width => 13,
 		press_hook => sub {
@@ -39,7 +38,7 @@ sub init {
 			$button->display;
 			$this->frontend->screen->refresh;
 		},
-	));
+	)]);
 }
 
 1

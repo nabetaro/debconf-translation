@@ -26,9 +26,9 @@ This is a check box widget.
 sub init {
 	my $this=shift;
 
-	$this->widget(Term::Stool::CheckBox->new(
+	$this->widgets([Term::Stool::CheckBox->new(
 		checked => (defined $this->question->value && $this->question->value eq 'true') ? 1 : 0,
-	));
+	)]);
 }
 
 =item resize
@@ -40,15 +40,22 @@ hand side.
 
 sub resize {
 	my $this=shift;
-	my $widget=$this->widget;
+	my $y=shift;
+
+	my $widget=$this->widgets->[0];
 	my $description=$this->widget_description;
 	my $maxwidth=$widget->container->width - 4;
 
-	$widget->sameline(1);
 	$widget->xoffset(1);
 	$description->xoffset(1 + $widget->width + 1);
 	$description->width($widget->container->width - 4 -
 		$description->xoffset + 1);
+	
+	$description->yoffset($y);
+	$description->resize;
+	$widget->yoffset($y);
+	
+	return $y;
 }
 
 =item value
@@ -61,7 +68,7 @@ sub value {
 	my $this=shift;
 
 	my $ret='false';
-	$ret='true' if $this->widget->checked;
+	$ret='true' if $this->widgets->[0]->checked;
 	return $ret;
 }
 

@@ -186,10 +186,10 @@ sub go {
 	my $firstwidget='';
 	foreach my $element (@elements) {
 		# Noninteractive elemements have no widgets.
-		next unless $element->widget;
+		next unless $element->widgets;
 		
 		unless ($firstwidget) {
-			$firstwidget=$element->widget;
+			$firstwidget=$element->widgets->[0];
 			
 			if (! $this->screen_is_setup) {
 				$this->screen_is_setup(1);
@@ -201,22 +201,23 @@ sub go {
 			}
 		}
 		
-		# Make the widget call the element's resize method when it
-		# is resized.
-		$element->widget->resize_hook(sub { $element->resize });
-		$element->widget->activate_hook(sub {
-			my $this=shift;
+		foreach my $widget (@{$element->widgets}) {
+			$widget->resize_hook(sub { $element->resize });
+			$widget->activate_hook(sub {
+				my $this=shift;
 			
-			# My, this is nasty. We get $element from the closure
-			# we're in..
-			# First, make sure the short description is visible.
-			$this->container->scrollto($element->widget_description);
-			# Now show the long description.
-			$element->frontend->helptext->text($element->question->extended_description);
-			unless ($element->frontend->helpwindow->hidden) {	
-				$element->frontend->helptext->display;
-			}
-		});
+				# My, this is nasty. We get $element from the
+				# closure we're in..
+				# First, make sure the short description 
+				# is visible.
+				$this->container->scrollto($element->widget_description);
+				# Now show the long description.
+				$element->frontend->helptext->text($element->question->extended_description);
+				unless ($element->frontend->helpwindow->hidden) {	
+					$element->frontend->helptext->display;
+				}
+			});
+		}
 		$element->widget_description(Term::Stool::Text->new(
 			text => $element->question->description,
 			xoffset => 1,
@@ -236,7 +237,7 @@ sub go {
 			},
 		));
 		$this->panel->add($element->widget_description);
-		$this->panel->add($element->widget);
+		$this->panel->add(@{$element->widgets});
 	}
 
 	# Don't do any of this if there are no interactive widgets to show,
@@ -296,8 +297,7 @@ sub go {
 
 =item fillpanel
 
-Called when the panel is resized. This sets up the y offset's of all widgets
-on the panel. Sometimes a widget group fits on the same line, sometimes not.
+Called when the panel is resized.
 
 =cut
 
@@ -307,12 +307,9 @@ sub fillpanel {
 	my $y=0;
 	foreach my $element (@{$this->elements}) {
 		$element->widget_description || next;
-		
-		$element->widget_description->yoffset($y);
-		$element->widget_description->resize;
-		$element->resize;
-		$y++ unless $element->widget->sameline;
-		$element->widget->yoffset($y++);
+
+		$y=$element->resize($y);
+		$y++;
 		$y++; # a blank line between widget groups.
 	}
 }

@@ -22,12 +22,11 @@ sub init {
 	
 	# Make a widget only because the frontend expects us to. The widget
 	# is not displayed or used at all.
-	$this->widget(Term::Stool::Widget->new(
+	$this->widgets([Term::Stool::Widget->new(
 		can_focus => 0,
-		sameline => 1,
 		width => 1,
 		preferred_width => 0,
-	));
+	)]);
 }
 
 1

@@ -38,14 +38,14 @@ sub init {
 		}
 	}
 
-	$this->widget(Term::Stool::DropDown->new(
+	$this->widgets([Term::Stool::DropDown->new(
 		list => Term::Stool::List->new(
 			contents => [@choices],
 			cursor => $cursor,
 		),
-	));
+	)]);
 	# The widget prefers to be just wide enough for the list box.
-	$this->widget->preferred_width($this->widget->list->width + 3);
+	$this->widgets->[0]->preferred_width($this->widgets->[0]->list->width + 3);
 }
 
 =item value
@@ -58,7 +58,7 @@ locale.
 sub value {
 	my $this=shift;
 
-	return $this->translate_to_C($this->widget->list->value);
+	return $this->translate_to_C($this->widgets->[0]->list->value);
 }
 
 =back

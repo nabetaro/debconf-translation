@@ -26,8 +26,8 @@ This is a password input widget.
 sub init {
 	my $this=shift;
 
-	$this->widget(Term::Stool::Password->new);
-	$this->widget->preferred_width($this->widget->width);
+	$this->widgets([Term::Stool::Password->new]);
+	$this->widgets->[0]->preferred_width($this->widgets->[0]->width);
 }
 
 =item value
@@ -39,7 +39,7 @@ If the widget's value field is empty, return the default.
 sub value {
 	my $this=shift;
 	
-	my $text=$this->widget->text;
+	my $text=$this->widgets->[0]->text;
 	$text=$this->question->value if $text eq '';
 	return $text;
 }
