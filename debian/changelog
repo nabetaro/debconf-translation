@@ -1,46 +1,138 @@
 debconf (0.9.10) unstable; urgency=low
 
-  * The "but, I waited _11_days_" release.
-  * Modifications for apt 0.5.1: no longer includes apt-extracttemplates,
-    which is now in apt-utils, which you need to install now if you want
-    preconfiguration. This makes debconf not depend on the unstable apt
-    library, and makes it arch all again. Perhaps this will help it get
-    into testing in the next decade.
-  * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
-    Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question
-    as there is no reason to configure this during debconf install time,
-    and no good reason to use debconf to ask a question about it.
-  * Wrote a flexible extensible layered backend database system for
-    debconf. It's the long-missing quarter of debconf, and thus debconf
-    will be ready for 1.0 once the kinks in it are worked out. See the
-    debconf.conf(5) man page (in debconf-doc) for more information.
-    Closes: #50437
-  * And yeah, you can let users access the db now. Use the DirTree driver.
-    Or set up their own databases via ~/.debconfrc files.
-    Closes: #81574
-  * Conflicts with versions of cdebconf that themselves use a 
-    /etc/debconf.conf.
-  * Db reloads inside the same perl invocation (dpkg-reconfigure needs to
-    do this sometimes) are no longer a problem, Closes: #85873
-  * Removed various outdated database transition code.
-  * I've had some unreproducible reports of the old debconf db upgrades
-    failing. The new code handles upgrades from either of the pervious two
-    varients of the db format, so should deal with those problems. 
-    Closes: #80940, #88256
-  * Added new transition code. Does not yet delete old database, as it has
-    not had sufficient testing.
-  * Changed interface of debconf-communicate.
-  * Made dpkg-preconfigure make one pass over the templates, and then a
-    second pass over the config scripts; should fix Overfiend's problem
-    with shared templates and X.
-  * Pre-depends on perl-base, to ensure that debconf is always usable,
-    even if it is just unpacked and not yet configured.
-  * Dutch template update, Closes: #87493
-  * Made everything use sane temp file opens, so the hack with
-    /var/lib/debconf/ containing temp files is no longer necessary, and the
-    directory can go away soon.
+  * Though I waited long --
+    twelve days -- I must upload now.
+    (And thus, miss testing.)
+    
+  * The long overdue
+    backend database is here:
+    the missing quarter.			Closes: #50437
+    
+    And so the version
+    approaches 1.0 -- joy!
+    Though more work awaits.
 
- -- Joey Hess <joeyh@debian.org>  Sun,  4 Mar 2001 14:42:31 -0800
+  * Db setup lore
+    is in debconf.conf(5)
+    in debconf-doc.
+  
+    You'll find it's layered;
+    quite a flexible design
+    (many thanks, Wichert).
+
+    Users can setup
+    their own debconf db's or
+    use the global one.
+
+    (If, that is, they choose
+    to use the DirTree driver
+    for the global store.)			Closes: #81574
+
+  * To make this work, though,
+    debconf must conflict with old
+    cdebconf versions.
+
+    The ones that themselves
+    used /etc/debconf.conf
+    as their config file.
+
+  * And I had to write
+    some transition code, too (bleagh),
+    to reformat stuff.
+
+    This should work better
+    than past conversions, I hope.
+    Still needs testing, though.
+
+    So, it won't delete
+    the old database files yet,
+    'till I'm sure that's safe.
+
+    Anyhow, reports
+    of trouble in past upgrades
+    are now obsolete.				Closes: #80940, #88256
+
+    (Report new bugs though,
+    if you must. I don't mind (much).
+    Just don't send dups, please.)
+
+  * All of debconf's code
+    does sane temp file opens now:
+    no more cruft in var.
+
+  * The interface to
+    debconf-communicate
+    has utterly changed.
+
+  * I updated the
+    Dutch translation (or rather,
+    some Dutch guy did -- thanks).		Closes: #87493
+
+    Other translations
+    are probably outdated
+    after these changes.
+
+    Come to think of it,
+    the Dutch one may be too; it's
+    a week or two old.
+
+  * Debconf must always
+    be usable, so I made
+    it pre-dep on perl.
+
+  * The new db code
+    fixes a db reload
+    bug in -reconfigure.			Closes: #85873
+
+  * Some bugs are fixed in
+    the preconfigure program
+    by this upload too:
+
+    Overfiend, it makes
+    two passes now, so scary
+    shared templates will work.
+
+  * Besides these changes,
+    some mods to support the new
+    apt slipped in somehow:
+
+    apt.conf.d
+    is used rather than munging
+    apt.conf by hand.
+
+  * I gladly removed
+    apt-extracttemplates: moved
+    to apt-utils.
+
+    Preconfiguring
+    requires that package now
+    be installed, to work.
+
+    A Reccommends is
+    present in debconf, but, <sigh>,
+    apt will ignore it.
+
+    So you might have to
+    install apt-utils by hand
+    to get it working.
+
+    On the plus side, though --
+    porters everywhere rejoice --
+    debconf is arch all!
+
+    So maybe it'll
+    get into testing one day,
+    not many weeks hence.
+
+  * And I think that's all
+    the changes of note in this
+    release of debconf.
+
+    I'll stop sitting here
+    in the dark counting fingers,
+    and zinc off to bed.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  5 Mar 2001 02:36:31 -0800
 
 debconf (0.5.64) unstable; urgency=low
 
