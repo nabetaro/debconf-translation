@@ -32,14 +32,8 @@ sub init {
 	$this->SUPER::init(@_);
 
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
-	$this->readline(Term::ReadLine->new('Debconf'));
+	$this->readline(Term::ReadLine->new('debconf'));
 	$this->readline->ornaments(1);
-	# ctrl-p backs up
-	$this->readline->add_defun('previous-question',
-		sub {
-			$this->backup(1);
-			$this->_readline_done(1);
-		}, ord "\cp");
 	$this->interactive(1);
 	$this->linecount(0);
 	
@@ -146,6 +140,16 @@ sub prompt {
 		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
 	else {
+		# ctrl-u or pageup backs up
+		$this->readline->add_defun('previous-question',
+			sub {
+                       	$this->backup(1);
+	                        $this->_readline_done(1);
+	                }, ord "\cu");
+		# I cannot figure out a better way to feed in a key sequence
+		# -- someone help me.
+		$this->readline->parse_and_bind('"\e[5~": previous-question');
+
 		# Use readline in its callback mode, so we can break out of
 		# the loop if the user decides to back up.
 		$this->readline->callback_handler_install($prompt,
