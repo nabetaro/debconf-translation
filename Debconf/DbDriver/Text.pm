@@ -56,9 +56,9 @@ sub load {
 	open(TEXTDB_IN, $file) or $this->error("$file: $!");
 	my $invars=0;
 	my $line;
+	local $/="\n"; # make sure it's sane
 	while ($line = <TEXTDB_IN>) {
 		chomp $line;
-
 		# Process variables.
 		if ($invars) {
 			if ($line =~ /^\s/) {
