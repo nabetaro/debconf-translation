@@ -172,7 +172,7 @@ if ($apt && @buffer) {
 	print "Preconfiguring packages ..\n";
 }
 foreach (@buffer) {
-	($package, $version, $template, $config)=split ' ';
+	($package, $version, $template, $config)=split / /;
 	
 	# Load templates if any.
 	if (defined $template && length $template) {
@@ -182,6 +182,7 @@ foreach (@buffer) {
 		unlink $template;
 		if ($@) {
 			print STDERR "$package ".sprintf(gettext("template parse error: %s"), $@)."\n";
+			unlink $config;
 			next;
 		}
 	}
