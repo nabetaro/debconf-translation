@@ -115,9 +115,9 @@ sub title {
 
 =head2 prompt
 
-Pass it the text to prompt the user with, and an optional default. The user will be
-prompted to enter input, and their input returned. If a title is pending, it will be
-displayed before the prompt.
+Pass it the text to prompt the user with, and an optional default. The
+user will be prompted to enter input, and their input returned. If a
+title is pending, it will be displayed before the prompt.
 
 =cut
 
@@ -125,9 +125,6 @@ sub prompt {
 	my $this=shift;
 	my $prompt=shift;
 	my $default=shift;
-
-	# Display any pending title.
-	$this->title;
 
 	$this->{'linecount'}=0;
 	local $_=$this->{'readline'}->readline($prompt, $default);

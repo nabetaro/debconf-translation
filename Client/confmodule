@@ -42,15 +42,13 @@ for i in "capb CAPB" "stop STOP" "set SET" "reset RESET" "title TITLE" \
 	set -- $i
 	# Generate function on the fly.
 	eval "db_$1 () {
+		local _RET
 		echo \"$2 \$@\" >&3
 		read _RET
-		old_opts="\$@"
 		set -- \$_RET
 		_RET=\$1
 		shift
-		RET="\$*"
-		set -- \$old_opts
-		unset old_opts
+		RET="\$@"
 		return \$_RET
 	      }"
 done

@@ -42,9 +42,6 @@ my @debs=@ARGV;
 
 # If running from apt, read package filenames on stdin.
 if ($apt) {
-	# Apt runs us with the cursor not on a new line. Advance one line.
-	print "\n";
-
 	while (<>) {
 		chomp;
 		push @debs, $_ if $_;
@@ -102,8 +99,9 @@ my %todo;
 	}
 }
 
+# Clear progress output.
 if ($apt) {
-	print "\n";
+	print "\r". ' ' x 30 . "\r";
 }
 my $runconfig='';
 

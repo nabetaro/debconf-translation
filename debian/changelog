@@ -1,3 +1,15 @@
+debconf (0.2.29) unstable; urgency=low
+
+  * dpkg-preconfig now clears it's progress meter when done, like apt
+    does now.
+  * Fixed a possible infinite recursion in the text frontend, if you
+    use it on an absurdly small screen. (It tried to display the title,
+    had to paginate it, went to display [More], and first decided
+    to display the title...)
+  * With doogie's help, simplified Client/confmodule a bit.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 12 Nov 1999 15:38:11 -0800
+
 debconf (0.2.28) unstable; urgency=low
 
   * Added a Debconf user's guide.
