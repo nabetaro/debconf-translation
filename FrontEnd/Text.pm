@@ -18,7 +18,7 @@ uses ReadLine to make the user interface just a bit nicer.
 =cut
 
 package Debian::DebConf::FrontEnd::Text;
-use Debian::DebConf::FrontEnd;
+use Debian::DebConf::FrontEnd::Tty;
 use Debian::DebConf::Element::Text::String;
 use Debian::DebConf::Element::Text::Boolean;
 use Debian::DebConf::Element::Text::Select;
@@ -30,7 +30,7 @@ use Text::Wrap;
 use Term::ReadLine;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
+@ISA=qw(Debian::DebConf::FrontEnd::Tty);
 
 local $|=1;
 
@@ -42,6 +42,19 @@ sub new {
 	$self->{'readline'}->ornaments(1);
 	$self->{'interactive'}=1;
 	return $self;
+}
+
+=head2 resize
+
+This method from my base class is overridden, so after the screen size changes,
+$Text::Wrap::columns is updated to match.
+
+=cut
+
+sub resize {
+	my $this=shift;
+	$this->SUPER::resize(@_);
+	$Text::Wrap::columns=$this->screenwidth;
 }
 
 =head2 makeelement
@@ -122,12 +135,11 @@ sub display_nowrap {
 	# Display any pending title.
 	$this->title unless $notitle;
 
-	my $num=($ENV{'LINES'} || 25);
 	my @lines=split(/\n/, $text);
 	# Silly split elides trailing null matches.
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
-		if (++$this->{'linecount'} > $num - 2) {
+		if (++$this->{'linecount'} > $this->screenheight - 2) {
 			$this->prompt("[More]");
 		}
 		print "$_\n";

@@ -8,13 +8,7 @@ General:
   the user.
 * i8n
 * When Client::ConfModule launches a frontend, the frontend doesn't see
-  stuff echo'd to stdout, if it is echo'd inside a system. A short program
-  illistrating the problem:
-
-  *STDOUT=\*NO_STDOUT;
-  print "HI 1\n";
-  system 'echo HI 2';
-  
+  stuff echo'd to stdout, if it is echo'd inside a system.
 * Regression tests.
 * I need to implement the container template type. That's gonna be fun..
   I've mostly done it now, except it won't work at all with the web
@@ -33,8 +27,6 @@ General:
   send mail.. In fact, all of them can log stuff.
 
 Text frontend:
-* It can't tell how high the screen is unless LINES is exported, which
-  doesn't seem to be the default. I could use stty -a to get this info
 * Add some way to go back in the Text.pm front end. I don't know how to
   let the user signal it, which makes it hard to do. One suggestion is to use
   pageup and pagedown -- but I dunnow how to catch those keys in readline.
@@ -42,8 +34,6 @@ Text frontend:
   interpreted as "use default"
 
 Dialog frontend:
-* It can't tell how high the screen is unless LINES is exported, which
-  doesn't seem to be the default. I could use stty -a to get this info
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.

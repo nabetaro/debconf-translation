@@ -28,7 +28,7 @@ sub show {
 	my ($text, $lines, $columns)=
 		$this->frontend->makeprompt($this->question);
 
-	my $screen_lines=($ENV{LINES} || 25) - $this->frontend->spacer;
+	my $screen_lines=$this->frontend->screenheight - $this->frontend->spacer;
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 	my @params=();

@@ -21,7 +21,7 @@ my $package;
 if ($ARGV[0]=~m!^.*/(.*?)\.(?:postinst|postrm|prerm)$!) {
 	$package=$1;
 }
-else {
+elsif (-e "/var/lib/dpkg/tmp.ci/control") {
 	# The preinst is running, presumably. Now it gets really ugly, because
 	# I have to parse the control file.
 	open (CONTROL, "< /var/lib/dpkg/tmp.ci/control")
@@ -33,6 +33,10 @@ else {
 		}
 	}
 	close CONTROL;
+}
+else {
+	# Being run some other way, not via a dpkg script.
+	$package='';
 }
 
 debug "frontend running, package name is $package";

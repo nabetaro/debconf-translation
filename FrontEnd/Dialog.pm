@@ -21,7 +21,7 @@ It currently uses only whiptail of gdialog, because dialog lacks --defaultno.
 =cut
    
 package Debian::DebConf::FrontEnd::Dialog;
-use Debian::DebConf::FrontEnd;
+use Debian::DebConf::FrontEnd::Tty;
 use Debian::DebConf::Element::Dialog::String;
 use Debian::DebConf::Element::Dialog::Boolean;
 use Debian::DebConf::Element::Dialog::Select;
@@ -36,7 +36,7 @@ use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::FrontEnd);
+@ISA=qw(Debian::DebConf::FrontEnd::Tty);
 
 =head2 new
 
@@ -155,7 +155,7 @@ sub sizetext {
 	# This is difficult because long lines are wrapped. So what I'll do
 	# is pre-wrap the text and then just look at the number of lines it
 	# takes up.
-	$columns = ($ENV{COLUMNS} || 80) - $this->borderwidth - $this->columnspacer;
+	$columns = $this->screenwidth - $this->borderwidth - $this->columnspacer;
 	$text=wrap('', '', $text);
 	my @lines=split(/\n/, $text);
 	
@@ -179,7 +179,7 @@ sub showtext {
 	my $this=shift;
 	my $intext=shift;
 
-	my $lines = ($ENV{LINES} || 25);
+	my $lines = $this->screenheight;
 	my ($text, $height, $width)=$this->sizetext($intext);
 
 	my @lines = split(/\n/, $text);
@@ -229,7 +229,7 @@ generate prompt.
 sub makeprompt {
 	my $this=shift;
 	my $question=shift;
-	my $freelines=($ENV{LINES} || 25) - $this->borderheight + 1;
+	my $freelines=$this->screenheight - $this->borderheight + 1;
 	$freelines += shift if @_;
 
 	my ($text, $lines, $columns)=$this->sizetext(
