@@ -32,7 +32,7 @@ Description: Ignore questions with a priority less than..
  might ask you. Only questions with a certain priority or higher are actually
  shown to you; all less important questions are skipped.
  .
- You can select the lowest priority of question you want to see: 
+ You can select the lowest priority of question you want to see:
    - 'critical' is for items that will probably break the system
      without user intervention.
    - 'high' is for items that don't have reasonable defaults.
@@ -40,7 +40,7 @@ Description: Ignore questions with a priority less than..
    - 'low' is for trivial items that have defaults that will work in the
      vast majority of cases.
  .
- For example, this question is of medium priority, and if your priority were 
+ For example, this question is of medium priority, and if your priority were
  already 'high' or 'critical', you wouldn't see this question.
  .
  If you are new to the Debian GNU/Linux system choose 'critical' now,
