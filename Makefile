@@ -2,8 +2,7 @@ all:
 	$(MAKE) -C doc
 
 test:
-	./test.pl $(FRONTEND) samples/$(PACKAGE).templates \
-		samples/$(PACKAGE).config
+	samples/$(PACKAGE)
 
 clean:
 	find . -name \*~ | xargs rm -f

@@ -2,15 +2,14 @@
 # Apt configurator.
 # GPL 199 by Joey Hess
 
-# Where is the mirrors master list?
-MIRRORLIST=~/Mirrors.masterlist
+VARDIR=$1
+GROUP=$2
+METHOD=$3
 
-PATH=$PATH:Client
-if [ -e Client/confmodule ]; then
-	. Client/confmodule
-else
-	. /usr/share/debconf/confmodule
-fi
+# Where is the mirrors master list?
+MIRRORLIST=$VARDIR/methods/$GROUP/Mirrors.masterlist
+
+. /usr/share/debconf/confmodule
 
 # Pass in a URI type; this function returns a list of countries
 # that have mirrors in them that match the type.
@@ -68,7 +67,7 @@ scan_cd () {
 	else
 		# Apt didn't like the cdrom for some reason.
 		db_fset aptconf/cd/bad isdefault true
-		db_input aptconf/cd/bad
+		db_input critical aptconf/cd/bad || true
 		db_go
 		return 1
 	fi
@@ -86,14 +85,14 @@ handle_rest_cds () {
 
 		db_set aptconf/cd/another false
 		db_fset aptconf/cd/another isdefault true
-		db_input medium aptconf/cd/another
+		db_input medium aptconf/cd/another || true
 		db_go
 		db_get aptconf/cd/another
 		if [ "$RET" = true ]; then
 			while ! mount $1 /cdrom -o ro -t iso9660
 			do
 				db_fset aptconf/cd/dev isdefault true
-				db_input critical aptconf/cd/dev
+				db_input critical aptconf/cd/dev || true
 				db_go
 				db_get aptconf/cd/dev
 				CDDEV="$RET"
@@ -112,7 +111,7 @@ add_another () {
 	# and if so, restart.
 	db_set aptconf/another false
 	db_fset aptconf/another isdefault true
-	db_input medium aptconf/another
+	db_input medium aptconf/another || true
 	db_go
 	db_get aptconf/another
 	if [ "$RET" = true ]; then
@@ -164,7 +163,7 @@ while [ "$MAINLOOP" ] || add_another; do
 
 	# Ask what source apt should install from.
 	db_fset aptconf/uri_type isdefault true
-	db_input critical aptconf/uri_type
+	db_input critical aptconf/uri_type || true
 	db_go
 	db_get aptconf/uri_type
 	URI="$RET"
@@ -173,12 +172,13 @@ while [ "$MAINLOOP" ] || add_another; do
 
 	# If they chose to use CD, there is little point in asking
 	# these questions, since the CD's they insert will answer them for us.
-	if [ "$URI" != "cdrom" ]; then
+	# Same goes if they are entering manually.
+	if [ "$URI" != "cdrom" -a "$URI" != "manual entry" ]; then
 		db_beginblock
 		db_fset aptconf/distribution isdefault true
-		db_input low aptconf/distribution
+		db_input low aptconf/distribution || true
 		db_fset aptconf/non-free isdefault true
-		db_input medium aptconf/non-free
+		db_input medium aptconf/non-free || true
 		db_endblock
 		db_go
 
@@ -187,7 +187,7 @@ while [ "$MAINLOOP" ] || add_another; do
 		db_get aptconf/non-free
 		if [ "$RET" = true ]; then
 			db_fset aptconf/contrib isdefault true
-			db_input medium aptconf/contrib
+			db_input medium aptconf/contrib || true
 			db_go
 		fi
 	fi
@@ -197,7 +197,7 @@ while [ "$MAINLOOP" ] || add_another; do
 		# Ask them which country they're in.
 		db_subst aptconf/country countries "`country_list $URI`"
 		db_fset aptconf/country isdefault true
-		db_input critical aptconf/country
+		db_input critical aptconf/country || true
 		db_go
 		
 		db_get aptconf/country
@@ -205,7 +205,7 @@ while [ "$MAINLOOP" ] || add_another; do
 			# Now prompt with the mirrors in the selected country.
 			db_subst aptconf/mirror mirrors "`mirror_list $URI \"$RET\"`"
 			db_fset aptconf/mirror isdefault true
-			db_input critical aptconf/mirror
+			db_input critical aptconf/mirror || true
 			db_go
 			
 			# Now shove the data about the mirror into some other
@@ -219,9 +219,9 @@ while [ "$MAINLOOP" ] || add_another; do
 			# Prompt for hostname and directory the mirror is in.
 			db_beginblock
 			db_fset aptconf/hostname isdefault true
-			db_input critical aptconf/hostname
+			db_input critical aptconf/hostname || true
 			db_fset aptconf/directory isdefault true
-			db_input critical aptconf/directory
+			db_input critical aptconf/directory || true
 			db_endblock
 			db_go
 		fi
@@ -239,7 +239,7 @@ while [ "$MAINLOOP" ] || add_another; do
 			# TODO: We could give them a list of likely devices..
 			#       This is unfriendly right now.
 			if [ -z "$CDDEV" ]; then
-				db_input critical aptconf/cd/dev
+				db_input critical aptconf/cd/dev || true
 				db_go
 				db_get aptconf/cd/dev
 				CDDEV="$RET"
@@ -265,44 +265,56 @@ while [ "$MAINLOOP" ] || add_another; do
 		LOOP=1
 		while [ "$LOOP" ]; do
 			db_fset aptconf/directory isdefault true
-			db_input critical aptconf/directory
+			db_input critical aptconf/directory || true
 			db_go
 			db_get aptconf/directory
 			
 			# A very simple mirror sanity check.
 			if [ ! -d "$RET/dists" ]; then
 				db_fset aptconf/baddir isdefault true
-				db_input critical aptconf/baddir
+				db_input critical aptconf/baddir || true
 				db_go
 			else
 				LOOP=''
 			fi
 		done
+	;;
+	"manual entry")
+		# Prompt them for the line to add.
+		db_fset aptconf/wholeline isdefault true 
+		db_input critical aptconf/wholeline || true
+		db_go
 	esac
 
 	# Generate the sources.list line if we haven't already.
 	if [ "$URI" != cdrom ]; then
-		db_get aptconf/hostname
-		HOST="$RET"
-		db_get aptconf/directory
-		DIR="$RET"
-		db_get aptconf/distribution
-		DIST="$RET"
-		db_get aptconf/non-free
-		if [ "$RET" = true ]; then
-			NONFREE="non-free"
-		fi
-		db_get aptconf/contrib
-		if [ "$RET" = true ]; then
-			CONTRIB="contrib"
-		fi
+		if [ "$URI" != "manual entry" ]; then
+			db_get aptconf/hostname
+			HOST="$RET"
+			db_get aptconf/directory
+			DIR="$RET"
+			db_get aptconf/distribution
+			DIST="$RET"
+			db_get aptconf/non-free
+			if [ "$RET" = true ]; then
+				NONFREE="non-free"
+			fi
+			db_get aptconf/contrib
+			if [ "$RET" = true ]; then
+				CONTRIB="contrib"
+			fi
 		
-		if [ "$URI" = ftp -o "$URI" = http ]; then
-			SEP=//
-		fi
+			if [ "$URI" = ftp -o "$URI" = http ]; then
+				SEP=//
+			fi
 	
-		echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
-		echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
+			echo "deb $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
+			echo "deb-src $URI:$SEP$HOST$DIR $DIST main $NONFREE $CONTRIB" >> /etc/apt/sources.list
+		else
+			db_get aptconf/wholeline
+			echo $RET >> /etc/apt/sources.list
+			echo 
+		fi
 
 		# As a final sanity check, run apt-get update, and catch the
 		# return code and errors. This is unnecessary (I think)
@@ -315,7 +327,7 @@ while [ "$MAINLOOP" ] || add_another; do
 			# entry, and loop.
 			db_subst aptconf/badsource apt_error `tr '\n' ' ' < $tempfile`
 			db_fset aptconf/badsource isdefault true
-			db_input critical aptconf/badsource
+			db_input critical aptconf/badsource || true
 			db_go
 			rm -f $tempfile
 			cp /etc/apt/sources.list.bak /etc/apt/sources.list

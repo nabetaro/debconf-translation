@@ -13,7 +13,7 @@ script run so they can examine the system and ask questions.
 .I "\fB\-f\fPtype\fR,\fP \fB\-\-frontend=\fPtype"
 Select the frontend to use. The default frontend can be permanently changed by:
 
- dpkg-reconfigure debconf
+ dpkg-reconfigure --priority=medium debconf
 
 Currently available frontends are dialog, text, and web.
 .TP
@@ -22,7 +22,7 @@ Set the lowest priority of questions you are interested in. Valid priorities
 are currently low, medium, high, and critical. The default priority can be
 permanently changed by:
 
- dpkg-reconfigure debconf
+ dpkg-reconfigure --priority=medium debconf
 
 Any questions with a priority below the selected priority will be ignored and
 their default answers will be used.

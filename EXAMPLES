@@ -3,26 +3,15 @@ it, try these commands. (The Text frontend works best if
 libterm-readline-gnu-perl is installed, but it does not depend on it. The
 Gtk frontend requires libgtk-perl.)
 
-make test FRONTEND=Dialog PACKAGE=demo
-make test FRONTEND=Text PACKAGE=demo
-make test FRONTEND=Gtk PACKAGE=demo
-make test FRONTEND=Dialog PACKAGE=cvs
-make test FRONTEND=Text PACKAGE=tutorial
-make test FRONTEND=Gtk PACKAGE=tutorial
-make test FRONTEND=Dialog PACKAGE=exim
-make test FRONTEND=Text PACKAGE=exim
-make test FRONTEND=Gtk PACKAGE=exim
-
-The cvs demo is actually skipping some questions of low priority. To see
-them, try:
-
-make test FRONTEND=Dialog PACKAGE=cvs PRIORITY=low
-
-You can also use PRIORITY=high to skip even more questions.
-
-You can also try the web frontend, just run one of these 3 commands, and
-connect to localhost port 8001:
-
-make test FRONTEND=Web PACKAGE=demo
-make test FRONTEND=Web PACKAGE=cvs
-make test FRONTEND=Web PACKAGE=exim
+make test DEBIAN_FRONTEND=Dialog PACKAGE=demo
+make test DEBIAN_FRONTEND=Text PACKAGE=demo
+make test DEBIAN_FRONTEND=Gtk PACKAGE=demo
+make test DEBIAN_FRONTEND=Dialog PACKAGE=cvs
+make test DEBIAN_FRONTEND=Text PACKAGE=tutorial
+make test DEBIAN_FRONTEND=Gtk PACKAGE=tutorial
+make test DEBIAN_FRONTEND=Dialog PACKAGE=exim
+make test DEBIAN_FRONTEND=Text PACKAGE=exim
+make test DEBIAN_FRONTEND=Gtk PACKAGE=exim
+make test DEBIAN_FRONTEND=Web PACKAGE=demo
+make test DEBIAN_FRONTEND=Web PACKAGE=cvs
+make test DEBIAN_FRONTEND=Web PACKAGE=exim

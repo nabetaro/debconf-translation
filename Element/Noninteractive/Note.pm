@@ -42,8 +42,9 @@ sub show {
 		$title=~s/'/\'/g;                                                                             # This comment here to work around stupid ' highlighting in jed
 	    	open (MAIL, "|mail -s '$title' root") or return;
 		print MAIL <<eof;
-This note was sent to you because debconf, running in noninteractive mode,
-was asked to make sure you saw it. Here is the text of the note:
+This note was sent to you because debconf was asked to make sure you saw it,
+but debconf was running in noninteractive mode, or you have told it to not
+pause and show you unimportant notes. Here is the text of the note:
 
 eof
 		print MAIL $this->question->extended_description || $this->question->description;

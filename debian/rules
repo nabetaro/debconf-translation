@@ -38,7 +38,7 @@ binary-indep: install
 	dh_installdocs doc/CREDITS doc/*.txt doc/*.html \
 		doc/packages-that-prompt doc/spec/*.txt doc/spec/*.html \
 		README TODO
-	dh_installexamples samples/*.* test.pl
+	dh_installexamples samples/*
 	dh_installmenu
 	dh_installcron
 	dh_installmanpages -p debconf dpkg-frontend.1
@@ -47,7 +47,10 @@ binary-indep: install
 	dh_fixperms
 	dh_suidregister
 	dh_installdeb
+	# Hack to make sure debconf-tiny has the same version.
+	mv debian/debconf-tiny.changelog debian/debconf-tiny.changelog.bak
 	dh_gencontrol
+	mv debian/debconf-tiny.changelog.bak debian/debconf-tiny.changelog
 	dh_md5sums -p debconf
 	dh_builddeb
 

@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 # This is a helper program for confmodule. It expects to be passed
 # the name of the confmodule script to run, and any parameters for it.
+#
 # This whole thing is really a hack; in an ideal world, dpkg would handle
 # all this.
 
@@ -37,6 +38,20 @@ elsif (-e "/var/lib/dpkg/tmp.ci/control") {
 else {
 	# Being run some other way, not via a dpkg script.
 	$package='';
+
+	# See if there is a templates file in the same directory as the script,
+	# with the same name except .templates is appended. Also try just
+	# using the script name, with "config" in it at the end replaced with
+	# "templates".
+	my $t="$ARGV[0].templates";
+	if (! -e $t) {
+		$t=$ARGV[0];
+		$t=~s/config$/templates/;
+	}
+	if (-e $t) {
+		debug 2, "trying to load templates file (guessing it is $t)";
+		Debian::DebConf::ConfigDb::loadtemplatefile($t, $package);
+	}
 }
 
 debug 2, "frontend running, package name is $package";

@@ -1,3 +1,20 @@
+debconf (0.2.33) unstable; urgency=low
+
+  * Debconf scripts now automatically load their templates when they are
+    invoked manually, if the .templates file is present in the same directory.
+  * This makes debconf-loadtemplate basically obsolete, so I have removed it.
+  * This means there is no need for a special test.pl in the source package.
+  * And this also means it's now a lot easier to debug config scripts before
+    putting them in a package. Documented this in the tutorial.
+  * Feh, I have to keep the debconf-tiny changelog in sync with this one,
+    or the package version isn't updated. Debhelper is too smart for its
+    own good. Hacked around it. (If other people have this problem, I can
+    add a flag to debhelper to handle this better..)
+  * Documented everywhere that when reconfiguring debconf, --priority=medium
+    is a good idea. Closes: #50225
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 15 Nov 1999 09:46:22 -0800
+
 debconf (0.2.32) unstable; urgency=low
 
   * Added a debconf-tiny package, which is a very stripped down debconf to be

@@ -1,6 +1,6 @@
 Template: aptconf/uri_type
 Type: select
-Choices: cdrom, http, ftp, nfs, filesystem
+Choices: cdrom, http, ftp, nfs, filesystem, manual entry
 Default: cdrom
 Description: Choose what method apt will use to access the Debian archive
  Apt can access the Debian archive in a variety of ways. Choose the access
@@ -105,3 +105,15 @@ Description: Add another apt source?
  Apt can optionally install from multiple Debian archives. You have just
  successfully added a source to apt, and if you like, you can add another
  one.
+
+Template: aptconf/wholeline
+Type: string
+Description: Manually enter the apt source line
+ Manually enter here the line you wish to add to apt's sources list.
+ If you received a line from someone else, you should just be able to paste
+ it in here.
+ .
+ See the sources.list(5) man page for details. The format looks something
+ like:
+ .
+ deb uri distribution [component1] [componenent2] [...]
