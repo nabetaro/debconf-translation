@@ -66,6 +66,36 @@ sub _hashify ($$) {
 	}
 	return $i;
 }
+ 
+# Processes an environment variable that encodes a reference to an existing
+# db, or the parameters to set up a new db. Returns the db. Additional
+# parameters will be used as defaults if a new driver is set up. At least a
+# name default should always be passed. Returns the db name.
+sub _env_to_driver {
+	my $value=shift;
+	
+	my ($name, $options) = $value =~ m/^(\w+)(?:{(.*)})?$/;
+	return unless $name;
+	
+	return $name if Debconf::DbDriver->driver($name);
+	
+	my %hash = @_; # defaults from params
+	$hash{driver} = $name;
+	
+	if (defined $options) {
+		# And add any other name:value name:value pairs,
+		# default name is `filename' for convienence.
+		foreach (split ' ', $options) {
+			if (/^(\w+):(.*)/) {
+				$hash{$1}=$2;
+			}
+			else {
+				$hash{filename}=$_;
+			}
+		}
+	}
+	return Debconf::Db->makedriver(%hash)->{name};
+}
 
 sub load {
 	my $class=shift;
@@ -83,15 +113,15 @@ sub load {
 	local $/="\n\n"; # read a stanza at a time
 
 	# Read global options stanza.
-	1 until _hashify(<DEBCONF_CONFIG>, $config);
+	1 until _hashify(<DEBCONF_CONFIG>, $config) || eof DEBCONF_CONFIG;
 
 	# Verify that all options are sane.
 	if (! exists $config->{config}) {
-		print STDERR gettext("Config database not specified in config file.");
+		print STDERR "debconf: ".gettext("Config database not specified in config file.")."\n";
 		exit(1);
 	}
 	if (! exists $config->{templates}) {
-		print STDERR gettext("Template database not specified in config file.");
+		print STDERR "debconf: ".gettext("Template database not specified in config file.")."\n";
 		exit(1);
 	}
 
@@ -102,6 +132,26 @@ sub load {
 		Debconf::Db->makedriver(%config);
 	}
 	close DEBCONF_CONFIG;
+
+	# Allow environment overriding of primary database driver
+	my @finalstack = ($config->{config});
+	if (exists $ENV{DEBCONF_DB_OVERRIDE}) {
+		unshift @finalstack, _env_to_driver($ENV{DEBCONF_DB_OVERRIDE},
+			name => "_ENV_OVERRIDE");
+	}
+	if (exists $ENV{DEBCONF_DB_FALLBACK}) {
+		push @finalstack, _env_to_driver($ENV{DEBCONF_DB_FALLBACK},
+			name => "_ENV_FALLBACK",
+			readonly => "true");
+	}
+	if (@finalstack > 1) {
+		Debconf::Db->makedriver(
+			driver => "Stack",
+			name => "_ENV_stack",
+			stack  => join(", ", @finalstack),
+		);
+		$config->{config} = "_ENV_stack";
+	}
 }
 
 =item getopt

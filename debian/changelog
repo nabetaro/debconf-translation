@@ -1,3 +1,17 @@
+debconf (1.1.22) unstable; urgency=low
+
+  * Added DEBCONF_DB_OVERRIDE and DEBCONF_DB_FALLBACK environment variables
+    that are very useful for feeding databases to remote hosts for unattended
+    ad-hoc mass upgrades. Based on a patch by Sam Vilain.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  2 Aug 2002 20:49:36 -0400
+
+debconf (1.1.21) unstable; urgency=low
+
+  * Deal better with empty or soly-comments config files.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 29 Jul 2002 18:22:12 -0400
+
 debconf (1.1.20) unstable; urgency=low
 
   * Corrected references to /usr/doc in man page. Closes: #154571

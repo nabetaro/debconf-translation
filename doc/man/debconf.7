@@ -177,51 +177,79 @@ man page for all the gory details. Generally,
 the backend database is located in
 .B /var/cache/debconf/
 .SH Unattended Package Installation
-Occasionally, it is required to perform unattended installation of
-debian packages to systems, but default answers to configuration
-questions are not acceptable.
+If you have many machines to manage you will sometime find yourself in the
+position of needing to perform an unattended installation or upgrade of
+packages on many systems, when the default answers to some configuration
+questions are not acceptable. There are many ways to approach this; all
+involve setting up a database and making debconf use it to get the answers
+you want.
 .P
-The sequence is
-.TP
-.B 1
-Load the templates for the package to be installed and configure them
-(perhaps using
+You should really read
+.B debconf.conf (5)
+before this secton, as you need to understand how debconf's databases work.
+.P
+The easiest way to set up the database is to install the packages on one
+machine and answer their questions as usual. Or you might just use
 .BR dpkg-preconfigure (8)
-), or install the package and answer the questions manually.  This only
-needs to be performed on one system.
-.TP
-.B 2
-Extract the configuration for the desired package(s) from the Debconf
-backend database
-.TP
-.B 3
-Pre-populate the Debconf backend database on the target systems with
-the configuration
-.TP
-.B 4
-Install the packages using the Noninteractive front-end
+to configure a set of packages without actually installing them. Or you
+might even decide to write a plain text debconf database by hand or
+something.
 .P
-The exact process involved for steps 2 and 3 will depend on how
-Debconf is configured on the master and target systems.  Converting
-the Debconf backend database to a directory heirarcy as described in
-.BR debconf.conf (5)
-and
-.BR debconf-copydb (1)
-will then make it trivial to extract the answers from the database and
-copy out to the target systems.  An entire network of debian machines
-can also have any or all package installation questions answered
+Once you have the database, you need to figure out how to make
+te remote systems use it. This depends of course on the configuration of
+those systems and what database tyes they are set up to use.
+.P
+If you are using the LDAP debconf database, an entire network of debian
+machines can also have any or all package installation questions answered
 automatically by a single LDAP server.
 .P
-You can extract the list of debconf configuration questions using
-.BR debconf-show (1)
-, and
-.BR debconf-communicate (1)
-can be used to feed them back in, but only if the target Debconf
-database has had the templates for that package loaded via
-.BR debconf-loadtemplate (1)
-or
-.BR dpkg-preconfigure (8) .
+But perhaps you're using something a little bit easier to set up like, say,
+the default debconf database configuration, or you just don't want your
+remote systes to use LDAP all the time. In this case the best approach is
+to temporarily configure the remote systems to stack your database
+underneath their own existing databases, so they pull default values out of
+it. Debconf offers two environment variables, DEBCONF_DB_FALLBACK and
+DEBCONF_DB_OVERRIDE, to make it easy to do this on the fly. Here is a sample
+use:
 .P
+   cat /var/cache/debconf/config.dat | \\
+   ssh root@target "DEBCONF_FRONTEND=noninteractive \\
+                  DEBCONF_DB_FALLBACK=Pipe apt-get upgrade"
+.P	
+This makes the debconf on the remote host read in the data that is piped
+accross the ssh connection and interpret it as a plain text format debconf
+database. It then uses that database as a fallback database -- a
+read-only database that is queried for answers to questons if the system's
+main debconf database lacks answers.
+.P
+Here's another way to use the DEBCONF_DB_FALLBACK environment variable:
+.P
+  ssh -R 389:ldap:389 root@target \\
+  	"DEBCONF_DB_FALLBACK='LDAP{host:localhost}' apt-get upgrade"
+.P
+Here ssh is used to set up a tunneled LDAP connection and run debconf.
+Debconf is told to use the LDAP server as the fallback database. Note the
+use of "{host:localhost}" to configure how debconf accesses the LDAP
+database.
+.P
+Here's another method:
+.P
+  scp config.dat root@target:
+  ssh root@target "DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get upgrade
+.P
+Here you copy the database over with scp, and then ssh over and make
+debconf use the file you copied over. This illistrates a shorthand you can
+use in the DEBCONF_DB_FALLBACK parameters -- if a field name is left off, it
+defaults to "filename".
+.P
+There is only one problem with these uses of the DEBCONF_DB_FALLBACK parameter:
+While the fallback database can provide answers to questons the other
+debconf databases have never seen, it is only queried as a fallback; after
+the other databases. If you need to instead temporarily override an
+existing value on the remote host, you should instead use the
+DEBCONF_DB_OVERRIDE variable. Like DEBCONF_DB_FALLBACK, it sets up a temporary
+database, but this database is consulted before any others, and can be used
+to override existing values.
 .SH Developing for Debconf
 Package developers and others who want to develop packages that use 
 debconf should read
@@ -274,6 +302,32 @@ the verbage as much as possible.
 .B DEBCONF_SHOWOLD
 Set to "yes" to force debconf to redisplay old questions that you have
 already seen before.
+.TP
+.B DEBCONF_DB_FALLBACK
+Stack a database after the normally used databases, so that it is used as a
+fallback to get configuration information from. See "Unattended Package
+Installation" above. If the value of the variable is the name of an
+existing database in debconf.conf, then that database will be used.
+Otherwise, the environment variable can be used to configure a database on the
+fly, by telling the type of database, and optionally passing field:value
+settings, inside curly braces after the type. Thus, this uses the
+fallbackdb in debconf.conf:
+  DEBCONF_DB_FALLBACK=fallbackdb
+
+Whle this sets up a new database of type File, and tells it a filename to
+use and turns off backups:
+  DEBCONF_DB_FALLBACK=File{Filename:/root/config.dat Backup:no}
+
+And as a shorthand, this sets up a database of type File with a filename:
+  DEBCONF_DB_FALLBACK=File{/root/config.dat}
+
+Note that if a fallback database is set up on the fly, it will be read-only
+by default.
+.TP
+.B DEBCONF_DB_OVERRIDE
+Stack a database before the normally used databases, so that it can
+override values from them. The value of the variable works the same as does
+the value of DEBCONF_DB_FALLBACK.
 .SH BUGS
 Probably quite a few, there's a lot of code here.
 .P

@@ -22,15 +22,16 @@ General:
 > a "don't ask me again" checkbox, so next time it'll just used the stored
 > answer.
   Dialog frontend couldn't support this, but the rest could.
-* I need to update the tutorial with better info on debugging, especially
-  since debconf-loadtemplate and debconf-communicate should make it easier.
+* Add a dbdriver format module that understands debconf-show output;
+  then you can pipe that into a ssh to a remote host and use
+  DEBCONF_DB_OVERIDE and fun stuff like that.
 
 Protocol and spec revisions:
 
 * Expose a way to iterate over questions; this would allow a UI independant
   database browser to be easily written.
-* Document the behavior of the seen flag when backing up in the came config
-  script run.
+* Document the behavior of the seen flag when backing up in the same config
+  script run. (Tausq?)
 
 Database:
 * The division between Debconf::Config and Debconf::Db still needs thought.
