@@ -7,6 +7,8 @@
 #include <wait.h>
 #include <fstream.h>
 
+#define APT_COMPATIBILITY 1
+#include <apt-pkg/debversion.h>
 #include <apt-pkg/pkgcache.h>
 #include <apt-pkg/configuration.h>
 #include <apt-pkg/init.h>
@@ -60,7 +62,7 @@ void writeconfig(const DebFile &file)
 void init(MMap *&Map, pkgCache *&Cache)
 {
 	// Initialize the apt cache
-	if (pkgInitialize(*_config) == false)
+	if (pkgInitConfig(*_config) == false || pkgInitSystem(*_config, _system) == false)
 	{
 		fprintf(stderr, "Cannot initialize apt cache\n");
 		return;
@@ -68,8 +70,8 @@ void init(MMap *&Map, pkgCache *&Cache)
 	pkgSourceList List;
 	List.ReadMainList();
 	OpProgress Prog;	
-	Map = pkgMakeStatusCacheMem(List,Prog);
-	Cache = new pkgCache(*Map);
+	pkgMakeStatusCache(List,Prog,&Map,true);
+	Cache = new pkgCache(Map);
 }
 
 int main(int argc, char **argv, char **env)
