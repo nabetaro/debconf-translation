@@ -1,3 +1,10 @@
+debconf (1.4.23) unstableD; urgency=low
+
+  * Patch from Eugeniy Meshcheryako to make the dialog frontend use a
+    utf-aware width function when calculating dialog sizes. Closes: #245688
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 24 Apr 2004 15:15:52 -0400
+
 debconf (1.4.22) unstable; urgency=low
 
   * Update po/ja.po. Closes: #241786
