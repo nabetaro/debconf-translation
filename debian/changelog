@@ -1,3 +1,16 @@
+debconf (1.4.19) unstable; urgency=low
+
+  * Fix Gnome frontend's display of select and multiselect questions
+    and notes to use more of the available space. Closes: #229009
+    Thanks to Mark Howard for this patch.
+  * Use tooltips to display the help texts for questions in the Gnome
+    frontend. Closes: #240299 (Mark Howard). The Help bttons are still 
+    left in the UI for now.
+  * Updated Greek po file from Konstantinos Margaritis. Closes: #240641
+  * French po update from Julien Louis. Closes: #240648
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 28 Mar 2004 10:41:16 -0500
+
 debconf (1.4.18) unstable; urgency=low
 
   * Removed all sigils. Closes: #223020, #182239, #239916
