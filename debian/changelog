@@ -1,3 +1,14 @@
+debconf (0.2.14) unstable; urgency=low
+
+  * I found that the currently installed version of the package was being
+    passed to the config script if the package was just installed with dpkg
+    and not preconfiged. Fixed.
+  * If a preinst sources confmodule, the config script will be run.
+    Needed for packages like ssh that need to ask questions before install
+    time always.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed,  3 Nov 1999 15:22:17 -0800
+
 debconf (0.2.13) unstable; urgency=low
 
   * Patchs from Fumitoshi UKAI <ukai@ukai.org> to:
@@ -34,7 +45,7 @@ debconf (0.2.9) unstable; urgency=low
 
   * Squashed a ConfModule startup warning.
   * Removed an implicit apt dependancy.
-  * _Really_ fixed problem with newline after owner. Tested and resteted
+  * _Really_ fixed problem with newline after owner. Tested and retested
    this time. Closes: #48450
 
  -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 12:45:54 -0800

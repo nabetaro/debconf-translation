@@ -121,7 +121,12 @@ sub import {
 			my $config=$0;
 			$config=~s/\.(?:postinst|postrm|preinst|prerm)$/.config/;
 			if (-e $config) {
-				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config, @ARGV);
+				my $version=$ARGV[1];
+				if ($version eq '') {
+					$_=`dpkg --status $package`;
+					($version)=m/Version: (.*)\n/;
+				}
+				my $confmodule=Debian::DebConf::AutoSelect::confmodule($config, 'configure', $version);
 				
 				# Make sure that any questions the confmodule
 				# registers are owned by the current package.

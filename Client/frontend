@@ -30,16 +30,23 @@ $frontend->default_title($package);
 if ($ARGV[0] =~/\.postinst$/) {
 	# Load templates, if any.
 	my $templates=$ARGV[0];
-	$templates=~s/\.(?:postinst|prerm)$/.templates/;
+	$templates=~s/\.(?:postinst|prerm|preinst|postrm)$/.templates/;
 	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 		if -e $templates;
 
 	# Run config script, if any.
 	my $config=$ARGV[0];
-	$config=~s/\.(?:postinst|prerm)$/.config/;
+	$config=~s/\.(?:postinst|prerm|preinst|postrm)$/.config/;
 	if (-e $config) {
-		$_=`dpkg --status $package`;
-		my ($version)=m/Version: (.*)\n/;
+		# If it is set, I assume that the third argument passed to this
+		# program (which should be the second argument passed to the
+		# postinst that ran it), is the package version.
+		my $version=$ARGV[2];
+		if ($version eq '') {
+			$_=`dpkg --status $package`;
+			($version)=m/Version: (.*)\n/;
+		}
+		
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config,
 			"configure", $version);
 
