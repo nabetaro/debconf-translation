@@ -22,29 +22,47 @@ foreach my $thing (qw(templates debconf)) {
 	}
 }
 
+# So this is a bitch. In the questions objects, there are things like
+# template' => $templates{'apt-setup/security-updates-failed'}
+# Well, I want the template *name*, not a ref to it. But there is no way at
+# all to go from the name to a ref except for walking the whole hash.
+# Instead of doing that below, add some _name fields to the templates hash
+# that contain their names.
+foreach my $t (keys %templates) {
+	$templates{$t}->{_name}=$t;
+}
+
 # Now make new Question objects for all the questions, pulling out
 # Templates as need be, and registering them as owners of the templates.
 # Kill empty owner fields as I go, they are a vestiage of an old bug.
 foreach my $item (keys %questions) {
 	my @owners=grep { $_ ne '' } keys %{$questions{$item}->{owners}};
 	next unless @owners;
-	
+	my $question=Debconf::Question->new($item, pop @owners);
+	$question->addowner($_) foreach @owners;
+}
+
+# Now that all the Question objects are made, we can fill them in.
+# Have to do it in two passes to prevent duplicate questions trying to 
+# be made.
+foreach my $item (keys %questions) {
+	my $question=Debconf::Question->get($item);
+
 	# Make sure that the template used by this item exists.
-	my $tname=$questions{$item}->{template};
+	my $tname=$questions{$item}->{template}->{_name};
 	my $template=Debconf::Template::Persistent->get($tname);
 	unless (defined $template) {
 		# Template does not exist yet, so we have to pull it out of
 		# the %templates hash.
 		$template=Debconf::Template::Persistent->new($tname, $item);
 		# Simply copy every field into it.
-		foreach my $field (%{$templates{$tname}}) {
+		foreach my $field (keys %{$templates{$tname}}) {
+			next if $field=~/^_name/; # except this one we added above.
 			$template->$field($templates{$tname}->{$field});
 		}
 	}
-	
-	my $question=Debconf::Question->new($item, pop @owners);
-	$question->addowner($_) foreach @owners;
-	# Copy over all significant values.
+	# Copy over all significant values to the question.
+
 	# This old flag morphes into the seen flag, inverting meaning.
 	if (exists $questions{$item}->{flag_isdefault}) {
 		if ($questions{$item}->{flag_isdefault} eq 'false') {
@@ -68,8 +86,9 @@ foreach my $item (keys %questions) {
 		and defined $questions{$item}->{value}) {
 		$question->value($questions{$item}->{value});
 	}
+
 	# And finally, set its template.
-	$question->template($questions{$item}->{template});
+	$question->template($questions{$item}->{template}->{_name});
 }
 
 Debconf::Db->save;
