@@ -1,3 +1,11 @@
+debconf (0.9.32) unstable; urgency=low
+
+  * The config file can have a Debug: line that is the same as always
+    setting DEBCONF_DEBUG. The config file can also be used to redirect
+    debug output to the syslog.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  5 Apr 2001 10:10:21 -0700
+
 debconf (0.9.31) unstable; urgency=low
 
   * debconf-mergetemplates: ignore locale settings, as they should not take

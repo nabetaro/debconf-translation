@@ -54,6 +54,16 @@ The email address Debconf should send mail to if it needs to make sure that
 the admin has seen an important note. Defaults to "root", but can be set to
 any valid email address to send the mail there. If you prefer to never have
 debconf send you mail, specify a blank address.
+.TP
+.B Debug
+Makes debconf output debug information, the same as if DEBCONF_DEBUG was
+set to a value. Regular expressions may be used, or it can be set to "user"
+or "developer", or other things.
+.TP
+.B Log-To
+Controls where debconf sends debug information. By default, it goes to
+stderr, but if you prefer, it can be logged to the syslog. Valid values:
+"stderr" or "syslog".
 .RE
 .P
 For example, the first stanza of a file might look like this:

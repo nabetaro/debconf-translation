@@ -70,7 +70,7 @@ foreach my $fn (@templates) {
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=make_confmodule(join " ", @ARGV);
+my $confmodule=make_confmodule(join " ", @command);
 
 # Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);

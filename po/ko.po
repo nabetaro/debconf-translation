@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-03-23 20:50-0800\n"
+"POT-Creation-Date: 2001-04-05 10:52-0700\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -28,14 +28,14 @@ msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
 msgstr ""
-"debconf: confmodule를 시작할 때 정의되지 않은 값이 발견되었습니다! 버그 "
-"보고를 하고 stack trace를 아래에 포함시켜주세요"
+"debconf: confmodule를 시작할 때 정의되지 않은 값이 발견되었습니다! 버그 보고"
+"를 하고 stack trace를 아래에 포함시켜주세요"
 
-#: ../Debconf/Config.pm:86
+#: ../Debconf/Config.pm:83
 msgid "Config database not specified in config file."
 msgstr ""
 
-#: ../Debconf/Config.pm:90
+#: ../Debconf/Config.pm:87
 msgid "Template database not specified in config file."
 msgstr ""
 
@@ -55,8 +55,8 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 "
-"않아야 합니다. Perhaps the tamplates were incorrectly localized."
+"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
+"야 합니다. Perhaps the tamplates were incorrectly localized."
 
 #: ../Debconf/Element/Editor/Boolean.pm:35
 #: ../Debconf/Element/Editor/Boolean.pm:58
@@ -134,16 +134,16 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"대화상자 frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 "
-"없이는 사용할 수 없습니다."
+"대화상자 frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
+"는 사용할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:85
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Whiptail과 dialog 모두가 설치되지 않았으므로, 대화상자 기반의 frontend는 "
-"사용할 수 없습니다."
+"Whiptail과 dialog 모두가 설치되지 않았으므로, 대화상자 기반의 frontend는 사용"
+"할 수 없습니다."
 
 #: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
@@ -167,11 +167,11 @@ msgid ""
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
 "편집기 기반의 debconf frontend는 편집해야 할 하나 이상의 텍스트 파일과 함께 "
-"나타납니다. 이것도 그러한 텍스트 파일입니다. 표준적인 유닉스 설정 파일에 "
-"익숙하다면, 이 파일은 익숙하게 보일 것입니다 -- 이것은 설정 항목 사이에 "
-"주석을 담고 있습니다. 파일을 편집해서 필요한 항목을 모두 바꾼 다음 저장하고 "
-"나오세요. 그 시점에, debconf는 편집되 파일을 읽을 것이고, 시스템을 설정하기 "
-"위해 입력한 값을 사용할 것입니다."
+"나타납니다. 이것도 그러한 텍스트 파일입니다. 표준적인 유닉스 설정 파일에 익숙"
+"하다면, 이 파일은 익숙하게 보일 것입니다 -- 이것은 설정 항목 사이에 주석을 담"
+"고 있습니다. 파일을 편집해서 필요한 항목을 모두 바꾼 다음 저장하고 나오세요. "
+"그 시점에, debconf는 편집되 파일을 읽을 것이고, 시스템을 설정하기 위해 입력"
+"한 값을 사용할 것입니다."
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
@@ -238,9 +238,9 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"%2$s의 template #%1$s는 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"를 가지고 "
-"있습니다. 아마도 두 template이 긴 개행문자로 정확하게 분리되지 않은 것 "
-"같습니다.\n"
+"%2$s의 template #%1$s는 새 값이 \"%4$s\"인 중복된 필드 \"%3$s\"를 가지고 있습"
+"니다. 아마도 두 template이 긴 개행문자로 정확하게 분리되지 않은 것 같습니"
+"다.\n"
 
 #: ../Debconf/Template.pm:203
 #, c-format

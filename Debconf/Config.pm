@@ -10,11 +10,10 @@ package Debconf::Config;
 use strict;
 use Debconf::Question;
 use Debconf::Gettext;
-use Debconf::Log qw{:all};
 use Debconf::Db;
 
 use fields qw(config templates frontend priority helpvisible
-              showold admin_email);
+              showold admin_email debug log_to);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
@@ -72,8 +71,6 @@ sub load {
 		}
 	}
 	die "No config file found" unless $cf;
-
-	debug db => "loading config file $cf";
 
 	open (DEBCONF_CONFIG, $cf) or die "$cf: $!\n";
 	local $/="\n\n"; # read a stanza at a time
@@ -200,6 +197,20 @@ sub showold {
 		$ret=$question->value || $ret;
 	}
 	return $ret;
+}
+
+=item debug
+
+Returns debconf's debug regex. This is pulled out of the config file,
+and may be overridden by DEBCONF_DEBUG in the environment.
+
+=cut
+
+sub debug {
+	my $class=shift;
+	return $ENV{DEBCONF_DEBUG} if exists $ENV{DEBCONF_DEBUG};
+	return $config->{debug} if exists $config->{debug};
+	return '';
 }
 
 =back

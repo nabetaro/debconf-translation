@@ -10,8 +10,8 @@ package Debconf::Log;
 use strict;
 use base qw(Exporter);
 our @EXPORT_OK=qw(debug warn);
-# Import :all to get everything.
-our %EXPORT_TAGS = (all => [@EXPORT_OK]);
+our %EXPORT_TAGS = (all => [@EXPORT_OK]); # Import :all to get everything.
+require Debconf::Config; # not use; there are recursive use loops
 
 =head1 DESCRIPTION
 
@@ -26,19 +26,30 @@ This module uses Exporter.
 =item debug
 
 Outputs an infomational message. The first parameter specifies the type of
-information that is being logged. If DEBCONF_DEBUG is set in the
-environment to something that matches the parameter, the message is output.
-
-Note that DEBCONF_DEBUG can be set to a regular expression, like '.*'.
+information that is being logged. If the user has specified a debug setting
+that matches the parameter, the message is output.
 
 Currently used types of information: user, developer, debug
 
 =cut
 
+my $log_open=0;
 sub debug {
 	my $type=shift;
-	if (exists $ENV{DEBCONF_DEBUG} && $type =~ /$ENV{DEBCONF_DEBUG}/) {
-		print STDERR "debconf ($type): ".join(" ", @_)."\n";
+	my $debug=Debconf::Config->debug;
+	if ($debug && $type =~ /$debug/) {
+		my $log_to=Debconf::Config->log_to;
+		if ($log_to eq 'syslog') {
+			require Sys::Syslog;
+			if (! $log_open) {
+				Sys::Syslog::openlog('debconf', '', 'user');
+				$log_open=1;
+			}
+			Sys::Syslog::syslog('debug', "($type): ".join(" ", @_));
+		}
+		else { # assume stderr
+			print STDERR "debconf ($type): ".join(" ", @_)."\n";
+		}
 	}
 }
 
