@@ -1,3 +1,13 @@
+debconf (0.2.46) unstable; urgency=low
+
+  * Changed tutorial docs of version command. Clients are not stricly
+    required to pass a version number into it.
+  * Removed warning message if a client does not pass in a version, 
+    Closes: #51431
+  * Added build dependancy info.
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 27 Nov 1999 20:36:51 -0800
+
 debconf (0.2.45) unstable; urgency=low
 
   * Discovered dialog's --separate-output parameter, and use it for

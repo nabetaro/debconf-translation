@@ -174,10 +174,12 @@ ConfModule is sent to the client.
 sub command_version {
 	my $this=shift;
 	my $version=shift;
-	return $codes{version_bad}, "Version too low ($version)"
-		if int($version) < int($this->version);
-	return $codes{version_bad}, "Version too high ($version)"	
-		if int($version) > int($this->version);
+	if (defined $version) {
+		return $codes{version_bad}, "Version too low ($version)"
+			if int($version) < int($this->version);
+		return $codes{version_bad}, "Version too high ($version)"
+			if int($version) > int($this->version);
+	}
 	return $codes{success}, $this->version;
 }
 
