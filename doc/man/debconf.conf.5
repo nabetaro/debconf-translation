@@ -82,7 +82,7 @@ Sigils: false to disable.
 .TP
 .B Smileys
 A few frontends use cute little smiley faces as sigils. If this is too cute
-and you want to turn that off, use Smilies: false. Smileys: true will try
+and you want to turn that off, use Smileys: false. Smileys: true will try
 to turn it on, for frontends which default to not showing smileys.
 .TP
 .B Terse
@@ -181,7 +181,7 @@ The following things are configurable for this driver.
 The directory to put the files in. Required.
 .TP
 .B Extension
-An extension to prefix the files with. Must be set to a non-empty string;
+An extension to add to the names of files. Must be set to a non-empty string;
 defaults to ".dat"
 .TP
 .B Format
@@ -291,7 +291,6 @@ written to:
   Driver: LDAP
   Server: localhost
   BaseDN: cn=debconf,dc=domain,dc=com
-  BaseDN: cn=debconf,dc=domain,dc=com
   BindPasswd: secret
 .RE
 .TP
@@ -381,8 +380,8 @@ For example:
 .P
   Name: backup
   Driver: Backup
-  Backupdb: mydb
-  Backup: mybackupdb
+  Db: mydb
+  Backupdb: mybackupdb
 .RE
 .P
 .B Debug
@@ -441,7 +440,7 @@ Here is a more complicated example of a debconf.conf file.
   # This stanza is used for general debconf setup.
   Config: stack
   Templates: templates
-  Log-To: syslog
+  Log: developer
   Debug: developer
 
   # This is my own local database.

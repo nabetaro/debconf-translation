@@ -27,7 +27,12 @@ field of the question's template, and returns them.
 sub order_values {
 	my $this=shift;
 	my %vals=map { $_ => 1 } @_;
-	return grep { $vals{$_} } $this->question->choices_split;
+	# Make sure that the choices are in the C locale, like the values
+	# are.
+	$this->question->template->i18n('');
+	my @ret=grep { $vals{$_} } $this->question->choices_split;
+	$this->question->template->i18n(1);
+	return @ret;
 }
 
 =item show

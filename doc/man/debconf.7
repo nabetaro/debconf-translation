@@ -98,8 +98,8 @@ libgnome-perl package installed.
 This is for those fanatics who have to do everything in a
 text editor. It runs your editor on a file that looks
 something like a typical unix config file, and you edit the
-file to communicate with debconf. Debconf's author takes the
-fifth amendment regarding the circumstances that led to this
+file to communicate with debconf. Debconf's author prefers
+to not comment regarding the circumstances that led to this
 frontend being written.
 .TP
 .B web
@@ -231,7 +231,7 @@ Here's another way to use the DEBCONF_DB_FALLBACK environment variable:
 Here ssh is used to set up a tunneled LDAP connection and run debconf.
 Debconf is told to use the LDAP server as the fallback database. Note the
 use of "{host:localhost}" to configure how debconf accesses the LDAP
-database.
+database by providing the "host" field with a value of "localhost".
 .P
 Here's another method:
 .P
@@ -307,17 +307,19 @@ Installation" above. If the value of the variable is the name of an
 existing database in debconf.conf, then that database will be used.
 Otherwise, the environment variable can be used to configure a database on the
 fly, by telling the type of database, and optionally passing field:value
-settings, inside curly braces after the type. Thus, this uses the
-fallbackdb in debconf.conf:
+settings, inside curly braces after the type. Spaces are used to separate
+fields, so you cannot specifiy a field value containing whitespace.
+.P
+Thus, this uses the fallbackdb in debconf.conf:
   DEBCONF_DB_FALLBACK=fallbackdb
-
+.P
 Whle this sets up a new database of type File, and tells it a filename to
 use and turns off backups:
   DEBCONF_DB_FALLBACK=File{Filename:/root/config.dat Backup:no}
-
+.P
 And as a shorthand, this sets up a database of type File with a filename:
   DEBCONF_DB_FALLBACK=File{/root/config.dat}
-
+.P
 Note that if a fallback database is set up on the fly, it will be read-only
 by default.
 .TP
