@@ -18,7 +18,7 @@ install:
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	$(MAKE) prefix=`pwd`/debian/tmp/usr install
+	$(MAKE) prefix=`pwd`/debian/tmp install
 	touch install-stamp
 
 # Build architecture-independent files here.
@@ -27,19 +27,14 @@ binary-indep: build install
 	dh_testdir
 	dh_testroot
 	dh_installdocs CREDITS README TODO
-	dh_installexamples
+	dh_installexamples samples/*.* test.pl
 	dh_installmenu
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installinit
 	dh_installcron
 	dh_installmanpages
-#	dh_undocumented
 	dh_installchangelogs
 	dh_link
 	dh_compress
 	dh_fixperms
-	# You may want to make some executables suid here.
 	dh_suidregister
 	dh_installdeb
 	dh_gencontrol

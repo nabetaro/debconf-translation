@@ -9,8 +9,8 @@ install: clean
 	install -d $(prefix)/usr/lib/perl5/Debian/DebConf/
 	install -m 0644 *.pm $(prefix)/usr/lib/perl5/Debian/DebConf/
 	find Client ConfModule Element FrontEnd -type d | grep -v CVS | \
-		xargs -i! install -d $(prefix)/usr/lib/perl5/Debian/DebConf/!
+		xargs -i_ install -d $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	find Client ConfModule Element FrontEnd -type f | grep .pm\$$ | \
-		xargs -i! install -m 0644 ! $(prefix)/usr/lib/perl5/Debian/DebConf/!
+		xargs -i_ install -m 0644 _ $(prefix)/usr/lib/perl5/Debian/DebConf/_
 	install -d $(prefix)/usr/bin
-	find client -perm +1 -type f | xargs -i! install ! $(prefix)/usr/bin
+	find client -perm +1 -type f | xargs -i_ install _ $(prefix)/usr/bin
