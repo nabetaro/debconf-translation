@@ -139,7 +139,7 @@ sub load {
 			Debconf::Db->makedriver(%config);
 		};
 		if ($@) {
-			print STDERR "debconf: ".sprintf(gettext("Parse error in stanza %s of %s. Probably you have not separated two stanzas by a blank line, or have put a bad value in a line of the stanza."),$., $cf)."\n";
+			print STDERR "debconf: ".sprintf(gettext("Problem setting up the database defined by stanza %s of %s."),$., $cf)."\n";
 			die $@;
 		}
 	}

@@ -93,6 +93,7 @@ sub binddb {
 	my $ds = Net::LDAP->new($this->{server}, port => $this->{port}, version => 3);
 	if (! $ds) {
 		$this->error("Unable to connect to LDAP server");
+		return; # if not fatal,give up anyway
 	}
 	
 	# Check for anon bind
