@@ -75,12 +75,6 @@ use Debconf::Log qw(:all);
 
 my $infodir="/var/lib/dpkg/info";
 
-# If the default frontend is noninteractive, change it temporarily to
-# slang.
-if (frontend() eq 'Noninteractive') {
-	frontend('Slang');
-}
-
 # Parse command line. I don't use Getopt::Long since it's not in base.
 my @packages;
 my $change_priority=1;
@@ -133,6 +127,12 @@ if ($> != 0) {
 
 # Load up previous state information.
 loaddb(dbdir());
+
+# If the default frontend is noninteractive, change it temporarily to
+# slang.
+if (frontend() eq 'Noninteractive') {
+	frontend('Slang');
+}
 
 my $frontend=make_frontend();
 

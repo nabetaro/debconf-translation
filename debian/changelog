@@ -1,3 +1,10 @@
+debconf (0.5.25) unstable; urgency=low
+
+  * dpkg-reconfigure: Wait until after loading db before doing frontend 
+    fix up. Closes: #77847
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 23 Nov 2000 13:54:19 -0800
+
 debconf (0.5.24) unstable; urgency=low
 
   * Typo.
