@@ -23,8 +23,6 @@ use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd);
 
-warn "running in non-interactive mode"; # Hm, that was easy. :-)
-
 =head1 AUTHOR
 
 Joey Hess <joey@kitenet.net>

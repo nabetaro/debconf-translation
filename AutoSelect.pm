@@ -25,7 +25,7 @@ my %fallback=(
 	'Web'			=>	'Gtk',
 	'Dialog'		=>	'Text',
 	'Gtk'			=>	'Dialog',
-	'Text'			=>	'Noninteractive',
+	'Text'			=>	'Dialog',
 );
 
 my $frontend;
@@ -57,18 +57,22 @@ sub frontend {
 		
 		warn "failed to initialize $type frontend";
 		debug 1, "(Error: $@)";
-		
-		$type=$fallback{$type};
 
-		# Prevent loops; only try each frontend once.
-		last if $seen{$type};
+		# Only try each type once to prevent loops.
 		$seen{$type}=1;
+		$type=$fallback{$type};
+		last if $seen{$type};
 
 		warn "falling back to $type frontend";
 	}
 	
-	if (! $frontend) {
-		die "Unable to start a frontend: $@";
+	if (! defined $frontend) {
+		# Fallback to noninteractive as a last resort.
+		$frontend=eval qq{
+			use Debian::DebConf::FrontEnd::Noninteractive;
+			Debian::DebConf::FrontEnd::Noninteractive->new();
+		};
+		die "Unable to start a frontend: $@" unless defined $frontend;
 	}
 
 	return $frontend;
