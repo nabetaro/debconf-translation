@@ -9,6 +9,9 @@ UNRE
     it'll fall back to the text frontend which will work on screens
     down to about 2 lines of 20 characters each. I want a pager with ssh.
     Closes: #132972
+  * Fixed typo, Closes: #134161
+  * Patch from Denis Barbier <barbier@debian.org> to make debconf-getlang work
+    better with ll_LL form languages. Closes: #134307
 
  -- Joey Hess <joeyh@debian.org>  Tue,  5 Feb 2002 20:37:19 -0500
 

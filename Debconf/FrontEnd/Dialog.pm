@@ -51,6 +51,13 @@ sub init {
 		die gettext("Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";
 	}
 
+	# Whiptail and dialog can't deal with very small screens. Detect
+	# this and fail, forcing use of some other frontend.
+	# The numbers were arrived at by experimentation.
+	if ($this->screenheight < 13 || $this->screenwidth < 31) {
+		die gettext("Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.")."\n";
+	}
+	
 	$this->interactive(1);
 	$this->capb('backup');
 

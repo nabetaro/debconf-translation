@@ -25,7 +25,7 @@ use Debconf::Db;
 use Debconf::Template;
 use Debconf::Question;
 
-my $package = shift || die "Syntax: debconf-showpackage packagename\n";
+my $package = shift || die "Syntax: debconf-show packagename\n";
 
 Debconf::Db->load;
 

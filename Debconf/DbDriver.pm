@@ -72,7 +72,7 @@ driver.
 A regular expression that is matched against item names to see if they are
 accepted by this driver. Defaults to accepting all item names.
 
-=item accept_name
+=item reject_name
 
 A regular expression that is matched against item names to see if they are
 rejected by this driver.
@@ -231,6 +231,10 @@ sub ispassword {
 	return 1 if $type eq 'password';
 	return 0;
 }
+
+=head1 ABSTRACT METHODS
+
+Subclasses must implement these methods.
 
 =head2 iterator
 

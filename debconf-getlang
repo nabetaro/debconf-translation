@@ -116,7 +116,7 @@ sub getlang {
 		
 		foreach my $field ($in->fields) {
 			next if $field eq 'template';
-			if ($field =~ m/-(..)/) {
+			if ($field =~ m/-(..(_..)?)$/) {
 				if ($1 eq $lang) {
 					$out->$field($in->$field());
 				}
