@@ -22,7 +22,6 @@ use base qw(Debian::DebConf::Element::Text::Select);
 sub show {
 	my $this=shift;
 
-	my @pdefault;
 	my @selected;
 	my $none_of_the_above="none of the above";
 
@@ -35,20 +34,17 @@ sub show {
 	}
 	my %abbrevs=$this->pickabbrevs(\@important, @choices);
 	
-	# Print out the question. At the same time, build up
-	# the list of items selected by default.
+	# Print out the question.
 	$this->frontend->display($this->question->extended_description."\n");
-	foreach (@choices) {
-		$this->frontend->display_nowrap("\t[$abbrevs{$_}] $_");
-		push @pdefault, $abbrevs{$_} if $value{$_};
-	}
+	$this->printlist(\%abbrevs, @choices);
 	$this->frontend->display("\n(Type in the letters of the items you want to select, separated by spaces.)\n");
 
 	# Prompt until a valid answer is entered.
 	my $value;
 	while (1) {
 		$_=$this->frontend->prompt($this->question->description,
-		 	join(" ",@pdefault));
+		 	join(" ", map { $abbrevs{$_} }
+				  grep { $value{$_} } @choices));
 
 		# Split up what they entered. They can separate items
 		# with whitespace, commas, etc.

@@ -1,3 +1,26 @@
+debconf (0.2.94) unstable; urgency=low
+
+  * Copyright and url updates.
+  * dpkg-reconfigure: don't run the postrm of the package. Doing so breaks 
+    things when for example, the package uses dpkg-divert and tries to
+    remove diversions in the postrm. This cannot be an isolated problem
+    either. This reverses the change made in version 0.2.52, which did not
+    say why I added it in the first place.. (suspicion: non-idempotent
+    postinst scripts may need the postrm to clean up after them before being
+    called again. However, such scripts are broken.)
+    Closes: #58527 (important bug)
+  * no changes; Closes: #58495 (I'm not going to add 3 lines of code bloat 
+    to a package in base just to provide a marginally better error message.)
+  * Added --help to dpkg-preconfigure and dpkg-reconfigure. Closes: #58496
+  * Added more cautions about passwords to the tutorial.
+  * Text mode [multi]select elements now display in multiple columns. This is
+    experimental, and I don't know how it will interact with having support for
+    descriptions associated with items in the selection list, which is a todo
+    item.
+  * Use w3m again to format docs (how'd I lose that?)
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 19 Feb 2000 20:51:44 -0800
+
 debconf (0.2.93) unstable; urgency=low
 
   * Fixed minor back problem in debconf's own config script, and some
@@ -1622,7 +1645,7 @@ debconf (0.1.5) unstable; urgency=low
 
 debconf (0.1.3) unstable; urgency=low
 
-  * dpkg-preconfig (and test.pl) now load up only the COnfModules and
+  * dpkg-preconfig (and test.pl) now load up only the ConfModules and
     FrontEnds that will really be used. Faster startup time.
   * TODO updates.
 

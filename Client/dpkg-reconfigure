@@ -12,12 +12,6 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use Debian::DebConf::Log ':all';
 
-# See if they are root.
-if ($> != 0) {
-	warn "$0 must be run as root";
-	exit 1;
-}
-
 my $infodir="/var/lib/dpkg/info";
 
 # Parse command line if GetOpt::Long is available, else just throw out all
@@ -35,13 +29,20 @@ else {
 		Getopt::Long::config qw(bundling no_ignore_case permute);
 		GetOptions(
 			"all" => \$all,
-			"frontend|f=s" => 
+			"frontend|f=s" =>
 				sub { shift; Debian::DebConf::Config::frontend(shift) },
 			"priority|p=s" =>
 				sub { shift; Debian::DebConf::Config::priority(shift) },
-		);
+			"help|h" => \&usage,
+		) || usage();
 	};
 	die $@ if $@;
+}
+
+# See if they are root.
+if ($> != 0) {
+	warn "$0 must be run as root";
+	exit 1;
 }
 
 # Load up previous state information.
@@ -79,8 +80,7 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 		if -e "$infodir/$pkg.templates";
 
 	# Run postrm, config, and postinst scripts in sequence, with args.
-	foreach my $info (['postrm',   'remove'		      ],
-			  ['config',   'reconfigure', $version],
+	foreach my $info (['config',   'reconfigure', $version],
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
 		next unless -x "$infodir/$pkg.$script";
@@ -150,4 +150,9 @@ sub allpackages {
 	close STATUS;
 
 	return sort @ret;
+}
+
+sub usage {
+	print STDERR "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages\n";
+	exit 1;
 }

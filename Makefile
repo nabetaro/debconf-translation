@@ -42,7 +42,7 @@ install: install-common
 tiny-install: install-common
 	# Delete the libs we don't need.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ | egrep 'Text|Web|Gtk' \
-		| grep -v Dialog/Text | xargs rm -rf
+		| grep -v Dialog/ | xargs rm -rf
 	# Strip out POD documentation and all other comments
 	# from all .pm files.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.pm' | \

@@ -18,7 +18,7 @@ db_input low demo/select || true
 db_go || true
 db_get demo/select
 echo single item select color is: $RET
-db_subst demo/select colors red, Yellow, blue
+db_subst demo/select colors red, Yellow, green
 db_beginblock
 db_input low demo/select || true
 db_input low demo/multiselect || true

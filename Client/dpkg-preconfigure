@@ -49,6 +49,10 @@ for (my $x=0; $x < @ARGV;) {
 	elsif (/^-(?:p|-priority)$/) {
 		Debian::DebConf::Config::priority($ARGV[$x++]);
 	}
+	elsif (/^-(?:h|-help)$/) {
+		print STDERR "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles\n";
+		exit 1;
+	}
 	elsif (/^-(\w+)/) {
 		print STDERR "Unknown option: $1\n";
 	}

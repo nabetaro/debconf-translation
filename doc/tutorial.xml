@@ -217,7 +217,12 @@ Template: ....
 	  </row>
 	  <row>
 	    <entry>password</entry>
-	    <entry>Holds a password. Use with caution.</entry>
+	    <entry>
+	      Holds a password. Use with caution. Be aware that the password
+	      the user enters will be written to debconf's database. You
+	      should consider clearing that value out of the database as soon
+	      as is possible.
+	    </entry>
 	  </row>
 	</tbody>
       </tgroup>
