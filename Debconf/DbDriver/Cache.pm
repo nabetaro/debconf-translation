@@ -123,6 +123,8 @@ sub cached {
 
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
+		use Carp;
+		Carp::cluck("foo") unless defined $item;
 		debug "DbDriver $this->{name}" => "cache miss on $item";
 		my $cache=$this->load($item);
 		$this->{cache}->{$item}=$cache if $cache;
@@ -240,7 +242,9 @@ sub getfield {
 	my $field=shift;
 	
 	return unless $this->cached($item);
-	return $this->{cache}->{$item}->{fields}->{$field};
+	return $this->{cache}->{$item}->{fields}->{$field}
+		if exists $this->{cache}->{$item}->{fields}->{$field};
+	return '';
 }
 
 =head2 setfield(itemname, fieldname, value)
@@ -286,7 +290,9 @@ sub getflag {
 	my $flag=shift;
 	
 	return unless $this->cached($item);
-	return $this->{cache}->{$item}->{flags}->{$flag};
+	return $this->{cache}->{$item}->{flags}->{$flag}
+		if exists $this->{cache}->{$item}->{flags}->{$flag};
+	return 'false';
 }
 
 =head2 setflag(itemname, flagname, value)
@@ -332,7 +338,9 @@ sub getvariable {
 	my $variable=shift;
 
 	return unless $this->cached($item);
-	return $this->{cache}->{$item}->{variables}->{$variable};
+	return $this->{cache}->{$item}->{variables}->{$variable}
+		if exists $this->{cache}->{$item}->{variables}->{$variable};
+	return '';
 }
 
 =head2 setvariable(itemname, variablename, value)
