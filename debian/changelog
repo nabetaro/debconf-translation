@@ -4,6 +4,13 @@ debconf (0.1.16) unstable; urgency=low
     /etc/debconf.cfg has a variable in it to specify the default frontend
     to use.
   * Also added a question priority variable to the config file.
+  * Oh yeah, the big change is I fixed the postinst hang bug. Or rather,
+    worked around it. The bug was caused by update-menus forking to
+    background and waiting, but not closing stdin/out. I worked around by
+    catching SIGCHLD's and closing the pipes from the other end when the
+    postinst has existed. I've also contacted Joost.
+  * This, barring a little bit of docs and a few packages built to use it, 
+    is basically ready to be shown to the world.
 
  -- Joey Hess <joeyh@master.debian.org>  Mon, 13 Sep 1999 15:40:15 -0700
 
