@@ -1,3 +1,27 @@
+debconf (1.4.9) unstable; urgency=low
+
+  * Patch from Sylvain Ferriol:
+    - allow empty calues in LDAP DbDriver
+    - change debconf.schema to support slapd 2.1.x. Closes: #215878
+    - adds a test suite for DbDrivers.
+    Thanks, Sylvain!
+  * Work around perl bug #231619 by unnecessarily using fields in 
+    DirTree.pm. Closes: #227013
+  * Patch from Eugeniy Meshcheryakov to fix display of messages in KOI8
+    locales using the GNOME frontend. Closes: #231302
+  * Re-introduce debconf-get-selections and debconf-set-selections.
+    The former goes in debconf-utils, the latter in debconf so it can be
+    used for preseeding during new installs.
+  * Patch example in debconf-devle(7) to deal with variables that the admin
+    removed from the config file, but when turned back on via a
+    dpkg-reconfigure. Thanks, Daniel Kobras.
+  * Update Polish translation. Closes: #230869
+  * New Ukrainian translation by Eugeniy Meshcheryako. Closes: #230964
+  * Update French translation. Closes: #231496
+  * Update Dutch translation, sorry that took so long. Closes: #227884
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  2 Feb 2004 22:08:43 -0500
+
 debconf (1.4.8) unstable; urgency=low
 
   * Remove padding whitespace from the end of lines in select questions
