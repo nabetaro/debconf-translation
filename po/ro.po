@@ -1,0 +1,343 @@
+# translation of debconf_ro.po to Romanian
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Sorin Batariuc <sorin@bonbon.net>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_ro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-11-03 15:49-0700\n"
+"PO-Revision-Date: 2004-11-27 11:20+0200\n"
+"Last-Translator: Sorin Batariuc <sorin@bonbon.net>\n"
+"Language-Team: Romanian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms:  \n"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr "Utilizaţi interfaţa program de editare debconf pentru a configura sistemul. Vedeţi sfârşitul acestui document pentru instrucţiuni detaliate."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr "Interfaţa program de editare debconf vă prezintă unul sau mai multe fişiere text pentru editare. Acesta este unul din astfel de fişiere. Dacă sunteţi familiarizat cu fişierele de configurare standard unix, acest fişier vă va părea cunoscut -- conţine comentarii intercalate printre liniile de configurare. Editaţi fişierul, schimbând după necesităţi orice linie, salvaţi-l şi ieşiţi. În acest punct, debconf va citi fişierul editat, şi va folosi valorile introduse pentru a configura sistemul."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, c-format
+msgid "Debconf on %s"
+msgstr "Debconf la %s"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Notă: debconf rulează în modul web. Duceţi-vă la http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Înapoi"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Înainte"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Mai mult"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM nu este specificat, astfel încât dialogul interfeţei program nu este utilizabil."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialogul interfeţei program este incompatibil cu zonele de memorie tampon shell emacs"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr "Dialogul interfeţei program nu va funcţiona pe un terminal mut, pe o zonă de memorie tampon shell emacs, sau fără un terminal controlor."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "Nu este instalat nici un program utilizabil gen dialog, aşa încât dialogul interfeţei program nu poate fi folosit."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Dialogul interfeţei program are nevoie de un ecran de cel puţin 13 linii înălţime şi 31 coloane lăţime."
+
+#: ../Debconf/FrontEnd/Dialog.pm:282
+msgid "Debian Configuration"
+msgstr "Configurare Debian"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Această interfaţă program are nevoie de un tty controlor."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU este incompatibil cu zone de memorie tampon shell emacs."
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "retragere la interfaţa program: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "nu pot iniţializa interfaţa program: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Nu pot porni interfaţa program: %s"
+
+#: ../Debconf/Config.pm:127
+msgid "Config database not specified in config file."
+msgstr "Configurarea bazei de date n-a fost specificată în fişierul de configurare."
+
+#: ../Debconf/Config.pm:131
+msgid "Template database not specified in config file."
+msgstr "Şablonul bazei de date n-a fost specificat în fişierul de configurare."
+
+#: ../Debconf/Config.pm:136
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "Opţiunile Sigils şi Smileys din fişierul de configurare nu mai sunt folosite. Vă rog să le ştergeţi."
+
+#: ../Debconf/Config.pm:147
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problemă la ajustarea bazei de date definită de strofa %s din %s."
+
+#: ../Debconf/Config.pm:262
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Se ignoră prioritatea ne-validă \"%s\""
+
+#: ../Debconf/Config.pm:263
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Priorităţile valide sunt: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "avertisment: posibilă deteriorare a bazei de date. Voi încerca să o repar adăugând la loc întrebarea lipsă %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr "Şablonul #%s din %s are un câmp duplicat \"%s\" cu o valoare nouă \"%s\". Probabil două şabloane nu sunt separate corespunzător de o singură nouă linie.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Câmp de şablon necunoscut '%s', în strofa #%s din %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Eroare de analiză a şablonului aproape de '%s', în strofa #%s din %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Şablonul #%s în %s nu conţine o linie 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Ajutor"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Ajutor"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Salvează (expediază) nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf a fost întrebat dacă să salveze această notă, astfel încât v-a fost expediată."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informaţie"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Această notă a fost expediată."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Eroare"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Nu pot salva nota."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Alegeri"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Introduceţi zero sau mai multe articole separate de virgulă urmată de spaţiu (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "da"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nu"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgstr "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a fost expediată."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, rulând la %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "niciunul din cele de mai sus"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr "Nu s-a găsit în opţiunile C valoarea introdusă, \"%s\"! Aceasta n-ar fi trebuit să se întâmple. Poate şabloanele au fost localizate incorect."
+
+#: ../Debconf/FrontEnd.pm:131
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Nu pot încărca Debconf::Element::%s. Eşuare datorată: %s"
+
+#: ../Debconf/FrontEnd.pm:203
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurez %s"
+
+#: ../dpkg-preconfigure:113
+#, c-format
+msgid "unable to re-open stdin: %s"
+msgstr "nu pot re-deschide stdin: %s"
+
+#: ../dpkg-preconfigure:116
+msgid "must specify some debs to preconfigure"
+msgstr "trebuie specificate unele pachete deb pentru preconfigurare"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "întârziere la configurarea pachetului, din moment ce apt-utils nu este instalat"
+
+#: ../dpkg-preconfigure:179
+#, c-format
+msgid "template parse error: %s"
+msgstr "eroare la analiza şablonului: %s"
+
+#: ../dpkg-preconfigure:193
+#, c-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: nu pot schimba permisiunea de acces a lui: %s"
+
+#: ../dpkg-preconfigure:203
+#, c-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s eşuat la preconfigurare, cu starea de ieşire %s"
+
+#: ../dpkg-reconfigure:104
+#, c-format
+msgid "%s must be run as root"
+msgstr "%s trebuie pornit ca root"
+
+#: ../dpkg-reconfigure:136
+msgid "please specify a package to reconfigure"
+msgstr "vă rog specificaţi un pachet pentru reconfigurare"
+
+#: ../dpkg-reconfigure:156
+#, c-format
+msgid "%s is not installed"
+msgstr "%s nu este instalat"
+
+#: ../dpkg-reconfigure:160
+#, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s este deteriorat sau instalat incomplet"
+
+#: ../dpkg-reconfigure:237
+#, c-format
+msgid "Cannot read status file: %s"
+msgstr "Nu pot citi fişierul de stare: %s"
+
+#: ../debconf-mergetemplate:119
+#, c-format
+msgid "%s is missing"
+msgstr "%s lipseşte"
+
+#: ../debconf-mergetemplate:123
+#, c-format
+msgid "%s is missing; dropping %s"
+msgstr "%s lipseşte, renunţ %s"
+
+#: ../debconf-mergetemplate:146
+#, c-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s este neclar la byte %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, c-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s este neclar la byte %s: %s, renunţ"
+
+#: ../debconf-mergetemplate:168
+#, c-format
+msgid "%s is outdated"
+msgstr "%s este depăşit"
+
+#: ../debconf-mergetemplate:173
+#, c-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s este depăşit, renunţ la întregul şablon!"
+
