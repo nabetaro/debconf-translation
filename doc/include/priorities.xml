@@ -1,0 +1,40 @@
+<table frame="all">
+  <title>Supported priorities</title>
+  <tgroup cols="2">
+    <thead>
+      <row>
+        <entry>Priority</entry>
+        <entry>Description</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+	<entry>low</entry>
+	<entry>
+	  Very trivial items that have defaults that
+	  will work in the vast majority of cases.
+	</entry>
+      </row>
+      <row>
+        <entry>medium</entry>
+	<entry>
+          Normal items that have reasonable defaults.
+	</entry>
+      </row>
+      <row>
+	<entry>high</entry>
+	<entry>
+          Items that don't have a reasonable 
+	  default.
+	</entry>
+      </row>
+      <row>
+        <entry>critical</entry>
+	<entry>
+	  Items that will probably break
+	  the system without user intervention.
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>

@@ -1,4 +1,7 @@
-all: tutorial.html tutorial.txt introduction.html introduction.txt
+FILES=$(patsubst %.xml,%.txt,$(wildcard *.xml)) \
+      $(patsubst %.xml,%.html,$(wildcard *.xml))
+
+all: $(FILES)
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
 	$(MAKE) -C spec all
 
@@ -10,5 +13,5 @@ all: tutorial.html tutorial.txt introduction.html introduction.txt
 	w3m -dump $< > $@
 
 clean:
-	rm -f hierarchy.txt *.css *.html tutorial.txt introduction.txt
+	rm -f $(FILES) hierarchy.txt *.css *.html
 	$(MAKE) -C spec clean

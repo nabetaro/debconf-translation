@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//Norman Walsh//DTD DocBk XML V3.1//EN"
+     "dtd/docbook-xml/docbookx.dtd" [
+<!ENTITY priority_table SYSTEM "include/priorities.xml">
+]>
+<article>
+  <artheader>
+    <title>
+      The Debconf User's Guide
+    </title>
+    <author>
+      <firstname>
+	Joey
+      </firstname>
+      <surname>
+	Hess
+      </surname>
+      <affiliation>
+	<orgname>
+	  The Debian Project
+	</orgname>
+	<address><email>joeyh@debian.org</email></address>
+      </affiliation>   
+    </author>
+    <copyright>
+      <year>
+	1999
+      </year>
+      <holder>
+	Joey Hess
+      </holder>
+    </copyright>
+    <legalnotice>
+      <para>
+	This text is distributed according to the
+	<ulink url="http://www.gnu.org/copyleft/gpl.html">
+	  General Public License</ulink>.
+      </para>
+    </legalnotice>
+  </artheader>
+  
+  <sect1>
+    <title>
+      Introduction
+    </title>
+    <para>
+      This is a guide to debconf, from the user's perspective. 
+      <footnote>
+        <para>
+          For a quick introduction to debconf, see the Introduction to Debconf.
+          For more detailed information about using debconf with packages, see
+          the Debconf Tutorial.
+        </para>
+      </footnote>
+      Debconf is the new user interface that is popping up in increasing
+      numbers of packages as you install them with dpkg. It provides a
+      consistent interface to configuring packages, and lets you do some
+      neat things you couldn't before. This guide will show you some of
+      them. But best of all, it ensures that you only see each question once,
+      not over and over each time you install a package, like you might have
+      in the past.
+    </para>
+    <sect2>
+      <title>Reporting Bugs</title>
+      <para>
+        But first, please realize that debconf is still under development. 
+        I introduce new bugs from time to time. If debconf is misbehaving,
+        please check the <ulink url="http://bugs.debian.org/debconf">debconf
+        bug list</ulink> before filing a bug. You might also try the latest
+        version of debconf in
+        <ulink url="http://www.debian.org/devel/incoming_mirrors">Incoming</ulink>,
+        as I have often seen and fixed the bug before you have. Please try to
+        keep my workload down by not filing duplicate bug reports.
+      </para>
+      <para>
+        If you do file a bug report, tell me the 
+	<link linkend="frontend">frontend</link> you were using when the
+	problem occurred, what you did to trigger the problem, and paste any
+	error messages you can into the bug report.
+      </para>
+    </sect2>
+  </sect1>
+  <sect1>
+    <title>Preconfiguring packages</title>
+    <para>
+      Debconf can configure packages before they are even installed onto
+      your system. This is useful because it lets all the questions the
+      packages are going to ask be asked at the beginning of an install,
+      so the rest of the install can proceeed while you are away getting
+      a cup of coffee. If you use apt, you have probably already seen this
+      in action. Debconf sets up apt so debconf is run to preconfigure
+      all packages apt installes, just before it installs them.
+    </para>
+    <para>
+      Sometimes, you might not want this preconfiguring to happen.
+      <footnote>
+        <para>
+	  Perhaps debconf should ask if you want it enabled?
+	</para>
+      </footnote>
+      To turn it off, you can edit <filename>/etc/apt/apt.conf</filename>,
+      find the line that contains <literal>dpkg-preconfigure</literal>, and
+      comment it out with two <literal>/</literal> characters.
+    </para>
+    <para>
+      On the other hand, sometimes you might want to preconfigure a package
+      by hand, when you're not installing it with apt. You can use the
+      <command>dpkg-preconfigure</command> command to do that, just pass it
+      the filenames of the packages you want to preconfigure.
+    </para>
+  </sect1>
+  <sect1>
+    <title id="reconfigure">Reconfiguring a package</title>
+    <para>
+      One of the first things you will probably want to use debconf for
+      is to reconfigure a package. You installed the package, and answered
+      debconf's questions, but now that you've used it a while, you realize
+      you want to go back and change some of your answers. In the past,
+      reinstalling a package was often the thing to do when you got in this
+      situation, but when you reinstall the package, debconf seem to remember
+      you have answered the questions, and doesn't ask them again.
+    </para>
+    <para>
+      Luckily, debconf makes it easy to reconfigure any package that uses it.
+      Say you want to reconfigure debconf itself. Just run, as root:
+      <blockquote>
+        <para>
+	  <literal>
+	    dpkg-reconfigure debconf
+	  </literal>
+	</para>
+      </blockquote>
+      This will ask all the questions you saw when debconf was first installed.
+      You can use it on any other package that uses debconf, as well.
+    </para>
+  </sect1>
+  <sect1>
+    <title>Frontends</title>
+    <para>
+      One of Debconf's unique features is that the interface it presents to
+      you is only one of many, that can be swapped in at will.
+      <table frame="all">
+        <title id="frontend">Debconf frontends</title>
+	<tgroup cols="2">
+	<thead>
+	  <row>
+	    <entry>frontend</entry>
+	    <entry>description</entry>
+	  </row>
+	</thead>
+	<tbody>
+	  <row>
+	    <entry>dialog</entry>
+	    <entry>
+	      The default frontend, this uses the
+	      <command>whiptail</command> or <command>dialog</command>
+	      programs to display questions to you. It works in text mode,
+	      though it may be a little slow over slow dialup commections.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>text</entry>
+	    <entry>
+	      The most traditional frontend, this looks quite similar
+	      to how Debian configuration always has: a series of questions,
+	      printed out at the console using plain text. It does have
+	      readline support.
+	      <note>
+	        <para>
+	          I reccommend you install the
+	          <literal>libterm-readline-gnu-perl</literal> package
+	          to make the most of the readline support.
+	        </para>
+	      </note>
+	      This is the best frontend for remote admin work over a slow
+	      connection, or for people who are comfortable with unix.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>web</entry>
+	    <entry>
+	      This frontend acts as a web server, that you connect to
+	      with your web browser, to browse the questions and anser them.
+	      It has a lot of promise, but is a little rough so far.
+	      When this frontend starts up, it will print out the location
+	      you should point your web browser to. You have to run the web
+	      browser on the same machine you are configuring, for security
+	      reasons.
+	      <note>
+	        <para>
+		  Do keep in mind that this is not a very secure frontend.
+		  Anyone who has access to the computer being configured
+		  can currently access the web server and configure things
+		  while this frontend is running.
+		</para>
+	      </note>
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>noninteractive</entry>
+	    <entry>
+	      This is the anti-frontend. It never interacts with you at all,
+	      and makes the default answers be used for all questions. It will
+	      occasionally mail root with messages the package wanted to
+	      display, but that's it; otherwise it is completly silent and
+	      unobtrusive, a perfect frontend for automatic installs.	      
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>gtk</entry>
+	    <entry>
+	      This frontend uses the GTK toolkit to interact with you in X,
+	      in a pretty GUI. It has a lot of promise, but it too rough right
+	      now to be used.
+	    </entry>
+	  </row>
+	</tbody>
+	</tgroup>
+      </table>
+    </para>
+    <para>
+      You can change the default frontend debconf uses by 
+      <link linkend="reconfigure">reconfiguring</link> debconf. On the other
+      hand, if you just want to change the frontend for a minute, you can
+      set the <literal>DEBCONF_FRONTEND</literal> environment variable to
+      the name of the frontend to use. For example:
+      <blockquote>
+	<para>
+	  <literal>
+	    DEBCONF_FRONTEND=text apt-get install slrn
+          </literal>
+	</para>
+      </blockquote>
+      The <command>dpkg-reconfigure</command> and
+       <command>dpkg-preconfig</command> commands also let you pass
+       <literal>--frontend=</literal> to them, followed by the frontend you
+       want them to use.
+    </para>
+  </sect1>
+  <sect1>
+    <title>Priorities</title>
+    <para>
+      Another nice feature of debconf is that the questions it asks you are
+      prioritized. If you don't want to be bothered about every little thing,
+      you can set up debconf to only ask you the most important questions.
+      On the other hand, if you are a control freak, you can make it show
+      you all questions. Each question has a priority, from this list:
+      &priority_table;
+    </para>
+    <para>
+      Only questions with a priority equal to or greater than the priority you
+      choose will be shown to you. You can set the priority value by
+      <link linkend="reconfigure">reconfiguring debconf</link>, or temporarily
+      by passing <literal>--priority=</literal> followed by the value to
+      the <command>dpkg-reconfigure</command> and 
+      <command>dpkg-preconfig</command> commands.
+    </para>
+  </sect1>
+</article>

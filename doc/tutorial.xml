@@ -4,6 +4,7 @@
 <!ENTITY tutorial_config SYSTEM "../samples/tutorial.config">
 <!ENTITY tutorial_back_config SYSTEM "../samples/tutorial-back.config">
 <!ENTITY tutorial_templates SYSTEM "../samples/tutorial.templates">
+<!ENTITY priority_table SYSTEM "include/priorities.xml">
 ]>
 <article>
   <artheader>
@@ -863,46 +864,7 @@ fi
             allows us to ask multiple questions in a single screen. Once a
             question has been asked the frontend will clear the 
 	    <literal>isdefault</literal> flag.
-	    <table frame="all">
-	      <title>Supported priorities</title>
-	      <tgroup cols="2">
-	      <thead>
-	        <row>
-		  <entry>Priority</entry>
-		  <entry>Description</entry>
-		</row>
-	      </thead>
-	      <tbody>
-	        <row>
-		  <entry>low</entry>
-		  <entry>
-		    Very trivial items that have defaults that
-		    will work in the vast majority of cases.
-		  </entry>
-		</row>
-		<row>
-		  <entry>medium</entry>
-		  <entry>
-		    Normal items that have reasonable defaults.
-		  </entry>
-		</row>
-		<row>
-		  <entry>high</entry>
-		  <entry>
-		    Items that don't have a reasonable 
-		    default.
-		  </entry>
-		</row>
-	        <row>
-		  <entry>critical</entry>
-		  <entry>
-		    Items that will probably break
-		    the system without user intervention.
-		  </entry>
-		</row>
-	      </tbody>
-	    </tgroup>
-	    </table>
+	    &priority_table;
 	  </para>
 	  <para>
 	    Note that the frontend decides if the user is actually
