@@ -17,7 +17,7 @@ while installing a package (and revisit it later).
 Debconf can configure packages before they are even installed onto
 your system. This is useful because it lets all the questions the
 packages are going to ask be asked at the beginning of an install,
-so the rest of the install can proceeed while you are away getting
+so the rest of the install can proceed while you are away getting
 a cup of coffee.
 .P
 If you use apt (version 0.5 or above), and you have apt-utils installed,
@@ -65,7 +65,7 @@ to how Debian configuration always has been: a series of
 questions, printed out at the console using plain text, and
 prompts done using the readline library. It even supports tab
 completion. The libterm-readline-gnu-perl package is strongly
-reccommended if you chose to use this frontend; the default
+recommended if you chose to use this frontend; the default
 readline module isn't really good enough.
 .P
 This frontend has some special hotkeys. Pageup (or ctrl-u)
@@ -177,7 +177,7 @@ man page for all the gory details. Generally,
 the backend database is located in
 .B /var/cache/debconf/
 .SH Unattended Package Installation
-If you have many machines to manage you will sometime find yourself in the
+If you have many machines to manage you will sometimes find yourself in the
 position of needing to perform an unattended installation or upgrade of
 packages on many systems, when the default answers to some configuration
 questions are not acceptable. There are many ways to approach this; all
@@ -186,7 +186,7 @@ you want.
 .P
 You should really read
 .B debconf.conf (5)
-before this secton, as you need to understand how debconf's databases work.
+before this section, as you need to understand how debconf's databases work.
 .P
 The easiest way to set up the database is to install the packages on one
 machine and answer their questions as usual. Or you might just use
@@ -197,7 +197,7 @@ something.
 .P
 Once you have the database, you need to figure out how to make
 te remote systems use it. This depends of course on the configuration of
-those systems and what database tyes they are set up to use.
+those systems and what database types they are set up to use.
 .P
 If you are using the LDAP debconf database, an entire network of debian
 machines can also have any or all package installation questions answered
@@ -219,7 +219,7 @@ use:
 This makes the debconf on the remote host read in the data that is piped
 accross the ssh connection and interpret it as a plain text format debconf
 database. It then uses that database as a fallback database -- a
-read-only database that is queried for answers to questons if the system's
+read-only database that is queried for answers to questions if the system's
 main debconf database lacks answers.
 .P
 Here's another way to use the DEBCONF_DB_FALLBACK environment variable:
@@ -243,7 +243,7 @@ use in the DEBCONF_DB_FALLBACK parameters -- if a field name is left off, it
 defaults to "filename".
 .P
 There is only one problem with these uses of the DEBCONF_DB_FALLBACK parameter:
-While the fallback database can provide answers to questons the other
+While the fallback database can provide answers to questions the other
 debconf databases have never seen, it is only queried as a fallback; after
 the other databases. If you need to instead temporarily override an
 existing value on the remote host, you should instead use the
@@ -292,7 +292,7 @@ Debugging info about the backend database.
 .RE
 .TP
 .B DEBCONF_NOWARNINGS
-Set to "yes" to disable some warnins that debconf may display. Does not
+Set to "yes" to disable some warnings that debconf may display. Does not
 suppress display of fatal errors.
 .TP
 .B DEBCONF_TERSE
@@ -341,7 +341,7 @@ What you did to trigger the problem.
 .TP
 .B *
 The full text of any error messages. If you can reproduce the bug, do so
-with DEBCONF_DEBUG='.*' set and include. This speeds up debugging a
+with DEBCONF_DEBUG='.*' set and included. This speeds up debugging a
 lot.
 .SH SEE ALSO
 .BR debconf.conf (5),
