@@ -1,3 +1,8 @@
+Aptconf:
+* use apt-config to find mount/umount commands and mount point, instead of
+  always using /cdrom.
+* 
+
 General:
 * Make sure my spec changes are accepted by Wichert.
 * Proper backend database, but that's a whole other ball of wax.
@@ -19,6 +24,11 @@ General:
   paralell list with the select list, to keep the actual tokens that the
   confmodule script gets back short.
 * Dependancy chacking in dpkg-preconfig, to prevent breaks. ** IMPORTANT **
+* Select elements still arn't consitent. If a select element is not shown,
+  it is set to the first item on the list of possibilities. However, if it is
+  shown, but has one item on it, which is not the default value, the default 
+  value remains in effect. Inseteads, the value should probably be set to
+  that one item that is on it.
 
 Text frontend:
 * Add some way to go back in the Text.pm front end. I don't know how to
@@ -31,6 +41,7 @@ Dialog frontend:
 * It'd be nice if the Dialog stuff could catch text that was to be
   displayed that is in the same block, buffer it, and display it up at the top
   when it prompts for an input that is in the same block.
+* Consider making the "cancel" button be a back button.
 
 Web based frontend:
 * Well, a little security would be nice! It only allows connections
