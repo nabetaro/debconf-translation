@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::ConfigDb -- debian configuration database
+Debconf::ConfigDb - debian configuration database
 
 =cut
 

@@ -1,9 +1,3 @@
-Before next release:
-* Building of hierarchy.txt is broken. It is not always including
-  module descriptions in the output, although it does seem to be parsing
-  them out of the pod docs
-* The whole .deb build system is half-gutted and in need of repair
-
 I18N:
 * I should "use locale" -- but it's not in the base perl package.
   Get it in, or I could hack together my own locale enabler, it's one line

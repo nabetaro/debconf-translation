@@ -7,7 +7,7 @@ debconf-mergetemplate - merge together multiple debconf template files
 =cut
 
 use strict;
-use Debian::Debconf::Template;
+use Debconf::Template;
 
 =head1 SYNOPSIS
 
@@ -41,7 +41,7 @@ L<debconf-getlang(8)|debconf-getlang>
 =cut
  
 my %templates;
-foreach my $template (map { Debian::Debconf::Template->load($_) } @ARGV) {
+foreach my $template (map { Debconf::Template->load($_) } @ARGV) {
 	if (exists $templates{$template->template}) {
 		$templates{$template->template}->merge($template);
 	}
@@ -50,7 +50,7 @@ foreach my $template (map { Debian::Debconf::Template->load($_) } @ARGV) {
 	}
 }
 
-print Debian::Debconf::Template->stringify(values %templates);
+print Debconf::Template->stringify(values %templates);
 
 =head1 AUTHOR
 

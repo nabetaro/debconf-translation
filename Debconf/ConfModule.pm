@@ -630,7 +630,7 @@ sub DESTROY {
 	
 	$this->read_handle->close if $this->read_handle;
 	$this->write_handle->close if $this->write_handle;
-	if ($this->pid > 1) {
+	if (defined $this->pid && $this->pid > 1) {
 		kill 'TERM', $this->pid;
 	}
 }

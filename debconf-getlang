@@ -8,7 +8,7 @@ debconf-getlang - extract a language from a templates file
 
 use lib '.';
 use strict;
-use Debian::Debconf::Template;
+use Debconf::Template;
 
 =head1 SYNOPSIS
 
@@ -54,8 +54,8 @@ my $lang=shift;
 
 # I apologize for the silly baseball puns.
 my @out;
-foreach my $in (Debian::Debconf::Template->load(shift)) {
-	my $out=Debian::Debconf::Template->new;
+foreach my $in (Debconf::Template->load(shift)) {
+	my $out=Debconf::Template->new;
 	
 	foreach my $field ($in->fields) {
 		if ($field =~ m/-(..)/) {
@@ -90,7 +90,7 @@ foreach my $in (Debian::Debconf::Template->load(shift)) {
 	push @out, $out;
 }
 
-print Debian::Debconf::Template->stringify(@out);
+print Debconf::Template->stringify(@out);
 
 =head1 AUTHOR
 

@@ -26,58 +26,16 @@ build-arch-stamp:
 build-indep:  build-indep-stamp
 build-indep-stamp:
 	dh_testdir
-	perl Makefile.PL
-	$(MAKE)
 	$(MAKE) -C doc
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-arch-stamp build-indep-stamp
-	-$(MAKE) clean
+	$(MAKE) clean
 	dh_clean debian/debconf.changelog
 	# Just so non-debian folks will know where to find it.
 	ln -sf ../debian/copyright doc/COPYRIGHT
-
-export prefix=$(shell pwd)/debian/tmp
-install: build-arch build-indep
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-
-	$(MAKE) pure_install INSTALLDIRS=perl \
-		INSTALLSCRIPT=$(prefix)/usr/bin \
-		INSTALLMAN3DIR=$(prefix)/usr/share/man/man3 \
-		INSTALLMAN1DIR=$(prefix)/usr/share/man/man1 \
-		INSTALLPRIVLIB=$(prefix)/usr/lib/perl5 \
-		INSTALLARCHLIB=$(prefix)/deleteme # MakeMaker blows
-	rm -rf $(prefix)/deleteme
-	# Don't want the modules to be executable.
-	find debian/tmp -type f -name \*.pm | xargs chmod 644
-	# Now strip all pod documentation from all .pm files.
-	# Also, don't use 'base'.
-	find $(prefix)/usr/lib/perl5/Debconf/ $(prefix)/usr/bin		\
-	     $(prefix)/usr/share/debconf/frontend			\
-	     -name '*.pm' -or -name 'dpkg-*' |				\
-	     grep -v Client/ConfModule | xargs perl -i.bak -ne '        \
-	     	print $$_."# This file was preprocessed, do not edit directly.\n" \
-			if m:^#!/usr/bin/perl:;				\
-		$$cutting=1 if /^=/;                            	\
-		$$cutting="" if /^=cut/;                        	\
-		next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";	\
-		if (/(use\s+base\s+q.?[{(])(.*?)([})])/) {		\
-			$$what=$$2;					\
-			$$use="";					\
-			map { $$use.="use $$_;" } split(/\s+/, $$what);	\
-			print "use vars qw{\@ISA}; $$use push \@ISA, qw{$$what};\n" \
-		}							\
-		else {							\
-			print $$_					\
-		}							\
-	'
-	find $(prefix) -name '*.bak' | xargs rm -f
-		
-	dh_movefiles
 
 # Build architecture-independent files here.
 # Pass -i to all debhelper commands in this target to reduce clutter.
@@ -88,6 +46,10 @@ binary-indep: build-indep
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
+
+	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
+	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
+	
 	dh_installdocs doc/namespace.txt \
 		doc/*.txt doc/*.html doc/TODO doc/CREDITS \
 		doc/spec/*.txt doc/spec/*.html doc/spec/*.gif \
@@ -112,9 +74,11 @@ binary-arch: build-arch
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
+
+	$(MAKE) prefix=`pwd`/debian/debconf install-rest
+	
 	# Don't modify postrm, I purge differently than normal packages
-	# using me. dh_installdebconf uses code from this package, so
-	# hack PATH
+	# using me.
 	PATH=.:$(PATH) dh_installdebconf -n
 	dh_installdocs
 	# Changelog reduction hack for debconf. Only include top 5 entries.
@@ -128,7 +92,6 @@ binary-arch: build-arch
 	dh_compress
 	dh_fixperms
 	dh_installdeb
-	dh_perl
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums

@@ -57,7 +57,7 @@ sub make_frontend {
 	foreach $type ($starttype, @{$fallback{$starttype}}, 'Noninteractive') {
 		debug user => "trying frontend $type";
 		$frontend=eval qq{
-			use Debonf::FrontEnd::$type;
+			use Debconf::FrontEnd::$type;
 			Debconf::FrontEnd::$type->new();
 		};
 		return $frontend if defined $frontend;

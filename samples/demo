@@ -3,9 +3,9 @@
 
 # Note this stanza is only here to make this script work in an uninstalled
 # debconf source tree, and is not needed in production code.
-PATH=$PATH:Client                                                               
-if [ -e Client/confmodule ]; then
-	. Client/confmodule                                                     
+PATH=$PATH:.
+if [ -e confmodule ]; then
+	. confmodule                                                     
 else                                                                            
 	. /usr/share/debconf/confmodule                                         
 fi 

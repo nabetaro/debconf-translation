@@ -6,18 +6,25 @@ debconf (0.4.00) unstable; urgency=low
   * While I was reorganizing *EVERYTHING*, I renamed all the perl modules, 
     what was Debian::DebConf::foo is now Debconf::foo.
     Debian::DebConf::Client::ConfModule is now just Debconf::ConfModule, but 
-    a stub module exists in the old location for backwards compatability.
+    a stub module exists in the old location for backwards compatability
+    (thanks, bod).
   * If you use the new module, you should depend on this version of
     Debconf!
+  * This hacking also required some ugly ugly hacking of the debconf
+    database. Debconf needs a real database. :-(
   * I guess this means the filename in all the .po files are wrong, bug
     since those filenames are in comments, the .po files should continue to
     work, right?
   * debconf-utils now depends on debconf >= 0.4, so it will continue to
     work.
-  * Now builds out of a Makefile.PL. I hope this satisfies the person was
-    was so annoyingly complaining about my lack of one.
   * Needless to say, this was a massive PITA all around. I've NEVER going
     to do this again, so I hope I got it right.
+  * For a short while, I considered using MakeMaker. That is, until I
+    noticed MakeMaker had no way of marking scripts for install into
+    /usr/sbin, and after not one but two perl gods advised me using it for
+    anything more cpmplex than a simple library package was not a good
+    idea. People have asked me to use MakeMaker in the past, and it's just
+    not going to happen unless you send me a very nice patch.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 17 Oct 2000 13:35:41 -0700
 

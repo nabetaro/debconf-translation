@@ -66,12 +66,12 @@ Display usage help.
 =cut
 
 use strict;
-use Debian::Debconf::Gettext;
-use Debian::Debconf::Template;
-use Debian::Debconf::ConfigDb qw(loaddb savedb registertemplates);
-use Debian::Debconf::Config qw(frontend priority dbdir showold);
-use Debian::Debconf::AutoSelect qw(:all);
-use Debian::Debconf::Log qw(:all);
+use Debconf::Gettext;
+use Debconf::Template;
+use Debconf::ConfigDb qw(loaddb savedb registertemplates);
+use Debconf::Config qw(frontend priority dbdir showold);
+use Debconf::AutoSelect qw(:all);
+use Debconf::Log qw(:all);
 
 my $infodir="/var/lib/dpkg/info";
 
@@ -167,7 +167,7 @@ foreach my $pkg (@packages) {
 	}
 	
 	# Load up templates just in case they arn't already.
-	registertemplates($pkg,Debian::Debconf::Template->load("$infodir/$pkg.templates"))
+	registertemplates($pkg,Debconf::Template->load("$infodir/$pkg.templates"))
 		if -e "$infodir/$pkg.templates";
 
 	# Run config, and postinst scripts in sequence, with args.
