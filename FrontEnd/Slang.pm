@@ -75,11 +75,15 @@ sub init {
 	
 	$this->button_next(Term::Stool::Button->new(text => gettext("Next")));
 	$this->button_back(Term::Stool::Button->new(text => gettext("Back")));
+	my $hide_help=gettext("Hide Help");
+	my $show_help=gettext("Show Help");
+	my $length=length $hide_help;
+	$length=length $show_help if length $show_help > $length;
 	$this->button_help(Term::Stool::Button->new(
 		align => 'right',
-		text_hidden => gettext("Show Help"),
-		text_shown => gettext("Hide Help"),
-		width => "13",
+		text_hidden => $show_help,
+		text_shown => $hide_help,
+		width => $length + 4,
 		press_hook => sub {
 			# Toggle display of the helpwindow.
 			if ($this->helpwindow->hidden) {

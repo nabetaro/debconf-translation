@@ -9,7 +9,7 @@ Debian::DebConf::Client::ConfModule - client module for ConfModules
  use Debian::DebConf::Client::ConfModule ':all';
  version('2.0');
  my $capb=capb('backup');
- input("foo/bar");
+ input("medium", "foo/bar");
  my @ret=go();
  if ($ret[0] == 30) {
  	# Back button pressed.
