@@ -6,7 +6,10 @@ Version.pm:
 	echo -e "package Debian::DebConf::Version;\n\$$version='$(VERSION)';" > Version.pm
 
 test:
+	install -d Debian || true
+	cd Debian && ln -sf .. DebConf
 	samples/$(PACKAGE)
+	rm -rf Debian
 
 clean:
 	find . -name \*~ | xargs rm -f
