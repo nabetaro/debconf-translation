@@ -15,7 +15,7 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK);
 
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title text input beginblock endblock go
-		   note unset set get previous_module);
+		   note unset set get register unregister previous_module);
 
 # Set up valid command lookup hash.
 my %commands;

@@ -28,6 +28,11 @@ Usage: dpkg-frontend [options]
 	[,  --beginblock	Begin a block of items.
 	],  --endblock		End a block of items.
 	-G, --go		Present all built up items to the user.
+	-rtemplate:question,
+	--register template:question
+				Add a mapping for the question to the template.
+	-uquestion,
+	--unregister question	Remove mapping for the question.
 eof
 	exit 100;
 }
@@ -52,7 +57,6 @@ sub init {
 }
 
 sub can_backup {
-	shift;
 	$ret=ConfModule::capb('backup');
 }
 
@@ -60,6 +64,11 @@ sub can_backup {
 sub do_get {
 	$do_print=1;
 	get(@_);
+}
+
+# Need to parse what the user entered a little more.
+sub do_register {
+	register(shift, split(/:/, shift, 2));
 }
 
 # These guys are just here so nothing gets passed into the commands.
@@ -111,6 +120,8 @@ GetOptions(
 	'beginblock', \&do_beginblock,
 	'endblock', \&do_endblock,
 	'go|G', \&do_go,
+	'register|r=s', \&do_register,
+	'unregister|u=s', \&unregister,
 	'<>', \&nonoption,
 ) || help;
 

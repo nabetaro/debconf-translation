@@ -74,4 +74,45 @@ sub makequestions {
 	}
 }
 
+# Add a mapping.
+sub addmapping {
+	my $template_text=shift;
+	my $location=shift;
+
+	my $template=$templates{$template_text};
+
+	# Instantiate or change the mapping to point to the right question.
+	my $mapping;
+	if (exists $mappings{$location}) {
+		$mapping=$mappings{$location};
+		# Short circuit; no change necessary.
+		return if $mapping->template eq $template_text;
+	}
+	else {
+		$mapping=Mapping->new();
+	}
+	$mapping->question($location);
+	$mapping->template($template_text);
+
+	# Instantiate or change the question.
+	my $question;
+	if (exists $questions{$location}) {
+		$question=$questions{$location};
+	}
+	else {
+		$question=Question->new;
+	}
+	$question->name($template->template);
+	$question->template($template);
+	$question->value($template->default);
+	$questions{$question->name}=$question;
+}
+
+# Remove a mapping.
+sub removemapping {
+	my $location=shift;
+	
+	delete $mappings{$location};
+}
+
 1

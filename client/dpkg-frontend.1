@@ -7,8 +7,8 @@ dpkg-frontend \- communicate with Debian configuration system FrontEnd.
 .SH DESCRIPTION
 .BR dpkg-frontend
 is used by confmodules and other scripts to communicate with the FrontEnd
-user interface that is shown to the user. This program can cause the
-frontend to display test to the user and ask the user questions.
+user interface. This program can cause the frontend to display test to the
+user and ask the user questions.
 .PP
 A quick description of the protocol used to communicate between the FrontEnd and
 .BR dpkg-frontend
@@ -35,7 +35,7 @@ Print out (to standard error) the return code of the last command sent to
 the FrontEnd. See the EXAMPLES section below for a demo of how to use this.
 .TP
 .I "\-pvalue, \-\-priority=value"
-Set the priority of the next question, note, or text displayed to the
+Set the priority of the next question, note, or test displayed to the
 specified value. The default priority is "medium". The new priority remains
 in effect until it is changed or until
 .BR dpkg-frontend
@@ -75,7 +75,7 @@ Tell the frontend to present a question to the user.
 Cause the FrontEnd to display a note to the user.
 .TP
 .I "\-gquestion, \-\-get=question"
-Makes the FrontEnd return the value the user ansered for a question. This
+Makes the FrontEnd return the value the user answered for a question. This
 automatically causes --print to be set so the value is printed out.
 .TP
 .I "[, --beginblock"
@@ -90,6 +90,14 @@ Tell the FrontEnd to present all questions, notes, text, etc to the user.
 Prints "backup" if the user hits the Back button and --print was specified.
 Some FrontEnds will just buffer everything and not display any of these items
 until you use --go.
+.TP
+.I "\-rtemplate:question, \-\-register=template:question"
+Add a mapping for the specified question to the specified template. This
+makes the description, type, default values, etc, in the template be used
+when the question is displayed.
+.TP
+.I "\-u, \-\-unregister=question"
+Remove the mapping for the specified question.
 .SH "RETURN CODES"
 A code of 1 is returned if the user hits the Back button on the FrontEnd.
 .SH EXAMPLES

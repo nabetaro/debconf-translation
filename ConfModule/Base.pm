@@ -15,6 +15,7 @@ package ConfModule::Base;
 use strict;
 use IPC::Open2;
 use FileHandle;
+use ConfigDb;
 use vars qw($AUTOLOAD);
 
 # Pass the filename of the configuration module to start and pass in the
@@ -99,6 +100,23 @@ sub command_get {
 	$question=ConfigDb::getquestion($question);
 	return $question->value if $question->value ne '';
 	return $question->template->default;
+}
+
+# Add a mapping.
+sub command_register {
+	my $this=shift;
+	my $template=shift;
+	my $location=shift;
+	
+	ConfigDb::addmapping($template, $location);
+}
+
+# Remove a mapping.
+sub command_unregister {
+	my $this=shift;
+	my $location=shift;
+	
+	ConfigDb::removemapping($location);
 }
 
 sub AUTOLOAD {
