@@ -40,21 +40,21 @@ sub display {
 
 	$sl->smg_set_color($this->frontend->color->{dialog});
 	$sl->SLsmg_set_char_set(1);
-	$sl->SLsmg_fill_region($y+1, $x+1, $height-3, $width-4, ' ');
+	$sl->SLsmg_fill_region($y+1, $x+1, $height-3, $width-4, ord(' '));
 	$sl->smg_draw_box($y, $x, $height-1, $width-2);
-	$sl->smg_gotorc($y, $x+($width + length $title)/2);
 	$sl->SLsmg_set_char_set(0);
-	if ($title ne '') {
-		$sl->smg_gotorc($y, $x+($width-2 - length $title)/2);
+	if (defined $title && $title ne '' && $width > 8) {
+		$title=" ".substr($title, 0, $width-8)." ";
+		$sl->smg_gotorc($y, $x + ($width-2 - length $title)/2);
 		$sl->SLsmg_set_char_set(0);
-		$sl->SLsmg_write_string(" ".substr($title, 0, $width - 8)." ");
+		$sl->SLsmg_write_string($title);
 	}
 	# Add one to shadow color because this function for some reason
 	# expects color id + 1. Dunno why.
 	$sl->smg_set_color_in_region($this->frontend->color->{shadow} + 1,
-		$y+$height, $x+1, 1, $width-1);
+		$y+$height-1, $x+1, 1, $width-1);
 	$sl->smg_set_color_in_region($this->frontend->color->{shadow} + 1,
-		$y+1, $x+$width, $height, 2);
+		$y+1, $x+$width-2, $height-1, 2);
 
 	# Draw everything inside.
 	$this->SUPER::display(@_);
