@@ -720,7 +720,7 @@ is a skeleton of a state machine that you can fill out and expand.
  		# first question was answered in
  		# the affirmative.
         	db_get my/question
- 		if [ "$RET" = "false" ]; then
+ 		if [ "$RET" = "true" ]; then
  			db_input medium my/dep_question || true
  		fi
   	;;
