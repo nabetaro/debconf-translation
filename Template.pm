@@ -140,7 +140,7 @@ sub load {
 	local $/="\n\n"; # read a template at a time.
 	while (<$fh>) {
 		my $template=$this->new;
-		$template->parse($_);
+		$template->parse($_, $file);
 		push @ret, $template;
 	}
 
@@ -152,11 +152,15 @@ sub load {
 This method parses a string containing a template and stores all the
 information in the Template object. It returns the object.
 
+An optional second parameter can hold the name of the file that the
+template came from, which is used in error messages.
+
 =cut
 
 sub parse {
 	my $this=shift;
 	my $text=shift;
+	my $file=shift || gettext("unknown file");
 	
 	my ($field, $value, $extended)=('', '', '');
 	foreach (split "\n", $text) {
@@ -185,14 +189,14 @@ sub parse {
 			$extended.=$1." ";
 		}
 		else {
-			die sprintf(gettext("Template parse error near `%s'"), $_);
+			die sprintf(gettext("Template parse error near `%s', in stanza #%s of %s\n"), $_, $., $file);
 		}
 	}
 
 	$this->_savefield($field, $value, $extended);
 
 	# Sanity checks.
-	die gettext("Template does not contain a `Template:' line")
+	die sprintf(gettext("Template #%s in %s does not contain a `Template:' line\n"), $., $file)
 		unless $this->template;
 	
 	return $this;
