@@ -4,7 +4,8 @@ debconf (0.9.10) unstable; urgency=low
   * Modifications for apt 0.5.1: no longer includes apt-extracttemplates,
     which is now in apt-utils, which you need to install now if you want
     preconfiguration. This makes debconf not depend on the unstable apt
-    library, and makes it arch all again, woo hoo!
+    library, and makes it arch all again. Perhaps this will help it get
+    into testing in the next decade.
   * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
     Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question
     as there is no reason to configure this during debconf install time,
@@ -13,7 +14,11 @@ debconf (0.9.10) unstable; urgency=low
     debconf. It's the long-missing quarter of debconf, and thus debconf
     will be ready for 1.0 once the kinks in it are worked out. See the
     debconf.conf(5) man page (in debconf-doc) for more information.
-  * Conflicts with versions of cdebconf that themselves use a
+    Closes: #50437
+  * And yeah, you can let users access the db now. Use the DirTree driver.
+    Or set up their own databases via ~/.debconfrc files.
+    Closes: #81574
+  * Conflicts with versions of cdebconf that themselves use a 
     /etc/debconf.conf.
   * Db reloads inside the same perl invocation (dpkg-reconfigure needs to
     do this sometimes) are no longer a problem, Closes: #85873
@@ -21,7 +26,7 @@ debconf (0.9.10) unstable; urgency=low
   * I've had some unreproducible reports of the old debconf db upgrades
     failing. The new code handles upgrades from either of the pervious two
     varients of the db format, so should deal with those problems. 
-    Closes: #80940
+    Closes: #80940, #88256
   * Added new transition code. Does not yet delete old database, as it has
     not had sufficient testing.
   * Changed interface of debconf-communicate.
@@ -32,7 +37,8 @@ debconf (0.9.10) unstable; urgency=low
     even if it is just unpacked and not yet configured.
   * Dutch template update, Closes: #87493
   * Made everything use sane temp file opens, so the hack with
-    /var/lib/debconf/ containing temp files is no longer necessary.
+    /var/lib/debconf/ containing temp files is no longer necessary, and the
+    directory can go away soon.
 
  -- Joey Hess <joeyh@debian.org>  Sun,  4 Mar 2001 14:42:31 -0800
 
