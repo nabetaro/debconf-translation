@@ -261,6 +261,9 @@ sub go {
 		$this->helpbar->push(gettext("Tab and arrow keys move."));
 		$this->helpbar->display;
 		$this->panel->display;
+		# Force screen refresh because something may have written
+		# to the display behind our back.
+		$this->screen->force_display;
 		$this->screen->run($firstwidget);
 
 		# See which button is active (and thus was pressed), and

@@ -6,13 +6,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-10-31 13:32-0800\n"
+"POT-Creation-Date: 2000-11-09 15:58-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Nieobs³ugiwana komenda `%s'."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/AutoSelect.pm:65
 #, c-format
@@ -56,19 +69,6 @@ msgstr "B³±d w szablonie w pobli¿u `%s'"
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
 
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
-
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
 msgstr "Wywo³ano metodê pytania przed ustawieniem nak³adki."
@@ -106,18 +106,19 @@ msgstr ""
 "(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:38
+#, fuzzy
 msgid ""
-"This note was sent to you because Debconf was asked to make sure you saw it, "
-"but Debconf was running in noninteractive mode, or you have told it to not "
-"pause and show you unimportant notes. Here is the text of the note:"
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Ta uwaga zosta³a do Ciebie wys³ana, poniewa¿ Debconf zosta³ poproszony o to, "
-"aby Ci j± pokazaæ, ale by³ uruchomiony w trybie nieinteraktywnym lub "
-"kaza³e¶/kaza³a¶ mu nie zatrzymywaæ siê ani nie pokazywaæ niewa¿nych uwag. "
-"Oto jej tre¶æ:"
+"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:59
 msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:75
+#, fuzzy, c-format
+msgid "Debconf, running at %s"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Slang/Note.pm:29
@@ -217,7 +218,7 @@ msgstr "Poka¿ pomoc"
 msgid "Tab and arrow keys move."
 msgstr "Przesuwanie klawiszami tab i strza³ek"
 
-#: ../Debconf/FrontEnd/Slang.pm:279
+#: ../Debconf/FrontEnd/Slang.pm:282
 msgid "Working, please wait..."
 msgstr "Proszê czekaæ"
 
@@ -282,6 +283,16 @@ msgstr "%s nie jest w pe³ni zainstalowany"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid ""
+#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
+#~ "but Debconf was running in noninteractive mode, or you have told it to not "
+#~ "pause and show you unimportant notes. Here is the text of the note:"
+#~ msgstr ""
+#~ "Ta uwaga zosta³a do Ciebie wys³ana, poniewa¿ Debconf zosta³ poproszony o to, "
+#~ "aby Ci j± pokazaæ, ale by³ uruchomiony w trybie nieinteraktywnym lub "
+#~ "kaza³e¶/kaza³a¶ mu nie zatrzymywaæ siê ani nie pokazywaæ niewa¿nych uwag. "
+#~ "Oto jej tre¶æ:"
 
 #~ msgid "falling back to frontend: %s"
 #~ msgstr "powrót do nak³adki: %s"

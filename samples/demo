@@ -35,5 +35,7 @@ echo $RET
 db_get demo/multiselect
 echo $RET
 db_input low demo/note || true
+db_fset demo/boolean isdefault true
+db_input high demo/boolean || true
 db_go
 

@@ -268,7 +268,7 @@ sub command_input {
 		$element=Debconf::FrontEnd::Noninteractive->makeelement($question, 1);
 
 		# If that failed, the question is just not visible.
-		return $codes{input_invisible}, 'question skipped' unless $element;
+		return $codes{input_invisible}, "question skipped" unless $element;
 	}
 
 	$this->frontend->add($element);

@@ -35,24 +35,25 @@ Calls sendmail to mail the note to root.
 sub show {
 	my $this=shift;
 
-	$this->sendmail(gettext("This note was sent to you because Debconf was asked to make sure you saw it, but Debconf was running in noninteractive mode, or you have told it to not pause and show you unimportant notes. Here is the text of the note:"));
+	$this->sendmail(gettext("Debconf was not configured to display this note, so it mailed it to you."));
 	return '';
 }
 
 =item sendmail
 
-The show method mails the note to root if the note has not been displayed
+The sendmail method mails the note to root if the note has not been displayed
 before. The external unix mail program is used to do this, if it is present.
 
 If the mail is successfully sent a true value is returned.
 
-A header may be passed as the first parameter.
+A footer may be passed as the first parameter; it is generally used to
+explain why the note was sent.
 
 =cut
 
 sub sendmail {
 	my $this=shift;
-	my $header=shift;
+	my $footer=shift;
 
 	if (-x '/usr/bin/mail' && $this->question->flag_isdefault ne 'false') {
 	    	my $title=gettext("Debconf").": ".$this->frontend->title." -- ".
@@ -63,7 +64,6 @@ sub sendmail {
 		# Text::Wrap at other spacings.
 		my $old_columns=$Text::Wrap::columns;
 		$Text::Wrap::columns=75;
-		print MAIL wrap('', '', $header)."\n\n" if $header;
 		if ($this->question->extended_description ne '') {
 			print MAIL wrap('', '', $this->question->extended_description);
 		}
@@ -71,7 +71,9 @@ sub sendmail {
 			# Evil note!
 			print MAIL wrap('', '', $this->question->description);
 		}
-		print MAIL "\n";
+		print MAIL "\n\n";
+		print MAIL "-- \n", sprintf(gettext("Debconf, running at %s"), `hostname -f`);
+		print MAIL "[ ", wrap('', '', $footer), " ]\n" if $footer;
 		close MAIL or return '';
 
 		$Text::Wrap::columns=$old_columns;

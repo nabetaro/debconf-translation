@@ -6,13 +6,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2000-10-31 13:32-0800\n"
+"POT-Creation-Date: 2000-11-09 15:58-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Команда `%s' не поддерживается."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Предупреждение: в переданных параметрах обнаружен символ перевода строки."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "Это может привести к неожиданным результатам!"
 
 #: ../Debconf/AutoSelect.pm:65
 #, c-format
@@ -56,20 +70,6 @@ msgstr "Ошибка разбора шаблона около `%s'"
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Шаблон не содержит строки `Template:'"
 
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Команда `%s' не поддерживается."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Предупреждение: в переданных параметрах обнаружен символ перевода строки."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "Это может привести к неожиданным результатам!"
-
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
 msgstr ""
@@ -110,16 +110,20 @@ msgstr ""
 "(', ').)"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:38
+#, fuzzy
 msgid ""
-"This note was sent to you because Debconf was asked to make sure you saw it, "
-"but Debconf was running in noninteractive mode, or you have told it to not "
-"pause and show you unimportant notes. Here is the text of the note:"
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Это письмо было отправлено, посколько при работе debconf в неинтерактивном "
-"режиме сценарий настройки попытался вывести сообщение, приведенное ниже:"
+"Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
+"было вам отправлено по почте."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:59
 msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:75
+#, fuzzy, c-format
+msgid "Debconf, running at %s"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Slang/Note.pm:29
@@ -222,7 +226,7 @@ msgid "Tab and arrow keys move."
 msgstr ""
 "Для перемещения по элементам диалога используйте стрелки и клавишу Tab."
 
-#: ../Debconf/FrontEnd/Slang.pm:279
+#: ../Debconf/FrontEnd/Slang.pm:282
 msgid "Working, please wait..."
 msgstr "Идет работа. Подождите, пожалуйста..."
 
@@ -292,6 +296,14 @@ msgstr "Пакет %s установлен не полностью"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#~ msgid ""
+#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
+#~ "but Debconf was running in noninteractive mode, or you have told it to not "
+#~ "pause and show you unimportant notes. Here is the text of the note:"
+#~ msgstr ""
+#~ "Это письмо было отправлено, посколько при работе debconf в неинтерактивном "
+#~ "режиме сценарий настройки попытался вывести сообщение, приведенное ниже:"
 
 #~ msgid "falling back to frontend: %s"
 #~ msgstr "будет использован интерфейс `%s'"

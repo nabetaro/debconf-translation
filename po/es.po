@@ -5,13 +5,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2000-10-31 13:32-0800\n"
+"POT-Creation-Date: 2000-11-09 15:58-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Comando `%s' no soportado."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../Debconf/AutoSelect.pm:65
 #, c-format
@@ -56,20 +70,6 @@ msgstr "Error al procesar la plantilla, cerca de `%s'"
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "La plantilla con contiene una línea `Template:'"
 
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Comando `%s' no soportado."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
-
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
 msgstr ""
@@ -111,18 +111,20 @@ msgstr ""
 "espacio (', ').)"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:38
+#, fuzzy
 msgid ""
-"This note was sent to you because Debconf was asked to make sure you saw it, "
-"but Debconf was running in noninteractive mode, or you have told it to not "
-"pause and show you unimportant notes. Here is the text of the note:"
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Esta nota se le envió porque se solicitó a Debconf que se asegurase de que "
-"usted la veía, pero Debconf estaba ejecutándose en modo no-interactivo, o "
-"usted le había diho que no se detuviera para mostrarle notas no importantes. "
-"Aquí está el texto de la nota:"
+"Se solicitó a Debconf que guardase esta nota, así que se la ha enviado por "
+"correo."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:58
+#: ../Debconf/Element/Noninteractive/Note.pm:59
 msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:75
+#, fuzzy, c-format
+msgid "Debconf, running at %s"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Slang/Note.pm:29
@@ -226,7 +228,7 @@ msgstr "Mostrar Ayuda"
 msgid "Tab and arrow keys move."
 msgstr "Mover con las flechas y el tabulador."
 
-#: ../Debconf/FrontEnd/Slang.pm:279
+#: ../Debconf/FrontEnd/Slang.pm:282
 msgid "Working, please wait..."
 msgstr "Trajando, por favor espere..."
 
@@ -292,3 +294,13 @@ msgstr "%s no está instalado totalmente"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No puedo leer el fichero de estado: %s"
+
+#~ msgid ""
+#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
+#~ "but Debconf was running in noninteractive mode, or you have told it to not "
+#~ "pause and show you unimportant notes. Here is the text of the note:"
+#~ msgstr ""
+#~ "Esta nota se le envió porque se solicitó a Debconf que se asegurase de que "
+#~ "usted la veía, pero Debconf estaba ejecutándose en modo no-interactivo, o "
+#~ "usted le había diho que no se detuviera para mostrarle notas no importantes. "
+#~ "Aquí está el texto de la nota:"

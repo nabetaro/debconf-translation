@@ -1,3 +1,24 @@
+debconf (0.4.09) unstable; urgency=low
+
+  * Corrected italian choices list to include translation of "critical".
+    I don't see any problems in the other translations. (No, there is no
+    automated check yet.) Closes: #75312
+  * Slang frontend now forces a refresh each time. It pains me to do this,
+    but it prevents screen corruption if something is output in between.
+    Closes: #72891
+  * Wrote a debconf.8 man page, Closes: #58287 It's very tiny right now;
+    I'd sorta like to convert the docbook userguide.xml and use it as the
+    man page, but I cannot figure out docbook2man. Help!
+  * Closes: #76273, this bug is only in a not really released version.
+  * Randolph updated apt-extracttemplates to build with the new apt. I
+    have converted that to use ifdefs so it should build with both.
+  * Added a hostname to the mails sent out by the noninteractive frontend,
+    as admins may have multiple hosts configured to sent mail with the same
+    hostname. Closes: #76653 Also reformatted the messages some for clarity
+    and conciseness.
+ 
+ -- Joey Hess <joeyh@debian.org>  Thu,  9 Nov 2000 13:58:53 -0800
+
 debconf (0.4.08) unstable; urgency=low
 
   * Randomph updated apt-extracttemplates to use the new libapt.

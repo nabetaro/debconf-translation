@@ -16,7 +16,7 @@ install-man:
 	install -d $(prefix)/usr/share/man/man3
 	pod2man --section=3 Debconf/Client/ConfModule.pm \
 		> $(prefix)/usr/share/man/man3/Debconf::Client::ConfModule.3pm
-	install -m 0644 confmodule.3 $(prefix)/usr/share/man/man3/
+	install -m 0644 confmodule.3 debconf.8 $(prefix)/usr/share/man/man3/
 
 # Anything that goes in the debconf-utils package.
 install-utils:
