@@ -29,5 +29,13 @@ clean:
 
 %.po: debconf.pot
 	@echo -n "Merging debconf.pot and $@"
-	@mv $@ $@.old && msgmerge $@.old debconf.pot -o $@ && rm $@.old
+	@msgmerge $@ debconf.pot -o $@.new
+# Typically all that changes was a date. I'd prefer not to cvs commit such
+# changes, so detect and ignore them.
+	@if [ "`diff $@ $@.new | grep '[<>]' | wc -l`" -ne 2 ]; then \
+		mv -f $@.new $@; \
+	else \
+		echo kill; \
+		rm -f $@.new; \
+	fi
 	@msgfmt --statistics $@

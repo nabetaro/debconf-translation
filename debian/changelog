@@ -1,3 +1,11 @@
+debconf (0.5.47) unstable; urgency=low
+
+  * dpkg-preconfigure: Split on any whitespace, Closes: #82579
+  * po/Makefile is now smart about msgmerge just updating datestamps,
+    and doesn't let such trivial changes be checked into cvs.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 17 Jan 2001 11:28:24 -0800
+
 debconf (0.5.46) unstable; urgency=low
 
   * dpkg-preconfigure: don't split on apt-extractemplates output on 

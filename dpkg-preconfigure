@@ -172,7 +172,7 @@ if ($apt && @buffer) {
 	print "Preconfiguring packages ..\n";
 }
 foreach (@buffer) {
-	($package, $version, $template, $config)=split / /;
+	($package, $version, $template, $config)=split /\s/;
 	
 	# Load templates if any.
 	if (defined $template && length $template) {
