@@ -41,13 +41,11 @@ foreach my $item (keys %questions) {
 	my $question=Debconf::Question->new($item, pop @owners);
 	$question->addowner($_) foreach @owners;
 }
-
 # Now that all the Question objects are made, we can fill them in.
 # Have to do it in two passes to prevent duplicate questions trying to 
 # be made.
 foreach my $item (keys %questions) {
 	my $question=Debconf::Question->get($item);
-
 	# Make sure that the template used by this item exists.
 	my $tname=$questions{$item}->{template}->{_name};
 	my $template=Debconf::Template::Persistent->get($tname);

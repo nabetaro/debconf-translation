@@ -108,11 +108,12 @@ sub exists {
 	my $this=shift;
 	my $name=shift;
 	
+	return unless $this->accept($name);
+	
 	# Check the cache first.
 	my $incache=$this->SUPER::exists($name);
-	return if (!defined $incache or $incache);
+	return $incache if (!defined $incache or $incache);
 
-	return unless $this->accept($name);
 	return -e $this->filename($name);
 }
 

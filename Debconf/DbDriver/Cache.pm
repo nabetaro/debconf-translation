@@ -178,9 +178,10 @@ undef -- marked as deleted in the cache
 
 sub exists {
 	my $this=shift;
+	my $item=shift;
 
-	return $this->{cache}->{shift()}
-		if exists $this->{cache}->{shift()};
+	return $this->{cache}->{$item}
+		if exists $this->{cache}->{$item};
 	return 0;
 }
 

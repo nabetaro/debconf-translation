@@ -12,8 +12,10 @@ debconf (0.9.00) experimental; urgency=low
 
 NOT READY FOR RELEASE
 Before release, I must:
-* implement locking in the Text driver
-* implement transition code for new db
+* The transition script is buggy if it is run once it works.
+  If it is run again, all the data about all the templates except their
+  owner is deleted. Hmmmmmmmmmmm.
+* implement locking in the *Dir* driver
 * use /etc/apt/apt.conf.d/ directory in new apt
 * I think that when REGISTER is called, I need to make the template get
   owned by the question, inverse for unregister. -- implemented, needs a
@@ -41,7 +43,6 @@ Before release, I must:
   at the end. Better to do the work.
  
   Ok, I fixed exists by using SUPER. Can I do the same with the iterator?
-  Well, I almost fixed it. Still needs something. Feh.
 * I think a flat directory rapidly becomes ugly. Make it a tree!
  
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
