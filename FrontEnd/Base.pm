@@ -25,7 +25,7 @@ sub go {
 		# Some elements use helper functions in the frontend
 		# so thet need to know what frontend to use.
 		$elt->frontend($this);
-		$elt->ask;
+		$elt->show;
 	}
 	$this->{elements}=[];
 }

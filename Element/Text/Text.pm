@@ -10,10 +10,10 @@ use vars qw(@ISA);
 @ISA=qw(Element::Text);
 
 # Display the text.
-sub ask {
+sub show {
 	my $this=shift;
 
-	$this->frontend->ui_display($this->text."\n\n");
+	$this->frontend->display($this->text."\n\n");
 }
 
 1

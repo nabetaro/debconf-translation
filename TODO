@@ -16,7 +16,6 @@ Line at a time frontend:
 Dialog frontend:
 * there is no way to make it prompt for a password, because defaults are
   passed in in cleartext. There should probably be a CAPB setting for this.
-* it doesn't check ret valules yet..
 * The dialog frontend _must_ do dynamic calculations about the size of the
   box. See the cvs stuff for examples of it failing now.
 * It'd be nice if the Dialog stuff could catch text that was to be

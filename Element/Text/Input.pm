@@ -11,14 +11,14 @@ use vars qw(@ISA);
 @ISA=qw(Element::Input);
 
 # Display the element, prompt the user for input.
-sub ask {
+sub show {
 	my $this=shift;
 
 	# Get the question that is bound to this element.
 	my $question=ConfigDb::getquestion($this->{question});
 
 	# Display the question's long desc and then the short desc.
-	$this->frontend->ui_display($question->template->extended_description."\n");
+	$this->frontend->display($question->template->extended_description."\n");
 	
 	# How the user is actually prompted depends on what type of question
 	# this is.
@@ -45,10 +45,10 @@ sub ask {
 		# a prompt with the full list in it.
 		# TODO: handle more than 26 choices.
 		foreach (0..$#choices) {
-			$this->frontend->ui_display_nowrap("\t".chr(97 + $_).". $choices[$_]");
+			$this->frontend->display_nowrap("\t".chr(97 + $_).". $choices[$_]");
 			$prompt.=chr($_ + ($choices[$_] eq $default ? 65 : 97));
 		}
-		$this->frontend->ui_display("\n");
+		$this->frontend->display("\n");
 	}
 	elsif ($type eq 'text') {
 		$pdefault=$default;
@@ -61,7 +61,7 @@ sub ask {
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->ui_prompt($question->template->description." ".
+		$_=$this->frontend->prompt($question->template->description." ".
 			($prompt ? "[$prompt] " : ''), $pdefault);
 		
 		# handle defaults.
@@ -96,7 +96,7 @@ sub ask {
 
 	$question->value($value);
 	
-	$this->frontend->ui_display("\n");
+	$this->frontend->display("\n");
 }
 
 1

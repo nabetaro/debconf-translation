@@ -10,7 +10,7 @@ use vars qw(@ISA);
 @ISA=qw(Element::Text);
 
 # Display the text in a dialog box.
-sub ask {
+sub show {
 	my $this=shift;
 
 	# TODO: auto-calc geometry.

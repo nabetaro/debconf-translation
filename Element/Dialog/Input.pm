@@ -11,7 +11,7 @@ use vars qw(@ISA);
 @ISA=qw(Element::Input);
 
 # Display the element, prompt the user for input.
-sub ask {
+sub show {
 	my $this=shift;
 
 	# Get the question that is bound to this element.

@@ -9,7 +9,7 @@ use vars qw(@ISA);
 @ISA=qw(Element::Text);
 
 # Save the note.
-sub ask {
+sub show {
 	my $this=shift;
 	
 	# TODO
