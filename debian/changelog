@@ -1,3 +1,14 @@
+debconf (0.5.23) unstable; urgency=low
+
+  * Fixed noninteractive note element to not let the shell get its grubby
+    little hands on unvalidated input, which was making it puke. 
+    Closes: #77589 and a whole raft of other bugs filed against X which we 
+    will be merging to it. Special thanks to Ingo Saitz for providing many
+    debug logs, and the person I've forgot who should delete my debug 
+    account from their box now.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 21 Nov 2000 23:22:09 -0800
+
 debconf (0.5.22) unstable; urgency=low
 
   * Temporarily depends on perl-5.6 until perl-5.6-base is fixed so

@@ -55,10 +55,12 @@ sub sendmail {
 	my $footer=shift;
 
 	if (-x '/usr/bin/mail' && $this->question->flag_seen ne 'true') {
-	    	my $title=gettext("Debconf").": ".$this->frontend->title." -- ".
-		   $this->question->description;
-		$title=~s/'/\'/g;
-	    	open (MAIL, "|mail -s '$title' root") or return '';
+	    	my $title=gettext("Debconf").": ".
+			$this->frontend->title." -- ".
+			$this->question->description;
+		unless (open(MAIL, "|-")) { # child
+			exec("mail", "-s", $title, "root") or return '';
+		}
 		# Let's not clobber this, other parts of debconf might use
 		# Text::Wrap at other spacings.
 		my $old_columns=$Text::Wrap::columns;
