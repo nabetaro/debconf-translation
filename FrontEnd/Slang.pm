@@ -45,7 +45,6 @@ sub new {
 	# Create the two main windows and put them in the screen.
 	my $qwin=Debian::DebConf::Element::Slang::Internal::Window->new;
 	$qwin->frontend($self);
-	$qwin->title("foo");
 	$qwin->container($self->screen);
 	$qwin->xoffset(2);
 	$qwin->yoffset(2);
@@ -54,7 +53,7 @@ sub new {
 
 		# Take up the top half of the screen.
 		$this->width($this->container->width - 4);
-		$this->height(($this->container->height - 4) / 2);
+		$this->height(int (($this->container->height - 5) / 2));
 	});
 	my $dwin=Debian::DebConf::Element::Slang::Internal::Window->new;
 	$dwin->frontend($self);
@@ -66,7 +65,7 @@ sub new {
 
 		# Take up the bottom half of the screen.
 		$this->width($this->container->width - 4);
-		$this->yoffset(($this->container->height - 4) / 2 + 1);
+		$this->yoffset(int(($this->container->height - 5) / 2) + 3);
 		$this->height($this->container->height - $this->yoffset - 1);
 	});
 	$self->resize;
