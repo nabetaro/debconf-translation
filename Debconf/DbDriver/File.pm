@@ -10,6 +10,7 @@ package Debconf::DbDriver::File;
 use strict;
 use Debconf::Log qw(:all);
 use Fcntl qw(:DEFAULT :flock);
+use IO::Handle;
 use base 'Debconf::DbDriver::Cache';
 
 =head1 DESCRIPTION
@@ -126,17 +127,34 @@ sub savedb {
 		return 1;
 	}
 
-	# Use sysopen and specify the mode just to be sure.
-	sysopen(my $fh, $this->{filename},
+	# Write out the file to -new, locking it as we go.
+	sysopen(my $fh, $this->{filename}."-new",
 			O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or
-		$this->error("could not write $this->{filename}: $!");		
+		$this->error("could not write $this->{filename}: $!");
+	flock($fh, LOCK_EX | LOCK_NB) or
+		$this->error("$this->{filename}-new is locked by another process");
 	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item}; # skip deleted
 		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
 	}
 	$this->{format}->endfile;
-	close $fh;
+
+	# Ensure -new is flushed.
+	$fh->autoflush(1);
+
+	# Now rename the old file to -old, and put -new in its place.
+	if (-e $this->{filename}) {
+		rename($this->{filename}, $this->{filename}."-old") or
+			debug "DbDriver $this->{name}" => "rename failed: $!";
+	}
+	rename($this->{filename}."-new", $this->{filename}) or
+		$this->error("rename failed: $!");
+
+	# Finally, store the open filehandle so the lock isn't dropped. This
+	# drops the lock on -old.
+	$this->{_fh} = $fh;
+
 	return 1;
 }
 

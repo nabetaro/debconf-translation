@@ -61,7 +61,7 @@ sub init {
 		foreach my $name (split(/\s*,\s/, $this->{stack})) {
 			my $driver=$this->driver($name);
 			unless (defined $driver) {
-				$this->error("could not find a driver named \"$name\" to use in the stack (it should be defined before the stack in the config file)");
+				$this->error("could not find a db named \"$name\" to use in the stack (it should be defined before the stack in the config file)");
 				next;
 			}
 			push @stack, $driver;

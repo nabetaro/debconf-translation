@@ -138,16 +138,17 @@ sub save {
 	# Write out passwords mode 600.
 	my $fh=IO::File->new;
 	if ($this->ispassword($item)) {
-		sysopen($fh, $file, O_WRONLY|O_TRUNC|O_CREAT, 0600)
-			or $this->error("$file: $!");
+		sysopen($fh, $file."-new", O_WRONLY|O_TRUNC|O_CREAT, 0600)
+			or $this->error("$file-new: $!");
 	}
 	else {
-		open($fh, ">$file") or $this->error("$file: $!");
+		open($fh, ">$file-new") or $this->error("$file-new: $!");
 	}
 	$this->{format}->beginfile;
 	$this->{format}->write($fh, $data, $item);
 	$this->{format}->endfile;
 	close $fh;
+	rename("$file-new", $file) or $this->error("rename failed: $!");
 }
 
 =head2 filename(itemname)

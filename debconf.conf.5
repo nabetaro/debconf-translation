@@ -187,6 +187,32 @@ For example:
 WARNING: The stack driver is not very well tested yet. Use at your own
 risk.
 .RE
+.P
+.B Copy
+.RS
+This driver sends copies of all writes sent to it on to two other databases.
+All reads, though, are done from just one of the two; the other is uses as
+a passive backup of it.
+.P
+You must specify the following fields to set up this driver:
+.P
+.RS
+.TP
+.B Db
+The database to read from and write to.
+.TP
+.B Copy
+The name of the database to send copies of writes to.
+.RE
+.P
+For example:
+.P
+  Name: backup
+  Driver: Copy
+  Db: mydb
+  Copy: mybackupdb
+.RE
+.P
 .SH "ACCESS CONTROLS"
 When you set up a database, you can also use some fields to specify access
 controls. You can specify that a database only accepts passwords, for

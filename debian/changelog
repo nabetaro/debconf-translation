@@ -1,3 +1,15 @@
+debconf (0.9.15) unstable; urgency=low
+
+  * Made the File DbDriver keep a backup file in -old, and
+    greatly increased the robustness of its writes. Closes: #88804
+  * Increased the robustness of the writes done by the directory driver
+    too, though it doesn't keep backups.
+  * For general backup purposes, introduced a new metadriver called
+    Copy, which does all reads and writes to one driver, while sending
+    a copy of all writes to another driver.
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2001 16:56:32 -0800
+
 debconf (0.9.14) unstable; urgency=low
 
   * Resetting the value of a question that had no default stuffed an undef
