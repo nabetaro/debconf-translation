@@ -893,6 +893,41 @@ fi
       hierarchical namespace. It can be arbitrarily deep, and is separated
       by '/' characters, like a unix directory hierarchy. Here are the
       conventions we're using so far to divide up the namespace.
+      <itemizedlist>
+      	<listitem>
+	  <para>
+	    package/*
+	  </para>
+	  <para>
+	    This is the property of a single package, and can be
+	    subdivided however that package wants to.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    shared/foo/*
+	  </para>
+	  <para>
+	    This holds items that are shared between several packages.
+	    "foo" is replaced by a name that relates to all of them. For
+            example, news grabbers and readers all can use
+	    <literal>shared/news/server</literal> to store the news server they use.
+    	  </para>
+          <para>
+            Currently the following shared templates and questions exist:
+            <itemizedlist>
+              <listitem>
+	        <para>
+	          <literal>shared/news/server</literal>
+	        </para>
+	        <para>
+	          Hostname of the news server.
+	        </para>
+	      </listitem>
+            </itemizedlist>
+          </para>
+	</listitem>
+      </itemizedlist>
     </para>
   </appendix>
 </article>

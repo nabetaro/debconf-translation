@@ -246,7 +246,7 @@ sub go {
 		}
 		$this->mainwindow->buttonbar->active('');
 		# User interaction is done for now.
-		$this->helpbar->helpstack([gettext("Working, please wait..")]);
+		$this->helpbar->helpstack([gettext("Working, please wait...")]);
 		$this->helpbar->display;
 		$this->screen->refresh;
 	}

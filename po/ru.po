@@ -1,72 +1,76 @@
-# debconf
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# Marcin Owsiany <porridge@pandora.info.bielsko.pl>, 2000.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2000-05-19 13:04+0200\n"
-"PO-Revision-Date: 2000-05-19 13:10+0200\n"
-"Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"POT-Creation-Date: 2000-05-16 09:38+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Michael Sobolev <mss@transas.com>\n"
+"Language-Team: Russian <debian-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Client/ConfModule.pm:101
 #, c-format
 msgid "Unsupported command `%s'."
-msgstr "NieobsЁugiwana komenda `%s'."
+msgstr "Команда `%s' не поддерживается."
 
 #: ../Client/ConfModule.pm:111
 msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koЯca linii w przekazanych debconfowi parametrach."
+msgstr ""
+"Предупреждение: в переданных параметрах обнаружен символ перевода строки."
 
 #: ../Client/ConfModule.pm:112
 msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
+msgstr "Это может привести к неожиданным результатам!"
 
 #: ../AutoSelect.pm:67
 #, c-format
 msgid "failed to initialize frontend: %s"
-msgstr "nie udaЁo siЙ zainicjalizowaФ nakЁadki: %s"
+msgstr "не удалось инициализировать интерфейс `%s'"
 
 #: ../AutoSelect.pm:75
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr "powrСt do nakЁadki: %s"
+msgstr "будет использован интерфейс `%s'"
 
 #: ../AutoSelect.pm:85
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "nie udaЁo siЙ uruchomiФ nakЁadki: %s"
+msgstr "Не удалось запустить интерфейс: %s"
 
 #: ../ConfModule.pm:128
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
 msgstr ""
-"debconf: wykryto niezdefiniowane warto╤ci przy starcie moduЁu konfiguracji! "
-"ProszЙ zgЁosiФ bЁ╠d i zaЁ╠czyФ poni©szy zrzut stosu"
+"detected: при старте модуля confmodule были обнаружены неинициализированные "
+"значения! Пожалуйста, сообщите об этой ошибке и включите нижеприведенную "
+"информацию."
 
 #: ../FrontEnd.pm:193
 #, c-format
 msgid "Configuring %s"
-msgstr "Trwa konfiguracja %s"
+msgstr "Идет настройка пакета %s"
 
-#: ../Template.pm:189
+#: ../Template.pm:186
 #, c-format
 msgid "Template parse error near `%s'"
-msgstr "BЁ╠d w szablonie w pobli©u `%s'"
+msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Template.pm:196
+#: ../Template.pm:193
 msgid "Template does not contain a `Template:' line"
-msgstr "Szablon nie zawiera linii `Template:'"
+msgstr "Шаблон не содержит строки `Template:'"
 
 #: ../Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
-msgstr "WywoЁano metodЙ pytania przed ustawieniem nakЁadki."
+msgstr ""
+"Попытка создать составной элемент интерфейса до того, как интерфейс был "
+"иницилизирован."
 
 #: ../Element/Noninteractive/Note.pm:38
 msgid ""
@@ -74,10 +78,10 @@ msgid ""
 "but Debconf was running in noninteractive mode, or you have told it to not "
 "pause and show you unimportant notes. Here is the text of the note:"
 msgstr ""
-"Ta uwaga zostaЁa do Ciebie wysЁana, poniewa© Debconf zostaЁ poproszony o to, "
-"aby Ci j╠ pokazaФ, ale byЁ uruchomiony w trybie nieinteraktywnym lub "
-"kazaЁe╤/kazaЁa╤ mu nie zatrzymywaФ siЙ ani nie pokazywaФ niewa©nych uwag. "
-"Oto jej tre╤Ф:"
+"Это письмо было вам отправлено в силу того, что сценарий настройки попытался "
+"вывести сообщение, которое должно было обязательно быть показано на экране, "
+"а debconf был использован в неинтерактивном режиме.  Ниже приведен текст "
+"этого сообщения:"
 
 #: ../Element/Noninteractive/Note.pm:58
 msgid "Debconf"
@@ -86,108 +90,109 @@ msgstr "Debconf"
 #: ../Element/Editor/Boolean.pm:30 ../Element/Editor/Boolean.pm:50
 #: ../Element/Text/Boolean.pm:35 ../Element/Text/Boolean.pm:57
 msgid "yes"
-msgstr "tak"
+msgstr "да"
 
 #: ../Element/Editor/Boolean.pm:33 ../Element/Editor/Boolean.pm:51
 #: ../Element/Text/Boolean.pm:38 ../Element/Text/Boolean.pm:58
 msgid "no"
-msgstr "nie"
+msgstr "нет"
 
 #: ../Element/Text/Multiselect.pm:27
 msgid "none of the above"
-msgstr "©adna z powy©ych"
+msgstr "ни один из предложенного"
 
 #: ../Element/Text/Multiselect.pm:41
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
-msgstr "Wpisz, oddzielone przecinkami, litery pozycji, ktСre chcesz zaznaczyФ."
+msgstr "Укажите буквы выбранных вариантов, разделяя их пробелами."
 
 #: ../Element/Slang/Note.pm:29
 msgid "Save Note"
-msgstr "Zapisz uwagЙ"
+msgstr "Сохранить сообщение"
 
 #: ../Element/Slang/Note.pm:33
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf miaЁ za zadanie zapisaФ t╠ uwagЙ, wiЙc zostaЁa przesЁana do Ciebie"
+msgstr "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно было вам отправлено по почте."
 
 #: ../Element/Slang/Note.pm:34
 msgid "The note has been mailed to root."
-msgstr "Uwaga zostaЁa przesЁana do administratora"
+msgstr "Сообщение было отправлено пользователю root."
 
 #: ../Element/Slang/Note.pm:37
 msgid "Unable to save note."
-msgstr "Nie udaЁo siЙ zapisaФ uwagi."
+msgstr "Сообщение сохранить не удалось."
 
 #: ../Element/Editor/Multiselect.pm:32 ../Element/Editor/Select.pm:31
 msgid "Choices"
-msgstr "Pozycje do wyboru"
+msgstr "Варианты"
 
 #: ../Element/Editor/Multiselect.pm:33
 msgid "(Enter zero or more items separated by spaces.)"
-msgstr "(Wpisz zero lub wiЙcej pozycji oddzielone spacjami.)"
+msgstr "(Укажите ноль или больше элементов, разделяя их запятыми.)"
 
 #: ../FrontEnd/Dialog.pm:217 ../FrontEnd/Slang.pm:48
 msgid "Debian Configuration"
-msgstr "Konfiguracja Debiana"
+msgstr "Настройка пакетов Debian"
 
 #: ../FrontEnd/Slang.pm:53
 msgid "Help"
-msgstr "Pomoc"
+msgstr "Подсказка"
 
 #: ../FrontEnd/Slang.pm:76 ../FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "Dalej"
+msgstr "Дальше"
 
 #: ../FrontEnd/Slang.pm:77 ../FrontEnd/Web.pm:166
 msgid "Back"
-msgstr "PowrСt"
+msgstr "Обратно"
 
 #: ../FrontEnd/Slang.pm:80
 msgid "Show Help"
-msgstr "Poka© pomoc"
+msgstr "Показать подсказку"
 
 #: ../FrontEnd/Slang.pm:81
 msgid "Hide Help"
-msgstr "Ukryj pomoc"
+msgstr "Убрать подсказку"
 
 #: ../FrontEnd/Slang.pm:231
 msgid "Tab and arrow keys move."
-msgstr "Przesuwanie klawiszami tab i strzaЁek"
+msgstr "Для передвижения используйте стрелки и клавишу Tab."
 
 #: ../FrontEnd/Slang.pm:249
 msgid "Working, please wait..."
-msgstr "ProszЙ czekaФ"
+msgstr "Идет работа, подождите, пожалуйста..."
 
 #: ../FrontEnd/Dialog.pm:74
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Ani whiptail ani dialog nie s╠ zainstalowane, wiЙc nakЁadka `dialog' nie "
-"mo©e zostaФ u©yta."
+"Ни одна из программ whiptail или dialog не установлена, поэтому вы не можете "
+"использовать dialog-интерфейс."
 
 #: ../FrontEnd/Text.pm:96
 msgid "More"
-msgstr "Dalej"
+msgstr "Дальше"
 
 #: ../FrontEnd/Web.pm:66
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Uwaga: Debconf dziaЁa w trybie www. Patrz http://localhost:%i/"
+msgstr ""
+"Внимание: используется web-интерфейс.  Откройте, пожалуйста, документ "
+"http://localhost:%i/"
 
 #: ../FrontEnd/Editor.pm:98
 #, c-format
 msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: Nie udaЁo siЙ pisaФ do pliku tymczasowego %s: %s"
+msgstr "debconf: ошибка записи во временный файл %s: %s"
 
 #: ../FrontEnd/Editor.pm:101
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"U©ywasz nakЁadki debconf opartej na edytorze. DokЁadne instrukcje znajduj╠ "
-"siЙ na koЯcu dokumentu"
+"Вы указали пакету debconf, что для настройки системы необходимо использовать "
+"текстовый редактор. Подробную информацию вы найдете в конце документа."
 
 #: ../FrontEnd/Editor.pm:124
 msgid ""
@@ -198,80 +203,79 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"NakЁadka oparta na edytorze pokazuje jeden lub wiЙcej plikСw tekstowych, "
-"ktСre mo©na modyfikowaФ. To jest jeden z takich plikСw. Je╤li znasz "
-"standardowe pliki konfiguracyjne UNIXa, ten plik bЙdzie wygl╠daЁ znajomo -- "
-"zawiera komentarze oraz linie konfiguracji. Zmodyfikuj plik, zmieniaj╠c "
-"potrzebne pozycje, zapisz go i zakoЯcz edytor. W tym momencie debconf "
-"przeczyta zapisany plik i u©yje wprowadzonych przez Ciebie warto╤ci do "
-"konfiguracji systemu."
+"Использующий текстовый редактор интерфейс к debconf предлагает вам один или больше "
+"текстовых файлов. Это один из таких файлов. Его формат схож с форматом стандартных конфигурационных "
+"файлов Unix: параметры и их значения идут в перемешку с комментариями, описывающими их. "
+"Вы должны соответствующим образом изменить этот файл, сохранить его и выйти из "
+"редактора. Теперь программа debconf прочитает измененный файл и использует введенные "
+"вами параметры для настройки системы."
 
 #: ../FrontEnd/Editor.pm:137
 #, c-format
 msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: Nie udaЁo siЙ czytaФ %s: %s"
+msgstr "debconf: ошибка чтения %s: %s"
 
 #: ../Client/dpkg-preconfigure:114
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
-"U©ycie: dpkg-preconfigure [--frontend=typ] [--priority=warto╤Ф] pliki.deb"
+"Запуск: dpkg-preconfigure [--frontend=интерфейс] [--priority=приоритет] "
+"<файлы .deb>"
 
 #: ../Client/dpkg-preconfigure:118
 #, c-format
 msgid "Unknown option: %s"
-msgstr "Nieznana opcja: %s"
+msgstr "Неизвестный параметр: %s"
 
 #: ../Client/dpkg-preconfigure:140
 #, c-format
 msgid "dpkg-preconfigure: unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: nie udaЁo siЙ ponownie otworzyФ stdin: %s"
+msgstr "dpkg-preconfigure: не удалось заново открыть stdin: %s"
 
 #: ../Client/dpkg-preconfigure:212
 #, c-format
 msgid "template parse error: %s"
-msgstr "bЁ╠d w szablonie: %s"
+msgstr "ошибка разбора шаблона: %s"
 
 #: ../Client/dpkg-preconfigure:237
 #, c-format
 msgid "Unable to spawn dpkg: %s"
-msgstr "Nie udaЁo siЙ uruchomiФ dpkg: %s"
+msgstr "Не удалось запустить программу dpkg: %s"
 
 #: ../Client/dpkg-preconfigure:243
 msgid "Configuring packages ..."
-msgstr "Trwa konfiguracja pakietСw ..."
+msgstr "Идет настройка пакетов ..."
 
 #: ../Client/dpkg-preconfigure:252
 #, c-format
 msgid "Can't chmod: %s"
-msgstr "Nie udaЁo siЙ zmieniФ uprawnieЯ pliku: %s"
+msgstr "Не удалось изменить режим доступа к файлу: %s"
 
 #: ../Client/dpkg-preconfigure:270
 #, c-format
 msgid "%s failed to configure, with exit code %s"
-msgstr "nie udaЁo siЙ skonfigurowaФ %s, kod wyj╤cia: %s"
+msgstr "не удалось настроить пакет %s, код ошибки %s"
 
 #: ../Client/dpkg-reconfigure:14
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-msgstr "U©ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto╤Ф] pakiety"
+msgstr ""
+"Запуски: dpkg-reconfigure [--frontend=интерфейс] [--priority=приоритет] "
+"<имена пакетов>"
 
 #: ../Client/dpkg-reconfigure:127
 msgid "must be run as root"
-msgstr "musi byФ uruchamiany jako root"
+msgstr "должна выполняться справами пользователя root"
 
 #: ../Client/dpkg-reconfigure:150
 #, c-format
 msgid "%s is not installed or does not use debconf"
-msgstr "%s nie jest zainstalowany lub nie u©ywa debconfa"
+msgstr "Пакет %s не установлен или не использует пакет debconf"
 
 #: ../Client/dpkg-reconfigure:162
 #, c-format
 msgid "%s is not fully installed"
-msgstr "%s nie jest w peЁni zainstalowany"
+msgstr "Пакет %s установлен не полностью"
 
 #: ../Client/dpkg-reconfigure:235
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr "Nie mo©na czytaФ pliku stanu: %s"
-
-#~ msgid "is not installed or does not use debconf"
-#~ msgstr "nie jest zainstalowany lub nie u©ywa debconfa"
+msgstr "Ошибка чтения файла состояния: %s"
