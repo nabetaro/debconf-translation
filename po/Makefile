@@ -29,5 +29,5 @@ clean:
 
 %.po: debconf.pot
 	@echo -n "Merging debconf.pot and $@"
-	@mv $@ $@.old && msgmerge $@.old debconf.pot -o $@
+	@mv $@ $@.old && msgmerge $@.old debconf.pot -o $@ && rm $@.old
 	@msgfmt --statistics $@
