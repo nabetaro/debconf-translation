@@ -20,6 +20,7 @@ sub read {
 	my $this=shift;
 	my $fh=shift;
 	
+	my $name;
 	my %ret=(
 		owners => {},
 		fields => {},
@@ -63,20 +64,25 @@ sub read {
 		elsif ($key eq 'variables') {
 			$invars=1;	
 		}
+		elsif ($key eq 'name') {
+			$name=$value;
+		}
 		elsif (length $key) {
 			$value=~s/\\n/\n/g;
 			$ret{fields}->{$key}=$value;
 		}
 	}
 
-	return \%ret;
+	return $name, \%ret;
 }
 
 sub write {
 	my $this=shift;
 	my $fh=shift;
 	my %data=%{shift()};
+	my $name=shift;
 
+	print $fh "Name: $name\n";
 	foreach my $field (sort keys %{$data{fields}}) {
 		my $val=$data{fields}->{$field};
 		$val=~s/\n/\\n/g;

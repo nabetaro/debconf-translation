@@ -41,7 +41,7 @@ use fields qw(cache);
 
 =head1 ABSTRACT METHODS
 
-Derived classes need to implement these methods.
+Derived classes need to implement these methods in most cases.
 
 =head2 load(itemname)
 
@@ -99,7 +99,7 @@ This method will take it from there.
 
 sub iterator {
 	my $this=shift;
-	my $subiterator=shift || die "subclass did not create an iterator";
+	my $subiterator=shift;
 
 	my @items=keys %{$this->{cache}};
 	my $iterator=Debconf::Iterator->new(callback => sub {
@@ -112,6 +112,7 @@ sub iterator {
 			next unless defined $this->{cache}->{$item};
 			return $item;
 		}
+		return unless $subiterator;
 		my $ret;
 		do {
 			$ret=$subiterator->iterate;

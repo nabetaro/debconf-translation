@@ -86,9 +86,9 @@ sub init {
 	# out. Since I open a lexical filehandle, the lock is dropped when
 	# this object is destoryed.
 	open ($this->{lock}, ">".$this->{directory}."/.lock") or
-		$this->error("could not lock directory: $!");
+		$this->error("could not lock $this->{directory}: $!");
 	flock($this->{lock}, LOCK_EX | LOCK_NB) or
-		$this->error("database directory is locked by another process");
+		$this->error("$this->{directory} is locked by another process");
 }
 
 =head2 load(itemname)
@@ -141,7 +141,7 @@ sub save {
 	else {
 		open($fh, ">$file") or $this->error("$file: $!");
 	}
-	$this->{format}->write($fh, $data);
+	$this->{format}->write($fh, $data, $item);
 	close $fh;
 }
 
