@@ -25,6 +25,13 @@ General:
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
 
+Protocol and spec revisions:
+
+* Expose a way to iterate over questions; this would allow a UI independant
+  database browser to be easily written.
+* Document the behavior of the seen flag when backing up in the came config
+  script run.
+
 Database:
 * The division between Debconf::Config and Debconf::Db still needs thought.
   They both call each other, but worse, Debconf::Db->load needs to be
