@@ -1,0 +1,20 @@
+=head1 NOME
+
+debconf-show
+
+=head1 RESUMO
+
+ debconf-show nome-do-pacote
+
+=head1 DESCRIÇÃO
+
+B<debconf-show> exibe todos os itens na base de dados debconf de
+propriedade de um determinado pacote e seus valores atuais. Itens que
+foram mostrados são pré-fixados com um '*'.
+
+Isto pode ser útil como uma ajuda a depuração, e especialmente útil em
+relatórios de bug envolvendo o uso do debconf de um pacote.
+
+=head1 AUTOR
+
+Joey Hess <joey@kitenet.net>

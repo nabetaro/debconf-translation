@@ -1,5 +1,3 @@
-pod2man=pod2man -c Debconf -r ""
-
 all:
 	$(MAKE) -C doc
 	$(MAKE) -C po
@@ -8,32 +6,16 @@ clean:
 	find . -name \*~ | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
-	rm -f *.db
 
-install: install-utils install-docs install-rest
-
-# Man pages that go in the debconf-doc package.
-install-man:
-	install -d $(prefix)/usr/share/man/man3
-	install -d $(prefix)/usr/share/man/man8
-	install -d $(prefix)/usr/share/man/man5
-	install -d $(prefix)/usr/share/man/pt_BR/man8
-	$(pod2man) --section=3 Debconf/Client/ConfModule.pm \
-		> $(prefix)/usr/share/man/man3/Debconf::Client::ConfModule.3pm
-	install -m 0644 confmodule.3 $(prefix)/usr/share/man/man3/
-	install -m 0644 debconf.8 $(prefix)/usr/share/man/man8/
-	install -m 0644 debconf.conf.5 $(prefix)/usr/share/man/man5/
-	install -m 0644 debconf.pt_BR.8 $(prefix)/usr/share/man/pt_BR/man8/debconf.8
+# Does not attempt to install documentation, as that can be fairly system
+# specific.
+install: install-utils install-rest
 
 # Anything that goes in the debconf-utils package.
 install-utils:
 	install -d $(prefix)/usr/bin
 	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-show | \
 		xargs -i install {} $(prefix)/usr/bin
-	# Make man pages for utils.
-	install -d $(prefix)/usr/share/man/man1
-	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' -printf '%P\n' | grep -v debconf-show | \
-		xargs -i sh -c '$(pod2man) --section=1 {} > $(prefix)/usr/share/man/man1/`basename {}`.1'
 
 # Install all else.
 install-rest:
@@ -64,10 +46,6 @@ install-rest:
 	install -d $(prefix)/usr/sbin
 	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -or -name debconf-show | \
 		xargs -i install {} $(prefix)/usr/sbin
-	# Make man pages for programs.
-	install -d $(prefix)/usr/share/man/man8
-	find . -maxdepth 1 -perm +100 -type f \( -name 'dpkg-*' -or -name debconf-show \) -printf '%P\n' | \
-		xargs -i sh -c '$(pod2man) --section=8 {} > $(prefix)/usr/share/man/man8/`basename {}`.8'
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\

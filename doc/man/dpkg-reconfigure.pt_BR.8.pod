@@ -1,0 +1,61 @@
+=head1 NOME
+
+dpkg-reconfigure - reconfigura um pacote já instalado
+
+=head1 RESUMO
+
+ dpkg-reconfigure [opções] pacotes
+
+=head1 DESCRIÇÃO
+
+B<dpkg-reconfigure> reconfigura pacotes depois que eles já tenham sido
+instalados. Passe a ele o nome do pacote ou pacotes para reconfigurar.
+
+Isto têm o mesmo efeito de reinstalar o pacote, basicamente. Espero que
+um dia isso seja chamado por dpkg --reconfigure
+
+=head1 OPÇÕES
+
+=over 4
+
+=item B<-f>I<tipo>, B<--frontend=>I<tipo>
+
+Seleciona o frontend a usar. O frontend padrão pode ser permanentemente
+mudado por :
+
+ dpkg-reconfigure debconf
+
+Note que se você normalmente têm o debconf configurado para usar o
+frontend não-interativa, dpkg-reconfigure usará o frontend dialog, assim
+você poderá reconfigurar o pacote.
+
+=item B<-p>I<valor>, B<--priority=>I<valor>
+
+Especifica a prioridade mínima de questões que serão exibidas.
+dpkg-reconfigure normalmente exibe questões de baixa prioridade não
+importando qual sua prioridade padrão seja.
+
+=item B<--all>
+
+Reconfigura todos os pacotes instalados que usam debconf. Aviso: isso pode
+levar bastante tempo.
+
+=item B<-u>, B<--unseen-only>
+
+Por padrão, todas as questões são exibidas, mesmo se elas já foram
+respondidas. Porém, caso este parâmetro esteja definido, somente questões
+que não tenham sido vistas serão perguntadas.
+
+=item B<-h>, B<--help>
+
+Exibe ajuda sobre o uso.
+
+=back
+
+=head1 VEJA TAMBÉM
+
+L<debconf(8)>
+
+=head1 AUTOR
+
+Joey Hess <joey@kitenet.net>

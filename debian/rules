@@ -13,8 +13,7 @@ export PERL5LIB=.
 build: build-stamp
 build-stamp:
 	dh_testdir
-	$(MAKE) -C po
-	$(MAKE) -C doc
+	$(MAKE)
 	touch build-stamp
 
 clean:
@@ -34,7 +33,6 @@ binary-indep: build
 	dh_clean -k
 	dh_installdirs etc/apt/apt.conf.d
 
-	$(MAKE) prefix=`pwd`/debian/debconf-doc install-man
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
 
@@ -46,6 +44,10 @@ binary-indep: build
 	PATH=.:$(PATH) dh_installdebconf -n
 	
 	dh_installdocs 
+	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1
+	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.8 \
+		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
+	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show`
 	dh_installexamples -pdebconf-doc samples/*
 	
 	# Changelog reduction hack for debconf. Only include top 5 entries.

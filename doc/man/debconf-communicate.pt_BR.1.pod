@@ -1,0 +1,43 @@
+=head1 NOME
+
+debconf-communicate - comunica-se com debconf
+
+=head1 RESUMO
+
+ echo comandos | debconf-communicate [opções] [pacote]
+
+=head1 DESCRIÇÃO
+
+B<debconf-communicate> lhe permite comunicar-se com o debconf em tempo de
+execução, a partir da linha de comando. O argumento pacote é o nome do
+pacote o qual você pretendo ser enquanto se comunica com o debconf, e pode
+ser omitido se você é preguiçoso. Os comandos são lidos na forma usada
+pelo protocolo debconf a partir da entrada padrão (stdin). Para
+documentação sobre os comandos disponíveis e seu uso, veja a especificação
+debconf.
+
+Os comandos são executados em sequência. O código de retorno textual é
+impresso na saída padrão.
+
+O valor de retorno deste programa é o código de retorno numérico do
+último comando executado.
+
+=head1 EXEMPLO
+
+ echo get debconf/frontend | debconf-communicate
+
+Imprime o valor da questão do debconf/frontend.
+
+=head1 AVISO
+
+Este programa não deverá nunca ser usado a partir de um script de
+mantenedor de um pacote que usa o debconf! Ele pode, porém, ser útil para
+depuração.
+
+=head1 VEJA TAMBÉM
+
+L<debconf-loadtemplate(1)>
+
+=head1 AUTOR
+
+Joey Hess <joey@kitenet.net>

@@ -1,0 +1,28 @@
+=head1 NOME
+
+debconf-loadtemplate - carrega um arquido de modelo em uma base de dados debconf
+
+=head1 RESUMO
+
+ debconf-loadtemplate dono arquivo [arquivo ..]
+
+=head1 DESCRIÇÃO
+
+Carrega um ou mais arquivos de modelos em uma base de dados debconf. O
+primeiro parâmetro especifica o dono dos modelos (tipicamente, o dono é
+o nome de um pacote debian). Os parâmetros restantes são os arquivos de
+modelos a carregar.
+
+=head1 AVISO
+
+Este programa não deverá nunca ser usado em um script de mantenedor de um
+pacote que usa debconf! Ele pode, porém, ser útil em depuração ou para
+alimentar a base de dados debconf.
+
+=head1 VEJA TAMBÉM
+
+L<debconf-communicate(1)>
+
+=head1 AUTOR
+
+Joey Hess <joey@kitenet.net>

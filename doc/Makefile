@@ -1,10 +1,22 @@
 FILES=$(patsubst %.xml,%.txt,$(wildcard *.xml)) \
       $(patsubst %.xml,%.html,$(wildcard *.xml))
 
-base: tutorial.html tutorial.txt
-
-all: $(FILES)
+all: $(FILES) manpages
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
+
+pod2man=pod2man -c Debconf -r ''
+manpages:
+	install -d man/gen
+	for num in 1 3 8; do \
+		find man -maxdepth 1 -type f -name "*.$$num.pod" -printf '%P\n' | \
+			xargs -i sh -c "cd man ; $(pod2man) --section=$$num {} > gen/\`basename {} .pod\`"; \
+	done
+	$(pod2man) --section=3 ../Debconf/Client/ConfModule.pm \
+		> man/gen/Debconf::Client::ConfModule.3pm
+	find .. -maxdepth 1 -perm +100 -type f -name 'debconf-*' -printf '%P\n' | \
+		xargs -i sh -c "cd .. ; $(pod2man) --section=1 {} > doc/man/gen/{}.1"
+	find .. -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -printf '%P\n' | \
+		xargs -i sh -c "cd .. ; $(pod2man) --section=8 {} > doc/man/gen/{}.8"
 
 %.html: %.xml html.dsl
 	jade -V nochunks -t sgml -d html.dsl \
@@ -16,3 +28,4 @@ all: $(FILES)
 
 clean:
 	rm -f $(FILES) hierarchy.txt *.css *.html
+	rm -rf man/gen
