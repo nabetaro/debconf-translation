@@ -1,3 +1,14 @@
+debconf (1.1.7) unstable; urgency=low
+
+  * dpkg-reconfigure now sets DEBCONF_RECONFIGURE=1 before running postinst
+    scripts. A postinst with an expensive operation to avoid at
+    reconfiguration time can look at this. This is a hack and we will
+    eventually transition to passing "reconfigure" to postinst scripts;
+    postinst scripts that use debconf are encouraged to begin accepting such a
+    parameter already.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 23 May 2002 14:27:32 -0400
+
 debconf (1.1.6) unstable; urgency=low
 
   * Fixed transition_db.pl to pass the new extra type argiments to

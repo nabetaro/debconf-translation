@@ -127,6 +127,11 @@ else {
 	}
 }
 
+# This is a hack to let postinsts know when they're being reconfigured. It
+# would of course be better to pass them "reconfigure", but we can't for
+# hysterical raisens.
+$ENV{DEBCONF_RECONFIGURE}=1;
+
 foreach my $pkg (@packages) {
 	# Set default title.
 	$frontend->default_title($pkg);
@@ -171,8 +176,8 @@ foreach my $pkg (@packages) {
 			my $confmodule=make_confmodule(
 				"$infodir/$pkg.$script", @$info);
 	
-			# Make sure any questions the confmodule registers are owned
-			# by this package.
+			# Make sure any questions the confmodule registers
+			# are owned by this package.
 			$confmodule->owner($pkg);
 		
 			# Talk to it until it is done.
@@ -186,7 +191,7 @@ foreach my $pkg (@packages) {
 			# debconf, checkpoint the current database state
 			# and re-initialize it when the script finishes.
 			Debconf::Db->save;
-						
+			
 			$ENV{DEBIAN_HAS_FRONTEND}='';
 			my $ret=system("$infodir/$pkg.$script", @$info);
 			if (int($ret / 256) != 0) {

@@ -432,6 +432,11 @@ if you must.
 If your postinst launches a daemon, make sure you tell debconf to STOP at
 the end, since debconf can become a little confused about when your postinst
 is done otherwise.
+.TP
+.B *
+Make your postinst script accept a first parameter of "reconfigure". It can
+treat it just like "configure". This will be used in a later version of
+debhelper to let postinsts know when they are reconfigured.
 .SH "OTHER SCRIPTS"
 Besides the config script and postinst, you can use debconf in any of the
 other maintainer scripts. Most commonly, you'll be using debconf in your
@@ -538,9 +543,9 @@ their values and whether the user has seen them.
 .B .debconfrc
 .RS
 To avoid the often tedious build/install/debug cycle, it can be useful to
-load up your templates (with
+load up your templates with
 .BR debconf-loadtemplate (1)
-) and run your config script by hand with the
+and run your config script by hand with the
 .BR debconf (1)
 command. However, you still have to do that as root, right? Not so good.
 And ideally you'd like to be able to see what a fresh installation of your
@@ -837,13 +842,21 @@ unless debconf had a chance to load them in its postinst. This is messy,
 but rather unavoidable. In the future some of these programs may be able to
 use debconf-loadtemplate by hand though.
 .P
-Finally, /usr/share/debconf/confmodule's historic behavior of playing with
+/usr/share/debconf/confmodule's historic behavior of playing with
 file descriptions and setting up a fd #3 that talks to debconf, can cause
 all sorts of trouble when a postinst runs a daemon, since the daemon ends
 up talking to debconf, and debconf can't figure out when the script
 terminates. The STOP command can work around this. In the future, we are
 considering making debconf communication happen over a socket or some other
 mechanism than stdio.
+.P
+Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a
+postinst script that needs to avoid some expensive operation when
+reconfigured can look at that variable. This is a hack because the right
+thing would be to pass $1 = "reconfigure", but doing so without breaking
+all the postinsts that use debconf is difficult. The migration plan away
+from this hack is to encourage people to write postinsts that accept
+"reconfigure", and once they all do, begin passing that variable.
 .SH "SEE ALSO"
 .BR debconf (1)
 is the debconf user's guide.
