@@ -82,7 +82,7 @@ sub startup {
 	my @args=$this->confmodule($confmodule);
 	push @args, @_ if @_;
 	
-	debug "starting ".join(' ',@args);
+	debug 2, "starting ".join(' ',@args);
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
 			 @args)) || die $!;
@@ -102,18 +102,17 @@ sub communicate {
 	my $r=$this->{read_handle};
 	$_=<$r> || return $this->_finish;
 	chomp;
-	debug "--> $_";
+	debug 1, "--> $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
 	my $w=$this->{write_handle};
 	if (lc($command) eq "stop") {
-		print $w "$codes{success}\n";
 		return $this->_finish;
 	}
 	$command="command_".lc($command);
 	my $ret=join(' ', $this->$command(@params));
-	debug "<-- $ret";
+	debug 1, "<-- $ret";
 	print $w $ret."\n";
 	return 1;
 }

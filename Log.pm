@@ -30,12 +30,16 @@ use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 
 =head2 debug
 
-Outputs an infomational message, if DEBCONF_DEBUG is set in the environment.
+Outputs an infomational message, if DEBCONF_DEBUG is set in the environment
+to a value >= the first parameter.
 
 =cut
 
 sub debug {
-	print STDERR "debconf: ".join(" ", @_)."\n" if $ENV{DEBCONF_DEBUG};
+	my $priority=shift;
+	if (exists $ENV{DEBCONF_DEBUG} && $priority <= $ENV{DEBCONF_DEBUG}) {
+		print STDERR "debconf: ".join(" ", @_)."\n";
+	}
 }
 
 =head2 warn

@@ -1,3 +1,12 @@
+debconf (0.2.30) unstable; urgency=low
+
+  * STOP cannot return a success code, since in all likelyhood, the pipe it
+    would try to write it to is broken. (Closes: #49856, #49946)
+  * debug messages are now prioritized, DEBCONF_DEBUG can be set to 1 to see
+    some, 2 for more, etc.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 13 Nov 1999 19:40:50 -0800
+
 debconf (0.2.29) unstable; urgency=low
 
   * dpkg-preconfig now clears it's progress meter when done, like apt

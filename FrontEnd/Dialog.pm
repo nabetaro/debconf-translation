@@ -202,7 +202,7 @@ The second, anything it outputs to stderr.
 sub showdialog {
 	my $this=shift;
 
-	debug "preparing to show dialog. Params are:",
+	debug 2, "preparing to show dialog. Params are:",
 		join(",", @_);
 
 	# Save stdout, stderr, the open3 below messes with them.

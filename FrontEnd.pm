@@ -59,12 +59,12 @@ sub makeelement {
 	my $question=shift;
 	
 	my $type=$frontend_type.'::'.ucfirst($question->template->type);
-	debug "Trying to make element of type $type";
+	debug 2, "Trying to make element of type $type";
 	my $element=eval qq{
 		use Debian::DebConf::Element::$type;
 		Debian::DebConf::Element::$type->new;
 	};
-	debug "Failed with $@" if $@;
+	debug 2, "Failed with $@" if $@;
 	if (! ref $element) {
 		return;
 	}
@@ -139,7 +139,7 @@ hits a back button.)
 sub go {
 	my $this=shift;
 
-	debug "preparing to ask questions";
+	debug 2, "preparing to ask questions";
 	map { $_->show} @{$this->{elements}};
 	$this->clear;
 	return 1;

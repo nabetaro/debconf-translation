@@ -48,7 +48,7 @@ sub frontend {
 
 	my %seen;
 	while ($type ne '') {
-		debug "trying frontend $type" ;
+		debug 1, "trying frontend $type" ;
 		$frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
 			Debian::DebConf::FrontEnd::$type->new();
@@ -56,7 +56,7 @@ sub frontend {
 		last if defined $frontend;
 		
 		warn "failed to initialize $type frontend";
-		debug "(Error: $@)";
+		debug 1, "(Error: $@)";
 		
 		$type=$fallback{$type};
 
