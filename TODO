@@ -9,6 +9,8 @@ General:
   they've already seen?)
 * Proper backend database, but that's a whole other ball of wax.
 * Other frontends.
+* The apt mods don't allow you to predepend on something and then use it in
+  a config script. That would be nice to have.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which
