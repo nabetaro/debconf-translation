@@ -111,11 +111,11 @@ int main(int argc, char **argv, char **env)
 		}
 		if (file.Template != 0 && file.ParseInfo() == true)
 		{
-			if (file.DepVer != 0 &&
+			if (file.DepVer != 0 && *file.DepVer != 0 &&
 			    pkgCheckDep(file.DepVer, 
 			                debconfver, file.DepOp) == false) 
 				continue;
-			if (file.PreDepVer != 0 &&
+			if (file.PreDepVer != 0 && *file.PreDepVer != 0 &&
 			    pkgCheckDep(file.PreDepVer, 
 			                debconfver, file.PreDepOp) == false) 
 				continue;
