@@ -1,6 +1,6 @@
 # List here all source files with translatable strings.
 POTFILES=$(shell find ../Debconf -type f -name \*.pm) \
-	../dpkg-* ../debconf-*
+	../dpkg-* ../debconf-* ../debconf
 
 POFILES=$(wildcard *.po)
 MOFILES=$(POFILES:.po=.mo)
@@ -19,7 +19,7 @@ debconf.pot: $(POTFILES)
 # confused about single quotes in comments, and the gettext() calls have to
 # use double-quoted strings or it will ignore them.
 	@echo "Rebuilding the pot file"
-	xgettext $(POTFILES) -o debconf.pot -Lc
+	xgettext $(POTFILES) -o debconf.pot -Lperl
 
 clean:
 	rm -f debconf.pot $(MOFILES) messages messages.mo

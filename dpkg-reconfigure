@@ -88,12 +88,12 @@ my $unseen_only=0;
 my $all=0;
 my $force=0;
 my $default_priority=0;
-Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
-qq{Usage: dpkg-reconfigure [options] packages
+Debconf::Config->getopt(
+gettext(qq{Usage: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
   -u,  --unseen-only		Show only not yet seen questions.
        --default-priority	Use default priority instead of low.
-       --force			Force reconfiguration of broken packages.},
+       --force			Force reconfiguration of broken packages.}),
 	"all|a"			=> \$all,
 	"unseen-only|u"		=> \$unseen_only,
 	"default-priority"	=> \$default_priority,

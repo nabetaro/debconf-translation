@@ -46,10 +46,11 @@ use strict;
 use Debconf::Db;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Config;
+use Debconf::Gettext;
 
 Debconf::Db->load;
 
-Debconf::Config->getopt("Usage: debconf-communicate [options] [package]");
+Debconf::Config->getopt(gettext("Usage: debconf-communicate [options] [package]"));
 
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();

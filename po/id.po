@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 20:15-0500\n"
+"POT-Creation-Date: 2005-03-31 09:35-1000\n"
 "PO-Revision-Date: 2005-01-25 13:04+0700\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui."
@@ -44,7 +44,7 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
-#, c-format
+#, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf pada %s"
 
@@ -53,7 +53,7 @@ msgid "More"
 msgstr "Lagi"
 
 #: ../Debconf/FrontEnd/Web.pm:65
-#, c-format
+#, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Catatan: Debconf berjalan dalam modus web. Cobalah ke http://localhost:%i/"
@@ -174,7 +174,7 @@ msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:87
-#, c-format
+#, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, berjalan pada %s"
 
@@ -187,7 +187,7 @@ msgid "Enter the items you want to select, separated by spaces."
 msgstr "Masukkan item yang ingin Anda pilih, dipisahkan dengan koma."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, c-format
+#, perl-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
@@ -204,17 +204,17 @@ msgid "Help"
 msgstr "Panduan"
 
 #: ../Debconf/AutoSelect.pm:76
-#, c-format
+#, perl-format
 msgid "falling back to frontend: %s"
 msgstr "kembali ke antarmuka: %s"
 
 #: ../Debconf/AutoSelect.pm:84
-#, c-format
+#, perl-format
 msgid "unable to initialize frontend: %s"
 msgstr "Tidak dapat menyiapkan antarmuka: %s"
 
 #: ../Debconf/AutoSelect.pm:90
-#, c-format
+#, perl-format
 msgid "Unable to start a frontend: %s"
 msgstr "Tidak dapat memulai sebuah antarmuka: %s"
 
@@ -235,23 +235,30 @@ msgstr ""
 "Silakan hapus saja."
 
 #: ../Debconf/Config.pm:148
-#, c-format
+#, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ada masalah saat menyetel basis data yang dinyatakan oleh bait %s dari %s."
 
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+
 #: ../Debconf/Config.pm:277
-#, c-format
+#, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Abaikan prioritas \"%s\" yang tidak sah"
 
 #: ../Debconf/Config.pm:278
-#, c-format
+#, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Prioritas yang sah adalah: %s"
 
 #: ../Debconf/Template.pm:90
-#, c-format
+#, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
@@ -260,7 +267,7 @@ msgstr ""
 "menanyakan kembali hal-hal yang hilang %s."
 
 #: ../Debconf/Template.pm:201
-#, c-format
+#, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
@@ -269,37 +276,38 @@ msgstr ""
 "Kemungkinan kedua template tidak dipisahkan oleh baris baru yang benar.\n"
 
 #: ../Debconf/Template.pm:226
-#, c-format
+#, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Ruas template '%s' tidak dikenal, dalam bait #%s dari %s\n"
 
 #: ../Debconf/Template.pm:252
-#, c-format
+#, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr ""
 "Ada kesalahan penguraian template sekitar '%s', dalam bait #%s dari %s\n"
 
 #: ../Debconf/Template.pm:258
-#, c-format
+#, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s dalam %s tidak berisi sebuah baris 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
-#, c-format
+#, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Tidak dapat memuat Debconf::Element::%s. Gagal karena: %s"
 
 #: ../Debconf/FrontEnd.pm:203
-#, c-format
+#, perl-format
 msgid "Configuring %s"
 msgstr "Sedang mengonfigurasi %s"
 
 #: ../dpkg-preconfigure:113
-#, c-format
+#, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "Tidak dapat membuka stdin: %s"
 
 #: ../dpkg-preconfigure:116
+#, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "harus menentukan beberapa deb untuk prakonfigurasi"
 
@@ -308,7 +316,7 @@ msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "menunda konfigurasi paket karena apt-utils tidak terpasang"
 
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
-#, c-format
+#, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates gagal: %s"
 
@@ -317,22 +325,31 @@ msgid "Preconfiguring packages ...\n"
 msgstr "Prakonfigurasi paket ... \n"
 
 #: ../dpkg-preconfigure:179
-#, c-format
+#, perl-format
 msgid "template parse error: %s"
 msgstr "Kesalahan penguraian template: %s"
 
 #: ../dpkg-preconfigure:193
-#, c-format
+#, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: tidak dapat chmod: %s"
 
 #: ../dpkg-preconfigure:203
-#, c-format
+#, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Prakonfigurasi %s gagal, dengan status %s"
 
+#: ../dpkg-reconfigure:92
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+
 #: ../dpkg-reconfigure:104
-#, c-format
+#, perl-format
 msgid "%s must be run as root"
 msgstr "%s harus dijalankan sebagai root"
 
@@ -341,49 +358,80 @@ msgid "please specify a package to reconfigure"
 msgstr "Mohon tentukan sebuah paket untuk dikonfigurasi ulang"
 
 #: ../dpkg-reconfigure:156
-#, c-format
+#, perl-format
 msgid "%s is not installed"
 msgstr "%s tidak dipasang"
 
 #: ../dpkg-reconfigure:160
-#, c-format
+#, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s rusak atau tidak sepenuhnya terpasang"
 
 #: ../dpkg-reconfigure:237
-#, c-format
+#, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Tidak dapat membaca berkas status: %s"
 
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr ""
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr ""
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+
 #: ../debconf-mergetemplate:119
-#, c-format
+#, perl-format
 msgid "%s is missing"
 msgstr "%s hilang"
 
 #: ../debconf-mergetemplate:123
-#, c-format
+#, perl-format
 msgid "%s is missing; dropping %s"
 msgstr "%s hilang; %s dihapus"
 
 #: ../debconf-mergetemplate:146
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s"
 msgstr "%s fuzzy pada byte %s: %s"
 
 #: ../debconf-mergetemplate:151
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr "%s fuzzy pada byte %s: %s; dihapus"
 
 #: ../debconf-mergetemplate:168
-#, c-format
+#, perl-format
 msgid "%s is outdated"
 msgstr "%s sudah usang"
 
 #: ../debconf-mergetemplate:173
-#, c-format
+#, perl-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s sudah usang; seluruh template dihapus!"
+
+#: ../debconf:84
+msgid "Usage: debconf [options] command [args]"
+msgstr ""
+
+#: ../debconf:86
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Prakonfigurasi %s (%s)"

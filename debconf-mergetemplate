@@ -11,7 +11,7 @@ use Debconf::Template::Transient;
 use Debconf::Config;
 use Debconf::Gettext;
 
-print STDERR "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program.\n";
+print STDERR gettext("debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program.")."\n";
 
 =head1 SYNOPSIS
 
@@ -63,14 +63,14 @@ L<debconf-getlang(1)>
 
 =cut
 
-my $usage="Usage: debconf-mergetemplate [options] [templates.ll ...] templates";
+my $usage=gettext("Usage: debconf-mergetemplate [options] [templates.ll ...] templates");
 
 my $outdated=0;
 my $dropold=0;
 Debconf::Config->getopt($usage.
-qq{
+gettext(qq{
         --outdated		Merge in even outdated translations.
-	--drop-old-templates	Drop entire outdated templates.},
+	--drop-old-templates	Drop entire outdated templates.}),
        "outdated"		=> \$outdated,
        "drop-old-templates"	=> \$dropold,
 );

@@ -59,6 +59,7 @@ L<debconf-devel(7)>, L<debconf(7)>
 use strict;
 use Debconf::Db;
 use Debconf::AutoSelect qw(:all);
+use Debconf::Gettext;
 use Debconf::Config;
 
 # FInd the end of the options for this command, and the beginning of the
@@ -80,10 +81,10 @@ for (my $x=0; $x <= $#ARGV; $x++) {
 	}
 }
 @ARGV=@argv;
-my $usage = "Usage: debconf [options] command [args]";
+my $usage = gettext("Usage: debconf [options] command [args]");
 my $owner='';
-Debconf::Config->getopt($usage.qq{
-  -o,  --owner=package		Set the package that owns the command.},
+Debconf::Config->getopt($usage.gettext(qq{
+  -o,  --owner=package		Set the package that owns the command.}),
         "o|owner=s"		=> \$owner,
 );
 die "$usage\n" unless @command;

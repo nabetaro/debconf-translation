@@ -193,7 +193,7 @@ sub getopt {
 
 	my $showusage=sub { # closure
 		print STDERR $usage."\n";
-		print STDERR <<EOF;
+		print STDERR gettext(<<EOF);
   -f,  --frontend		Specify debconf frontend to use.
   -p,  --priority		Specify minimum priority question to show.
        --terse			Enable terse mode.

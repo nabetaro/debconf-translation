@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 20:15-0500\n"
+"POT-Creation-Date: 2005-03-31 09:35-1000\n"
 "PO-Revision-Date: 2005-01-23 14:54+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
-#, c-format
+#, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
 
@@ -51,7 +51,7 @@ msgid "More"
 msgstr "Mais"
 
 #: ../Debconf/FrontEnd/Web.pm:65
-#, c-format
+#, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Nota: o Debconf está a correr em modo web. Vá até http://localhost:%i/"
 
@@ -171,7 +171,7 @@ msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:87
-#, c-format
+#, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, correndo em %s"
 
@@ -184,7 +184,7 @@ msgid "Enter the items you want to select, separated by spaces."
 msgstr "Introduza os items que deseja escolher, separados por espaços."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, c-format
+#, perl-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
@@ -201,17 +201,17 @@ msgid "Help"
 msgstr "Ajuda"
 
 #: ../Debconf/AutoSelect.pm:76
-#, c-format
+#, perl-format
 msgid "falling back to frontend: %s"
 msgstr "caíndo para o frontend; %s"
 
 #: ../Debconf/AutoSelect.pm:84
-#, c-format
+#, perl-format
 msgid "unable to initialize frontend: %s"
 msgstr "não foi possível inicializar o frontend: %s"
 
 #: ../Debconf/AutoSelect.pm:90
-#, c-format
+#, perl-format
 msgid "Unable to start a frontend: %s"
 msgstr "Não foi possível iniciar o frontend: %s"
 
@@ -233,22 +233,29 @@ msgstr ""
 "utilizadas. Por favor remova-as."
 
 #: ../Debconf/Config.pm:148
-#, c-format
+#, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problema ao definir a base de dados definida por stanza %s de %s."
 
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+
 #: ../Debconf/Config.pm:277
-#, c-format
+#, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "A ignorar a prioridade inválida \"%s\""
 
 #: ../Debconf/Config.pm:278
-#, c-format
+#, perl-format
 msgid "Valid priorities are: %s"
 msgstr "As prioridades válidas são: %s"
 
 #: ../Debconf/Template.pm:90
-#, c-format
+#, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
@@ -257,7 +264,7 @@ msgstr ""
 "a questão em falta %s."
 
 #: ../Debconf/Template.pm:201
-#, c-format
+#, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
@@ -267,36 +274,37 @@ msgstr ""
 "newline.\n"
 
 #: ../Debconf/Template.pm:226
-#, c-format
+#, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Campo template desconhecido '%s' em stanza #%s de %s\n"
 
 #: ../Debconf/Template.pm:252
-#, c-format
+#, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro de parse no template perto de `%s', em stanza #%s de %s\n"
 
 #: ../Debconf/Template.pm:258
-#, c-format
+#, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
-#, c-format
+#, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Não conseguiu carregar Debconf::Element::%s. Falhou devido a: %s"
 
 #: ../Debconf/FrontEnd.pm:203
-#, c-format
+#, perl-format
 msgid "Configuring %s"
 msgstr "A configurar %s"
 
 #: ../dpkg-preconfigure:113
-#, c-format
+#, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "não conseguiu re-abrir stdin: %s"
 
 #: ../dpkg-preconfigure:116
+#, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "tem de especificar alguns debs para pré-configurar"
 
@@ -306,7 +314,7 @@ msgstr ""
 "a atrasar a configuração do pacote, já que o apt-utils não está instalado"
 
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
-#, c-format
+#, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates falhou: %s"
 
@@ -315,22 +323,31 @@ msgid "Preconfiguring packages ...\n"
 msgstr "A pré-configurar os pacotes...\n"
 
 #: ../dpkg-preconfigure:179
-#, c-format
+#, perl-format
 msgid "template parse error: %s"
 msgstr "erro de parse do template: %s"
 
 #: ../dpkg-preconfigure:193
-#, c-format
+#, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: não pode fazer chmod: %s"
 
 #: ../dpkg-preconfigure:203
-#, c-format
+#, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou a pré-configuração, com estado de saída %s"
 
+#: ../dpkg-reconfigure:92
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+
 #: ../dpkg-reconfigure:104
-#, c-format
+#, perl-format
 msgid "%s must be run as root"
 msgstr "%s tem de ser corrido como root"
 
@@ -339,49 +356,80 @@ msgid "please specify a package to reconfigure"
 msgstr "por favor especifique o pacote a reconfigurar"
 
 #: ../dpkg-reconfigure:156
-#, c-format
+#, perl-format
 msgid "%s is not installed"
 msgstr "%s não está instalado"
 
 #: ../dpkg-reconfigure:160
-#, c-format
+#, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s está defeituoso ou não totalmente instalado"
 
 #: ../dpkg-reconfigure:237
-#, c-format
+#, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Não pode ler o estado do ficheiro: %s"
 
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr ""
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr ""
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+
 #: ../debconf-mergetemplate:119
-#, c-format
+#, perl-format
 msgid "%s is missing"
 msgstr "Falta %s"
 
 #: ../debconf-mergetemplate:123
-#, c-format
+#, perl-format
 msgid "%s is missing; dropping %s"
 msgstr "Falta %s; deixando %s"
 
 #: ../debconf-mergetemplate:146
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s"
 msgstr "%s é fuzzy no byte %s: %s"
 
 #: ../debconf-mergetemplate:151
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr "%s é fuzzy no byte %s: %s; deixando-o"
 
 #: ../debconf-mergetemplate:168
-#, c-format
+#, perl-format
 msgid "%s is outdated"
 msgstr "%s está ultrapassado"
 
 #: ../debconf-mergetemplate:173
-#, c-format
+#, perl-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está ultrapassado; deixando todo o template!"
+
+#: ../debconf:84
+msgid "Usage: debconf [options] command [args]"
+msgstr ""
+
+#: ../debconf:86
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "a pré-configurar %s (%s)"
