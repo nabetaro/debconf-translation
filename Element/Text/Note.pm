@@ -15,7 +15,6 @@ This is a note to the user, presented using a plain text interface.
 package Debian::DebConf::Element::Text::Note;
 use strict;
 use Debian::DebConf::Element;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element);
 

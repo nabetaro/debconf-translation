@@ -16,7 +16,6 @@ field on it.
 package Debian::DebConf::Element::Dialog::String;
 use strict;
 use Debian::DebConf::Element;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element);
 

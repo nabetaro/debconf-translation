@@ -2,14 +2,14 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Container - Base container input element
+Debian::DebConf::Element::Container - Container input element
 
 =cut
 
 =head1 DESCRIPTION
 
-This is a base Container input element. A Container is an element that can
-hold other elements. Containers don't have any display of their own per se.
+This is a Container input element. A Container is an element that can
+hold other elements that are displayed when it is.
 
 =cut
 
@@ -19,6 +19,7 @@ hold other elements. Containers don't have any display of their own per se.
 
 package Debian::DebConf::Element::Select;
 use Debian::DebConf::Element;
+use Debian::DebConf::ConfigDb;
 use strict;
 use UNIVERSAL qw(isa);
 use vars qw(@ISA);
@@ -81,6 +82,21 @@ sub visible {
 
 	# Call parent class to deal with everything else.
 	return $this->SUPER::visible;
+}
+
+=head2 show
+
+When a container is displayed, it displays all elements inside it.
+
+=cut
+
+sub show {
+	my $this=shift;
+	my @contained=@{$this->contained};
+	
+	foreach my $elt (@contained) {
+		$elt->show;
+	}
 }
 
 =head1 AUTHOR

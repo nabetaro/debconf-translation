@@ -27,7 +27,7 @@ use Debian::DebConf::Element::Web::Select;
 use Debian::DebConf::Element::Web::Text;
 use Debian::DebConf::Element::Web::Note;
 use Debian::DebConf::Element::Web::Password;
-use Debian::DebConf::Element::Container;
+use Debian::DebConf::Element::Web::Container;
 use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
@@ -98,7 +98,7 @@ sub makeelement {
 		$elt=Debian::DebConf::Element::Web::Password->new;
 	}
 	elsif ($type eq 'container') {
-		$elt=Debian::DebConf::Element::Container->new;
+		$elt=Debian::DebConf::Element::Web::Container->new;
 	}
 	else {
 		die "Unknown type of element: \"$type\"";
@@ -169,12 +169,11 @@ sub showclient {
 
 =head2 go
 
-This overrides to go method in the Base FrontEnd. It
-goes through each pending Element and asks it to return the html that
-corresponds to that Element. It bundles all the html together into a
-web page and displays the web page to the client. Then it waits for the
-client to fill out the form, parses the client's response and uses that to
-set values on the Elements.
+This overrides to go method in the Base FrontEnd. It goes through each
+pending Element and asks it to return the html that corresponds to that
+Element. It bundles all the html together into a web page and displays the
+web page to the client. Then it waits for the client to fill out the form,
+parses the client's response and uses that to set values on the Elements.
 
 =cut
 

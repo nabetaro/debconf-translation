@@ -15,7 +15,6 @@ This lets the user pick from a number of values, using a plain text interface.
 package Debian::DebConf::Element::Text::Select;
 use strict;
 use Debian::DebConf::Element::Select;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Select);
 

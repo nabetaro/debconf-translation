@@ -18,7 +18,6 @@ package Debian::DebConf::Element::Gtk::Select;
 use Gtk;
 use strict;
 use Debian::DebConf::Element::Select;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Select);
 

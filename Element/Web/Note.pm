@@ -20,7 +20,6 @@ Debian::DebConf::Element::Web::Text.
 package Debian::DebConf::Element::Web::Note;
 use strict;
 use Debian::DebConf::Element::Web::Text;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element::Web::Text);
 

@@ -15,7 +15,6 @@ This is an input element that can display a dialog box with a message on it.
 package Debian::DebConf::Element::Dialog::Text;
 use strict;
 use Debian::DebConf::Element;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element);
 

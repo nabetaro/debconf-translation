@@ -15,7 +15,6 @@ This is a peice of text to output to the user.
 package Debian::DebConf::Element::Text::Text;
 use strict;
 use Debian::DebConf::Element;
-use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Element);
 
