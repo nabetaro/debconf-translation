@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-23 20:28-0400\n"
+"POT-Creation-Date: 2003-07-31 11:39-0400\n"
 "PO-Revision-Date: 2003-07-26 12:05+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -214,6 +214,13 @@ msgid "Template database not specified in config file."
 msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des messages (« templates »)."
+
+#: ../Debconf/Config.pm:142
+#, c-format
+msgid ""
+"Parse error in stanza %s of %s. Probably you have not separated two stanzas "
+"by a blank line, or have put a bad value in a line of the stanza."
+msgstr ""
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
