@@ -8,6 +8,7 @@ clean:
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	$(MAKE) -C apt clean
+	rm -f *.db
 
 install: install-utils install-docs install-rest
 

@@ -15,8 +15,8 @@ Depends: perl-5.6, perl-5.6-base, fileutils (>= 4.0-5), ${shlibs:Depends}
 Recommends: libterm-stool-perl | libterm-readline-gnu-perl
 Suggests: debconf-doc, whiptail | dialog | gnome-utils, liblocale-gettext-perl
 Description: Debian configuration management system
- Debconf is a configuration management system for debian packages. It is
- used by some packages to prompt you for questions before they are installed.
+ Debconf is a configuration management system for debian packages. Packages
+ use Debconf to ask questions when they are installed.
 
 Package: debconf-doc
 Architecture: all
