@@ -189,6 +189,8 @@ foreach (@buffer) {
 }
 
 foreach (@buffer) {
+	($package, $version, $template, $config)=split /\s/;
+
 	# Run config script if any.
 	if (defined $config && length $config) {
 		chmod(0755, $config) or
