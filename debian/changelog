@@ -1,3 +1,13 @@
+debconf (0.9.20) unstable; urgency=low
+
+  * Fixed stacks so shadowing actually works and non-topmost items can be
+    seen (stupid thinko). Also improved debug output. I now have some
+    satellite systems that are successfully using a master debconf db for
+    defaults, with local modifications stored locally (using icky nfs as
+    the transport though), so stacks are useful, but still experimental.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Mar 2001 21:03:22 -0800
+
 debconf (0.9.19) unstable; urgency=low
 
   * Made Db.pm read /usr/share/debconf/debconf.conf if no other config file

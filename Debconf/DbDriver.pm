@@ -236,6 +236,8 @@ sub ispassword {
 Create an object of type Debconf::Iterator that can be used to iterate over
 each item in the db, and return it.
 
+Each subclass must implement this method.
+
 =cut
 
 sub iterate {}
@@ -244,6 +246,8 @@ sub iterate {}
 
 Save the entire database state.
 
+Each subclass must implement this method.
+
 =cut
 
 sub savedb {}
@@ -251,6 +255,8 @@ sub savedb {}
 =head2 exists(itemname)
 
 Return true if the given item exists in the database.
+
+Each subclass must implement this method.
 
 =cut
 
@@ -264,6 +270,8 @@ if this failed.
 Note that adding an owner can cause a new item to spring into
 existance.
 
+Each subclass must implement this method.
+
 =cut
 
 sub addowner {}
@@ -274,6 +282,8 @@ Remove an owner from a item. Returns the owner name, or undef if
 removal failed. If the number of owners goes to zero, the item should
 be removed.
 
+Each subclass must implement this method.
+
 =cut
 
 sub removeowner {}
@@ -281,6 +291,8 @@ sub removeowner {}
 =head2 owners(itemname)
 
 Return a list of all owners of the item.
+
+Each subclass must implement this method.
 
 =cut
 
@@ -291,6 +303,8 @@ sub owners {}
 Return the given field of the given item, or undef if getting that
 field failed.
 
+Each subclass must implement this method.
+
 =cut
 
 sub getfield {}
@@ -300,6 +314,8 @@ sub getfield {}
 Set the given field the the given value, and return the value, or undef if
 setting failed.
 
+Each subclass must implement this method.
+
 =cut
 
 sub setfield {}
@@ -307,6 +323,8 @@ sub setfield {}
 =head2 fields(itemname)
 
 Return the fields present in the item.
+
+Each subclass must implement this method.
 
 =cut
 
@@ -317,6 +335,8 @@ sub fields {}
 Return 'true' if the given flag is set for the given item, "false" if
 not.
 
+Each subclass must implement this method.
+
 =cut
 
 sub getflag {}
@@ -326,6 +346,8 @@ sub getflag {}
 Set the given flag to the given value (will be one of "true" or "false"),
 and return the value. Or return undef if setting failed.
 
+Each subclass must implement this method.
+
 =cut
 
 sub setflag {}
@@ -333,6 +355,8 @@ sub setflag {}
 =head2 flags(itenname)
 
 Return the flags that are present for the item.
+
+Each subclass must implement this method.
 
 =cut
 
@@ -343,6 +367,8 @@ sub flags {}
 Return the value of the given variable of the given item, or undef if
 there is no such variable.
 
+Each subclass must implement this method.
+
 =cut
 
 sub getvariable {}
@@ -352,6 +378,8 @@ sub getvariable {}
 Set the given variable of the given item to the value, and return the
 value, or undef if setting failed.
 
+Each subclass must implement this method.
+
 =cut
 
 sub setvariable {}
@@ -359,6 +387,8 @@ sub setvariable {}
 =head2 variables(itemname)
 
 Return the variables that exist for the item.
+
+Each subclass must implement this method.
 
 =cut
 

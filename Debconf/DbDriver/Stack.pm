@@ -116,6 +116,22 @@ sub savedb {
 	return $ret;
 }
 
+=head2 exists
+
+An item exists if any item in the stack contains it. So don't give up at
+the first failure, but keep digging down..
+
+=cut
+
+sub exists {
+	my $this=shift;
+
+	foreach my $driver (@{$this->{stack}}) {
+		return 1 if $driver->exists(@_);
+	}
+	return 0;
+}
+
 # From here on out, the methods are of two types, as explained in
 # the description above. Either we query the stack, or we make a
 # change to a writable item, copying an item from lower in the stack first
@@ -125,7 +141,7 @@ sub _query {
 	my $command=shift;
 	shift; # this again
 	
-	debug "DbDriver $this->{name}" => "trying to $command ..";
+	debug "DbDriver $this->{name}" => "trying to $command(@_) ..";
 	foreach my $driver (@{$this->{stack}}) {
 		if (wantarray) {
 			my @ret=$driver->$command(@_);
@@ -138,7 +154,7 @@ sub _query {
 			return $ret if defined $ret;
 		}
 	}
-	return; # faulure
+	return; # failure
 }
 
 sub _change {
@@ -147,7 +163,7 @@ sub _change {
 	shift; # this again
 	my $item=shift;
 
-	debug "DbDriver $this->{name}" => "trying to $command ..";
+	debug "DbDriver $this->{name}" => "trying to $command($item @_) ..";
 
 	# Check to see if we can just write to some driver in the stack.
 	foreach my $driver (@{$this->{stack}}) {
@@ -274,7 +290,6 @@ sub _nochange {
 	return undef;
 }
 
-sub exists	{ $_[0]->_query('exists', @_)		}
 sub addowner	{ $_[0]->_change('addowner', @_)	}
 # Note that if the last owner of an item is removed, it next item
 # down in the stack is unshadowed and becomes active. May not be
