@@ -1,3 +1,10 @@
+debconf (1.4.25) unstable; urgency=low
+
+  * Overload Template object's stringification, so metaget of a question's
+    template field returns the name of the template. Closes: #244089
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 28 Apr 2004 17:50:09 -0400
+
 debconf (1.4.24) unstable; urgency=low
 
   * Patch from Eugeniy Meshcheryako to make the dialog frontend use a
