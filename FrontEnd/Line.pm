@@ -12,7 +12,7 @@ use strict;
 use vars qw(@ISA);
 @ISA=qw(FrontEnd::Base);
 
-$|=1;
+local $|=1;
 
 sub new {
 	my $proto = shift;

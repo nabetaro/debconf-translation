@@ -12,10 +12,9 @@ use vars qw(@ISA);
 # Display the text in a dialog box.
 sub ask {
 	my $this=shift;
-	
-	system "whiptail", "--backtitle", "Debian Configuration", 
-	       "--title", $this->frontend->title || "Note", "--msgbox", 
-	       $this->text, 16, 78; # TODO: auto-calc geometry.
+
+	# TODO: auto-calc geometry.
+	$this->frontend->show_dialog('', "--msgbox", $this->text, 16, 75);
 }
 
 1

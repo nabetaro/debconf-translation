@@ -1,6 +1,9 @@
 * Frontend really shouldn't inherit from confmodule. It makes it too tied
   into communicating with modules when it could be used for other tasks.
 
+  It's already clear fromn looking at the frontends that they need to be
+  split.
+
 * Mappings!
 * Other frontends.
 * Other demo package files.
