@@ -2,7 +2,7 @@
 
 =head NAME
 
-Debian::DebConf::FrontEnd::Passthrough - Passthrough meta-frontend for DebConf
+Debian::DebConf::FrontEnd::Passthrough - passt-hrough meta-frontend for DebConf
 
 =cut
 
@@ -32,15 +32,14 @@ simply relayed back and forth unchanged.
 
 =item init
 
-Set up the pipe to the UI agent.
+Set up the pipe to the UI agent and other housekeeping chores.
 
 =cut
 
 sub init {
 	my $this=shift;
-	my $thepipe;
 
-	$this->{thepipe} = new IO::Socket::UNIX->new(
+	$this->{thepipe} = IO::Socket::UNIX->new(
 		Type => SOCK_STREAM,
 		Peer => $DEBCONFPIPE
 	) || carp "Cannot connect to $DEBCONFPIPE: $!";
@@ -51,20 +50,27 @@ sub init {
 	$this->interactive(1);
 }
 
-=head2 _getreply
+=head2 talk
 
-Reads a line from the handle, and do some simple processing with it
+Communicates with the UI agent. Joins all parameters together to create a
+command, sends it to the agent, and reads and processes its reply.
 
 =cut
 
-sub _getreply {
-	my $fh = shift;
-
+sub talk {
+	my $this=shift;
+	my $command=join(' ', @_);
+	
+	my $fh = $this->{thepipe} || carp "Broken pipe";
+	local $_;
+	
+	print $fh $command."\n";
+	$fh->flush;
 	<$fh>;
 	chomp;
-	my ($tag, $val) = split(/ /, $_, 2);
+	my ($tag, $val) = split(' ', $_, 2);
 
-	return ($tag, $val) if (wantarray);
+	return ($tag, $val) if wantarray;
 	return $tag;
 }
 
@@ -76,12 +82,9 @@ Let the UI agent know we're shutting down.
 
 sub shutdown {
 	my $this=shift;
-	my $fh = $this->{thepipe} || carp "Broken pipe";
+	
 	debug developer => "Sending done signal";
-
-	print $fh "STOP\n";
-	$fh->flush;
-	_getreply($fh);
+	$this->talk('STOP');
 }
 
 =head2 makeelement
@@ -97,7 +100,7 @@ sub makeelement
 	my $this=shift;
 	my $question=shift;
 	my $element=Debian::DebConf::Element->new(question => $question);
-	return if ! ref $element;
+	return unless ref $element; # Why is this here?
 	return $element;
 }
 
@@ -111,13 +114,9 @@ sub capb_backup
 {
 	my $this=shift;
 	my $val = shift;
-	my $fh = $this->{thepipe} || carp "Broken pipe";
 
 	$this->{capb_backup} = $val;
-	if ($val) {
-		print $fh "CAPB backup\n";
-		_getreply($fh);
-	}
+	$this->talk('CAPB', 'backup') if $val;
 }
 
 =head2 title
@@ -130,12 +129,9 @@ sub title
 {
 	my $this = shift;
 	my $title = shift;
-	my $fh = $this->{thepipe} || carp "Broken pipe";
 
 	$this->{title} = $title;
-
-	print $fh "TITLE $title\n";
-	_getreply($fh);
+	$this->talk('TITLE', $title);
 }
 
 =head2 go
@@ -148,10 +144,11 @@ the UI agent.
 
 sub go {
 	my $this = shift;
-	my $fh = $this->{thepipe} || carp "Broken pipe";
 	my $datasent = 0;
 
 	foreach my $element (@{$this->elements}) {
+		# TODO: I think only elements with flag_isdefault = true
+		#       should be shown here. -JEH
 		$datasent++;
 		my $question = $element->question;
 		my $tag = $question->template->template;
@@ -163,48 +160,54 @@ sub go {
 
 		if ($desc) {
 			$desc =~ s/\n/\\n/g;
-			print $fh "DATA $tag description $desc\n";
-			_getreply($fh);
+			$this->talk('DATA', $tag, 'description', $desc);
 		}
 
 		if ($extdesc) {
 			$extdesc =~ s/\n/\\n/g;
-			print $fh "DATA $tag extended-description $extdesc\n";
-			_getreply($fh);
+			$this->talk('DATA', $tag, 'extended-description',
+			            $extdesc);
 		}
 
 		if ($choices) {
 			$choices =~ s/\n/\\n/g if (defined($choices));
-			print $fh "DATA $tag choices $choices\n";
-			_getreply($fh);
+			$this->talk('DATA', $tag, 'choices', $choices);
 		}
 
-		print $fh "DATA $tag $type $default\n";
-		_getreply($fh);
+		# TODO: use SET instead to set default.
+		$this->talk('DATA', $tag, $type, $default);
 	}
 
-	print "GO\n";
-	my $ret = _getreply($fh);
-
-	if ($ret eq "30" && $this->capb_backup) {
+	# Tell the agent to display the question(s), and check
+	# for a back button.
+	if (scalar $this->talk('GO') eq "30" && $this->capb_backup) {
 		$this->clear;
 		return;
 	}
 	
-	# Retrieve the answers
+	# Retrieve the answers.
 	foreach my $element (@{$this->elements}) {
 		my $tag = $element->question->template->template;
 
-		print $fh "GET $tag\n";
-		<$fh>;
-		chomp;
-		$element->question->value($_);
-		$element->question->flag_isdefault('false');
-		debug developer => "Setting value of $tag to $_";
+		my ($ret, $val)=$this->talk('GET', $tag);
+		if ($ret eq "0") {
+			$element->question->value($val);
+			$element->question->flag_isdefault('false');
+			debug developer => "Setting value of $tag to $val";
+		}
 	}
 	
 	$this->clear;
 	return 1;
 }
+
+=back
+
+=head1 AUTHOR
+
+Randolph Chung <tausq@debian.org>
+
+=cut
+
 1
 
