@@ -163,7 +163,7 @@
 	  <row>
 	    <entry>slang</entry>
 	    <entry>
-	      The default frontend, this is based on the Slang toolkit. It
+	      This frontend is based on the Slang toolkit. It
 	      presents a full-featured GUI (in text mode). Note that for
 	      this frontend to work, you must have the
 	      <literal>libterm-stool-perl</literal> package installed.
@@ -175,17 +175,15 @@
 	      This uses the
 	      <command>whiptail</command> or <command>dialog</command>
 	      programs to display questions to you. It works in text mode.
-	      There is little reason to use this frontend, the slang
-	      frontend is better in most ways. 
 	    </entry>
 	  </row>
 	  <row>
 	    <entry>text</entry>
 	    <entry>
 	      The most traditional frontend, this looks quite similar
-	      to how Debian configuration always has: a series of questions,
-	      printed out at the console using plain text. It includes
-	      readline support.
+	      to how Debian configuration always has been: a series of
+	      questions, printed out at the console using plain text. It
+	      includes readline support, and even supports tab completion.
 	      <note>
 	        <para>
 	          I reccommend you install the
@@ -195,8 +193,37 @@
 		  Up.
 	        </para>
 	      </note>
+	      <note>
+	        <para>
+	          This frontend has some special hotkeys. Pageup (or ctrl-u)
+		  will go back to the previous question (if that is supported
+		  by the package that is using debconf), and pagedown (or 
+		  ctrl-v) will skip forward to the next question.
+		</para>
+	      </note>
 	      This is the best frontend for remote admin work over a slow
 	      connection, or for people who are comfortable with unix.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>noninteractive</entry>
+	    <entry>
+	      This is the anti-frontend. It never interacts with you at all,
+	      and makes the default answers be used for all questions. It will
+	      occasionally mail root with messages the package wanted to
+	      display, but that's it; otherwise it is completly silent and
+	      unobtrusive, a perfect frontend for automatic installs.
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>editor</entry>
+	    <entry>
+	      This is for those fanatics who have to do everything in a
+	      text editor. It runs the your editor on a file that looks
+	      something like typical unix config file, and you edit the
+	      file to communicate with debconf. Debconf's author takes the
+	      fifth amendment regarding the circumstances that lead to this
+	      frontend being written.
 	    </entry>
 	  </row>
 	  <row>
@@ -214,27 +241,10 @@
 		  Do keep in mind that this is not a very secure frontend.
 		  Anyone who has access to the computer being configured
 		  can currently access the web server and configure things
-		  while this frontend is running.
+		  while this frontend is running. So this is more of a
+		  proof of concept than anything.
 		</para>
 	      </note>
-	    </entry>
-	  </row>
-	  <row>
-	    <entry>noninteractive</entry>
-	    <entry>
-	      This is the anti-frontend. It never interacts with you at all,
-	      and makes the default answers be used for all questions. It will
-	      occasionally mail root with messages the package wanted to
-	      display, but that's it; otherwise it is completly silent and
-	      unobtrusive, a perfect frontend for automatic installs.	      
-	    </entry>
-	  </row>
-	  <row>
-	    <entry>gtk</entry>
-	    <entry>
-	      This frontend uses the GTK toolkit to interact with you in X,
-	      in a pretty GUI. It has a lot of promise, but it too rough right
-	      now to be used.
 	    </entry>
 	  </row>
 	</tbody>
