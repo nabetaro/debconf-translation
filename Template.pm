@@ -103,7 +103,10 @@ sub stringify {
 			if (exists $_->{"extended_$key"}) {
 				# Add extended field.
 				my $extended=wrap(' ', ' ', $_->{"extended_$key"});
-				$extended=~s/\n \n/\n .\n/g;
+				# The word wrapper sometimes outputs
+				# multiple " \n" lines, so collapse those
+				# into one.
+				$extended=~s/(\n )+\n/\n .\n/g;
 				$data.=$extended."\n" if length $extended;
 			}
 		}
