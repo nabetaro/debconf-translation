@@ -44,7 +44,7 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
 	eval "db_$1 () {
 		local _RET
 		echo \"$2 \$@\" >&3
-		read _RET
+		read -r _RET
 		set -- \$_RET
 		_RET=\$1
 		shift

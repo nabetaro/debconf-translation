@@ -72,14 +72,14 @@ db_version () {
 	else
 		_command "VERSION 1.0"
 	fi
-	# Not quire correct, but not worth fixing.
-	read RET
+	# Not quite correct, but not worth fixing in obsolete code.
+	read -r RET
 }
 
 # Here for backwards compatibility.
 db_go () {
 	_command "GO"
-	read RET
+	read -r RET
 	if [ "$RET" = 30 ]; then
 		RET='back'
 	fi

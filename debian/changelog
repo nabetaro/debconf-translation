@@ -1,3 +1,12 @@
+debconf (0.5.43) unstable; urgency=low
+
+  * Modified shell confmodule to use read -r, so if \ characters are 
+    read in, it will not interpret them. That was causing mangled password
+    entry problems in base-config, Closes: #77920. It could also cause
+    random hangs if the data was just right..
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  9 Jan 2001 16:43:21 -0800
+
 debconf (0.5.42) unstable; urgency=low
 
   * apt-extracttemplates null pointer checking, Closes: #77787
@@ -498,12 +507,6 @@ debconf (0.3.72) unstable; urgency=low
     that made them ignore the width of the screen.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 12 Sep 2000 21:08:22 -0700
-
-debconf (0.3.71) unstable; urgency=low
-
-  * Slang frontend can now scroll package descriptions. Closes: #66170, #67419
-
- -- Joey Hess <joeyh@debian.org>  Tue,  5 Sep 2000 12:15:54 -0700
 
 debconf (0.3.70) unstable; urgency=low
 
