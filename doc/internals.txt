@@ -76,9 +76,9 @@ name of the Question, and "template", which is the name of the Template
 associated with that question.
 
 Question.pm is an object that represents a question. It has some associated
-data, which can be gotten at just like a Template's data is accessed.
-Typical fields are: "name", "value", "template". That last is a reference to
-the Template object associated with this Question.
+data, which can be accessed just like a Template's data is accessed. Typical
+fields are: "name", "value", "template". That last is a reference to the
+Template object associated with this Question.
 
 Priority.pm is a simple perl module, not an object. It is used to deal with
 the priorities of Questions. It contains the following methods:
@@ -95,7 +95,7 @@ ConfModules
 ConfModule/Base.pm is the base of the ConfModule class. Each ConfModule can
 launch a confmodule script and communicate with it using the protocol
 detailed in the configuration management specification. This is based on
-standard input and output. The following methods exist on a ConfModule:
+standard input and output. The following methods exist in a ConfModule:
 
 	new(confmodule, frontend)
 		Create a new ConfModule. You must specify the confmodule script
@@ -116,19 +116,21 @@ standard input and output. The following methods exist on a ConfModule:
 
 ConfModule::Base implements the following commands:
 	command_version()
-		Tests for too low protocol versions, returns the value of
+		Compares protocol versions, returns the value of
 		ConfModule->version.
 	command_capb()
 		Sets ConfModule->client_capb to the confmodule's capb string,
-		and sets ConfModule->frontend->capb_backup is the confmodule
+		and sets ConfModule->frontend->capb_backup if the confmodule
 		can backup. Returns ConfModule->capb
 	command_title()
 	command_beginblock()
 	command_endblock()
+		This and command_beginblock() are stubs that do nothing.
+		Override as necessary.
 	command_go()
 		Calls ConfModule->frontend->go.
 	command_get()
-	command_set(0
+	command_set()
 	command_register()
 	command_unregister()
 
@@ -191,20 +193,20 @@ whiptail. It will use whichever is available, but prefers to use whiptail.
 It handles all the messy communication with thse programs. It provides the
 following methods that Elements may find useful:
 
-	sizetext(text, title)
+	sizetext(title,text)
 		Dialog and whiptail have an annoying property of requiring
 		you specify their dimentions explicitly. This function handles
 		doing that. Just pass in the text that will be displayed in the
-		dialog and then the title of the dialog, and it will spit out
-		new text, formatted nicely, then the height for the dialog, and
-		then the width for the dialog.
+		dialog box and then the title of the dialog box, and it will
+		return new text, formatted nicely, then the height for the
+		dialog box, and then the width for the dialog box.
 	showtext(title,text)
 		Display text to the user. If the text it too large to fit in
-		a single message dialog, it will use as many as are necessary.
+		a single message box, it will use as many as are necessary.
 	showdialog(title, params ..)
-		Display a dialog. Specify a title, and the actual parameters
-		to be passed to dialog or whiptail. It returns a list with
-		two elements. The first is the return code of dialog. The
+		Display a dialog box. Specify a title, and the actual
+		parameters to be passed to dialog or whiptail. It returns a list
+		with two elements. The first is the return code of dialog. The
 		second, anything it outputs to stderr.
 
 FrontEnd/Web.pm is a FrontEnd for a web based user interface. It is a small,

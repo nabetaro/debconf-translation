@@ -51,8 +51,8 @@ sub new {
 # the dialog, and then the width for the dialog.
 sub sizetext {
 	my $this=shift;
+	my $title=shift;	
 	my $text=shift;
-	my $title=shift;
 	
 	# Try to guess how many lines the text will take up in the dialog.
 	# This is difficult because long lines are wrapped. So what I'll do
@@ -79,7 +79,7 @@ sub showtext {
 	my $intext=shift;
 
 	my $lines = ($ENV{LINES} || 25);
-	my ($text, $height, $width)=$this->sizetext($intext, $title);
+	my ($text, $height, $width)=$this->sizetext($title, $intext);
 	my @lines = split(/\n/, $text);
 	for (my $c = 0; $c <= $#lines; $c += $lines - 4 - $this->borderheight) {
 		my ($text, $num);
