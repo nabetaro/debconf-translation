@@ -92,6 +92,7 @@ foreach my $x (0..$#debs) {
 	}
 
 	$packages{$debs[$x]}=`dpkg-deb -f $debs[$x] Package`;
+	chomp $packages{$debs[$x]};
 
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile(
@@ -131,7 +132,7 @@ foreach my $deb (@debs) {
 
 	$frontend->default_title($packages{$deb});
 
-	# Figure oout what version of the package is currently installed.
+	# Figure out what version of the package is currently installed.
 
 	# Start up the confmodule, passing in the package version.
 	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,

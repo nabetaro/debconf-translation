@@ -1,3 +1,10 @@
+debconf (0.1.72) unstable; urgency=low
+
+  * dpkg-preconfig: fixed so it chomps the package name, to prevent ugliness
+    like \n in the owners field. Closes: #48450
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 27 Oct 1999 12:48:54 -0700
+
 debconf (0.1.71) unstable; urgency=low
 
   * The dialog frontend can now use --passwordbox with both whiptail and
