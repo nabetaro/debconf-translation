@@ -38,11 +38,12 @@ General:
 Database:
 * There's also the Force-Flag-Seen thing, which is really a more generic
   forcing of any given flag to any vale, and should expand to forcing any
-  field to a value too, I'd think.
+  field to a value too, I'd think. Perhaps it should be an overlaid
+  database really? Yes, I think so..
 * DbDriver's need access to Templates so they can tell what Type a
   given item is. Until then accept-type and reject-type are just hot air.
   Once Template.pm has class data, they will be able to use
-  Debconf::Template->get(templatename), I suppose.
+  Debconf::Template::Persistent->get(templatename), I suppose.
 * Make FlatDir write out password type thing mode 600.
 * Transition from perldb (blech).
 

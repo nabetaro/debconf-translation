@@ -5,6 +5,8 @@ debconf (0.9.00) experimental; urgency=low
     will be ready for 1.0 once the kinks in it are worked out.
   * But we're not at 1.0 yet. Use this release with *extreme* caution!
     It _will_ trash your debconf database. It _will_ break your system.
+  * Conflicts with versions of cdebconf that themselves use a
+    /etc/debconf.conf.
 
 NOT READY FOR RELEASE
 
