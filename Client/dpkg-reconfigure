@@ -17,7 +17,7 @@ use POSIX qw(tmpnam);
 
 my $infodir="/var/lib/dpkg/info";
 
-my $frontend_type='Dialog';
+my $frontend_type=$Debian::DebConf::Config::frontend;
 my $priority;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
