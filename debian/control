@@ -19,14 +19,14 @@ Description: Debian configuration management system
 Package: debconf-tiny
 Architecture: all
 Conflicts: debconf, menu (<= 2.1.3-1), gnome-utils (<< 1.0.13-2), dialog (<< 0.9a-17), whiptail (<< 0.50-1)
-Suggests: whiptail
+Suggests: whiptail | dialog | gnome-utils
 Depends: perl-5.005-base (>= 5.005.03-4.1)
 Provides: debconf
 Description: Tiny subset of debconf for the base system
  Debconf is a configuration management system for debian packages. It is 
  used by some packages to prompt you for questions before they are installed.
  .
- This is a tiny subset of debconf, with only one frontend, no preconfiguration
- and few other features. It is intended to be used to set up things in the
- base system that use debconf. Unless you are very short on disk space, you
- should install debconf instead.
+ This is a tiny subset of debconf, with only one frontend, and few features.
+ It is intended to be used to set up things in the base system that use
+ debconf. Unless you are very short on disk space, you should install debconf
+ instead.

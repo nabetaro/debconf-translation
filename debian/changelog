@@ -1,3 +1,13 @@
+debconf (0.2.90) unstable; urgency=low
+
+  * Fixed dpkg-preconfigure to not use Getopt::Long, so it will work even on
+    the base system it is now a part of.
+  * As a workaround for the dialog lock problem (which seems to be a dialog
+    bug), never use dialog for the text mode menus. Works around: #56518
+    (grave), #57771 (important)
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 13 Feb 2000 01:09:11 -0800
+
 debconf (0.2.89) unstable; urgency=low
 
   * Use perl's "base" module throughout the code, cutting 2 lines from each

@@ -8,13 +8,12 @@
 # This program may be running from apt. If so, if it fails, apt is going to
 # fail as well, which will make it hard for people to fix whatever the failure
 # was. One thing someone encountered was perl failing to install. Apt then
-# was re-run with perl unpacked and not configured, and lib.pm wasn't able
-# to be loaded. As a sanity check, detect that case. If found, exit with
+# was re-run with perl unpacked and not configured, and modules weren't
+# able to be loaded. As a sanity check, detect that case. If found, exit with
 # an error message, but a return code of 0 so apt continues.
 BEGIN {
 	eval qq{
 		use strict;
-		use Getopt::Long;
 		use Debian::DebConf::ConfigDb;
 		use Debian::DebConf::Config;
 		use Debian::DebConf::AutoSelect;
@@ -29,21 +28,41 @@ BEGIN {
 # In apt mode, need unbuffered output.
 $|=1;
 
-my $apt;
-Getopt::Long::config qw(bundling no_ignore_case permute);
-my $ret=GetOptions(
-	"frontend|f=s" => sub { shift; Debian::DebConf::Config::frontend(shift) },
-	"priority|p=s" => sub { shift; Debian::DebConf::Config::priority(shift) },
-	"apt|a" => \$apt,
-);
-
-my @debs=@ARGV;
+# Parse command line. I don't use Getopt::Long since it's not in base.
+my @debs;
+my $apt='';
+for (my $x=0; $x < @ARGV;) {
+	$_=$ARGV[$x++];
+	
+	if ($_ eq '--apt') {
+		$apt=1;
+	}
+	elsif (/^-(?:f|-frontend=)(.*)/) {
+		Debian::DebConf::Config::frontend($1);
+	}
+	elsif (/^-(?:f|-frontend)$/) {
+		Debian::DebConf::Config::frontend($ARGV[$x++]);
+	}
+	elsif (/^-(?:p|-priority=)(.*)/) {
+		Debian::DebConf::Config::priority($1);
+	}
+	elsif (/^-(?:p|-priority)$/) {
+		Debian::DebConf::Config::priority($ARGV[$x++]);
+	}
+	elsif (/^-(\w+)/) {
+		print STDERR "Unknown option: $1\n";
+	}
+	else {
+		push @debs, $_;
+	}
+}
+@ARGV=();
 
 # If running from apt, read package filenames on stdin.
 if ($apt) {
 	while (<>) {
 		chomp;
-		push @debs, $_ if $_;
+		push @debs, $_ if length $_;
 	}
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin will get input from the user.
@@ -214,9 +233,8 @@ Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 				}
 			}
 			close STATUS;
-		}
+		}	
 		$haveversions=1;
-		
 		return $versions{$package};
 	}
 }
