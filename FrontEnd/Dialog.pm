@@ -166,13 +166,13 @@ that is going to be displayed. It will use this to generate a prompt, using
 both the short and long descriptions of the Question.
 
 You can optionally pass in a second parameter: a number. This can be used to
-tune howe many lines are free on the screen.
+tune how many lines are free on the screen.
 
 If the prompt is too large to fit on the screen, it will instead be displayed
-immediatly, and the promnpt will be changed to just the short description.
+immediatly, and the prompt will be changed to just the short description.
 
 The return value is identical to the return value of sizetext() run on the
-generate prompt.
+generated prompt.
 
 =cut
 
@@ -220,8 +220,8 @@ sub showdialog {
 	open(SAVEIN, "<&STDIN") || die $!;
 
 	# If warnings are enabled by $^W, they are actually printed to
-	# stdout by IPC::Open3 and get stored in $stdout below! (I have no idea
-	# why.) So they must be disabled.
+	# stdout by IPC::Open3 and get stored in $stdout below! 
+	# So they must be disabled.
 	my $savew=$^W;
 	$^W=0;
 	

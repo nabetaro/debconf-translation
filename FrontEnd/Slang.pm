@@ -190,11 +190,14 @@ sub go {
 		unless ($firstwidget) {
 			$firstwidget=$element->widget;
 			
-			# Make sure slang is up and running, and the screen
-			# size is known. Note that this is not done until
-			# now so the frontend doesn't pop up in debconf
-			# runs where no interactive questions are asked
-			$this->screen->slang_init;
+			if (! $this->screen_is_setup) {
+				$this->screen_is_setup(1);
+				# Make sure slang is up and running, and the screen
+				# size is known. Note that this is not done until
+				# now so the frontend doesn't pop up in debconf
+				# runs where no interactive questions are asked.
+				$this->screen->slang_init;
+			}
 		}
 		
 		# Make the widget call the element's resize method when it
@@ -239,6 +242,8 @@ sub go {
 
 	# Don't do any of this if there are no interactive widgets to show.
 	if ($firstwidget) {
+		# A title was probably set before there even was a
+		# mainwindow, so make sure it gets displayed now.
 		$this->mainwindow->title($this->title);
 		# Make sure everything inside the panel is positioned ok.
 		$this->fillpanel;
@@ -312,6 +317,29 @@ sub fillpanel {
 		$y++ unless $element->widget->sameline;
 		$element->widget->yoffset($y++);
 		$y++; # a blank line between widget groups.
+	}
+}
+
+=item title
+
+Immediatly sets the title of the main window, and gets the window to
+redisplay itself.
+
+=cut
+
+sub title {
+	my $this=shift;
+
+	if (@_) {
+		my $title=$this->SUPER::title(shift);
+		if ($this->mainwindow) {
+			$this->mainwindow->title($title);
+			$this->mainwindow->display if $this->screen_is_setup;
+		}
+		return $title;
+	}
+	else {
+		return $this->SUPER::title;
 	}
 }
 

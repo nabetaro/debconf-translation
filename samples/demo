@@ -28,7 +28,7 @@ db_input low demo/boolean || true
 db_input low demo/boolean || true
 db_endblock
 db_go || true
-db_get demo/select
+db_get demo/text
 echo $RET
 db_get demo/boolean
 echo $RET
