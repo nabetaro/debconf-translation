@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2002-04-13 00:07-0400\n"
+"POT-Creation-Date: 2002-04-13 14:49-0400\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -215,7 +215,7 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Debconf/Template.pm:177
+#: ../Debconf/Template.pm:181
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -225,12 +225,17 @@ msgstr ""
 "valeur. Il manque probablement la ligne vide de séparation entre deux "
 "modèles.\n"
 
-#: ../Debconf/Template.pm:223
+#: ../Debconf/Template.pm:206
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
+
+#: ../Debconf/Template.pm:232
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:229
+#: ../Debconf/Template.pm:238
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"

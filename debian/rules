@@ -38,7 +38,7 @@ binary-indep: build
 	
 	dh_installdocs 
 	dh_install debian/apt.conf etc/apt/apt.conf.d/70debconf
-	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1 doc/man/gen/debconf-copydb*.1
+	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1 doc/man/gen/debconf-copydb*.1 doc/man/gen/debconf.1
 	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.8 \
 		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
 	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb`

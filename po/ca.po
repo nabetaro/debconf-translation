@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-04-13 00:07-0400\n"
+"POT-Creation-Date: 2002-04-13 14:49-0400\n"
 "PO-Revision-Date: 2002-01-16 14:07+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan Team <debian-l10n-catalan@lists.debian.org>\n"
@@ -216,7 +216,7 @@ msgstr "No s'ha pogut carregar Debconf::Element::%s. Error degut a: %s"
 msgid "Configuring %s"
 msgstr "Configurant %s"
 
-#: ../Debconf/Template.pm:177
+#: ../Debconf/Template.pm:181
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -226,12 +226,17 @@ msgstr ""
 "Probablement dos plantilles no estàn separades adequadament per un sol "
 "retorn de carro.\n"
 
-#: ../Debconf/Template.pm:223
+#: ../Debconf/Template.pm:206
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Error d'analisi de plantilla prop de \"%s\", en la estrofa #%s de %s\n"
+
+#: ../Debconf/Template.pm:232
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Error d'analisi de plantilla prop de \"%s\", en la estrofa #%s de %s\n"
 
-#: ../Debconf/Template.pm:229
+#: ../Debconf/Template.pm:238
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "La plantilla #%s en %s no conté una línia \"Template:\"\n"
