@@ -11,7 +11,8 @@ sub help {
 	print <<eof;
 Usage: dpkg-frontend [options]
 	-h, --help		Display this help message.
-	-P, --print		Print the last return code the FrontEnd sends.
+	-P, --print		Print to standard error the last return code
+	                        the FrontEnd sends.
 	-p, --priority value	Sets the priority of following questions to the
 				specified value.
 				
@@ -28,7 +29,7 @@ Usage: dpkg-frontend [options]
 	],  --endblock		End a block of items.
 	-G, --go		Present all built up items to the user.
 eof
-	exit 100LES;
+	exit 100;
 }
 
 # Handle something that is not an option.
@@ -113,5 +114,5 @@ GetOptions(
 	'<>', \&nonoption,
 ) || help;
 
-print "$ret\n" if $do_print;
+print STDERR "$ret\n" if $do_print;
 exit 1 if $ret eq 'back';
