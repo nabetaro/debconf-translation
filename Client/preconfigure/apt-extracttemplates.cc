@@ -122,6 +122,10 @@ int main(int argc, char **argv, char **env)
 		}
 		if (file.Template != 0 && file.ParseInfo() == true)
 		{
+			if (file.DepVer != "" &&
+			    pkgCheckDep(file.DepVer.c_str(), 
+			                debconfver, file.DepOp) == false) 
+				continue;
 			if (file.PreDepVer != "" &&
 			    pkgCheckDep(file.PreDepVer.c_str(), 
 			                debconfver, file.PreDepOp) == false) 

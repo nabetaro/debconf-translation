@@ -28,8 +28,8 @@ public:
 
 	string Package;
 	string Version;
-	string PreDepVer;
-	unsigned int PreDepOp;
+	string DepVer, PreDepVer;
+	unsigned int DepOp, PreDepOp;
 
 	char *Config;
 	char *Template;

@@ -7,7 +7,7 @@
 #include "debfile.h"
 
 DebFile::DebFile(string debfile)
-	: File(debfile, FileFd::ReadOnly), Control(0), PreDepOp(0), Config(0), Template(0), Which(None)
+	: File(debfile, FileFd::ReadOnly), Control(0), DepOp(0), PreDepOp(0), Config(0), Template(0), Which(None)
 {
 }
 
@@ -101,6 +101,25 @@ bool DebFile::ParseInfo()
 	Version = Section.FindS("Version");
 	
 	const char *Start, *Stop;
+
+	if (Section.Find("Depends", Start, Stop) == true)
+	{
+		while (1)
+		{
+			string P, V;
+			unsigned int Op;
+			Start = ParseDepends(Start, Stop, P, V, Op);
+			if (Start == 0) return false;
+			if (P == "debconf")
+			{
+				DepVer = V;
+				DepOp = Op;
+				break;
+			}
+			if (Start == Stop) break;
+		}
+	}
+	
 	if (Section.Find("Pre-Depends", Start, Stop) == true)
 	{
 		while (1)
