@@ -1,3 +1,15 @@
+debconf (0.9.11) unstable; urgency=low
+
+  * Workaround a bug
+    that showed up in fresh installs
+    or ancient upgrades.			Closes: #88682, #88676
+
+    The fix is simple:
+    just don't abort if it fails
+    to unregister.
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  5 Mar 2001 19:06:15 -0800
+
 debconf (0.9.10) unstable; urgency=low
 
   * Though I waited long --
