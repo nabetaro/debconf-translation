@@ -134,20 +134,18 @@ sub init {
 	$this->mainwindow(Term::Stool::Dialog->new(
 		inside => $this->panel,
 		resize_hook => sub {
-			my $hidden=$this->helpwindow->hidden;
-			
-			my $this=shift;
+			my $window=shift;
 			
 			# Resize to take up the top half of the screen.
-			$this->xoffset(2);
-			$this->yoffset(2);
-			$this->width($this->container->width - 4);
-			if ($hidden) {
-				$this->height($this->container->height - 4);
+			$window->xoffset(2);
+			$window->yoffset(2);
+			$window->width($this->container->width - 4);
+			if ($this->helpwindow->hidden) {
+				$window->height($window->container->height - 4);
 			}
 			else {
 				# Take up top half of screen only.
-				$this->height(int(($this->container->height - 6) / 2));
+				$window->height(int(($window->container->height - 6) / 2));
 			}	
 		},
         ));
