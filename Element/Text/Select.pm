@@ -171,7 +171,8 @@ sub show {
 	my $this=shift;
 
 	my @choices=$this->question->choices_split;
-	my $default=$this->question->value || '';
+	my $default='';
+	$default=$this->question->value if defined $this->question->value;
 	
 	# Make sure the default is in the set of choices, else ignore it.
 	if (! grep { $_ eq $default } @choices) {
