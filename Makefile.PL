@@ -14,18 +14,23 @@ sub MY::libscan {
 
 # Add more targets.
 sub MY::postamble {
-	return <<eof;
-# Test w/o installing. See doc/EXAMPLES
-demo:
-	samples/$(PACKAGE)
-
+	return <<'eof';
+pure_install ::
+	install -d $(prefix)/var/lib/debconf \
+		$(prefix)/usr/share/debconf/templates \
+		$(prefix)/usr/lib/debconf
+	chmod 700 $(prefix)/var/lib/debconf
+	install -m 0644 confmodule.sh confmodule $(prefix)/usr/share/debconf/
+	cp confmodule.3 $(INSTALLMAN3DIR)
+	install frontend $(prefix)/usr/share/debconf/
+	install -s apt/apt-extracttemplates $(prefix)/usr/lib/debconf/
 eof
 }
 
 WriteMakefile(
     'NAME'		=> 'Debconf',
-    'MAN3PODS'		=> {'Debconf/Client/ConfModule.pm' => 'Debconf/Client/ConfModule.pm'},
     'EXE_FILES'		=> [qw{debconf-communicate debconf-getlang 
                               debconf-loadtemplate debconf-mergetemplate
 			      dpkg-preconfigure dpkg-reconfigure}],
+    'MAN3PODS'		=> {'Debconf/Client/ConfModule.pm' => '$(INST_MAN3DIR)/Debconf::Client::ConfModule.$(MAN3EXT)'},
 );

@@ -30,7 +30,7 @@ Where to store the database.
 =cut
 
 sub dbdir {
-	"./" # CHANGE THIS AT INSTALL TIME
+	"/var/lib/debconf";
 }
 
 =item tmpdir
@@ -42,7 +42,7 @@ isn't in perl-base
 =cut
 
 sub tmpdir {
-	"./" # CHANGE THIS AT INSTALL TIME
+	"/var/lib/debconf/";
 }
 
 =item frontend

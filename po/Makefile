@@ -1,6 +1,6 @@
 # List here all source files with translatable strings.
-POTFILES=$(shell find .. -type f -name \*.pm) ../Client/*.pm \
-	../Client/dpkg-* ../Client/debconf-*
+POTFILES=$(shell find ../Debconf -type f -name \*.pm) \
+	../dpkg-* ../debconf-*
 
 POFILES=$(wildcard *.po)
 MOFILES=$(POFILES:.po=.mo)
