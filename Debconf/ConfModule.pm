@@ -71,6 +71,11 @@ reports.
 An array reference. If set, it will hold a list of all questions that have
 ever been shown to the user in this confmodule run.
 
+=item busy
+
+An array reference. If set, it will hold a list of named of question that are
+"busy" -- in the process of being shown, that cannot be unregistered right now.
+
 =back
 
 =head1 METHODS
@@ -110,6 +115,7 @@ sub init {
 	$this->frontend->capb_backup('');
 
 	$this->seen([]);
+	$this->busy([]);
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -129,6 +135,11 @@ sub startup {
 	my $this=shift;
 	my $confmodule=shift;
 
+	# There is an implicit clearing of any previously pending questions
+	# when a new confmodule is ran.
+	$this->frontend->clear;
+	$this->busy([]);
+	
 	my @args=$this->confmodule($confmodule);
 	push @args, @_ if @_;
 	
@@ -280,6 +291,8 @@ sub command_input {
 		return $codes{input_invisible}, "question skipped" unless $element;
 	}
 
+	push @{$this->busy}, $question_name;
+	
 	$this->frontend->add($element);
 	if ($element->visible) {
 		return $codes{success}, "question will be asked";
@@ -300,6 +313,7 @@ sub command_clear {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 0;
 
 	$this->frontend->clear;
+	$this->busy([]);
 	return $codes{success};
 }
 
@@ -394,11 +408,13 @@ sub command_go {
 			push @{$this->seen}, $_->question if $_->visible && $_->question;
 		}
 		$this->frontend->clear;
+		$this->busy([]);
 		$this->backed_up('');
 		return $codes{success}, "ok"
 	}
 	else {
 		$this->frontend->clear;
+		$this->busy([]);
 		$this->backed_up(1);
 		return $codes{go_back}, "backup";
 	}
@@ -529,6 +545,9 @@ sub command_unregister {
 	
 	my $question=Debconf::Question->get($name) ||
 		return $codes{badparams}, "$name doesn't exist";
+	if (grep { $_ eq $name } @{$this->busy}) {
+		return $codes{badparams}, "$name is busy, cannot unregister right now";
+	}
 	$question->removeowner($this->owner);
 	return $codes{success};
 }

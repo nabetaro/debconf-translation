@@ -38,3 +38,10 @@ clean:
 		rm -f $@.new; \
 	fi
 	@msgfmt --statistics $@
+
+check:
+	for file in $(POFILES); do \
+		lang=`echo $$file | sed 's/\.po//'`; \
+		printf "$$lang: "; \
+		msgfmt -o /dev/null -c -v --statistics $$lang.po;\
+	done

@@ -154,6 +154,9 @@ sub shutdown {
 
 	# Ensure -new is flushed.
 	$fh->autoflush(1);
+	# Ensure it is synced, because I've had problems with disk caching
+	# resulting in truncated files.
+	$fh->sync;
 
 	# Now rename the old file to -old (if doing backups), and put -new 
 	# in its place.

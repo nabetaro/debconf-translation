@@ -147,11 +147,14 @@ sub save {
 	$this->{format}->beginfile;
 	$this->{format}->write($fh, $data, $item);
 	$this->{format}->endfile;
+	
+	# Ensure it is synced, to disk buffering doesn't result in
+	# inconsistencies.
+	$fh->flush;
+	$fh->sync;
 	close $fh;
+	
 	rename("$file-new", $file) or $this->error("rename failed: $!");
-
-	# Unlock database.
-	delete $this->{lock}
 }
 
 =sub shutdown

@@ -1,3 +1,21 @@
+debconf (1.0.22) unstable; urgency=HIGH
+
+  * I've had a number of reports of truncated templates files (that make
+    debconf crash later). Some if not all are related to system hangs while
+    an upgrade is in progress. Since debconf is already very careful to do
+    updates atomically, nearly the only safety feature left is to sync files
+    after writing them, which I have now done for all db file writes. My 
+    hypothesis is that the atomicity was being thwarted by disk caching.
+    Closes: #122891, #112921, #122825, #112921 (??)
+  * Directory DbDriver was unlocking the db too early, fixed.
+  * ConfModule: on startup(), automatically CLEAR. Closes: #122176
+  * Fixed crash if a question is INPUT, UNREGISTERed, and then we GO.
+    Closes: #120303
+  * Updated fr.po from Martin Quinson <Martin.Quinson@ens-lyon.fr>
+  * Also a patch from Martin to make 'make check' in po output stats.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  7 Dec 2001 11:10:12 -0500
+
 debconf (1.0.21) unstable; urgency=high
 
   * High urgency upload to get this into testing before the freeze, as it
