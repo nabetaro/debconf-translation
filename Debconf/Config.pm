@@ -58,6 +58,8 @@ sub _hashify ($$) {
 	foreach my $line (split /\n/, $text) {
 		next if $line=~/^\s*#/; # comment
 		next if $line=~/^\s*$/; # blank
+		$line=~s/^\s+//;
+		$line=~s/\s+$//;
 		$i++;
 		my ($key, $value)=split(/\s*:\s*/, $line, 2);
 		$key=~tr/-/_/;
