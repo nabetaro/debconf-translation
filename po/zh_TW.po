@@ -1,17 +1,18 @@
 # debconf Tranditional Chinese Translation (Big5)
 # Copyright (C) 2001 Free Software Foundation, Inc.
-# Shell Hung <shell@debian.org>, 2001
+# Translators: Shell Hung <shell@debian.org>, 2001
+#              Kanru Chen <koster@debian.org.tw>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 20:15-0500\n"
-"PO-Revision-Date: 2002-10-31 13:32+800\n"
-"Last-Translator: Shell Hung <shell@debian.org>\n"
-"Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
+"POT-Creation-Date: 2005-02-12 09:43+0100\n"
+"PO-Revision-Date: 2005-02-12 14:30+0800\n"
+"Last-Translator: Kanru Chen <koster@debian.org.tw>\n"
+"Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=Big5\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
@@ -19,7 +20,7 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"±z¿ï¾Ü¤F¤å¦r½s¿è¾¹§Î¦¡ªºdebconf¤¶­±³]©w¨t²Î. ¯d·N³o¥÷¤å¥ó³Ì§À¦³Ãöªº¤èªk."
+"æ‚¨é¸æ“‡äº†æ–‡å­—ç·¨è¼¯å™¨å½¢å¼çš„ debconf ä»‹é¢è¨­å®šç³»çµ±. ç•™æ„é€™ä»½æ–‡ä»¶æœ€å¾Œæœ‰è©³ç´°çš„èªªæ˜ã€‚"
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -30,125 +31,209 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"¥H½s¿è¾¹¬°¥X²{¤@­Ó¥H¤WªºÀÉ®× ­n­×§ï. ³o¬O¨ä¤¤¤@­ÓÀÉ®×.¦pªG±z¼ôÃÑ¼Ğ·Çªº Unix "
-"³]©wÀÉ®×, ³o­ÓÀÉ®×·|¬O«ÜÂ²³æªº --³o­ÓÀÉ®× ¥]§t¤F¤£¦Pªº³]©w¶µ¥Ø. ­×§ïÀÉ®×, §ó"
-"§ï¥ô¦ó ­×­nªº¶µ¥Ø, µM«áÀx¦s¨ÃÂ÷¶}. ¦b¥ô¦ó®É¶¡, debconf ³£·|Åª¨ú¤w­×§ïªºÀÉ®×, "
-"¦Ó¥B·|¨Ï¥Î±zªº³]©w­È³]©w¨t²Î. "
+"ç·¨è¼¯å™¨å½¢å¼çš„ debconf æœƒçµ¦ä½ ä¸€åˆ°å¤šå€‹è¦ä¿®æ”¹çš„æª”æ¡ˆã€‚é€™æ˜¯å…¶ä¸­ä¸€å€‹æª”æ¡ˆã€‚å¦‚æœæ‚¨ç†Ÿè­˜"
+"æ¨™æº–çš„ Unix è¨­å®šæª”æ¡ˆï¼Œé€™å€‹æª”æ¡ˆåœ¨ä½ çœ‹èµ·ä¾†æ‡‰è©²å¾ˆè¦ªåˆ‡ -- é€™å€‹æª”æ¡ˆåŒ…å«äº†ä¸åŒçš„è¨­"
+"å®šé …ç›®ã€‚ä¿®æ”¹æª”æ¡ˆï¼Œæ›´æ”¹ä»»ä½•ä¿®è¦çš„é …ç›®ï¼Œç„¶å¾Œå„²å­˜ä¸¦é›¢é–‹ã€‚åœ¨ä»»ä½•æ™‚é–“ï¼Œ debconf éƒ½"
+"æœƒè®€å–å·²ä¿®æ”¹çš„æª”æ¡ˆï¼Œè€Œä¸”æœƒä½¿ç”¨æ‚¨çš„è¨­å®šå€¼è¨­å®šç³»çµ±ã€‚"
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
 #, c-format
 msgid "Debconf on %s"
-msgstr "Debconf ¦b %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "§ó¦h"
+msgstr "Debconf åœ¨ %s"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "ª`·N: Debconf °õ¦æ¦b Web ¼Ò¦¡. ½Ğ¨ì http://localhost:%i/"
+msgstr "æ³¨æ„: Debconf åŸ·è¡Œåœ¨ Web æ¨¡å¼. è«‹ç€è¦½ http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr "ªğ¦^"
+msgstr "è¿”å›"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr "¤U¤@ª©"
+msgstr "ä¸‹ä¸€æ­¥"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "æ›´å¤š"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM ¨Ã¥¼³]©w, ¹ï¸Üµøµ¡¤¶­±¤£¯à°õ¦æ."
+msgstr "ç³»çµ±æœªè¨­å®š TERM ç’°å¢ƒè®Šæ•¸ï¼Œå°è©±å¼ä»‹é¢ç„¡æ³•ä½¿ç”¨ã€‚"
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "¹ï¸Ü¤¶­±»PEmacs ¥~´ßºş¨R¤£­İ®e"
+msgstr "å°è©±å¼ä»‹é¢èˆ‡ Emacs shell ç·©è¡å€ä¸ç›¸å®¹"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "¹ï¸Ü¤¶­±¨Ã¤£¯à¦b¯Â²×ºİ¤W¹B§@, ¨Ò¦pEmacs ¥~´ßºş¨R,©Î¨S¦³±±¨î²×ºİ."
+msgstr ""
+"å°è©±ä»‹é¢ä¸¦ä¸èƒ½åœ¨ç°¡æ˜“çµ‚ç«¯(dumb terminal)ã€Emacs shell ç·©è¡å€ä¸Šé‹ä½œï¼Œæˆ–æ²’æœ‰æ§åˆ¶"
+"çµ‚ç«¯ã€‚"
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
-msgstr "whiptail ©Î¹ï¸Üµøµ¡¨S¦³¦w¸Ë, ©Ò¥H¹ï¸Ü§Î¦¡ªº¤¶­±±N¤£¯à¨Ï¥Î."
+msgstr "æ²’æœ‰å®‰è£ä»»ä½•å°è©±å½¢å¼çš„ç¨‹å¼ï¼Œæ‰€ä»¥å°è©±å½¢å¼çš„ä»‹é¢å°‡ä¸èƒ½ä½¿ç”¨ã€‚"
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "¹ï¸Ü¤¶­±­n¨Dµe­±¥²¶·¬° 13 ¦æ°ª¤Î 31 ¦r¤¸»Õ«×."
+msgstr "å°è©±ä»‹é¢è¦æ±‚ç•«é¢å¿…é ˆç‚º 13 è¡Œé«˜åŠ 31 å­—å…ƒé–£åº¦ã€‚"
 
 #: ../Debconf/FrontEnd/Dialog.pm:282
 msgid "Debian Configuration"
-msgstr "Debian ³]©w"
+msgstr "Debian è¨­å®š"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "³o­Ó¤¶­±»İ¨D¥i±±¨îªºtty."
+msgstr "é€™å€‹ä»‹é¢éœ€è¦å¯æ§åˆ¶çš„ ttyã€‚"
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU »P Emacs ¥~´ßºş¨R¤£­İ®e"
+msgstr "Term::ReadLine::GNU èˆ‡ Emacs shell ç·©è¡å€ä¸ç›¸å®¹"
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "è¿”å›å‰ç«¯ä»‹é¢ï¼š%s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "å•Ÿå§‹å‰ç«¯ä»‹é¢å¤±æ•—ï¼š%s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "ä¸èƒ½é–‹å•Ÿå‰ç«¯ä»‹é¢ï¼š%s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "è¨­å®šæª”ä¸­æ²’æœ‰æŒ‡å®šè¨­å®šè³‡æ–™åº«"
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "è¨­å®šæª”ä¸­æ²’æœ‰æŒ‡å®šæ¨£æ¿è³‡æ–™åº«"
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "è¨­å®šæª”ä¸­çš„ Sigils å’Œ Smileys é¸é …å·²ä¸å†ä½¿ç”¨ã€‚è«‹ç§»é™¤å®ƒå€‘ã€‚"
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "åœ¨è¨­å®šç”± %2$s ç¬¬ %1$s éƒ¨ä»½æ‰€å®šç¾©çš„è³‡æ–™åº«æ™‚å‡ºéŒ¯ã€‚"
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "å¿½ç•¥ç„¡æ•ˆçš„å„ªå…ˆé †åº \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "æœ‰æ•ˆçš„é †åºç‚ºï¼š%s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "è­¦å‘Šï¼šè³‡æ–™åº«å¯èƒ½å·²å—æå£ã€‚å°‡æœƒè³è©¦ä¿®å¾©éºå¤±çš„é …ç›® %sã€‚"
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"%2$s ä¸­çš„ç¬¬ %1$s æ¨£æ¿æœ‰ä¸€å€‹é‡è¤‡å€å¡Š \"%3$s\"ï¼Œå…¶ä¸­æ–°å€¼ç‚º \"%4$s\"ã€‚é€ æˆå•é¡Œçš„"
+"åŸå› å¯èƒ½æ˜¯å…©å€‹æ¨£æ¿æ²’æœ‰æ­£ç¢ºçš„ç”¨æ›è¡Œå­—å…ƒåˆ†é–‹ã€‚\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "%3$s ä¸­ç¬¬ %2$s éƒ¨ä»½æœ‰æœªçŸ¥çš„æ¨£æ¿å€å¡Š \"%1$s\"\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "%3$s ä¸­ç¬¬ %2$s éƒ¨ä»½ \"%1$s\" é™„è¿‘çš„æ¨£æ¿è§£æå‡ºéŒ¯\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "æ¨£æ¿ #%s åœ¨ %s æ²’æœ‰åŒ…å« 'Template:' å­—å¥\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "æ±‚åŠ©(_H)"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "æ±‚åŠ©"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
-msgstr "Àx¦s³Æ§Ñ"
+msgstr "å„²å­˜(éƒµå¯„)å‚™å¿˜"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf ¨Ã¨S¦³³]©wÅã¥Ü³o­Ó³Æ§Ñ, ©Ò¥Hª½±µ¶l±Hµ¹±z."
+msgstr "Debconf ä¸¦æ²’æœ‰è¨­å®šé¡¯ç¤ºé€™å€‹å‚™å¿˜ï¼Œæ‰€ä»¥ç›´æ¥éƒµå¯„çµ¦æ‚¨ã€‚"
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr ""
+msgstr "è¨Šæ¯"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
-msgstr "³o­Ó³Æ§Ñ¤w¸g¶l±H¤F."
+msgstr "é€™å€‹å‚™å¿˜å·²ç¶“éƒµå¯„äº†ã€‚"
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
-msgstr ""
+msgstr "éŒ¯èª¤"
 
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
-msgstr "¤£¯àÀx¦s³Æ§Ñ."
+msgstr "ä¸èƒ½å„²å­˜å‚™å¿˜ã€‚"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
-msgstr "¿ï¾Ü"
+msgstr "é¸æ“‡"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(¿é¤J¹s©Î¦h­Ó¶µ¥Ø¥H³r¸¹¤Î¤@­ÓªÅ®æ (', ')¥H¤À®æ.)"
+msgstr "(è¼¸å…¥é›¶æˆ–å¤šå€‹é …ç›®ï¼Œä»¥é€—è™ŸåŠä¸€å€‹ç©ºæ ¼ (', ')åˆ†æ ¼ã€‚)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
 #: ../Debconf/Element/Editor/Boolean.pm:59
 #: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
-msgstr "¬O"
+msgstr "æ˜¯"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:39
 #: ../Debconf/Element/Editor/Boolean.pm:62
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
-msgstr "§_"
+msgstr "å¦"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf ¨Ã¨S¦³³]©wÅã¥Ü³o­Ó³Æ§Ñ, ©Ò¥Hª½±µ¶l±Hµ¹±z."
+msgstr "Debconf ä¸¦æ²’æœ‰è¨­å®šé¡¯ç¤ºé€™å€‹å‚™å¿˜ï¼Œæ‰€ä»¥ç›´æ¥éƒµå¯„çµ¦æ‚¨ã€‚"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -157,15 +242,15 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Note.pm:87
 #, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, °õ¦æ¦b %s"
+msgstr "Debconfï¼ŒåŸ·è¡Œåœ¨ %s"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "¥H¤W³£¨S¦³"
+msgstr "ä»¥ä¸Šéƒ½æ²’æœ‰"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "¦b±z·Q¿ï¾Üªº¶µ¥Ø¤¤¿é¤J, ¥HªÅ®æ¤À¶}."
+msgstr "è¼¸å…¥æ‚¨æƒ³é¸æ“‡çš„é …ç›®ï¼Œä»¥ç©ºæ ¼åˆ†é–‹ã€‚"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
@@ -173,194 +258,110 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"¿é¤J­È, \"%s\" ¨S¦³¦b C ¿ï¾Ü¤¤§ä¨ì ! ³o¬O¥Ã¤£·|µo¥Íªº.¥i¯à¼ËªO¨ü¨ì¤£¥¿½Tªº¥»"
-"¦a¤Æ."
-
-#: ../Debconf/Element/Gnome.pm:183
-#, fuzzy
-msgid "_Help"
-msgstr "¨D§U"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "¨D§U"
-
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "ªğ¦^«eºİ¤¶­±: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "±Ò©l«eºİ¤¶­±¥¢±Ñ: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "¤£¯à¶}±Ò«eºİ¤¶­±: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "³]©wÀÉ¤¤¨S¦³«ü©wªº³]©w¸ê®Æ®w"
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "³]©wÀÉ¤¤¨S¦³«ü©w¼ËªO¸ê®Æ®w"
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-
-#: ../Debconf/Config.pm:148
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr ""
-
-#: ../Debconf/Config.pm:278
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr ""
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr "Äµ§i: ¸ê®Æ®w¥i¯à¤w¨ü·lÃa. ±N·|½à¸Õ­×´_¨S¦³ªº¶µ¥Ø %s."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"¼ËªO #%s ¦b %s ¤¤¦³­«ÂĞ¤è®æ \"%s\" ¤Î·s¸ê®Æ \"%s\". ¥i¯à¬O¨â­Ó¼ËªO¨S¦³¥H«Üªø"
-"ªº·s¦æ¤À®æ.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "¦b %s ³¡¥÷ªº¼ËªO¸ÑÅª¿ù»~, ¬OÁ`¼Æªº #%s ¤§ %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "¦b %s ³¡¥÷ªº¼ËªO¸ÑÅª¿ù»~, ¬OÁ`¼Æªº $%s ¤§ %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "¼ËªO #%s ¦b %s ¨S¦³¥]§t 'Template:' ¦r¥y\n"
+"è¼¸å…¥å€¼ï¼Œ\"%s\" æ²’æœ‰åœ¨ C é¸æ“‡ä¸­æ‰¾åˆ°ï¼é€™æ˜¯æ°¸ä¸æœƒç™¼ç”Ÿçš„ã€‚å¯èƒ½æ¨£æ¿å—åˆ°ä¸æ­£ç¢ºçš„æœ¬"
+"åœ°åŒ–."
 
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "¤£¯à¸ü¤J Debconf::Element::%s, ¥¢±Ñ­ì¦]: %s"
+msgstr "ä¸èƒ½è¼‰å…¥ Debconf::Element::%sï¼Œå¤±æ•—åŸå› ï¼š%s"
 
 #: ../Debconf/FrontEnd.pm:203
 #, c-format
 msgid "Configuring %s"
-msgstr "¥¿³]©w %s"
+msgstr "æ­£åœ¨è¨­å®š %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "­«·s¶}°Ê¼Ğ·Ç¿é¤J¥¢±Ñ: %s"
+msgstr "é‡æ–°é–‹å‹•æ¨™æº–è¼¸å…¥å¤±æ•—ï¼š%s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr "¦b¹w¦Û³]©w®É»İ­n«ü©w deb ÀÉ"
+msgstr "å¿…é ˆæŒ‡å®šè¦é å…ˆè¨­å®šçš„ deb æª”"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "¦]¬° apt-utils ¨Ã¥¼¦w¸Ë, ³]©w¥]¥ó±N³Q©µ¿ğ"
+msgstr "å› ç‚º apt-utils ä¸¦æœªå®‰è£ï¼Œè¨­å®šå¥—ä»¶å°‡è¢«å»¶å¾Œ"
 
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates å¤±æ•—ï¼š%s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "æ­£åœ¨é å…ˆè¨­å®šå¥—ä»¶ ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
-msgstr "¼ËªO¸ÑÅª¿ù»~: %s"
+msgstr "æ¨£æ¿è§£è®€éŒ¯èª¤ï¼š%s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: ¤£¯à§ïÅÜÅv­­: %s"
+msgstr "debconf: ä¸èƒ½æ”¹è®Šæ¬Šé™ï¼š%s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "¹w³]©w %s ¥¢±Ñ, ¤¤¤îª¬ºA %s"
+msgstr "é å…ˆè¨­å®š %s å¤±æ•—ï¼Œä¸­æ­¢ç‹€æ…‹ %s"
 
 #: ../dpkg-reconfigure:104
 #, c-format
 msgid "%s must be run as root"
-msgstr "%s ¬O»İ­n¥Ñ root ªº°õ¦æ"
+msgstr "%s éœ€è¦ç”± root åŸ·è¡Œ"
 
 #: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
-msgstr "½Ğ«ü©w­n¦A³]©wªº¥]¥ó"
+msgstr "è«‹æŒ‡å®šè¦å†è¨­å®šçš„åŒ…ä»¶"
 
 #: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
-msgstr "%s ¨Ã¥¼¦w¸Ë"
+msgstr "%s ä¸¦æœªå®‰è£"
 
 #: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s ¥¼¦w¸Ë§¹¦¨"
+msgstr "%s å·²æå£æˆ–æœªå®‰è£å®Œæˆ"
 
 #: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr "¤£¯àÅª¨úª¬ºAÀÉ®×: %s"
+msgstr "ä¸èƒ½è®€å–ç‹€æ…‹æª”æ¡ˆï¼š%s"
 
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr "¨S¦³ %s"
+msgstr "æ²’æœ‰ %s"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr "¨S¦³ %s; ±ó¥Î %s"
+msgstr "æ²’æœ‰ %sï¼›æ£„ç”¨ %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s ¬O¤£¥¿½Tªº, ¦ì¸m¦b %s: %s"
+msgstr "%s æ˜¯ä¸æ­£ç¢ºçš„ï¼Œä½ç½®åœ¨ %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s ¬O¤£¥¿½Tªº, ¦ì¸m¦b %s: %s; ©ñ±ó¤¤"
+msgstr "%s æ˜¯ä¸æ­£ç¢ºçš„ï¼Œä½ç½®åœ¨ %s: %s; æ”¾æ£„å®ƒ"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr "%s ¤w¸g¹L®É"
+msgstr "%s å·²ç¶“éæœŸ"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s ¤w¸g¹L®É; ±ó¥Î¾ã­Ó¼ËªO"
+msgstr "%s å·²ç¶“éæœŸï¼›æ£„ç”¨æ•´å€‹æ¨£æ¿"
 
 #, fuzzy
 #~ msgid "preconfiguring %s (%s)"
-#~ msgstr "¥¿³]©w %s"
+#~ msgstr "æ­£è¨­å®š %s"
