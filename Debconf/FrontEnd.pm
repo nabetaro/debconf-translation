@@ -85,6 +85,8 @@ off those debug messages.
 
 =cut
 
+my %nouse;
+
 sub makeelement {
 	my $this=shift;
 	my $question=shift;
@@ -101,13 +103,23 @@ sub makeelement {
 		($frontend_type)=$this=~m/Debconf::FrontEnd::(.*)/;
 	}
 	my $type=$frontend_type.'::'.ucfirst($question->type);
+	$type=~s/::$//; # in case the question has no type..
 
-	my $element=eval qq{
-		use Debconf::Element::$type;
-		Debconf::Element::$type->new(
-			question => \$question,
-		);
-	};
+	# See if we need to load up the object class.. The eval
+	# inside here is leak-prone if run multiple times on a
+	# given type, so make sure to only ever do it once per type.
+	if (! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
+		return if $nouse{$type};
+		eval qq{use Debconf::Element::$type};
+		if ($@ || ! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
+			warn sprintf(gettext("Unable to load Debconf::Element::%s. Failed because: %s"), $type, $@) if ! $nodebug;
+			$nouse{$type}=1;
+			return;
+		}
+	}
+	
+	my $element="Debconf::Element::$type"->new(question => $question);
+
 	warn sprintf(gettext("Unable to make element of type %s. Failed because: %s"), $type, $@)
 		if $@ && ! $nodebug;
 	return if ! ref $element;

@@ -130,7 +130,6 @@ sub addquestion {
 	my $owner=shift;
 
 	my $question=$questions{$name} || Debconf::Question->new;
-
 	$question->name($name);
 	$question->template($templates{$template});
 	$question->addowner($owner);

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2001-01-29 13:36-0800\n"
+"POT-Creation-Date: 2001-01-31 14:51-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -32,12 +32,17 @@ msgstr ""
 "favor, envíe un informe de error, e incluya la traza de pila que se muestra "
 "a continuación"
 
-#: ../Debconf/FrontEnd.pm:111
+#: ../Debconf/FrontEnd.pm:115
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
+
+#: ../Debconf/FrontEnd.pm:123
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "No pude hacer elemento de tipo %s. Fallé por: %s"
 
-#: ../Debconf/FrontEnd.pm:178
+#: ../Debconf/FrontEnd.pm:190
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"

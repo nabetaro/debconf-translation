@@ -7,6 +7,7 @@ Debconf::Base - Debconf base class
 =cut
 
 package Debconf::Base;
+use Debconf::Log ':all';
 use strict;
 
 =head1 DESCRIPTION
@@ -34,6 +35,7 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $this=bless ({@_}, $class);
 	$this->init;
+	debug debug => "new $this";
 	return $this;
 }
 
@@ -66,6 +68,11 @@ sub AUTOLOAD : lvalue {
 		$this->{$field};
 	};
 	goto &$AUTOLOAD;
+}
+
+sub DESTROY {
+	my $this=shift;
+	debug debug => "DESTROY $this";
 }
 
 =back

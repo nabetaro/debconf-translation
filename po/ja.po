@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-01-29 13:36-0800\n"
+"POT-Creation-Date: 2001-01-31 14:51-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -32,12 +32,17 @@ msgstr ""
 "debconf: confmodule の起動時に未定義値が見つかりました!\n"
 "以下のスタックトレースとともにバグレポートを出してください"
 
-#: ../Debconf/FrontEnd.pm:111
+#: ../Debconf/FrontEnd.pm:115
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
+
+#: ../Debconf/FrontEnd.pm:123
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../Debconf/FrontEnd.pm:178
+#: ../Debconf/FrontEnd.pm:190
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"

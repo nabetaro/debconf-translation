@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-01-30 13:46-0800\n"
+"POT-Creation-Date: 2001-01-31 15:15-0800\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -31,12 +31,17 @@ msgstr ""
 "debconf: confmodule를 시작할 때 정의되지 않은 값이 발견되었습니다! 버그 "
 "보고를 하고 stack trace를 아래에 포함시켜주세요"
 
-#: ../Debconf/FrontEnd.pm:111
+#: ../Debconf/FrontEnd.pm:115
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
+
+#: ../Debconf/FrontEnd.pm:123
 #, c-format
 msgid "Unable to make element of type %s. Failed because: %s"
 msgstr "%s 유형의 성분를 만들 수 없습니다. 실패 이유: %s"
 
-#: ../Debconf/FrontEnd.pm:178
+#: ../Debconf/FrontEnd.pm:190
 #, c-format
 msgid "Configuring %s"
 msgstr "%s를 설정중"

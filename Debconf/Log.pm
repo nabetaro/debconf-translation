@@ -31,6 +31,8 @@ environment to something that matches the parameter, the message is output.
 
 Note that DEBCONF_DEBUG can be set to a regular expression, like '.*'.
 
+Currently used types of information: user, developer, debug
+
 =cut
 
 sub debug {
