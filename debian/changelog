@@ -13,6 +13,10 @@ Before release, I must:
 * implement locking in the Text driver
 * implement transition code for new db
 * use /etc/apt/apt.conf.d/ directory in new apt
+* I think that when REGISTER is called, I need to make the template get
+  owned by the question, inverse for unregister. -- implemented, needs a
+  lot of testing.
+* When I run the transition script, the db is started up 3 or 4 times?!
 
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
 
