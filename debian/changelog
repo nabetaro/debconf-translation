@@ -1,6 +1,5 @@
 debconf (1.0.26) unstable; urgency=low
 
-UNRE
   * Removed uninitialized value warning in Teletype frontend.
     Actually, this was a bug that did not let it display only one column on
     choices when necessary; triggered by quake2-data.
@@ -20,6 +19,7 @@ UNRE
     zh_CN, zh_TW, nl, ja, it.
   * fi and gl have one fuzzy translation each, and all the rest are fine.
   * Corrected incorrect indents in a number of translated templates, sigh.
+  * debconf(8) tweak, Closes: #130348
 
  -- Joey Hess <joeyh@debian.org>  Fri, 11 Jan 2002 23:30:25 -0500
 
