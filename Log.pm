@@ -37,7 +37,7 @@ to a value >= the first parameter.
 
 sub debug {
 	my $priority=shift;
-	if (exists $ENV{DEBCONF_DEBUG} && $priority <= $ENV{DEBCONF_DEBUG}) {
+	if (exists $ENV{DEBCONF_DEBUG} && $priority <= int($ENV{DEBCONF_DEBUG})) {
 		print STDERR "debconf: ".join(" ", @_)."\n";
 	}
 }

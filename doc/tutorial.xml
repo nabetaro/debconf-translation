@@ -239,6 +239,25 @@ Template: ....
 <![RCDATA[&tutorial_templates;]]>
       </programlisting>
     </para>
+    <sect2>
+      <title>Localizing the templates file</title>
+      <para>
+        Later, you might want to add translations to your templates file.
+	This is accomplished by adding more fields, with translated text in
+	them. Any of the fields can be translated. For example, you might
+	want to translate the description into spanish. Just make a field
+	named <literal>Description-es</literal> that holds the translation.
+	Debconf will display that field to users who have set
+	<literal>LANG=es</literal>. Of course, if a translated field is not
+	available, it falls back to the English fields.
+      </para>
+      <para>
+        Note that you can (and should) even translate the
+	<literal>Choices</literal> field of a select or multiselect question.
+	If you do, you should list the same choices, in the same order as
+	they appear in the main <literal>Choices</literal> field.
+      </para>
+    </sect2>
   </sect1>
 
   <sect1>

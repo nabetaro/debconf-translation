@@ -1,3 +1,14 @@
+debconf (0.2.69) unstable; urgency=low
+
+  * Debconf is not yet internationalized itself, but the data it reads in
+    from templates now may be.
+  * Documented what else I need to do toward i18n in the TODO.
+  * Client::ConfModule detects newline in text it is going to send out,
+    and warns about them. This after the pain of debugging what a spare \n
+    can do to the protocol..
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  8 Jan 2000 17:41:11 -0800
+
 debconf (0.2.68) unstable; urgency=low
 
   * Documented DEBCONF_DEBUG, Closes: #54434

@@ -16,6 +16,10 @@ their names. All Templates should have a "template" field that is their name.
 Most have "default", "type", and "description" fields as well. The field
 named "extended_description" holds the extended description, if any.
 
+Templates support internationalization. If LANG or a related environment
+variable is set, and you request a field from a template, it will see if
+"$ENV{LANG}-field" exists, and if so return that instead.
+
 =cut
 
 =head1 METHODS
@@ -25,7 +29,7 @@ named "extended_description" holds the extended description, if any.
 package Debian::DebConf::Template;
 use strict;
 use Debian::DebConf::Base;
-use vars qw(@ISA);
+use vars qw(@ISA $AUTOLOAD);
 @ISA=qw{Debian::DebConf::Base};
 
 # Helper for parse, sets a field to a value.
@@ -35,13 +39,10 @@ sub _savefield {
 	my $value=shift;
 	my $extended=shift;
 
-	if ($field eq 'description') {
-		# Save short and long descs separatly.
-		$this->description($value);
-		$this->extended_description($extended);
-	}
-	elsif ($field ne '') {
+	if ($field ne '') {
 		$this->$field($value);
+		my $e="extended_$field";
+		$this->$e($extended);
 	}
 }
 
@@ -106,6 +107,28 @@ sub parse {
 	# Sanity checks.
 	die "Template does not contain a Template: line"
 		unless $this->{template};
+}
+
+=head2 any_other_method
+
+Set/get a property. This supports internationalization.
+
+=cut
+
+sub AUTOLOAD {
+	my $this=shift;
+	my $property = $AUTOLOAD;
+	$property =~ s|.*:||; # strip fully-qualified portion
+			
+	$this->{$property}=shift if @_;
+
+	# Check to see if i18n should be used.
+	if ($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG} && 
+	    exists $this->{$property.'-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG})}) {
+		$property.='-'.($ENV{LANGUAGE} || $ENV{LC_ALL} || $ENV{LANG});
+	}
+
+	return $this->{$property};
 }
 
 =head1 AUTHOR

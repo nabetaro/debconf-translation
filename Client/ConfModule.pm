@@ -93,7 +93,16 @@ sub AUTOLOAD {
 
 	die "Unsupported command \"$command\"." unless $commands{$command};
 	
-	print join (' ', $command, @_)."\n";
+	my $c=join (' ', $command, @_);
+	
+	# Newlines in input can really badly confuse the protocol, so detect
+	# and warn.
+	if ($c=~m/\n/) {
+		warn "Warning: Newline present in parameters passwd to debconf.\n";
+		warn "         This will probably cause strange things to happen!\n";
+	}
+
+	print "$c\n";
 	my $ret=<STDIN>;
 	chomp $ret;
 	my @ret=split(/ /, $ret, 2);
