@@ -8,6 +8,7 @@ Debconf::DbDriver::Cache - caching database driver
 
 package Debconf::DbDriver::Cache;
 use strict;
+use Debconf::Log qw{:all};
 use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
@@ -120,9 +121,9 @@ sub cached {
 	my $this=shift;
 	my $item=shift;
 
-	return unless $this->accept($item);
-
 	unless (exists $this->{cache}->{$item}) {
+		return unless $this->accept($item);
+		debug "db driver $this->{name}" => "cache miss on $item";
 		$this->{cache}->{$item}=$this->load($item);
 	}
 	return $this->{cache}->{$item};
@@ -170,6 +171,8 @@ sub addowner {
 	$this->cached($item);
 
 	if (! defined $this->{cache}->{$item}) {
+		return if ! $this->accept($item);
+		debug "db driver $this->{name}" => "creating in-cache $item";
 		# The item springs into existance.
 		$this->{cache}->{$item}={
 			owners => {},
@@ -215,7 +218,7 @@ sub getfield {
 	my $this=shift;
 	my $item=shift;
 	my $field=shift;
-
+	
 	return unless $this->cached($item);
 	return $this->{cache}->{$item}->{fields}->{$field};
 }

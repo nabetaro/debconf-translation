@@ -7,6 +7,7 @@ Debconf::DbDriver - base class for debconf db drivers
 =cut
 
 package Debconf::DbDriver;
+use Debconf::Log qw{:all};
 use strict;
 
 =head1 DESCRIPTION
@@ -44,7 +45,7 @@ Internally it uses 1 and 0 and.
 
 =item accept_type
 
-A regular expression indicating types of items that may be added to this
+A regular expression indicating types of items that may be queried in this
 driver. Defaults to accepting all types of items.
 
 =item reject_type
@@ -55,8 +56,7 @@ driver.
 =item accept_name
 
 A regular expression that is matched against item names to see if they are
-accepted by this driver and may be added to it. Defaults to accepting all
-item names.
+accepted by this driver. Defaults to accepting all item names.
 
 =item accept_name
 
@@ -179,16 +179,14 @@ various accept_* and reject_* fields to determine this.
 sub accept {
 	my $this=shift;
 	my $name=shift;
-
-	return 1 unless (exists $this->{accept_type} or
-			 exists $this->{accept_name} or
-			 exists $this->{reject_type} or
-			 exists $this->{reject_name});
+	
+	debug "db driver $this->{name}" => "checking $name";
 	
 #	return if exists $this->{accept_type} && $type!~/$this->{accept_type}/;
 #       return if exists $this->{reject_type} && $type=~/$this->{reject_type}/;
 	return if exists $this->{accept_name} && $name!~/$this->{accept_name}/;
 	return if exists $this->{reject_name} && $name=~/$this->{reject_name}/;
+	debug "db driver $this->{name}" => "accepting $name";
 	return 1;
 }
 

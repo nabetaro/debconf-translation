@@ -8,6 +8,7 @@ Debconf::Db::Text - plain text debconf db driver
 
 package Debconf::DbDriver::Text;
 use strict;
+use Debconf::Log qw{:all};
 use base qw(Debconf::DbDriver::FlatDir);
 
 =head1 DESCRIPTION
@@ -39,7 +40,9 @@ Debconf::DbDriver::Cached.
 sub load {
 	my $this=shift;
 	my $item=shift;
+	
 	return unless $this->accept($item);
+	debug "db driver $this->{name}" => "loading $item";
 	my $file=$this->filename($item);
 	return unless -e $file;
 	
@@ -104,6 +107,7 @@ sub save {
 	my $this=shift;
 	my $item=shift;
 	return unless $this->accept($item);
+	debug "db driver $this->{name}" => "saving $item";
 	return if $this->{readonly};
 	my %data=%{shift()};
 	my $file=$this->filename($item);

@@ -8,6 +8,7 @@ Debconf::DbDriver::Stack - stack of drivers
 
 package Debconf::DbDriver::Stack;
 use strict;
+use Debconf::Log qw{:all};
 use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
@@ -139,8 +140,10 @@ sub _query {
 	my $command=shift;
 	shift; # this again
 	
+	debug "db driver $this->{name}" => "trying to $command ..";
 	foreach my $driver (@{$this->{stack}}) {
 		my $ret=$driver->$command(@_);
+		debug "db driver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
 		return $ret if defined $ret;
 	}
 	return undef; # all failed
@@ -152,10 +155,13 @@ sub _change {
 	shift; # this again
 	my $item=shift;
 
+	debug "db driver $this->{name}" => "trying to $command ..";
+
 	# Check to see if we can just write to some driver in the stack.
 	foreach my $driver (@{$this->{stack}}) {
 		last if $driver->{readonly};
 		if ($driver->exists($item)) {
+			debug "db driver $this->{name}" => "passing to $driver->{name} ..";
 			return $driver->$command($item, @_);
 		}
 	}
@@ -169,6 +175,11 @@ sub _change {
 		}
 	}
 
+	unless ($writer) {
+		debug "db driver $this->{name}" => "FAILED $command";
+		return;
+	}
+
 	# Find out what (readonly) driver on the stack first
 	# contains the item, and do the copy to the top of the stack.
 	foreach my $driver (@{$this->{stack}}) {
@@ -176,24 +187,31 @@ sub _change {
 			# Check if this modification would really have any
 			# effect.
 			my $ret=$this->_nochange($driver, $command, $item, @_);
-			return $ret if defined $ret;
+			if (defined $ret) {
+				debug "db driver $this->{name}" => "skipped $command as it would have no effect";
+				return $ret;
+			}
 			
 			# Nope, we have to copy after all.
-			_copy($item, $driver, $writer);
+			$this->_copy($item, $driver, $writer);
 			last;
 		}
 	}
 
 	# Finally, do the write.
+	debug "db driver $this->{name}" => "passing to $writer->{name} ..";
 	return $writer->$command($item, @_);
 }
 
 # This handles copying an item. The destination is assumed not to
 # have the item yet.
 sub _copy {
+	my $this=shift;
 	my $item=shift;
 	my $src=shift;
 	my $dest=shift;
+	
+	debug "db driver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
 	
 	# First copy the owners, which makes sure $dest has the item.
 	foreach my $owner ($src->owners($item)) {

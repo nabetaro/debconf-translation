@@ -9,9 +9,10 @@ Debconf::Db - debconf database setup
 package Debconf::Db;
 use strict;
 use fields qw{root};
+use Debconf::Log qw{:all};
 use Debconf::DbDriver;
 our Debconf::Db $config=fields::new('Debconf::Db');
-our $rootdriver;
+our $driver;
 
 =head1 DESCRIPTION
 
@@ -126,6 +127,8 @@ sub readconfig {
 	}
 	die "No config file found" unless $cf;
 
+	debug db => "loading config file $cf";
+
 	open (DEBCONF_CONFIG, $cf) or die "$cf: $!\n";
 	local $/="\n\n"; # read a stanza at a time
 
@@ -147,13 +150,14 @@ sub readconfig {
 		}
 		delete $driver{driver}; # not a field for the object
 		# Make object, and pass in the fields, and we're done with it.
+		debug db => "making DbDriver of type $type";
 		"Debconf::DbDriver::$type"->new(%driver);
 	}
 	close DEBCONF_CONFIG;
 
 	# Look up the root driver.
-	$rootdriver=Debconf::DbDriver->driver($config->{root});
-	if (not ref $rootdriver) {
+	$driver=Debconf::DbDriver->driver($config->{root});
+	if (not ref $driver) {
 		die "Root database driver \"".$config->{root}."\" was not initialized.\n";
 	}
 }
