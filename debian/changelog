@@ -1,6 +1,18 @@
 debconf (0.1.6) unstable; urgency=low
 
-  * 
+  * Patch from AJ that:
+    - makes Questions inherit properties direct from their associated
+      Templates. This simplifies a lot of code which no longer needs to
+      use $question->template->foo.
+    - implements STOP command in protocol.
+    - dies on unknown questions instead of failing obscurely later.
+    - removes bashism
+    - misc fixes and updates to cvs.config.
+    - adds template substitution support and the SUBST command.
+    - makes template parsing work better WRT the extended description and
+      actually look for dots on thier own lines, not lines starting with dot.
+  * Minor mods to above patch.
+  * Documented template substitutions in the draft spec.
 
  -- Joey Hess <joeyh@master.debian.org>  Sat, 31 Jul 1999 00:57:58 -0700
 

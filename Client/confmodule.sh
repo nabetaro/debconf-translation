@@ -66,7 +66,7 @@ _command () {
 old_opts="$@"
 for i in "capb CAPB" "stop STOP" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
-	 "get GET" "register REGISTER" "unregister UNREGISTER" \
+	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET"; do
 	# Break string up into words.
 	set -- $i

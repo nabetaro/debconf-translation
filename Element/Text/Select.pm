@@ -15,13 +15,13 @@ sub show {
 	my %selectindfromlet = ();
 
 	# Display the question's long desc first.
-	$this->frontend->display($this->question->template->extended_description."\n");
+	$this->frontend->display($this->question->extended_description."\n");
 	
 	my $prompt;
 	my $type=$this->question->template->type;
-	my $default=$this->question->value || $this->question->template->default;
+	my $default=$this->question->value || $this->question->default;
 	my $pdefault='';
-	my @choices=@{$this->question->template->choices};
+	my @choices=@{$this->question->choices};
 
 	# Output the list of choices, at the same time, generate
 	# a prompt with the full list in it.
@@ -55,7 +55,7 @@ sub show {
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->template->description.
+		$_=$this->frontend->prompt($this->question->description.
 			" [$prompt] ", $pdefault);
 		
 		# Handle defaults.
@@ -64,7 +64,7 @@ sub show {
 			last;
 		}
 
-		my @choices=@{$this->question->template->choices};
+		my @choices=@{$this->question->choices};
 		if (defined $selectindfromlet{$_}) {
 			$value=$choices[$selectindfromlet{$_}]; 
 			last;

@@ -63,10 +63,10 @@ sub makequestions {
 		my $template=$templates{$mapping->template};
 		
 		# Is this question already instantiated?
-		next if exists $questions{$template->template};
+		next if exists $questions{$mapping->question};
 
 		my $question=Debian::DebConf::Question->new;
-		$question->name($template->template);
+		$question->name($mapping->question);
 		$question->template($template);
 		$question->value($template->default);
 		$questions{$question->name}=$question;
@@ -102,7 +102,7 @@ sub addmapping {
 	else {
 		$question=Debian::DebConf::Question->new;
 	}
-	$question->name($template->template);
+	$question->name($location);
 	$question->template($template);
 	$question->value($template->default);
 	$questions{$question->name}=$question;

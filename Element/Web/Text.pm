@@ -11,11 +11,11 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$_=$this->question->template->extended_description;
+	$_=$this->question->extended_description;
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	return "<b>".$this->question->template->description."</b>$_<p>";
+	return "<b>".$this->question->description."</b>$_<p>";
 }
 
 # The user has now see this text.

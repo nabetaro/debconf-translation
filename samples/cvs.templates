@@ -12,7 +12,7 @@ Template: cvs/badrepositories
 Type: text
 Description: Some of the repositiories are invalid.
  The following items you entered are not directories or do not contain a
- CVSROOT subdirectory: hmm
+ CVSROOT subdirectory: ${badreps}
 
 Template: cvs/rotatehistory
 Type: select
@@ -26,7 +26,9 @@ Description: Do you want the history files in your repositories rotated weekly?
 Template: cvs/rotateindividual
 Type: boolean
 Default: true
-Description: Rotate this repository's history files?
+Description: Rotate the history files of the repository in ${repository}?
+ Should the history files of the repository in ${repository} be rotated each
+ week?
 
 Template: cvs/pserver
 Type: boolean

@@ -15,9 +15,9 @@ sub show {
 
 	# Display the question's long desc first.
 	$this->frontend->display(
-		$this->question->template->extended_description."\n");
+		$this->question->extended_description."\n");
 
-	my $default=$this->question->value || $this->question->template->default;
+	my $default=$this->question->value || $this->question->default;
 	my $prompt;
 	if ($default eq 'true') {
 		$prompt="Yn";
@@ -33,7 +33,7 @@ sub show {
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->template->description.
+		$_=$this->frontend->prompt($this->question->description.
 			" [$prompt] ", $default);
 		
 		# Handle defaults.

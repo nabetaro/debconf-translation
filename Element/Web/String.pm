@@ -13,13 +13,13 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$_=$this->question->template->extended_description;
+	$_=$this->question->extended_description;
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	my $default=$this->question->value || $this->question->template->default;
+	my $default=$this->question->value || $this->question->default;
 	my $id=$this->id;
-	$_.="<b>".$this->question->template->description."</b><input name=\"$id\" value=\"$default\">\n";
+	$_.="<b>".$this->question->description."</b><input name=\"$id\" value=\"$default\">\n";
 
 	return $_;
 }

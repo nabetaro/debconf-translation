@@ -13,8 +13,8 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$this->frontend->display($this->question->template->description."\n".
-		$this->question->template->extended_description."\n");
+	$this->frontend->display($this->question->description."\n".
+		$this->question->extended_description."\n");
 
 	$this->question->flag_isdefault('false');
 }

@@ -13,15 +13,15 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	$_=$this->question->template->extended_description;
+	$_=$this->question->extended_description;
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	my $type=$this->question->template->type;
-	my $default=$this->question->value || $this->question->template->default;
+	my $type=$this->question->type;
+	my $default=$this->question->value || $this->question->default;
 	my $id=$this->id;
 	$_.="<input type=checkbox name=\"$id\"". ($default eq 'true' ? ' checked' : ''). ">\n<b>".
-		$this->question->template->description."</b>";
+		$this->question->description."</b>";
 
 	return $_;
 }

@@ -55,6 +55,7 @@ sub communicate {
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
+	return if (lc($command) eq "stop");
 	$command="command_".lc($command);
 	my $w=$this->{write_handle};
 	print $w join(' ', $this->$command(@params))."\n";
@@ -69,11 +70,13 @@ sub communicate {
 sub command_input {
 	my $this=shift;
 	my $priority=shift;
-	my $question=shift;
+	my $question_name=shift;
+
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
 
 	# TODO: detect bad question names, return error.
-	$this->frontend->add(Debian::DebConf::ConfigDb::getquestion($question),
-		$priority);
+	$this->frontend->add($question, $priority);
 	return;
 }
 
@@ -114,8 +117,9 @@ sub command_go {
 # Pull a value out of a question.
 sub command_get {
 	my $this=shift;
-	my $question=shift;
-	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	my $question_name=shift;
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
 	return $question->value if defined $question->value;
 	return $question->template->default || '';
 }
@@ -123,11 +127,24 @@ sub command_get {
 # Set a value.
 sub command_set {
 	my $this=shift;
-	my $question=shift;
+	my $question_name=shift;
 	my $value=shift;
 
-	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
 	$question->value($value);
+}
+
+# Set a variable
+sub command_subst {
+	my $this = shift;
+	my $question_name = shift;
+	my $variable = shift;
+	my $value = join ' ', @_;
+	
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
+	$question->variables($variable,$value);
 }
 
 # Add a mapping.
@@ -150,21 +167,23 @@ sub command_unregister {
 # Get a flag.
 sub command_fget {
 	my $this=shift;
-	my $question=shift;
+	my $question_name=shift;
 	my $flag="flag_".shift;
 	
-	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
 	return $question->$flag();
 }
 
 # Set a flag.
 sub command_fset {
 	my $this=shift;
-	my $question=shift;
+	my $question_name=shift;
 	my $flag="flag_".shift;
 	my $value=shift;
 	
-	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
+		die "$question_name doesn't exist";
 	return $question->$flag($value);
 }
 

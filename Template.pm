@@ -64,11 +64,12 @@ sub parse {
 		chomp;
 		if (/^([-A-Za-z0-9]*): (.*)/) {
 			# Beginning of new item.
-			$this->_savefield($field, $value);
+			$this->_savefield($field, $value, $extended);
 			$field=lc $1;
 			$value=$2;
+			$extended='';
 		}
-		elsif (/^\s+\./) {
+		elsif (/^\s+\.$/) {
 			# Continuation of item that contains only a blank line.
 			$extended.="\n\n";
 		}

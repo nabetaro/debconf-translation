@@ -28,7 +28,7 @@ sub makeelement {
 # Add an item to the list of items to display.
 sub add {
 	my $this=shift;
-	my $question=shift;
+	my $question=shift || die "\$question is undefined";
 	my $priority=shift;
 
 	# Skip items that the user has seen or that are unimportant.

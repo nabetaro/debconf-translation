@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# Each Element::Dialog::Base is a yer or no question.
+# Each Element::Dialog::Base is a yes or no question.
 
 package Debian::DebConf::Element::Dialog::Boolean;
 use strict;
@@ -15,25 +15,25 @@ sub show {
 
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$this->question->template->description,
-		$this->question->template->extended_description);
+		$this->question->description,
+		$this->question->extended_description);
 
 	# If it is more than will fit on the screen, just display the prompt first
 	# in a series of message boxes.
         if ($lines > ($ENV{LINES} || 25) - 2) {
-		$this->frontend->showtext($this->question->template->description, $text);
+		$this->frontend->showtext($this->question->description, $text);
 		$text='';
 		$lines=6;
 	}
 
-	my $default=$this->question->value || $this->question->template->default;
+	my $default=$this->question->value || $this->question->default;
 	my @params=('--yesno', $text, $lines, $columns);
 	if ($default eq 'false') {
 		push @params, '--defaultno';
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(
-		$this->question->template->description, @params);
+		$this->question->description, @params);
 
 	$value=($ret eq 0 ? 'true' : 'false');
 

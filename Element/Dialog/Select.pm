@@ -15,20 +15,20 @@ sub show {
 
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$this->question->template->description,
-		$this->question->template->extended_description);
+		$this->question->description,
+		$this->question->extended_description);
 
 	# If it is more than will fit on the screen, just display the prompt first
 	# in a series of message boxes.
         if ($lines > ($ENV{LINES} || 25) - 2) {
-		$this->frontend->showtext($this->question->template->description, $text);
+		$this->frontend->showtext($this->question->description, $text);
 		$text='';
 		$lines=6;
 	}
 
-	my $default=$this->question->value || $this->question->template->default;
+	my $default=$this->question->value || $this->question->default;
 	my @params=();
-	my @choices=@{$this->question->template->choices};
+	my @choices=@{$this->question->choices};
 		
 	# Figure out how many lines of the screen should be used to
 	# scroll the list. Look at how much free screen real estate
@@ -54,9 +54,9 @@ sub show {
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
 	my ($ret, $value)=$this->frontend->showdialog(
-		$this->question->template->description, @params);
+		$this->question->description, @params);
 
-	@choices=@{$this->question->template->choices};
+	@choices=@{$this->question->choices};
 	$value=$choices[$value];
 
 	$this->question->value($value);

@@ -9,29 +9,30 @@ use vars qw($AUTOLOAD $ret $do_print $priority);
 sub help {
 	print <<eof;
 Usage: dpkg-frontend [options]
-	-h, --help		Display this help message.
-	-P, --print		Print to standard error the last return code
-	                        the FrontEnd sends.
-	-p, --priority value	Sets the priority of following questions to the
-				specified value.
+	-h, --help		 Display this help message.
+	-P, --print		 Print to standard error the last return code
+	                         the FrontEnd sends.
+	-p, --priority value	 Sets the priority of following questions to the
+				 specified value.
 				
-	-I, --init		Initialize communications with FrontEnd.
-	-N, --can-backup	Tell the frontend your ConfModule supports
-				backing up.
-	-t, --text text		Display text to the user.
-	-T, --title title	Set the title displayed in the FrontEnd.
-	-s, --stop		Tell the FrontEnd you are all done.
-	-i, --input question	Asks the user a question.
-	-n, --note text		Display text to user as a note.
-	-g, --get question	Get the answer to the question. Implies -R.
-	[,  --beginblock	Begin a block of items.
-	],  --endblock		End a block of items.
-	-G, --go		Present all built up items to the user.
+	-I, --init		 Initialize communications with FrontEnd.
+	-N, --can-backup	 Tell the frontend your ConfModule supports
+				 backing up.
+	-t, --text text		 Display text to the user.
+	-T, --title title	 Set the title displayed in the FrontEnd.
+	-s, --stop		 Tell the FrontEnd you are all done.
+	-i, --input question	 Asks the user a question.
+	-n, --note text		 Display text to user as a note.
+	-g, --get question	 Get the answer to the question. Implies -R.
+	-S, --subst substitution Set a substitution (foo/bar:baz=quux).
+	[,  --beginblock	 Begin a block of items.
+	],  --endblock		 End a block of items.
+	-G, --go		 Present all built up items to the user.
 	-rtemplate:question,
 	--register template:question
-				Add a mapping for the question to the template.
+				 Add a mapping for the question to the template.
 	-uquestion,
-	--unregister question	Remove mapping for the question.
+	--unregister question	 Remove mapping for the question.
 eof
 	exit 100;
 }
@@ -63,6 +64,14 @@ sub can_backup {
 sub do_get {
 	$do_print=1;
 	get(@_);
+}
+
+# Set a variable
+sub do_subst {
+	my $this=shift;
+	my ($ques,$rest)=split(/:/, shift);
+	my ($var,$val)=split(/=/, $rest);
+	subst($this,$ques,$var,$val);
 }
 
 # Need to parse what the user entered a little more.
@@ -114,6 +123,7 @@ GetOptions(
 	'stop|s', \&stop,
 	'input|i=s', \&input,
 	'get|g=s', \&do_get,
+	'subst|S=s', \&do_var,
 	'beginblock', \&do_beginblock,
 	'endblock', \&do_endblock,
 	'go|G', \&do_go,
