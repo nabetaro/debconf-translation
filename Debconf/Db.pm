@@ -35,6 +35,8 @@ db driver for storing template data.
 Requests can be sent directly to the db's by things like 
 $Debconf::Db::config->setfield(...)
 
+=head1 METHODS
+
 =cut
 
 # Turns a chunk of text into a hash. Returns number of lines of data
@@ -55,6 +57,16 @@ sub _hashify($$) {
 	}
 	return $i;
 }
+
+=item readconfig
+
+Read a debconf config file, parse it, and set up the drivers.
+Reads from the standard locations unless a filename to read is specified.
+
+This function is called when the Db is loaded, so you will not typically
+need to call it.
+
+=cut
 
 sub readconfig {
 	my $class=shift;
@@ -105,6 +117,12 @@ sub readconfig {
 
 # Load up db on startup.
 readconfig();
+
+=item save
+
+Save the databases, and shutdown the drivers.
+
+=cut
 
 sub save {
 	$config->savedb if $config;
