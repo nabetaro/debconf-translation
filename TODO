@@ -6,7 +6,20 @@ General:
   But I just thought of another way - open2 a program that launches a
   FrontEnd. Would it be possible to fork() and talk with your child ovr
   stdin and out? Then the child would be the frontend. That'd be cool.
-  
+
+  Here are some possible ways to do that:
+
+	<drow> unless($pid = fork()) { \*TEMP = \*STDIN; \*STDIN = \*STDOUT;
+\*STDOUT =
+          \*TEMP; }
+	  
+	  <Tv> pipe(KIDREAD,PARENTWRITE); pipe(PARENTREAD,KIDWRITE);
+if(fork()){close KIDREAD;
+          close KIDWRITE; ...} else {close PARENTREAD; close PARENTWRITE;
+... }
+
+  Try the latter first.
+
   However, I want to keep in mind that I'd like to start up the frontend
   only once, not per invocation of dpkg-frontend, or whatever. Hm.
 * The spec says there should be an "isdefault" flag on each variable, that

@@ -51,9 +51,9 @@ foreach my $deb (@ARGV) {
 	next unless @config;
 	
 	# Open a temp file safely and save the confmodule to it.
-	my $name;
-	do { $name = tmpnam() }
-		until sysopen(OUT, $name, O_RDWR|O_CREAT|O_EXCL);
+	my $script;
+	do { $script = tmpnam() }
+		until sysopen(OUT, $script, O_RDWR|O_CREAT|O_EXCL);
 	print OUT @config;
 	close OUT;
 	chmod(0755, $script) or 
