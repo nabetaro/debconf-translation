@@ -9,6 +9,7 @@ Debconf::Element::Dialog::Multiselect - a check list in a dialog box
 package Debconf::Element::Dialog::Multiselect;
 use strict;
 use base qw(Debconf::Element::Multiselect);
+use Debconf::Encoding qw(width);
 
 =head1 DESCRIPTION
 
@@ -56,8 +57,8 @@ sub show {
 
 		# Choices wider than the description text? (Only needed for
 		# whiptail BTW.)
-		if ($columns < length($_) + $selectspacer) {
-			$columns = length($_) + $selectspacer;
+		if ($columns < width($_) + $selectspacer) {
+			$columns = width($_) + $selectspacer;
 		}
 	}
 	
