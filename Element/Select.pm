@@ -24,24 +24,16 @@ use vars qw(@ISA);
 
 =head2 show
 
-Select elements are not really shown if there are less than two choices.
-However, it is useful to still set the value of their accociated Question
-as if they were shown, for consitency.
-
-This method will return one if the element really should be shown.
+Select elements are not really visible there are less than two choices
+for them.
 
 =cut
 
-sub show {
+sub visible {
 	my $this=shift;
 	
 	my @choices=$this->question->choices_split;
-	if ($#choices < 1) {
-		$this->question->value($choices[0]) if $#choices == 0;
-		$this->question->value('') if $#choices == -1;
-		return '';
-	}
-	return 1;
+	return ($#choices > 0);
 }
 
 =head1 AUTHOR

@@ -21,13 +21,6 @@ server ever. It only accpets one client at a time!
 
 package Debian::DebConf::FrontEnd::Web;
 use Debian::DebConf::FrontEnd;
-use Debian::DebConf::Element::Web::String;
-use Debian::DebConf::Element::Web::Boolean;
-use Debian::DebConf::Element::Web::Select;
-use Debian::DebConf::Element::Web::Text;
-use Debian::DebConf::Element::Web::Note;
-use Debian::DebConf::Element::Web::Password;
-use Debian::DebConf::Element::Web::Container;
 use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
@@ -66,54 +59,6 @@ sub new {
 
 	return $self;
 }
-
-=head2 makeelement
-
-This overrides the method in the Base FrontEnd, and creates Elements in the
-Element::Web class. Each data type has a different Element created for it.
-
-=cut
-
-sub makeelement {
-	my $this=shift;
-	my $question=shift;
-
-	# The type of Element we create depends on the input type of the
-	# question.
-	my $type=$question->template->type;
-	my $elt;
-	if ($type eq 'string') {
-		$elt=Debian::DebConf::Element::Web::String->new;
-	}
-	elsif ($type eq 'boolean') {
-		$elt=Debian::DebConf::Element::Web::Boolean->new;
-	}
-	elsif ($type eq 'select') {
-		$elt=Debian::DebConf::Element::Web::Select->new;
-	}
-	elsif ($type eq 'text') {
-		$elt=Debian::DebConf::Element::Web::Text->new;
-	}
-	elsif ($type eq 'note') {
-		$elt=Debian::DebConf::Element::Web::Note->new;
-	}
-	elsif ($type eq 'password') {
-		$elt=Debian::DebConf::Element::Web::Password->new;
-	}
-	elsif ($type eq 'container') {
-		$elt=Debian::DebConf::Element::Web::Container->new;
-	}
-	else {
-		die "Unknown type of element: \"$type\"";
-	}
-
-	# Some elements need a handle to their FrontEnd.
-	$elt->frontend($this);
-	
-	$elt->question($question);
-
-	return $elt;
-}	
 
 =head2 client
 

@@ -1,3 +1,15 @@
+debconf (0.2.22) unstable; urgency=low
+
+  * The noninteractive frontend now mails notes to root.
+  * Reworked the mechanism that makes select questions always set
+    their value when they are INPUT, even if they arn't really displayed,
+    to be much cleaner: This is now handled by the noninteractive select
+    element.
+  * Reworked how Elements are created to use eval, which kills the
+    duplicated makelement() code in all the FrontEnds.
+
+ -- Joey Hess <joeyh@master.debian.org>  Tue,  9 Nov 1999 21:10:26 -0800
+
 debconf (0.2.21) unstable; urgency=low
 
   * frontend now works if run from something other than dpkg. Closes: #49449

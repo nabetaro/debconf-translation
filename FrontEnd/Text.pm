@@ -19,13 +19,6 @@ uses ReadLine to make the user interface just a bit nicer.
 
 package Debian::DebConf::FrontEnd::Text;
 use Debian::DebConf::FrontEnd::Tty;
-use Debian::DebConf::Element::Text::String;
-use Debian::DebConf::Element::Text::Boolean;
-use Debian::DebConf::Element::Text::Select;
-use Debian::DebConf::Element::Text::Text;
-use Debian::DebConf::Element::Text::Note;
-use Debian::DebConf::Element::Text::Password;
-use Debian::DebConf::Element::Container;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
@@ -56,54 +49,6 @@ sub resize {
 	$this->SUPER::resize(@_);
 	$Text::Wrap::columns=$this->screenwidth;
 }
-
-=head2 makeelement
-
-This overrides the method in the Base FrontEnd, and creates Elements in the
-Element::Text class. Each data type has a different Element created for it.
-
-=cut
-
-sub makeelement {
-	my $this=shift;
-	my $question=shift;
-
-	# The type of Element we create depends on the input type of the
-	# question.
-	my $type=$question->template->type;
-	my $elt;
-	if ($type eq 'string') {
-		$elt=Debian::DebConf::Element::Text::String->new;
-	}
-	elsif ($type eq 'boolean') {
-		$elt=Debian::DebConf::Element::Text::Boolean->new;
-	}
-	elsif ($type eq 'select') {
-		$elt=Debian::DebConf::Element::Text::Select->new;
-	}
-	elsif ($type eq 'text') {
-		$elt=Debian::DebConf::Element::Text::Text->new;
-	}
-	elsif ($type eq 'note') {
-		$elt=Debian::DebConf::Element::Text::Note->new;
-	}
-	elsif ($type eq 'password') {
-		$elt=Debian::DebConf::Element::Text::Password->new;
-	}
-	elsif ($type eq 'container') {
-		$elt=Debian::DebConf::Element::Container->new;
-	}
-	else {
-		die "Unknown type of element: \"$type\"";
-	}
-
-	# Some elements need a handle to their FrontEnd.
-	$elt->frontend($this);
-	
-	$elt->question($question);
-
-	return $elt;
-}	
 
 =head2 display
 

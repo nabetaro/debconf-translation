@@ -86,7 +86,7 @@ The lowest priority of questions you want to see. A value is pulled out of the
 database if possible, otherwise a default is used.
 
 If a value is passed to this function, it changes it temporarily (for
-the lifetime of the program) ro override what's in the database.
+the lifetime of the program) to override what's in the database.
 
 =cut
 

@@ -23,6 +23,19 @@ use Debian::DebConf::Base;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Base);
 
+=head2 visible
+
+Returns true if an Element is of a type that is displayed to the user.
+Noninteractive dummy elements return false here.
+
+=cut
+
+sub visible {
+	my $this=shift;
+	
+	return 1;
+}
+
 =head2 show
 
 Causes the element to be displayed, allows the user to interact with it to
@@ -31,19 +44,6 @@ specify a value, and sets the value in the associated question.
 =cut
 
 sub show {}
-
-=head2 visible
-
-The question will determine if it wants to be shown. If so, it returns 1.
-
-=cut
-
-sub visible {
-	my $this=shift;
-
-	# Will be shown.
-	return 1;
-}
 
 =head1 AUTHOR
 

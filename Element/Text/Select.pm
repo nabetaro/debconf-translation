@@ -21,8 +21,6 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	return unless $this->SUPER::show(@_);
-
 	# Display the question's long desc first.
 	$this->frontend->display($this->question->extended_description."\n");
 	
