@@ -26,7 +26,7 @@ sub show {
 	my @params=('--passwordbox');
 	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
 	push @params, ($text, $lines + $this->frontend->spacer, $columns);
-	my $ret=$this->frontend->showdialog(@params);
+	my $ret=$this->frontend->showdialog($this->question, @params);
 
 	# The password isn't passed in, so if nothing is entered,
 	# use the default.

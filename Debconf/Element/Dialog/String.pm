@@ -31,7 +31,7 @@ sub show {
 	push @params, ($text, $lines + $this->frontend->spacer, 
 	               $columns, $default);
 
-	my $value=$this->frontend->showdialog(@params);
+	my $value=$this->frontend->showdialog($this->question, @params);
 	$value='' unless defined $value;
 	$this->value($value);
 }

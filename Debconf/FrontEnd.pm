@@ -11,7 +11,6 @@ use strict;
 use Debconf::Gettext;
 use Debconf::Priority;
 use Debconf::Log ':all';
-use Debconf::Config;
 use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
@@ -52,7 +51,7 @@ This will be set if the confmodule states it has the backup capability.
 
 =item sigil
 
-A Sigil object for this frontend.
+May be set to a sigil object for this frontend.
 
 =back
 
@@ -73,19 +72,6 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
-
-	my $class="Debconf::Sigil";
-	if (Debconf::Config->sigils ne 'false') {
-		$class.="::".$this->elementtype;
-	}
-	if (! UNIVERSAL::can($class, 'new')) {
-		eval qq{use $class};
-		if ($@ || ! UNIVERSAL::can($class, 'new')) {
-			$class="Debconf::Sigil";
-			eval qq{use $class};
-		}
-	}
-	$this->sigil($class->new);
 }
 
 =item elementtype

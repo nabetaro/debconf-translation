@@ -19,7 +19,8 @@ This is an input element that can display a dialog box with a note on it.
 sub show {
 	my $this=shift;
 
-	$this->frontend->showtext($this->question->description."\n\n".
+	$this->frontend->showtext($this->question, 
+		$this->question->description."\n\n".
 		$this->question->extended_description
 	);
 	$this->value('');

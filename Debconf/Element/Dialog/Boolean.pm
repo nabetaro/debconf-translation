@@ -31,7 +31,7 @@ sub show {
 		unshift @params, '--defaultno';
 	}
 
-	my ($ret, $value)=$this->frontend->showdialog(@params);
+	my ($ret, $value)=$this->frontend->showdialog($this->question, @params);
 	$this->value($ret eq 0 ? 'true' : 'false');
 }
 

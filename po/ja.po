@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-06-20 14:26-0400\n"
+"POT-Creation-Date: 2002-06-20 18:54-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -126,7 +126,7 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:249
+#: ../Debconf/FrontEnd/Dialog.pm:265
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "This frontend requires a controlling tty."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Teletype.pm:97
+#: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
 msgstr "移動"
 
@@ -201,12 +201,12 @@ msgstr ""
 msgid "Template database not specified in config file."
 msgstr ""
 
-#: ../Debconf/FrontEnd.pm:151
+#: ../Debconf/FrontEnd.pm:137
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 
-#: ../Debconf/FrontEnd.pm:223
+#: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"

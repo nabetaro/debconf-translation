@@ -38,7 +38,7 @@ sub show {
 		$menu_height = $screen_lines - $lines - 4;
 		if ($menu_height < 3 && $#choices + 1 > 2) {
 			# Don't display a tiny menu.
-			$this->frontend->showtext($this->question->extended_description);
+			$this->frontend->showtext($this->question, $this->question->extended_description);
 			($text, $lines, $columns)=$this->frontend->sizetext($this->question->description);
 			$menu_height=$#choices + 1;
 			if ($lines + $#choices + 2 >= $screen_lines) {
@@ -68,7 +68,7 @@ sub show {
 	@params=('--separate-output', '--checklist', 
 	         $text, $lines, $columns, $menu_height, @params);
 
-	my $value=$this->frontend->showdialog(@params);
+	my $value=$this->frontend->showdialog($this->question, @params);
 	$value='' if ! defined $value;
 
 	# Dialog returns the selected items, each on a line.

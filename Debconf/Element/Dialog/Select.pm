@@ -63,7 +63,7 @@ sub show {
 	
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
-	my $value=$this->frontend->showdialog(@params);
+	my $value=$this->frontend->showdialog($this->question, @params);
 	if (defined $value) {
 		$this->value($this->translate_to_C($value));
 	}

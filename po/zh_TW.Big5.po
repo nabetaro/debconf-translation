@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-06-20 14:26-0400\n"
+"POT-Creation-Date: 2002-06-20 18:54-0400\n"
 "PO-Revision-Date: 2001-12-18 04:09+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -117,7 +117,7 @@ msgid ""
 "cannot be used."
 msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 
-#: ../Debconf/FrontEnd/Dialog.pm:249
+#: ../Debconf/FrontEnd/Dialog.pm:265
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "This frontend requires a controlling tty."
 msgstr "這個介面需求可控制的tty."
 
-#: ../Debconf/FrontEnd/Teletype.pm:97
+#: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
 msgstr "更多"
 
@@ -186,12 +186,12 @@ msgstr "設定檔中沒有指定的設定資料庫"
 msgid "Template database not specified in config file."
 msgstr "設定檔中沒有指定樣板資料庫"
 
-#: ../Debconf/FrontEnd.pm:151
+#: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "不能載入 Debconf::Element::%s, 失敗原因: %s"
 
-#: ../Debconf/FrontEnd.pm:223
+#: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
 msgstr "正設定 %s"

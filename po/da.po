@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2002-06-20 14:26-0400\n"
+"POT-Creation-Date: 2002-06-20 18:54-0400\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "Language-Team: none <>\n"
@@ -125,7 +125,7 @@ msgstr ""
 "Whiptail og dialog er ikke installeret, så den dialog baserede grænseflade "
 "kan ikke bruges."
 
-#: ../Debconf/FrontEnd/Dialog.pm:249
+#: ../Debconf/FrontEnd/Dialog.pm:265
 msgid "Debian Configuration"
 msgstr "Debian Konfiguration"
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "This frontend requires a controlling tty."
 msgstr "Denne grænseflade kræver en kontrollerende tty."
 
-#: ../Debconf/FrontEnd/Teletype.pm:97
+#: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
 msgstr "Mere"
 
@@ -198,12 +198,12 @@ msgstr "Konfigurations database ikke specificeret i konfigurations fil"
 msgid "Template database not specified in config file."
 msgstr "Skabelons database ikke specificeret i konfigurations fil"
 
-#: ../Debconf/FrontEnd.pm:151
+#: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Kunne ikke loade Debconf::Element::%s. Fejlede p.g.a.: %s"
 
-#: ../Debconf/FrontEnd.pm:223
+#: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerer %s"

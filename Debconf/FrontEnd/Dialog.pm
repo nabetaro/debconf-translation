@@ -96,6 +96,19 @@ sub init {
 	else {
 		die gettext("Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.");
 	}
+
+	if (Debconf::Config->sigils ne 'false') {
+		# Defualt to not using smileys.
+		if (Debconf::Config->smileys eq 'true') {
+                        require Debconf::Sigil::Smiley;
+                        $this->sigil(Debconf::Sigil::Smiley->new);
+                }
+                else {
+                        require Debconf::Sigil::Punctuation;
+                        $this->sigil(Debconf::Sigil::Punctuation->new);
+                }
+        }
+	
 }
 
 =item sizetext
@@ -142,6 +155,7 @@ scrollable dialog.
 
 sub showtext {
 	my $this=shift;
+	my $question=shift;
 	my $intext=shift;
 
 	my $lines = $this->screenheight;
@@ -167,7 +181,7 @@ sub showtext {
 	else {
 		$num=$#lines + 1;
 	}
-	$this->showdialog(@args, $num + $this->borderheight, $width);
+	$this->showdialog($question, @args, $num + $this->borderheight, $width);
 	if ($args[0] eq '--textbox') {
 		Debconf::TmpFile::cleanup();
 	}
@@ -202,7 +216,7 @@ sub makeprompt {
 	);
 	
 	if ($lines > $freelines) {
-		$this->showtext($question->extended_description);
+		$this->showtext($question, $question->extended_description);
 		($text, $lines, $columns)=$this->sizetext($question->description);
 	}
 	
@@ -211,7 +225,8 @@ sub makeprompt {
 
 =item showdialog
 
-Displays a dialog. All parameters are passed to whiptail/dialog.
+Displays a dialog. After the first parameters which should point to the question
+being displayed, all remaining parameters are passed to whiptail/dialog.
 
 If called in a scalar context, returns whatever dialog outputs to stderr.
 If called in a list context, returns the return code of dialog, then the
@@ -224,7 +239,8 @@ or cancel, this frontend will assume they wanted to back up.
 
 sub showdialog {
 	my $this=shift;
-
+	my $question=shift;
+	
 	debug debug => "preparing to run dialog. Params are:" ,
 		join(",", $this->program, @_);
 
@@ -243,11 +259,11 @@ sub showdialog {
 		unshift @_, '--nocancel';
 	}
 	
-	
+	my $sigil=$this->sigil->get($question->priority) if $this->sigil && $question;
 	
 	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
-		'--title', $this->title, @_);
+		'--title', $sigil.$this->title, @_);
 	my $stderr;
 	while (<ERRFH>) {
 		$stderr.=$_;

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2002-06-20 14:26-0400\n"
+"POT-Creation-Date: 2002-06-20 18:54-0400\n"
 "PO-Revision-Date: 2001-09-15 11:36:36-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -129,7 +129,7 @@ msgstr ""
 "Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
 "dialog não pode ser usado"
 
-#: ../Debconf/FrontEnd/Dialog.pm:249
+#: ../Debconf/FrontEnd/Dialog.pm:265
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "This frontend requires a controlling tty."
 msgstr "Esse frontend requer um tty controlador."
 
-#: ../Debconf/FrontEnd/Teletype.pm:97
+#: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
 msgstr "Mais"
 
@@ -205,12 +205,12 @@ msgid "Template database not specified in config file."
 msgstr ""
 "Banco de dados de templates não especificado no arquivo de configuração."
 
-#: ../Debconf/FrontEnd.pm:151
+#: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
 
-#: ../Debconf/FrontEnd.pm:223
+#: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"

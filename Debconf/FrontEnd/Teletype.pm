@@ -40,6 +40,19 @@ sub init {
 	$this->SUPER::init(@_);
 	$this->interactive(1);
 	$this->linecount(0);
+
+	if (Debconf::Config->sigils ne 'false') {
+		# Default to using smileys.
+		if (Debconf::Config->smileys ne 'false') {
+			require Debconf::Sigil::Smiley;
+			$this->sigil(Debconf::Sigil::Smiley->new);
+		}
+		else {
+			require Debconf::Sigil::Punctuation;
+			$this->sigil(Debconf::Sigil::Punctuation->new);
+		}
+	}
+	
 }
 
 =item display
@@ -123,7 +136,7 @@ sub prompt {
 
 	$this->linecount(0);
 	local $|=1;
-	print $this->sigil->get($params{question}->priority) if $params{question};
+	print $this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
 	print "$params{prompt} ";
 	print "[$params{default}] " if exists $params{default} and length $params{default};
 	chomp(my $ret=<STDIN>);

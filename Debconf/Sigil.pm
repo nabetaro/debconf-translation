@@ -8,7 +8,6 @@ Debconf::Sigil - Base sigil class
 
 package Debconf::Sigil;
 use strict;
-use base q{Debconf::Base};
 
 =head1 DESCRIPTION
 
@@ -18,6 +17,19 @@ debconf question priorities.
 =head1 METHODS
 
 =over 4
+
+=item new
+
+Returns a new oject of the class.
+
+=cut
+
+sub new {
+        my $proto = shift;
+        my $class = ref($proto) || $proto;
+        my $this=bless ({@_}, $class);
+	return $this;
+}
 
 =item get
 
