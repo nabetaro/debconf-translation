@@ -91,7 +91,7 @@ sub showtext {
 			$num=$#lines - $c + 1;
 			$text=join("\n", @lines[$c..$#lines]);
 		}
-		$this->show_dialog($title, "--msgbox", $text,
+		$this->showdialog($title, "--msgbox", $text,
 			$num + $this->borderheight, $width);
 	}
 }
@@ -102,7 +102,7 @@ sub showtext {
 # 
 # It returns a list consiting of the return code of whiptail and anything
 # whiptail outputs to stderr.
-sub show_dialog {
+sub showdialog {
 	my $this=shift;
 	my $title=shift;
 
