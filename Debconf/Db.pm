@@ -35,15 +35,15 @@ db driver for storing template data.
 Requests can be sent directly to the db's by things like 
 $Debconf::Db::config->setfield(...)
 
-=head1 METHODS
+=head1 CLASS METHODS
 
 =cut
 
-# Turns a chunk of text into a hash. Returns number of lines of data
+# Turns a chunk of text into a hash. Returns number of fields
 # that were processed. Also handles env variable expansion.
 sub _hashify ($$) {
 	my $text=shift;
-	my $hashref=shift;
+	my $hash=shift;
 
 	$text =~ s/\${([^}]+)}/$ENV{$1}/eg;
 	
@@ -56,7 +56,7 @@ sub _hashify ($$) {
 		my ($key, $value)=split(/\s*:\s*/, $line, 2);
 		$key=~tr/-/_/;
 		die "Parse error" unless defined $key and length $key;
-		$hashref->{lc($key)}=$value;
+		$hash->{lc($key)}=$value;
 	}
 	return $i;
 }
@@ -91,30 +91,48 @@ sub load {
 	# This assumes that there are no forward references in
 	# the config file..
 	while (<DEBCONF_CONFIG>) {
-		my %driver=();
-		next unless _hashify($_, \%driver);
-		my $type=$driver{driver} or die "driver type not specified";
-		# Make sure that the class is loaded..
-		if (! UNIVERSAL::can("Debconf::DbDriver::$type", 'new')) {
-			eval qq{use Debconf::DbDriver::$type};
-			die $@ if $@;
-		}
-		delete $driver{driver}; # not a field for the object
-		# Make object, and pass in the fields, and we're done with it.
-		debug db => "making DbDriver of type $type";
-		"Debconf::DbDriver::$type"->new(%driver);
+		my %config=();
+		next unless _hashify($_, \%config);
+		$class->makedriver(%config);
 	}
 	close DEBCONF_CONFIG;
 
 	# Look up the two database drivers.
 	$config=Debconf::DbDriver->driver($opts->{config});
 	if (not ref $config) {
-		die "Configuration database \"".$opts->{config}."\" was not initialized.\n";
+		die "Configuration database \"".$opts->{config}.
+			"\" was not initialized.\n";
 	}
 	$templates=Debconf::DbDriver->driver($opts->{templates});
 	if (not ref $templates) {
-		die "Template database \"".$opts->{templates}."\" was not initialized.\n";
+		die "Template database \"".$opts->{templates}.
+			"\" was not initialized.\n";
 	}
+}
+
+=item makedriver
+
+Set up a driver. Pass it all the fields the driver needs, and one more
+field, called "driver" that specifies the type of driver to make.
+
+=cut
+
+sub makedriver {
+	my $class=shift;
+	my %config=@_;
+
+	my $type=$config{driver} or die "driver type not specified";
+
+	# Make sure that the class is loaded..
+	if (! UNIVERSAL::can("Debconf::DbDriver::$type", 'new')) {
+		eval qq{use Debconf::DbDriver::$type};
+		die $@ if $@;
+	}
+	delete $config{driver}; # not a field for the object
+	
+	# Make object, and pass in the config, and we're done with it.
+	debug db => "making DbDriver of type $type";
+	"Debconf::DbDriver::$type"->new(%config);
 }
 
 =item save

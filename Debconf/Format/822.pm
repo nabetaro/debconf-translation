@@ -96,7 +96,7 @@ sub write {
 		print $fh ucfirst($field).": $val\n";
 	}
 	if (keys %{$data{owners}}) {
-		print $fh "Owners: ".join(", ", keys(%{$data{owners}}))."\n";
+		print $fh "Owners: ".join(", ", sort keys(%{$data{owners}}))."\n";
 	}
 	if (grep { $data{flags}->{$_} eq 'true' } keys %{$data{flags}}) {
 		print $fh "Flags: ".join(", ",

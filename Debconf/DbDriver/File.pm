@@ -60,6 +60,7 @@ sub init {
 
 	$this->{mode} = 0600 unless exists $this->{mode};
 	$this->{format} = "822" unless exists $this->{format};
+	$this->{backup} = 1 unless exists $this->{backup};
 
 	$this->error("No format specified") unless $this->{format};
 	eval "use Debconf::Format::$this->{format}";
@@ -77,6 +78,7 @@ sub init {
 	
 	# Make sure that the file exists, and set the mode too.
 	if (! -e $this->{filename}) {
+		$this->{backup}=0;
 		sysopen(my $fh, $this->{filename}, 
 				O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or
 			$this->error("could not open $this->{filename}");
@@ -143,8 +145,9 @@ sub savedb {
 	# Ensure -new is flushed.
 	$fh->autoflush(1);
 
-	# Now rename the old file to -old, and put -new in its place.
-	if (-e $this->{filename}) {
+	# Now rename the old file to -old (if doing backups), and put -new 
+	# in its place.
+	if (-e $this->{filename} && $this->{backup}) {
 		rename($this->{filename}, $this->{filename}."-old") or
 			debug "DbDriver $this->{name}" => "rename failed: $!";
 	}

@@ -1,3 +1,14 @@
+debconf (0.9.18) unstable; urgency=low
+
+  * Renamed Copy driver to Backup, and renamed its fields too -- if you
+    have used it already, take note!
+  * Some internal restructuring of db driver classes.
+  * Added debconf-copydb, the all-singing all dancing db conversion,
+    excerpting, and copying tool, to debconf-utils.
+  * Backups of File db's can be turned off.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  7 Mar 2001 15:15:51 -0800
+
 debconf (0.9.17) unstable; urgency=low
 
   * Made dpkg-preconfigure drop a user-level debug item including the name

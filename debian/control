@@ -13,7 +13,7 @@ Provides: debconf-tiny
 Replaces: debconf-tiny
 Depends: fileutils (>= 4.0-5)
 Recommends: libterm-stool-perl | libterm-readline-gnu-perl, apt-utils (>= 0.5.1)
-Suggests: debconf-doc, whiptail | dialog | gnome-utils, liblocale-gettext-perl
+Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, liblocale-gettext-perl
 Architecture: all
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages
@@ -30,12 +30,12 @@ Description: Debian configuration management system documentation
 
 Package: debconf-utils
 Section: devel
-Depends: debconf (>= 0.9)
+Depends: debconf (>= 0.9.18)
 Conflicts: debconf (<< 0.3.31)
 Replaces: debconf (<< 0.3.31)
 Architecture: all
 Description: Debconf utilities
- This package contains some small utilities to aid developers who are using
- debconf. There are utilities to aid with managing translated template
- files and utilities to communicate directly with debconf from the
- command line.
+ This package contains some small utilities to aid users and developers.
+ There are utilities to help manage debconf databases, other to manage
+ translated template files and a program to communicate directly with
+ debconf from the command line.

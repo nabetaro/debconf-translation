@@ -42,6 +42,12 @@ Database:
   database really? Yes, I think so..
 * Regression tests!
 * I need some simple program to copy a db from one format to another.
+* The Copy driver should really just inherit from Stack, or they could
+  share a common ancestor. There is dup code in there.
+* The Copy driver cannot deal with situations where the db already has
+  stuff and the copy does not. Perhaps it should copy items whole from db
+  to copy if they do not already exist in the copy and an operation is done
+  to them? (This gets back to duplicating stuff in Stack, again..)
 
 Slang frontend:
 * The buttons should have help text associated with them too.

@@ -10,7 +10,7 @@ package Debconf::DbDriver::Stack;
 use strict;
 use Debconf::Log qw{:all};
 use Debconf::Iterator;
-use base 'Debconf::DbDriver';
+use base 'Debconf::DbDriver::Copy';
 
 =head1 DESCRIPTION
 
@@ -201,40 +201,12 @@ sub _change {
 
 	# Do the copy if we have to.
 	if ($src) {		
-		$this->_copy($item, $src, $writer);
+		$this->copy($item, $src, $writer);
 	}
 
 	# Finally, do the write.
 	debug "DbDriver $this->{name}" => "passing to $writer->{name} ..";
 	return $writer->$command($item, @_);
-}
-
-# This handles copying an item. The destination is assumed not to
-# have the item yet.
-sub _copy {
-	my $this=shift;
-	my $item=shift;
-	my $src=shift;
-	my $dest=shift;
-	
-	debug "DbDriver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
-	
-	# First copy the owners, which makes sure $dest has the item.
-	foreach my $owner ($src->owners($item)) {
-		$dest->addowner($item, $owner);
-	}
-	# Now the fields.
-	foreach my $field ($src->fields($item)) {
-		$dest->setfield($item, $field, $src->getfield($item, $field));
-	}
-	# Now the flags.
-	foreach my $flag ($src->flags($item)) {
-		$dest->setflag($item, $flag, $src->getflag($item, $flag));
-	}
-	# And finally the variables.
-	foreach my $var ($src->variables($item)) {
-		$dest->setvariable($item, $var, $src->getvariable($item, $var));
-	}
 }
 
 # A problem occurs sometimes: A write might be attempted that will not

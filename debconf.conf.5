@@ -93,6 +93,10 @@ The permissions to create the file with if it does not exist. Defaults to
 .B Format
 The format of the file. See FORMATS below. Defaults to using a rfc-822
 like format.
+.TP
+.B Backup
+Whether a backup should be made of the old file before changing it.
+Defaults to true.
 .RE
 .P
 As example stanza setting up a database using this driver:
@@ -188,11 +192,10 @@ WARNING: The stack driver is not very well tested yet. Use at your own
 risk.
 .RE
 .P
-.B Copy
+.B Backup
 .RS
-This driver sends copies of all writes sent to it on to two other databases.
-All reads, though, are done from just one of the two; the other is uses as
-a passive backup of it.
+This driver passes all requests on to another database driver. But it also
+copies all write requests to a backup database driver.
 .P
 You must specify the following fields to set up this driver:
 .P
@@ -201,16 +204,16 @@ You must specify the following fields to set up this driver:
 .B Db
 The database to read from and write to.
 .TP
-.B Copy
+.B Backup
 The name of the database to send copies of writes to.
 .RE
 .P
 For example:
 .P
   Name: backup
-  Driver: Copy
+  Driver: Backup
   Db: mydb
-  Copy: mybackupdb
+  Backup: mybackupdb
 .RE
 .P
 .SH "ACCESS CONTROLS"
@@ -328,6 +331,9 @@ Feel free to write them!
 .SH NOTES
 If you use something like ${HOME} in this file, it will be replaces with
 the value of the named environment variable.
+.P
+The field names (the part of the line before the colon) is
+case-insensative. The values, though, are case sensative.
 .SH "PLANNED ENHANCEMENTS"
 More drivers and formats. Some ideas include:
 A SQL driver, with the capability to access a remote database.

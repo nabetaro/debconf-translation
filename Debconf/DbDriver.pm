@@ -31,7 +31,15 @@ The name of the database. This field is required.
 Set to true if this database driver is read only. Defaults to false.
 
 In the config file the literal strings "true" and "false" can be used.
-Internally it uses 1 and 0 and.
+Internally it uses 1 and 0.
+
+=item backup
+
+Detemrines whether a backup should be made of the old version of the
+database or not.
+
+In the config file the literal strings "true" and "false" can be used.
+Internally it uses 1 and 0.
 
 =item required
 
@@ -41,7 +49,7 @@ accessible. It can be useful to make remote databases non-required, so
 debconf is usable if connections to them go down. Defaults to true.
 
 In the config file the literal strings "true" and "false" can be used.
-Internally it uses 1 and 0 and.
+Internally it uses 1 and 0.
 
 =item failed
 
@@ -74,7 +82,7 @@ rejected by this driver.
 
 # I rarely base objects on fields, but I want strong compile-time type
 # checking for this class of objects, and speed.
-use fields qw(name readonly required failed
+use fields qw(name readonly required backup failed
               accept_type reject_type accept_name reject_name);
 
 # Class data.
@@ -84,9 +92,9 @@ our %drivers;
 
 =head2 new
 
-Create a new object of this class. A hash of fields and values may be
-passed in to set initial state. (And you have to use this to set the name,
-at the very least.)
+Create a new object. A hash of fields and values may be passed in to set
+initial state. (And you have to use this to set the name, at the very
+least.)
 
 =cut
 
@@ -102,7 +110,7 @@ sub new {
 	# Set fields from parameters.
 	my %params=@_;
 	foreach my $field (keys %params) {
-		if ($field eq 'readonly' || $field eq 'required') {
+		if ($field eq 'readonly' || $field eq 'required' || $field eq 'backup') {
 			# Convert from true/false strings to numbers.
 			$this->{$field}=1,next if lc($params{$field}) eq "true";
 			$this->{$field}=0,next if lc($params{$field}) eq "false";

@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::DbDriver::Copy - copy writes to two drivers
+Debconf::DbDriver::Copy - class that can make copies
 
 =cut
 
@@ -13,95 +13,43 @@ use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
 
-This driver passes all reads and writes on to another database. But copies
-of all writes are sent to a second database, too.
-
-=cut
-
-=head1 FIELDS
-
-=over 4
-
-=item db
-
-The database to pass reads and writes to.
-
-In the config file, the name of the database can be used.
-
-=item copy
-
-The database to copy writes to.
-
-In the config file, the name of the database can be used.
-
-=back
-
-=cut
-
-use fields qw(db copy);
+This driver is not useful on its own, it is just the base of other classes
+that need to be able to copy entire database items around.
 
 =head1 METHODS
 
-=head2 init
+=item copy(item, src, dest)
 
-On initialization, convert db names to drivers.
+Copies the given item from the source database to the destination database.
+The item is assumed to not already exist in dest.
 
 =cut
 
-sub init {
+sub copy {
 	my $this=shift;
-
-	# Handle values from config file.
-	foreach my $f (qw(db copy)) {
-		if (! ref $this->{$f}) {
-			my $db=$this->driver($this->{$f});
-			unless (defined $f) {
-				$this->error("could not find a db named \"$this->{$f}\"");
-			}
-			$this->{$f}=$db;
-		}
-	}
-}
-
-# From here on out, the methods are of two types, as explained in
-# the description above. Either it's a read, which goes to the db,
-# or it's a write, which goes to the db, and, if that write succeeds,
-# goes to the copy as well.
-sub _query {
-	my $this=shift;
-	my $command=shift;
-	shift; # this again
+	my $item=shift;
+	my $src=shift;
+	my $dest=shift;
 	
-	return $this->{db}->$command(@_);
-}
-
-sub _change {
-	my $this=shift;
-	my $command=shift;
-	shift; # this again
-
-	my $ret=$this->{db}->$command(@_);
-	if (defined $ret) {
-		$this->{copy}->$command(@_);
+	debug "DbDriver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
+	
+	# First copy the owners, which makes sure $dest has the item.
+	foreach my $owner ($src->owners($item)) {
+		$dest->addowner($item, $owner);
 	}
-	return $ret;
+	# Now the fields.
+	foreach my $field ($src->fields($item)) {
+		$dest->setfield($item, $field, $src->getfield($item, $field));
+	}
+	# Now the flags.
+	foreach my $flag ($src->flags($item)) {
+		$dest->setflag($item, $flag, $src->getflag($item, $flag));
+	}
+	# And finally the variables.
+	foreach my $var ($src->variables($item)) {
+		$dest->setvariable($item, $var, $src->getvariable($item, $var));
+	}
 }
-
-sub iterator	{ $_[0]->_query('iterator', @_)		}
-sub savedb	{ $_[0]->_change('savedb', @_)		}
-sub exists	{ $_[0]->_query('exists', @_)		}
-sub addowner	{ $_[0]->_change('addowner', @_)	}
-sub removeowner { $_[0]->_change('removeowner', @_)	}
-sub owners	{ $_[0]->_query('owners', @_)		}
-sub getfield	{ $_[0]->_query('getfield', @_)		}
-sub setfield	{ $_[0]->_change('setfield', @_)	}
-sub fields	{ $_[0]->_query('fields', @_)		}
-sub getflag	{ $_[0]->_query('getflag', @_)		}
-sub setflag	{ $_[0]->_change('setflag', @_)		}
-sub flags	{ $_[0]->_query('flags', @_)		}
-sub getvariable { $_[0]->_query('getvariable', @_)	}
-sub setvariable { $_[0]->_change('setvariable', @_)	}
-sub variables	{ $_[0]->_query('variables', @_)	}
 
 =head1 AUTHOR
 
