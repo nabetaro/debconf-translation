@@ -8,20 +8,13 @@ Debconf::Element::Gnome::Boolean - check box widget
 
 package Debconf::Element::Gnome::Boolean;
 use strict;
-use Gtk;
+use Gtk2;
+use utf8;
 use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
 
 This is a check box widget.
-
-=head1 METHODS
-
-=over 4
-
-=item init
-
-Sets up the widget.
 
 =cut
 
@@ -30,7 +23,7 @@ sub init {
 
 	$this->SUPER::init(@_);
 
-	$this->widget(Gtk::CheckButton->new($this->question->description));
+	$this->widget(Gtk2::CheckButton->new($this->question->description));
 	$this->widget->show;
 	$this->widget->set_active(($this->question->value eq 'true') ? 1 : 0);
 	$this->addwidget($this->widget);
@@ -58,6 +51,7 @@ sub value {
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>
+Gustavo Noronha Silva <kov@debian.org>
 
 =cut
 

@@ -8,7 +8,8 @@ Debconf::Element::Gnome - gnome UI element
 
 package Debconf::Element::Gnome;
 use strict;
-use Gtk;
+use utf8;
+use Gtk2;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
 
@@ -41,14 +42,21 @@ Sets up the hbox.
 sub init {
 	my $this=shift;
 
-	$this->hbox(Gtk::HBox->new(0, 10));
+	$this->hbox(Gtk2::VBox->new(0, 10));
 
-	$this->line1(Gtk::HBox->new(0, 10));
+	$this->hline1(Gtk2::HBox->new(0, 10));
+	$this->hline1->show;
+	$this->line1(Gtk2::VBox->new(0, 10));
 	$this->line1->show;
-	$this->line2(Gtk::HBox->new(0, 10));
-	$this->line2->show;
+	$this->line1->pack_end ($this->hline1, 1, 1, 0);
 
-	$this->vbox(Gtk::VBox->new(0, 5));
+	$this->hline2(Gtk2::HBox->new(0, 10));
+	$this->hline2->show;
+	$this->line2(Gtk2::VBox->new(0, 10));
+	$this->line2->show;
+	$this->line2->pack_end ($this->hline2, 1, 1, 0);
+
+	$this->vbox(Gtk2::VBox->new(0, 5));
 	$this->vbox->pack_start($this->line1, 0, 0, 0);
 	$this->vbox->pack_start($this->line2, 1, 1, 0);
 	$this->vbox->show;
@@ -73,10 +81,10 @@ sub addwidget {
 	my $widget=shift;
 
 	if ($this->multiline == 0) {
-	    $this->line1->pack_start($widget, 1, 1, 0);
+	    $this->hline1->pack_start($widget, 1, 1, 0);
 	}
 	else {
-	    $this->line2->pack_start($widget, 1, 1, 0);
+	    $this->hline2->pack_start($widget, 1, 1, 0);
 	}
 }
 
@@ -89,7 +97,7 @@ Packs a label containing the short description into the hbox.
 sub adddescription {
 	my $this=shift;
 
-	my $label=Gtk::Label->new($this->question->description);
+	my $label=Gtk2::Label->new($this->question->description);
 	$label->show;
 	$this->line1->pack_start($label, 0, 0, 0);
 }
@@ -106,14 +114,14 @@ sub addbutton {
 	my $text = shift;
 	my $callback = shift;
 
-	my $button = Gtk::Button->new_with_label($text);
+	my $button = Gtk2::Button->new_with_label($text);
 	$button->show;
 	$button->signal_connect("clicked", $callback);
 
-	my $vbox = Gtk::VBox->new(0, 0);
+	my $vbox = Gtk2::VBox->new(0, 0);
 	$vbox->show;
 	$vbox->pack_start($button, 1, 0, 0);
-	$this->line1->pack_end($vbox, 0, 0, 0);
+	$this->hline1->pack_end($vbox, 0, 0, 0);
 }
 
 =item addhelp
@@ -130,13 +138,10 @@ sub addhelp {
 	return unless length $help;
 
 	$this->addbutton(gettext("Help"), sub {
-		my $dialog = Gnome::Dialog->new(gettext("Help"), "Button_Ok");
-		my $label = Gtk::Label->new($help);
-		$label->set_line_wrap(1);
-		$label->show;
-		$dialog->vbox->add($label);
+		my $dialog = Gtk2::MessageDialog->new(undef, "modal", "info",
+						      "close", $help);
 		$dialog->run;
-		$dialog->close;
+		$dialog->destroy;
 	});
 }
 
@@ -159,6 +164,7 @@ sub value {
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>
+Gustavo Noronha Silva <kov@debian.org>
 
 =cut
 

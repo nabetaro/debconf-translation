@@ -8,8 +8,9 @@ Debconf::Element::Gnome::Select - drop down select box widget
 
 package Debconf::Element::Gnome::Select;
 use strict;
-use Gtk;
-use Gnome;
+use Gtk2;
+use Gnome2;
+use utf8;
 use base qw(Debconf::Element::Gnome Debconf::Element::Select);
 
 =head1 DESCRIPTION
@@ -26,7 +27,7 @@ sub init {
 
 	$this->SUPER::init(@_);
 
-	$this->widget(Gtk::Combo->new);
+	$this->widget(Gtk2::Combo->new);
 	$this->widget->show;
 
 	$this->widget->set_popdown_strings(@choices);
@@ -64,6 +65,7 @@ sub value {
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>
+Gustavo Noronha Silva <kov@debian.org>
 
 =cut
 

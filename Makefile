@@ -32,7 +32,7 @@ install-rest:
 		$(prefix)/usr/share/debconf \
 		$(prefix)/usr/share/pixmaps
 	install -m 0644 debconf.conf $(prefix)/etc/
-	install -m 0644 debian-logo.xpm $(prefix)/usr/share/pixmaps/
+	install -m 0644 debian-logo.png $(prefix)/usr/share/pixmaps/
 	# This one is the ultimate backup copy.
 	grep -v '^#' debconf.conf > $(prefix)/usr/share/debconf/debconf.conf
 	# Make module directories.

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-30 16:11-0500\n"
+"POT-Creation-Date: 2004-01-01 21:51-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "прочитает измененный файл и использует введенные вами параметры для "
 "настройки системы."
 
-#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
@@ -172,7 +172,7 @@ msgstr "Ошибка разбора шаблона около `%s', в строфе номер %s из %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон номер %s в %s не содержит строки `Template:'"
 
-#: ../Debconf/Element/Gnome/Note.pm:45
+#: ../Debconf/Element/Gnome/Note.pm:46
 #, fuzzy
 msgid "Save (mail) Note"
 msgstr "Сохранить сообщение"
@@ -184,16 +184,16 @@ msgstr ""
 "Сценарий настройки потребовал сохранить это сообщение, поэтому оно было вам "
 "отправлено по почте."
 
-#: ../Debconf/Element/Gnome/Note.pm:50
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "Сообщение было отправлено пользователю root."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:56
 msgid "Unable to save note."
 msgstr "Сообщение сохранить не удалось."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+#: ../Debconf/Element/Gnome.pm:140
 msgid "Help"
 msgstr "Подсказка"
 

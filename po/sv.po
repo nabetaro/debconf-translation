@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-30 16:11-0500\n"
+"POT-Creation-Date: 2004-01-01 21:51-0500\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -39,7 +39,7 @@ msgstr ""
 "tidpunkten kommer debconf läsa den redigerade filen, och använda de värden "
 "du angivit för att konfigurera systemet."
 
-#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
@@ -166,7 +166,7 @@ msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:45
+#: ../Debconf/Element/Gnome/Note.pm:46
 msgid "Save (mail) Note"
 msgstr "Spara (e-post-)notis"
 
@@ -177,15 +177,15 @@ msgstr ""
 "Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
 "per e-post."
 
-#: ../Debconf/Element/Gnome/Note.pm:50
+#: ../Debconf/Element/Gnome/Note.pm:51
 msgid "The note has been mailed."
 msgstr "Notisen har sänts per e-post."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:56
 msgid "Unable to save note."
 msgstr "Kan inte spara notis."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+#: ../Debconf/Element/Gnome.pm:140
 msgid "Help"
 msgstr "Hjälp"
 

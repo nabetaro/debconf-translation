@@ -8,8 +8,8 @@ Debconf::Element::Gnome::String - text input widget
 
 package Debconf::Element::Gnome::String;
 use strict;
-use Gtk;
-use Gnome;
+use Gtk2;
+use utf8;
 use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
@@ -23,7 +23,7 @@ sub init {
 
 	$this->SUPER::init(@_);
 
-	$this->widget(Gtk::Entry->new);
+	$this->widget(Gtk2::Entry->new);
 	$this->widget->show;
 
 	my $default='';
@@ -53,6 +53,7 @@ sub value {
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>
+Gustavo Noronha Silva <kov@debian.org>
 
 =cut
 

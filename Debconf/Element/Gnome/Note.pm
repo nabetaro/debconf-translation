@@ -9,8 +9,8 @@ Debconf::Element::Gnome::Note - a note to show to the user
 package Debconf::Element::Gnome::Note;
 use strict;
 use Debconf::Gettext;
-use Gtk;
-use Gnome;
+use Gtk2;
+use utf8;
 use Debconf::Element::Noninteractive::Note;
 use base qw(Debconf::Element::Gnome);
 
@@ -26,35 +26,37 @@ sub init {
 
 	$this->SUPER::init(@_);
 	$this->multiline(1);
-	$this->widget(Gtk::HBox->new(0, 0));
+	$this->widget(Gtk2::HBox->new(0, 0));
 
-	my $text = Gtk::Text->new(0, 0);
+	my $text = Gtk2::TextView->new();
+	my $textbuffer = $text->get_buffer;
 	$text->show;
-	$text->set_word_wrap(1);
+	$text->set_wrap_mode ("word");
+	$text->set_editable (0);
 
-	my $vscrollbar = Gtk::VScrollbar->new($text->vadj);
+	my $vscrollbar = Gtk2::VScrollBar->new; #$text->vadj);
 	$vscrollbar->show;
 
 	$this->widget->show;
 	$this->widget->pack_start($text, 1, 1, 0);
 	$this->widget->pack_start($vscrollbar, 0, 0, 0);
 
-	$text->insert(undef, undef, undef,
-		      $this->question->extended_description);
+	$textbuffer->set_text($this->question->extended_description);
 
 	$this->addbutton(gettext("Save (mail) Note"), sub {
-	    my $msg;
-	    if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext(
-			"Debconf was asked to save this note, so it mailed it to you."))) {
-		$msg = Gnome::MessageBox->new(gettext(
-                    "The note has been mailed."), "info", "Button_Ok");
+	    my $dialog;
+	    if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
+		$dialog = Gtk2::MessageDialog->new(undef, "modal", "info",
+						   "close", 
+						   gettext("The note has been mailed."));
 	    }
 	    else {
-		$msg = Gnome::MessageBox->new(gettext(
-                    "Unable to save note."), "error", "Button_Ok");
+		$dialog = Gtk2::MessageDialog->new(undef, "modal", "error",
+						   "close", 
+						   gettext("Unable to save note."));
 	    }
-	    $msg->show;
-	    $msg->run;
+	    $dialog->run;
+	    $dialog->destroy;
 	});
 
 	$this->widget->show;
@@ -66,6 +68,7 @@ sub init {
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>
+Gustavo Noronha Silva <kov@debian.org>
 
 =cut
 

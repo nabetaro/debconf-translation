@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-30 16:11-0500\n"
+"POT-Creation-Date: 2004-01-01 21:51-0500\n"
 "PO-Revision-Date: 2001-09-01 21:55+0300\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "Language-Team: none\n"
@@ -38,7 +38,7 @@ msgstr ""
 "poistu, minkä jälkeen debconf lukee editoidun tiedoston ja säätää asetukset "
 "syöttämiesi tietojen perusteella."
 
-#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
@@ -166,7 +166,7 @@ msgstr "Kyselypohjan jäsennysvirhe lähellä `%s':a rivillä #%s tiedostossa %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "`Template:'-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:45
+#: ../Debconf/Element/Gnome/Note.pm:46
 #, fuzzy
 msgid "Save (mail) Note"
 msgstr "Tallenna ilmoitus"
@@ -178,15 +178,15 @@ msgstr ""
 "Tämä ilmoitus postitettiin, koska debconf on asetettu olemaan näyttämättä "
 "sitä."
 
-#: ../Debconf/Element/Gnome/Note.pm:50
+#: ../Debconf/Element/Gnome/Note.pm:51
 msgid "The note has been mailed."
 msgstr "Ilmoitus on lähetetty."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:56
 msgid "Unable to save note."
 msgstr "Ilmoituksen tallennus epäonnistui."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+#: ../Debconf/Element/Gnome.pm:140
 msgid "Help"
 msgstr "Avustus"
 

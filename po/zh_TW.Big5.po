@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-30 16:11-0500\n"
+"POT-Creation-Date: 2004-01-01 21:51-0500\n"
 "PO-Revision-Date: 2002-10-31 13:32+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
 "而且會使用您的設定值設定系統. "
 
-#: ../Debconf/FrontEnd/Gnome.pm:72 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
@@ -155,7 +155,7 @@ msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:45
+#: ../Debconf/Element/Gnome/Note.pm:46
 msgid "Save (mail) Note"
 msgstr "儲存備忘"
 
@@ -163,15 +163,15 @@ msgstr "儲存備忘"
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 
-#: ../Debconf/Element/Gnome/Note.pm:50
+#: ../Debconf/Element/Gnome/Note.pm:51
 msgid "The note has been mailed."
 msgstr "這個備忘已經郵寄了."
 
-#: ../Debconf/Element/Gnome/Note.pm:54
+#: ../Debconf/Element/Gnome/Note.pm:56
 msgid "Unable to save note."
 msgstr "不能儲存備忘."
 
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+#: ../Debconf/Element/Gnome.pm:140
 msgid "Help"
 msgstr "求助"
 

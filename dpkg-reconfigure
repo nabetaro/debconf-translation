@@ -113,8 +113,8 @@ if ($default_priority) {
 }
 
 # If the frontend is noninteractive, change it temporarily to dialog.
-if (Debconf::Config->frontend eq 'Noninteractive') {
-	Debconf::Config->frontend('Dialog');
+if (lc Debconf::Config->frontend eq 'noninteractive') {
+	Debconf::Config->frontend('dialog');
 }
 
 my $frontend=make_frontend();
