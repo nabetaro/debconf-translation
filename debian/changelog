@@ -1,3 +1,19 @@
+debconf (1.4.6) unstable; urgency=low
+
+  * Updated de.po from Leonard Michlmayr.
+  * Gustavo Noronha Silva:
+    - work around encoding problems when using UTF-8 locales and Gnome
+      frontend. Closes: #226896
+    - use a scrooled window instead of a vscrollbar so that
+      looong texts will fit better.
+    - addbutton now accepts mnemonics, good for usability!
+  * Fix misc formatting and tab damange.
+  * pt_BR update from Gustavo Noronha Silva.
+  * Updated debian/po/ja.po from Kenshi Muto. Closes: #227462
+  * Updated debian/po/da.po from Morten Brix Pedersen. Closes: #227617
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 13 Jan 2004 11:05:55 -0500
+
 debconf (1.4.5) unstable; urgency=low
 
   * Updated Finnish translation. Closes: #226900
