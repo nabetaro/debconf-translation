@@ -34,7 +34,7 @@ binary-indep: install
 	# Don't modify postrm, I purge differently than normal packages
 	# using me.
 	dh_installdebconf -n
-	dh_installdocs doc/CREDITS doc/INTRODUCTION doc/*.txt \
+	dh_installdocs doc/CREDITS doc/*.txt doc/*.html \
 		doc/packages-that-prompt doc/spec README TODO
 	dh_installexamples samples/*.* test.pl
 	dh_installmenu

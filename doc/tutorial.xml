@@ -1,0 +1,905 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//Norman Walsh//DTD DocBk XML V3.1//EN"
+     "dtd/docbook-xml/docbookx.dtd">
+<article>
+  <artheader>
+    <title>
+      The Debconf Tutorial
+    </title>
+    <author>
+      <firstname>
+	Joey
+      </firstname>
+      <surname>
+	Hess
+      </surname>
+      <affiliation>
+	<orgname>
+	  The Debian Project
+	</orgname>
+	<address><email>joeyh@debian.org</email></address>
+      </affiliation>   
+    </author>
+    <copyright>
+      <year>
+	1999
+      </year>
+      <holder>
+	Joey Hess
+      </holder>
+    </copyright>
+    <legalnotice>
+      <para>
+	This text is distributed according to the
+	<ulink url="http://www.gnu.org/copyleft/gpl.html">
+	  General Public License
+	</ulink>.
+      </para>
+    </legalnotice>
+  </artheader>
+  
+  <sect1>
+    <title>
+      Introduction
+    </title>
+    <para>
+      This is a guide to using debconf with your packages, aimed at a
+      Debian developer.
+    </para>
+    <para>
+      So, what is debconf? To save you reading the 
+      <ulink url="http://www.debian.org/~wakkerma/config6/">
+	spec
+      </ulink>,
+      debconf is a backend database, with a frontend that talks to it
+      and presents an interface to the user. There can be many
+      different types of frontends, from plain text to a web
+      frontend. The frontend also talks to a special config script in
+      the control section of a debian package, and it can talk to
+      postinst scripts and other scripts as well, all using a special
+      protocol. These scripts tell the frontend what values they need
+      from the database, and the frontend asks the user questions to
+      get those values if they aren't set.
+    </para>
+    <para>
+      Debconf should be used whenever your package needs to output
+      something to the user, or ask a question of the user. I'll
+      assume you already have a package that does this and you want to
+      convert it to use debconf.
+    </para>
+  </sect1>
+  
+  <sect1>
+    <title>
+      Getting started
+    </title>
+    <para>
+      First, your package must depend on debconf (or pre-depend on it
+      if it uses debconf in its preinst). This is necessary since
+      debconf isn't part of the base system.
+    </para>
+    <para>
+      The first thing to do is look at your postinst, plus any program
+      your postinst calls (like a "packageconfig" program), plus your
+      preinst, and even your prerm and postrm. Take note of all output
+      they can generate and all input they prompt the user for. All
+      this output and input must be eliminated for your package to use
+      debconf. (Output to stderr can be left as is.)
+    </para>
+    <para>
+      For example, a hypothetical package "foo" has the following postinst:
+      <programlisting>
+	#!/bin/sh -e
+	echo -n "Do you like debian? [yn] "
+	read like
+	case "$like" in
+	n*|N*)
+	echo "Poor misguided one. Why are you installing this package, then?"
+	/etc/init.d/subliminal_messages start "I like debian."
+	;;
+	esac
+      </programlisting>
+    </para>
+    <para>
+      It's clear that it asks a question and sometimes outputs a
+      message. We will need to use debconf to do both.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      The Templates file
+    </title>
+    <para>
+      Start writing a debian/templates file. Each time you find a
+      piece of output or a question, add it to the file as a new
+      template. The format of this file is simple and quite similar to
+      a Debian control file:
+      <programlisting>
+	Template: <parameter>packagename</parameter>/<parameter>something</parameter>
+	Type: <parameter>[select,string,boolean,note,text,password]</parameter>
+	Default: <parameter>[an optional default value]</parameter>
+	Description: Blah blah blah?
+	 Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah
+	 blah blah blah. Blah blah blah. Blah blah.
+	 .
+	 Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah.
+	 blah.
+	
+	Template: ....
+	....
+      </programlisting>
+    </para>
+    <para>
+      A short description of the data types:
+      <itemizedlist>
+	<listitem>
+	  <para>
+	    string
+	  </para>
+	  <para>
+	    Holds any arbitrary string of data.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    boolean
+	  </para>
+	  <para>
+	    Holds "<literal>true</literal>" or "<literal>false</literal>".
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    select
+	  </para>
+	  <para>
+	    Holds one of a finite number of possible values. These
+	    values must be specified in a field named
+	    <literal>Choices:</literal>. Separate the possible values
+	    with commas and spaces, like this:
+	    <literal>
+	      Choices: yes, no, maybe
+	    </literal>
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    note
+	  </para>
+	  <para>
+	    This template is a note that can be displayed to the user. As
+	    opposed to text, it is something important, that the user really
+	    should see. If debconf is not running interactively, it might be
+	    saved to a log file or mailbox for them to see later.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    text
+	  </para>
+	  <para>
+	    This template is a scrap of text that can be displayed to
+	    the user. It's intended to be used for mostly cosmetic
+	    reasons, touching up around other questions that are asked
+	    at the same time. Unlike a note, it isn't treated as
+	    something the user should definitly see.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    password
+	  </para>
+	  <para>
+	    Prompts for a password (with no echoing).
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      Note that the Description field has two parts, a short
+      description and a long description. Please note, that some
+      frontends do not always display the long description, often only
+      showing it if the user asks for additional help. So the short
+      description should be entirely standalone.
+    </para>
+    <para>
+      If you can't think up a long description, then first, think some
+      more. If you still can't come up with anything, leave it
+      blank. There is no point in duplicating the short description.
+    </para>
+    <para>
+      Following along in our example, we create a templates file with two
+      templates in it:
+      <programlisting>
+	Template: foo/like_debian
+	Type: boolean
+	Description: Do you like Debian?
+	 We'd like to know if you like the Debian GNU/Linux system.
+
+	Template: foo/why_debian_is_great
+	Type: note
+	 Description: Poor misguided one. Why are you installing this package?
+	 Debian is great. As you continue using Debian, we hope you will
+	 discover the error in your ways.
+      </programlisting>
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      The Config Script
+    </title>
+    <para>
+      Next, decide what order the questions should be asked and the
+      messages to the user should be displayed, figure out what tests
+      you'll make before asking the questions and displaying the
+      messages, and start writing a debian/config file to ask and
+      display them. Depending on what language you choose to write
+      debian/config in, you have some choices about how to communicate
+      with the frontend:
+      <itemizedlist>
+	<listitem>
+	  <para>
+	    shell script
+	  </para>
+	  <para>  
+	    You can source <literal>/usr/share/debconf/confmodule.sh</literal>,
+	    which will make a number of shell functions available to you. Each
+ 	    shell function corresponds to a command in the protocol (with
+            "<literal>db_</literal>" prefixed to its name). You pass parameters
+	    to it and get a result back in the <literal>$RET</literal>
+	    variable. For details, see  <literal>confmodule.3</literal>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    perl
+	  </para>
+	  <para>  
+	    You can use the 
+	    <literal>Debian::DebConf::Client::ConfModule</literal> perl module,
+	    which makes a number of functions available to you. Each function
+	    corresponds to a command in the protocol -- you pass parameters 
+	    into it and it returns the result. For details, see the 
+	    <literal>Debian::Debconf::Client::ConfModule.2pm</literal> man
+	    page.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    other
+	  </para>
+	  <para>
+	    You'll have to communicate with the frontend directly via standard
+	    input and standard output. This isn't hard; read the 
+	    <ulink url="http://www.debian.org/~wakkerma/config6/frontend.html">
+	    protocol specification</ulink> for details.
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      A list and description of all the commands you can use to talk
+      to the frontend is in the
+      <link linkend="commands" endterm="commands"/> appendix. The most common 
+      commands you will use in the config script 
+      are "<literal><link linkend="db_input">input</link></literal>", 
+      "<literal><link linkend="db_go">go</link></literal>", and 
+      "<literal><link linkend="db_get">get</link></literal>".
+      Briefly, "<literal>input <parameter>priority</parameter> 
+      <parameter>variable</parameter></literal>" 
+      asks the frontend to make sure it has asked the user for the value
+      of a variable, specifying how important it is the user be asked
+      this. The variable names normally correspond to the names of the
+      templates in the template files. "<literal>go</literal>" tells the
+      frontend to display all accumulated input commands to the user. And
+      "<literal>get <parameter>variable</parameter></literal>" asks the
+      frontend to return to you what value a variable is set to.
+    </para>
+    <para>
+      Some other notes about config scripts: Just like other
+      maintainer scripts, config scripts must be idempotent. The
+      config script is passed 2 parameters.  The first is either
+      "<literal>configure</literal>" or "<literal>reconfigure</literal>". The
+      latter occurs only if a package is being reconfigured by
+      dpkg-reconfig. The second parameter is the version of the package
+      that is being installed.
+    </para>
+    <para>
+      Continuing the example, we need a config script to display the
+      first question, and if the user says they do not like debian, it
+      should display the message about that.
+      <programlisting>
+	#!/bin/sh -e
+
+	# Source debconf library.
+	. /usr/share/debconf/confmodule.sh
+
+	# Do you like debian?
+	db_input medium foo/like_debian
+	db_go
+	
+	# Check their answer.
+	db_get foo/like_debian
+	if [ "$RET" = "false" ]; then
+	# Poor misguided one..
+	db_input high foo/why_debian_is_great
+	db_go
+	fi
+      </programlisting>
+    </para>
+    <para>
+      Note that the config script is run before the package is
+      unpacked. It should only use commands that are in the base
+      system. Also, it shouldn't actually edit files on the system, or
+      affect it in any other way.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      Modifying Existing Maintainer Scripts
+    </title>
+    <para>
+      Once you have a templates file and a config script, it's time to
+      move on to using the data your config script collects in other
+      maintainer scripts of your package, like your postinst. Just
+      like the config script, the postinst and other maintainer
+      scripts can use the <literal>confmodule.sh</literal> or
+      <literal>Debian::DebConf::Client::ConfModule</literal> libraries, or
+      they can speak directly to the frontend on standard output.
+    </para>
+    <para>
+      Anything your maintainer scripts output to standard output is
+      passed into the frontend as a command, so you need to remove all
+      extraneous noise, like the starting and stopping of daemons,
+      etc.
+    </para>
+    <para>
+      The only command postinsts normally use to communicate with the
+      frontend is "<literal><link linkend="db_get">get</link></literal>" 
+      (though in reality they can  use any commands, including
+      "<literal>input</literal>", you are advised  not to do so). Typically,
+      the config script prompts the user for input, and the postinst then
+      pulls that input out of the database via the get command.
+    </para>
+    <para>
+      In the example, before debconf, the package's postinst did this:
+      <programlisting>
+	#!/bin/sh -e
+	echo -n "Do you like debian? [yn] "
+	read like
+	case "$like" in
+	n*|N*)
+	echo "Poor misguided one. Why are you installing this package, then?"
+	/etc/init.d/subliminal_messages start "I like debian."
+	;;
+	esac
+      </programlisting>
+    </para>
+    <para>
+      Our config script already handles most of this. After debconf,
+      the postinst becomes:
+      <programlisting>
+	#!/bin/sh -e
+
+	# Source debconf library.
+	. /usr/share/debconf/confmodule.sh  
+
+	deb_get foo/like_debian
+	if [ "$RET" = "false" ]; then
+	/etc/init.d/subliminal_messages start "I like debian."
+	fi
+      </programlisting>
+    </para>
+    <para>
+      There is one other alteration you need to make to the postrm
+      script. When your package is purged, it should get rid of all
+      the questions and templates it was using in the
+      database. Accomplishing this is simple; use the 
+      "<literal><link linkend="db_purge">purge</link></literal>" command
+      (make sure you don't fail if debconf has already been removed, though):
+      <programlisting>
+	if [ "$1" = "purge" -a -e /usr/share/debconf/confmodule.sh ]; then
+	# Source debconf library.
+	. /usr/share/debconf/confmodule.sh
+	# Remove my changes to the db.
+	db_purge
+	fi
+      </programlisting>
+    </para>
+    <para>
+      Note that debhelper will do this for you if you use the
+      dh_installdebconf command.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      Finishing Up
+    </title>
+    <para>
+      Now you have a config script and a templates file. Install both
+      into <literal>debian/tmp/DEBIAN/</literal>. Make sure to make the
+      config script
+      executable.
+      <footnote>
+        <para>
+	  If you use debhelper, this will all be done automatically.
+	</para>
+      </footnote>
+    </para>
+    <para>
+      Your package now uses debconf!
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      Troubleshooting
+    </title>
+    <para>
+      A few things can commonly go wrong when you convert something
+      over to debconf:
+      <itemizedlist>
+	<listitem>
+	  <para>
+	    Your postinst uses debconf and starts a daemon that
+	    doesn't close all inherited file descriptors (all such
+	    daemons are buggy, really). This makes debconf hang,
+	    because the debconf frontend waits for the daemon to close
+	    the fd's before continuing. Note that if you use
+	    confmodule.sh, the program probably needs to close fd's 0,
+	    1, 2, and <emphasis>3</emphasis>.
+	  </para>
+	  <para>
+	    To fix:
+	    <itemizedlist>
+	      <listitem>
+		<para>
+		  Redirect fd's to /dev/null before running the daemon
+		</para>
+	      </listitem>
+	      <listitem>
+		<para>
+		  Or fix the daemon.
+		</para>
+	      </listitem>
+	      <listitem>
+		<para>
+		  Or call the "<literal><link linkend="db_stop">stop</link>
+		  </literal>" command at the end of your postinst, to let the
+		  frontend know you're done.
+		</para>
+	      </listitem>
+	    </itemizedlist>
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>
+      Advanced Topics
+    </title>
+    <para>
+      Now I'll move on to some more complicated areas of debconf.
+    </para>
+    <sect2>
+      <title>
+	Infinite Loop Prevention
+      </title>
+      <para>
+	One gotcha with debconf comes up if you have a loop in your
+	config script.  Suppose you're asking for input and validating
+	it, and looping if it's not valid:
+	<programlisting>
+	  ok=''
+	  do while [ ! "$ok" ];
+	  db_input low foo/bar
+	  db_go
+
+	  db_get foo/bar
+	  if [ "$RET" ]; then
+	  ok=1
+	  fi
+	  done
+	</programlisting>
+      </para>
+      <para>
+	This looks ok at first glance. But consider what happens if
+	the value of foo/bar is "" when this loop is entered, and the
+	user has their priority set high, or is using a
+	non-interactive frontend, and so they are not really asked for
+	input. The value of foo/bar is not changed by the db_input,
+	and so it fails the test and loops. And loops ...
+      </para>
+      <para>
+	The fix for this is to make sure that before the loop is
+	entered, the value of foo/bar is set to something that will
+	pass the test in the loop. So for example if the default value
+	of foo/bar is "<literal>1</literal>", then the
+	"<literal><link linkend="db_reset">reset</link></literal>" command
+	can just be called before entering the loop.
+      </para>
+      <para>
+	Another fix is to use the "<literal><link linkend="db_visible">
+	visible</link></literal>" command to test if the user will be prompted,
+	and skip the loop if not.
+      </para>
+    </sect2>
+    <sect2>
+      <title>
+	Choosing among related packages
+      </title>
+      <para>
+	Sometimes a set of related packages can be installed, and you
+	want to prompt the user which of the set should be used by
+	default. Examples of such sets are window managers, or ispell
+	dictionary files. While it would be possible for each package
+	in the set to simply prompt <quote>Should this package be
+	default?</quote>,
+	this leads to a lot of repetative questions if several of the
+	packages are installed. It's possible with debconf to present
+	a list of all the packages in the set and allow the user to
+	choose between them. Here's how.
+      </para>
+      <para>
+	Make all the packages in the set use a shared
+	template. Something like this:
+	<programlisting>
+	  Template: shared/window-manager
+	  Type: select
+	  Choices: ${choices}
+	  Description: Select the default window manager.
+	  Select the window manager that will be started by default when X
+	  starts.
+	</programlisting>
+      </para>
+      <para>
+	Each package should include a copy of the template. Then it
+	should include some code like this in its config script:
+	<programlisting>
+	  db_metaget shared/window-manager owners
+	  OWNERS=$RET
+	  db_metaget shared/window-manager choices
+	  CHOICES=$RET
+	  
+	  if [ "$OWNERS" != "$CHOICES" ]; then
+	  db_subst shared/window-manager choices $OWNERS
+	  db_fset shared/window-manager isdefault true
+	  db_input medium shared/window-manager
+	  db_go
+	  fi
+	</programlisting>
+      </para>
+      <para>
+	A bit of an explination is called for. By the time your config
+	script runs, debconf has already read in all the templates for
+	the packages that are being installed. Since the set of
+	packages share a question, debconf records that fact in the
+	owners field. By a strange cooincidence, the format of the
+	owners field is the same as that of the choices field (a comma
+	and space delimited list of values).
+      </para>
+      <para>
+	The "<literal><link linkend="db_metaget">metaget</link></literal>"
+	command can be used to get the list of owners and the list of
+	chocies. If they are different, then a new package has been
+	installed. So use the 
+	"<literal><link linkend="db_subst">subst</link></literal>"
+	command to change the list of choices to be the same as
+	the list of owners, and ask the question.
+      </para>
+      <para>
+	One thing this doesn't deal with is what happens if the
+	package selected as the default is removed. If that happens
+	you probably want to make some other package the
+	default. Doing so is left as an excercise for the reader.
+      </para>
+    </sect2>
+  </sect1>
+
+  <appendix>
+    <title id="commands">
+      Commands
+    </title>
+    <para>
+      Here is a complete list of the the commands you can use to
+      communicate with the frontend.
+      <footnote>
+	<para>
+	  Remember these are prefixed with "<literal>db_</literal>" if you are
+	  using  confmodule.sh.
+	</para>
+      </footnote>
+      <itemizedlist>
+	<listitem id="db_version">
+	  <para>
+	    version
+	    <parameter>number</parameter>
+	  </para>
+	  <para>
+	    This exchanges with the frontend the protocol version
+	    number that is being used. The current version is
+	    1.0. Versions in the 1.x series will be
+	    backwards-compatible. You can specify the protocol version
+	    number you are speaking, but note that the perl and shell
+	    libraries specify a good default for you. The frontend
+	    will return the version of the protocol it speaks.
+	  </para>
+	</listitem>
+	<listitem id="db_capb">
+	  <para>
+	    capb 
+	    <parameter>capabilities</parameter>
+	  </para>
+	  <para> 
+	    This exchanges with the frontend the capabilities
+	    that are supported.  Capabilities both the frontend and you
+	    send will be used. Currently supported capabilities:
+	    <itemizedlist>
+	      <listitem>
+		<para>
+		  backup
+		</para>
+		<para>
+		  Backing up to a previous step is supported.
+		</para>
+	      </listitem>
+	    </itemizedlist>
+	  </para>
+	</listitem>
+	<listitem id="db_title">
+	  <para>
+	    title
+	    <parameter>string</parameter>
+	  </para>
+	  <para>
+	    You can use this command to set a title in the
+	    frontend. This in different ways, depending on the
+	    frontend being used, for example it might change the title
+	    of the frontend's window. If you don't specify anything, a
+	    title will automatically be generated.
+	  </para>
+	</listitem> 
+	<listitem id="db_stop">
+	  <para>
+	    stop
+	  </para>
+	  <para>
+	    This command tells the frontend you're done talking to it.
+	  </para>
+	</listitem>
+	<listitem id="db_input">
+	  <para>
+	    input
+	    <parameter>priority</parameter>
+	    <parameter>variable</parameter>
+	  </para>
+	  <para>
+	    This tells the frontend you are interested in the value of
+	    a variable. <parameter>variable</parameter> is the name of the
+	    variable, which should correspond to the Template: line of
+	    the template that defines this variable.
+	    <parameter>priority</parameter> is how important it is that the user
+	    be prompted for the variable. Supported priorities:
+	    <itemizedlist>
+	      <listitem>
+		<para>
+		  low
+		</para>
+		<para>
+		  Use this for very trivial items that have defaults that
+		  will work in the vast majority of cases.
+		</para>
+	      </listitem>
+	      <listitem>
+		<para>
+		  medium
+		</para>
+		<para>
+		  Use this for normal items that have reasonable defaults.
+		</para>
+	      </listitem>	
+	      <listitem>
+		<para>
+		  high
+		</para>
+		<para>
+		  Use this for items that don't have a reasonable 
+		  default.
+		</para>
+	      </listitem>
+	      <listitem>
+		<para>
+		  critical
+		</para>
+		<para>
+		  Use this only for items that will probably break
+		  the system without user intervention.
+		</para>
+	      </listitem>
+	    </itemizedlist>
+	  </para>
+	  <para>
+	    Note that the frontend decides if the user is actually
+	    prompted or not. If the user has already answered a
+	    question, they are normally not asked it again even if
+	    input is called again. And if the user is ignoring low
+	    priority items, they will not see them.
+	  </para>
+	</listitem>
+	<listitem id="db_visible">
+	  <para>
+	    visible
+	    <parameter>priority</parameter>
+	    <parameter>variable</parameter>
+	  </para>
+	  <para>
+	    Ask the frontend if it would actually show a question to
+	    the user if you ran "<literal>input <parameter>priority</parameter>
+	    <parameter>variable</parameter></literal>". Returns 
+	    "<literal>true</literal>" or "<literal>false</literal>".
+	  </para>
+	</listitem>
+	<listitem id="db_beginblock">
+	  <para>
+	    beginblock
+	  </para>
+	</listitem>
+	<listitem id="db_endblock">
+	  <para>
+	    endblock
+	  </para>
+	  <para>
+	    Some frontends are able to display a number of items to
+	    the user at once. To do this, they need to be given blocks
+	    of input commands, enclosed in the beginblock and endblock
+	    commands. Blocks can be nested and very advanced frontends
+	    may use this as a user interface hint.
+	  </para>
+	</listitem>
+	<listitem id="db_go">
+	  <para>
+	    go
+	  </para>
+	  <para>
+	    Shows the current set of accumulated items to the user and lets
+	    them fill in values, etc.
+	  </para>
+	</listitem>
+	<listitem id="db_clear">
+	  <para>
+	    clear
+	  </para>
+	  <para>
+	    Clears the accumulated set of items without displaying them
+	    to the user.
+	  </para>
+	</listitem>
+	<listitem id="db_get">
+	  <para>
+	    get <parameter>variable</parameter>
+	  </para>
+	  <para>
+	    Ask the frontend to tell you the value of a variable. The
+	    value is returned to you.
+	  </para>
+	</listitem>
+	<listitem id="db_set">
+	  <para>
+	    set
+	    <parameter>variable</parameter>
+	    <parameter>value</parameter>
+	  </para>
+	  <para>
+	    Ask the frontend to set a variable to a value.
+	  </para>
+	</listitem>
+	<listitem id="db_reset">
+	  <para>
+	    reset
+	    <parameter>variable</parameter>
+	  </para>
+	  <para>
+	    Reset the variable to its default value.
+	  </para>
+	</listitem>
+	<listitem id="db_subst">
+	  <para>
+	      subst
+	      <parameter>variable</parameter>
+	      <parameter>key</parameter>
+	      <parameter>value</parameter>
+	  </para>
+	  <para>
+	    Variables can have substitutions embedded in their
+	    descriptions. These substitutions look like
+	    "<literal>${key}</literal>". When the description is displayed,
+	    the substitutions are replaced with their values. This
+	    command can be used to set the value of a substitution.
+	    </para>
+	  </listitem>
+	  <listitem id="db_fget">
+	    <para>
+	      fget
+	      <parameter>variable</parameter>
+	      <parameter>flag</parameter>
+	    </para>
+	    <para>
+	      Variables can have flags associated with them. The flags
+	      have a value of "<literal>true</literal>" or 
+	      "<literal>false</literal>". This command returns
+	      the value of a flag.
+	    </para>
+	  </listitem>
+	  <listitem id="db_fset">
+	    <para>
+	      fset
+	      <parameter>variable</parameter>
+	      <parameter>flag</parameter>
+	      <parameter>value</parameter>
+	    </para>
+	    <para>
+	      This sets the value of a flag on a variable. Valid
+	      values for the flag are "<literal>true</literal>" and 
+	      "<literal>false</literal>". One common flag is the 
+	      "<literal>isdefault</literal>" flag. It is normally only set if
+	      the variable is set to its default value and the user
+	      has not seen it. Typically, frontends only display
+	      questions to users if they have the isdefault flag set.
+	      Sometimes you want the user to see a question again --
+	      in these cases you can set the isdefault flag to true to
+	      force the frontend to redisplay it.
+	    </para>
+	  </listitem>
+	  <listitem id="db_metaget">
+	    <para>
+	      metaget 
+	      <parameter>variable</parameter>
+	      <parameter>field</parameter>
+	    </para>
+	    <para>
+	      This returns the value of any field of a variable.
+	    </para>
+	  </listitem>
+	  <listitem id="db_register">
+	    <para>
+	      register
+	      <parameter>template</parameter>
+	      <parameter>variable</parameter>
+	    </para>
+	    <para>
+	      This creates a new variable that is bound to a
+	      template. By default each template has an associated
+	      variable with the same name. However, any number of
+	      variables can really be associated with a template, and
+	      this lets you create more such variables.
+	    </para>
+	  </listitem>
+	  <listitem id="db_unregister">
+	    <para>
+	      unregister
+	      <parameter>variable</parameter>
+	    </para>
+	    <para>
+	      This removes a variable from the database.
+	    </para>
+	  </listitem>
+	  <listitem id="db_purge">
+	    <para>
+	      purge
+	    </para>
+	    <para>
+	      Call this in your postinst when your package is
+	      purged. It removes all templates and variables your
+	      package has generated.
+	    </para>
+	  </listitem>
+      </itemizedlist>
+    </para>
+  </appendix>
+</article>

@@ -54,7 +54,7 @@ sub show {
 		$menu_height = $screen_lines - $lines;
 	}
 	$lines=$lines + $menu_height + $this->frontend->spacer;
-	my $c=0;
+	my $c=1;
 	foreach (@choices) {
 		if ($_ ne $default) {
 			push @params, $c++, $_
@@ -73,7 +73,7 @@ sub show {
 	exit $ret if $ret != 0;
 
 	@choices=$this->question->choices_split;
-	$value=$choices[$value];
+	$value=$choices[$value - 1];
 
 	$this->question->value($value);
 	$this->question->flag_isdefault('false');

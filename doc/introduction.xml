@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//Norman Walsh//DTD DocBk XML V3.1//EN"
+     "dtd/docbook-xml/docbookx.dtd">
+<article>
+  <artheader>
+    <title>
+      In Introduction to DebConf
+    </title>
+    <author>
+      <firstname>
+        Joey
+      </firstname>
+      <surname>
+        Hess
+      </surname>
+      <affiliation>
+        <orgname>
+	  The Debian Project
+	</orgname>
+	<address><email>joeyh@debian.org</email></address>
+      </affiliation>
+    </author>
+    <copyright>
+      <year>
+        1999
+      </year>
+      <holder>
+        Joey Hess
+      </holder>
+    </copyright>
+    <legalnotice>
+      <para>
+        This text is distributed according to the
+	<ulink url="http://www.gnu.org/copyleft/gpl.html">
+	  General Public License
+	</ulink>.
+      </para>
+    </legalnotice>
+  </artheader>
+ 
+  <sect1>
+    <title>
+      Introduction
+    </title>
+    <para>
+      In this document, I'll explain how maintainer scripts in debian
+      packages have interacted with the user so far, the problems this
+      causes, and the things it prevents us from doing. Then I'll show
+      how debconf can address these problems.
+    </para>
+  </sect1>
+  <sect1>
+    <title>
+      The status quo
+    </title>
+    <para>
+      Currently, if a package needs to prompt the user for input, it
+      just does, using standard input and standard output to
+      communicate with them. A few packages use things like dialog for
+      a user interface, while most use bare-bones textual
+      interfaces. There is little consistency between these
+      interfaces, since they are each written from scratch. They use
+      different methods to indicate default values, different ways to
+      present lists of choices, and even prompt in different ways when
+      the user just needs to hit enter after being shown a
+      message. Many packages ask the user a series of questions with
+      no way to go back to a previous question, or to start over.
+    </para>
+  </sect1>
+  <sect1>
+    <title>
+      Problems with the status quo
+    </title>
+    <para>
+      Most packages that prompt do so in the postinst, and so the user
+      has to baby-sit an install, answering questions as they come up,
+      and then waiting for some more packages to be installed and some
+      more questions to arrive.  There is no way to answer all the
+      questions first and then let dpkg install everything unattended,
+      and so installs are a long, drawn out process.
+    </para>
+    <para>
+      Upgrades often take a long time as well, because many packages
+      ask the same questions over and over each time they are
+      installed. Those that don't have to store the user's last
+      response somewhere, and they do this in a variety of different,
+      inconsistent, ways.
+    </para>
+    <para>
+      Moreover, there is no way to simply use default answers for all
+      the questions asked, if you're in a hurry or don't want to be
+      bothered with them, which has historically made the debian
+      install a barrier to new users.
+    </para>
+    <para>
+      The traditional way of asking questions has made some
+      specialized uses of debian harder as well. Many experienced
+      debian users would like to put <quote>apt-get update; apt-get
+      upgrade</quote> in a cron job, and have their system upgraded
+      periodically to unstable. People working on clusters or other
+      large-scale debian installations can't afford to answer the same
+      questions over and over again on each machine, and have hacked
+      together various ways around this.
+    </para>
+    <para>
+      Finally, several distributions have appeared recently, based on
+      debian but catering to inexperienced users. None of them want
+      the user to see any questions at all when they install, and they
+      have used various hacks to suppress the questions.
+    </para>
+    <para>
+      It seems clear that we need something better to replace the
+      traditional method of querying the user from a maintainer
+      script. It needs to present a consistent user interface to the
+      user. It needs to be able to prioritize questions so
+      non-interactive installs are possible, as well as installs with
+      all questions asked, or only the most important ones. It needs
+      to be able to ask questions only once. And it would be nice if
+      the questions could be stored in a database on a central machine
+      and sent out to other machines in a cluster, so they need only
+      be asked once for a whole cluster.
+    </para>
+  </sect1>
+  <sect1>
+    <title>
+      Debconf antecedents
+    </title>
+    <para>
+      In fall of 1998, Wichert Akkerman came up with a specification
+      for a configuration management system that would address these
+      needs. It was refined on the debian lists over the next several
+      months. The 
+      <ulink url="http://www.debian.org/~wakkerma/config6/">current
+	specification</ulink> has been through 6 iterations.
+    </para>
+    <para>
+      The specification is very flexible, allowing for multiple
+      different back-end databases (using arbitrary database formats
+      from SQL to plain text), that can be layered together and
+      accessed over the network or locally. It also allows for a
+      variety of user interfaces to be presented to the user. The
+      maintainer scripts communicate with the back-end and front-end
+      using a simple language.
+    </para>
+  </sect1>
+  <sect1>
+    <title>
+      Debconf
+    </title>
+    <para>
+      Debconf is an implementation of this specification. At this
+      point it consists of a variety of front-end user interfaces
+      (plain text similar to the traditional method, dialog based,
+      web, and GTK). It doesn't yet include the flexible back-end
+      database system from the specification. It is already fully
+      usable as a consistent way to configure packages.
+    </para>
+    <para>
+      As it stands now, debconf is usable along-side traditional
+      packages, and packages that use debconf will behave just like
+      normal packages except they use a consistent UI. Debconf also
+      hooks into apt so if you use apt to install several
+      debconf-aware packages at once, the packages will prompt for
+      configuration information <emphasis>before</emphasis> they are
+      installed. An example is in order -- this is using debconf's
+      plain text front-end. This really can't show off all of
+      debconf's features, but it should give you the idea.
+<literallayout>
+root@gumdrop:~&gt; apt-get install sash lynx
+Reading Package Lists... Done
+Building Dependency Tree... Done
+The following NEW packages will be installed:
+  lynx sash 
+0 packages upgraded, 2 newly installed, 0 to remove and 26 not upgraded.
+Need to get 0B/1089kB of archives. After unpacking 2480kB will be used.
+Lynx Configuration
+------------------
+
+Please enter the default URL to use if none is given when invoking lynx. 
+
+You must enter either a full URL (including the "http://", etc.) or an
+absolute pathname. 
+
+What is lynx's homepage? http://debian.org/       
+
+Sash Configuration
+------------------
+
+The best way to use sash is to install it as root's login shell. Currently
+root's login shell is set to /usr/bin/zsh. 
+
+Should sash be root's login shell? [yN] n
+
+Selecting previously deselected package lynx.
+(Reading database ... 41813 files and directories currently installed.)
+Unpacking lynx (from .../lynx_2.8.2-3.1_i386.deb) ...
+Selecting previously deselected package sash.
+Unpacking sash (from .../archives/sash_2.1-5.1_i386.deb) ...
+Setting up lynx (2.8.2-3.1) ...
+Update-menus[31963]: further output (if any) will appear in /tmp/update-menus.31963
+
+Setting up sash (2.1-5.1) ...
+
+root@gumdrop:~&gt;
+</literallayout>
+    </para>
+  </sect1>
+</article>

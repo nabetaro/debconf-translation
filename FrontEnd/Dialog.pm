@@ -63,22 +63,22 @@ sub new {
 		$self->{titlespacer}=10;
 		$self->{columnspacer}=3;
 	}
-#	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
-#		$self->{program}='dialog';
-#		$self->{borderwidth}=7;
-#		$self->{borderheight}=6;
-#		$self->{spacer}=4;
-#		$self->{titlespacer}=4;
-#		$self->{columnspacer}=2;
-#	}
-	elsif (-x "/usr/bin/gdialog") {
-		$self->{program}='gdialog';
-		$self->{borderwidth}=5;
+	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
+		$self->{program}='dialog';
+		$self->{borderwidth}=7;
 		$self->{borderheight}=6;
-		$self->{spacer}=1;
-		$self->{titlespacer}=10;
-		$self->{columnspacer}=0;
+		$self->{spacer}=4;
+		$self->{titlespacer}=4;
+		$self->{columnspacer}=2;
 	}
+#	elsif (-x "/usr/bin/gdialog") {
+#		$self->{program}='gdialog';
+#		$self->{borderwidth}=5;
+#		$self->{borderheight}=6;
+#		$self->{spacer}=1;
+#		$self->{titlespacer}=10;
+#		$self->{columnspacer}=0;
+#	}
 	else {
 		die "Whiptail is not installed, so the dialog based frontend cannot be used.";
 #		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";

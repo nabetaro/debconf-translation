@@ -1,3 +1,19 @@
+debconf (0.1.61) unstable; urgency=low
+
+  * Converted the tutorial and introduction to xml and docbook.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri,  8 Oct 1999 16:26:17 -0700
+
+debconf (0.1.60) unstable; urgency=low
+
+  * Disabled gdialog support just temporariy.
+  * Works with the latest dialog in unstable, re-enabled dialog support.
+  * Dialog select boxes are now indexed starting at 1, not 0.
+  * Documented a confmodule.sh gotcha in a tew troubleshooting section of
+    the tutorial.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri,  8 Oct 1999 09:36:02 -0700
+
 debconf (0.1.59) unstable; urgency=low
 
   * Guarded postinst code that modifies apt.conf to prevent dup entries.
