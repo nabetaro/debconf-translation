@@ -1,3 +1,10 @@
+debconf (0.1.48) unstable; urgency=low
+
+  * Quoted a few more bareword hash keys that were causing a perl warning. What
+    puzzles me is I cannot reproduce the warning at all.. (Closes: #46545)
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun,  3 Oct 1999 17:18:36 -0700
+
 debconf (0.1.47) unstable; urgency=low
 
   * Doh -- I need to update to use debhelper's debconf support! :-)

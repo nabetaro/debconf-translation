@@ -37,9 +37,9 @@ sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->{readline}=Term::ReadLine->new('debian');
-	$self->{readline}->ornaments(1);
-	$self->{interactive}=1;
+	$self->{'readline'}=Term::ReadLine->new('debian');
+	$self->{'readline'}->ornaments(1);
+	$self->{'interactive'}=1;
 	return $self;
 }
 
@@ -117,12 +117,12 @@ sub display_nowrap {
 	# Display any pending title.
 	$this->title unless $notitle;
 
-	my $num=($ENV{LINES} || 25);
+	my $num=($ENV{'LINES'} || 25);
 	my @lines=split(/\n/, $text);
 	# Silly split elides trailing null matches.
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
-		if (++$this->{linecount} > $num - 2) {
+		if (++$this->{'linecount'} > $num - 2) {
 			$this->prompt("[More]");
 		}
 		print "$_\n";
@@ -141,7 +141,7 @@ sub title {
 	my $this=shift;
 
 	if (@_) {
-		return $this->{title}=shift;
+		return $this->{'title'}=shift;
 	}
 
 	my $title=$this->{'title'};
@@ -167,7 +167,7 @@ sub prompt {
 	# Display any pending title.
 	$this->title;
 
-	$this->{linecount}=0;
+	$this->{'linecount'}=0;
 	local $_=$this->{'readline'}->readline($prompt, $default);
 	$this->{'readline'}->addhistory($_);
 	return $_;
@@ -185,10 +185,10 @@ sub prompt_password {
 	my $default=shift;
 	
 	my $attribs=$this->{'readline'}->Attribs;
-	my $oldfunc=$attribs->{redisplay_function};
-	$attribs->{redisplay_function} = $attribs->{shadow_redisplay};
+	my $oldfunc=$attribs->{'redisplay_function'};
+	$attribs->{'redisplay_function'} = $attribs->{'shadow_redisplay'};
 	my $ret=$this->prompt($prompt, $default);
-	$attribs->{redisplay_function} = $oldfunc;
+	$attribs->{'redisplay_function'} = $oldfunc;
 
 	return $ret;
 }
