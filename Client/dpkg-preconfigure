@@ -125,7 +125,10 @@ if ($apt) {
 		chomp;
 		push @debs, $_ if length $_;
 	}
-	exit unless @debs;
+	
+	# If there are less than 2 packages being installed, bail as an
+	# optimization. No point in pre-configuring 1 package, after all.
+	exit unless @debs > 1;
 	
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin should get input from the user, so re-open.

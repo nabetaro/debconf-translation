@@ -1,3 +1,13 @@
+debconf (0.3.23) unstable; urgency=low
+
+  * Don't use the 'lib' module in Client/frontend. Closes: #62629
+  * Dpkg-preconfigure in apt mode bails if it is asked to scan just one
+    package. Thete's no benefit to preconfiguration if you're just doing
+    one, because apt is just going to install it immediatly anyway. This
+    optimizes for the "apt-get install foo" case.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 11 Apr 2000 22:00:15 -0700
+
 debconf (0.3.22) unstable; urgency=low
 
   * Catch undefined value returned if a package that is not installed is

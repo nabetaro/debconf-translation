@@ -19,7 +19,6 @@ all this.
 =cut
 
 use strict;
-use lib '.';
 use Debian::DebConf::ConfigDb qw(loaddb savedb loadtemplatefile);
 use Debian::DebConf::Config qw(dbdir);
 use Debian::DebConf::AutoSelect qw(:all);

@@ -50,6 +50,7 @@ install:
 	# Now strip all pod documentation from all .pm files.
 	# Also, don't use 'base'.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ $(prefix)/usr/sbin \
+	     $(prefix)/usr/share/debconf/frontend \
 	     -name '*.pm' -or -name 'dpkg-*' | xargs perl -i.bak -ne ' 	\
 	     		print $$_."# This file has been preprocessed, do not edit directly.\n" \
 				if m:^#!/usr/bin/perl:; 		\
