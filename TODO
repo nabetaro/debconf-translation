@@ -1,8 +1,18 @@
 General:
+* Client::Confmodule's automatic frontend spawning stuff needs to happen.
+  I'm undecided how. One way is to bacome the frontend, or exec a program
+  that does, and start up anoither copy of itself. 
+  
+  But I just thought of another way - open2 a program that launches a
+  FrontEnd. Would it be possible to fork() and talk with your child ovr
+  stdin and out? Then the child would be the frontend. That'd be cool.
+  
+  However, I want to keep in mind that I'd like to start up the frontend
+  only once, not per invocation of dpkg-frontend, or whatever. Hm.
 * The spec says there should be an "isdefault" flag on each variable, that
   is set if the variable is changed from its default.
 * Other frontends.
-* Working .deb's using the system -- slrn is started.
+* Working .deb's using the system -- slrn is started as is netbase.
 * Proper backend database, but that's a whole other ball of wax.
 * The web based frontend displays blank pages with just the bottom buttons
   if low priority questions are asked.

@@ -35,6 +35,9 @@ sub new {
 	$self->{write_handle} = FileHandle->new;
 	$self->{pid} = open2($self->{read_handle}, $self->{write_handle},
 		             $self->{confmodule}) || die $!;
+
+	# Let clients know a FrontEnd is actually running.
+	$ENV{DEBIAN_FRONTEND}=1;
 	return $self;
 }
 

@@ -247,10 +247,14 @@ following method:
 
 	show()
 		Display the element, prompting the user for input if necessary.
+		Typically also sets the value of the Question bound to this
+		Element.
 
 Web based Elements have a show() that outputs html, plus this method:
 
 	set(value)
 		Receive a value from the user and deal with it as necessary.
+		Typically this sets the value of the Question bound to this
+		Element.
 
 -- Joey Hess <joey@kitenet.net>
