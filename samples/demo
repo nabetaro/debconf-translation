@@ -59,8 +59,8 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 done
 
 # This is EVIL, never echo in your own config scripts!
-db_get demo/text
-echo $RET
+db_get demo/string
+echo string is $RET
 db_get demo/boolean
 echo $RET
 db_get demo/multiselect

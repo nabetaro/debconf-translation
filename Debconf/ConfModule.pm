@@ -325,7 +325,7 @@ sub command_version {
 
 =item command_capb
 
-Sets the client_capb field to the confmodules capb string, and also
+Sets the client_capb field to the confmodules's capabilities, and also
 sets the capb_backup field of the ConfModules associated FrontEnd if
 the confmodule can backup. Sends the capb field of the associated
 FrontEnd to the confmodule.

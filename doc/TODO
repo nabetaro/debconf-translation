@@ -1,15 +1,6 @@
-I18N:
-* I should "use locale" here and there.
-* "n. najwy¿szy  w. wysoki  a. ¶redni  b. niski"
-  Notice that it did not use ¶ as a letter here. Perhaps it should. OTOH,
-  doing so might cause problems with wide character sets, if the first half
-  of a character were used.
-
 General:
 * The ConfModule should not return the backup return code, ever, if 
   the confmodule it talks to has not indicated it has that capability.
-* When preconfiguring from apt, SIGWINCH signals are ignored. This is an
-  apt bug -- a patch is in the BTS and it should be fixed soon.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
   Unfortuantly, many packages probably depend on the hack. Options are to
   find all such packages (by examining/auditing all packages that use
@@ -18,9 +9,6 @@ General:
   or to decide with Wichert that debconf should not ursurp stdin/out.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
-* When Client::ConfModule launches a frontend, the frontend doesn't see
-  stuff echo'd to stdout, if it is echo'd inside a system. (Is this still
-  true? Test.)
 * Regression tests.
 * I need to implement the container template type. That's gonna be fun..
 * Something I see frequently is a select list that needs lots of explination
@@ -36,6 +24,9 @@ General:
   Dialog frontend couldn't support this, but the rest could.
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
+
+I18N:
+* I should "use locale" here and there.
 
 Database:
 * The division between Debconf::Config and Debconf::Db still needs thought.
@@ -57,12 +48,6 @@ Slang frontend:
 * Menus to allow controlling of question priority on the fly (?)
 * Hotkeys
 * Scrolling the ext descriptions!
-
-Text frontend:
-* If you are entering text, they're no way to enter "" because it is
-  interpreted as "use default". I should be able to make this not be an issue
-  if GNU Readline is being used anyway, and probably perl readline as well, 
-  just not the really dumb version.
 
 Dialog frontend:
 * It'd be nice if the Dialog stuff could catch text that was to be

@@ -34,11 +34,6 @@ sub show {
 	);
 	return unless defined $value;
 	
-	# Handle defaults.
-	if ($value eq '') {
-		$value=$default;
-	}
-	
 	$this->frontend->display("\n");
 	$this->value($value);
 }

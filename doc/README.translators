@@ -14,9 +14,9 @@ differently.
   lines. When I change the main templates file, you can merge in my changes
   like this:
      debconf-getlang <lang> debian/templates debian/templates.<lang> > new
-  Then edit the new file, keeping an eye out for fields with "-OLD" in
+  Then edit the new file, keeping an eye out for fields with "-fuzzy" in
   their names. Those are out of date translations, which you should update
-  based on the English text (and then remove the -OLD fields).
+  based on the English text (and then remove the -fuzzy fields).
 
 * Finally, you might want to translate some of debconf's docs. I don't yet
   have a mechanism for translating the xml documentation. It is possible to
