@@ -257,8 +257,7 @@ sub flag {
 =item value
 
 Get the current value of this Question. Will return the default value 
-from the template if no value is set. Pass in second parameter to set
-the value.
+from the template if no value is set. Pass in parameter to set the value.
 
 =cut
 

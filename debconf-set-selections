@@ -1,0 +1,165 @@
+#!/usr/bin/perl
+
+=head1 NAME
+
+debconf-set-selections - insert new default values into the debconf database
+
+=cut
+
+sub usage {
+	print STDERR <<EOF;
+Usage: debconf-set-selections [-vc] [file]
+  -v, --verbose     verbose output
+  -c, --checkonly   only check the input file format
+EOF
+	exit(1);
+}
+
+=head1 SYNOPSIS
+
+ debconf-set-selections file
+ debconf-get-selections | ssh newhost debconf-set-selections
+
+=head1 DESCRIPTION
+
+B<debconf-set-selections> can be used to pre-seed the debconf database with
+answers, or to change answers in the database. Each question will be marked
+as seen to prevent debconf from asking the question interactively.
+
+Reads from a file if a filename is given, otherwise from stdin.
+
+=head1 WARNING
+
+Only use this command to seed debconf values for packages that will be or
+are installed. Otherwise you can end up with values in the database for
+uninstalled packages that will not go away, or with worse problems
+involving shared values. It is recommended that this only be used to seed
+the database if the originating machine has an identical install.
+
+=head1 DATA FORMAT
+
+The data is a series of lines. Lines beginning with a # character are
+comments. Blank lines are ignored. All other lines set the value of one
+question, and should contain four values, each separated by one character
+of whitespace. The first value is the name of the package that owns the
+question. The second is the name of the question, the third value is the
+type of this question, and the fourth value (through the end of the line)
+is the value to use for the answer of the question.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--verbose>, B<-v>
+
+verbose output
+
+=item B<--checkonly>, B<-c>
+
+only check the input file format, do not save changes to database
+
+=back
+
+=cut
+
+use warnings;
+use strict;
+use Debconf::Db;
+use Debconf::Template;
+use Getopt::Long;
+
+use vars qw(%opts $filename $debug $error $checkonly);
+
+sub info {
+	my $msg = shift;
+	print STDERR "info: $msg\n" if $debug;
+}
+
+sub error {
+	my $msg = shift;
+	print STDERR "error: $msg\n";
+	$error++
+}
+
+sub load_answer {
+	my ($owner, $label, $type, $content) = @_;
+	
+	info "Loading answer for '$label'";
+
+	# Set up the template. If it already exists, override its default
+	# value.
+	my $template=Debconf::Template->get($label);
+	if (! $template) {
+		$template=Debconf::Template->new($label, $owner, $type);
+		$template->description("Dummy template");
+		$template->extended_description("This is a fake template used to pre-seed the debconf database. If you are seeing this, something is probably wrong.");
+	}
+	else {
+		$template->default($content);
+	}
+	$template->type($type);
+	
+	# The question should already exist, it was created along with the
+	# template. Set it up.
+	my $question=Debconf::Question->get($label);
+	if (! $question) {
+		error("Cannot find a question for $label");
+		return;
+	}
+	$question->addowner($owner, $type);
+	$question->value($content);
+	$question->flag("seen", "true");
+}
+
+my @knowntypes = qw(select boolean string multiselect note password text);
+
+sub ok_format {
+	my ($owner, $label, $type, $content) = @_;
+	if (! defined $owner || ! defined $label || ! defined $content ||
+	    ! grep { $_ eq $type } @knowntypes) {
+		return;
+	}
+	else {
+		return 1;
+	}
+}
+GetOptions(
+	"verbose|v" => \$debug,
+	"checkonly|c" => \$checkonly,
+) || usage();
+
+Debconf::Db->load;
+
+$error = 0;
+
+while (<>) {
+	chomp;
+	s/\#.+$//;
+	next if /^\s*$/;
+	my ($owner, $label, $type, $content) = split(/\s/, $_, 4);
+	if (! defined $content) {
+		$content='';
+	}
+
+	if (ok_format($owner, $label, $type, $content)) {
+		info "Trying to set '$label' [$type] to '$content'";
+		load_answer($owner, $label, $type, $content);
+	}
+	else {
+		error "parse error on line $.: '$_'";
+	}
+}
+
+if (! $checkonly) {
+	Debconf::Db->save;
+}
+
+if ($error) {
+	exit 1;
+}
+
+=head1 AUTHOR
+
+Petter Reinholdtsen <pere@hungry.com>
+
+=cut

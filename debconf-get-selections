@@ -1,0 +1,38 @@
+#!/usr/bin/perl
+
+=head1 NAME
+
+debconf-get-selections
+
+=head1 SYNOPSIS
+
+debconf-get-selections
+
+=head1
+
+Output the current debconf database in a format understandable by
+debconf-set-selections.
+
+=cut
+
+use strict;
+use warnings;
+use Debconf::Db;
+use Debconf::Template;
+use Debconf::Question;
+
+Debconf::Db->load;
+my $qi = Debconf::Question->iterator;
+
+while (my $q = $qi->iterate) {
+	my ($name, $type, $value) = ($q->name, $q->type, $q->value);
+	foreach my $owner (split ", ", $q->owners) {
+		print "$owner\t$name\t$type\t$value\n";
+	}
+}
+
+=head1 AUTHOR
+
+Petter Reinholdtsen <pere@hungry.com>
+
+=cut

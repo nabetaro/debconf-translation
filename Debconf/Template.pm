@@ -52,7 +52,7 @@ variable is set, and you request a field from a template, it will see if
 
 =head1 CLASS METHODS
 
-=item new(template, owner)
+=item new(template, owner, type)
 
 The name of the template to create must be passed to this function.
 
