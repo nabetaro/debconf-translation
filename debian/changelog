@@ -1,3 +1,22 @@
+debconf (0.1.15) unstable; urgency=low
+
+  * Broke the nasty perl code out of confmodule.sh, it's much cleaner now
+    (and you don't see a page long perl -e command in ps..)
+  * I now know exactly what's causing the hang problem -- update-menus!
+    I still have no clue why.
+  * Modified Client/frontend so it runs the config script of a package
+    if the script is available, every time. This is pretty ugly, but it has
+    a very nice effect: when you dpkg -i a brand new debconfed .deb, the 
+    config script runs as soon as the postinst tries to use debconf, and
+    this lets you configure it, and then it is installed. So you don't have
+    to dpkg-preconfig it first. Of course, if you're using apt, it is
+    preconfiged, and then the config script is run again, redundantly (but
+    doesn't do anything since it's already run). This is basically the last
+    workaround needed for dpkg not preconfiguring stuff on it's own -- now
+    debconf use is completly transparent.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 13 Sep 1999 12:58:00 -0700
+
 debconf (0.1.14) unstable; urgency=low
 
   * Don't use dh_link, so it can still build on va.

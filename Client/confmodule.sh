@@ -8,40 +8,9 @@
 # Check to see if a FrontEnd is running.
 if [ ! "$DEBIAN_HAS_FRONTEND" ]; then
 	# Ok, this is pretty crazy. Since there is no FrontEnd, this
-	# program will turn into the FrontEnd. It will then run a new copy
-	# of $0 that can talk to it.
-	#
-	# Yes, Sean, it's ugly, but it works. :-)
-	exec perl -e '
-		use strict;
-		use lib ".";
-		use Debian::DebConf::ConfigDb;
-		use Debian::DebConf::Config;
-		
-		# Load up previous state information.
-		if (-e $Debian::DebConf::Config::dbfn) {
-			Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
-		}
-		
-		my $type=ucfirst($ENV{DEBIAN_FRONTEND} || "base" );
-		
-		my $frontend=eval qq{
-			use Debian::DebConf::FrontEnd::$type;
-			Debian::DebConf::FrontEnd::$type->new();
-	        };
-		die $@ if $@;
-		my $confmodule=eval qq{
-			use Debian::DebConf::ConfModule::$type;
-			Debian::DebConf::ConfModule::$type->new(\$frontend, join " ",\@ARGV);
-		};
-		die $@ if $@;
-		
-		# Talk to it until it is done.
-		1 while ($confmodule->communicate);
-		
-		# Save state.
-		Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
-	' $0 $*
+	# program execs a FrontEnd. It will then run a new copy of $0 that
+	# can talk to it.
+	exec /usr/share/debconf/frontend $0 $*
 fi
 
 # Redirect standard output to standard error. This prevents common mistakes by

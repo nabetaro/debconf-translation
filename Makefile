@@ -24,6 +24,7 @@ install: clean
 	mv $(prefix)/usr/lib/perl5/Debian/DebConf/Config-dist.pm \
 		$(prefix)/usr/lib/perl5/Debian/DebConf/Config.pm
 	install -m 0644 Client/confmodule.sh $(prefix)/usr/share/debconf/
+	install Client/frontend $(prefix)/usr/share/debconf/
 
   # Generate man pages from POD docs.
 	install -d $(prefix)/usr/share/man/man2/

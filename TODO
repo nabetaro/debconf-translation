@@ -1,8 +1,13 @@
 To Do Before Release:
-* installing netbase_3.15-4.2_i386.deb hangs when the postinst exits :-(
-  Same with my new debconf'd lynx package. Interestingly, if you run the
-  postinst by hand, this doesn't happen. Could dpkg be messing up my 
-  SIGCHLD handling?
+* It seems that the thing that's making the lynx install sometimes hang is
+  update-menus! I noticed that process was hanging around, killed it, and
+  the install finished. How odd.
+  It looks like what may be happening is this:
+    - the postinst runs, runs update-menus, which backgrounds itself and
+      disassocisates itself from the postinst
+    - the postinst finishes. Update-menus is waiting on dpkg to exit.
+    - for some reason I don't understand, trying to read a line from
+      the now-dead postinst blocks, until update-menus is killed.
 * Packages should detect when a config script hasn't been run yet, and run
   it. This is useful in eg, postinsts, when you're just installing a package
   that uses debconf, via dpkg and apt can't step in to preconfigure it. I

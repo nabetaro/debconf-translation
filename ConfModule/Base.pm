@@ -30,7 +30,6 @@ use strict;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
-use POSIX ":sys_wait_h";
 use vars qw($AUTOLOAD);
 
 =head2 new
@@ -70,7 +69,7 @@ sub new {
 
 =head2 communicate
 
-Read one command from the confmodule, process it, and respon
+Read one command from the confmodule, process it, and respond
 to it. Returns true unless there were no more commands to read.
 This is typically called in a loop. It in turn calls various
 command_* methods.
@@ -78,6 +77,7 @@ command_* methods.
 =cut
 sub communicate {
 	my $this=shift;
+
 	my $r=$this->{read_handle};
 	$_=<$r> || return;
 	chomp;
