@@ -21,16 +21,20 @@ information related to items in the database.
 
 =over 4
 
+=item name
+
+The name of the database.
+
 =item readonly
 
-Set to true if this database driver is read only.
+Set to true if this database driver is read only. Defaults to false.
 
 =item required
 
-Set to true if a database driver is required for proper operation of
+Tells if a database driver is required for proper operation of
 debconf. Required drivers can cause debconf to abort if they are not
 accessible. It can be useful to make remote databases non-required, so
-debconf is usable if connections to them go down.
+debconf is usable if connections to them go down. Defaults to true.
 
 =back
 
@@ -38,7 +42,10 @@ debconf is usable if connections to them go down.
 
 # I rarely base objects on fields, but I want strong compile-time type
 # checking for this class of objects, and speed.
-use fields qw(readonly);
+use fields qw(name readonly required);
+
+# Class data.
+our %drivers;
 
 =head1 METHODS
 
@@ -54,16 +61,19 @@ sub new {
 	unless (ref $this) {
 		$this = fields::new($this);
 	}
+	$this->{required}=1;
+	$this->{readonly}=0;
 	my %params=@_;
 	foreach my $field (keys %params) {
 		if ($field eq 'readonly' || $field eq 'required') {
 			# Convert from true/false strings to numbers.
 			$this->{$field}=1,next if lc($params{$field}) eq "true";
-			$this->{$field}=1,next if lc($params{$field}) eq "false";
+			$this->{$field}=0,next if lc($params{$field}) eq "false";
 		}
 		$this->{$field}=$params{$field};
 	}
 	$this->init;
+	$drivers{$this->{name}} = $this if exists $this->{name};
 	return $this;
 }
 
@@ -90,11 +100,25 @@ sub error {
 	my $this=shift;
 
 	if ($this->{required}) {
-		die shift()."\n";
+		die "error: ".shift()."\n";
 	}
 	else {
-		print STDERR shift()."\n";
+		print STDERR "warning: ".shift()."\n";
 	}
+}
+
+=head2 driver(name)
+
+This is a class method that allows any driver to be looked up by name.
+If any driver with the given name exists, it is returned.
+
+=cut
+
+sub driver {
+	my $this=shift;
+	my $name=shift;
+	
+	return $drivers{$name};
 }
 
 =head2 iterate([itarator])

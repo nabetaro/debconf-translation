@@ -8,6 +8,8 @@ Debconf::Db - debconf database setup
 
 package Debconf::Db;
 use strict;
+use fields qw{root};
+our Debconf::Db $config=fields::new('Debconf::Db');
 
 =head1 DESCRIPTION
 
@@ -15,8 +17,12 @@ This module reads a config file and uses it to set up a set of debconf
 database drivers. It doesn't actually implement the database; the drivers
 do that.
 
-The config file format is a series of stanzas, each of which sets up
-a database driver. For example:
+The config file format is a series of stanzas. The first stanza configures
+the database as a whole, and then each of the rest sets up a database driver.
+For example:
+
+  # This stanza is used for general debconf setup.
+  Root: main
 
   # This is my own local database.
   Database: mydb
@@ -36,19 +42,19 @@ a database driver. For example:
   Database: company
   Driver: SQL
   Server: debconf.foo.com
-  Readonly: 1
+  Readonly: true
   Username: foo
   Password: bar
   # I don't want any passwords that might be floating around in there.
   Reject-Type: password
   Force-Flag-Seen: false
   # If this db is not accessible for whatever reason, carry on anyway.
-  Required: 0
+  Required: false
 
   # This special driver provides a few items from dhcp.
   Database: dhcp
   Driver: DHCP
-  Required: 0
+  Required: false
   Reject-Type: password
 
   # And I use this database to hold passwords safe and secure.
@@ -104,18 +110,49 @@ $ENV{HOME}/.debconfrc, and /etc/debconf.cnf.
 
 =cut
 
-sub readconfig {
-	my $config=shift;
-	if (! $config) {
-		$config="$ENV{HOME}/.debconfrc"
-			if -e "$ENV{HOME}/.debconfrc";
-		$config="/etc/debconf.cnf"
-			if -e "/etc/debconf.cnf";
-	}
-	die "No config file found" unless $config;
+sub _hashify($$) {
+	my $text=shift;
+	my $hashref=shift;
 
-	open (DEBCONF_CONFIG, $config) or die "$config: $!\n";
+	my %ret;
+	foreach my $line (split /\n/, $text) {
+		next if $line=~/^\s*#/; # comment
+		my ($key, $value)=split(/\s*:\s*/, $line, 2);
+		die "Parse error" unless defined $key and length $key;
+		$hashref->{lc($key)}=$value;
+	}
+}
+
+sub readconfig {
+	my $class=shift;
+	my $cf=shift;
+	if (! $cf) {
+		$cf="$ENV{HOME}/.debconfrc"	if -e "$ENV{HOME}/.debconfrc";
+		$cf="/etc/debconf.cnf"		if -e "/etc/debconf.cnf";
+	}
+	die "No config file found" unless $cf;
+
+	open (DEBCONF_CONFIG, $cf) or die "$cf: $!\n";
+	local $/="\n\n"; # read a stanza at a time
+
+	# Read global config stanza.
+	_hashify(<DEBCONF_CONFIG>, $config);
+	
+	# Now read in each database driver, and set them up.
+	# This assumes that there are no forward references in
+	# the config file..
 	while (<DEBCONF_CONFIG>) {
+		my %driver;
+		_hashify($_, \%driver);
+		my $type=$driver{driver} or die "driver type not specified";
+		# Make sure that the class is loaded..
+		if (! UNIVERSAL::can("Debconf::DbDriver::$type", 'new')) {
+			eval qq{use Debconf::DbDriver::$type};
+			die $@ if $@;
+		}
+		delete $driver{driver}; # not a field for the object
+		# Make object, and pass in the fields, and we're done with it.
+		"Debconf::DbDriver::$type"->new(%driver);
 	}
 	close DEBCONF_CONFIG;
 }
