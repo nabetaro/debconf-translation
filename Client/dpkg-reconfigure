@@ -62,10 +62,10 @@ Display usage help.
 =cut
 
 use strict;
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Config;
-use Debian::DebConf::AutoSelect;
-use Debian::DebConf::Log ':all';
+use Debian::DebConf::ConfigDb qw(loaddb savedb loadtemplatefile);
+use Debian::DebConf::Config qw(frontend priority dbdir showold);
+use Debian::DebConf::AutoSelect qw(:all);
+use Debian::DebConf::Log qw(:all);
 
 my $infodir="/var/lib/dpkg/info";
 
@@ -83,17 +83,17 @@ for (my $x=0; $x < @ARGV;) {
 		$change_priority='';
 	}
 	elsif (/^-(?:f|-frontend=)(.*)/) {
-		Debian::DebConf::Config::frontend($1);
+		frontend($1);
 	}
 	elsif (/^-(?:f|-frontend)$/) {
-		Debian::DebConf::Config::frontend($ARGV[$x++]);
+		frontend($ARGV[$x++]);
 	}
 	elsif (/^-(?:p|-priority=)(.*)/) {
-		Debian::DebConf::Config::priority($1);
+		priority($1);
 		$change_priority='';
 	}
 	elsif (/^-(?:p|-priority)$/) {
-		Debian::DebConf::Config::priority($ARGV[$x++]);
+		priority($ARGV[$x++]);
 		$change_priority='';
 	}
 	elsif (/^-(?:u|-unseen-only)$/) {
@@ -118,19 +118,19 @@ if ($> != 0) {
 }
 
 # Load up previous state information.
-Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
+loaddb(dbdir());
 
-my $frontend=Debian::DebConf::AutoSelect::frontend();
+my $frontend=make_frontend();
 
 unless ($unseen_only) {
 	# Make the frontend show questions even if the user has already seen
 	# them. Since this is a reconfigure program, they may want to change
 	# their choices.
-	Debian::DebConf::Config::showold('true');
+	showold('true');
 }
 
 # Default to low priority unless some other priority was specified.
-Debian::DebConf::Config::priority('low') if $change_priority;
+priority('low') if $change_priority;
 
 foreach my $pkg (@packages) {
 	# If this doesn't exist, the package probably doesn't use debconf,
@@ -153,7 +153,7 @@ foreach my $pkg (@packages) {
 	}
 	
 	# Load up templates just in case they arn't already.
-	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates", $pkg)
+	loadtemplatefile("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
 	# Run postrm, config, and postinst scripts in sequence, with args.
@@ -178,7 +178,7 @@ foreach my $pkg (@packages) {
 		
 		if ($script eq 'config' || $is_confmodule) {
 			# Start up the confmodule.
-			my $confmodule=Debian::DebConf::AutoSelect::confmodule(
+			my $confmodule=make_confmodule(
 				"$infodir/$pkg.$script", @$info);
 	
 			# Make sure any questions the confmodule registers are owned
@@ -195,7 +195,7 @@ foreach my $pkg (@packages) {
 			# Since it might run other programs that do use
 			# debconf, checkpoint the current database state
 			# and re-initialize it when the script finishes.
-			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+			savedb(dbdir());
 			
 			$ENV{DEBIAN_HAS_FRONTEND}='';
 			my $ret=system("$infodir/$pkg.$script", @$info);
@@ -204,8 +204,8 @@ foreach my $pkg (@packages) {
 			}
 			$ENV{DEBIAN_HAS_FRONTEND}=1;
 			
-			Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
-			Debian::DebConf::Config::showold('true');
+			loaddb(dbdir());
+			showold('true');
 		}
 	}
 }
@@ -213,7 +213,7 @@ foreach my $pkg (@packages) {
 $frontend->shutdown;
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+savedb(dbdir());
 
 # Returns a list of all installed packages.
 sub allpackages {

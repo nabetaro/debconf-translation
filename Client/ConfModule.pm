@@ -38,7 +38,6 @@ everything, simply import ":all".
 package Debian::DebConf::Client::ConfModule;
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
-use Debian::DebConf::AutoSelect;
 use strict;
 use vars qw($AUTOLOAD @EXPORT_OK %EXPORT_TAGS);
 use base qw(Exporter);

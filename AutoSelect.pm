@@ -9,8 +9,12 @@ Debian::DebConf::AutoSelect - automatic FrontEnd selection library.
 package Debian::DebConf::AutoSelect;
 use strict;
 use Debian::DebConf::ConfModule;
-use Debian::DebConf::Config;
+use Debian::DebConf::Config qw(frontend);
 use Debian::DebConf::Log qw(:all);
+use base qw(Exporter);
+use vars qw(@EXPORT_OK %EXPORT_TAGS);
+@EXPORT_OK = qw(make_frontend make_confmodule);
+%EXPORT_TAGS = (all => [@EXPORT_OK]);
 
 =head1 DESCRIPTION
 
@@ -36,16 +40,18 @@ my $type;
 
 =over 4
 
-=item frontend
+=item make_frontend
 
-Creates and returns a FrontEnd object.
+Creates and returns a FrontEnd object. The type of FrontEnd used varies. It
+will try the preferred type first, and if that fails, fall back through
+other types.
 
 =cut
 
-sub frontend {
+sub make_frontend {
 	my $script=shift;
 
-	$type=Debian::DebConf::Config::frontend() unless $type;
+	$type=frontend() unless $type;
 
 	my %seen;
 	while ($type ne '') {
@@ -79,14 +85,14 @@ sub frontend {
 	return $frontend;
 }
 
-=item confmodule
+=item make_confmodule
 
 Pass the script (if any) the ConfModule will start up, (and optional
 arguments to pass to it) and this creates and returns a ConfModule.
 
 =cut
 
-sub confmodule {
+sub make_confmodule {
 	my $confmodule=Debian::DebConf::ConfModule->new(frontend => $frontend);
 
 	$confmodule->startup(@_) if @_;

@@ -69,9 +69,11 @@ Display usage help.
 BEGIN {
 	eval qq{
 		use strict;
-		use Debian::DebConf::ConfigDb;
-		use Debian::DebConf::Config;
-		use Debian::DebConf::AutoSelect;
+		use Debian::DebConf::ConfigDb qw(loaddb savedb 
+			                         loadtemplatedata);
+		use Debian::DebConf::Config qw(frontend priority showold
+					       dbdir tmpdir);
+		use Debian::DebConf::AutoSelect qw(:all);
 		use Debian::DebConf::Version;
 	};
 	if ($@) {
@@ -93,16 +95,16 @@ for (my $x=0; $x < @ARGV;) {
 		$apt=1;
 	}
 	elsif (/^-(?:f|-frontend=)(.*)/) {
-		Debian::DebConf::Config::frontend($1);
+		frontend($1);
 	}
 	elsif (/^-(?:f|-frontend)$/) {
-		Debian::DebConf::Config::frontend($ARGV[$x++]);
+		frontend($ARGV[$x++]);
 	}
 	elsif (/^-(?:p|-priority=)(.*)/) {
-		Debian::DebConf::Config::priority($1);
+		priority($1);
 	}
 	elsif (/^-(?:p|-priority)$/) {
-		Debian::DebConf::Config::priority($ARGV[$x++]);
+		priority($ARGV[$x++]);
 	}
 	elsif (/^-(?:h|-help)$/) {
 		print STDERR "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles\n";
@@ -138,13 +140,13 @@ if ($apt) {
 	# this program. The user will thus see the questions only once, when
 	# the package is actually installed.
 	# This is a hack, but it's the best I can do.
-	Debian::DebConf::Config::showold('false');
+	showold('false');
 }
 
 # Load up previous state information.
-Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
+loaddb(dbdir());
 
-my $frontend=Debian::DebConf::AutoSelect::frontend();
+my $frontend=make_frontend();
 
 # Caches package names so they are only looked up once.
 my %packages;
@@ -201,7 +203,7 @@ foreach my $x (0..$#debs) {
 			local $/="\n\n";
 			while (<TEMPLATES>) {
 				eval q{
-					Debian::DebConf::ConfigDb::loadtemplatedata($_, $packages{$debs[$x]});
+					loadtemplatedata($_, $packages{$debs[$x]});
 				};
 				if ($@) {
 					print STDERR "$debs[$x] template parse error: $@\n";
@@ -240,7 +242,7 @@ foreach my $deb (@debs) {
 		print "Configuring packages ...\n"
 	}
 
-	my $script=Debian::DebConf::Config::tmpdir()."/config.$$";
+	my $script=tmpdir()."/config.$$";
 	open (OUT, ">$script") or die "$script: $!";
 	print OUT <IN>; # TODO: optimize.
 	close IN;
@@ -251,8 +253,7 @@ foreach my $deb (@debs) {
 	$frontend->default_title($packages{$deb});
 
 	# Start up the confmodule, passing in the package version.
-	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,
-		'configure', getversion($packages{$deb}));
+	my $confmodule=make_confmodule($script, 'configure', getversion($packages{$deb}));
 
 	# Make sure any questions created are owned by the correct package.
 	$confmodule->owner($packages{$deb});
@@ -272,7 +273,7 @@ foreach my $deb (@debs) {
 $frontend->shutdown;
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+savedb(dbdir());
 
 # Pass a package name, and the version of that package is returned.
 #

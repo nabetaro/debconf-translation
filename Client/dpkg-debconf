@@ -9,7 +9,7 @@ dpkg-debconf - communicate with debconf
 use strict;
 use Debian::DebConf::Config qw(dbdir);
 use Debian::DebConf::ConfigDb qw(loaddb savedb);
-use Debian::DebConf::AutoSelect;
+use Debian::DebConf::AutoSelect qw(:all);
 
 =head1 SYNOPSIS
 
@@ -52,8 +52,8 @@ L<dpkg-loadtemplate(8)|dpkg-loadtemplate>
 =cut
 
 loaddb(dbdir());
-my $frontend=Debian::DebConf::AutoSelect::frontend();
-my $confmodule=Debian::DebConf::AutoSelect::confmodule();
+my $frontend=make_frontend();
+my $confmodule=make_confmodule();
 my $code=127;
 my $text;
 foreach (@ARGV) {

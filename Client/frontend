@@ -20,17 +20,17 @@ all this.
 
 use strict;
 use lib '.';
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Config;
-use Debian::DebConf::AutoSelect;
-use Debian::DebConf::Log ':all';
+use Debian::DebConf::ConfigDb qw(loaddb savedb loadtemplatefile);
+use Debian::DebConf::Config qw(dbdir);
+use Debian::DebConf::AutoSelect qw(:all);
+use Debian::DebConf::Log qw(:all);
 
 debug 2, "frontend started";
 
 # Load up previous state information.
-Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
+loaddb(dbdir());
 
-my $frontend=Debian::DebConf::AutoSelect::frontend();
+my $frontend=make_frontend();
 
 # Set the default title.
 my $package;
@@ -59,7 +59,7 @@ else {
 		my $fn=shift;
 		if (-e $fn) {
 			debug 2, "I guess it is $fn";
-			return Debian::DebConf::ConfigDb::loadtemplatefile($fn, $package);
+			return loadtemplatefile($fn, $package);
 		}
 		else {
 			return;
@@ -96,7 +96,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 
 	# Load templates, if any.
 	my $templates=$base."templates";
-	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
+	loadtemplatefile($templates, $package)
 		if -e $templates;
 
 	# Run config script, if any.
@@ -109,7 +109,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 		if (! defined($version)) {
 			$version='';
 		}
-		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config,
+		my $confmodule=make_confmodule($config,
 			"configure", $version);
 
 		# Make sure any questions the confmodule generates
@@ -124,7 +124,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=Debian::DebConf::AutoSelect::confmodule(join " ",@ARGV);
+my $confmodule=make_confmodule(join " ",@ARGV);
 
 # Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);
@@ -135,7 +135,7 @@ $confmodule->owner($package);
 $frontend->shutdown;
 
 # Save state.
-Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+savedb(dbdir());
 
 exit $confmodule->exitcode;
 

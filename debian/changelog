@@ -1,3 +1,12 @@
+debconf (0.3.12) unstable; urgency=low
+
+  * Used exported sub names in a few places I missed before.
+  * Renamed AutoSelect::frontend and AutoSelect::confmodule to
+    make_frontend and make_confmodule, and allow them to be exported
+    too.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 30 Mar 2000 16:53:55 -0800
+
 debconf (0.3.11) unstable; urgency=low
 
   * Added dpkg-debconf. This is a program that lets you send commands to
