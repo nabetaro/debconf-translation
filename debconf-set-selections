@@ -138,7 +138,7 @@ while (<>) {
 	next if /^\s*$/;
 	# Allow multiple spaces between all values except the last one.
 	# Extra whitespace in the content is significant.
-	my ($owner, $label, $type, $content) = /^\s*(\S+)\s+(\S+)\s+(\S+)\s*(.*)/;
+	my ($owner, $label, $type, $content) = /^\s*(\S+)\s+(\S+)\s+(\S+)(?:\s(.*))?/;
 	if (! defined $content) {
 		$content='';
 	}

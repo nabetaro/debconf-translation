@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_uk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-19 15:43+0100\n"
+"POT-Creation-Date: 2004-09-13 23:14-0400\n"
 "PO-Revision-Date: 2004-09-05 14:44+0300\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
@@ -92,11 +93,12 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Не встановлена жодна програма, подібна до dialog, отже діалогова оболонка "
-"не може бути застосована."
+"Не встановлена жодна програма, подібна до dialog, отже діалогова оболонка не "
+"може бути застосована."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Для діалогового інтерфейсу потрібен термінал не менше 13 рядків в висоту та "
 "31 стовпчиків в ширину."
@@ -147,7 +149,8 @@ msgstr ""
 #: ../Debconf/Config.pm:147
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Виникла проблема при налаштуванні бази даних, визначеної в строфі %s з %s."
+msgstr ""
+"Виникла проблема при налаштуванні бази даних, визначеної в строфі %s з %s."
 
 #: ../Debconf/Config.pm:276
 #, c-format
@@ -233,7 +236,8 @@ msgid "Choices"
 msgstr "Варіанти"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Вкажіть необхідну кількість параметрів, розділяючи їх комою з пробілом (', "
 "').)"
@@ -253,7 +257,8 @@ msgid "no"
 msgstr "ні"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf був налаштований не відображувати це повідомлення, тому воно було "
 "відправлене поштою."
@@ -273,7 +278,8 @@ msgstr "жоден з перерахованих"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
+msgstr ""
+"Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, c-format
@@ -375,4 +381,3 @@ msgstr "Пакунок %s застарів"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "Пакунок %s застарів; кидаю весь шаблон!"
-
