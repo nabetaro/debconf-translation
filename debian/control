@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
 Standards-Version: 3.5.7.0
-Build-Depends-Indep: perl, debhelper (>= 4), gettext, html2text (>= 1.2.4-7), jade, sp, docbook-xml, docbook-dsssl, sgml-data (>= 1.2), tidy
+Build-Depends-Indep: perl, debhelper (>= 4.1.13), gettext, html2text (>= 1.2.4-7), jade, sp, docbook-xml, docbook-dsssl, sgml-data (>= 1.2), tidy, po-debconf
 
 Package: debconf
 Priority: important
@@ -36,6 +36,5 @@ Replaces: debconf (<< 0.1.0)
 Architecture: all
 Description: debconf utilities
  This package contains some small utilities to aid users and developers.
- There are utilities to help manage debconf databases, others to manage
- translated template files and a program to communicate directly with
- debconf from the command line.
+ There are utilities to help manage debconf databases, a program to
+ communicate directly with debconf from the command line, and more.

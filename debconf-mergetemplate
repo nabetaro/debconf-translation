@@ -17,6 +17,9 @@ use Debconf::Gettext;
 
 =head1 DESCRIPTION
 
+Note: This utility is deprecated. You should switch to using po-debconf's
+po2debconf program.
+
 This program is useful if you have multiple debconf templates files which
 you want to merge together into one big file. All the specified files will
 be read in, merged, and output to standard output.

@@ -6,17 +6,8 @@ differently.
 * First, and most important, are the po files, in the po/ directory.
   You probably already know how this part works -- see gettext's info page.
 
-* The next bit you should translate is the debian/templates file,
-  generating a debian/templates.<lang> file. This is specific to debconf.
-  To generate a skeleton debian/templates.<lang> file, you can simply run:
-     debconf-getlang <lang> debian/templates > debian/templates.<lang>
-  Then edit the generated file, and fill in translations for all the empty
-  lines. When I change the main templates file, you can merge in my changes
-  like this:
-     debconf-getlang <lang> debian/templates debian/templates.<lang> > new
-  Then edit the new file, keeping an eye out for fields with "-fuzzy" in
-  their names. Those are out of date translations, which you should update
-  based on the English text (and then remove the -fuzzy fields).
+* Similar is the debian/po/ directory that translates denconf's debconf
+  questions. See the po-debconf documentation for this.
 
 * Finally, you might want to translate some of debconf's docs. I don't yet
   have a mechanism for translating the xml documentation. It is possible to
@@ -31,10 +22,7 @@ differently.
   with translated text.
 
 Once you have translated file(s), send them to me and I'll include them in
-debconf. After that, we have to worry about maintenance. I'll try to let
-you know if I make changes, but a better way might be for you to subscribe
-to the debconf-commits mailing list, where you can watch the cvs commits.
-    http://kitenet.net/cgi-bin/mailman/listinfo/debconf-commits
+debconf.
 
 Thanks for contributing to debconf! 
 

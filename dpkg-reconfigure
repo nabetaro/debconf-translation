@@ -155,10 +155,13 @@ foreach my $pkg (@packages) {
 	Debconf::Template->load("$infodir/$pkg.templates", $pkg)
 		if -e "$infodir/$pkg.templates";
 
-	# Run config, and postinst scripts in sequence, with args.
+	# Simulation of reinstalling a package, without bothering with
+	# removing the files and putting them back. Just like in a regular
+	# reinstall, run config, and postinst scripts in sequence, with args.
 	# Do not run postrm, because the postrm can depend on the package's
 	# files actually being gone already.
-	foreach my $info (['config',   'reconfigure', $version],
+	foreach my $info (['prerm',    'upgrade',     $version],
+		          ['config',   'reconfigure', $version],
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
 		next unless -x "$infodir/$pkg.$script";

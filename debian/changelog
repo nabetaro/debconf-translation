@@ -1,3 +1,16 @@
+debconf (1.2.9) unstable; urgency=low
+
+  * dpkg-reconfigure: run prerm script. Should be safe.
+  * Doc update Closes: #162978
+  * Use po-debconf for debconf package's own template translations.
+  * debconf-getlang and debconf-mergetemplate are deprecated in favour of
+    po-debconf.
+  * Added docs to debconf-devel(7) about using po-debconf.
+  * Remove old translation section from tutorual.
+  * Remove bts-script.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  3 Oct 2002 19:33:30 -0400
+
 debconf (1.2.8) unstable; urgency=low
 
   * Updated ja.po. Closes: #162268
