@@ -226,7 +226,8 @@ sub AUTOLOAD {
 	my $class=shift;
 	
 	return $config->{$field}=shift if @_;
-	return $config->{$field};
+	return $config->{$field} if defined $config->{$field};
+	return '';
 }
 
 =head1 AUTHOR
