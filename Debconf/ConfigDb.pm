@@ -81,7 +81,7 @@ sub isunder {
 =head2 registertemplates
 
 Registers a set of templates into the database. Call this after loading up
-and instanitating the templates. Registering the templates in the database
+and instantiating the templates. Registering the templates in the database
 means other code can look them up, and means they will be saved. It also
 causes questions to be created with the same names as each new template.
 
