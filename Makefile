@@ -39,5 +39,5 @@ new:
 	# Update w/o editing.
 	EDITOR=true dch -i 2>/dev/null
 	# Dch has to change the bloody directory name. Feh.
-#	mv . ../debconf
+	mv . ../debconf
 	

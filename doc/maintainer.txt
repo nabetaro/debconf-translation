@@ -1,0 +1,61 @@
+This is a guide to using debconf with your packages, aimed at a Debian
+developer. This is all rather rough, and I have little experience as yet
+with this myself, so bear with me.
+
+Debconf should be used whenever your package needs to output something to
+the user, or ask a question of the user. I'll assume you already have a
+package that does this and you want to convert it to use debconf.
+
+First, your package must depend on debconf (or pre-depend on it if it uses
+debconf in its preinst). This is necessary since debconf isn't (yet) part of
+the base system.
+
+The first thing to do is look at your postinst, any program your
+postinst calls (like a "packageconfig" program), plus your preinst, and even
+your prerm and postrm. Take note of all output they can generate and all
+input they prompt the user for. All this output and input must be eliminated
+for your package to use debconf.
+
+Get an idea of the questions your package asks the user, and start writing a
+debian/templates file for your package. The format of this file is simple
+and quite simple to a Debian control file:
+
+Template: <packagename>/<something>
+Type: <select,text, or boolean>
+Default: <optional default>
+Description: Blah blah blah?
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah blah blah. Blah
+ blah. Blah blah blah. Blah blah.
+ .
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah. Blah
+ blah.
+
+<next template here>
+
+As you look through your package finding the questions, keep an eye out for
+messages it just displays to the user. 
+
+** I should document the mappings file here, but it'd be better to do away
+with it by default. **
+
+Next, decide what order the questions should be asked and the messages to
+the user should be displayed, figure our what tests you'll make before
+asking the questions and displaying the messages, and start writing a
+debian/config file to ask and display them. You can either use dpkg-frontend
+to ask the questions, or use the Debian::DebConf::Client::ConfModule perl
+module. See their documentation for details on how they work. Consider
+supporting use of the back button to jump back from one question to the
+previous question. It's a bit more work, but a big plus for the user.
+
+Once you have a config script, *** need some easy way to load up the
+templates and test it ***.
+
+At this point it's time to move on to actually modifying your postinst,
+preinst, etc. Remove all extraneous noise, like the starting and stopping of
+daemons. Make it use dpkg-frontend (or Debian::DebConf::Client::ConfModule
+if it is a perl program) to pull the answers to any questions out of the
+database and also to display any messages it still needs to show (these
+should be very rare). When you're done with each program, it should run
+without outputting anything at all.
+
+-- Joey Hess <joey@Kitenet.net>
