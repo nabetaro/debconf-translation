@@ -111,7 +111,7 @@ sub load_answer {
 	$question->flag("seen", "true");
 }
 
-my @knowntypes = qw(select boolean string multiselect note password text);
+my @knowntypes = qw(select boolean string multiselect note password text title);
 
 sub ok_format {
 	my ($owner, $label, $type, $content) = @_;

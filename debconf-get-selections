@@ -51,7 +51,7 @@ my $qi = Debconf::Question->iterator;
 
 while (my $q = $qi->iterate) {
 	my ($name, $type, $value) = ($q->name, $q->type, $q->value);
-	next if ($type eq 'text' || $type eq 'note' || $type eq 'error');
+	next if ($type eq 'text' || $type eq 'note' || $type eq 'error' || $type eq 'title');
 	print "# ".$q->description."\n";
 	if ($q->owners) {
 		foreach my $owner (split ", ", $q->owners) {
