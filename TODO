@@ -1,13 +1,5 @@
 To Do Before Release:
-* It seems that the thing that's making the lynx install sometimes hang is
-  update-menus! I noticed that process was hanging around, killed it, and
-  the install finished. How odd.
-  It looks like what may be happening is this:
-    - the postinst runs, runs update-menus, which backgrounds itself and
-      disassocisates itself from the postinst
-    - the postinst finishes. Update-menus is waiting on dpkg to exit.
-    - for some reason I don't understand, trying to read a line from
-      the now-dead postinst blocks, until update-menus is killed.
+* Nothing!
 
 General:
 * Make sure my spec changes are accepted by Wichert.

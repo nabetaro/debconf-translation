@@ -213,6 +213,11 @@ sub showdialog {
 	my $this=shift;
 	my $title=shift;
 
+	# Part of the update-menus workaround -- ignore sigchld's when we're
+	# running other programs.
+	my $sigchld=$SIG{CHLD};
+	$SIG{CHLD}='';
+
 	# Clear the screen if clearscreen is set.
 	if ($this->{clearscreen}) {
 		$this->{clearscreen}='';
@@ -232,21 +237,23 @@ sub showdialog {
 	
 	my $pid = open3('<&STDOUT', '>&STDERR', \*ERRFH, $this->{program}, 
 		'--backtitle', $this->{title}, '--title', $title, @_);
-	my $stderr;		
+	my $stderr;	
 	while (<ERRFH>) {
 		$stderr.=$_;
 	}
 	chomp $stderr;
 
-	# Have to put the wait here to makie sure $? is set properly.
+	# Have to put the wait here to make sure $? is set properly.
 	wait;
-
 	$^W=$savew;
 	use strict;
 
 	# Restore stdout, stderr.
 	open(STDOUT, ">&SAVEOUT");
 	open(STDERR, ">&SAVEERR");
+
+	# More update-menus workaround -- restore signal handler.
+	$SIG{CHLD}=$sigchld;
 
 	return ($? >> 8), $stderr;
 }
