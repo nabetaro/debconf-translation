@@ -31,6 +31,7 @@ use Debian::DebConf::Base;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Log ':all';
 use vars qw($AUTOLOAD @ISA);
 @ISA=qw(Debian::DebConf::Base);
 
@@ -99,8 +100,8 @@ sub communicate {
 
 	my $r=$this->{read_handle};
 	$_=<$r> || return $this->_finish;
-	print STDERR "--> $_" if $ENV{DEBCONF_DEBUG};
 	chomp;
+	debug "--> $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
@@ -110,9 +111,9 @@ sub communicate {
 		return $this->_finish;
 	}
 	$command="command_".lc($command);
-	my $ret=join(' ', $this->$command(@params))."\n";
-	print STDERR "<-- $ret" if $ENV{DEBCONF_DEBUG};
-	print $w $ret;
+	my $ret=join(' ', $this->$command(@params));
+	debug "<-- $ret";
+	print $w $ret."\n";
 	return 1;
 }
 

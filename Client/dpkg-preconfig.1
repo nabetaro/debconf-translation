@@ -11,13 +11,20 @@ script run so they can examine the system and ask questions.
 .SH OPTIONS
 .TP
 .I "\fB\-f\fPtype\fR,\fP \fB\-\-frontend=\fPtype"
-Select the frontend to use. Default is to use the dialog based frontend.
+Select the frontend to use. The default frontend can be permanently changed by:
+
+ dpkg-reconfigure debconf
+
 Currently available frontends are dialog, text, and web.
 .TP
 .I "\fB\-p\fPvalue\fR,\fP \fB\-\-priority=\fPvalue"
 Set the lowest priority of questions you are interested in. Valid priorities
-are currently low, medium, high, and critical. Default is medium. Any
-questions with a priority below the selected priority will be ignored and
+are currently low, medium, high, and critical. The default priority can be
+permanently changed by:
+
+ dpkg-reconfigure debconf
+
+Any questions with a priority below the selected priority will be ignored and
 their default answers will be used.
 .TP
 .B \-\-apt
@@ -25,7 +32,11 @@ Run in apt mode. It will expect to read a set of package filenames from stdin,
 rather than getting them as parameters. Typically this is used to make apt
 run dpkg-preconfig on all packages before they are installed. To do this,
 add something like this to /etc/apt/apt.conf:
- // Pre-configure all packages before they are installed.
- DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt --priority=low";};
+
+ // Pre-configure all packages before
+ // they are installed.
+ DPkg::Pre-Install-Pkgs {
+ 	"dpkg-preconfig --apt --priority=low";
+ };
 .SH AUTHOR
 Joey Hess <joey@kitenet.net>

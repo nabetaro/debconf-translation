@@ -23,7 +23,7 @@ BEGIN {
 		use Debian::DebConf::AutoSelect;
 	};
 	if ($@) {
-		print STDERR "Warning: Perl may be unconfigured ($@)\n";
+		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
 		exit 0;
 	}
 }

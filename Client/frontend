@@ -9,6 +9,7 @@ use lib ".";
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
+use Debian::DebConf::Log ':all';
 
 # Load up previous state information.
 Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
@@ -34,6 +35,7 @@ else {
 	close CONTROL;
 }
 
+debug "frontend running, package name is $package";
 $frontend->default_title($package);
 
 # See if the preinst or postinst of the package is being run, and if there

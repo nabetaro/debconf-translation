@@ -18,12 +18,12 @@ This FrontEnd is completly non-interactive.
    
 package Debian::DebConf::FrontEnd::Noninteractive;
 use Debian::DebConf::FrontEnd;
+use Debian::DebConf::Log ':all';
 use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd);
 
-print STDERR "Note: Debconf is running in non-interactive mode.\n";
-# Hm, that was easy. :-)
+warn "running in non-interactive mode"; # Hm, that was easy. :-)
 
 =head1 AUTHOR
 

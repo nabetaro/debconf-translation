@@ -11,13 +11,14 @@ use lib '.';
 use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
+use Debian::DebConf::Log ':all';
 use Getopt::Long;
 use Fcntl;
 use POSIX qw(tmpnam);
 
 # See if they are root.
 if ($> != 0) {
-	print STDERR "$0 must be run as root.\n";
+	warn "$0 must be run as root";
 	exit 1;
 }
 
@@ -48,7 +49,7 @@ foreach my $pkg (@ARGV) {
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
 	if (! defined $status || $status !~ m/ ok installed$/) {
-		print STDERR "Package \"$pkg\" is not fully installed.\n";
+		warn "package \"$pkg\" is not fully installed";
 		exit 1;
 	}
 	

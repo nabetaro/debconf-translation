@@ -30,6 +30,7 @@ use Debian::DebConf::Element::Dialog::Note;
 use Debian::DebConf::Element::Dialog::Password;
 use Debian::DebConf::Element::Container;
 use Debian::DebConf::Priority;
+use Debian::DebConf::Log ':all';
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
 use Fcntl;
@@ -262,7 +263,8 @@ The second, anything it outputs to stderr.
 sub showdialog {
 	my $this=shift;
 
-	print STDERR "Preparing to show dialog ".(join "\n", @_)."\n" if $ENV{DEBCONF_DEBUG};
+	debug "preparing to show dialog. Params are:",
+		join(",", @_);
 
 	# Save stdout, stderr, the open3 below messes with them.
 	use vars qw{*SAVEOUT *SAVEERR};

@@ -32,7 +32,7 @@ _command () {
 	echo $* >&3
 }
 
-echo "WARNING: Using deprecated debconf compatability library."
+echo "WARNING: Using deprecated debconf compatibility library."
 
 ###############################################################################
 # Commands.
@@ -76,7 +76,7 @@ db_version () {
 	read RET
 }
 
-# Here for backwards compatability.
+# Here for backwards compatibility.
 db_go () {
 	_command "GO"
 	read RET

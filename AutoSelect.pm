@@ -18,6 +18,7 @@ package Debian::DebConf::AutoSelect;
 use strict;
 use Debian::DebConf::ConfModule;
 use Debian::DebConf::Config;
+use Debian::DebConf::Log ':all';
 
 my %fallback=(
 	# preferred frontend		# fall back to
@@ -47,27 +48,23 @@ sub frontend {
 
 	my %seen;
 	while ($type ne '') {
-		if ($ENV{DEBCONF_DEBUG}) {
-			print STDERR "Debconf: trying frontend $type\n";
-		}
+		debug "trying frontend $type" ;
 		$frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;
 			Debian::DebConf::FrontEnd::$type->new();
 		};
 		last if defined $frontend;
 		
-		print STDERR "Debconf: failed to initialize $type frontend.\n";
-		if ($ENV{DEBCONF_DEBUG}) {
-			print STDERR "(Error: $@)"
-		}
+		warn "failed to initialize $type frontend";
+		debug "(Error: $@)";
 		
 		$type=$fallback{$type};
 
 		# Prevent loops; only try each frontend once.
 		last if $seen{$type};
 		$seen{$type}=1;
-		
-		print STDERR "Falling back to $type frontend.\n";
+
+		warn "falling back to $type frontend";
 	}
 	
 	if (! $frontend) {

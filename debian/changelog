@@ -1,3 +1,13 @@
+debconf (0.2.18) unstable; urgency=low
+
+  * Spelling fixes, Closes: #49587
+  * Documented on each man page that talks about --frontend, how the
+    frontend can be permanently changed. Closes: #49537
+  * Don't crash if told to remove a nonexistant question.
+  * Rationalized debug and warning message printing.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  8 Nov 1999 11:56:07 -0800
+
 debconf (0.2.17) unstable; urgency=low
 
   * So it is possible to use debconf from the preinst of a package, after

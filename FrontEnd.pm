@@ -23,6 +23,7 @@ use Debian::DebConf::Priority;
 use Debian::DebConf::Element;
 use Debian::DebConf::Config;
 use Debian::DebConf::Base;
+use Debian::DebConf::Log ':all';
 use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::Base);
@@ -122,8 +123,7 @@ hits a back button.)
 sub go {
 	my $this=shift;
 
-	print STDERR "Preparing to ask questions.\n" if $ENV{DEBCONF_DEBUG};
-
+	debug "preparing to ask questions";
 	map { $_->show} @{$this->{elements}};
 	$this->clear;
 	return 1;

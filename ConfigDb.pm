@@ -173,6 +173,8 @@ sub disownquestion {
 	my $name=shift;
 	my $owner=shift;
 	
+	return unless $questions{$name};
+	
 	$questions{$name}->removeowner($owner);
 	if ($questions{$name}->owners eq '') {
 		my $template=$questions{$name}->template;
