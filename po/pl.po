@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-13 12:11+0200\n"
+"POT-Creation-Date: 2003-07-23 20:28-0400\n"
 "PO-Revision-Date: 2002-09-09 13:50+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -208,6 +208,13 @@ msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 #: ../Debconf/Config.pm:130
 msgid "Template database not specified in config file."
 msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
+
+#: ../Debconf/Config.pm:142
+#, c-format
+msgid ""
+"Parse error in stanza %s of %s. Probably you have not separated two stanzas "
+"by a blank line, or have put a bad value in a line of the stanza."
+msgstr ""
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format

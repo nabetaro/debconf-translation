@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-13 12:11+0200\n"
+"POT-Creation-Date: 2003-07-23 20:28-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -208,6 +208,13 @@ msgstr "설정 파일에 설정 데이터베이스가 지정되지 않았습니다."
 #: ../Debconf/Config.pm:130
 msgid "Template database not specified in config file."
 msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
+
+#: ../Debconf/Config.pm:142
+#, c-format
+msgid ""
+"Parse error in stanza %s of %s. Probably you have not separated two stanzas "
+"by a blank line, or have put a bad value in a line of the stanza."
+msgstr ""
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format

@@ -120,7 +120,12 @@ sub new {
 			# Internally, store these as pre-compiled regexps.
 			$this->{$field}=qr/$params{$field}/i;
 		}
-		$this->{$field}=$params{$field};
+		eval {
+			$this->{$field}=$params{$field};
+		}
+		if ($@) {
+			die "$field e
+		}
 	}
 	# Name is a required field.
 	unless (exists $this->{name}) {

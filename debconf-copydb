@@ -15,13 +15,13 @@ use Debconf::DbDriver::Backup;
 
 =head1 SYNOPSIS
 
- debconf-copydb sourcedb destdb [--pattern=pattern] [--config=Foo:bar]
+ debconf-copydb sourcedb destdb [--pattern=pattern] [--owner-pattern=pattern] [--config=Foo:bar]
 
 =cut
 
 sub usage {
 	print STDERR <<EOF;
-Usage: debconf-copydb sourcedb destdb [--pattern=pattern] [--config=Foo:bar]
+Usage: debconf-copydb sourcedb destdb [--pattern=pattern] [--owner-pattern=pattern] [--config=Foo:bar]
 EOF
 	exit(1);
 }

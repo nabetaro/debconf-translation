@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-13 12:11+0200\n"
+"POT-Creation-Date: 2003-07-23 20:28-0400\n"
 "PO-Revision-Date: 2001-12-05 18:04+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@image.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -203,6 +203,13 @@ msgstr "Opsætningsdatabase ikke specificeret i opsætningsfil"
 #: ../Debconf/Config.pm:130
 msgid "Template database not specified in config file."
 msgstr "Skabelondatabase ikke specificeret i opsætningsfil"
+
+#: ../Debconf/Config.pm:142
+#, c-format
+msgid ""
+"Parse error in stanza %s of %s. Probably you have not separated two stanzas "
+"by a blank line, or have put a bad value in a line of the stanza."
+msgstr ""
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
