@@ -77,8 +77,12 @@
       Getting started
     </title>
     <para>
-      First, your package must depend on debconf. This is necessary since
-      debconf isn't part of the base system.
+      First, your package must depend on debconf (or pre-depend on it
+      if it uses debconf in its preinst<footnote><para>Since policy frowns
+      on pre-dependancies that haven't been approved by debian-devel, you
+      could also make your package detect if debconf isn't installed, and use
+      a sane fallback that doesn't involve debconf.</para></footnote>). This is
+      necessary since debconf isn't part of the base system.
     </para>
     <para>
       The first thing to do is look at your postinst, plus any program
@@ -228,7 +232,17 @@ Template: ....
       messages to the user should be displayed, figure out what tests
       you'll make before asking the questions and displaying the
       messages, and start writing a debian/config file to ask and
-      display them. Depending on what language you choose to write
+      display them.
+      <note>
+      <para>
+      These questions are asked by a seperate config script,
+      <emphasis>not</emphasis> by the postinst, so the package can be
+      configured before it is installed, or reconfigured after it is
+      installed. Do not make your postinst use debconf to ask
+      questions.
+      </para>
+      </note>
+      Depending on what language you choose to write
       debian/config in, you have some choices about how to communicate
       with the frontend:
       <itemizedlist>
@@ -352,7 +366,7 @@ Template: ....
       The only command postinsts normally use to communicate with the
       frontend is "<literal><link linkend="db_get">get</link></literal>" 
       <footnote><para>Though in reality they can use any commands, including
-      "<literal>input</literal>", you are advised  not to do 
+      "<literal>input</literal>", you are strongly encouraged not to do 
       so.</para></footnote>. Typically, the config script prompts the user
       for input, and the postinst then pulls that input out of the database
       via the get command.
@@ -780,7 +794,7 @@ fi
 	    confmodule support will be used; the capabilities supported by
 	    the frontend are returned by this command.
 	    <table frame="all">
-	      <title>Currently supported capabilities</title>
+	      <title>Currently known capabilities</title>
 	      <tgroup cols="2">
 	      <thead>
 	        <row>
@@ -817,6 +831,8 @@ fi
 	  </para>
 	  <para>
 	    This command tells the frontend you're done talking to it.
+	    If transactions are used, changes to variables will be stored
+	    only when this command is called.
 	  </para>
 	</listitem>
 	<listitem id="db_input">
@@ -828,10 +844,15 @@ fi
 	  <para>
 	    This tells the frontend you are interested in the value of
 	    a variable. <parameter>variable</parameter> is the name of the
-	    variable, which should correspond to the Template: line of
-	    the template that defines this variable.
-	    <parameter>priority</parameter> is how important it is that the user
-	    be prompted for the variable.
+	    variable, all other information about the variable is retrieved
+            from the templates described previously. 
+	    <parameter>priority</parameter> is how important it is that the
+	    user be prompted for the variable. The frontend need  
+            only ask this question if the priority is high enough. The
+	    question is not displayed until a go command is given. This
+            allows us to ask multiple questions in a single screen. Once a
+            question has been asked the frontend will clear the 
+	    <literal>isdefault</literal> flag.
 	    <table frame="all">
 	      <title>Supported priorities</title>
 	      <tgroup cols="2">
@@ -916,8 +937,8 @@ fi
 	    clear
 	  </para>
 	  <para>
-	    Clears the accumulated set of items without displaying them
-	    to the user.
+	    Clears the accumulated set of input commands without displaying
+	    them to the user.
 	  </para>
 	</listitem>
 	<listitem id="db_get">
@@ -984,13 +1005,13 @@ fi
 	      <parameter>value</parameter>
 	    </para>
 	    <para>
-	      This sets the value of a flag on a variable. Valid
-	      values for the flag are "<literal>true</literal>" and 
+	      This sets the state of a flag on a variable. Valid
+	      states for the flag are "<literal>true</literal>" and 
 	      "<literal>false</literal>". One common flag is the 
 	      "<literal>isdefault</literal>" flag. It is normally only set if
 	      the variable is set to its default value and the user
 	      has not seen it. Typically, frontends only display
-	      questions to users if they have the isdefault flag set.
+	      questions to users if they have the isdefault flag set to "true".
 	      Sometimes you want the user to see a question again --
 	      in these cases you can set the isdefault flag to true to
 	      force the frontend to redisplay it.

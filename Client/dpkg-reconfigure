@@ -13,8 +13,6 @@ use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use Debian::DebConf::Log ':all';
 use Getopt::Long;
-use Fcntl;
-use POSIX qw(tmpnam);
 
 # See if they are root.
 if ($> != 0) {

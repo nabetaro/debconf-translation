@@ -16,11 +16,10 @@ BEGIN {
 		use strict;
 		use lib '.';
 		use Getopt::Long;
-		use Fcntl;
-		use POSIX qw(tmpnam);
 		use Debian::DebConf::ConfigDb;
 		use Debian::DebConf::Config;
 		use Debian::DebConf::AutoSelect;
+		use Debian::DebConf::Config;
 	};
 	if ($@) {
 		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
@@ -127,10 +126,8 @@ foreach my $deb (@debs) {
 		print "Configuring packages ...\n"
 	}
 
-	# Open a temp file safely and save the confmodule to it.
-	my $script;
-	do { $script = tmpnam() }
-		until sysopen(OUT, $script, O_RDWR|O_CREAT|O_EXCL);
+	my $script=Debian::DebConf::Config::tmpdir()."/config.$$";
+	open (OUT, ">$script") or die "$script: $!";
 	print OUT <IN>; # TODO: optimize.
 	close IN;
 	close OUT;

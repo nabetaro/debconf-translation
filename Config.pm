@@ -32,6 +32,18 @@ sub dbdir {
 	"./" # CHANGE THIS AT INSTALL TIME
 }
 
+=head2 tmpdir
+
+Where to put temporary files. /tmp isn't used because I don't bother
+opening these files safely, since that requires the use of Fcntl, which
+isn't in perl-base
+
+=cut
+
+sub tmpdir {
+	"./" # CHANGE THIS AT INSTALL TIME
+}
+
 =head2 frontend
 
 The frontend to use. A value is pulled out of the database if possible,

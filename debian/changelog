@@ -1,3 +1,15 @@
+debconf (0.2.19) unstable; urgency=low
+
+  * People just don't seem to get it -- NEVER use dh_input in a postinst!
+    Tightened up the language about that in the tutorial, and repeated my
+    self in several places in the hope people will read at least one of them.
+  * Eliminated use of Fcntl, one of the modules that made us depend on perl.
+  * Deleted the copy of the spec that was local to this document. The
+    configuration management spec is now available as an xml document, in
+    Debian CVS. For convenience, debconf includes that document now.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun,  7 Nov 1999 17:34:02 -0800
+
 debconf (0.2.18) unstable; urgency=low
 
   * Spelling fixes, Closes: #49587

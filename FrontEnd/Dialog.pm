@@ -31,10 +31,9 @@ use Debian::DebConf::Element::Dialog::Password;
 use Debian::DebConf::Element::Container;
 use Debian::DebConf::Priority;
 use Debian::DebConf::Log ':all';
+use Debian::DebConf::Config;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
-use Fcntl;
-use POSIX qw(tmpnam);
 use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd);
@@ -194,13 +193,8 @@ sub showtext {
 		}
 		else {
 			# Dialog has to use a temp file.
-			my $name;
-			# try new temporary filenames until we get one that
-			# didn't already exist; the check should be
-			# unnecessary, but you can't be too careful these
-			# days.
-			do { $name = tmpnam() }
-				until sysopen(FH, $name, O_RDWR|O_CREAT|O_EXCL);
+			my $name=Debian::DebConf::Config::tmpdir."/dialog-tmp.$$";
+			open(FH, ">$name") or die "$name: $!";
 			print FH join("\n", @lines);
 			close FH;
 			@args=("--textbox", $name);

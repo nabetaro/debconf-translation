@@ -1,5 +1,6 @@
 all: tutorial.html tutorial.txt introduction.html introduction.txt
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
+	$(MAKE) -C spec all
 
 %.html: %.xml html.dsl
 	jade -V nochunks -t sgml -d html.dsl \
@@ -10,3 +11,4 @@ all: tutorial.html tutorial.txt introduction.html introduction.txt
 
 clean:
 	rm -f hierarchy.txt *.css *.html tutorial.txt introduction.txt
+	$(MAKE) -C spec clean
