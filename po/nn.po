@@ -1,0 +1,346 @@
+# translation of debconf.po to Norwegian (Nynorsk)
+# translation of debconf.po to Norwegian (Nynorsk)
+# translation of debconf.po to Norwegian (Nynorsk)
+# translation of debconf.po to Norwegian (Nynorsk)
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Håvard Korsvoll <korsvoll@skulelinux.no>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-10-02 03:46-0600\n"
+"PO-Revision-Date: 2004-10-05 21:57+0200\n"
+"Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
+"Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr "Du brukar den redigeringsbaserte debconf-grenseflata for å setja opp systemet ditt. Sjå slutten av dette dokumentet for detaljerte instruksjonar."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr "Den redigeringsbaserte debconf-grenseflata presenterer deg for ei eller fleire tekstfiler som skal redigerast. Dette er ei slik tekstfil. Vis du er van med standard unix oppsettsfiler, vil denne fila sjå kjent ut for deg. Ho inneheld kommentarar innimellom oppsettselementa. Rediger fila, endra dei elementa som trengst, lagra ho og avslutt. Ved det tidspunktet vil debconf lesa den redigerte fila og bruka dei verdiane du har skrive inn for å setja opp systemet."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, c-format
+msgid "Debconf on %s"
+msgstr "Debconf på %s"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Merk: Debconf køyrer i nettlesarmodus. Gå til http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Tilbake"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Neste"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Fleire"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM er ikkje sett, så den dialogbaserte grenseflata er ikkje brukande."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Den dialogbaserte grenseflata er ikkje kompatibel med emacs skal-buffer"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr "Den dialogbaserte grenseflata vil ikkje fungera på ein dum terminal, eit emacs skal-buffer eller utan ein kontrollerande terminal."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "Ingen brukbare dialogprogram er installert, så den dialogbaserte grenseflata kan ikkje brukast."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Den dialogbaserte grenseflata krev eit skjermvindauge på minst 13 linjer og 31 kolonner."
+
+#: ../Debconf/FrontEnd/Dialog.pm:282
+msgid "Debian Configuration"
+msgstr "Oppsett av Debian"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Denne grenseflata treng ein kontrollerande tty."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU er ikkje kompatibel med emacs skal-buffer."
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "går tilbake til grenseflate: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "ikkje i stand til å starta opp grenseflate: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Ikkje i stand til å starta opp grenseflate: %s"
+
+#: ../Debconf/Config.pm:127
+msgid "Config database not specified in config file."
+msgstr "Oppsettsdatabase er ikkje oppgjeve i oppsettsfila."
+
+#: ../Debconf/Config.pm:131
+msgid "Template database not specified in config file."
+msgstr "Maldatabase er ikkje oppgjeve i oppsettsfila."
+
+#: ../Debconf/Config.pm:136
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "Vala Sigils og Smileys er ikkje i bruk i oppsettsfila lenger. Fjern dei."
+
+#: ../Debconf/Config.pm:147
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problem med å setja opp databasen definert av stanza %s frå %s."
+
+#: ../Debconf/Config.pm:276
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignorerer ugyldig prioritering «%s»"
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "Gyldige prioriteringar er: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "åtvaring: mogleg øydelagd database. Vil freista å reparera ved å leggja til igjen manglande spørsmål %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr "Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to malar ikkje skikkeleg skilde med ei tom linje.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Ukjent malfelt «%s», i strofe #%s i %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Maltolkingsfeil i nærleiken av «%s», i strofe #%s i %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Mal #%s i %s inneheld ingen linje med «Template:»\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Hjelp"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Lagra (e-post) merknad"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf blei spurd om å lagra denne merknaden, so det sendte han til deg på e-post."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informasjon"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Merknaden er sendt som e-post."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Feil"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Ikkje i stand til å lagra merknad."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Val"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Skriv inn null eller fleire element avskilt med komma og mellomrom (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ja"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nei"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgstr "Debconf var ikkje sett opp til å visa denne merknaden, så han vart sendt deg på e-post."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, køyrer på %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ingen av dei over"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Skriv inn dei elementa du vil velja, skilde med mellomrom."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr "Inngangsverdi, «%s» ikkje funne i C val! Dette skal aldri henda. Kanskje malen var plassert feil."
+
+#: ../Debconf/FrontEnd.pm:131
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Ikkje i stand til å lasta Debconf::Element::%s. Feila på grunn av: %s"
+
+#: ../Debconf/FrontEnd.pm:203
+#, c-format
+msgid "Configuring %s"
+msgstr "Set opp %s"
+
+#: ../dpkg-preconfigure:113
+#, c-format
+msgid "unable to re-open stdin: %s"
+msgstr "ikkje i stand til å opna standard inn igjen: %s"
+
+#: ../dpkg-preconfigure:116
+msgid "must specify some debs to preconfigure"
+msgstr "må oppgje nokre debs som skal setjast opp på førehand"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "utset pakkeoppsett sidan apt-utils ikkje er installert"
+
+#: ../dpkg-preconfigure:179
+#, c-format
+msgid "template parse error: %s"
+msgstr "maltolkingsfeil: %s"
+
+#: ../dpkg-preconfigure:193
+#, c-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: klarer ikkje chmod: %s"
+
+#: ../dpkg-preconfigure:203
+#, c-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s feila førehandsoppsettet med avsluttingsstatus %s"
+
+#: ../dpkg-reconfigure:104
+#, c-format
+msgid "%s must be run as root"
+msgstr "%s må køyrast som root"
+
+#: ../dpkg-reconfigure:137
+msgid "please specify a package to reconfigure"
+msgstr "oppgje ein pakke som skal setjast opp på ny"
+
+#: ../dpkg-reconfigure:157
+#, c-format
+msgid "%s is not installed"
+msgstr "%s er ikkje installert"
+
+#: ../dpkg-reconfigure:161
+#, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s er øydelagd eller ikkje fullstendig installert"
+
+#: ../dpkg-reconfigure:238
+#, c-format
+msgid "Cannot read status file: %s"
+msgstr "Klarer ikkje lesa statusfil: %s"
+
+#: ../debconf-mergetemplate:119
+#, c-format
+msgid "%s is missing"
+msgstr "%s manglar"
+
+#: ../debconf-mergetemplate:123
+#, c-format
+msgid "%s is missing; dropping %s"
+msgstr "%s manglar: droppar %s"
+
+#: ../debconf-mergetemplate:146
+#, c-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s er uklar ved byte %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, c-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s er uklar ved byte %s: %s; droppar han"
+
+#: ../debconf-mergetemplate:168
+#, c-format
+msgid "%s is outdated"
+msgstr "%s er utdatert"
+
+#: ../debconf-mergetemplate:173
+#, c-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s er utdatert; droppar heile malen!"
+
