@@ -14,6 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf-templates\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-12-28 19:07-0500\n"
 "PO-Revision-Date: 2004-07-21 12:24+0100\n"
 "Last-Translator: Piarre Beobide Egaña <pi@beobide.net>\n"
@@ -37,14 +38,30 @@ msgstr "Zein interfaze erabili behar da paketeak konfiguratzeko?"
 #. Type: select
 #. Description
 #: ../templates:5
-msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
-msgstr "Konfiguratzeko debconf erabiltzen duten paketeek itxura eta portaera bateratu bat dute. Zein interfaze mota erabili aukeratu dezakezu."
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Konfiguratzeko debconf erabiltzen duten paketeek itxura eta portaera "
+"bateratu bat dute. Zein interfaze mota erabili aukeratu dezakezu."
 
 #. Type: select
 #. Description
 #: ../templates:5
-msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
-msgstr "Elkarrizketa pantaila osoko karakteretan oinarritutako interfaze bat da, Komando-lerroa berriz testu laueko ohizko interfaze bat da. bai gnome eta bai kde interfazeak X-etan oinarritutako eta mahaigain horretarako prestaturik daude (naiz edozein X ingurunetan erabil daitezke). Editoreak konfiguraketak zure lehenetsitako testu editorea erabiliaz egingo ditu. Ez-interaktiboak ez dizu inoiz galderarik egingo."
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Elkarrizketa pantaila osoko karakteretan oinarritutako interfaze bat da, "
+"Komando-lerroa berriz testu laueko ohizko interfaze bat da. bai gnome eta "
+"bai kde interfazeak X-etan oinarritutako eta mahaigain horretarako "
+"prestaturik daude (naiz edozein X ingurunetan erabil daitezke). Editoreak "
+"konfiguraketak zure lehenetsitako testu editorea erabiliaz egingo ditu. Ez-"
+"interaktiboak ez dizu inoiz galderarik egingo."
 
 #. Type: select
 #. Choices
@@ -62,14 +79,16 @@ msgstr "Lehentasun hau edo handiagoko mezuak bakarrik bistarazi ?"
 #. Description
 #: ../templates:20
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf-ek egingo dizkizun galderak lehentasun mailetan sailkatzen ditu. Aukeratu ikusi nahi dituzun galderen lehentasun baxuena:\n"
+"Debconf-ek egingo dizkizun galderak lehentasun mailetan sailkatzen ditu. "
+"Aukeratu ikusi nahi dituzun galderen lehentasun baxuena:\n"
 "  - 'kritkoa'-k sistema hondatu dezaketen galderak egingo ditu .\n"
 "    Erabiltzaile berria edo presa baduzu hau aukeratu.\n"
 "  - 'altua'-k galdera garrantzitsuak egingo ditu.\n"
@@ -79,7 +98,10 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:20
-msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
-msgstr "Kontutan izan hemen zein aukera egiten duzun axola gabe galdera guztiak ikusi ahal izango dituzula paketea dpkg-reconfigure erabiliaz konfiguratzen baduzu."
-
-
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Kontutan izan hemen zein aukera egiten duzun axola gabe galdera guztiak "
+"ikusi ahal izango dituzula paketea dpkg-reconfigure erabiliaz konfiguratzen "
+"baduzu."
