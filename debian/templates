@@ -1,17 +1,16 @@
 Template: debconf/frontend
 Type: select
-Choices: Slang, Text, Editor, Dialog, Gnome, Noninteractive
+Choices: Dialog, Text, Gnome, Editor, Noninteractive
 Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
  .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface, and the gnome frontend is a modern X interface. The editor
- frontend lets you configure things using your favorite text editor. The
- noninteractive frontend never asks you any questions. The dialog frontend
- is a primitive frontend that is being phased out.
+ The dialog frontend is a full-screen, character based interface, while the
+ text frontend uses a more traditional plain text interface, and the gnome
+ frontend is a modern X interface. The editor frontend lets you configure
+ things using your favorite text editor. The noninteractive frontend never
+ asks you any questions.
 
 Template: debconf/priority
 Type: select
@@ -47,11 +46,3 @@ Description: Show all old questions again and again?
  .
  Note that no matter what you choose here, you can see old questions again by
  using the dpkg-reconfigure program.
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.

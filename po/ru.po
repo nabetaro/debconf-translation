@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "будет использован интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "не удалось инициализировать интерфейс `%s'"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось использовать интерфейс: %s"
@@ -73,22 +73,22 @@ msgstr ""
 "Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
 "случиться. Возможно, шаблоны были неправильно переведены."
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "Сохранить сообщение"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
 "было вам отправлено по почте."
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "Сообщение было отправлено пользователю root."
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Сообщение сохранить не удалось."
 
@@ -145,7 +145,6 @@ msgstr ""
 "Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "Подсказка"
 
@@ -171,7 +170,7 @@ msgstr ""
 "Ни одна из программ whiptail или dialog не установлена, поэтому вы не можете "
 "использовать dialog-интерфейс."
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
@@ -200,46 +199,6 @@ msgstr ""
 "редактора. Затем программа debconf прочитает измененный файл и использует "
 "введенные вами параметры для настройки системы."
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Далее"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Возврат"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "Убрать подсказку"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "Показать подсказку"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-#, fuzzy
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr ""
-"Для перемещения по элементам диалога используйте стрелки и клавишу Tab."
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "Идет работа. Подождите, пожалуйста..."
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "Далее"
@@ -254,6 +213,14 @@ msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Возврат"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Далее"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
@@ -283,23 +250,37 @@ msgstr "Не удалось изменить режим доступа к файлу: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "не удалось настроить пакет %s, код ошибки %s"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "должна выполняться с правами пользователя root"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr ""
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "Пакет %s установлен не полностью"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#~ msgid "Hide Help"
+#~ msgstr "Убрать подсказку"
+
+#~ msgid "Show Help"
+#~ msgstr "Показать подсказку"
+
+#, fuzzy
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr ""
+#~ "Для перемещения по элементам диалога используйте стрелки и клавишу Tab."
+
+#~ msgid "Working, please wait..."
+#~ msgstr "Идет работа. Подождите, пожалуйста..."
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

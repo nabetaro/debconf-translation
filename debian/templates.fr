@@ -1,28 +1,28 @@
 Template: debconf/frontend
 Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-fr: Slang, Texte, Éditeur, Dialogue, Non-interactif
-Default: Slang
+Choices: Dialog, Text, Gnome, Editor, Noninteractive
+Choices-fr: Dialogue, Texte, Gnome, Éditeur, Non-interactif
+Default: Dialog
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use. 
+ You can select the type of user interface they use.
  .
  The slang frontend provides a colorful, full-screen, character based
  windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out. 
+ text interface, and the gnome frontend is a modern X interface. The editor
+ frontend lets you configure things using your favorite text editor. The
+ noninteractive frontend never asks you any questions. The dialog frontend
+ is a primitive frontend that is being phased out.
 Description-fr: Quelle interface utiliser pour configurer les paquets ?
  Les paquets utilisant debconf pour leur configuration partagent la même
  apparence et ergonomie. Vous pouvez choisir leur interface utilisateur.  
  .
- 'Slang' est une interface couleur en plein écran basée sur une interface 
+ 'Dialogue' est une interface couleur en plein écran basée sur une interface 
  fenêtrée en mode caractère. 'Texte' est une interface en mode texte, plus
- traditionnelle et sans fioriture. L'interface 'Éditeur' vous permet de 
- faire vos configurations depuis votre éditeur favori. Si vous choisissez 
- 'Non-interactif', le système ne vous posera jamais de question. 'Dialogue'
- est une interface primitive et dépassée. 
+ traditionnelle et sans fioriture. 'Gnome' est une interface X moderne.
+ L'interface 'Éditeur' vous permet de faire vos configurations depuis votre
+ éditeur favori. Si vous choisissez 'Non-interactif', le système ne vous 
+ posera jamais de question.
 
 Template: debconf/priority
 Type: select
@@ -32,9 +32,9 @@ Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
  might ask you. Only questions with a certain priority or higher are
- actually shown to you; all less important questions are skipped. 
+ actually shown to you; all less important questions are skipped.
  .
- You can select the lowest priority of question you want to see:  
+ You can select the lowest priority of question you want to see: 
    - `critical' is for items that will probably break the system
      without user intervention.
    - `high' is for items that don't have reasonable defaults.
@@ -43,10 +43,10 @@ Description: Ignore questions with a priority less than..
      vast majority of cases.
  .
  For example, this question is of medium priority, and if your priority
- were  already `high' or `critical', you wouldn't see this question. 
+ were  already `high' or `critical', you wouldn't see this question.
  .
  If you are new to the Debian GNU/Linux system choose `critical' now, so
- you only see the most important questions. 
+ you only see the most important questions.
 Description-fr: Ignorer les questions de priorité inférieure à...
  Les paquets utilisant debconf pour leur configuration indiquent la
  priorité des questions qu'ils vous posent. Le système ne vous pose que
@@ -78,10 +78,10 @@ Description: Show all old questions again and again?
  Debconf normally only asks you any given question once. Then it remembers
  your answer and never asks you that question again. If you prefer, debconf
  can ask you questions over and over again, each time you upgrade or
- reinstall a package that asks them. 
+ reinstall a package that asks them.
  .
  Note that no matter what you choose here, you can see old questions again
- by using the dpkg-reconfigure program. 
+ by using the dpkg-reconfigure program.
 Description-fr: Poser de nouveau les anciennes questions ?
  Normalement, debconf ne pose chaque question qu'une seule fois. Ensuite,
  il se  souvient de la réponse que vous avez donnée, et ne repose jamais
@@ -91,16 +91,3 @@ Description-fr: Poser de nouveau les anciennes questions ?
  .
  Notez que quel que soit votre choix ici, vous pouvez revoir la
  configuration  d'un paquet avec le programme dpkg-reconfigure.  
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts. 
-Description-fr: Debconf doit-il afficher les textes étendus d'aide ?
- Debconf peut afficher des messages d'aide pour certaines questions.
- Certaines interfaces permettent de NE PAS le faire, ce qui leur permet de
- s'exécuter  un peu plus vite, ou d'être moins bavard. Ce réglage est
- surtout utile aux experts.  

@@ -1,27 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-it: Slang, Testo, Editor, Dialogo, NonInterattiva
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use. 
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primative frontend that is being
- phased out. 
-Description-it: Quale interfaccia devo usare per configurare i pacchetti?
- I pacchetti che usano debconf hanno lo stesso aspetto per la configurazione.
- Qui potete scegliere quale tipo di interfaccia usano.
- .
- Slang fornisce un'interfaccia a finestre testuale, colorata e a tutto schermo,
- mentre l'interfaccia Testo è più tradizionale. Editor permette di configurare
- tutto usando il proprio editor preferito, e NonInterattiva non chiede
- niente. Dialog è un'interfaccia primitiva che verrà presto dismessa.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -84,16 +60,3 @@ Description-it: Mostrare sempre le vecchie domande?
  .
  Notate che non importa la scelta fatta qui, potete vedere di nuovo le
  vecchie domande usando il programma dpkg-reconfigure.
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts. 
-Description-it: Usare l'help esteso per le domande?
- Debconf può visualizzare l'help esteso per le domande. Alcune interfacce
- permettono di disabilitare questa caratteristica, cosa che permette loro
- una maggiore velocità e una minore confusione. E' utile in particolare per
- gli esperti.

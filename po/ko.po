@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
@@ -75,20 +75,20 @@ msgstr ""
 "C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
 "야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "주의 저장"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "이 주의는 root에게 메일로 보냈습니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "주의를 저장할 수 없습니다."
 
@@ -140,7 +140,6 @@ msgid ""
 msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "도움말"
 
@@ -168,7 +167,7 @@ msgstr ""
 "Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
 "용할 수 없습니다."
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 
@@ -196,46 +195,6 @@ msgstr ""
 "그 시점에, debconf는 편집된 파일을 읽고, 시스템을 설정하기 위해 입력한 값을 "
 "사용할 것입니다."
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr "TERM이 정해지지 않았으므로, Slang frontend는 사용할 수 없습니다."
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Slang frontend는 벙어리 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
-"는 사용할 수 없습니다."
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "다음"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "뒤로"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "도움말 감춤"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "도움말 보임"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr "Tab과 방향 키로 움직임; space는 목록을 보여줌."
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "수행중, 기다리세요..."
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "계속"
@@ -249,6 +208,14 @@ msgstr "이 frontend는 제어 tty를 필요로 합니다."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "주의: Debconf는 웹 모드에서 실행중입니다. http://localhost:%i/로 가세요"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "뒤로"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "다음"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -278,23 +245,48 @@ msgstr "debconf: chmod할 수 없음: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s 미리 설정하기 실패, 상태 %s(으)로 종료함"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "root로 실행해야 합니다"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr "다시 설정할 패키지를 지정하세요"
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s은(는) 완전히 설치되지 않았습니다"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
+
+#~ msgid "TERM is not set, so the Slang frontend is not usable."
+#~ msgstr "TERM이 정해지지 않았으므로, Slang frontend는 사용할 수 없습니다."
+
+#~ msgid "Slang frontend is incompatible with emacs shell buffers"
+#~ msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
+
+#~ msgid ""
+#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
+#~ "or without a controlling terminal."
+#~ msgstr ""
+#~ "Slang frontend는 벙어리 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없"
+#~ "이는 사용할 수 없습니다."
+
+#~ msgid "Hide Help"
+#~ msgstr "도움말 감춤"
+
+#~ msgid "Show Help"
+#~ msgstr "도움말 보임"
+
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr "Tab과 방향 키로 움직임; space는 목록을 보여줌."
+
+#~ msgid "Working, please wait..."
+#~ msgstr "수행중, 기다리세요..."
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

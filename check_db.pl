@@ -18,11 +18,17 @@ my $ti=$Debconf::Db::templates->iterator;
 while (my $t=$ti->iterate) {
 	$templates{$t}=Debconf::Template->get($t);
 }
-		
+
 my %questions;
 my $qi=Debconf::Question->iterator;
 while (my $q=$qi->iterate) {
         $questions{$q->name}=$q;
+
+	# I have seen instances where a question would have no associated
+	# template field. Always a bug.
+	if (! defined $q->template) {
+		print STDERR "Warning: question \"".$q->name."\" has no template field.\n"
+	}
 }
 
 # I had a report of a templates db that had templates that claimed to
@@ -39,7 +45,7 @@ foreach my $t (keys %templates) {
 		}
 	}
 }
-1
+
 # A bug in debconf between 0.5.x and 0.9.79 caused some shared templates
 # owners to not be registered. The fix is nasty; we have to load up all
 # templates belonging to all installed packages all over again.

@@ -2,7 +2,7 @@ This the the Debian Configuration Management system. To test it, try these
 commands. (The Text frontend works best if libterm-readline-gnu-perl is
 installed, but it does not depend on it.)
 
-PERL5LIB=. DEBIAN_FRONTEND=Slang ./frontend samples/demo
+PERL5LIB=. DEBIAN_FRONTEND=Gnome ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=Dialog ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=Text ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=Web ./frontend samples/demo

@@ -1,29 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-sv: Slang, Text, Textbehandlare, Dialog, Ickeinteraktiv
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use. 
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primative frontend that is being
- phased out. 
-Description-sv: Vilket gränssnitt skall användas för att konfigurera paket?
- Paket som använder debconf för konfiguration delar ett gemensamt utseende
- och känsla. Du kan välja vilken sorts användargränssnitt de använder. 
- .
- Slang-skalet ger en färgfullt, helskärms, teckenbaserat fönstergränssnitt,
- medan textskalet använder ett mer traditionellt gränssnitt med ren text.
- Textbehandlarskalet låter dig konfigurera saker med din
- favorittextbehandlare. Det ickeinteraktiva skalet frågar dig aldrig
- någonting. Dialogskalet är ett primitivt skal som är på väg att fasas
- ut.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -85,15 +59,3 @@ Description-sv: Visa alla gamla frågor igen och igen?
  .
  Observera: oavsett vad du väljer här kan du se gamla frågor igen genom att
  använda programmet dpkg-reconfigure. 
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts. 
-Description-sv: Skall debconf visa utökad hjälp för frågor?
- Debconf kan visa utökad hjälp för frågor. Vissa skal gör det möjligt att
- stänga av denna visning, vilket kan göra att de körs snabbare, eller inte
- är lika "skräpiga". Detta är huvudsakligen användbart för experter. 

@@ -13,7 +13,7 @@ use Debconf::Gettext;
 use Debconf::Db;
 
 use fields qw(config templates frontend priority terse
-              showold admin_email log debug helpvisible);
+              showold admin_email log debug);
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
@@ -188,44 +188,6 @@ sub priority {
 	my $question=Debconf::Question->get('debconf/priority');
 	if ($question) {
 		$ret=$question->value || $ret;
-	}
-	return $ret;
-}
-
-=item helpvisible
-
-Controls whether help is visible in the slang frontend. If a value is
-passed in, that sets the debconf/helpvisible question's value perminantly.
-
-On the other hand, when getting the value, we look at the terse mode. If it
-is set, help is not visible.
-
-This allows terse mode to override the default helpvisible setting, without
-changing it perminatly.
-
-=cut
-
-sub helpvisible {
-	my $class=shift;
-
-	if (@_) {
-		$config->{helpvisible}=shift;
-		my $question=Debconf::Question->get('debconf/helpvisible');
-		if ($question) {
-			$question->value($config->{helpvisible});
-		}
-	}
-	
-	return $config->{helpvisible} if exists $config->{helpvisible};
-
-	if ($class->terse eq 'true') {
-		return 'false';
-	}
-
-	my $question=Debconf::Question->get('debconf/helpvisible');
-	my $ret='true';
-	if ($question) {
-		return $question->value || $ret;
 	}
 	return $ret;
 }

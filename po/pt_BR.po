@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.73\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: 2001-07-02 22:13-0300\n"
 "Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR <debian-br@listas.cipsga.org.br>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=iso8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "falha ao inicializar frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "falha ao inicializar frontend: %s"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Impossível iniciar um frontend: %s"
@@ -77,22 +77,22 @@ msgstr ""
 "Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
 "acontecer. Talvez os templates foram traduzidos incorretamente."
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "Salvar Nota"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Foi pedido ao Debconf que ele salvasse essa nota, então ela foi enviada a "
 "você."
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "A nota foi enviada ao root."
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
@@ -148,7 +148,6 @@ msgstr ""
 "Digite as letras dos itens que você quer selecionar, separadas por espaços."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "Ajuda"
 
@@ -176,7 +175,7 @@ msgstr ""
 "Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
 "dialog não pode ser usado"
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "Configuração Debian"
 
@@ -206,46 +205,6 @@ msgstr ""
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr "O TERM não está definido então o frontend Slang não pode ser usado."
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr "O frontend Slang é incompatível com buffers shell do emacs"
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"O frontend Slang não vai funcionar em um terminal burro, em um buffer shell "
-"do emacs ou sem um terminal controlador."
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Próximo"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Anterior"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "Esconder Ajuda"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "Mostrar Ajuda"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr "Tab e teclas de seta para mover; espaço para mostrar listas."
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "Trabalhando, aguarde...."
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "Mais"
@@ -258,6 +217,14 @@ msgstr "Esse frontend requer um tty controlador."
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Nota: O Debconf está rodando em modo web. Vá para http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Anterior"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Próximo"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -287,23 +254,48 @@ msgstr "debconf: impossível fazer chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou na preconfiguração com estado de saída %s"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "deve ser rodado como root"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr "especifique um pacote para reconfigurar"
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s não está totalmente instalado"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossível ler o estado do arquivo: %s"
+
+#~ msgid "TERM is not set, so the Slang frontend is not usable."
+#~ msgstr "O TERM não está definido então o frontend Slang não pode ser usado."
+
+#~ msgid "Slang frontend is incompatible with emacs shell buffers"
+#~ msgstr "O frontend Slang é incompatível com buffers shell do emacs"
+
+#~ msgid ""
+#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
+#~ "or without a controlling terminal."
+#~ msgstr ""
+#~ "O frontend Slang não vai funcionar em um terminal burro, em um buffer "
+#~ "shell do emacs ou sem um terminal controlador."
+
+#~ msgid "Hide Help"
+#~ msgstr "Esconder Ajuda"
+
+#~ msgid "Show Help"
+#~ msgstr "Mostrar Ajuda"
+
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr "Tab e teclas de seta para mover; espaço para mostrar listas."
+
+#~ msgid "Working, please wait..."
+#~ msgstr "Trabalhando, aguarde...."
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.95\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=Big5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "啟始前端介面失敗: %s"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "不能開啟前端介面: %s"
@@ -74,20 +74,20 @@ msgstr ""
 "輸入值, \"%s\" 沒有在 C 選擇中找到 ! 這是永不會發生的. 或許樣板受到不正確的本"
 "地化."
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "儲存備忘"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Debconf 要求儲存這個備忘, 並且郵寄給您."
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "這個備忘已經郵寄了給root."
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "不能儲存備忘."
 
@@ -138,7 +138,6 @@ msgid ""
 msgstr "在您想選擇的項目中輸入, 以空格分開."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "求助"
 
@@ -162,7 +161,7 @@ msgid ""
 "cannot be used."
 msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "Debian 設定"
 
@@ -187,44 +186,6 @@ msgstr ""
 "改任何 修要的項目, 然後儲存並離開. 在任何時間, debconf 都會讀取已修改的檔案, "
 "而且會使用您的設定值設定系統."
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr "TERM 並未設定, Slang 介面不能執行."
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr "Slang 介面與Emacs 外殼綬沖不兼容"
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr "Slang 介面並不能在純終端上運作, 例如Emacs 外殼綬沖, 或 沒有控制終端."
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "下一個"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "上一個"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "隱藏求助"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "顯示求助"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr "Tab 及 方向控制移動; 空白鍵顯示清單."
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "工作中, 請等侯..."
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "更多"
@@ -237,6 +198,14 @@ msgstr "這個介面需求可控制的tty."
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "注: Debconf 執行在 Web 模式. 請到 http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "上一個"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "下一個"
 
 #: ../dpkg-preconfigure:113
 #, c-format
@@ -266,23 +235,47 @@ msgstr "debconf: 不能改變權限: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預設定 %s 失敗, 中止狀態 %s"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "需要由 root 的執行"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr "請指定要再設定的包件"
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s 並未完全安裝"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"
+
+#~ msgid "TERM is not set, so the Slang frontend is not usable."
+#~ msgstr "TERM 並未設定, Slang 介面不能執行."
+
+#~ msgid "Slang frontend is incompatible with emacs shell buffers"
+#~ msgstr "Slang 介面與Emacs 外殼綬沖不兼容"
+
+#~ msgid ""
+#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
+#~ "or without a controlling terminal."
+#~ msgstr ""
+#~ "Slang 介面並不能在純終端上運作, 例如Emacs 外殼綬沖, 或 沒有控制終端."
+
+#~ msgid "Hide Help"
+#~ msgstr "隱藏求助"
+
+#~ msgid "Show Help"
+#~ msgstr "顯示求助"
+
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr "Tab 及 方向控制移動; 空白鍵顯示清單."
+
+#~ msgid "Working, please wait..."
+#~ msgstr "工作中, 請等侯..."
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

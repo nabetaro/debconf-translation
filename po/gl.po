@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: 2001-03-26 00:43+02:00\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "non se puido inicializa-la interface: %s"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "non se puido inicializa-la interface: %s"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Non se puido arrincar unha interface: %s"
@@ -79,20 +79,20 @@ msgstr ""
 "¡Non se atopou o valor de entrada, \"%s\", nas opcións de C! Isto non "
 "debería ocorrer nunca. Se cadra localizáronse os patróns incorrectamente."
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "Gravar Nota"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Pedíuselle a debconf que gravara esta nota, así que lla enviou a Vd."
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "Envióuselle a nota a root."
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Non se puido grava-la nota."
 
@@ -147,7 +147,6 @@ msgstr ""
 "Premas as letras dos elementos que quere seleccionar, separadas por espacios."
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "Axuda"
 
@@ -175,7 +174,7 @@ msgstr ""
 "Non están instalados whiptail nin dialog, así que non se pode emprega-la "
 "interface baseada en dialog."
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
@@ -204,46 +203,6 @@ msgstr ""
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configura-lo sistema."
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr "Non se estabreceu TERM, así que a interface Slang non é utilizable."
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr "A interface Slang é incompatible cos buffers shell de emacs."
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"A interface Slang non funciona nun terminal parvo, un buffer shell de emacs, "
-"ou sen un terminal de control."
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Seguinte"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Anterior"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "Oculta-la Axuda"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "Amosa-la Axuda"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr "Tabulador e frechas, movemento; barra espaciadora, expandir listas."
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "Traballando, agarde..."
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "Máis"
@@ -257,6 +216,14 @@ msgstr "Esta interface precisa dun terminal de control."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Nota: Debconf está a se executar en modo web. Vaia a http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Anterior"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Seguinte"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
@@ -286,23 +253,48 @@ msgstr "debconf: non se puido facer chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Non se puido preconfigurar %s, co estado de saída %s"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "débese executar coma root"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr ""
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s non está completamente instalado"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Non se puido le-lo ficheiro de estado: %s"
+
+#~ msgid "TERM is not set, so the Slang frontend is not usable."
+#~ msgstr "Non se estabreceu TERM, así que a interface Slang non é utilizable."
+
+#~ msgid "Slang frontend is incompatible with emacs shell buffers"
+#~ msgstr "A interface Slang é incompatible cos buffers shell de emacs."
+
+#~ msgid ""
+#~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
+#~ "or without a controlling terminal."
+#~ msgstr ""
+#~ "A interface Slang non funciona nun terminal parvo, un buffer shell de "
+#~ "emacs, ou sen un terminal de control."
+
+#~ msgid "Hide Help"
+#~ msgstr "Oculta-la Axuda"
+
+#~ msgid "Show Help"
+#~ msgstr "Amosa-la Axuda"
+
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr "Tabulador e frechas, movemento; barra espaciadora, expandir listas."
+
+#~ msgid "Working, please wait..."
+#~ msgstr "Traballando, agarde..."
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

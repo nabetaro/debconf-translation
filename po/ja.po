@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-08-20 18:51-0400\n"
+"POT-Creation-Date: 2001-08-28 17:12-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:63
+#: ../Debconf/AutoSelect.pm:65
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:71
+#: ../Debconf/AutoSelect.pm:73
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:77
+#: ../Debconf/AutoSelect.pm:79
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
@@ -74,21 +74,21 @@ msgstr ""
 "とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
 "ます。"
 
-#: ../Debconf/Element/Gnome/Note.pm:47 ../Debconf/Element/Slang/Note.pm:27
+#: ../Debconf/Element/Gnome/Note.pm:47
 msgid "Save Note"
 msgstr "注意を保存する"
 
-#: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
+#: ../Debconf/Element/Gnome/Note.pm:50
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
+#: ../Debconf/Element/Gnome/Note.pm:51
 #, fuzzy
 msgid "The note has been mailed."
 msgstr "この注意は root にメールされました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
+#: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
@@ -141,7 +141,6 @@ msgid ""
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
 #: ../Debconf/Element/Gnome.pm:87 ../Debconf/Element/Gnome.pm:90
-#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -167,7 +166,7 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:237
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -196,45 +195,6 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Slang.pm:51
-msgid "TERM is not set, so the Slang frontend is not usable."
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:54
-msgid "Slang frontend is incompatible with emacs shell buffers"
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:57
-msgid ""
-"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-
-#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "次へ"
-
-#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "戻る"
-
-#: ../Debconf/FrontEnd/Slang.pm:97
-msgid "Hide Help"
-msgstr "ヘルプを非表示"
-
-#: ../Debconf/FrontEnd/Slang.pm:98
-msgid "Show Help"
-msgstr "ヘルプを表示"
-
-#: ../Debconf/FrontEnd/Slang.pm:260
-#, fuzzy
-msgid "Tab and arrow keys move; space drops down lists."
-msgstr "タブか矢印キーで移動"
-
-#: ../Debconf/FrontEnd/Slang.pm:283
-msgid "Working, please wait..."
-msgstr "処理しています、お待ちください…"
-
 #: ../Debconf/FrontEnd/Text.pm:209
 msgid "More"
 msgstr "移動"
@@ -249,6 +209,14 @@ msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "注意: Debconf はウェブモードで動作しています。\n"
 "http://localhost:%i/ をご覧ください。"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "戻る"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "次へ"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
@@ -278,23 +246,36 @@ msgstr "chmod できません: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で設定に失敗しました。"
 
-#: ../dpkg-reconfigure:78
+#: ../dpkg-reconfigure:76
 msgid "must be run as root"
 msgstr "root で実行する必要があります"
 
-#: ../dpkg-reconfigure:119
+#: ../dpkg-reconfigure:117
 msgid "please specify a package to reconfigure"
 msgstr ""
 
-#: ../dpkg-reconfigure:133
+#: ../dpkg-reconfigure:131
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s は完全にインストールされていません"
 
-#: ../dpkg-reconfigure:206
+#: ../dpkg-reconfigure:204
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
+
+#~ msgid "Hide Help"
+#~ msgstr "ヘルプを非表示"
+
+#~ msgid "Show Help"
+#~ msgstr "ヘルプを表示"
+
+#, fuzzy
+#~ msgid "Tab and arrow keys move; space drops down lists."
+#~ msgstr "タブか矢印キーで移動"
+
+#~ msgid "Working, please wait..."
+#~ msgstr "処理しています、お待ちください…"
 
 #, fuzzy
 #~ msgid "The note has been mailed to root"

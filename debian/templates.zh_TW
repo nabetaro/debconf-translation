@@ -1,27 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-zh_TW: Slang, 文本, 編輯器, Dialog, 非交互式
-Default: Dialog
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use.
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out.
-Description-zh_TW: 在設置包件時可使用那個介面？
- 使用 Debconf 來設置的軟件包可以使用相同風格的用戶介面．你可以在這裡選擇
- 使用哪一種介面．
- .
- 基於 slang 的用戶介面是一個彩色的，全屏幕的，基於字符的窗口介面；至於 Text
- 的前端用戶介面，則是更為傳統的簡單的文本介面．名為 Editor 的用戶介面可以讓
- 你在自己最滿意的編輯器中進行配置工作．非交互式的前端介面則絕不會向你問任何
- 問題．而舊式的對話介面則已經被分格開.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -77,15 +53,3 @@ Description-zh_TW: 是否總是要顯示老問題？
  Debconf 通常只將所涉及的問題問僅僅一遍．它能記住您的回答，這樣以後就再也不
  向您提出相同的問題了．當然，如果您樂意，Debconf 也可以在您升級軟件包，或者
  重新安裝的時候，重復的問您這些老問題．
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.
-Description-zh_TW: Debconf 應改為問題顯示詳盡的幫助信息嗎？
- Debconf 可以為提出的問題顯示詳盡的幫助信息．一部份風格的前端用戶介面可以不
- 顯示這些幫助信息，這樣可以讓它們運行的更快一些，或者可能更加清爽一些．這可
- 能只是對一些專家會有所幫助．

@@ -1,28 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-fi: Slang, Teksti, Editori, Dialog, Automaattinen
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use. 
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out. 
-Description-fi: Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?
- Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän.
- Voit itse valita mieluisesi liittymän muutamasta vaihtoehdosta. 
- .
- Slang on värikäs, ruudun täyttävä, päätteellä näkyvä graafinen liittymä.
- Teksti on perinteisempi, paljasta tekstiä käyttävä liittymä. Editori
- käyttää asetusten säätöön lempieditoriasi. Automaattinen liittymä ei
- koskaan kysy kysymyksiä. Dialog on vanhempi liittymä, josta ollaan
- luopumassa. 
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -84,16 +59,3 @@ Description-fi: Näytetäänkö vanhat kysymykset aina uudelleen?
  .
  Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan
  ajamalla "dpkg-reconfigure"-ohjelman. 
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts. 
-Description-fi: Pitäisikö debconf:n näyttää laaja apu kysymyksille?
- Debconf voi näyttää kysymyksille laajan avustustekstin. Jotkut liittymät
- mahdollistavat tämän näytön poiskytkemisen, mikä voi nopeuttaa niitä tai
- siistiä näyttöä. Tämä poiskytkentä on hyödyllinen lähinnä
- asiantuntijoille. 

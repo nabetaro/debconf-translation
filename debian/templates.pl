@@ -1,27 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive, Web
-Choices-pl: Slang, Tekst, Edytor, Dialog, Automat, WWW
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use.
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions notes. The web frontend can be accessed using your favorite browser.
-Description-pl: Jakiego interfejsu chcesz u¿ywaæ, aby konfigurowaæ pakiety?
- Konfiguracja pakietów u¿ywaj±cych do tego celu debconfa wygl±da podobnie.
- Mo¿esz wybraæ wspólny interfejs, którego bêd± u¿ywaæ.
- .
- Nak³adka `slang' to kolorowy, tekstowy, pe³noekranowy interfejs; `tekst' --
- bardziej tradycyjny, prosty, tekstowy. Nak³adka `edytor' pozwala na
- konfiguracjê przy pomocy Twojego ulubionego edytora tekstowego. Nak³adka
- `automat' nigdy nie zadaje ¿adnych pytañ. Nak³adka `www' pozwala na
- konfiguracjê za pomoc± przegl±darki stron www.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -81,16 +57,3 @@ Description-pl: Czy zawsze zadawaæ stare pytania?
  .
  Zwróæ uwagê, ¿e bez wzglêdu na odpowied¼ na to pytanie mo¿esz zobaczyæ
  dowolne pytanie jeszcze raz u¿ywaj±c programu dpkg-reconfigure.
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.
-Description-pl: Czy debconf powinien wy¶wietlaæ rozszerzon± pomoc do pytañ?
- Debconf mo¿e wy¶wietlaæ rozszerzon± pomoc do pytañ. Niektóre nak³adki
- pozwalaj± wy³±czyæ t± opcjê, dziêki czemu bêd± dzia³aæ nieco szybciej lub
- bêd± bardziej uporz±dkowane. Wy³±czyæ t± opcjê mog± chcieæ g³ównie
- eksperci.

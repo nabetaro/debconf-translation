@@ -21,18 +21,18 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 	case $STATE in
 	1)
 		db_input high demo/boolean || true
-#	;;
-#	2)
+	;;
+	2)
 		db_input high demo/multiselect || true
-#	;;
-#	3)
+	;;
+	3)
 		db_input critical demo/string || true
 		db_input low demo/password || true
 		db_input low demo/text || true
 		db_subst demo/select colors red, Yellow, green
 		db_input high demo/select || true
-#	;;
-#	4)
+	;;
+	4)
 		db_beginblock
 		db_input low demo/boolean || true
 		db_input low demo/boolean || true

@@ -1,29 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-gl: Slang, Texto, Editor, Dialog, Non-Interactiva
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use.
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out.
-Description-gl: ¿Que interface se debería empregar para configura-los paquetes?
- Os paquetes que empregan debconf para a configuración comparten unha
- aparencia común. Pode escolle-lo tipo de interface de usuario que usan.
- .
- A interface de slang proporciona unha interface de fiestras a toda cor, en
- pantalla completa, en modo texto, mentres que a interface de texto usa unha
- interface de só texto máis tradicional. A interface de editor permítelle
- configura-las cousas co seu editor de texto favorito. A interface non
- interactiva nunca lle fai preguntas. A interface de dialog é unha interface
- primitiva que se está retirando.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -83,15 +57,3 @@ Description-gl: ¿Ve-las preguntas antigas unha e outra vez?
  resposta e nunca lle volve face-la pregunta. Se o prefire, debconf pódelle
  face-las preguntas unha e outra vez, cada vez que actualice ou reinstale un
  paquete que as pregunta.
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.
-Description-gl: ¿Debería debconf amosar axuda extendida nas preguntas?
- Debconf pode amosar axuda extendida nas preguntas. Algunhas interfaces
- permiten desactivala, o que as pode facer máis rápidas, ou coa pantalla menos
- saturada. Isto é útil sobre todo para os expertos.

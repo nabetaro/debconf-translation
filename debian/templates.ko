@@ -1,28 +1,3 @@
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-ko: Slang, 텍스트, 편집기, 대화상자, 상호작용없음
-Default: Dialog
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use.
- .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primitive frontend that is being
- phased out.
-Description-ko: 패키지를 설정할 때 어떤 인터페이스를 사용할까요?
- 설정하기 위해 debconf를 사용하는 패키지를 공통된 모습과 느낌을 공유합니다.
- 그것이 사용할 사용자 인터페이스의 종류를 선택할 수 있습니다.
- .
- Slang frontend는 색깔이 있고, 전체화면인 문자 기반의 창 인터페이스인 반면,
- 텍스트 forntend는 좀 더 전통적인 일반 텍스트 인터페이스를 사용합니다. 편집기
- 인터페이스는 당신이 선호하는 텍스트 편집기로 설정할 수 있게 합니다.
- 상호작용없음은 어떤 질문도 묻지 않습니다. 대화상자 frontend는 단계적으로
- 폐지되고 있는 초기의 frontend입니다.
-
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
@@ -84,15 +59,3 @@ Description-ko: 예전의 질문 모두를 반복해서 보여줄까요?
  .
  여기에서 어떤 것을 선택하든 상관없이, dpkg-reconfigure 프로그램을 사용해서
  예전의 질문을 다시 볼 수 있다는 것을 알아두세요.
-
-Template: debconf/helpvisible
-Type: boolean
-Default: true
-Description: Should debconf display extended help for questions?
- Debconf can display extended help for questions. Some frontends allow this
- display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.
-Description-ko: Debconf가 질문에 대한 확장 도움말을 표시하게 할까요?
- Debconf는 질문에 대한 확장 도움말을 표시할 수 있습니다. 어떤 frontend는
- 조금 더 빠르게 하거나, 혼잡하지 않게 하기 위해 이 표시를 끌 수 있습니다.
- 이것은 보통 전문가에게 유용합니다.

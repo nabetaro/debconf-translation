@@ -15,21 +15,9 @@ fi
 db_version 2.0
 db_capb backup
 
-# Remove old question.
+# Remove old questions.
 db_unregister debconf/preconfig || true
-
-# debconf/helpvisible was renamed, and the value inverted for exactly one
-# release of debconf. Then I woke up. :-) This code can be removed in the
-# year 2002, that's probably enough penance for my sins. :-)
-if [ "$1" = configure ] && dpkg --compare-versions "$2" eq 0.9.74; then
-	db_get debconf/terse || true
-	if [ "$RET" = true ]; then
-		db_set debconf/helpvisible false
-	else
-		db_set debconf/helpvisible true
-	fi
-	db_unregister debconf/terse || true
-fi
+db_unregister debconf/helpvisible || true
 
 # Use a state machine to allow jumping back to previous questions.
 STATE=1

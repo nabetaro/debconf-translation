@@ -1,3 +1,45 @@
+debconf (1.0.0) unstable; urgency=low
+
+  * Let's call it 1.0, folks!
+  * This leaves the following big things for later:
+    - a better confmodule interface that doesn't eat stdin/out
+    - container template types
+    - select list with explainations
+    - a textual replacement for the dialog frontend that is just as 
+      easy to use, and sucks less
+    - better developer's documentation
+    - regression tests
+    - everything else in the TODO file
+  * I mention a dialog frontend replacement that does not suck. The slang
+    frontend was intended to be just that, but it is a failure, with big
+    problems like unscrollable extended descriptions, UI clunkiness, etc.
+    Nobody wants to fix these issues, and so the best thing to do is remove
+    it, before a lot of people begin to use it. 
+    Closes: #66170, #81344, #96302, #74722, #77085, #101643
+  * Removing the slang frontend also involved:
+    - getting rid of debconf/helpvisible, which was only used by it
+    - modifiying the debconf/frontend's template description, thus making
+      all the translatione be out of date again, right as I release 1.0.
+      Bleh. I was able to clean up the french template, but all the other
+      translations of that template were too out of date to live, so I
+      removed it from them. I am accepting updated translations, and I would
+      love to get a 1.1 release out with fully up-to-date translations of
+      everything.
+    - doc updates
+    - libterm-stool-perl will be removed, so removed relations to it
+    - ensuring an upgrade path, if not a very clean one, for people who had
+      it set to use the slang frontend. You'll get dialog now, and just
+      ignore that nasty set of perl errors you get while upgrading to this
+      version, I can't do anything about it w/o some nasty hacking.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 28 Aug 2001 16:37:27 -0400
+
+debconf (0.9.97) unstable; urgency=low
+
+  * French update from Martin Quinson <Martin.Quinson@ens-lyon.fr>.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 28 Aug 2001 15:19:36 -0400
+
 debconf (0.9.96) unstable; urgency=low
 
   * Fixed note mailed message so it doesn't hardcode where it is mailed to.
