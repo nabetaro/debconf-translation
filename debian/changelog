@@ -1,3 +1,10 @@
+debconf (0.2.23) unstable; urgency=low
+
+  * Added sane defaults if stty -a fails. (Closes: a whole slew of bug
+    reports people will file over the next 2 days. :-P)
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 15:00:16 -0800
+
 debconf (0.2.22) unstable; urgency=low
 
   * The noninteractive frontend now mails notes to root.
