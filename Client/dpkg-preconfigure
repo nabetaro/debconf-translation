@@ -170,7 +170,7 @@ unless (open(INFO, "-|")) {
 # the user watches their ui lock up until it scans all the way to the last..
 # Blowing a bit of memory on abuffer seems like a saner approach.
 my @buffer=<INFO>;
-while (@buffer) {
+foreach (@buffer) {
 	($package, $version, $template, $config)=split ' ';
 	
 	# Load templates if any.
