@@ -207,7 +207,7 @@ foreach my $x (0..$#debs) {
 		if ($ok) {
 			eval q{
 				loadtemplatefile($fh, $packages{$debs[$x]});
-			}
+			};
 			if ($@) {
 				print STDERR "$debs[$x] ".gettext(sprintf("template parse error: %s", $@))."\n";
 				next;
@@ -216,7 +216,6 @@ foreach my $x (0..$#debs) {
 			$todo{$debs[$x]}=1;
 		}
 	}	
-	close TEMPLATES;
 }
 
 # Clear progress output.
