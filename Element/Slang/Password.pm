@@ -16,13 +16,15 @@ package Debian::DebConf::Element::Slang::Password;
 use strict;
 use Term::Stool::Password;
 use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use base qw(Debian::DebConf::Element::Slang::String);
 
 sub makewidget {
 	my $this=shift;
+	my $yoffset=shift;
 
-	my $default='';
-	$this->widget(Term::Stool::Password->new(@_));
+	$this->widget(Term::Stool::Password->new(
+		resize_hook => sub { $this->resize },
+	));
 }
 
 =head2 value

@@ -46,7 +46,9 @@ sub new {
 		helpstack => [ "" ],
 	));
 	$this->mainwindow(Term::Stool::Window->new(
-		xoffset => 2, yoffset => 2, resize_hook => sub {
+		xoffset => 2,
+		yoffset => 2,
+		resize_hook => sub {
 			my $this=shift;
 
 			# Resize to take up the top half of the screen.
@@ -56,7 +58,8 @@ sub new {
 	));
 	$this->descwindow(Term::Stool::Window->new(
 		title => "Description",
-		xoffset => 2, resize_hook => sub {
+		xoffset => 2,
+		resize_hook => sub {
 			my $this=shift;
 		
 			# Resize to take up the bottom half of the screen.
@@ -66,7 +69,9 @@ sub new {
 		},
 	));	
 	$this->button_next(Term::Stool::Button->new(
-		text => "Next", width => 8, resize_hook => sub {
+		text => "Next",
+		width => 8,
+		resize_hook => sub {
 			my $this=shift;
 
 			# Fit at bottom of window, on left hand side.
@@ -75,7 +80,9 @@ sub new {
 		},
 	));
 	$this->button_back(Term::Stool::Button->new(
-		text => "Back", width => 8, resize_hook => sub {
+		text => "Back",
+		width => 8,
+		resize_hook => sub {
 			my $this=shift;
 
 			# Fit at bottom of window, on right hand side.
@@ -85,11 +92,16 @@ sub new {
 		},
 	));
 	$this->panel(Term::Stool::Panel->new(
-		xoffset => 0, yoffset => 0, resize_hook => sub {
-			my $this=shift;
+		xoffset => 0,
+		yoffset => 0,
+		resize_hook => sub {
+			my $panel=shift;
+			
 			# Fill the window, with space for the buttons.
-			$this->width($this->container->width - 2);
-			$this->height($this->container->height - 3);
+			$panel->width($panel->container->width - 2);
+			$panel->height($panel->container->height - 3);
+
+			$this->fillpanel;
 		},
 	));
 	$this->mainwindow->add($this->panel, $this->button_next,
@@ -119,11 +131,8 @@ sub title {
 
 =head2 go
 
-The Elements to display to the user are in the elements property. Each
-Element has an associated Question, plus a Term::Stool widget, and those
-widgets are laid out on the panel, and the whole thing is displayed. When the
-user hits the button, each Element is told to return a value based on what the
-user did, and the associated Question is set to that value.
+Creates and lays out all the necessary widgets, then runs them to get
+input.
 
 =cut
 
@@ -138,41 +147,68 @@ sub go {
 
 	# Create and lay out all the widgets in the panel.
 	$this->panel->clear;
-	my $y=0;
 	my $firstwidget='';
 	foreach my $element (@elements) {
-		# Alternate some text (the short description)..
-		my $text=Term::Stool::Text->new(
-			yoffset => $y++,
-			xoffset => 1,
-			width => $this->panel->width - 4,
-			text => substr($element->question->description, 0,
-				       $this->panel->width - 4),
-		);
-		
-		# .. with the actual input widget.
-		$element->makewidget(
-			yoffset => $y++,
-			xoffset => 1,
-			width => $this->panel->width - 4,
-			activate_hook => sub {
-				# Set up the widget so when it is
-				# activated, it makes sure that the text
-				# describing it is also visible.
-				$this=shift;
-				$this->container->scrollto($text);
-			},
-		);
-
-		$this->panel->add($text, $element->widget);
+		$element->makewidget;
 		$firstwidget=$element->widget unless $firstwidget;
+		# Set up the widget so when it is activated, it makes sure
+		# that the text describing it is also visible.
+		$element->widget->activate_hook(sub {
+			my $this=shift;
+			$this->container->scrollto($this->description);
+		});
+		$element->widget->description(Term::Stool::Text->new(
+			text => $element->question->description,
+			xoffset => 1,
+			resize_hook => sub {
+				# Always make all the text visible, if
+				# possible.
+				my $this=shift;
+				my $length=length $this->text;
+				my $maxwidth=$this->container->width - 4;
+				
+				if ($length <= $maxwidth) {
+					$this->width($length);
+				}
+				else {
+					$this->width($maxwidth);
+				}
+			},
+		));
+		$this->panel->add($element->widget->description);
+		$this->panel->add($element->widget);
 	}
-	
+
+	# Make sure everything inside the panel is positioned ok.
+	$this->fillpanel;
+
 	# Now set it all in motion, with the first widget focused.
 	$this->screen->run($firstwidget);
 
 	$this->clear;
 	return 1;
+}
+
+=head2 fillpanel
+
+Called when the panel is resized. This sets up the y offset's of all widgets
+on the panel. Sometimes a widget group fits on the same line, sometimes not.
+
+=cut
+
+sub fillpanel {
+	my $this=shift;
+	
+	my $y=0;
+	foreach my $element (@{$this->elements}) {
+		my $widget=$element->widget || next;
+		$widget->description->yoffset($y);
+		$widget->description->resize;
+		$element->resize;
+		$y++ unless $widget->sameline;
+		$widget->yoffset($y++);
+		$y++; # a blank line between widget groups.
+	}
 }
 
 =head1 AUTHOR
