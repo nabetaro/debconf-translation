@@ -129,25 +129,8 @@ sub new {
 	$this->descwindow->add($this->desctext);
 	$this->screen->add($this->titlebar, $this->mainwindow,
 		$this->descwindow, $this->helpbar);
-
-	return $this;
-}
-
-=head2 title
-
-Setting the frontend's title sets the title of the main window.
-
-=cut
-
-sub title {
-	my $this=shift;
 	
-	return $this->{title} unless @_;
-	$this->{'title'} = shift;
-	if ($this->mainwindow && $this->screen->initialized) {
-		$this->mainwindow->title($this->{'title'});
-		$this->mainwindow->display;
-	}
+	return $this;
 }
 
 =head2 go
@@ -165,7 +148,7 @@ sub go {
 
 	# Make sure slang is up and running, and the screen size is known.
 	$this->screen->slang_init;
-
+	
 	# Create all the widgets in the panel.
 	$this->panel->clear;
 	my $firstwidget='';
@@ -177,11 +160,10 @@ sub go {
 		$element->widget->resize_hook(sub { $element->resize });
 		$element->widget->activate_hook(sub {
 			my $this=shift;
-
 			# Make sure the text describing this widget is
 			# also visible.
 			$this->container->scrollto($this->description);
-
+			
 			# Show the element's description. My, this is
 			# nasty. We get $element from the closure we're
 			# in..
