@@ -84,17 +84,6 @@ but it captures the essence of it.
 
 =cut
 
-# TODO:
-# * There's also the Force-Flag-Seen thing, which is really a more generic
-#   forcing of any given flag to any vale, and should expand to forcing any
-#   field to a value too, I'd think.
-# * Hook into the Question class.
-# * DbDriver's need access to Templates so they can tell what Type a
-#   given item is.
-# * Make FlatDir write out password type thing mode 600.
-# * Do something about Templates. What, I dunno.
-# * Transition from perldb.
-
 =head1 METHODS
 
 =head2 readconfig([file])
