@@ -5,6 +5,9 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+fixlinks:
+	cd Debian && ln -sf .. DebConf
+
 build:
 	dh_testdir
 

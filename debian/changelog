@@ -1,3 +1,20 @@
+debconf (0.1.25) unstable; urgency=low
+
+  * Modified the dialog frontend. Short descriptions now appear after long,
+    instead of as dialog titles. The title appears as the dialo title, and
+    the background title is "Debian Configuration"
+  * Hm, that actually cleaned up the API a bit, I guess it was the right
+    thing to do.
+  * Fixed link.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 18 Sep 1999 11:48:53 -0700
+
+debconf (0.1.24) unstable; urgency=low
+
+  * Added advanced topics section to the tutorial.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 17 Sep 1999 18:13:51 -0700
+
 debconf (0.1.23) unstable; urgency=low
 
   * Force use of gnu readline perl library. The other one is too bad.

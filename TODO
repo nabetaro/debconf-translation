@@ -14,6 +14,12 @@ General:
   way to jump to that set of questions whenever debconf is interacting with
   the user.
 * Make debhelper support it. (easy)
+* When a package is purged, all items in the db it owns and other packages
+  don't should be purged.
+* The Config.pm should not be a symlink. Make it set defaults, and then
+  source /etc/debconf.cfg to override them. This is less fragile, and doesn't
+  die if the config file is removed. Better yet, kill the conffile and read
+  out of the debconf db!
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which

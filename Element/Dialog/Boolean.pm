@@ -25,13 +25,14 @@ sub show {
 
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$this->question->description,
-		$this->question->extended_description);
+		$this->question->extended_description."\n\n".
+		$this->question->description
+	);
 
-	# If it is more than will fit on the screen, just display the prompt first
-	# in a series of message boxes.
+	# If it is more than will fit on the screen, just display the prompt
+	# first in a series of message boxes.
         if ($lines > ($ENV{LINES} || 25) - 2) {
-		$this->frontend->showtext($this->question->description, $text);
+		$this->frontend->showtext($text);
 		$text='';
 		$lines=6;
 	}
@@ -42,8 +43,7 @@ sub show {
 		push @params, '--defaultno';
 	}
 
-	my ($ret, $value)=$this->frontend->showdialog(
-		$this->question->description, @params);
+	my ($ret, $value)=$this->frontend->showdialog(@params);
 
 	$value=($ret eq 0 ? 'true' : 'false');
 

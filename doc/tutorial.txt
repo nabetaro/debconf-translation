@@ -217,6 +217,41 @@ Now you have a config script and a templates file. Install both into
 debian/tmp/DEBIAN. Make sure to make the config script executable. Your
 package now uses debconf!
 
+Advanced Topics
+---------------
+
+Now I'll move on to some more complicated areas of debconf.
+
+One gotcha with debconf comes up if you have a loop in your config script.
+Suppose you're asking for input and validating it, and looping if it's not
+valid:
+
+  ok=''
+  do while [ ! "$ok" ];
+  	db_input low foo/bar
+	go
+
+  	db_get foo/bar
+  	if [ "$RET" ]; then
+		ok=1
+	fi
+  done
+
+This looks ok at first glance. But consider what happens if the value of
+foo/bar is "" when this loop is entered, and the user has their priority set
+high, or is using a non-interactive frontend, and so they are not really
+asked for input. The value of foo/bar is not changed by the db_input, and so
+it fails the test and loops. And loops....
+
+The fix for this is to make sure that before the loop is entered, the value
+of foo/bar is set to something that will pass the test in the loop. So for
+example if the default value of foo/bar is "1", then "db_reset" can just be
+called before entering the loop.
+
+Future versions of debconf may have a command that lets you figure out if
+the user will see a question, which would allow for more intelligent
+workarounds.
+
 Appendix A.
 -----------
 
