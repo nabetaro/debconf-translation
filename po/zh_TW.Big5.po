@@ -4,8 +4,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.9.91\n"
-"POT-Creation-Date: 2001-08-03 19:14-0400\n"
+"Project-Id-Version: debconf 0.9.95\n"
+"POT-Creation-Date: 2001-08-20 18:51-0400\n"
 "PO-Revision-Date: 2001-08-04 00:55+08:00\n"
 "Last-Translator: Shell Hung <shell@linux.org.hk>\n"
 "Language-Team: Hong Kong Linux User Group <info@linux.org.hk>\n"
@@ -30,7 +30,7 @@ msgstr "不能開啟前端介面: %s"
 
 #: ../Debconf/Config.pm:84
 msgid "Config database not specified in config file."
-msgstr "設定檔中沒有指定設定資料庫"
+msgstr "設定檔中沒有指定的設定資料庫"
 
 #: ../Debconf/Config.pm:88
 msgid "Template database not specified in config file."
@@ -80,11 +80,11 @@ msgstr "儲存備忘"
 
 #: ../Debconf/Element/Gnome/Note.pm:50 ../Debconf/Element/Slang/Note.pm:31
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf 要求儲存這個備忘, 並且電郵給您."
+msgstr "Debconf 要求儲存這個備忘, 並且郵寄給您."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
 #, fuzzy
-msgid "The note has been mailed to root"
+msgid "The note has been mailed."
 msgstr "這個備忘已經郵寄了給root."
 
 #: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
@@ -116,7 +116,7 @@ msgstr "(輸入零或多個項目以逗號及一個空格 (', ')以分格.)"
 #: ../Debconf/Element/Noninteractive/Note.pm:39
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接電郵給您."
+msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:61
 #: ../Debconf/FrontEnd/Gnome.pm:65
@@ -127,10 +127,6 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, 執行在 %s"
-
-#: ../Debconf/Element/Slang/Note.pm:32
-msgid "The note has been mailed to root."
-msgstr "這個備忘已經郵寄了給root."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -164,7 +160,7 @@ msgstr "對話介面並不能在純終端上運作, 例如Emacs 外殼綬沖, 或沒有控制終端."
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
-msgstr "whiptail 或人 對話視窗沒有安裝, 所以對話形式的介面將不能使用."
+msgstr "whiptail 或對話視窗沒有安裝, 所以對話形式的介面將不能使用."
 
 #: ../Debconf/FrontEnd/Dialog.pm:237 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
@@ -287,3 +283,7 @@ msgstr "%s 並未完全安裝"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案: %s"
+
+#, fuzzy
+#~ msgid "The note has been mailed to root"
+#~ msgstr "這個備忘已經郵寄了給root."

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-08-02 23:19-0400\n"
+"POT-Creation-Date: 2001-08-20 18:51-0400\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -82,9 +82,9 @@ msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
 #, fuzzy
-msgid "The note has been mailed to root"
+msgid "The note has been mailed."
 msgstr "Uwaga zosta³a przes³ana do administratora"
 
 #: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
@@ -130,10 +130,6 @@ msgstr "Debconf"
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
-
-#: ../Debconf/Element/Slang/Note.pm:32
-msgid "The note has been mailed to root."
-msgstr "Uwaga zosta³a przes³ana do administratora"
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -297,6 +293,10 @@ msgstr "%s nie jest w pe³ni zainstalowany"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#, fuzzy
+#~ msgid "The note has been mailed to root"
+#~ msgstr "Uwaga zosta³a przes³ana do administratora"
 
 #~ msgid ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "

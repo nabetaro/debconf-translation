@@ -48,7 +48,7 @@ sub init {
 		-signal::clicked => sub {
 			my $msg;
 			if ($this->sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
-				$msg = Gnome::MessageBox->new(gettext("The note has been mailed to root"), "info", "Button_Ok");
+				$msg = Gnome::MessageBox->new(gettext("The note has been mailed."), "info", "Button_Ok");
 			}
 			else {
 				$msg = Gnome::MessageBox->new(gettext("Unable to save note."), "error", "Button_Ok");

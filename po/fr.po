@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-08-02 23:19-0400\n"
+"POT-Creation-Date: 2001-08-20 18:51-0400\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -88,9 +88,9 @@ msgstr ""
 "Il a été demandé a Debconf d'enregistrer cette note, elle vient de vous être "
 "envoyée par email."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
 #, fuzzy
-msgid "The note has been mailed to root"
+msgid "The note has been mailed."
 msgstr "La note a été envoyé par mail à root."
 
 #: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
@@ -137,10 +137,6 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, s'exécutant sur %s"
-
-#: ../Debconf/Element/Slang/Note.pm:32
-msgid "The note has been mailed to root."
-msgstr "La note a été envoyé par mail à root."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -311,3 +307,7 @@ msgstr "%s n'est pas totalement installé"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
+
+#, fuzzy
+#~ msgid "The note has been mailed to root"
+#~ msgstr "La note a été envoyé par mail à root."

@@ -29,7 +29,7 @@ sub make_widgets {
 		press_hook => sub {
 			my $button=shift;
 			if ($this->sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
-				$this->frontend->helpbar->push(gettext("The note has been mailed to root."));
+				$this->frontend->helpbar->push(gettext("The note has been mailed."));
 			}
 			else {
 				$this->frontend->helpbar->push(gettext("Unable to save note."));

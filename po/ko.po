@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-08-02 23:19-0400\n"
+"POT-Creation-Date: 2001-08-20 18:51-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -83,9 +83,9 @@ msgstr "주의 저장"
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Debconf는 이 주의를 저장하도록 요청되었으므로, 메일로 보낼 것입니다."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
 #, fuzzy
-msgid "The note has been mailed to root"
+msgid "The note has been mailed."
 msgstr "이 주의는 root에게 메일로 보냈습니다."
 
 #: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
@@ -129,10 +129,6 @@ msgstr "Debconf"
 #, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s에서 실행중"
-
-#: ../Debconf/Element/Slang/Note.pm:32
-msgid "The note has been mailed to root."
-msgstr "이 주의는 root에게 메일로 보냈습니다."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -299,6 +295,10 @@ msgstr "%s은(는) 완전히 설치되지 않았습니다"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
+
+#, fuzzy
+#~ msgid "The note has been mailed to root"
+#~ msgstr "이 주의는 root에게 메일로 보냈습니다."
 
 #~ msgid ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "

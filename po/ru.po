@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-08-02 23:19-0400\n"
+"POT-Creation-Date: 2001-08-20 18:51-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -83,9 +83,9 @@ msgstr ""
 "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
 "было вам отправлено по почте."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:51 ../Debconf/Element/Slang/Note.pm:32
 #, fuzzy
-msgid "The note has been mailed to root"
+msgid "The note has been mailed."
 msgstr "Сообщение было отправлено пользователю root."
 
 #: ../Debconf/Element/Gnome/Note.pm:54 ../Debconf/Element/Slang/Note.pm:35
@@ -133,10 +133,6 @@ msgstr "Debconf"
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf"
-
-#: ../Debconf/Element/Slang/Note.pm:32
-msgid "The note has been mailed to root."
-msgstr "Сообщение было отправлено пользователю root."
 
 #: ../Debconf/Element/Text/Multiselect.pm:27
 msgid "none of the above"
@@ -304,6 +300,10 @@ msgstr "Пакет %s установлен не полностью"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#, fuzzy
+#~ msgid "The note has been mailed to root"
+#~ msgstr "Сообщение было отправлено пользователю root."
 
 #~ msgid ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "
