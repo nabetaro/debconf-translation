@@ -34,6 +34,7 @@ sub init {
 	$this->widget->show;
 	$this->widget->set_visibility(0);
 	$this->addwidget($this->widget);
+	$this->tip( $this->widget );
 	$this->addhelp;
 }
 

@@ -49,6 +49,7 @@ sub init {
 	    }
 	}
 	$this->addwidget($this->widget);
+	$this->tip( $this->list_view);
 	$this->addhelp;
 
 	# we want to be both expanded and filled

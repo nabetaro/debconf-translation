@@ -34,6 +34,7 @@ sub init {
 
 	$this->adddescription;
 	$this->addwidget($this->widget);
+	$this->tip( $this->widget );
 	$this->addhelp;
 }
 

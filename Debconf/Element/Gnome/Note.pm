@@ -28,6 +28,8 @@ sub init {
 
 	$this->SUPER::init(@_);
 	$this->multiline(1);
+	$this->fill(1);
+	$this->expand(1);
 	$this->widget(Gtk2::HBox->new(0, 0));
 
 	my $text = Gtk2::TextView->new();
@@ -39,6 +41,7 @@ sub init {
 	my $scrolled_window = Gtk2::ScrolledWindow->new();
 	$scrolled_window->show;
 	$scrolled_window->set_policy('automatic', 'automatic');
+	$scrolled_window->set_shadow_type('in');
 	$scrolled_window->add ($text);
 
 	$this->widget->show;

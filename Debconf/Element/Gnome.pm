@@ -184,6 +184,12 @@ sub addhelp {
 		$this->create_message_dialog("gtk-dialog-info",
 		                              gettext("Help"), $help);
 	});
+
+	if (defined $this->tip ){
+		$this->tooltips( Gtk2::Tooltips->new() );
+		$this->tooltips->set_tip( $this->tip, $help, undef );
+		$this->tooltips->enable;
+	}
 }
 
 =item value

@@ -29,6 +29,7 @@ sub init {
 	$this->widget->show;
 	$this->widget->set_active(($this->question->value eq 'true') ? 1 : 0);
 	$this->addwidget($this->widget);
+	$this->tip( $this->widget );
 	$this->addhelp;
 }
 

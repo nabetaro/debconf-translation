@@ -122,7 +122,7 @@ sub go {
 		next unless $element->hbox;
 
 		$interactive=1;
-		$this->druid_page->append_item ("", $element->hbox, "");
+		$this->druid_page->vbox->pack_start($element->hbox, $element->fill, $element->expand, 0);
 	}
 
 	if ($interactive) {
