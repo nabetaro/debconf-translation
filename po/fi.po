@@ -1,16 +1,15 @@
-# This file is distributed under the same license as the PACKAGE package.
-# Tommi Vainikainen, 2003.
-#
-#    Translators, please read /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+# Finnish translation of debconf
+# Copyright (C) 2001 Jaakko Kangasharju
+# Jaakko Kangasharju <ashar@iki.fi>, 2001.
+# Tommi Vainikainen, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf\n"
+"Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-13 11:37-0500\n"
-"PO-Revision-Date: 2004-01-09 00:30+0200\n"
-"Last-Translator: Tommi Vainikainen <thv+debian@iki.fi>\n"
+"POT-Creation-Date: 2004-01-14 11:18-0500\n"
+"PO-Revision-Date: 2004-01-09 13:34+0200\n"
+"Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +20,8 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
+"Käytät debconfin editori-liittymää järjestelmäsi asetusten säätöön. Katso "
+"yksityiskohtaiset ohjeet tämän tiedoston lopusta."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -31,94 +32,109 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
+"Debconfin editori-liittymä antaa sinulle käsiteltäviksi yhden tai useampia "
+"tekstitiedostoja, kuten tämän. Jos olet jo nähnyt unixin asetustiedostoja, "
+"tämänkin tiedoston ulkonäkö on tuttu -- sisältönä on asetustietoja, joiden "
+"lomassa on kommentteja. Muuta haluamiasi asetuksia, tallenna tiedosto ja "
+"poistu, minkä jälkeen debconf lukee editoidun tiedoston ja säätää asetukset "
+"syöttämiesi tietojen perusteella."
 
 #: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
-msgstr ""
+msgstr "Debconf @ %s"
 
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
-msgstr ""
+msgstr "Lisää"
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
+"Tiedotus: Debconf on seittiajossa. Mene osoitteeseen http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr ""
+msgstr "Takaisin"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr ""
+msgstr "Seuraava"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
+msgstr "Dialog-liittymä ei ole käytettävissä, koska TERM ei ole asetettu."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr ""
+msgstr "Dialog-liittymää ei voi käyttää emacsin komentotulkkiympäristössä"
 
 #: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"Dialog-liittymä ei toimi tyhmällä päätteellä, emacsin "
+"komentotulkkiympäristössä tai ohjaavan päätteen puuttuessa."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
+"Ei käyttökelpoista dialog:n kaltaista ohjelmaa asennettuna, joten dialog-"
+"pohjaista liittymää ei voi käyttää."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Dialog-liittymä tarvitsee vähintään 13 riviä pitkän ja 31 saraketta leveän "
+"ruudun."
 
 #: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
-msgstr ""
+msgstr "Debianin asetusten säätö"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr ""
+msgstr "Tämä liittymä tarvitsee ohjaavan päätteen."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr ""
+"Term::ReadLine::GNU ei ole yhteensopiva Emacsin komentotulkkipuskureihin."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr ""
+msgstr "siirryn vaihtoehtoiseen liittymään: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, c-format
 msgid "unable to initialize frontend: %s"
-msgstr ""
+msgstr "liittymän alustus epäonnistui: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr ""
+msgstr "Liittymän käynnistys epäonnistui: %s"
 
 #: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 
 #: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
 #: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
+"Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -126,6 +142,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"varoitus: mahdollinen tietokannan turmelus.  Yritetään korjata lisäämällä "
+"takaisin puuttuva kysymys %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -133,29 +151,33 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
+"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
+"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
+"toisistaan.\n"
 
 #: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr ""
+msgstr "Tuntematon kenttä \"%s\", säkeistössä #%s tiedostossa %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr ""
+"Kyselypohjan jäsennysvirhe lähellä \"%s\":a rivillä #%s tiedostossa %s\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr ""
+msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Save (mail) Note"
-msgstr ""
+msgstr "Tallenna (postita) ilmoitus"
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
+msgstr "Debconf tallensi tämän ilmoituksen postittamalla sen sinulle."
 
 #: ../Debconf/Element/Gnome/Note.pm:57
 msgid "Information"
@@ -163,7 +185,7 @@ msgstr ""
 
 #: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
-msgstr ""
+msgstr "Ilmoitus on lähetetty."
 
 #: ../Debconf/Element/Gnome/Note.pm:62
 msgid "Error"
@@ -171,62 +193,67 @@ msgstr ""
 
 #: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
-msgstr ""
+msgstr "Ilmoituksen tallennus epäonnistui."
 
 #: ../Debconf/Element/Gnome.pm:199
+#, fuzzy
 msgid "_Help"
-msgstr ""
+msgstr "Ohje"
 
 #: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
-msgstr ""
+msgstr "Ohje"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
-msgstr ""
+msgstr "Valinnat"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
+"(Syötä nolla tai useampia pilkulla ja välilyönnillä (', ') erotettuja "
+"arvoja.)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
 #: ../Debconf/Element/Editor/Boolean.pm:59
 #: ../Debconf/Element/Teletype/Boolean.pm:28
 msgid "yes"
-msgstr ""
+msgstr "kyllä"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:39
 #: ../Debconf/Element/Editor/Boolean.pm:62
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
-msgstr ""
+msgstr "ei"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr ""
+msgstr "ei mikään edellisistä"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
+msgstr "Syötä haluamasi vaihtoehdot välilyönneillä erotettuina."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
+"Tämä ilmoitus postitettiin, koska debconf on asetettu olemaan näyttämättä "
+"sitä."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
-msgstr ""
+msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:87
 #, c-format
 msgid "Debconf, running at %s"
-msgstr ""
+msgstr "Debconf koneella %s"
 
 #: ../Debconf/Element/Select.pm:94
 #, c-format
@@ -234,152 +261,97 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
+"Arvoa \"%s\" ei löytynyt C-valinnoista! Näin ei pitäisi koskaan käydä. "
+"Kyselypohjien paikallistamisessa saattaa olla vikaa."
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr ""
+msgstr "Debconf::Element::%s:n lataus epäonnistui: %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
 msgid "Configuring %s"
-msgstr ""
+msgstr "%s:n asetusten säätö"
 
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr ""
+msgstr "vakiosyötteen uudelleenavaus epäonnistui: %s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "esiasetukseen on määritettävä paketteja"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
+msgstr "pakettien esiasetusta ei tehdä, koska apt-utils:ia ei ole asennettu"
 
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
-msgstr ""
+msgstr "kyselypohjan jäsennysvirhe: %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
-msgstr ""
+msgstr "debconf: en voi muuttaa oikeuksia: %s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr ""
+msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
 
 #: ../dpkg-reconfigure:105
 #, c-format
 msgid "%s must be run as root"
-msgstr ""
+msgstr "%s on ajettava root-oikeuksilla"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "tarvitsen käsiteltävän paketin nimen"
 
 #: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
-msgstr ""
+msgstr "%s ei ole täysin asennettu"
 
 #: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
-msgstr ""
+msgstr "%s on rikki tai ei ole täysin asennettu"
 
 #: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
-msgstr ""
+msgstr "Tilatiedoston luku epäonnistui: %s"
 
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "%s puuttuu"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "%s puuttuu; jätetään %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s on sekava tavusta %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s on sekava tavusta %s: %s; jätetään se"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated"
-msgstr ""
+msgstr "%s on päivittämättä"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Dialog, Readline, Gnome, Kde, Editori, Ei-vuorovaikutteinen"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?"
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration share a common look and feel. "
-#~ "You can select the type of user interface they use."
-#~ msgstr ""
-#~ "Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän. "
-#~ "Voit itse valita mieluisesi liittymän muutamasta vaihtoehdosta."
-
-#~ msgid ""
-#~ "The dialog frontend is a full-screen, character based interface, while "
-#~ "the readline frontend uses a more traditional plain text interface, and "
-#~ "both the gnome and kde frontends are modern X interfaces, fitting the "
-#~ "respective desktops (but may be used in any X environment). The editor "
-#~ "frontend lets you configure things using your favorite text editor. The "
-#~ "noninteractive frontend never asks you any questions."
-#~ msgstr ""
-#~ "Dialog on ruudun täyttävä merkkipohjainen liittymä, kun taas readline on "
-#~ "perinteisempi pelkkää tekstiä käyttävä liittymä.  Sekä gnome että kde "
-#~ "ovat nykyaikaisia X-pohjaisia liittymiä.  Editori käyttää asetusten "
-#~ "säätöön lempitekstieditoriasi.  Ei-vuorovaikutteinen liittymä ei koskaan "
-#~ "kysy kysymyksiä."
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kriittinen, tärkeä, tavallinen, vähäpätöinen"
-
-#~ msgid "See only questions that are of what priority and higher?"
-#~ msgstr "Näe vain kysymykset, joilla on vähintään tämä prioriteetti?"
-
-#~ msgid ""
-#~ "Debconf prioritizes the questions it asks you. Pick the lowest priority "
-#~ "of question you want to see:\n"
-#~ "  - 'critical' only prompts you if the system might break.\n"
-#~ "    Pick it if you are a newbie, or in a hurry.\n"
-#~ "  - 'high' is for rather important questions\n"
-#~ "  - 'medium' is for normal questions\n"
-#~ "  - 'low' is for control freaks who want to see everything"
-#~ msgstr ""
-#~ "Debconf priorisoi esittämänsä kysymykset.  Valitse alin prioriteetti, "
-#~ "jonka kysymykset haluat nähdä:\n"
-#~ "  - \"kriittinen\" kysyy vain jos järjestelmä voi hajota.\n"
-#~ "    Valitse tämä jos olet uusi tai sinulla on kiire.\n"
-#~ "  - \"tärkeä\" on kohtuullisen tärkeille kysymyksille\n"
-#~ "  - \"tavallinen\" on normaaleille kysymyksille\n"
-#~ "  - \"vähäpätöinen\" on säätöfriikeille, jotka haluavat nähdä kaiken"
-
-#~ msgid ""
-#~ "Note that no matter what level you pick here, you will be able to see "
-#~ "every question if you reconfigure a package with dpkg-reconfigure."
-#~ msgstr ""
-#~ "Huomaa, että riippumatta valitsemastasi tasosta tässä näet kaikki "
-#~ "kysymykset uudelleensäätämällä paketin \"dpkg-reconfigure\"-ohjelmalla."
+msgstr "%s on päivittämättä; jätetään koko malli!"
