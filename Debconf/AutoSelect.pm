@@ -26,6 +26,7 @@ progressivly falls back to other types.
 
 my %fallback=(
 	# preferred frontend		# fall back to (list ref)
+	'Gnome'			=>	['Slang', 'Dialog', 'Text'],
 	'Web'			=>	['Slang', 'Dialog', 'Text'],
 	'Dialog'		=>	['Slang', 'Text'],
 	'Gtk'			=>	['Slang', 'Dialog', 'Text'],
