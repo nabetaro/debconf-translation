@@ -11,10 +11,9 @@ dpkg-reconfigure - reconfigure an already installed package
 =head1 DESCRIPTION
 
 B<dpkg-reconfigure> reconfigures packages after they have already been
-installed. Pass it the names of a package or packages to reconfigure.
-
-This has the same effect as re-installing the package, basically. I hope
-one day this will be called by dpkg --reconfigure 
+installed. Pass it the names of a package or packages to reconfigure. It
+will ask configuration questions, much like when the package was first
+installed.
 
 =head1 OPTIONS
 

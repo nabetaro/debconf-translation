@@ -1,13 +1,13 @@
 # Copyright (C) 2001 Free Software Foundation, Inc.
 # Morten Brix Pedersen <morten@wtf.dk>, 2001-2002.
-# Morten Bo Johansen <mojo@image.dk>, 2002-
+# Morten Bo Johansen <mojo@mbjnet.dk>, 2002-
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.7\n"
+"Project-Id-Version: debconf 1.4.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-31 17:48-0500\n"
-"PO-Revision-Date: 2004-02-01 12:46+0100\n"
-"Last-Translator: Morten Bo Johansen <mojo@image.dk>\n"
+"POT-Creation-Date: 2004-03-30 12:08-0500\n"
+"PO-Revision-Date: 2004-04-11 20:01+0200\n"
+"Last-Translator: Morten Bo Johansen <mojo@mbjnet.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -18,7 +18,7 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Du bruger debconfs editorbaserede grænseflade til at sætte dit system op. Se "
+"Du bruger debconfs editorbaserede brugerflade til at sætte dit system op. Se "
 "slutningen af dette dokument for detaljerede instruktioner."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -30,8 +30,8 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Debconfs editorbaserede grænseflade præsenterer en eller flere tekstfiler "
-"for dig til redigering. Dette er en sådan tekstfil. Hvis du er bekendt med "
+"Debconfs editorbaserede brugerflade giver dig en eller flere tekstfiler "
+"til redigering. Dette er en sådan tekstfil. Hvis du er bekendt med "
 "standard Unix-opsætningsfiler, vil denne fil se bekendt ud - den indeholder "
 "kommentarer og opsætningselementer. Rediger filen, ændr alle elementer i det "
 "omfang det er nødvendigt, gem den og afslut så. Derefter vil debconf læse "
@@ -117,35 +117,27 @@ msgstr "kunne ikke klargøre grænseflade: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kunne ikke starte en grænseflade: %s"
 
-#: ../Debconf/Config.pm:127
+#: ../Debconf/Config.pm:125
 msgid "Config database not specified in config file."
 msgstr "Opsætningsdatabase ikke specificeret i opsætningsfil"
 
-#: ../Debconf/Config.pm:131
+#: ../Debconf/Config.pm:129
 msgid "Template database not specified in config file."
 msgstr "Skabelondatabase ikke specificeret i opsætningsfil"
 
-#: ../Debconf/Config.pm:136
+#: ../Debconf/Config.pm:134
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
+"Sigils- og Smileys-tilvalg bruges ikke længere i opsætningsfilen. Fjern "
+"dem venligst."
 
-#: ../Debconf/Config.pm:147
+#: ../Debconf/Config.pm:145
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Opsætning af database, defineret ved kombination %s af %s, gav problemer."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr ""
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr ""
 
 #: ../Debconf/Template.pm:90
 #, c-format
