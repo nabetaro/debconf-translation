@@ -102,7 +102,7 @@ sub communicate {
 	my $r=$this->{read_handle};
 	$_=<$r> || return $this->_finish;
 	chomp;
-	debug 1, "--> $_";
+	debug 1, "<-- $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
 	my ($command, @params)=split(' ', $_);
@@ -112,7 +112,7 @@ sub communicate {
 	}
 	$command="command_".lc($command);
 	my $ret=join(' ', $this->$command(@params));
-	debug 1, "<-- $ret";
+	debug 1, "--> $ret";
 	print $w $ret."\n";
 	return 1;
 }
