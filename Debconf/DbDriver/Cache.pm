@@ -233,6 +233,20 @@ sub setfield {
 	return $this->cache->{$item}->{fields}->{$field} = $value;	
 }
 
+=head2 fields(itemname)
+
+Pulls the field list out of the cache.
+
+=cut
+
+sub fields {
+	my $this=shift;
+	my $item=shift;
+	
+	return unless $this->load($item);
+	return keys %{$this->cache->{$item}->{fields}};
+}
+
 =head2 getflag(itemname, flagname)
 
 Pulls the flag out of the cache.
@@ -265,6 +279,20 @@ sub setflag {
 	return $this->cache->{$item}->{flags}->{$flag} = $value;
 }
 
+=head2 flags(itemname)
+
+Pulls the flag list out of the cache.
+
+=cut
+
+sub flags {
+	my $this=shift;
+	my $item=shift;
+
+	return unless $this->load($item);
+	return keys %{$this->cache->{$item}->{flags}};
+}
+
 =head2 getvariable(itemname, variablename)
 
 Pulls the variable out of the cache.
@@ -295,6 +323,20 @@ sub setvariable {
 	return if $this->db->readonly;
 	return unless $this->load($item);
 	return $this->cache->{$item}->{variables}->{$variable} = $value;
+}
+
+=head2 variables(itemname)
+
+Pulls the variable list out of the cache.
+
+=cut
+
+sub variables {
+	my $this=shift;
+	my $item=shift;
+
+	return unless $this->load($item);
+	return keys %{$this->cache->{$item}->{variables}};
 }
 
 =head1 AUTHOR

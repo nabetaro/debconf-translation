@@ -108,6 +108,14 @@ be removed.
 
 sub removeowner {}
 
+=head2 owners(itemname)
+
+Return a list of all owners of the item.
+
+=cut
+
+sub owners {}
+
 =head2 getfield(itemname, fieldname)
 
 Return the given field of the given item, or undef if getting that
@@ -125,6 +133,12 @@ setting failed.
 =cut
 
 sub setfield {}
+
+=head2 fields(itemname)
+
+Return the fields present in the item.
+
+=cut
 
 =head2 getflag(itemname, flagname)
 
@@ -144,6 +158,14 @@ and return the value. Or return undef if setting failed.
 
 sub setflag {}
 
+=head2 flags(itenname)
+
+Return the flags that are present for the item.
+
+=cut
+
+sub flags {}
+
 =head2 getvariable(itemname, variablename)
 
 Return the value of the given variable of the given item, or undef if
@@ -161,6 +183,14 @@ value, or undef if setting failed.
 =cut
 
 sub setvariable {}
+
+=head2 variables(itemname)
+
+Return the variables that exist for the item.
+
+=cut
+
+sub variables {}
 
 =head1 AUTHOR
 

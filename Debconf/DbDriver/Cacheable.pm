@@ -16,12 +16,12 @@ This is a base class for debconf database drivers that are cachable by
 Debconf::DbDriver::Cache. Use this as the base class for your driver if
 it makes sense to load and store items as a whole (eg, if you are using
 text files to reprosent each item, or downloading whole items over
-the net), and you don't want to bother implementing anything except the three
-emthods below.
+the net), and you don't want to bother implementing anything except the four
+methods below.
 
 Don't use this base class for your driver if it makes more sense for your
 driver to access individual parts of each item independantly (by
-querying a database, for example).
+querying a (fast) database, for example).
 
 =head1 METHODS
 
