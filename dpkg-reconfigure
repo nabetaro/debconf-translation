@@ -77,13 +77,6 @@ use Debconf::Config;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
-if ($> != 0) {
-	print STDERR sprintf(gettext("%s must be run as root"), $0)."\n";
-	exit 1;
-}
-
-Debconf::Db->load;
-
 # Default to low priority.
 Debconf::Config->priority('low');
 
@@ -99,6 +92,13 @@ qq{Usage: dpkg-reconfigure [options] packages
 	"unseen-only|u"		=> \$unseen_only,
 	"force"			=> \$force,
 );
+
+if ($> != 0) {
+	print STDERR sprintf(gettext("%s must be run as root"), $0)."\n";
+	exit 1;
+}
+
+Debconf::Db->load;
 
 # If the frontend is noninteractive, change it temporarily to dialog.
 if (Debconf::Config->frontend eq 'Noninteractive') {

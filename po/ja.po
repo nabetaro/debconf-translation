@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-07-16 14:20-0400\n"
+"POT-Creation-Date: 2002-07-25 23:10-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,80 +14,16 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:75
-#, fuzzy, c-format
-msgid "falling back to frontend: %s"
-msgstr "フロントエンドの初期化に失敗しました: %s"
-
-#: ../Debconf/AutoSelect.pm:83
-#, fuzzy, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "フロントエンドの初期化に失敗しました: %s"
-
-#: ../Debconf/AutoSelect.pm:89
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "フロントエンドの起動ができませんでした: %s"
-
-#: ../Debconf/Config.pm:90
-msgid "Config database not specified in config file."
-msgstr ""
-
-#: ../Debconf/Config.pm:94
-msgid "Template database not specified in config file."
-msgstr ""
-
-#: ../Debconf/FrontEnd.pm:137
-#, fuzzy, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "%s を設定しています"
-
-#: ../Debconf/Template.pm:182
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:207
-#, fuzzy, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
-
-#: ../Debconf/Template.pm:233
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
-
-#: ../Debconf/Template.pm:239
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "テンプレートに `Template:' 行がありません"
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "ヘルプ"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないこ\n"
-"とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
-"ます。"
-
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "選択"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -102,11 +38,6 @@ msgstr "はい"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "いいえ"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(コンマと空白(', ')で区切りながら 0 個以上の項目を入力してください。)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -153,6 +84,20 @@ msgstr "上記以外"
 #, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "ヘルプ"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"入力値 \"%s\" は C における選択肢にはありません! これは起こるはずがないこ\n"
+"とです。テンプレートファイルが正しくローカライズされていない可能性があり\n"
+"ます。"
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -233,6 +178,61 @@ msgstr "戻る"
 msgid "Next"
 msgstr "次へ"
 
+#: ../Debconf/AutoSelect.pm:75
+#, fuzzy, c-format
+msgid "falling back to frontend: %s"
+msgstr "フロントエンドの初期化に失敗しました: %s"
+
+#: ../Debconf/AutoSelect.pm:83
+#, fuzzy, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "フロントエンドの初期化に失敗しました: %s"
+
+#: ../Debconf/AutoSelect.pm:89
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "フロントエンドの起動ができませんでした: %s"
+
+#: ../Debconf/Config.pm:90
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:94
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:137
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "%s を設定しています"
+
+#: ../Debconf/Template.pm:182
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:207
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+
+#: ../Debconf/Template.pm:233
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+
+#: ../Debconf/Template.pm:239
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "テンプレートに `Template:' 行がありません"
+
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
 msgid "unable to re-open stdin: %s"
@@ -261,7 +261,7 @@ msgstr "chmod できません: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で設定に失敗しました。"
 
-#: ../dpkg-reconfigure:81
+#: ../dpkg-reconfigure:97
 #, fuzzy, c-format
 msgid "%s must be run as root"
 msgstr "root で実行する必要があります"
@@ -290,22 +290,22 @@ msgstr ""
 msgid "%s is missing; dropping %s"
 msgstr ""
 
-#: ../debconf-mergetemplate:132
+#: ../debconf-mergetemplate:141
 #, c-format
-msgid "%s is fuzzy"
+msgid "%s is fuzzy at byte %s: %s"
 msgstr ""
 
-#: ../debconf-mergetemplate:136
+#: ../debconf-mergetemplate:146
 #, c-format
-msgid "%s is fuzzy; dropping it"
+msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr ""
 
-#: ../debconf-mergetemplate:152
+#: ../debconf-mergetemplate:163
 #, fuzzy, c-format
 msgid "%s is outdated"
 msgstr "%s は完全にインストールされていません"
 
-#: ../debconf-mergetemplate:157
+#: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr ""

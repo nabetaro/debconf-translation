@@ -126,14 +126,25 @@ foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 				$m_val .= "\n".$master->$extbasefield
 					if defined $master->$extbasefield;
 
-				if (defuzz($t_val) ne defuzz($m_val)) {
+				my ($df_t, $df_m) = (defuzz($t_val), defuzz($m_val));
+				if ($df_t ne $df_m) {
+					my $diff_p = 0;
+
+					$diff_p++
+						while substr($t_val, 0, $diff_p) eq substr($m_val, 0, $diff_p);
+					my $diff_t = "'".
+						($diff_p ? '...' : '').defuzz(substr($t_val, $diff_p-1, 8))."' != '".
+						($diff_p ? '...' : '').defuzz(substr($m_val, $diff_p-1, 8))."'";
+
 				    	if ($outdated) {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     sprintf(gettext("%s is fuzzy"), $field)."\n";
+						     sprintf(gettext("%s is fuzzy at byte %s: %s"),
+							     $field, $diff_p, $diff_t)."\n";
 					}
 					else {
 						warn "debconf-mergetemplate: ".$template->template." ".
-						     sprintf(gettext("%s is fuzzy; dropping it"), $field)."\n";
+						     sprintf(gettext("%s is fuzzy at byte %s: %s; dropping it"),
+							     $field, $diff_p, $diff_t)."\n";
 						next;
 					}
 				}

@@ -1,3 +1,13 @@
+debconf (1.1.19) unstable; urgency=low
+
+  * Patch from "Devin Carraway" <debbug-debconf-20020724@nospam.devin.com>
+    to debconf-mergetemplate outputs what part is fuzzy. Closes: #154109
+  * Used said output to quickly fix up debconf's two fuzzy template items.
+    Very nice!
+  * Allow regular user to run dpkg-reconfigure --help. Closes: #153916
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 25 Jul 2002 23:08:51 -0400
+
 debconf (1.1.18) unstable; urgency=low
 
   * Don't override default die; that makes catching dialog frontend failure

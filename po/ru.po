@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2002-07-16 14:20-0400\n"
+"POT-Creation-Date: 2002-07-25 23:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -14,79 +14,18 @@ msgstr ""
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:75
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "будет использован интерфейс `%s'"
-
-#: ../Debconf/AutoSelect.pm:83
-#, fuzzy, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "не удалось инициализировать интерфейс `%s'"
-
-#: ../Debconf/AutoSelect.pm:89
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Не удалось использовать интерфейс: %s"
-
-#: ../Debconf/Config.pm:90
-msgid "Config database not specified in config file."
-msgstr ""
-
-#: ../Debconf/Config.pm:94
-msgid "Template database not specified in config file."
-msgstr ""
-
-#: ../Debconf/FrontEnd.pm:137
-#, fuzzy, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Не удалось создать элемент типа %s. Причина: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "Идет настройка пакета %s"
-
-#: ../Debconf/Template.pm:182
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:207
-#, fuzzy, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
-
-#: ../Debconf/Template.pm:233
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
-
-#: ../Debconf/Template.pm:239
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Шаблон не содержит строки `Template:'"
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Подсказка"
-
-#: ../Debconf/Element/Select.pm:85
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
-"случиться. Возможно, шаблоны были неправильно переведены."
-
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Варианты"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
+"(', ').)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -101,13 +40,6 @@ msgstr "да"
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
 msgstr "нет"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
-"(', ').)"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
 #, fuzzy
@@ -157,6 +89,19 @@ msgstr "ни один из предложенных"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Подсказка"
+
+#: ../Debconf/Element/Select.pm:85
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
+"случиться. Возможно, шаблоны были неправильно переведены."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -237,6 +182,61 @@ msgstr "Возврат"
 msgid "Next"
 msgstr "Далее"
 
+#: ../Debconf/AutoSelect.pm:75
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "будет использован интерфейс `%s'"
+
+#: ../Debconf/AutoSelect.pm:83
+#, fuzzy, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "не удалось инициализировать интерфейс `%s'"
+
+#: ../Debconf/AutoSelect.pm:89
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Не удалось использовать интерфейс: %s"
+
+#: ../Debconf/Config.pm:90
+msgid "Config database not specified in config file."
+msgstr ""
+
+#: ../Debconf/Config.pm:94
+msgid "Template database not specified in config file."
+msgstr ""
+
+#: ../Debconf/FrontEnd.pm:137
+#, fuzzy, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Не удалось создать элемент типа %s. Причина: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "Идет настройка пакета %s"
+
+#: ../Debconf/Template.pm:182
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:207
+#, fuzzy, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Ошибка разбора шаблона около `%s'"
+
+#: ../Debconf/Template.pm:233
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Ошибка разбора шаблона около `%s'"
+
+#: ../Debconf/Template.pm:239
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Шаблон не содержит строки `Template:'"
+
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
 msgid "unable to re-open stdin: %s"
@@ -265,7 +265,7 @@ msgstr "Не удалось изменить режим доступа к файлу: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "не удалось настроить пакет %s, код ошибки %s"
 
-#: ../dpkg-reconfigure:81
+#: ../dpkg-reconfigure:97
 #, fuzzy, c-format
 msgid "%s must be run as root"
 msgstr "должна выполняться с правами пользователя root"
@@ -294,22 +294,22 @@ msgstr ""
 msgid "%s is missing; dropping %s"
 msgstr ""
 
-#: ../debconf-mergetemplate:132
+#: ../debconf-mergetemplate:141
 #, c-format
-msgid "%s is fuzzy"
+msgid "%s is fuzzy at byte %s: %s"
 msgstr ""
 
-#: ../debconf-mergetemplate:136
+#: ../debconf-mergetemplate:146
 #, c-format
-msgid "%s is fuzzy; dropping it"
+msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr ""
 
-#: ../debconf-mergetemplate:152
+#: ../debconf-mergetemplate:163
 #, fuzzy, c-format
 msgid "%s is outdated"
 msgstr "Пакет %s установлен не полностью"
 
-#: ../debconf-mergetemplate:157
+#: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr ""
