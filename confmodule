@@ -50,7 +50,7 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
 		read -r _LINE
 		# Disgusting, but it's the only good way to split the line,
 		# preserving all other whitespace.
-		RET=\"\${_LINE#[^ 	][ 	]}\"
+		RET=\"\${_LINE#[! 	][ 	]}\"
 		return \${_LINE%%[ 	]*}
 	      }"
 done
