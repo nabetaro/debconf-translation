@@ -12,8 +12,8 @@ use IPC::Open2;
 use FileHandle;
 use Debconf::Gettext;
 use Debconf::Config qw(showold);
-use Debconf::ConfigDb qw(getquestion addquestion disownquestion
-				 disownall);
+use Debconf::Question;
+use Debconf::ConfigDb qw(disownquestion disownall);
 use Debconf::Priority qw(priority_valid high_enough);
 use Debconf::FrontEnd::Noninteractive;
 use Debconf::Log ':all';
@@ -214,7 +214,7 @@ sub _finish {
 	$this->exitcode($this->caught_sigpipe || ($? >> 8));
 
 	foreach (@{$this->seen}) {
-		$_->flag_seen('true');
+		$_->flag('seen', 'true');
 	}
 	$this->seen([]);
 	
@@ -234,7 +234,7 @@ sub command_input {
 	my $priority=shift;
 	my $question_name=shift;
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "\"$question_name\" doesn't exist";
 
 	if (! priority_valid($priority)) {
@@ -252,7 +252,7 @@ sub command_input {
 	$visible='' unless high_enough($priority);
 
 	# Unless showold is set, don't re-show already seen questions.
-	$visible='' if showold() eq 'false' && $question->flag_seen eq 'true';
+	$visible='' if showold() eq 'false' && $question->flag('seen') eq 'true';
 
 	my $element;
 	if ($visible) {
@@ -418,7 +418,7 @@ sub command_get {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 
 	if (defined $question->value) {
@@ -441,7 +441,7 @@ sub command_set {
 	my $question_name=shift;
 	my $value=join(" ", @_);
 
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	$question->value($value);
 	return $codes{success}, "value set";
@@ -458,10 +458,10 @@ sub command_reset {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $question_name=shift;
 
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	$question->value($question->default);
-	$question->flag_seen('false');
+	$question->flag('seen', 'false');
 	return $codes{success};
 }
 
@@ -480,16 +480,17 @@ sub command_subst {
 	my $variable = shift;
 	my $value = (join ' ', @_);
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
-	$question->variables($variable,$value);
+	my $result=$question->variable($variable,$value);
+	return $codes{internalerror}, "Substitution failed" unless defined $result;
 	return $codes{success};
 }
 
 =item command_register
 
-This should be passed a template name and a question name. It creates a
-question that uses the template.
+This should be passed a template name and a question name. Registers a
+question to use the template.
 
 =cut
 
@@ -499,7 +500,14 @@ sub command_register {
 	my $template=shift;
 	my $name=shift;
 	
-	addquestion($template, $name, $this->owner);
+	my $question=Debconf::Question->new($name, $this->owner);
+	if (! $question) {
+		return $codes{internalerror}, "Internal error";
+	}
+	if ($question->template($template) eq undef) {
+		return $codes{internalerror}, "Internal error";
+	}
+
 	return $codes{success};
 }
 
@@ -546,7 +554,7 @@ sub command_metaget {
 	my $question_name=shift;
 	my $field=shift;
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	my $fieldval=$question->$field();
 	unless (defined $fieldval) {
@@ -558,8 +566,7 @@ sub command_metaget {
 =item command_fget
 
 Pass this a question name and a flag name. It returns the value of the
-specified flag on the question. Note that internally, any fields of
-a Question that start with "flag_" are flags.
+specified flag on the question.
 
 =cut
 
@@ -567,11 +574,11 @@ sub command_fget {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 2;
 	my $question_name=shift;
-	my $flag="flag_".shift;
+	my $flag=shift;
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams},  "$question_name doesn't exist";
-	return $codes{success}, $question->$flag();
+	return $codes{success}, $question->flag($flag);
 }
 
 =item command_fset
@@ -585,12 +592,12 @@ sub command_fset {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 3;
 	my $question_name=shift;
-	my $flag="flag_".shift;
+	my $flag=shift;
 	my $value=(join ' ', @_);
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
-	return $codes{success}, $question->$flag($value);
+	return $codes{success}, $question->flag($flag, $value);
 }
 
 =item command_visible
@@ -605,7 +612,7 @@ sub command_visible {
 	my $priority=shift;
 	my $question_name=shift;
 	
-	my $question=getquestion($question_name) ||
+	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 	return $codes{success}, $this->frontend->visible($question, $priority) ? "true" : "false";
 }
@@ -622,7 +629,7 @@ sub command_exist {
 	my $question_name=shift;
 	
 	return $codes{success}, 
-		getquestion($question_name) ? "true" : "false";
+		Debconf::Question->get($question_name) ? "true" : "false";
 }
 
 =item AUTOLOAD

@@ -26,57 +26,9 @@ use Debconf::Template;
 use Debconf::Question;
 use strict;
 use base qw(Exporter);
-our @EXPORT_OK = qw(getquestion gettree isunder registertemplates
-		addquestion disownquestion disownall
-		savedb loaddb);
+our @EXPORT_OK = qw(registertemplates disownquestion disownall savedb loaddb);
 our %templates;
 our %questions;
-
-=head2 getquestion
-
-Pass in the name of the question and this will return the specified question
-object.
-
-=cut
-
-sub getquestion {
-	return $questions{(shift)};
-}
-
-=head2 gettree
-
-Pass in a string denoting the root of a tree of questions in the question 
-hierarchy. All questions under that root will be returned.
-
-=cut
-
-sub gettree {
-	my $root=shift;
-
-	my @ret=();
-	foreach my $name (keys %questions) {
-		if ($name=~m:^\Q$root/\E:) {
-			push @ret, $questions{$name};
-		}
-	}
-	
-	return @ret;
-}
-
-=head2 isunder
-
-Pass in a string denoting the root of a tree of questions in the question
-hierarchy, and a Question. If the Question is under that tree, a true value
-is returned.
-
-=cut
-
-sub isunder {
-	my $root=shift;
-	my $name=shift->name;
-	
-	return $name=~m:^\Q$root/\E:;
-}
 
 =head2 registertemplates
 

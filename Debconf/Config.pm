@@ -8,7 +8,7 @@ Debconf::Config - Debconf meta-configuration module
 
 package Debconf::Config;
 use strict;
-use Debconf::ConfigDb;
+use Debconf::Question;
 use base qw(Exporter);
 our @EXPORT_OK = qw(dbdir tmpdir frontend priority helpvisible showold);
 
@@ -70,9 +70,7 @@ If DEBIAN_FRONTEND is set in the environment, it overrides all this.
 		return $override_frontend if ($override_frontend);
 	
 		my $ret='Dialog';
-		my $question=Debconf::ConfigDb::getquestion(
-			'debconf/frontend'
-		);
+		my $question=Debconf::Question->get('debconf/frontend');
 		if ($question) {
 			$ret=$question->value || $ret;
 		}
@@ -107,9 +105,7 @@ If DEBIAN_PRIORITY is set in the environment, it overrides all this.
 		}
 	
 		my $ret='medium';
-		my $question=Debconf::ConfigDb::getquestion(
-			'debconf/priority'
-		);
+		my $question=Debconf::Question->get('debconf/priority');
 		if ($question) {
 			$ret=$question->value || $ret;
 		}
@@ -122,14 +118,12 @@ If DEBIAN_PRIORITY is set in the environment, it overrides all this.
 Whether extended help should be displayed in some frontends. A value is
 pulled out of the database if possible, otherwise a default is used.
 
-If a value is passed to this function, it changes it perminantly.
+If a value is passed to this function, it changes it permanantly.
 
 =cut
 
 sub helpvisible {
-	my $question=Debconf::ConfigDb::getquestion(
-		'debconf/helpvisible'
-	);
+	my $question=Debconf::Question->get('debconf/helpvisible');
 	if ($question) {
 		return $question->value unless @_;
 		return $question->value(shift);
@@ -163,9 +157,7 @@ the lifetime of the program) to override what's in the database.
 		}
 		
 		my $ret='false';
-		my $question=Debconf::ConfigDb::getquestion(
-			'debconf/showold',
-		);
+		my $question=Debconf::Question->get('debconf/showold');
 		if ($question) {
 			$ret=$question->value || $ret;
 		}

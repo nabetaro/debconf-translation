@@ -8,37 +8,90 @@ Debconf::Question - Question object
 
 package Debconf::Question;
 use strict;
-use Debconf::ConfigDb;
-use base qw(Debconf::Base);
+use Debconf::Db;
 use Debconf::Log qw(:all);
 
 =head1 DESCRIPTION
 
 This is a an object that represents a Question. Each Question has some
-associated data. To get at this data, just use $question->fieldname
-to read a field, and  $question->fieldname(value) to write a field. Any
-field names at all can be used, the convention is to lower-case their names,
-and prefix the names of fields that are flags with "flag_". If a field that
-is not defined is read, and a field by the same name exists on the Template
-the Question is mapped to, the value of that field will be returned instead.
+associated data (which is stored in a backend database). To get at this data,
+just use $question->fieldname to read a field, and $question->fieldname(value)
+to write a field. Any field names at all can be used, the convention is to
+lower-case their names. If a field that is not defined is read, and a field by
+the same name exists on the Template the Question is mapped to, the value of
+that field will be returned instead.
+
+=head1 FIELDS
+
+=over 4
+
+=item name
+
+Holds the name of the Question.
+
+=back
+
+=cut
+
+use fields qw(name);
+
+# Class data
+our %question;
+
+=head1 CLASS METHODS
+
+=over 4
+
+=item new(name)
+
+The name of the question to create, and an owner for the question must
+be passed to this function.
+
+The function will either create a question and return it, or return
+a reference to an existing question with the given name.
+
+New questions default to having their seen flag set to "false".
+
+=cut
+
+sub new {
+	my Debconf::Question $this=shift;
+	my $name=shift;
+	my $owner=shift;
+	return $question{$name} if exists $question{$name};
+	unless (ref $this) {
+		$this = fields::new($this);
+	}
+	$this->{name}=$name;
+	# This is what actually creates the question in the db.
+	return unless defined $this->addowner($owner);
+	$this->setflag('seen', 'false');
+	return $question{$name}=$this;
+}
+
+=item get(question)
+
+Get an existing question.
+
+=cut
+
+sub get {
+	my Debconf::Question $this=shift;
+	my $name=shift;
+	return $question{$name} if exists $question{$name};
+	if ($Debconf::Db::driver->exists($name)) {
+		return $question{$name} = fields::new($this);
+	}
+	return undef;
+}
+
+=back
 
 =head1 METHODS
 
 =over 4
 
-=item init
-
-Sets a few defaults. New questions default to having their seen flag
-set to "false".
-
 =cut
-
-sub init {
-	my $this=shift;
-	
-	$this->flag_seen('false');
-	$this->variables({});
-}
 
 # This is a helper function that expands variables in a string.
 sub _expand_vars {
@@ -47,14 +100,16 @@ sub _expand_vars {
 		
 	return '' unless defined $text;
 
-	my %vars=%{$this->variables};
+	my @vars=$Debconf::Db::driver->variables($this->{name});
 	
 	my $rest=$text;
 	my $result='';
+	my $varval;
 	while ($rest =~ m/^(.*?)\${([^{}]+)}(.*)$/sg) {
 		$result.=$1;  # copy anything before the variable
-		$result.=$vars{$2} if defined($vars{$2}); # expand the variable
 		$rest=$3; # continue trying to expand rest of text
+		$varval=$Debconf::Db::driver->getvariable($this->{name}, $2);
+		$result.=$varval if defined($varval); # expand the variable
 	}
 	$result.=$rest; # add on anything that's left.
 	
@@ -114,50 +169,59 @@ sub choices_split {
 	return split(/,\s+/, $this->choices);
 }
 
-=item flag_isdefault
+=item variable
 
-This deprecated flag is now automatically mapped to the inverse of the
-"seen" flag.
+Set/get a variable. Pass in the variable name, and an optional value to set
+it to. The value of the variable is returned.
 
 =cut
 
-sub flag_isdefault {
+sub variable {
 	my $this=shift;
-
-	debug developer => "The isdefault flag is deprecated, use the seen flag instead";
-
-	$this->flag_seen(shift() eq "true" ? "false" : "true") if @_;
-	return $this->flag_seen eq "true" ? "false" : "true";
+	my $var=shift;
+	
+	if (@_) {
+		return $Debconf::Db::driver->setvariable($this->{name}, $var, shift);
+	}
+	else {
+		return $Debconf::Db::driver->getvariable($this->{name}, $var);
+	}
 }
 
-=item variables
+=item flag
 
-Access the variables hash, which is a hash of values that are used in the above
-substitutions. Pass in no parameters to get the full hash. 
-Pass in one parameter to get the value of that hash key. Pass in two parameters
-to set a hash key to a value.
+Set/get a flag. Pass in the flag name, and an optional value ("true" or
+"false") to set it to. The value of the flag is returned.
 
 =cut
 
-sub variables {
+sub flag {
 	my $this=shift;
-	
-	if (@_ == 0) {
-		return $this->{variables};
-	} elsif (@_ == 1) {
-		my $varname=shift;
-		return $this->{variables}{$varname};
-	} else {
-		my $varname=shift;
-		my $varval=shift;
-		return $this->{variables}{$varname} = $varval;
+	my $flag=shift;
+
+	# This deprecated flag is now automatically mapped to the inverse of
+	# the "seen" flag.
+	if ($flag eq 'isdefault') {
+		debug developer => "The isdefault flag is deprecated, use the seen flag instead";
+		if (@_) {
+			my $value=(shift eq 'true') ? 'false' : 'true';
+			$Debconf::Db::driver->setflag($this->{name}, 'seen', $value);
+		}
+		return ($Debconf::Db::driver->getflag($this->{name}, 'seen') eq 'true') ? 'false' : 'true';
 	}
-}	
+
+	if (@_) {
+		return $Debconf::Db::driver->setflag($this->{name}, $flag, shift);
+	}
+	else {
+		return $Debconf::Db::driver->getflag($this->{name}, $flag);
+	}
+}
 
 =item value
 
-Get the current value of this Question. Will return the default value is there
-is no value set. Pass in a value to set the value.
+Get the current value of this Question. Will return the default value 
+from the template if no value is set. Pass in a value to set the value.
 
 =cut
 
@@ -165,10 +229,11 @@ sub value {
 	my $this = shift;
 	
 	if (@_ == 0) {
-		return $this->{value} if (defined $this->{value});
+		my $ret=$Debconf::Db::driver->getfield($this->{name}, 'value');
+		return $ret if defined $ret;
 		return $this->template->default if ref $this->template;
 	} else {
-		return $this->{value} = shift;
+		return $Debconf::Db::driver->setfield($this->{name}, 'value', shift);
 	}
 }
 
@@ -187,32 +252,6 @@ sub value_split {
 	return split(/,\s+/, $value);
 }
 
-=item owners
-
-This method allows you to get/set the owners of a Question. The owners are
-returned in a comma and space delimited list, a similar list should be
-passed in if you wish to use this function to set them. (Internally, the
-owners are stored quite differently..)
-
-=cut
-
-sub owners {
-	my $this=shift;
-	
-	if (@_) {
-		# Generate hash on fly.
-		my %owners=map { $_, 1 } split(/,\s*/, shift);
-		$this->{'owners'}=\%owners;
-	}
-	
-	if ($this->{'owners'}) {
-		return join(", ", keys %{$this->{'owners'}});
-	}
-	else {
-		return "";
-	}
-}
-
 =item addowner
 
 Add an owner to the list of owners of this Question. Pass the owner name.
@@ -222,16 +261,8 @@ Adding an owner that is already listed has no effect.
 
 sub addowner {
 	my $this=shift;
-	my $owner=shift;
 
-	# I must be careful to access the real hash, bypassing the 
-	# method that stringifiys the owners field.
-	my %owners;
-	if ($this->{'owners'}) {
-		%owners=%{$this->{'owners'}};
-	}
-	$owners{$owner}=1;
-	$this->{'owners'}=\%owners;
+	return $Debconf::Db::driver->addowner($this->{name}, shift);
 }
 
 =item removeowner
@@ -243,23 +274,15 @@ to remove.
 
 sub removeowner {
 	my $this=shift;
-	my $owner=shift;
-	
-	# I must be careful to access the real hash, bypassing the
-	# method that stringifiys the owners field.
-	my %owners;
-	if ($this->{'owners'}) {
-		%owners=%{$this->{'owners'}};
-	}
-	delete $owners{$owner};
-	$this->{'owners'}=\%owners;
+
+	return $Debconf::Db::driver->removeowner($this->{name}, shift);
 }
 
 =item AUTOLOAD
 
-Handles all fields, by creating accessor methods for them the first time
-they are accessed. Fields are first looked for in this object, and failing
-that, the associated Template is queried for fields.
+Handles all fields except name, by creating accessor methods for them the
+first time they are accessed. Fields are first looked for in the db, and
+failing that, the associated Template is queried for fields.
 
 Lvalues are not supported.
 
@@ -272,8 +295,11 @@ sub AUTOLOAD {
 	*$AUTOLOAD = sub {
 		my $this=shift;
 
-		$this->{$field}=shift if @_;
-		return $this->{$field} if (defined $this->{$field});
+		if (@_) {
+			return $Debconf::Db::driver->setfield($this->{name}, $field, shift);
+		}
+		my $ret=$Debconf::Db::driver->getfield($this->{name}, $field);
+		return $ret if defined $ret;
 		# Fall back to template values.
 		return $this->{template}->$field() if ref $this->{template};
 	};

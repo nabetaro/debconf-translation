@@ -82,14 +82,9 @@ For example:
 This lacks the glorious nested bindish beauty of Wichert's original idea,
 but it captures the essence of it.
 
-=cut
-
-=head1 METHODS
-
-=head2 readconfig([file])
-
-Read the specified config file. If none is specified, try
-$ENV{HOME}/.debconfrc, and /etc/debconf.cnf.
+This class makes available a $Debconf::Db::driver, which is the root db
+driver. Requests can be sent directly to the db by things like
+$Debconf::Db::driver->setfield(...)
 
 =cut
 
@@ -149,6 +144,10 @@ sub readconfig {
 	if (not ref $driver) {
 		die "Root database driver \"".$config->{root}."\" was not initialized.\n";
 	}
+}
+
+sub import {
+	readconfig();
 }
 
 =head1 AUTHOR

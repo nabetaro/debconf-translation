@@ -42,11 +42,24 @@ Database:
   forcing of any given flag to any vale, and should expand to forcing any
   field to a value too, I'd think.
 * Hook into the Question class.
+  -- well, I'm getting there. Things to do:
+  	* Question.pm needs a template sub that returns a Template object,
+	  rather than the template name that's in the db. I don't know if
+	  it needs to handle sets at all (check).
+	* Template.pm needs to have its own new and get methods, similar to
+	  what Question.pm has. I don't know if I can convert it to using
+	  fields or not, with all the i18n stuff. I doubt it.
+	* I'm whittling away at ConfigDb.pm, and once the two items above
+	  are done, I will be able to get rid of registertemplates,
+	  addquestion (which it calls), disownquestion, and disownall.
+	  Then it effectively goes away.
 * DbDriver's need access to Templates so they can tell what Type a
   given item is. Until then accept-type and reject-type are just hot air.
+  Once Template.pm has class data, they will be able to use
+  Debconf::Template->get(templatename), I suppose.
 * Make FlatDir write out password type thing mode 600.
-* Do something about Templates. What, I dunno.
-* Transition from perldb.
+* Do something about backing store for Templates. What, I dunno.
+* Transition from perldb (blech).
 
 Slang frontend:
 * The buttons should have help text associated with them too.

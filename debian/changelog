@@ -1,3 +1,13 @@
+debconf (0.9.00) experimental; urgency=low
+
+  * Wrote a flexible extensible layered backend database system for
+    debconf. It's the long-missing quarter of debconf, and thus debconf
+    will be ready for 1.0 once the kinks in it are worked out.
+  * But we're not at 1.0 yet. Use this release with *extreme* caution!
+    It _will_ trash your debconf database.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
+
 debconf (0.5.64) unstable; urgency=low
 
   * Updated to new perl policy.

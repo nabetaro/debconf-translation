@@ -54,7 +54,7 @@ sub sendmail {
 	my $this=shift;
 	my $footer=shift;
 
-	if (-x '/usr/bin/mail' && $this->question->flag_seen ne 'true') {
+	if (-x '/usr/bin/mail' && $this->question->flag('seen') ne 'true') {
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".
 			$this->question->description;
@@ -81,7 +81,7 @@ sub sendmail {
 	
 		# Mark this note as seen. The frontend doesn't do this for us,
 		# since we are marked as not visible.
-		$this->question->flag_seen('true');
+		$this->question->flag('seen', 'true');
 
 		return 1;
 	}
