@@ -69,7 +69,6 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 	$_=`dpkg --status $pkg`;
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
-	print "--$status\n";
 	if (! defined $status || $status !~ m/ ok installed$/) {
 		warn "package \"$pkg\" is not fully installed";
 		exit 1;
