@@ -1,3 +1,11 @@
+debconf (1.2.15) unstable; urgency=low
+
+  * Fixed up templates and po/output. Closes: #167600
+  * Patch from Roderich Schupp fixes double lock issue with PackageDir
+    DbDriver.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 11 Nov 2002 12:11:25 -0500
+
 debconf (1.2.14) unstable; urgency=low
 
   * Reworded debconf/priority template. Closes: #60541

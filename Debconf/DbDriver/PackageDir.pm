@@ -186,7 +186,7 @@ sub exists {
 
 =head2 shutdown
 
-This has the break the abstraction and access the underlying cache directly.
+This has to break the abstraction and access the underlying cache directly.
 
 =cut
 
@@ -248,6 +248,7 @@ sub shutdown {
 		}
 	}
 	
+	$this->SUPER::shutdown(@_);
 	return 1;
 }
 
