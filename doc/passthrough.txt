@@ -1,6 +1,154 @@
 The Passthrough Frontend
 ========================
 
-(documentation to go here.. :-)
+The Passthrough frontend basically replays the ConfModule protocol over a 
+Unix domain socket so that other programs can "listen" in and actually
+implement the user interface. With some minor additions, the protocol is
+designed to mirror the ConfModule protocol as closely as feasible.
+
+A typical session goes like this: (time moves downwards)
+In this diagram, and in the rest of this document, "Passthrough" denotes 
+the DebConf passthrough frontend, Frontend represents a user-supplied
+program that understands this interface.
 
 
+Confmodule              Passthrough             Frontend
+---------------         --------------          ----------------------
+CAPB backup      ->
+                        CAPB backup        ->
+                                           <-   0 backup
+                 <-     CAPB backup
+INPUT foo/bar    ->     (stored)
+                 <-     0 question will be asked
+INPUT foo/baz    ->     (stored)
+                 <-     0 question will be asked
+GO               ->
+                        DATA foo/bar description some description ->
+			                   <-   0 OK
+			DATA foo/bar extended_description etc ->
+			                   <-   0 OK
+			INPUT foo/bar boolean ->
+			                   <-   0 OK
+                        DATA foo/baz description some description ->
+			                   <-   0 OK
+			DATA foo/baz extended_description etc ->
+			                   <-   0 OK
+			INPUT foo/baz text ->
+			                   <-   0 OK
+			GO                 ->
+			                   <-   0 OK (or 30 GOBACK)
+                        GET foo/bar        ->
+			(stored)           <-   0 true
+                        GET foo/baz        ->
+			(stored)           <-   0 my input
+	         <-     0 OK
+GET foo/bar      ->
+                 <-     true
+GET foo/baz      ->
+                 <-     my input
+STOP             ->
+                        STOP               ->
+                                           <-   0 OK
+
+
+
+Each request from Passthrough will block until it receives a reply from
+the Frontend.
+
+Communications
+~~~~~~~~~~~~~~
+Communication between the Passthrough module and the Frontend takes place
+over a Unix domain socket connection. The default location for the socket is
+	/var/lib/debconf/debconf.ipc
+but can be changed by setting the DEBCONF_PIPE environment variable
+
+When the Passthrough module starts up, it expects the socket to already
+exist. The Frontend is responsible for creating the socket and be ready
+to listen on it prior to invoking DebConf with the Passthrough module.
+
+The socket should be created with mode 0400, and owned by root:root
+It should be removed when the Frontend exits.
+
+DATA/INPUT/GO/GET mechanism
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlike existing DebConf frontends, the Frotnend does not have access
+to the template information directly. In order to get that information,
+the Passthrough module is responsible for sending it that information.
+This is done via the DATA mechanism, by sending commands like this:
+
+	DATA <tag> <item> <value>
+
+   where: 
+	<tag> is the name of the template, e.g. debconf/showold
+	<item> is one of {"description", "extended-description", "choices"}
+	<value> is the value of the <item>, with all newlines converted to 
+	        "\\n" (i.e. 0x2F 0x6E)
+
+All DATA information will be sent to the Frontend prior to sending any
+INPUT commands with the same tag.
+
+After DATA commands for a <tag> is sent, a corresponding SET command may
+be sent to set the default value for that question, if a default was
+defined, viz:
+
+	SET <tag> <value>
+  where:
+  	<tag> is the name of the templte
+	<value> is the default value of the question
+
+Finally, a corresponding INPUT command will be sent as:
+
+	INPUT <tag> <type>
+  where:
+  	<tag> is the name of the template
+	<type> is the type of the question
+
+An INPUT command will be issued to the Frontend for each INPUT command
+received by the Passthrough module prior to a GO command. After all INPUT
+commands have been sent to the Frontend, a GO will be sent. At this point
+the Frontend should query the user for information, and return either:
+	0 OK		if everything is ok
+  or:
+	30 GOBACK	if the user requested to go back to a previous question
+
+If a GOBACK request was received and the ConfModule supports the backup 
+capability, the previous set of questions will be asked again, with all
+DATA commands reissued.
+
+Otherwise, if an OK condition was returned, the Passthrough module will issue
+the same number of GET commands as previously sent INPUT commands, in the 
+form of:
+
+	GET <tag>
+
+to which the Frontend should reply with:
+
+	0 <value>
+  where:
+	<value> was the answer to the question of the given <tag>
+
+
+Shutdown
+~~~~~~~~
+Whether the ConfModule explicitly requests a STOP, or when the ConfModule ends,
+the passthrough module will send a STOP command to the Frontend to inform it
+that the current configuration session has been completed.
+
+Error Handling
+~~~~~~~~~~~~~~
+At any point in time, the Frontend may indicate an error condition by sending
+a response such as:
+	100 <error message>
+
+This signals the Passthrough module that something is wrong. At the time of 
+this writing, unfortunately, the Passthrough module does not handle errors 
+very gracefully.
+
+Implementation Details/Hints for the Frontend
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The frontend needs to be careful about storing information across multiple
+DATA/INPUT/GO/GET requests. After any GET requests, the next DATA/INPUT
+request should cause any pending question/answer information at the Frontend 
+side to be discarded. Similarly, when a Frontend sends back a "30 GOBACK" 
+response to a GO command, it should take care to clear out previous 
+question/answer information.
