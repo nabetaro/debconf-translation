@@ -1,3 +1,12 @@
+debconf (0.5.22) unstable; urgency=low
+
+  * Temporarily depends on perl-5.6 until perl-5.6-base is fixed so
+    POSIX.pm works without the former package installed. Grrre.
+    Closes: #77399, #77397 (really perl's bugs, but it has enough open on
+    this issue already).
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 18 Nov 2000 22:27:56 -0800
+
 debconf (0.5.21) unstable; urgency=low
 
   * The stuff the postinst adds to apt.conf now doesn't return a error
