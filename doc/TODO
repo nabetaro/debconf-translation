@@ -16,8 +16,6 @@ General:
   debconf), to come up with a new shell interface that is so much cooler
   people will want to migrate to it, and make it not use the hack,
   or to decide with Wichert that debconf should not ursurp stdin/out.
-* Proper backend database.
-* Config db browser, with AJ's config2 stuff.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
 * When Client::ConfModule launches a frontend, the frontend doesn't see
@@ -38,6 +36,17 @@ General:
   Dialog frontend couldn't support this, but the rest could.
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
+
+Database:
+* There's also the Force-Flag-Seen thing, which is really a more generic
+  forcing of any given flag to any vale, and should expand to forcing any
+  field to a value too, I'd think.
+* Hook into the Question class.
+* DbDriver's need access to Templates so they can tell what Type a
+  given item is. Until then accept-type and reject-type are just hot air.
+* Make FlatDir write out password type thing mode 600.
+* Do something about Templates. What, I dunno.
+* Transition from perldb.
 
 Slang frontend:
 * The buttons should have help text associated with them too.
