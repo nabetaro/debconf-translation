@@ -1,0 +1,16 @@
+#!/bin/sh -e
+#DEBHELPER#
+
+VARDIR=/var/lib/debconf
+if [ "$1" = upgrade ] && dpkg --compare-versions "$2" "<<" "0.4.00"; then
+	echo "WARNING: Downgrading debconf to versions prior to 0.4.00" >&2
+	echo "is not well supported! Muddling on ..." >&2
+	# Essentually mirrors the preinst.
+	cp $VARDIR/debconf.db $VARDIR/debconf.db.old
+	cp $VARDIR/templates.db $VARDIR/templates.db.old
+	sed -e s/Debconf::/Debian::DebConf::// \
+		< $VARDIR/debconf.db.old > $VARDIR/debconf.db
+	sed -e s/Debconf::/Debian::DebConf::/ \
+		< $VARDIR/templates.db.old > $VARDIR/templates.db
+	rm -f $VARDIR/debconf.db.old $VARDIR/templates.db.old
+fi
