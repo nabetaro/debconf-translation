@@ -16,6 +16,7 @@ use strict;
 use IPC::Open2;
 use FileHandle;
 use Debian::DebConf::ConfigDb;
+use POSIX ":sys_wait_h";
 use vars qw($AUTOLOAD);
 
 # Pass in the FrontEnd it should use to ask questions.
@@ -41,16 +42,15 @@ sub new {
 		$self->{pid} = open2($self->{read_handle}, 
 			$self->{write_handle}, $self->{confmodule}) || die $!;
 	}
+
 	return $self;
 }
 
 # Read one command and respond to it.
 sub communicate {
 	my $this=shift;
-	
 	my $r=$this->{read_handle};
-	return if eof($r);
-	$_=<$r> || die $!;
+	$_=<$r> || return;
 	chomp;
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
@@ -64,6 +64,18 @@ sub communicate {
 ###############################################################################
 # Communication with the frontend. Each function corresponds to a command
 # from the frontend.
+
+# Add to the list of elements in our associated FrontEnd.
+sub command_input {
+	my $this=shift;
+	my $priority=shift;
+	my $question=shift;
+
+	# TODO: detect bad question names, return error.
+	$this->frontend->add(Debian::DebConf::ConfigDb::getquestion($question),
+		$priority);
+	return;
+}
 
 sub command_version {
 	my $this=shift;
@@ -91,12 +103,6 @@ sub command_title {
 # Don't handle blocks.
 sub command_beginblock {}
 sub command_endblock {}
-
-# Skip all this, so this Base module can really be used as a functioning,
-# non-interactive ConfModule.
-sub command_text {}
-sub command_note {}
-sub command_input {}
 
 # Tell the frontend to display items to the user. Anything
 # the frontend returns is our return value.
@@ -139,6 +145,27 @@ sub command_unregister {
 	my $location=shift;
 	
 	Debian::DebConf::ConfigDb::removemapping($location);
+}
+
+# Get a flag.
+sub command_fget {
+	my $this=shift;
+	my $question=shift;
+	my $flag="flag_".shift;
+	
+	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	return $question->$flag();
+}
+
+# Set a flag.
+sub command_fset {
+	my $this=shift;
+	my $question=shift;
+	my $flag="flag_".shift;
+	my $value=shift;
+	
+	$question=Debian::DebConf::ConfigDb::getquestion($question);
+	return $question->$flag($value);
 }
 
 sub AUTOLOAD {

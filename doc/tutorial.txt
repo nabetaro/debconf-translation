@@ -1,0 +1,84 @@
+This is a guide to using debconf with your packages, aimed at a Debian
+developer. This is all rather rough, and I have little experience as yet
+with this myself, so bear with me.
+
+So, what is debconf? To save you reading the spec
+(http://www.debian.org/~wakkerma/config6/), debconf is a backend database,
+with a frontend that talks to it and presents an interface to the user.
+There can be many different types of frontends, from plain text to a web
+frontend. The frontend also talks to a special config script in the control
+section of a debian package, and it can talk to postinst scripts and other
+scripts as well, all using a special protocol. These scripts tell the
+frontend what values they need from the database, and the frontend asks the
+user questions to get those values if they arn't set.
+
+Debconf should be used whenever your package needs to output something to
+the user, or ask a question of the user. I'll assume you already have a
+package that does this and you want to convert it to use debconf.
+
+First, your package must depend on debconf (or pre-depend on it if it uses
+debconf in its preinst). This is necessary since debconf isn't (yet) part of
+the base system.
+
+The first thing to do is look at your postinst, any program your
+postinst calls (like a "packageconfig" program), plus your preinst, and even
+your prerm and postrm. Take note of all output they can generate and all
+input they prompt the user for. All this output and input must be eliminated
+for your package to use debconf. (Output to stderr can be left as is.)
+
+Start writing a debian/templates file. Each time you find a piece of output
+or a question, add it to the file as a new template. The format of this file
+is simple and quite similar to a Debian control file:
+
+Template: <packagename>/<something>
+Type: <select,string,boolean,note,text>
+Default: <optional default>
+Description: Blah blah blah?
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah blah blah. Blah
+ blah. Blah blah blah. Blah blah.
+ .
+ Blah blah blah. Blah blah. Blah blah blah. Blah blah. Blah blah blah. Blah
+ blah.
+
+<next template here>
+
+Next, decide what order the questions should be asked and the messages to
+the user should be displayed, figure out what tests you'll make before
+asking the questions and displaying the messages, and start writing a
+debian/config file to ask and display them. Depending on what language you
+choose to write debian/config in, you have some choices about how to
+communicate with the frontend:
+
+shell script:
+	- You can use the dpkg-frontend program. See its man page for
+	  documentation.
+	- You can source /usr/share/debconf/confmodule.sh, which will make
+	  a number of shell functions available to you and is a little less
+	  unweildly to use than dpkg-frontend. For details, see confmodule.3
+	- Or you can speak to the frontend directly via standard input and
+	  standard output, but you'll have to read up on the protocol to do
+	  this. 
+
+perl:
+	- You can use the Debian::DebConf::Client::ConfModule perl module,
+	  It is quite similar to confmodule.sh except for perl, and is
+	  doumented on the Debian::Debconf::Client::ConfModule.2pm man page.
+	- Or you can speak the protocol directly.
+
+Consider supporting use of the back button to jump back from one question to
+the previous question. It's a bit more work, but a big plus for the user.
+
+Once you have a config script, *** need some easy way to load up the
+templates and test it ***.
+
+At this point it's time to move on to actually modifying your postinst,
+preinst, etc. Remove all extraneous noise, like the starting and stopping of
+daemons. Use one of the methods mentioned above to pull the answers to any
+questions out of the database and also to display any messages it still
+needs to show (these should be very rare). When you're done with each
+program, it should run without outputting anything at all.
+
+Now you have a config script and a templates file. Install both into
+debian/tmp/DEBIAN. Make sure to make the config script executable.
+
+-- Joey Hess <joey@kitenet.net>

@@ -37,10 +37,7 @@ uglisest part of debconf. It defines the following functions:
 		question object.
 	loadtemplatefile(file)
 		Loads up templates from a file. Creates Template objects for
-		each.
-	loadmappingfile(file)
-		Loads up mappings from a file. Creates Mapping objects for
-		each.
+		each and corresponding Mapping objects.
 	makequestions()
 		Instantiates Questions from Templates and Mappings.
 	addmapping(template_name, location)
@@ -69,11 +66,10 @@ should have a "template" field that is their name. Most have "default",
 "extended_description" holds the extended description, if any.
 
 Mapping.pm is an object class that represnets a mapping between a template
-and a question. It has a parse() method just like Template. Also just like
-Template, it has some associated data which can be accessed via
-Mapping->fieldname. Each Mapping has a field named "question" that is the
-name of the Question, and "template", which is the name of the Template
-associated with that question.
+and a question. Just like Template, it has some associated data which can be
+accessed via Mapping->fieldname. Each Mapping has a field named "question"
+that is the name of the Question, and "template", which is the name of the
+Template associated with that question.
 
 Question.pm is an object that represents a question. It has some associated
 data, which can be accessed just like a Template's data is accessed. Typical

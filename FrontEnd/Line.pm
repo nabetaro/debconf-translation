@@ -4,7 +4,11 @@
 
 package Debian::DebConf::FrontEnd::Line;
 use Debian::DebConf::FrontEnd::Base;
-use Debian::DebConf::Priority;
+use Debian::DebConf::Element::Line::String;
+use Debian::DebConf::Element::Line::Boolean;
+use Debian::DebConf::Element::Line::Select;
+use Debian::DebConf::Element::Line::Text;
+use Debian::DebConf::Element::Line::Note;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
@@ -21,6 +25,41 @@ sub new {
 	$self->{'readline'}->ornaments(1);
 	return $self;
 }
+
+# Create an input element.
+sub makeelement {
+	my $this=shift;
+	my $question=shift;
+
+	# The type of Element we create depends on the input type of the
+	# question.
+	my $type=$question->template->type;
+	my $elt;
+	if ($type eq 'string') {
+		$elt=Debian::DebConf::Element::Line::String->new;
+	}
+	elsif ($type eq 'boolean') {
+		$elt=Debian::DebConf::Element::Line::Boolean->new;
+	}
+	elsif ($type eq 'select') {
+		$elt=Debian::DebConf::Element::Line::Select->new;
+	}
+	elsif ($type eq 'text') {
+		$elt=Debian::DebConf::Element::Line::Text->new;
+	}
+	elsif ($type eq 'note') {
+		$elt=Debian::DebConf::Element::Line::Note->new;
+	}
+	else {
+		die "Unknown type of element: \"$type\"";
+	}
+	
+	$elt->question($question);
+	# Some elements need a handle to their FrontEnd.
+	$elt->frontend($this);
+
+	return $elt;
+}	
 
 # Display text nicely wrapped. If too much text is displayed at once, will
 # page it.

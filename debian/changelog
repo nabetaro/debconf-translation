@@ -1,3 +1,40 @@
+debconf (0.1.5) unstable; urgency=low
+
+  * Got rid of the NOTE and TEXT commands; notes and text are now put on
+    templates. This breaks any packages already using debconf (again).
+  * The above change made it clear I needed to reorganize the Elements --
+    each data type is now a seperate object type. The code is much simpler
+    now!
+  * While I was doing that, it became possible to make the base ConfModule
+    handle command_input in a general way. Much duplicate code removed.
+  * Modified clients for above changes.
+  * Modified samples and docs for above changes.
+  * Made the postrm not fail during error unwind.
+  * Picky Sean fixes..
+  * Added support for isdefault flag. Now you only see a question once.
+  * Added support for the FGET and FSET commands. (untested)
+  * The mappings file is no more. All questions on a template will now have
+    mappings made for them. If you need others, use the commands to make them.
+  * Added a new program, dpkg-reconfigure. Use it to reconfigure an already
+    installed package.
+  * Added Client/confmodule.sh. This is very similar to Client::ConfModule
+    except it's a shell library. 
+  * Changed cvs.config to use confmodule.sh. It's _much_ easier to read now.
+  * Copyright updates. VA has sponsored and is at least a partial owner of
+    this code. It's still GPL'd, of course.
+  * Fixed a bug in the web frontend -- if a page is empty now because all
+    questions are too low priotity, it just skips it.
+  * Fixed a nasty template merge bug.
+  * Added a doc/spec/ directory and put a copy of the metadata section of
+    the spec in there, converted to html and greatly expanded to match
+    reality. This is a draft that I want to get accepted as the real spec.
+  * Changed to using "string" as the data type for text data, had been using
+    "text". This is a pretty big change, really and breaks all packages that
+    have been built so far that use debconf. Have to do it to comply with
+    the spec.
+
+ -- Joey Hess <joeyh@master.debian.org>  Fri, 30 Jul 1999 11:16:25 -0700
+
 debconf (0.1.3) unstable; urgency=low
 
   * dpkg-preconfig (and test.pl) now load up only the COnfModules and

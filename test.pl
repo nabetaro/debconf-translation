@@ -3,7 +3,7 @@
 # Test framework for the Debian configuration management system.
 # This can multiplex a variety of frontends, just pass the name of
 # the frontend as the first parameter. Pass in the name of the templates
-# file and then the mapping file and finally the config script.
+# file and the config script.
 
 use strict;
 use lib '.';
@@ -13,7 +13,6 @@ use Debian::DebConf::Config;
 
 my $type=shift;
 my $template=shift;
-my $mapping=shift;
 my $script=shift;
 
 # Load up previous state information.
@@ -24,10 +23,7 @@ if (-e $Debian::DebConf::Config::dbfn) {
 # Load up templates.
 Debian::DebConf::ConfigDb::loadtemplatefile($template);
 
-# Load up mappings.
-Debian::DebConf::ConfigDb::loadmappingfile($mapping);
-
-# Instantiate all questions that have mappings.
+# Instantiate all questions.
 Debian::DebConf::ConfigDb::makequestions();
 
 # Set priority.

@@ -6,6 +6,11 @@
 
 package Debian::DebConf::FrontEnd::Dialog;
 use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Element::Dialog::String;
+use Debian::DebConf::Element::Dialog::Boolean;
+use Debian::DebConf::Element::Dialog::Select;
+use Debian::DebConf::Element::Dialog::Text;
+use Debian::DebConf::Element::Dialog::Note;
 use Debian::DebConf::Priority;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
@@ -49,6 +54,41 @@ sub new {
 
 	return $self;
 }
+
+# Create an input element.
+sub makeelement {
+	my $this=shift;
+	my $question=shift;
+
+	# The type of Element we create depends on the input type of the
+	# question.
+	my $type=$question->template->type;
+	my $elt;
+	if ($type eq 'string') {
+		$elt=Debian::DebConf::Element::Dialog::String->new;
+	}
+	elsif ($type eq 'boolean') {
+		$elt=Debian::DebConf::Element::Dialog::Boolean->new;
+	}
+	elsif ($type eq 'select') {
+		$elt=Debian::DebConf::Element::Dialog::Select->new;
+	}
+	elsif ($type eq 'text') {
+		$elt=Debian::DebConf::Element::Dialog::Text->new;
+	}
+	elsif ($type eq 'note') {
+		$elt=Debian::DebConf::Element::Dialog::Note->new;
+	}
+	else {
+		die "Unknown type of element: \"$type\"";
+	}
+	
+	$elt->question($question);
+	# Some elements need a handle to their FrontEnd.
+	$elt->frontend($this);
+
+	return $elt;
+}	
 
 # Dialog and whiptail have an annoying property of requiring you specify
 # their dimentions explicitly. This function handles doing that. Just pass in

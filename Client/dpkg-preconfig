@@ -5,8 +5,6 @@
 # and mappings from them and asks any necessary questions, storing the results
 # in the database for later use.
 
-my $dbfn="/var/lib/debconf/debconf.db";
-
 use strict;
 use lib '.';
 use Debian::DebConf::ConfigDb;
@@ -74,10 +72,7 @@ foreach my $deb (@debs) {
 	# Load up templates.
 	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|");
 
-	# Load up mappings.
-	Debian::DebConf::ConfigDb::loadmappingfile("dpkg --info $deb mappings|");
-
-	# Instantiate all questions that have mappings.
+	# Instantiate all questions.
 	Debian::DebConf::ConfigDb::makequestions();
 
 	# Start up the confmodule.

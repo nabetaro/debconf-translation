@@ -17,6 +17,9 @@ sub show {
 	# Get the question that is bound to this element.
 	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
 
+	# See if we should just skip it -- if we have asked it before.
+	return if $question->flag_isdefault eq 'false';
+
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(
 		$question->template->description,
@@ -66,7 +69,7 @@ sub show {
 		}
 		@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 	}
-	elsif ($type eq 'text') {
+	elsif ($type eq 'string') {
 		@params=('--inputbox', $text, 
 			$lines + $this->frontend->spacer, 
 			$columns, $default);
@@ -87,6 +90,7 @@ sub show {
 	}
 
 	$question->value($value);
+	$question->flag_isdefault('false');
 }
 
 1

@@ -40,9 +40,9 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 # List all valid commands here.
-@EXPORT_OK=qw(version capb stop reset title text input beginblock endblock go
-		   note unset set get register unregister previous_module
-		   start_frontend);
+@EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
+	      unset set get register unregister previous_module
+	      start_frontend fset fget);
 
 # Import :all to get everything.		   
 %EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -69,6 +69,8 @@ loaded in the usual way.
 sub import {
 	my $type=ucfirst($ENV{DEBIAN_FRONTEND} || 'base' );
 
+	# Ensure a frontend is running. If not, turn into one and fork off
+	# a child to continue.
 	unless ($ENV{DEBIAN_HAS_FRONTEND}) {
 		my $frontend=eval qq{
 			use Debian::DebConf::FrontEnd::$type;

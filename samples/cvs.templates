@@ -1,5 +1,5 @@
 Template: cvs/repositories
-Type: text
+Type: string
 Description: Where are your repositories?
  List the directories that are the roots of your repositories, separated
  by spaces.
@@ -7,6 +7,12 @@ Description: Where are your repositories?
  These repositories can be exported by the pserver, have their history files
  rotated automatically every week, and general repository security checks
  will be performed on them.
+
+Template: cvs/badrepositories
+Type: text
+Description: Some of the repositiories are invalid.
+ The following items you entered are not directories or do not contain a
+ CVSROOT subdirectory: hmm
 
 Template: cvs/rotatehistory
 Type: select

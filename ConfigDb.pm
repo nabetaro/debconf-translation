@@ -16,7 +16,8 @@ sub getquestion {
 	return $questions{(shift)};
 }
 
-# Loads up a file containing templates.
+# Loads up a file containing templates. Register mappings for each template in
+# the file to questions with the same name.
 sub loadtemplatefile {
 	my $fn=shift;
 	
@@ -29,9 +30,25 @@ sub loadtemplatefile {
 			$collect.=$_;
 		}
 		if ($_ eq "\n" || eof TEMPLATE_IN) {
+			# Have to be careful here to ensure that if a template
+			# already exists in the db and we load it up, the changes
+			# replace the old template without instantiating a new template.
 			my $template=Debian::DebConf::Template->new();
 			$template->parse($collect);
-			$templates{$template->template}=$template;
+			
+			if ($templates{$template->template}) {
+				# An old template with this name exists. Merge all info
+				# from the new template into it.
+				$templates{$template->template}->merge($template);
+			}
+			else {
+				$templates{$template->template}=$template;
+			}
+
+			my $mapping=Debian::DebConf::Mapping->new();
+			$mapping->question($template->template);
+			$mapping->template($template->template);
+			$mappings{$template->template}=$mapping;
 			
 			$collect='';
 		}
@@ -40,32 +57,9 @@ sub loadtemplatefile {
 	return 1;
 }
 
-# Loads up a file containing mappings.
-sub loadmappingfile {
-	my $fn=shift;
-	
-	die "No filename to load specified" unless $fn;
-	my $collect;
-	open (MAPPING_IN, $fn) || die "$fn: $!";
-	while (<MAPPING_IN>) {
-		if ($_ ne "\n") {
-			$collect.=$_;
-		}
-		if ($_ eq "\n" || eof MAPPING_IN) {
-			my $mapping=Debian::DebConf::Mapping->new();
-			$mapping->parse($collect);
-			$mappings{$mapping->question}=$mapping;
-			$collect='';
-		}	
-	}
-	close MAPPING_IN;
-	return 1;
-}
-
 # Instantiate Questions from templates and question mapping data.
 sub makequestions {
 	foreach my $mapping (values %mappings) {
-		# Is this question already instantiated?
 		my $template=$templates{$mapping->template};
 		
 		# Is this question already instantiated?

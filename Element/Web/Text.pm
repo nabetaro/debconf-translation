@@ -1,21 +1,28 @@
 #!/usr/bin/perl -w
-#
-# Each Element::Web:Text represents a peice of text to display to the user.
 
 package Debian::DebConf::Element::Web::Text;
 use strict;
-use Debian::DebConf::Element::Text;
+use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Text);
+@ISA=qw(Debian::DebConf::Element::Base);
 
 # Just generates and returns some html.
 sub show {
 	my $this=shift;
 
-	$_=$this->text;
+	$_=$this->question->template->extended_description;
 	s/\n/\n<br>\n/g;
-	return $_."\n<p>\n";
+	$_.="\n<p>\n";
+
+	return "<b>".$this->question->template->description."</b>$_<p>";
+}
+
+# The user has now see this text.
+sub set {
+	my $this=shift;
+
+	$this->question->flag_isdefault('false');
 }
 
 1

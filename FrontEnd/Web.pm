@@ -7,6 +7,11 @@
 
 package Debian::DebConf::FrontEnd::Web;
 use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Element::Web::String;
+use Debian::DebConf::Element::Web::Boolean;
+use Debian::DebConf::Element::Web::Select;
+use Debian::DebConf::Element::Web::Text;
+use Debian::DebConf::Element::Web::Note;
 use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
@@ -33,6 +38,41 @@ sub new {
 
 	return $self;
 }
+
+# Create an input element.
+sub makeelement {
+	my $this=shift;
+	my $question=shift;
+
+	# The type of Element we create depends on the input type of the
+	# question.
+	my $type=$question->template->type;
+	my $elt;
+	if ($type eq 'string') {
+		$elt=Debian::DebConf::Element::Web::String->new;
+	}
+	elsif ($type eq 'boolean') {
+		$elt=Debian::DebConf::Element::Web::Boolean->new;
+	}
+	elsif ($type eq 'select') {
+		$elt=Debian::DebConf::Element::Web::Select->new;
+	}
+	elsif ($type eq 'text') {
+		$elt=Debian::DebConf::Element::Web::Text->new;
+	}
+	elsif ($type eq 'note') {
+		$elt=Debian::DebConf::Element::Web::Note->new;
+	}
+	else {
+		die "Unknown type of element: \"$type\"";
+	}
+	
+	$elt->question($question);
+	# Some elements need a handle to their FrontEnd.
+	$elt->frontend($this);
+
+	return $elt;
+}	
 
 # This returns the client that is currently waiting for input. Of course,
 # if there is no client, it waits for one to connect. As a side affect,
@@ -80,6 +120,8 @@ sub showclient {
 sub go {
 	my $this=shift;
 
+	return unless @{$this->{elements}};
+
 	# Each form sent out has a unique id.
 	my $formid=$this->formid(1 + $this->formid);
 	
@@ -88,16 +130,13 @@ sub go {
 	my $id=0;
 	my %idtoelt;
 	foreach my $elt (@{$this->{elements}}) {
-		next unless Debian::DebConf::Priority::high_enough($elt->priority);
-		# Some elements may use helper functions in the frontend
-		# so they need to know what frontend to use.
-		$elt->frontend($this);
 		# Each element has a unique id that it'll use on the form.
 		$idtoelt{$id}=$elt;
 		$elt->id($id++);
 		$form.=$elt->show;
 		$form.="<hr>\n";
 	}
+	
 	$this->{elements}=[];
 	$form.="<p>\n";
 	# Should the back button be displayed?

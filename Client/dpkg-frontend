@@ -86,9 +86,9 @@ sub AUTOLOAD {
 	my $command = $AUTOLOAD;
 	$command =~ s|.*:||; # strip fully-qualified portion
 	shift;
-	if ($command eq 'input' || $command eq 'note' || $command eq 'text') {
-		# These need a priority.
-		$ret=eval "Debian::DebConf::Client::ConfModule::$command".'($priority, @_)';
+	if ($command eq 'input') {
+		# Need a priority.
+		$ret=Debian::DebConf::Client::ConfModule::input($priority, @_);
 	}
 	else {
 		$ret=eval "Debian::DebConf::Client::ConfModule::$command".'(@_)';
@@ -111,10 +111,8 @@ GetOptions(
 	'priority|p=s', \$priority,
 	'init|I', \&init,
 	'title|T=s', \&title,
-	'text|t=s', \&text,
 	'stop|s', \&stop,
 	'input|i=s', \&input,
-	'note|n=s', \&note,
 	'get|g=s', \&do_get,
 	'beginblock', \&do_beginblock,
 	'endblock', \&do_endblock,

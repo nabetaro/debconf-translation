@@ -4,6 +4,7 @@
 
 package Debian::DebConf::FrontEnd::Base;
 use Debian::DebConf::Priority;
+use Debian::DebConf::Element::Base;
 use strict;
 use vars qw($AUTOLOAD);
 
@@ -16,17 +17,33 @@ sub new {
 	return $self
 }
 
+# Create an input element. Pass in the question that the element represents.
+sub makeelement {
+	my $this=shift;
+	my $question=shift;
+
+	return Debian::DebConf::Element::Base->new($question);
+}
+
+# Add an item to the list of items to display.
+sub add {
+	my $this=shift;
+	my $question=shift;
+	my $priority=shift;
+
+	# Skip items that the user has seen or that are unimportant.
+	return unless Debian::DebConf::Priority::high_enough($priority);
+	return if $question->flag_isdefault eq 'false';
+
+	# Pass in the frontend to use as well, some elements need it.
+	push @{$this->{elements}}, $this->makeelement($question);
+}
+
 # This is called when it is time for the frontend to display questions.
 sub go {
 	my $this=shift;
-	
-	foreach my $elt (@{$this->{elements}}) {
-		next unless Debian::DebConf::Priority::high_enough($elt->priority);
-		# Some elements use helper functions in the frontend
-		# so they need to know what frontend to use.
-		$elt->frontend($this);
-		$elt->show;
-	}
+
+	map { $_->show} @{$this->{elements}};
 	$this->{elements}=[];
 	return '';
 }

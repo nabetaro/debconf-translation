@@ -64,9 +64,6 @@ with a "Back" button of some kind. If the user clicks on the button,
 will return 1. You can test for trhis in your program and handle it
 appropriatly. The FrontEnd returns the capabilities it supports.
 .TP
-.I "\-ttext, \-\-text=text"
-Cause the FrontEnd to display text to the user.
-.TP
 .I "\-Ttitle, \-\-title=title"
 Set the title displayed by the FrontEnd.
 .TP
@@ -75,9 +72,6 @@ Tell the FrontEnd we are finished.
 .TP
 .I "\-iquestion, \-\-input=question"
 Tell the frontend to present a question to the user.
-.TP
-.I "\-ntext, \-\-note=text"
-Cause the FrontEnd to display a note to the user.
 .TP
 .I "\-gquestion, \-\-get=question"
 Makes the FrontEnd return the value the user answered for a question. This
@@ -112,10 +106,10 @@ A code of 1 is returned if the user hits the Back button on the FrontEnd.
 Makes the Frontend prompt for the user to answer the question named "foo".
 .PP
  exec 3>&1
- foo=`dpkg-frontend --get foo 2>&1 1>&3`
+ VALUE=`dpkg-frontend --get foo 2>&1 1>&3`
 .PP
 Gets the value of the variable named "foo" and saves it in the shell
-variable $foo while letting the standard output of
+variable $VALUE while letting the standard output of
 .BR dpkg-frountend
 pass through unchanged, as it must.
 .SH AUTHOR

@@ -1,0 +1,39 @@
+.TH CONFMODULE 3
+.SH NAME
+confmodule \- communicate with Debian configuration system FrontEnd.
+.SH SYNOPSIS
+  source /usr/share/debconf/confmodule.sh
+  version
+  capb 'backup'
+  $CAPB=$ret
+  input 'foo/bar'
+  go
+.SH DESCRIPTION
+This is a library of shell functions that eases communication with Debian's
+configuration management system. It can communicate with a FrontEnd via the
+ConfModule protocol. The design is that each command in the protocol is
+represented by one function in this module (with the name lower-cased). Call
+the function and pass in any parameters you want to follow the command. Any
+return code from the FrontEnd will be returned to you in the $RET variable.
+.SH NOTES
+The 'version' command is special; if you do not pass a version to
+it, it will send the current protocol version to the FrontEnd.
+.P
+Once this library is loaded, any text you later output will go to standard
+error, rather than standard output. This is a good thing in general, because
+text send to standard output is interpreted by the FrontEnd as commands. If
+you do want to send a command directly to the FrontEnd, you must output it
+to file descriptor 3, like this:
+  echo GET foo/bar >&3
+.P
+The library checks to make sure it is actually speacking to a FrontEnd by
+examining the DEBIAN_HAS_FRONTEND variable. If it is set, a FrontEnd is
+assummed to be running. If not, the library turns into one, and runs a copy
+of the script that loaded the library connected to it. This means that if you
+source this library, you should do so very near to the top of your script,
+because everything before the souring of the library may well be run again.
+.P
+If no FrontENd is running, a name of a FrontEnd to start can be passed in
+DEBIAN_FRONTEND, it defaults to using the base (non-interactive) FrontEnd.
+.SH AUTHOR
+Joey Hess <joey@kitenet.net>

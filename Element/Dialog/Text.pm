@@ -1,19 +1,21 @@
 #!/usr/bin/perl -w
 #
-# Each Element::Dialog:Text represents a peice of text to display to the user.
+# Each Element::Dialog::Text is a scrap of text to show to the user.
 
 package Debian::DebConf::Element::Dialog::Text;
 use strict;
-use Debian::DebConf::Element::Text;
+use Debian::DebConf::Element::Base;
 use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Debian::DebConf::Element::Text);
+@ISA=qw(Debian::DebConf::Element::Base);
 
-# Display the text in a dialog box.
+# Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 
-	$this->frontend->showtext('Note', $this->text);
+	$this->frontend->showtext($this->question->template->description,
+		, $this->question->template->extended_description);
+	$this->question->flag_isdefault('false');
 }
 
 1

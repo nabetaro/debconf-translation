@@ -1,5 +1,5 @@
 Template: news/server
-Type: text
+Type: string
 Description: What news server should be used for reading and posting news?
  What news server (NNTP server) should be used for reading and posting news?
  .
@@ -31,3 +31,15 @@ Description: Download newsgroup descriptions now?
  downloaded so far. Are you online, and should the newsgroup descriptions be
  downloaded now? (This will take a few minutes, depending on the speed of your
  network connection.)
+
+Template: slrn/note/manual_refresh
+Type: note
+Description: Uppdating newsgroup descriptions by hand.
+ You indicated that you want to refresh newsgroup descriptions by hand,
+ rather than automatically via a cron job or other method. The command to
+ run (as root) to update the newsgroup descriptions is:
+ /usr/sbin/slrn_getdesc
+ .
+ You should run this every week or so while you're
+ online. If you prefer to switch back to having it run automatically, simply
+ run /usr/sbin/slrnconfig.

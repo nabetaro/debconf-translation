@@ -36,6 +36,23 @@ sub _savefield {
 	}
 }
 
+# Pass this another Template and all properties of the object you
+# call this method on will be copied over onto the other Template
+# and any old values in the other Template will be removed.
+sub merge {
+	my $this=shift;
+	my $other=shift;
+
+	# Breaking the abstraction just a little..
+	foreach my $key (keys %$other) {
+		delete $other->{$key};
+	}
+
+	foreach my $key (keys %$this) {
+		$other->$key($this->{$key});
+	}
+}
+
 # This method parses a string containing a template and stores all the
 # information in the template object.
 sub parse {

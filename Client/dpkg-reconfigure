@@ -1,0 +1,73 @@
+#!/usr/bin/perl -w
+#
+# Reconfigure a package, by running its confmodule and then its postinst.
+# This has the same effect as re-installing the package, basically. I hope
+# one day this will be called by dpkg --reconfigure 
+#
+# Pass package name(s) to reconfigure on command line.
+
+use strict;
+use lib '.';
+use Debian::DebConf::ConfigDb;
+use Debian::DebConf::Priority;
+use Debian::DebConf::Config;
+use Getopt::Long;
+use Fcntl;
+use POSIX qw(tmpnam);
+
+my $infodir="/var/lib/dpkg/info";
+
+my $frontend_type='Dialog';
+my $priority;
+Getopt::Long::config qw(bundling no_ignore_case permute);
+my $ret=GetOptions(
+	"frontend|f=s" => \$frontend_type,
+	"priority|p=s" => sub { shift; Debian::DebConf::Priority::set(shift) },
+);
+$frontend_type=ucfirst($frontend_type);
+
+# Load up previous state information.
+if (-e $Debian::DebConf::Config::dbfn) {
+	Debian::DebConf::ConfigDb::loaddb($Debian::DebConf::Config::dbfn);
+}
+
+# Load up appropriate modules and start up the FrontEnd.
+my $frontend=eval qq{
+	use Debian::DebConf::ConfModule::$frontend_type;
+	use Debian::DebConf::FrontEnd::$frontend_type;
+	Debian::DebConf::FrontEnd::$frontend_type->new()
+};	
+die $@ if $@;
+
+TOP:
+foreach my $pkg (@ARGV) {
+	# Load up templates.
+	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
+		if -e "$infodir/$pkg.templates";
+
+	# Instantiate all questions.
+	Debian::DebConf::ConfigDb::makequestions();
+
+	if (-x "/var/lib/dpkg/info/$pkg.config") {
+		# Start up the confmodule.
+		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.config')";
+		die $@ if $@;
+		
+		# Talk to it until it is done.
+		1 while ($confmodule->communicate);
+	}
+
+	if (-x "/var/lib/dpkg/info/$pkg.postinst") {
+		# Run the postinst as a confmodule. First, get the version
+		# of this package that is installed to pass to it.
+		(my $ver=`dpkg -s $pkg`)=~/Version: (.*)/m;
+		my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type."->new(\$frontend, '$infodir/$pkg.postinst configure $1')";
+		die $@ if $@;
+
+		# Talk to it until it is done.
+	        1 while ($confmodule->communicate);
+	}
+}
+
+# Save state.
+Debian::DebConf::ConfigDb::savedb($Debian::DebConf::Config::dbfn);
