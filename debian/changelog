@@ -1,8 +1,22 @@
+debconf (0.2.79) frozen unstable; urgency=low
+
+  * dpkg-reconfigure: Now checks each script before running it
+    to see if it is a confmodule, if not, runs it as a normal script,
+    not under the confmodule interface. base-config shows this is necessary,
+    with its non-confmodule postinst. This change is needed in frozen to
+    keep base-config working.
+  * Documented (again) in dpkg-reconfigure.8 that 
+    "dpkg-reconfigure --priority=medium debconf" should be used to
+    reconfigure debconf. Closes: #55706
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 20 Jan 2000 12:34:30 -0800
+
 debconf (0.2.78) frozen unstable; urgency=low
 
   * Woops, I forgot to let the CLEAR command be executed in any of the
     confmodule libraries!
   * base-config needs that command, so this must go to frozen.
+  * Fixed an undefiend value warning in Element::Dialog::Password
 
  -- Joey Hess <joeyh@debian.org>  Mon, 17 Jan 2000 16:14:38 -0800
 
