@@ -17,10 +17,10 @@ General:
   confmodule script gets back short. See modconf for how such a list could
   display in whiptail.
 * Darxus <darxus@Op.Net>
-> I will probably leave debconf set to ask me every question for quite some
-> time.  But it would be nice, in addition the "yes" & "no" buttons, to have
-> a "don't ask me again" checkbox, so next time it'll just used the stored
-> answer.
+  > I will probably leave debconf set to ask me every question for quite some
+  > time.  But it would be nice, in addition the "yes" & "no" buttons, to have
+  > a "don't ask me again" checkbox, so next time it'll just used the stored
+  > answer.
   Dialog frontend couldn't support this, but the rest could.
 * Add a dbdriver format module that understands debconf-show output;
   then you can pipe that into a ssh to a remote host and use
