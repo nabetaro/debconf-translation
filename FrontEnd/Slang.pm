@@ -47,9 +47,7 @@ sub init {
 	$this->titlebar(Term::Stool::TitleBar->new(
 		text => "Debian Configuration",
 	));
-	$this->helpbar(Term::Stool::HelpBar->new(
-		helpstack => [ "Working, please wait.." ],
-	));
+	$this->helpbar(Term::Stool::HelpBar->new);
 	$this->mainwindow(Term::Stool::Window->new(
 		resize_hook => sub {
 			my $this=shift;
@@ -230,9 +228,8 @@ sub go {
 			$this->button_back->deactivate;
 			$this->button_back->display;
 		}
-		# User interaction is done for now; clean up, and show
-		# please wait in helpbar again.
-		$this->helpbar->pop;
+		# User interaction is done for now.
+		$this->helpbar->helpstack(["Working, please wait.."]);
 		$this->helpbar->display;
 		$this->screen->refresh;
 	}
