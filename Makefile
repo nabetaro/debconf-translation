@@ -28,7 +28,7 @@ install: clean
 
 # This is for local use - it tags the current code with the devian version
 # number, then commits the current code using the contents of the changelog
-# as the cvs changelog, then uncrements the version number
+# as the cvs changelog, then increments the version number
 commit: clean
 	cvs -Q commit -m "dpkg-parsechangelog | grep '^  '"
 	cvs -Q tag rel-`dpkg-parsechangelog | grep ^Version: \
@@ -37,7 +37,7 @@ commit: clean
 	
 new:
 	# Update w/o editing.
-	EDITOR=true dch -i 2>/dev/null
+	EDITOR=true dch -v $(shell date +%Y%m%d) 2>/dev/null
 	# Dch has to change the bloody directory name. Feh.
 	mv . ../perlmoo
 	
