@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-03-07 11:12-0800\n"
+"POT-Creation-Date: 2001-03-13 13:35-0800\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -41,6 +41,26 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Dans le modèle #%s de %s, le champ \"%s\" est dupliqué avec \"%s\" nouvelle "
+"valeur. Il manque probablement la ligne vide de séparation entre deux "
+"modèles.\n"
+
+#: ../Debconf/Template.pm:202
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
+
+#: ../Debconf/Template.pm:208
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -144,7 +164,7 @@ msgstr ""
 "Ni whiptail ni dialog ne sont installés, donc le frontal basé sur dialog va "
 "être utilisé."
 
-#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Configuration Debian"
 
@@ -230,26 +250,6 @@ msgstr "Cette interface a besoin d'un tty de contrôle."
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Note : Debconf fonctionne en mode Web. Allez sur http://localhost:%i/"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Dans le modèle #%s de %s, le champ \"%s\" est dupliqué avec \"%s\" nouvelle "
-"valeur. Il manque probablement la ligne vide de séparation entre deux "
-"modèles.\n"
-
-#: ../Debconf/Template.pm:202
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erreur d'analyse de modèle vers `%s', dans la partie #%s de %s\n"
-
-#: ../Debconf/Template.pm:208
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Le modèle #%s de %s contient pas de ligne `Template:'\n"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

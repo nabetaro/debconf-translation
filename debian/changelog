@@ -1,3 +1,14 @@
+debconf (0.9.24) unstable; urgency=low
+
+  * Changed how I disable echo in password prompts in the text frontend.
+    For all readline libraries except ReadLine::Perl, I just use stty
+    -echo. That doesn't work for ReadLine::Perl, so I had to read the line
+    myself in that case. What a PITA. Closes: #89324
+  * Fixed dialog frontend to display cancel button when backing up is
+    enabled. Closes: #89364
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 13 Mar 2001 09:18:56 -0500
+
 debconf (0.9.23) unstable; urgency=low
 
   * dpkg-preconfigure: fixed problem with it trying to run an unlinked

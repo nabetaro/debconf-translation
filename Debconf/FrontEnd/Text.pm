@@ -50,10 +50,10 @@ sub init {
 	$this->readline(Term::ReadLine->new('debconf'));
 	$this->readline->ornaments(1);
 
-	# Ctrl-u or pageup backs up, while ctrl-v or pagedown moves
-	# forward. These key bindings and history completion are only
-	# supported by Gnu ReadLine.
 	if (Term::ReadLine->ReadLine =~ /::Gnu$/) {
+		# Ctrl-u or pageup backs up, while ctrl-v or pagedown moves
+		# forward. These key bindings and history completion are only
+		# supported by Gnu ReadLine.
 		$this->readline->add_defun('previous-question',	
 			sub {
 				if ($this->capb_backup) {
@@ -243,14 +243,17 @@ sub prompt {
 	
 	$this->linecount(0);
 	my $ret;
+	$this->_skip('');
 	if (! $noshowdefault && $this->promptdefault && $default ne '') {
 		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
-	else {
-		$this->_skip('');
+	elsif (! $noshowdefault) {
 		$ret=$this->readline->readline($prompt, $default);
-		return if $this->_skip;
 	}
+	else {
+		$ret=$this->readline->readline($prompt);
+	}
+	return if $this->_skip;
 	$this->_direction(1);
 	$this->readline->addhistory($ret);
 	if ($ret eq '' && $this->promptdefault) {
@@ -261,22 +264,44 @@ sub prompt {
 
 =item prompt_password
 
-Same as prompt, except what the user enters is not echoed to the screen
-and the default is never shown in the prompt.
+Safely prompts for a password; arguments are the same as for prompt.
 
 =cut
 
 sub prompt_password {
 	my $this=shift;
-	my $prompt=shift;
-	my $default=shift;
-	
-	my $attribs=$this->readline->Attribs;
-	my $oldfunc=$attribs->{'redisplay_function'};
-	$attribs->{'redisplay_function'} = $attribs->{'shadow_redisplay'};
-	my $ret=$this->prompt($prompt, $default, 1);
-	$attribs->{'redisplay_function'} = $oldfunc;
+	my $prompt=(shift)." ";	
 
+
+	# Turn off completion, since it is a stupid thing to do when entering
+ 	# a password.
+	$this->readline->Attribs->{completion_entry_function} = sub {
+		my $text=shift;
+		my $state=shift;
+
+ 		return '' if $state == 0;
+ 		return;
+	};
+	# Don't add trailing spaces after completion.
+	$this->readline->Attribs->{completion_append_character} = '';
+	
+	# Force echoing off.
+	system('stty -echo');
+	my $ret;
+	if (Term::ReadLine->ReadLine =~ /::Perl$/) {
+		# I hate this library. Sigh. It always echos,
+		# so it is unusable here.
+		local $|=1;
+		print $prompt;
+		$ret=<STDIN>;
+		chomp $ret;
+	}
+	else {
+		$ret=$this->prompt($prompt, @_);
+	}
+	system('stty sane');
+	# Their newline won't have registered, so simulate it.
+	$this->display("\n");
 	return $ret;
 }
 

@@ -70,6 +70,7 @@ sub AUTOLOAD : lvalue {
 	goto &$AUTOLOAD;
 }
 
+# Must exist so AUTOLOAD doesn't try to handle it.
 sub DESTROY {
 #	my $this=shift;
 #	debug debug => "DESTROY $this";

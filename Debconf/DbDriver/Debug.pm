@@ -59,9 +59,8 @@ sub DESTROY {}
 sub AUTOLOAD {
 	my $this=shift;
 	(my $command = our $AUTOLOAD) =~ s/.*://;
-	print STDERR "hi\n";
 
-	debug "db $this->{name}" => "running $command(@_) ..";
+	debug "db $this->{name}" => "running $command(".join(",", map { "'$_'" } @_).") ..";
 	if (wantarray) {
 		my @ret=$this->{db}->$command(@_);
 		debug "db $this->{name}" => "$command returned (".join(", ", @ret).")";

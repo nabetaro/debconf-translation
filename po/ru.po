@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-03-07 11:12-0800\n"
+"POT-Creation-Date: 2001-03-13 13:35-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -41,6 +41,23 @@ msgstr "Не удалось создать элемент типа %s. Причина: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Ошибка разбора шаблона около `%s'"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Шаблон не содержит строки `Template:'"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -142,7 +159,7 @@ msgstr ""
 "Ни одна из программ whiptail или dialog не установлена, поэтому вы не можете "
 "использовать dialog-интерфейс."
 
-#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
@@ -229,23 +246,6 @@ msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:202
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
-
-#: ../Debconf/Template.pm:208
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Шаблон не содержит строки `Template:'"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

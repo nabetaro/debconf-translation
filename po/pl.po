@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-03-07 11:12-0800\n"
+"POT-Creation-Date: 2001-03-13 13:35-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -41,6 +41,23 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s'"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -138,7 +155,7 @@ msgstr ""
 "Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
 "mo¿e zostaæ u¿yta."
 
-#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 
@@ -222,23 +239,6 @@ msgstr ""
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Uwaga: Debconf dzia³a w trybie www. Patrz http://localhost:%i/"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:202
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
-
-#: ../Debconf/Template.pm:208
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

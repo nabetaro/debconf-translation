@@ -8,12 +8,17 @@ Debconf::Element::Text::Password - password input field
 
 package Debconf::Element::Text::Password;
 use strict;
+use Debconf::Gettext;
 use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
 This is a password input field, presented to the user using a plain text
 interface.
+
+=head1 show
+
+Prompts for a passoword, without displaying it or echoing keystrokes.
 
 =cut
 
@@ -27,21 +32,7 @@ sub show {
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
 
-	# Turn off completion, since it is a stupid thing to do when entering
-	# a password.
-	$this->frontend->readline->Attribs->{completion_entry_function} = sub {
-		my $text=shift;
-		my $state=shift;
-
-		return '' if $state == 0;
-		return;
-	};
-	# Don't add trailing spaces after completion.
-	$this->frontend->readline->Attribs->{completion_append_character} = '';
-
-	# Prompt for input using the short description.
-	my $value=$this->frontend->prompt_password($this->question->description." ", $default,
-		sub { $this->complete(@_) });
+	my $value=$this->frontend->prompt_password($this->question->description, $default, 1);
 	return unless defined $value;
 
 	# Handle defaults.

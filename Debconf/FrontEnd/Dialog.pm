@@ -226,9 +226,13 @@ sub showdialog {
 	my $savew=$^W;
 	$^W=0;
 	
+	if (not $this->capb_backup) {
+		unshift @_, '--nocancel';
+	}
+	
 	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
-		'--title', $this->title, '--nocancel', @_);
+		'--title', $this->title, @_);
 	my $stderr;
 	while (<ERRFH>) {
 		$stderr.=$_;

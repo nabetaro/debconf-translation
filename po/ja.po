@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-03-07 11:12-0800\n"
+"POT-Creation-Date: 2001-03-13 13:35-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -41,6 +41,23 @@ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
+
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "テンプレートに `Template:' 行がありません"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -138,7 +155,7 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:234 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -224,23 +241,6 @@ msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "注意: Debconf はウェブモードで動作しています。\n"
 "http://localhost:%i/ をご覧ください。"
-
-#: ../Debconf/Template.pm:162
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:202
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
-
-#: ../Debconf/Template.pm:208
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "テンプレートに `Template:' 行がありません"
 
 #: ../dpkg-preconfigure:118
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
