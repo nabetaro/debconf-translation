@@ -3,19 +3,19 @@
 # Each Element::Web::Input represents a item that the user needs to
 # enter input into.
 
-package Element::Web::Input;
+package Debian::DebConf::Element::Web::Input;
 use strict;
-use Element::Input;
-use ConfigDb;
+use Debian::DebConf::Element::Input;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Input);
+@ISA=qw(Debian::DebConf::Element::Input);
 
 # Just generates and returns some html.
 sub show {
 	my $this=shift;
 
 	# Get the question that is bound to this element.
-	my $question=ConfigDb::getquestion($this->{question});
+	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
 
 	$_=$question->template->extended_description;
 	s/\n/\n<br>\n/g;
@@ -58,7 +58,7 @@ sub set {
 	my $value=shift;
 
 	# Get the question that is bound to this element.
-	my $question=ConfigDb::getquestion($this->{question});
+	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
 
 	my $type=$question->template->type;
 	if ($type eq 'boolean') {

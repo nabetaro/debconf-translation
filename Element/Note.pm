@@ -2,11 +2,11 @@
 #
 # Each Element::Note represents a note to show to the user or log.
 
-package Element::Note;
+package Debian::DebConf::Element::Note;
 use strict;
-use Element::Text;
+use Debian::DebConf::Element::Text;
 use vars qw(@ISA);
-@ISA=qw(Element::Text);
+@ISA=qw(Debian::DebConf::Element::Text);
 
 # Save the note.
 sub show {

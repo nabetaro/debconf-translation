@@ -2,14 +2,14 @@
 #
 # ConfModule that interfaces to the line-at-a-time FrontEnd.
 
-package ConfModule::Line;
-use ConfModule::Base;
-use Element::Line::Input;
-use Element::Line::Text;
-use Element::Line::Note;
+package Debian::DebConf::ConfModule::Line;
+use Debian::DebConf::ConfModule::Base;
+use Debian::DebConf::Element::Line::Input;
+use Debian::DebConf::Element::Line::Text;
+use Debian::DebConf::Element::Line::Note;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(ConfModule::Base);
+@ISA=qw(Debian::DebConf::ConfModule::Base);
 
 # Add to the list of elements in our associated FrontEnd.
 sub command_input {
@@ -18,7 +18,7 @@ sub command_input {
 	my $question=shift;
 
 	push @{$this->frontend->elements},
-		Element::Line::Input->new($priority, $question);
+		Debian::DebConf::Element::Line::Input->new($priority, $question);
 	
 	return;
 }
@@ -30,7 +30,7 @@ sub command_text {
 	my $text=join ' ', @_;
 	
 	push @{$this->frontend->elements}, 
-		Element::Line::Text->new($priority, $text);
+		Debian::DebConf::Element::Line::Text->new($priority, $text);
 	return;
 }
 
@@ -40,7 +40,7 @@ sub command_note {
 	my $priority=shift;
 	my $text=join ' ', @_;
 
-	my $note=Element::Line::Note->new($priority, $text);
+	my $note=Debian::DebConf::Element::Line::Note->new($priority, $text);
 	$note->frontend($this->frontend);
 	$note->show;
 	return;

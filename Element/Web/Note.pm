@@ -1,11 +1,11 @@
 #!/usr/bin/perl -w
 
-package Element::Web::Note;
+package Debian::DebConf::Element::Web::Note;
 use strict;
-use Element::Note;
-use ConfigDb;
+use Debian::DebConf::Element::Note;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Note);
+@ISA=qw(Debian::DebConf::Element::Note);
 
 # Save the note and return some html containing it.
 sub show {

@@ -2,14 +2,14 @@
 #
 # ConfModule that interfaces to the dialog FrontEnd.
 
-package ConfModule::Dialog;
-use ConfModule::Base;
-use Element::Dialog::Input;
-use Element::Dialog::Text;
-use Element::Dialog::Note;
+package Debian::DebConf::ConfModule::Dialog;
+use Debian::DebConf::ConfModule::Base;
+use Debian::DebConf::Element::Dialog::Input;
+use Debian::DebConf::Element::Dialog::Text;
+use Debian::DebConf::Element::Dialog::Note;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(ConfModule::Base);
+@ISA=qw(Debian::DebConf::ConfModule::Base);
 
 # Add to the list of elements.
 sub command_input {
@@ -18,7 +18,7 @@ sub command_input {
 	my $question=shift;
 
 	push @{$this->frontend->elements},
-		Element::Dialog::Input->new($priority, $question);
+		Debian::DebConf::Element::Dialog::Input->new($priority, $question);
 	
 	return;
 }
@@ -30,7 +30,7 @@ sub command_text {
 	my $text=join ' ', @_;
 	
 	push @{$this->frontend->elements}, 
-		Element::Dialog::Text->new($priority, $text);
+		Debian::DebConf::Element::Dialog::Text->new($priority, $text);
 	return;
 }
 
@@ -40,7 +40,7 @@ sub command_note {
 	my $priority=shift;
 	my $text=join ' ', @_;
 
-	my $note=Element::Dialog::Note->new($priority, $text);
+	my $note=Debian::DebConf::Element::Dialog::Note->new($priority, $text);
 	$note->frontend($this->frontend);
 	$note->show;
 	return;

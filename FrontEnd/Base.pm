@@ -2,8 +2,8 @@
 #
 # Base frontend.
 
-package FrontEnd::Base;
-use Priority;
+package Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Priority;
 use strict;
 use vars qw($AUTOLOAD);
 
@@ -21,7 +21,7 @@ sub go {
 	my $this=shift;
 	
 	foreach my $elt (@{$this->{elements}}) {
-		next unless Priority::high_enough($elt->priority);
+		next unless Debian::DebConf::Priority::high_enough($elt->priority);
 		# Some elements use helper functions in the frontend
 		# so they need to know what frontend to use.
 		$elt->frontend($this);

@@ -2,14 +2,14 @@
 #
 # ConfModule that interfaces to the web FrontEnd.
 
-package ConfModule::Web;
-use ConfModule::Base;
-use Element::Web::Input;
-use Element::Web::Text;
-use Element::Web::Note;
+package Debian::DebConf::ConfModule::Web;
+use Debian::DebConf::ConfModule::Base;
+use Debian::DebConf::Element::Web::Input;
+use Debian::DebConf::Element::Web::Text;
+use Debian::DebConf::Element::Web::Note;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(ConfModule::Base);
+@ISA=qw(Debian::DebConf::ConfModule::Base);
 
 sub new {
 	my $proto = shift;
@@ -25,7 +25,7 @@ sub command_input {
 	my $priority=shift;
 	my $question=shift;
 	push @{$this->frontend->elements},
-		Element::Web::Input->new($priority, $question);
+		Debian::DebConf::Element::Web::Input->new($priority, $question);
 	
 	return;
 }
@@ -37,7 +37,7 @@ sub command_text {
 	my $text=join ' ', @_;
 	
 	push @{$this->frontend->elements}, 
-		Element::Web::Text->new($priority, $text);
+		Debian::DebConf::Element::Web::Text->new($priority, $text);
 	return;
 }
 
@@ -49,7 +49,7 @@ sub command_note {
 	my $text=join ' ', @_;
 
 	push @{$this->frontend->elements},
-		Element::Web::Note->new($priority, $text);
+		Debian::DebConf::Element::Web::Note->new($priority, $text);
 	return;
 }
 

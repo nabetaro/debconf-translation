@@ -2,7 +2,7 @@
 #
 # This module deals with question priority levels.
 
-package Priority;
+package Debian::DebConf::Priority;
 use strict;
 
 my %priorities=(

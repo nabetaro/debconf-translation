@@ -3,7 +3,7 @@
 # Each Element::Base represents a single part of a dialog box (or whatever)
 # that will be presented to the user.
 
-package Element::Base;
+package Debian::DebConf::Element::Base;
 use strict;
 use vars qw($AUTOLOAD);
 

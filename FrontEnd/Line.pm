@@ -2,14 +2,14 @@
 #
 # FrontEnd that presents a simple line-at-a-time interface.
 
-package FrontEnd::Line;
-use FrontEnd::Base;
-use Priority;
+package Debian::DebConf::FrontEnd::Line;
+use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Priority;
 use Text::Wrap;
 use Term::ReadLine;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd::Base);
 
 local $|=1;
 

@@ -8,7 +8,7 @@
 
 =head1 SYNOPSIS
 
-	use DebConf::Client::ConfModule ':all';
+	use Debian::DebConf::Client::ConfModule ':all';
 	version;
 	my $capb=capb('backup');
 	input("foo/bar");
@@ -32,7 +32,7 @@ A few functions have special features, as documented below:
 
 =cut
 
-package ConfModule;
+package Debian::DebConf::ConfModule;
 use strict;
 use Exporter;
 use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);

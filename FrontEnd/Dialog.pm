@@ -1,17 +1,17 @@
 #!/usr/bin/perl -w
 #
 # FrontEnd that presents a simple dialog interface, using whiptail (or dialog)
-# This inherits from the generic ConfModule and just defines some methods to
+# This inherits from the generic FrontEnd and just defines some methods to
 # handle commands.
 
-package FrontEnd::Dialog;
-use FrontEnd::Base;
-use Priority;
+package Debian::DebConf::FrontEnd::Dialog;
+use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Priority;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd::Base);
 
 sub new {
 	my $proto = shift;

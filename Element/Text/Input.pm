@@ -3,19 +3,19 @@
 # Each Element::Line::Input represents a item that the user needs to
 # enter input into, for use with the simple line-at-a-time frontend.
 
-package Element::Line::Input;
+package Debian::DebConf::Element::Line::Input;
 use strict;
-use Element::Input;
-use ConfigDb;
+use Debian::DebConf::Element::Input;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Input);
+@ISA=qw(Debian::DebConf::Element::Input);
 
 # Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 
 	# Get the question that is bound to this element.
-	my $question=ConfigDb::getquestion($this->{question});
+	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
 
 	# Display the question's long desc and then the short desc.
 	$this->frontend->display($question->template->extended_description."\n");

@@ -3,19 +3,19 @@
 # Each Element::Dialog::Input represents a item that the user needs to
 # enter input into.
 
-package Element::Dialog::Input;
+package Debian::DebConf::Element::Dialog::Input;
 use strict;
-use Element::Input;
-use ConfigDb;
+use Debian::DebConf::Element::Input;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Input);
+@ISA=qw(Debian::DebConf::Element::Input);
 
 # Display the element, prompt the user for input.
 sub show {
 	my $this=shift;
 
 	# Get the question that is bound to this element.
-	my $question=ConfigDb::getquestion($this->{question});
+	my $question=Debian::DebConf::ConfigDb::getquestion($this->{question});
 
 	# Figure out how much space in the dialog box the prompt will take.
 	my ($text, $lines, $columns)=$this->frontend->sizetext(

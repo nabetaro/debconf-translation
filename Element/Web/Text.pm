@@ -2,12 +2,12 @@
 #
 # Each Element::Web:Text represents a peice of text to display to the user.
 
-package Element::Web::Text;
+package Debian::DebConf::Element::Web::Text;
 use strict;
-use Element::Text;
-use ConfigDb;
+use Debian::DebConf::Element::Text;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Text);
+@ISA=qw(Debian::DebConf::Element::Text);
 
 # Just generates and returns some html.
 sub show {

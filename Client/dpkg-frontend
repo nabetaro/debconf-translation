@@ -3,8 +3,7 @@
 # FrontEnd. See --help for details.
 use strict;
 use Getopt::Long;
-use lib 'client';
-use ConfModule;
+use Debian::DebConf::Client::ConfModule;
 use vars qw($AUTOLOAD $ret $do_print $priority);
 
 sub help {
@@ -53,11 +52,11 @@ sub nonoption {
 
 # Do version number exchange.
 sub init {
-	$ret=ConfModule::version();
+	$ret=Debian::DebConf::ConfModule::version();
 }
 
 sub can_backup {
-	$ret=ConfModule::capb('backup');
+	$ret=Debian::DebConf::ConfModule::capb('backup');
 }
 
 # Just turn on $do_print.
@@ -89,10 +88,10 @@ sub AUTOLOAD {
 	shift;
 	if ($command eq 'input' || $command eq 'note' || $command eq 'text') {
 		# These need a priority.
-		$ret=eval "ConfModule::$command".'($priority, @_)';
+		$ret=eval "Debian::DebConf::ConfModule::$command".'($priority, @_)';
 	}
 	else {
-		$ret=eval "ConfModule::$command".'(@_)';
+		$ret=eval "Debian::DebConf::ConfModule::$command".'(@_)';
 	}
 }
 

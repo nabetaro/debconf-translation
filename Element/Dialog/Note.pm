@@ -1,11 +1,11 @@
 #!/usr/bin/perl -w
 
-package Element::Dialog::Note;
+package Debian::DebConf::Element::Dialog::Note;
 use strict;
-use Element::Note;
-use ConfigDb;
+use Debian::DebConf::Element::Note;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Note);
+@ISA=qw(Debian::DebConf::Element::Note);
 
 # Display the note and save it.
 sub show {

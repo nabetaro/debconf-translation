@@ -3,10 +3,10 @@
 # Debian configuration database. This includes questions and templates and
 # is an interface to the actual backend databases.
 
-package ConfigDb;
-use Template;
-use Question;
-use Mapping;
+package Debian::DebConf::ConfigDb;
+use Debian::DebConf::Template;
+use Debian::DebConf::Question;
+use Debian::DebConf::Mapping;
 use strict;
 use vars qw($AUTOLOAD %templates %questions %mappings);
 
@@ -29,7 +29,7 @@ sub loadtemplatefile {
 			$collect.=$_;
 		}
 		if ($_ eq "\n" || eof TEMPLATE_IN) {
-			my $template=Template->new();
+			my $template=Debian::DebConf::Template->new();
 			$template->parse($collect);
 			$templates{$template->template}=$template;
 			
@@ -52,7 +52,7 @@ sub loadmappingfile {
 			$collect.=$_;
 		}
 		if ($_ eq "\n" || eof MAPPING_IN) {
-			my $mapping=Mapping->new();
+			my $mapping=Debian::DebConf::Mapping->new();
 			$mapping->parse($collect);
 			$mappings{$mapping->question}=$mapping;
 			$collect='';
@@ -66,7 +66,7 @@ sub loadmappingfile {
 sub makequestions {
 	foreach my $mapping (values %mappings) {
 		my $template=$templates{$mapping->template};
-		my $question=Question->new;
+		my $question=Debian::DebConf::Question->new;
 		$question->name($template->template);
 		$question->template($template);
 		$question->value($template->default);
@@ -89,7 +89,7 @@ sub addmapping {
 		return if $mapping->template eq $template_text;
 	}
 	else {
-		$mapping=Mapping->new();
+		$mapping=Debian::DebConf::Mapping->new();
 	}
 	$mapping->question($location);
 	$mapping->template($template_text);
@@ -101,7 +101,7 @@ sub addmapping {
 		$question=$questions{$location};
 	}
 	else {
-		$question=Question->new;
+		$question=Debian::DebConf::Question->new;
 	}
 	$question->name($template->template);
 	$question->template($template);

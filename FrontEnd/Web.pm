@@ -5,15 +5,15 @@
 # proof-of-concept only. In fact, it's probably the crappiest web server ever.
 # It only accpets one client at a time as well..
 
-package FrontEnd::Web;
-use FrontEnd::Base;
-use Priority;
+package Debian::DebConf::FrontEnd::Web;
+use Debian::DebConf::FrontEnd::Base;
+use Debian::DebConf::Priority;
 use IO::Socket;
 use IO::Select;
 use CGI;
 use strict;
 use vars qw(@ISA);
-@ISA=qw(FrontEnd::Base);
+@ISA=qw(Debian::DebConf::FrontEnd::Base);
 
 # Pass in the port to bind to, 8001 is default.
 sub new {
@@ -88,7 +88,7 @@ sub go {
 	my $id=0;
 	my %idtoelt;
 	foreach my $elt (@{$this->{elements}}) {
-		next unless Priority::high_enough($elt->priority);
+		next unless Debian::DebConf::Priority::high_enough($elt->priority);
 		# Some elements may use helper functions in the frontend
 		# so they need to know what frontend to use.
 		$elt->frontend($this);

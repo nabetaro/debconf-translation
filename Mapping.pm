@@ -2,7 +2,7 @@
 #
 # Mapping object for Debian configuration management system.
 
-package Mapping;
+package Debian::DebConf::Mapping;
 use strict;
 use vars qw($AUTOLOAD);
 

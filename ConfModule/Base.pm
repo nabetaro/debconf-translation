@@ -11,11 +11,11 @@
 # whitespace), and whatever it returns is passed back to the configuration
 # module.
 
-package ConfModule::Base;
+package Debian::DebConf::ConfModule::Base;
 use strict;
 use IPC::Open2;
 use FileHandle;
-use ConfigDb;
+use Debian::DebConf::ConfigDb;
 use vars qw($AUTOLOAD);
 
 # Pass the filename of the configuration module to start and pass in the
@@ -97,7 +97,7 @@ sub command_get {
 	my $this=shift;
 	my $question=shift;
 	
-	$question=ConfigDb::getquestion($question);
+	$question=Debian::DebConf::ConfigDb::getquestion($question);
 	return $question->value if defined $question->value;
 	return $question->template->default || '';
 }
@@ -108,7 +108,7 @@ sub command_set {
 	my $question=shift;
 	my $value=shift;
 
-	$question=ConfigDb::getquestion($question);
+	$question=Debian::DebConf::ConfigDb::getquestion($question);
 	$question->value($value);
 }
 
@@ -118,7 +118,7 @@ sub command_register {
 	my $template=shift;
 	my $location=shift;
 	
-	ConfigDb::addmapping($template, $location);
+	Debian::DebConf::ConfigDb::addmapping($template, $location);
 }
 
 # Remove a mapping.
@@ -126,7 +126,7 @@ sub command_unregister {
 	my $this=shift;
 	my $location=shift;
 	
-	ConfigDb::removemapping($location);
+	Debian::DebConf::ConfigDb::removemapping($location);
 }
 
 sub AUTOLOAD {

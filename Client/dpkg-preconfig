@@ -6,13 +6,13 @@
 # in the database for later use.
 
 use strict;
-use ConfigDb;
-use FrontEnd::Line;
-use FrontEnd::Dialog;
-use FrontEnd::Web;
-use ConfModule::Dialog;
-use ConfModule::Line;
-use ConfModule::Web;
+use Debian::DebConf::ConfigDb;
+use Debian::DebConf::FrontEnd::Line;
+use Debian::DebConf::FrontEnd::Dialog;
+use Debian::DebConf::FrontEnd::Web;
+use Debian::DebConf::ConfModule::Dialog;
+use Debian::DebConf::ConfModule::Line;
+use Debian::DebConf::ConfModule::Web;
 use Getopt::Long;
 
 my $frontend_type='Dialog';
@@ -39,18 +39,18 @@ foreach my $deb (@ARGV) {
 		die "Can't chmod: $!";
 
 	# Load up templates.
-	ConfigDb::loadtemplatefile("dpkg --info $deb templates|");
+	Debian::DebConf::ConfigDb::loadtemplatefile("dpkg --info $deb templates|");
 
 	# Load up mappings.
-	ConfigDb::loadmappingfile("dpkg --info $deb mappings|");
+	Debian::DebConf::ConfigDb::loadmappingfile("dpkg --info $deb mappings|");
 
 	# Instantiate all questions that have mappings.
-	ConfigDb::makequestions();
+	Debian::DebConf::ConfigDb::makequestions();
 
 	# Start up the FrontEnd and ConfModule.
-	my $frontend=eval "FrontEnd::$frontend_type->new()";
+	my $frontend=eval "Debian::DebConf::FrontEnd::$frontend_type->new()";
 	die $@ if $@;
-	my $confmodule=eval 'ConfModule::'.$frontend_type.'->new($script, $frontend)';
+	my $confmodule=eval 'Debian::DebConf::ConfModule::'.$frontend_type.'->new($script, $frontend)';
 	die $@ if $@;
 
 	# Talk to it until it is done.

@@ -2,12 +2,12 @@
 #
 # Each Element::Dialog:Text represents a peice of text to display to the user.
 
-package Element::Dialog::Text;
+package Debian::DebConf::Element::Dialog::Text;
 use strict;
-use Element::Text;
-use ConfigDb;
+use Debian::DebConf::Element::Text;
+use Debian::DebConf::ConfigDb;
 use vars qw(@ISA);
-@ISA=qw(Element::Text);
+@ISA=qw(Debian::DebConf::Element::Text);
 
 # Display the text in a dialog box.
 sub show {

@@ -2,11 +2,11 @@
 #
 # Each Element::Text represents a peice of text to display to the user.
 
-package Element::Text;
+package Debian::DebConf::Element::Text;
 use strict;
-use Element::Base;
+use Debian::DebConf::Element::Base;
 use vars qw(@ISA);
-@ISA=qw(Element::Base);
+@ISA=qw(Debian::DebConf::Element::Base);
 
 # Accept two parameters, priority and text.
 sub new {

@@ -6,13 +6,13 @@
 # file and then the mapping file and finally the config script.
 
 use strict;
-use ConfigDb;
-use FrontEnd::Line;
-use FrontEnd::Dialog;
-use FrontEnd::Web;
-use ConfModule::Dialog;
-use ConfModule::Line;
-use ConfModule::Web;
+use Debian::DebConf::ConfigDb;
+use Debian::DebConf::FrontEnd::Line;
+use Debian::DebConf::FrontEnd::Dialog;
+use Debian::DebConf::FrontEnd::Web;
+use Debian::DebConf::ConfModule::Dialog;
+use Debian::DebConf::ConfModule::Line;
+use Debian::DebConf::ConfModule::Web;
 
 my $type=shift;
 my $template=shift;
@@ -20,18 +20,18 @@ my $mapping=shift;
 my $script=shift;
 
 # Load up templates.
-ConfigDb::loadtemplatefile($template);
+Debian::DebConf::ConfigDb::loadtemplatefile($template);
 
 # Load up mappings.
-ConfigDb::loadmappingfile($mapping);
+Debian::DebConf::ConfigDb::loadmappingfile($mapping);
 
 # Instantiate all questions that have mappings.
-ConfigDb::makequestions();
+Debian::DebConf::ConfigDb::makequestions();
 
 # Start up the FrontEnd and ConfModule.
-my $frontend=eval "FrontEnd::$type->new()";
+my $frontend=eval "Debian::DebConf::FrontEnd::$type->new()";
 die $@ if $@;
-my $confmodule=eval 'ConfModule::'.$type.'->new($script, $frontend)';
+my $confmodule=eval 'Debian::DebConf::ConfModule::'.$type.'->new($script, $frontend)';
 die $@ if $@;
 
 # Talk to it until it is done.

@@ -2,7 +2,7 @@
 #
 # Template object for Debian configuration management system.
 
-package Template;
+package Debian::DebConf::Template;
 use strict;
 use vars qw($AUTOLOAD);
 

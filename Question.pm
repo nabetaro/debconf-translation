@@ -2,7 +2,7 @@
 #
 # Question object for Debian configuration database.
 
-package Question;
+package Debian::DebConf::Question;
 use strict;
 use vars qw($AUTOLOAD);
 
