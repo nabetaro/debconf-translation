@@ -42,7 +42,7 @@ sub load {
 	my $item=shift;
 	
 	return unless $this->accept($item);
-	debug "db driver $this->{name}" => "loading $item";
+	debug "DbDriver $this->{name}" => "loading $item";
 	my $file=$this->filename($item);
 	return unless -e $file;
 	
@@ -107,7 +107,7 @@ sub save {
 	my $this=shift;
 	my $item=shift;
 	return unless $this->accept($item);
-	debug "db driver $this->{name}" => "saving $item";
+	debug "DbDriver $this->{name}" => "saving $item";
 	return if $this->{readonly};
 	my %data=%{shift()};
 	my $file=$this->filename($item);

@@ -140,10 +140,10 @@ sub _query {
 	my $command=shift;
 	shift; # this again
 	
-	debug "db driver $this->{name}" => "trying to $command ..";
+	debug "DbDriver $this->{name}" => "trying to $command ..";
 	foreach my $driver (@{$this->{stack}}) {
 		my $ret=$driver->$command(@_);
-		debug "db driver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
+		debug "DbDriver $this->{name}" => "$command done by $driver->{name}" if defined $ret;
 		return $ret if defined $ret;
 	}
 	return undef; # all failed
@@ -155,13 +155,13 @@ sub _change {
 	shift; # this again
 	my $item=shift;
 
-	debug "db driver $this->{name}" => "trying to $command ..";
+	debug "DbDriver $this->{name}" => "trying to $command ..";
 
 	# Check to see if we can just write to some driver in the stack.
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver->exists($item)) {
 			last if $driver->{readonly}; # nope, hit a readonly one
-			debug "db driver $this->{name}" => "passing to $driver->{name} ..";
+			debug "DbDriver $this->{name}" => "passing to $driver->{name} ..";
 			return $driver->$command($item, @_);
 		}
 	}
@@ -176,7 +176,7 @@ sub _change {
 			# effect.
 			my $ret=$this->_nochange($driver, $command, $item, @_);
 			if (defined $ret) {
-				debug "db driver $this->{name}" => "skipped $command($item) as it would have no effect";
+				debug "DbDriver $this->{name}" => "skipped $command($item) as it would have no effect";
 				return $ret;
 			}
 
@@ -192,7 +192,7 @@ sub _change {
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver == $src) {
 			# Woah, mama!
-			debug "db driver $this->{name}" =>
+			debug "DbDriver $this->{name}" =>
 				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
 			return;
 		}
@@ -203,7 +203,7 @@ sub _change {
 	}
 	
 	unless ($writer) {
-		debug "db driver $this->{name}" => "FAILED $command";
+		debug "DbDriver $this->{name}" => "FAILED $command";
 		return;
 	}
 
@@ -213,7 +213,7 @@ sub _change {
 	}
 
 	# Finally, do the write.
-	debug "db driver $this->{name}" => "passing to $writer->{name} ..";
+	debug "DbDriver $this->{name}" => "passing to $writer->{name} ..";
 	return $writer->$command($item, @_);
 }
 
@@ -225,7 +225,7 @@ sub _copy {
 	my $src=shift;
 	my $dest=shift;
 	
-	debug "db driver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
+	debug "DbDriver $this->{name}" => "copying $item from $src->{name} to $dest->{name}";
 	
 	# First copy the owners, which makes sure $dest has the item.
 	foreach my $owner ($src->owners($item)) {

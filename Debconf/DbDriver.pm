@@ -43,6 +43,11 @@ debconf is usable if connections to them go down. Defaults to true.
 In the config file the literal strings "true" and "false" can be used.
 Internally it uses 1 and 0 and.
 
+=item failed
+
+Tells if a database driver failed to work. If this is set the driver should
+begin to reject all requests.
+
 =item accept_type
 
 A regular expression indicating types of items that may be queried in this
@@ -69,7 +74,7 @@ rejected by this driver.
 
 # I rarely base objects on fields, but I want strong compile-time type
 # checking for this class of objects, and speed.
-use fields qw(name readonly required
+use fields qw(name readonly required failed
               accept_type reject_type accept_name reject_name);
 
 # Class data.
@@ -93,6 +98,7 @@ sub new {
 	# Set defaults.
 	$this->{required}=1;
 	$this->{readonly}=0;
+	$this->{failed}=0;
 	# Set fields from parameters.
 	my %params=@_;
 	foreach my $field (keys %params) {
@@ -134,8 +140,8 @@ sub init {}
 Rather than ever dying on errors, drivers should instead call
 this method to state than an error was encountered. If the driver is
 required, it will be a fatal error. If not, the error message will merely
-be displayed to the user, and debconf will continue on, "dazed and
-confuzed".
+be displayed to the user, the driver will be marked as failed, and debconf
+will continue on, "dazed and confuzed".
 
 =cut
 
@@ -150,6 +156,8 @@ sub error {
 		print STDERR 'debconf: DbDriver "'.$this->{name}.'" warning: '.
 			shift()."\n";
 	}
+
+	$this->{failed}++;
 }
 
 =head2 driver(drivername)
@@ -180,13 +188,14 @@ sub accept {
 	my $this=shift;
 	my $name=shift;
 	
-	debug "db driver $this->{name}" => "checking $name";
+	return if $this->{failed};
 	
-#	return if exists $this->{accept_type} && $type!~/$this->{accept_type}/;
-#       return if exists $this->{reject_type} && $type=~/$this->{reject_type}/;
-	return if exists $this->{accept_name} && $name!~/$this->{accept_name}/;
-	return if exists $this->{reject_name} && $name=~/$this->{reject_name}/;
-	debug "db driver $this->{name}" => "accepting $name";
+	if ((exists $this->{accept_name} && $name!~/$this->{accept_name}/) ||
+	    (exists $this->{reject_name} && $name=~/$this->{reject_name}/)) {
+		debug "DbDriver $this->{name}" => "reject $name";
+		return;
+	}
+
 	return 1;
 }
 

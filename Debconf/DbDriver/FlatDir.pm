@@ -61,7 +61,7 @@ sub init {
 	# TODO: lock the directory too, for read, or write. (Fctrnl
 	# locking?)
 
-	debug "db driver $this->{name}" => "started; directory is $this->{directory}";
+	debug "DbDriver $this->{name}" => "started; directory is $this->{directory}";
 }
 
 =head2 filename(itemname)
@@ -123,7 +123,7 @@ sub remove {
 	my $name=shift;
 
 	return if $this->{readonly} or not $this->accept($name);
-	debug "db driver $this->{name}" => "removing $name";
+	debug "DbDriver $this->{name}" => "removing $name";
 	my $file=$this->filename($name);
 	unlink $file or return undef;
 }

@@ -123,7 +123,7 @@ sub cached {
 
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
-		debug "db driver $this->{name}" => "cache miss on $item";
+		debug "DbDriver $this->{name}" => "cache miss on $item";
 		my $cache=$this->load($item);
 		$this->{cache}->{$item}=$cache if $cache;
 	}
@@ -132,7 +132,8 @@ sub cached {
 
 =head2 savedb
 
-Synchronizes the underlying database with the cache.
+Synchronizes the underlying database with the cache. I don't keep track of
+whether the cache is dirty, so the whole thing is flushed out.
 
 Saving a item involves feeding the item from the cache into the underlying
 database, and then telling the underlying db to save it.
@@ -173,7 +174,7 @@ sub addowner {
 
 	if (! defined $this->{cache}->{$item}) {
 		return if ! $this->accept($item);
-		debug "db driver $this->{name}" => "creating in-cache $item";
+		debug "DbDriver $this->{name}" => "creating in-cache $item";
 		# The item springs into existance.
 		$this->{cache}->{$item}={
 			owners => {},
