@@ -1,3 +1,14 @@
+debconf (0.1.68) unstable; urgency=low
+
+  * s/newbie/politically_correct_language()/eg;
+    Closes: #47668
+  * With regards to the second part of that bug report: critical is first on
+    the list, and always has been, unless you are using the dialog frontend,
+    where I have to do nasty re-ordering to make the default be first. If
+    you want, file a seperate (wishlist) bug on this.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 15:26:34 -0700
+
 debconf (0.1.67) unstable; urgency=low
 
   * Fixed a truely braindead problem in Container.pm, which was breaking
