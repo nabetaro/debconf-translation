@@ -72,6 +72,7 @@ sub new {
 		$self->{titlespacer}=4;
 		$self->{columnspacer}=2;
 	}
+# Disabled until it supports --passwordbox
 #	elsif (-x "/usr/bin/gdialog") {
 #		$self->{program}='gdialog';
 #		$self->{borderwidth}=5;
@@ -81,7 +82,7 @@ sub new {
 #		$self->{columnspacer}=0;
 #	}
 	else {
-		die "Whiptail is not installed, so the dialog based frontend cannot be used.";
+		die "Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.";
 #		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
 	}
 
@@ -211,6 +212,42 @@ sub showtext {
 	if ($args[0] eq '--textbox') {
 		unlink $args[1];
 	}
+}
+
+=head2 makeprompt
+
+This is a helper function used by some dialog Elements. Pass it the Question
+that is going to be displayed. It will use this to generate a prompt, using
+both the short and long descriptions of the Question.
+
+You can optionally pass in a second parameter: a number. This can be used to
+tune howe many lines are free on the screen.
+
+If the prompt is too large to fit on the screen, it will instead be displayed
+immediatly, and the promnpt will be changed to just the short description.
+
+The return value is identical to the return value of sizetext() run on the
+generate prompt.
+
+=cut
+
+sub makeprompt {
+	my $this=shift;
+	my $question=shift;
+	my $freelines=($ENV{LINES} || 25) - $this->borderheight + 1;
+	$freelines += shift if @_;
+
+	my ($text, $lines, $columns)=$this->sizetext(
+		$question->extended_description."\n\n".
+		$question->description
+	);
+	
+	if ($lines > $freelines) {
+		$this->showtext($question->extended_description);
+		($text, $lines, $columns)=$this->sizetext($question->description);
+	}
+	
+	return ($text, $lines, $columns);
 }
 
 =head2 showdialog

@@ -23,23 +23,10 @@ sub show {
 	my $this=shift;
 
 	# Figure out how much space in the dialog box the prompt will take.
-	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$this->question->extended_description."\n\n".
-		$this->question->description
-	);
+	my ($text, $lines, $columns)=
+		$this->frontend->makeprompt($this->question);
 
 	my $screen_lines=($ENV{LINES} || 25) - $this->frontend->spacer;
-
-	# If it is more than will fit on the screen, just display the prompt
-	# first in a series of message boxes.
-        if ($lines > $screen_lines - $this->frontend->borderheight - 2) {
-		$this->frontend->showtext($text);
-		# Now make sure the short description is displayed in the
-		# dialog they actually enter info into.
-		($text, $lines, $columns)=$this->frontend->sizetext(
-			$this->question->description);
-	}
-
 	my $default=$this->question->value;
 	my @params=();
 	my @choices=$this->question->choices_split;
@@ -49,19 +36,29 @@ sub show {
 	# we have after putting the description at the top. If there's
 	# too little, the list will need to scroll.
 	my $menu_height=$#choices + 1;
-	if ($lines + $#choices + 1 > $screen_lines) {
-		$menu_height = $screen_lines - $lines;
+	if ($lines + $#choices + 2 >= $screen_lines) {
+		$menu_height = $screen_lines - $lines - 4;
+		if ($menu_height < 3 && $#choices + 1 > 2) {
+			# Don't display a tiny menu.
+			$this->frontend->showtext($this->question->extended_description);
+			($text, $lines, $columns)=$this->frontend->sizetext($this->question->description);
+			$menu_height=$#choices + 1;
+			if ($lines + $#choices + 2 >= $screen_lines) {
+				$menu_height = $screen_lines - $lines - 4;
+			}
+		}
 	}
+	
 	$lines=$lines + $menu_height + $this->frontend->spacer;
 	my $c=1;
 	foreach (@choices) {
 		if ($_ ne $default) {
-			push @params, $c++, $_
+			push @params, $_, '';
 		}
 		else {
 			# Make the default go first so it is actually
 			# selected as the default.
-			@params=($c++, $_, @params);
+			@params=($_, '', @params);
 		}
 	}
 	
@@ -70,9 +67,6 @@ sub show {
 	my ($ret, $value)=$this->frontend->showdialog(@params);
 
 	exit $ret if $ret != 0;
-
-	@choices=$this->question->choices_split;
-	$value=$choices[$value - 1];
 
 	$this->question->value($value);
 	$this->question->flag_isdefault('false');

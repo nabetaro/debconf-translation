@@ -1,3 +1,18 @@
+debconf (0.1.73) unstable; urgency=low
+
+  * In the dialog frontend, if a prompt is too big to fit on a dialog and
+    has to be slit up, it will now display just the extended description
+    in a dialog, and then display a new dialog with the short description
+    and the actual input element in it. This is intended to reduce confusion
+    when a user sees a question at the bottom of a dialog and an "Ok"
+    button beneath it -- that won't happen any more, and I think it's
+    ok to say this change Closes: #47644
+  * Reduced the amount of code in Dialog Elments a lot.
+  * Fixed yet another bug in dialog select box sizing. WIll they never end?
+  * Dialog select boxes no longer have numbered items. Looks better.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 27 Oct 1999 14:14:51 -0700
+
 debconf (0.1.72) unstable; urgency=low
 
   * dpkg-preconfig: fixed so it chomps the package name, to prevent ugliness

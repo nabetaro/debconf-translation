@@ -22,37 +22,19 @@ use vars qw(@ISA);
 sub show {
 	my $this=shift;
 
-	# Figure out how much space in the dialog box the prompt will take.
-	my ($text, $lines, $columns)=$this->frontend->sizetext(
-		$this->question->extended_description."\n\n".
-		$this->question->description
-	);
-
-	# If it is more than will fit on the screen, just display the prompt
-	# first in a series of message boxes.
-        if ($lines > ($ENV{LINES} || 25) - $this->frontend->borderheight + 2) {
-		$this->frontend->showtext($text);
-		# Now make sure the short description is displayed in the
-		# dialog they actually enter info into.
-		($text, $lines, $columns)=$this->frontend->sizetext(
-			$this->question->description);
-	}
-
-	my $default=$this->question->value;
-	my @params=('--yesno', $text, $lines, $columns);
-	if ($default eq 'false') {
+	# Note 1 is passed in, because we can squeeze on one more line
+	# in a yesno dialog than in other types.
+	my @params=('--yesno', $this->frontend->makeprompt($this->question, 1));
+	if ($this->question->value eq 'false') {
 		# Put it at the start of the option list,
 		# where dialog likes it.
 		unshift @params, '--defaultno';
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
-
 	exit $ret if $ret != 0 && $ret != 1;
 
-	$value=($ret eq 0 ? 'true' : 'false');
-
-	$this->question->value($value);
+	$this->question->value($ret eq 0 ? 'true' : 'false');
 	$this->question->flag_isdefault('false');
 }
 
