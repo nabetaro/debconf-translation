@@ -5,18 +5,16 @@ package Debian::DebConf::Client::ConfModule;
 use Debconf::Client::ConfModule;
 use Debconf::Log qw{debug};
 debug developer => "Debian::DebConf::Client::ConfModule is deprecated, please use Debconf::Client::ConfModule instead.";
+
 sub import {
-	shift;
-	unshift @_, Debconf::Client::ConfModule;
-	my $sub = Debconf::Client::ConfModule->can('import');
-	goto &$sub;
+	splice @_, 0, 1 => Debconf::Client::ConfModule;
+	goto &{Debconf::Client::ConfModule->can('import')};
 }
 
 sub AUTOLOAD {
-	my $command=$AUTOLOAD;
-	$command =~ s|.*:||; # strip fully-qualified portion
-	# Doesn't step errors; should.
-	return eval("Debconf::Client::ConfModule::$command(\@_)");
+	(my $sub = $AUTOLOAD) =~ s/.*:://;
+	*$sub = \&{"Debconf::Client::ConfModule::$sub"} unless defined &$sub;
+	goto &$sub;
 }
 
 1
