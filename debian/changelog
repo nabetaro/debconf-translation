@@ -1,3 +1,17 @@
+debconf (0.1.2) unstable; urgency=low
+
+  * dpkg-preconfig now has a --apt option that makes it read debs to
+    configure on stdin. This is for use with apt of course. (A hacked apt
+    that can use this exists now.)
+  * Dialog frontend only clears the screen just before displaying a
+    non-gdialog dialog box.
+  * Depend on the version of apt that really works with debconf.
+  * A postinst and postrm modify /etc/apt/apt.conf to make apt use
+    dpkg-preconfig to configure packages. (The file's not actually part of
+    apt, so this is not too evil).
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 15 Jul 1999 11:41:29 -0700
+
 debconf (0.1.1) unstable; urgency=low
 
   * Moved CREDITS to doc/.

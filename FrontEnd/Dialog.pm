@@ -26,6 +26,7 @@ sub new {
 		$self->{borderheight}=6;
 		$self->{spacer}=1;
 		$self->{titlespacer}=10;
+		$self->{clearscreen}=1;
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$self->{program}='dialog';
@@ -33,6 +34,7 @@ sub new {
 		$self->{borderheight}=4;
 		$self->{spacer}=3;
 		$self->{titlespacer}=4;
+		$self->{clearscreen}=1;
 	}
 	elsif (-x "/usr/bin/gdialog") {
 		$self->{program}='gdialog';
@@ -44,10 +46,6 @@ sub new {
 	else {
 		die "None of whiptail, dialog, or gdialog is installed, so the dialog based frontend cannot be used.";
 	}
-
-	# Things look better in an xterm if I clear the screen now. It cuts
-	# down on the nasty screen flickering.
-	system 'clear';
 
 	return $self;
 }
@@ -131,6 +129,12 @@ sub showtext {
 sub showdialog {
 	my $this=shift;
 	my $title=shift;
+
+	# Clear the screen if clearscreen is set.
+	if ($this->{clearscreen}) {
+		$this->{clearscreen}='';
+		system 'clear';
+	}
 
 	# Save stdout, stderr, the open3 below messes with them.
 	use vars qw{*SAVEOUT *SAVEERR};

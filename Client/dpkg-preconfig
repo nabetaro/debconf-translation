@@ -24,12 +24,26 @@ use POSIX qw(tmpnam);
 
 my $frontend_type='Dialog';
 my $priority;
+my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
 	"frontend|f=s" => \$frontend_type,
 	"priority|p=s" => sub { shift; Debian::DebConf::Priority::set(shift) },
+	"apt|a" => \$apt,
 );
 $frontend_type=ucfirst($frontend_type);
+
+my @debs=@ARGV;
+
+# If running from apt, read package names on stdin.
+if ($apt) {
+	while (<>) {
+		chomp;
+		push @debs, $_ if $_;
+	}
+	# We have now reached the end of the first file on stdin.
+	# Furure reads from stdin will get input from the user.
+}
 
 # Load up previous state information.
 if (-e $Debian::DebConf::Config::dbfn) {
@@ -40,11 +54,11 @@ if (-e $Debian::DebConf::Config::dbfn) {
 my $frontend=eval "Debian::DebConf::FrontEnd::$frontend_type->new()";
 die $@ if $@;
 
-foreach my $deb (@ARGV) {
+foreach my $deb (@debs) {
 	# Check to see if this deb has a confmodule in it. If not,
 	# we will skip it. If so, we need to save the confmodule
 	# to be run later.
-	open (IN, "dpkg --info $deb config |") or
+	open (IN, "dpkg --info $deb config 2>/dev/null |") or
 		die "Unable to spawn dpkg: $!";
 	my @config=<IN>;
 	close IN;
