@@ -2,7 +2,7 @@
 .SH NOM
 debconf \- Système de configuration des paquets Debian
 .SH DESCRIPTION
-Debconf est un système de configuration pour les paquets Debian. Il y a une
+Debconf est un système de configuration pour les paquets Debian. Il existe une
 commande rarement utilisée nommée debconf, documentée dans
 .BR debconf (1)
 .P
@@ -10,15 +10,15 @@ Debconf fournit une interface cohérente pour la configuration des paquets et
 donne à l'utilisateur le choix entre plusieurs interfaces. Il peut configurer
 des paquets avant qu'ils ne soient installés, ce qui permet à des installations
 et des mises à niveau importantes de demander toutes les informations
-nécessaires au préalable, et vous laisse faire ce que vous voulez pendant qu'il
-fait son travail. Il vous permet, si vous êtes pressé, de  sauter les questions
-les moins importantes au moment de l'installation d'un paquet (on peut y revenir
-plus tard).
+nécessaires au préalable, et de vous laisser faire ce que vous voulez
+pendant que les paquets s'installent. Debconf vous permet, si vous êtes pressé,
+de sauter les questions les moins importantes au moment de l'installation d'un
+paquet (on peut y revenir plus tard).
 .SH "Préconfiguration des paquets"
 Debconf peut configurer les paquets avant même qu'ils ne soient installés sur
-votre système. C'est utile, car toutes les questions qui vous seront posées par
-les paquets, le seront au début de l'installation, donc le reste de
-l'installation peut continuer pendant que vous êtes en train de prendre un café.
+votre système. Ainsi, toutes les questions des paquets vous seront posées
+au début de l'installation ce qui permettera à l'installation de continuer
+pendant que vous êtes en train de prendre un café.
 .P
 Si vous utilisez apt (version 0.5 ou supérieure) et que vous avez installé
 apt-utils, chaque paquet installé par apt sera automatiquement préconfiguré.
@@ -98,15 +98,15 @@ libgnome-perl.
 .B editor
 C'est pour ces fanatiques qui veulent tout faire à l'aide d'un éditeur de texte.
 Elle lance votre éditeur sur un fichier qui ressemble à un fichier de
-configuration unix, et vous modifiez le fichier qui sert à communiquer avec debconf. Les
-auteurs de Debconf se retranchent derrière le cinquième amendement quant aux
+configuration unix, et vous modifiez le fichier qui sert à communiquer avec debconf.
+Les auteurs de Debconf se retranchent derrière le cinquième amendement quant aux
 circonstances qui ont conduit à l'écriture de cette interface.
 .TP
 .B web
 .RS
 Cette interface agit comme un serveur web auquel vous vous connectez avec votre
 navigateur web, pour parcourir les questions et y répondre. Elle est très
-prometteuse, mais pour l'instant elle est un peu abrupte. Quand cette interface
+prometteuse, mais un peu abrupte pour l'instant. Quand cette interface
 se met en route, elle indiquera le lieu où vous devrez pointer votre navigateur
 web. Pour des raisons de sécurité, vous devez exécuter votre navigateur web sur
 la machine que vous configurez.
@@ -119,8 +119,8 @@ concept qu'autre chose.
 .P
 Vous pouvez changer l'interface par défaut qu'utilise debconf en le
 reconfigurant. D'un autre côté, si vous voulez juste changer l'interface pour 
-un instant, vous pouvez positionner la variable d'environnement DEBIAN_FRONTEND avec
-le nom de l'interface à utiliser. Par exemple\ :
+un instant, vous pouvez positionner la variable d'environnement DEBIAN_FRONTEND
+avec le nom de l'interface à utiliser. Par exemple\ :
   DEBIAN_FRONTEND=readline apt-get install slrn
 .P
 Les commandes
@@ -175,16 +175,16 @@ configurer quelque chose de compliqué, comme faire lire à debconf une base de
 données distante pour obtenir les valeurs par défaut, annulées par des
 variables locales, lisez la page de manuel
 .B debconf.conf (5)
-pour tous les détails sanglants. La base de données principale se trouve
+pour tous les détails croustillants. La base de données principale se trouve
 généralement dans
 .B /var/cache/debconf/
 .SH Installation des paquets sans surveillance
-Si vous avez beaucoup de machines à gérer, vous vous trouverez sûrement dans
-une position où vous aurez besoin de faire une installation ou une mise à niveau
-sans surveillance, alors que les réponses par défaut à certaines questions de
-configuration ne sont pas acceptables. Il y a beaucoup de manières pour faire
-cela\ ; toutes impliquent la configuration d'une base de données que debconf
-utilisera pour obtenir les réponses par défaut que vous voulez.
+Si vous avez beaucoup de machines à gérer, vous aurez sûrement besoin de faire
+une installation ou une mise à niveau sans surveillance, alors que les réponses
+par défaut à certaines questions de configuration ne sont pas acceptables. Il y
+a beaucoup de manières pour faire cela\ ; toutes impliquent la configuration
+d'une base de données que debconf utilisera pour obtenir les réponses par défaut
+que vous voulez.
 .P
 Avant de lire cette section, vous devriez vraiment lire 
 .B debconf.conf (5)
@@ -199,8 +199,8 @@ pour configurer un ensemble de paquets sans réellement les installer. Vous
 pouvez même décider d'écrire une base de données debconf à la main, comme un
 simple texte...
 .P
-Une fois que vous avez la base de données, vous avez besoin de trouver comment
-faire pour que les systèmes distants l'utiliseint. Cela dépend bien sûr de la
+Une fois que vous avez la base de données, vous devez trouver comment
+faire pour que les systèmes distants l'utilisent. Cela dépend bien sûr de la
 configuration de ces systèmes et de la base de données qu'ils doivent utiliser.
 .P
 Si vous utilisez la base de données LDAP de debconf, un seul serveur LDAP peut
@@ -280,15 +280,15 @@ Utilisée pour changer temporairement l'interface debconf utilisée. Voir plus
 haut.
 .TP
 .B DEBIAN_PRIORITY
-Utilisée pour changer temporairement la priorité minimum des questions
-qu'affichera debconf. Voir plus haut.
+Utilisée pour changer temporairement la priorité que les questions doivent
+avoir (au minimum) pour être affichées par debconf. Voir plus haut.
 .TP
 .B DEBCONF_DEBUG
 .RS
 Active l'affichage du débogage sur la sortie standard d'erreur. Elle peut être
-fixée par le nom d'un outil ou par une expression régulière qui correspond au
-nom d'un outil (comme «\.*\ » pour afficher toutes les informations de
-débogage). Les noms d'outils incluent\ :
+fixée par le nom d'un mécanisme ou par une expression régulière qui correspond au
+nom d'un mécanisme (comme «\.*\ » pour afficher toutes les informations de
+débogage). Les noms de mécanisme incluent\ :
 .TP
 .B user
 Informations de débogage intéressantes pour un utilisateur de debconf.
@@ -337,12 +337,12 @@ sera par défaut seulement lisible.
 .TP
 .B DEBCONF_DB_OVERRIDE
 Ajoute une base de données avant celles utilisées normalement, elle peut donc
-remplacer les valeurs des autres. La valeur de la variable fonctionne aussi
-bien que la valeur de DEBCONF_DB_FALLBACK.
+remplacer les valeurs des autres. La valeur de la variable fonctionne de la
+même manière que pour DEBCONF_DB_FALLBACK.
 .SH BOGUES
 Probablement beaucoup, il y a beaucoup de code ici.
 .P
-Si vous présentez un rapport de bogue, soyez sûr d'inclure les informations
+Si vous présentez un rapport de bogue, assurez-vous d'inclure les informations
 suivantes\ :
 .TP
 .B *
