@@ -100,18 +100,23 @@ $Debconf::Db::config->setfield(...)
 
 =cut
 
+# Turns a chunk of text into a hash. Returns number of lines of data
+# that were processed.
 sub _hashify($$) {
 	my $text=shift;
 	my $hashref=shift;
 
 	my %ret;
+	my $i;
 	foreach my $line (split /\n/, $text) {
 		next if $line=~/^\s*#/; # comment
+		$i++;
 		my ($key, $value)=split(/\s*:\s*/, $line, 2);
 		$key=~tr/-/_/;
 		die "Parse error" unless defined $key and length $key;
 		$hashref->{lc($key)}=$value;
 	}
+	return $i;
 }
 
 sub readconfig {
@@ -129,14 +134,14 @@ sub readconfig {
 	local $/="\n\n"; # read a stanza at a time
 
 	# Read global options stanza.
-	_hashify(<DEBCONF_CONFIG>, $opts);
-	
+	1 until _hashify(<DEBCONF_CONFIG>, $opts);
+
 	# Now read in each database driver, and set them up.
 	# This assumes that there are no forward references in
 	# the config file..
 	while (<DEBCONF_CONFIG>) {
-		my %driver;
-		_hashify($_, \%driver);
+		my %driver=();
+		next unless _hashify($_, \%driver);
 		my $type=$driver{driver} or die "driver type not specified";
 		# Make sure that the class is loaded..
 		if (! UNIVERSAL::can("Debconf::DbDriver::$type", 'new')) {
