@@ -25,11 +25,6 @@ if [ -z "$DEBCONF_REDIR" ]; then
 	export DEBCONF_REDIR
 fi
 
-# For internal use, send text to the frontend.
-_command () {
-	echo $* >&3
-}
-
 ###############################################################################
 # Commands.
 
@@ -42,10 +37,22 @@ for i in "capb CAPB" "stop STOP" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
-	 "visible VISIBLE" "purge PURGE" "metaget METAGET" "exist EXIST"; do
+	 "purge PURGE" "metaget METAGET"; do
 	# Break string up into words.
 	set -- $i
-	eval "db_$1 () { _command \"$2 \$@\" ; read RET; }"
+	# Generate function on the fly.
+	eval "db_$1 () {
+		echo \"$2 \$@\" >&3
+		read _RET
+		old_opts="\$@"
+		set -- \$_RET
+		_RET=\$1
+		shift
+		RET="\$*"
+		set -- \$old_opts
+		unset old_opts
+		return \$_RET
+	      }"
 done
 # $@ was clobbered above, unclobber.
 set -- $old_opts
@@ -55,11 +62,14 @@ unset old_opts
 # pass in a different version to override this.
 db_version () {
 	if [ "$1" ]; then
-		_command "VERSION $1"
+		echo "VERSION $1" >&3
 	else
-		_command "VERSION 1.0"
+		echo "VERSION 2.0" >&3
 	fi
-	read RET
+	read _RET
+	RET=`expr "$_RET" : '[0-9]* \(.*\)'` || RET=''
+	_RET=`expr "$_RET" : '\([0-9]*\) .*'` || true
+	return $_RET
 }
 
 # Just an alias for input. It tends to make more sense to use this to display

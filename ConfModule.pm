@@ -34,6 +34,16 @@ use Debian::DebConf::ConfigDb;
 use vars qw($AUTOLOAD @ISA);
 @ISA=qw(Debian::DebConf::Base);
 
+# Here I define all the numeric result codes that are used.
+my %codes = (
+	success => 0,
+	badquestion => 10,
+	syntaxerror => 20,
+	input_invisible => 30,
+	version_bad => 30,
+	go_back => 30,
+);
+
 =head2 new
 
 Create a new ConfModule. Pass in a FrontEnd object that this object
@@ -46,7 +56,7 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
 	$self->{frontend} = shift;
-	$self->{version} = "1.0";
+	$self->{version} = "2.0";
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
@@ -92,7 +102,7 @@ sub communicate {
 	my ($command, @params)=split(' ', $_);
 	my $w=$this->{write_handle};
 	if (lc($command) eq "stop") {
-		print $w "\n";
+		print $w "$codes{success}\n";
 		return $this->_finish;
 	}
 	$command="command_".lc($command);
@@ -129,27 +139,9 @@ sub command_input {
 	my $question_name=shift;
 
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
+		return $codes{badquestion}, "$question_name doesn't exist";
 
-	$this->frontend->add($question, $priority);
-	return;
-}
-
-=head2 command_visible
-
-Figure out if a question would be displayed if we are told to display it.
-
-=cut
-
-sub command_visible {
-	my $this=shift;
-	my $priority=shift;
-	my $question_name=shift;
-	
-	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
-
-	return $this->frontend->visible($question, $priority) ? "true" : "false";
+	return $this->frontend->add($question, $priority) ? $codes{success} : $codes{input_invisible};
 }
 
 =head2 command_clear
@@ -162,20 +154,22 @@ sub command_clear {
 	my $this=shift;
 	
 	$this->frontend->clear;
+	return $codes{success};
 }
 
 =head2 command_version
 
-Compares protocol versions with the confmodule. The version property of the ConfModule
-is sent to the client.
+Compares protocol versions with the confmodule. The version property of the
+ConfModule is sent to the client.
 
 =cut
 
 sub command_version {
 	my $this=shift;
 	my $version=shift;
-	die "Version too low ($version)" if $version < 1;
-	return $this->version;
+	return $codes{version_bad}, "Version too low ($version)"
+		if $version < int($this->version);
+	return $codes{success}, $this->version;
 }
 
 =head2 command_capb
@@ -192,7 +186,7 @@ sub command_capb {
 	$this->client_capb([@_]);
 	# Set capb_backup on the frontend if the client can backup.
 	$this->frontend->capb_backup(1) if grep { $_ eq 'backup' } @_;
-	return $this->frontend->capb;
+	return $codes{success}, $this->frontend->capb;
 }
 
 =head2 title
@@ -205,7 +199,7 @@ sub command_title {
 	my $this=shift;
 	$this->frontend->title(join ' ', @_);
 
-	return;
+	return $codes{success};
 }
 
 =head2 beginblock, endblock
@@ -214,8 +208,12 @@ These are just stubs to be overridden by other modules.
 
 =cut
 
-sub command_beginblock {}
-sub command_endblock {}
+sub command_beginblock {
+	return $codes{success};
+}
+sub command_endblock {
+	return $codes{success};
+}
 
 =head2 command_go
 
@@ -226,7 +224,8 @@ its go method. Returns whatever the FrontEnd returns.
 
 sub command_go {
 	my $this=shift;
-	$this->frontend->go;
+	return $codes{go_back} unless $this->frontend->go;
+	return $codes{success};
 }
 
 =head2 command_get
@@ -240,9 +239,9 @@ sub command_get {
 	my $this=shift;
 	my $question_name=shift;
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
-	return $question->value if defined $question->value;
-	return $question->template->default || '';
+		return $codes{badquestion}, "$question_name doesn't exist";
+	return $codes{success}, $question->value if defined $question->value;
+	return $codes{success}, ($question->template->default || '');
 }
 
 =head2 command_set
@@ -257,8 +256,9 @@ sub command_set {
 	my $value=join(" ", @_);
 
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
+		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->value($value);
+	return $codes{success};
 }
 
 =head2 command_reset
@@ -272,9 +272,10 @@ sub command_reset {
 	my $question_name=shift;
 
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
+		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->value($question->default);
 	$question->flag_isdefault('true');
+	return $codes{success};
 }
 
 =head2 command_subst
@@ -292,8 +293,9 @@ sub command_subst {
 	my $value = (join ' ', @_);
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
+		return $codes{badquestion}, "$question_name doesn't exist";
 	$question->variables($variable,$value);
+	return $codes{success};
 }
 
 =head2 command_register
@@ -309,6 +311,7 @@ sub command_register {
 	my $name=shift;
 	
 	Debian::DebConf::ConfigDb::addquestion($template, $name, $this->owner);
+	return $codes{success};
 }
 
 =head2 command_unregister
@@ -323,6 +326,7 @@ sub command_unregister {
 	my $name=shift;
 	
 	Debian::DebConf::ConfigDb::disownquestion($name, $this->owner);
+	return $codes{success};
 }
 
 =head2 command_purge
@@ -335,21 +339,7 @@ sub command_purge {
 	my $this=shift;
 	
 	Debian::DebConf::ConfigDb::disownall($this->owner);
-}
-
-
-=head2 command_exist
-
-Test if a question exists.  Returns "true" of "false".
-
-=cut
-
-sub command_exist {
-	my $this=shift;
-	my $question_name=shift;
-
-	return Debian::DebConf::ConfigDb::getquestion($question_name) ?
-		"true" : "false";
+	return $codes{success};
 }
 
 =head2 command_metaget
@@ -365,8 +355,8 @@ sub command_metaget {
 	my $field=shift;
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
-	return $question->$field();
+		return $codes{badquestion}, "$question_name doesn't exist";
+	return $codes{success}, $question->$field();
 }
 
 =head2 command_fget
@@ -383,8 +373,8 @@ sub command_fget {
 	my $flag="flag_".shift;
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
-	return $question->$flag();
+		return $codes{badquestion},  "$question_name doesn't exist";
+	return $codes{success}, $question->$flag();
 }
 
 =head2 command_fset
@@ -401,8 +391,8 @@ sub command_fset {
 	my $value=(join ' ', @_);
 	
 	my $question=Debian::DebConf::ConfigDb::getquestion($question_name) ||
-		die "$question_name doesn't exist";
-	return $question->$flag($value);
+		return $codes{badquestion}, "$question_name doesn't exist";
+	return $codes{success}, $question->$flag($value);
 }
 
 sub AUTOLOAD {

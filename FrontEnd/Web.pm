@@ -186,7 +186,7 @@ sub go {
 	my $formid=$this->formid(1 + $this->formid);
 
 	my $httpheader="HTTP/1.0 200 Ok\nContent-type: text/html\n\n";
-	my $form="<html>\n<title>".$this->{'title'}."</title>\n<body>\n";
+	my $form="<html>\n<title>".$this->title."</title>\n<body>\n";
 	$form.="<form><input type=hidden name=formid value=$formid>\n";
 	my $id=0;
 	my %idtoelt;
@@ -230,7 +230,7 @@ sub go {
 	# Did they hit the back button? If so, ignore their input and inform
 	# the ConfModule of this.
 	if ($this->capb_backup && $query->param('back') ne '') {
-		return 'back';
+		return '';
 	}
 
 	# Now it's just a matter of matching up the element id's with values
@@ -241,7 +241,7 @@ sub go {
 		
 		$idtoelt{$id}->set($query->param($id));
 	}
-	return '';
+	return 1;
 }
 
 =head1 AUTHOR

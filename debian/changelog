@@ -1,3 +1,31 @@
+debconf (0.2.0) unstable; urgency=low
+
+STILL TO DO: 
+
+	- cvs.config doesn't really handle back button right. This is 
+	  because when you go back, the question has already been seen
+	  and is not re-asked.
+	- I probably have to document the same thing in the tutorial
+	- update tutorial to document new return codes
+
+  * Now uses version 2.0 of the configuration management protocol.
+    - All commands in the protocol now return a numerical return code,
+      followed by a space and any text return code.
+  * confmodule.sh handles this by making each command it provides now return
+    the numerical return code. They continue to set $RET to the text return
+    code. This means that you now have to check the return codes of those
+    commands, or the set -e script you are running them in may exit if they
+    return an error code.
+  * ComfModule.pm handles this by making each of its commands, when called
+    in list contect, return a list consiting of the numeric return code, and
+    the string return code. When called in scalar context, it behaves
+    in a backwards compatable way.
+  * Removed the VISIBLE command. Check to see if INPUT returns 30 instead.
+  * Removed the EXIST command. Check for return code 10 from commands that
+    try to use the question, instead.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 28 Oct 1999 14:04:13 -0700
+
 debconf (0.1.75) unstable; urgency=low
 
   * Fixed confmodule.sh reentrancy problem.

@@ -64,7 +64,8 @@ sub makeelement {
 
 Add a Question to the list to be displayed to the user. Pass the Question and
 text indicating the priority of the Question. This creates an Element and adds
-it to the array in the elements property.
+it to the array in the elements property. Returns the created element, or
+faluse if no element was made.
 
 =cut
 
@@ -75,6 +76,7 @@ sub add {
 
 	my $element=$this->visible($question, $priority);
 	push @{$this->{elements}}, $element if $element;
+	return $element;
 }
 
 =head2
@@ -111,6 +113,8 @@ sub visible {
 Display accumulated Elements to the user. The Elements are in the elements
 property, and that property is cleared after the Elements are presented.
 
+Returns true unless the user hits a back button.
+
 =cut
 
 sub go {
@@ -120,6 +124,7 @@ sub go {
 
 	map { $_->show} @{$this->{elements}};
 	$this->clear;
+	return 1;
 }
 
 =head2 clear
@@ -132,7 +137,6 @@ sub clear {
 	my $this=shift;
 	
 	$this->{elements}=[];
-	return '';
 }
 
 =head2 default_title

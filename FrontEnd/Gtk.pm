@@ -139,9 +139,23 @@ sub new {
 	return $self;
 }
 
+=head2 go
+
+This overides the inherited go() method, to detech if the back button was hit
+and inform the ConfModule about that.
+
+=cut
+
+sub go {
+	my $this=shift;
+	
+	$this->SUPER::go(@_);
+	return 1 unless $this->result eq 'back';
+}
+
 =head2 makeelement
 
-This overrides themethod in the Base FrontEnd, and creates Elements in the
+This overrides the method in the Base FrontEnd, and creates Elements in the
 Element::Gtk class. Each data type has a different Element created for it.
 
 =cut
@@ -232,7 +246,7 @@ sub maketext {
 	$text->show();
 	$vscroller->show();
 
-	return $hbox;
+2	return $hbox;
 }
 
 sub Cancel {

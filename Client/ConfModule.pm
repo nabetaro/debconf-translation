@@ -22,8 +22,10 @@ This is a module to ease writing ConfModules for Debian's configuration
 management system. It can communicate with a FrontEnd via the ConfModule
 protocol. The design is that each command in the protocol is represented by
 one function in this module (with the name lower-cased). Call the function and
-pass in any parameters you want to follow the command. Any return code from the
-FrontEnd will be returned to you.
+pass in any parameters you want to follow the command. If the function is
+called in scalar context, any it will return any textual return code. If it is
+called in scalar context, an array consiting of the numeric return code and the
+textual return code will be returned.
 
 This module uses Exporter to export all functions it defines. To import
 everything, simply import ":all".
@@ -45,7 +47,7 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister previous_module
-	      start_frontend fset fget subst visible purge metaget exist);
+	      start_frontend fset fget subst purge metaget);
 
 # Import :all to get everything.		   
 %EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -163,14 +165,16 @@ in a different version to override this.
 =cut
 
 sub version {
-	my $version=shift || '1.0';
+	my $version=shift || '2.0';
 	print "VERSION $version\n";
 	my $ret=<STDIN>;
 	chomp $ret;
+	my @ret=split(/ /, $ret, 2);
 	
 	# TODO: check version?
 	
-	return $ret;
+	return @ret if wantarray;
+	return $ret[0];
 }
 
 # Default command handler.
@@ -184,7 +188,9 @@ sub AUTOLOAD {
 	print join (' ', $command, @_)."\n";
 	my $ret=<STDIN>;
 	chomp $ret;
-	return $ret;
+	my @ret=split(/ /, $ret, 2);
+	return @ret if wantarray;
+	return $ret[0];
 }
 
 =head1 AUTHOR

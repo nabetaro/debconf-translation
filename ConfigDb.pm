@@ -98,7 +98,7 @@ sub loadtemplatefile {
 			# instantiating a new template.
 			my $template=Debian::DebConf::Template->new();
 			$template->parse($collect);
-			
+
 			if ($templates{$template->template}) {
 				# An old template with this name exists. Merge
 				# all info from the new template into it.
