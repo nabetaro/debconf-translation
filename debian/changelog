@@ -1,3 +1,10 @@
+debconf (0.2.57) unstable; urgency=low
+
+  * Tightened up the perl dependancies. I think the previous looser
+    dependancies might have caused a problem.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 20 Dec 1999 16:53:22 -0800
+
 debconf (0.2.56) unstable; urgency=low
 
   * Depend on the version of fileutils that supported
@@ -6,7 +13,7 @@ debconf (0.2.56) unstable; urgency=low
     upgrading to potato fileutils, and then purged it.)
   * Despite what the bug report says, the postinst has never ran rmdir.
 
- -- Joey Hess <joeyh@debian.org>  Tue, 14 Dec 1999 19:38:24 -0800
+ -- Joey Hess <joeyh@debian.org>  Mon, 20 Dec 1999 16:53:20 -0800
 
 debconf (0.2.55) unstable; urgency=low
 
