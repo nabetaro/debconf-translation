@@ -15,7 +15,6 @@ This is a password input widget.
 package Debian::DebConf::Element::Slang::Password;
 use strict;
 use Term::Stool::Password;
-use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element::Slang::String);
 
 sub makewidget {
