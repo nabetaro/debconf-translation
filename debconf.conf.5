@@ -327,6 +327,8 @@ Feel free to write them!
   # This stanza is used for general debconf setup.
   Config: stack
   Templates: templates
+  Log-To: syslog
+  Debug: developer
 
   # This is my own local database.
   Name: mydb
@@ -396,7 +398,7 @@ Feel free to write them!
   Format: db
   Directory: /var/cache/debconf/templates
 .SH NOTES
-If you use something like ${HOME} in this file, it will be replaces with
+If you use something like ${HOME} in this file, it will be replaced with
 the value of the named environment variable.
 .P
 The field names (the part of the line before the colon) is

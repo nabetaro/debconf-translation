@@ -86,7 +86,7 @@ BEGIN {
 }
 
 if (! -x "/usr/bin/apt-extracttemplates") {
-	warn "cannot preconfigure packages -- apt-utils is not installed";
+	warn "skipping preconfiguration (apt-utils is not installed)";
 	exit;
 }
 
@@ -177,7 +177,7 @@ unless (open(INFO, "-|")) {
 # Blowing a bit of memory on abuffer seems like a saner approach.
 my @buffer=<INFO>;
 if ($apt && @buffer) {
-	print "Preconfiguring packages ..\n";
+	print "Preconfiguring packages ...\n";
 }
 foreach my $line (@buffer) {
 	($package, $version, $template, $config)=split /\s/, $line;
