@@ -2,7 +2,7 @@ Source: debconf
 Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@master.debian.org>
-Standards-Version: 2.3.0.1
+Standards-Version: 3.0.1.1
 
 Package: debconf
 Architecture: all
@@ -10,4 +10,4 @@ Depends: perl | perl5, apt (>= 0.3.11-0.1)
 Suggests: libgtk-perl
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. It is
- used by some packages to prompt you for quiestions before they are installed.
+ used by some packages to prompt you for questions before they are installed.

@@ -1,0 +1,26 @@
+These are packages that prompt -- candidates to be debconf'd. It's ordered
+into some sort of a priority list. Starred packages do the same prompting
+each install and so are particularly annoying. Banged packages will not be
+trivial to convert. x'd packages are already done.
+
+ * slrn
+   cvs
+   lynx
+!  exim
+   kernel-package
+x* sash
+!* gpm
+ * ntp
+   ibritish
+   ienglish (etc)
+   ircii
+   nn
+   inewsinn
+   motifnls
+   isdnutils
+   olvwm
+   fvwm2
+   xbuffy
+   dotfile-*
+ ! xserver-*
+ x acct

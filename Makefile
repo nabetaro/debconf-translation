@@ -20,25 +20,9 @@ install: clean
 	install -m 0644 Client/confmodule.sh $(prefix)/usr/share/debconf/
 
   # Generate man pages from POD docs.
-	install -d $(prefix)/usr/man/man2/
-	pod2man Client/ConfModule.pm > $(prefix)/usr/man/man2/Debian::Debconf::Client::ConfModule.2pm
+	install -d $(prefix)/usr/share/man/man2/
+	pod2man Client/ConfModule.pm > $(prefix)/usr/share/man/man2/Debian::Debconf::Client::ConfModule.2pm
 
   # Install bins
 	install -d $(prefix)/usr/bin
 	find Client -perm +1 -type f | xargs -i_ install _ $(prefix)/usr/bin
-
-# This is for local use - it tags the current code with the devian version
-# number, then commits the current code using the contents of the changelog
-# as the cvs changelog, then increments the version number
-commit: clean
-	cvs -Q commit -m "`dpkg-parsechangelog | grep '^  '`"
-	cvs -Q tag rel-$(shell dpkg-parsechangelog | grep ^Version: \
-		|cut -d " " -f 2 |tr '.' '-')
-	$(MAKE) new
-	
-new:
-	# Update w/o editing.
-	EDITOR=true dch -i 2>/dev/null
-	# Dch has to change the bloody directory name. Feh.
-	mv . ../debconf
-	
