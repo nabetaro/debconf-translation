@@ -36,6 +36,10 @@ by:
 
 Currently availble frontends are slang, dialog, text, and web.
 
+Note that if you normally have debconf set to use the noninteractive
+frontend, dpkg-reconfigure will use the slang frontend instead, so you
+actually get to reconfigure the package.
+
 =item B<-d>, B<--default-priority>
 
 Use your real default priority when reconfiguring, instead of low priority.
@@ -68,6 +72,12 @@ use Debian::DebConf::AutoSelect qw(:all);
 use Debian::DebConf::Log qw(:all);
 
 my $infodir="/var/lib/dpkg/info";
+
+# If the default frontend is noninteractive, change it temporarily to
+# slang.
+if (frontend() eq 'Noninteractive') {
+	frontend('Slang');
+}
 
 # Parse command line. I don't use Getopt::Long since it's not in base.
 my @packages;

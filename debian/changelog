@@ -1,3 +1,11 @@
+debconf (0.3.18) unstable; urgency=low
+
+  * dpkg-reconfigure detects if your default frontend is Noninteractive,
+    and uses Slang instead so you actually get to reconfigure the package.
+    Closes: #57614
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  5 Apr 2000 17:32:26 -0700
+
 debconf (0.3.17) unstable; urgency=low
 
   * And this is an upload with the -doc package turned back on. Maybe one
