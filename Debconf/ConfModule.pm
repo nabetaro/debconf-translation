@@ -583,7 +583,7 @@ the specified flag in the specified question.
 
 sub command_fset {
 	my $this=shift;
-	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 2;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 3;
 	my $question_name=shift;
 	my $flag="flag_".shift;
 	my $value=(join ' ', @_);

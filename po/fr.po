@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.35\n"
-"POT-Creation-Date: 2001-02-01 14:06-0800\n"
+"POT-Creation-Date: 2001-02-02 07:22+0100\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -154,7 +154,6 @@ msgid "TERM is not set, so the Dialog frontend is not usable."
 msgstr "TERM n'a pas de valeur, l'interface Dialog est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
-#, fuzzy
 msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "L'interface Dialog est incompatible avec les buffers shell d'emacs"
 
@@ -219,7 +218,6 @@ msgid "TERM is not set, so the Slang frontend is not usable."
 msgstr "TERM n'a pas de valeur, l'interface Slang est donc inutilisable."
 
 #: ../Debconf/FrontEnd/Slang.pm:54
-#, fuzzy
 msgid "Slang frontend is incompatible with emacs shell buffers"
 msgstr "L'interface Slang est incompatible avec les buffers shell d'emacs"
 
@@ -322,31 +320,3 @@ msgstr "%s n'est pas totalement installé"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
-
-#~ msgid "Unsupported command `%s'."
-#~ msgstr "Commande `%s' non supportée."
-
-#~ msgid "Warning: Newline present in parameters passed to debconf."
-#~ msgstr ""
-#~ "Avertissement : Retour à la ligne présent dans les paramètres passés à "
-#~ "debconf."
-
-#~ msgid "This will probably cause strange things to happen!"
-#~ msgstr "Cela peut provoquer des résultats bizarres !"
-
-#~ msgid "%s is not installed or does not use debconf"
-#~ msgstr "%s n'est pas installé ou n'utilise pas debconf"
-
-#~ msgid "Container element question method called before frontend was set."
-#~ msgstr ""
-#~ "``Container element question method'' appelé avant la définition du frontal."
-
-#~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw it, "
-#~ "but Debconf was running in noninteractive mode, or you have told it to not "
-#~ "pause and show you unimportant notes. Here is the text of the note:"
-#~ msgstr ""
-#~ "Ce message vous a été envoyé car il a été demandé à Debconf de vous le "
-#~ "montrer, mais Debconf tournait en mode non interactif ou vous n'avez pas "
-#~ "demandé de faire une pause pour les messages non importants. Voici le texte "
-#~ "du message : "
