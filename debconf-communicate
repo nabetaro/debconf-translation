@@ -7,8 +7,7 @@ debconf-communicate - communicate with debconf
 =cut
 
 use strict;
-use Debconf::Config qw(dbdir);
-use Debconf::ConfigDb qw(loaddb savedb);
+use Debconf::Db;
 use Debconf::AutoSelect qw(:all);
 
 =head1 SYNOPSIS
@@ -54,8 +53,6 @@ L<debconf-loadtemplate(8)>
 
 =cut
 
-
-loaddb(dbdir());
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();
 my $code=127;
@@ -79,7 +76,7 @@ else {
 	}
 }
 $frontend->shutdown;
-savedb(dbdir());
+Debconf::Db->save;
 exit $code;
 
 =head1 AUTHOR
