@@ -18,7 +18,7 @@ if [ "$RET" = "true" ]; then
 fi
 
 # Kill accidential db cruft.
-if [ "$1" = upgrade ] && dpkg --compare-versions "$2" lt 0.5.49; then
+if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.5.49; then
 	db_unregister foo/bar
 fi
 
