@@ -184,7 +184,8 @@ sub go {
 
 	# Each form sent out has a unique id.
 	my $formid=$this->formid(1 + $this->formid);
-	
+
+	my $httpheader="HTTP/1.0 200 Ok\nContent-type: text/html\n\n";
 	my $form="<html>\n<title>".$this->{'title'}."</title>\n<body>\n";
 	$form.="<form><input type=hidden name=formid value=$formid>\n";
 	my $id=0;
@@ -209,7 +210,7 @@ sub go {
 	my $query;
 	# We'll loop here until we get a valid response from a client.
 	do {
-		$this->showclient($form);
+		$this->showclient($httpheader . $form);
 	
 		# Now get the next connection to us, which causes any http
 		# commands to be read.
