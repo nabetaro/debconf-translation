@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.nl.utf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 14:50-0500\n"
+"POT-Creation-Date: 2005-01-23 09:02+0100\n"
 "PO-Revision-Date: 2004-09-15 22:12+0200\n"
 "Last-Translator: Frans Pop <aragorn@tiscali.nl>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -313,10 +313,24 @@ msgstr ""
 "configuratie van pakketten wordt uitgesteld omdat apt-utils niet is "
 "geïnstalleerd"
 
+#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#, c-format
+msgid "apt-extracttemplates failed: %s"
+msgstr ""
+
+#: ../dpkg-preconfigure:167
+msgid "Preconfiguring packages ...\n"
+msgstr ""
+
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "fout bij het ontleden van sjabloon: %s"
+
+#: ../dpkg-preconfigure:191
+#, fuzzy, c-format
+msgid "preconfiguring %s (%s)"
+msgstr "Bezig met configureren van %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -333,21 +347,21 @@ msgstr "voorconfigureren van \"%s\" mislukt met foutcode %s"
 msgid "%s must be run as root"
 msgstr "%s moet als root worden uitgevoerd"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "geef een pakket in om opnieuw te configureren"
 
-#: ../dpkg-reconfigure:157
+#: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
 msgstr "%s is niet geïnstalleerd"
 
-#: ../dpkg-reconfigure:161
+#: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s is beschadigd of niet volledig geïnstalleerd"
 
-#: ../dpkg-reconfigure:238
+#: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kan statusbestand niet lezen: %s"

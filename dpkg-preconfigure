@@ -148,7 +148,7 @@ unless (open(INFO, "-|")) {
 		}
 		else {
 			if (system("apt-extracttemplates", @collect) != 0) {
-				print STDERR "debconf: apt-extracttemplates failed: $!";
+				print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
 			}
 				
 			@collect=($deb);
@@ -156,7 +156,7 @@ unless (open(INFO, "-|")) {
 		}
 	}
 	exec "apt-extracttemplates", @collect or
-		print STDERR "debconf: apt-extracttemplates failed: $!";
+		print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
 }
 # Why buffer here? Well, suppose 300 packages are being installed, and
 # only the first and last use debconf. The first is preconfigured. Then
@@ -164,7 +164,7 @@ unless (open(INFO, "-|")) {
 # Blowing a bit of memory on a buffer seems like a saner approach.
 my @buffer=<INFO>;
 if ($apt && @buffer) {
-	print "Preconfiguring packages ...\n";
+	print gettext("Preconfiguring packages ...\n");
 }
 foreach my $line (@buffer) {
 	($package, $version, $template, $config)=split /\s/, $line;
@@ -188,7 +188,7 @@ foreach my $line (@buffer) {
 
 	# Run config script if any.
 	if (defined $config && length $config && -e $config) {
-		debug user => "preconfiguring $package ($version)";
+		debug user => sprintf(gettext("preconfiguring %s (%s)",$package,$version))";
 		chmod(0755, $config) or
 			die sprintf(gettext("debconf: can't chmod: %s"), $!);
 		$frontend->default_title($package);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 14:50-0500\n"
+"POT-Creation-Date: 2005-01-23 09:02+0100\n"
 "PO-Revision-Date: 2004-05-31 00:07+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -317,10 +317,24 @@ msgstr ""
 "s'està retardant la configuració dels paquets ja que apt-utils no està "
 "instal·lat"
 
+#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#, c-format
+msgid "apt-extracttemplates failed: %s"
+msgstr ""
+
+#: ../dpkg-preconfigure:167
+msgid "Preconfiguring packages ...\n"
+msgstr ""
+
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "s'ha produït un error d'anàlisi de plantilla: %s"
+
+#: ../dpkg-preconfigure:191
+#, fuzzy, c-format
+msgid "preconfiguring %s (%s)"
+msgstr "Configuració del paquet «%s»"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -337,21 +351,21 @@ msgstr "%s ha fallat al preconfigurar, amb estat de sortida %s"
 msgid "%s must be run as root"
 msgstr "%s s'ha d'executar com a root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "si us plau, especifiqueu un paquet a reconfigurar"
 
-#: ../dpkg-reconfigure:157
+#: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
 msgstr "%s no està instal·lat"
 
-#: ../dpkg-reconfigure:161
+#: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s està trencat o no està instal·lat completament"
 
-#: ../dpkg-reconfigure:238
+#: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "No es pot llegir el fitxer d'estat: %s"

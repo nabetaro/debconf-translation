@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-03 14:50-0500\n"
+"POT-Creation-Date: 2005-01-23 09:02+0100\n"
 "PO-Revision-Date: 2004-09-15 23:06EEST\n"
 "Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
 "org>\n"
@@ -317,10 +317,24 @@ msgstr ""
 "καθυστέρηση της ρύθμισης του πακέτου, εφόσον το apt-utils δεν είναι "
 "εγκατεστημένο"
 
+#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#, c-format
+msgid "apt-extracttemplates failed: %s"
+msgstr ""
+
+#: ../dpkg-preconfigure:167
+msgid "Preconfiguring packages ...\n"
+msgstr ""
+
 #: ../dpkg-preconfigure:179
 #, c-format
 msgid "template parse error: %s"
 msgstr "σφάλμα ανάλυσης προτύπου: %s"
+
+#: ../dpkg-preconfigure:191
+#, fuzzy, c-format
+msgid "preconfiguring %s (%s)"
+msgstr "Ρύθμιση του %s"
 
 #: ../dpkg-preconfigure:193
 #, c-format
@@ -337,21 +351,21 @@ msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λά
 msgid "%s must be run as root"
 msgstr "Το %s πρέπει να εκτελεστεί ως χρήστης root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
 msgstr "παρακαλώ δηλώστε το πακέτο προς επαναρύθμιση"
 
-#: ../dpkg-reconfigure:157
+#: ../dpkg-reconfigure:156
 #, c-format
 msgid "%s is not installed"
 msgstr "το %s δεν είναι εγκατεστημένο"
 
-#: ../dpkg-reconfigure:161
+#: ../dpkg-reconfigure:160
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "το %s είναι κατεστραμμένο ή όχι πλήρως εγκατεστημένο"
 
-#: ../dpkg-reconfigure:238
+#: ../dpkg-reconfigure:237
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Αδύνατη η ανάγνωση του αρχείου κατάστασης: %s"
