@@ -34,7 +34,6 @@ sub show {
 
 	# Output the list of choices, at the same time, generate
 	# a prompt with the full list in it.
-	# TODO: handle more than 26 choices.
 	my $uniquelet = 1;
 	my %selectletfromind;
 	%selectindfromlet = ();
@@ -46,12 +45,20 @@ sub show {
 	if (!$uniquelet) {
 		%selectindfromlet = ();
 		foreach (0..$#choices) {
-			$selectindfromlet{chr(97 + $_)} = $_;
+			if ($_ < 26) {
+				$selectindfromlet{chr(97 + $_)} = $_;
+			}
+			else {
+				# Nasty fallback, but this happens rarely.
+				# Unfortunatly, if the default is in this
+				# range, uppercasing it does no good..
+				$selectindfromlet{$_ - 25} = $_;
+			}
 		}
 	}
 	%selectletfromind = reverse %selectindfromlet;
 	foreach (0..$#choices) {
-		$this->frontend->display_nowrap("\t".lc $selectletfromind{$_}.". $choices[$_]");
+		$this->frontend->display_nowrap("\t". lc $selectletfromind{$_}.". $choices[$_]");
 		if ($choices[$_] eq $default) {
 			$prompt .= uc $selectletfromind{$_};
 		} else {
