@@ -54,17 +54,9 @@ item in the sequence, or undef if there are no more.
 
 sub iterate {}
 
-=head2 load(itemname)
+=head2 savedb
 
-Load up a item.
-
-=cut
-
-sub load {}
-
-=head2 save(itemname)
-
-Ensure that the given item's state is saved.
+Save the entire database state.
 
 =cut
 
@@ -77,14 +69,6 @@ Return true if the given item exists in the database.
 =cut
 
 sub exists {}
-
-=head2 remove(itemame)
-
-Remove a item from the database.
-
-=cut
-
-sub remove {}
 
 =head2 addowner(itemname, ownername)
 
