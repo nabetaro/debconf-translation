@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-17 20:50+0100\n"
+"POT-Creation-Date: 2004-12-06 17:24-0500\n"
 "PO-Revision-Date: 2004-11-11 10:07+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -122,32 +122,34 @@ msgstr "liittymän alustus epäonnistui: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Liittymän käynnistys epäonnistui: %s"
 
-#: ../Debconf/Config.pm:127
+#: ../Debconf/Config.pm:128
 msgid "Config database not specified in config file."
 msgstr "Asetustietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:131
+#: ../Debconf/Config.pm:132
 msgid "Template database not specified in config file."
 msgstr "Kyselypohjatietokantaa ei ole määritelty asetustiedostossa."
 
-#: ../Debconf/Config.pm:136
+#: ../Debconf/Config.pm:137
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr "Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa ne."
+msgstr ""
+"Sigils- ja Smileys-valintoja ei enää käytetä asetustiedostossa. Voit poistaa "
+"ne."
 
-#: ../Debconf/Config.pm:147
+#: ../Debconf/Config.pm:148
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ongelma laitettaessa säkeistön %s/%s määrittämää tietokantaa käyttökuntoon."
 
-#: ../Debconf/Config.pm:262
+#: ../Debconf/Config.pm:277
 #, c-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ohitetaan virheellinen prioriteetti \"%s\""
 
-#: ../Debconf/Config.pm:263
+#: ../Debconf/Config.pm:278
 #, c-format
 msgid "Valid priorities are: %s"
 msgstr "Kelvolliset prioriteetit ovat: %s"
@@ -322,21 +324,21 @@ msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
 msgid "%s must be run as root"
 msgstr "%s on ajettava root-oikeuksilla"
 
-#: ../dpkg-reconfigure:136
+#: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "tarvitsen käsiteltävän paketin nimen"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, c-format
 msgid "%s is not installed"
 msgstr "%s ei ole täysin asennettu"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, c-format
 msgid "%s is broken or not fully installed"
 msgstr "%s on rikki tai ei ole täysin asennettu"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Tilatiedoston luku epäonnistui: %s"
