@@ -30,6 +30,9 @@ binary-indep: build install
 	dh_testversion 2.0.49
 	dh_testdir
 	dh_testroot
+	# Don't modify postrm, I purge differently than normal packages
+	# using me.
+	dh_installdebconf -n
 	dh_installdocs doc/* README TODO EXAMPLES
 	dh_installexamples samples/*.* test.pl
 	dh_installmenu
