@@ -162,18 +162,25 @@ sub parse {
 	foreach (split "\n", $text) {
 		chomp;
 		if (/^([-_.A-Za-z0-9]*):\s+(.*)/) {
-			# Beginning of new field.
+			# Beginning of new field. First, save the old one.
 			$this->_savefield($field, $value, $extended);
 			$field=lc $1;
 			$value=$2;
 			$value=~s/\s*$//;
 			$extended='';
 		}
-		elsif (/^\s+\.$/) {
+		elsif (/^\s\.$/) {
 			# Continuation of field that contains only a blank line.
 			$extended.="\n\n";
 		}
-		elsif (/^\s+(.*)/) {
+		elsif (/^\s(\s+.*)/) {
+			# Continuation of a field, with a doubly indented
+			# bit that should not be wrapped.
+			my $line=$1;
+			$extended.="\n" unless $extended=~/\n$/;
+			$extended.=$line."\n";
+		}
+		elsif (/^\s(.*)/) {
 			# Continuation of field.
 			$extended.=$1." ";
 		}
@@ -198,10 +205,15 @@ sub _savefield {
 	my $value=shift;
 	my $extended=shift;
 
+	# Make sure there are no blank lines at the end of the extended 
+	# field, as that causes problems when stringifying and elsewhere,
+	# and is pointless anyway.
+	$extended=~s/\n+$//;
+
 	if ($field ne '') {
 		$this->$field($value);
-		my $e="extended_$field";
-		$this->$e($extended);
+		my $e="extended_$field"; # silly perl..
+		$this->$e($extended) if length $extended;
 	}
 }
 

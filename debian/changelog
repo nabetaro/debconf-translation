@@ -1,3 +1,13 @@
+debconf (0.3.66) unstable; urgency=low
+
+  * Corrected the wrapping-of-bulleted-lists issue. It is now possible to
+    have bulletted lists or other preformatted text in a templates file
+    just like you would in a normal debian control file -- 2 space indent.
+    Closes: #65518
+  * This was too easy. Silly me.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 25 Aug 2000 16:17:54 -0700
+
 debconf (0.3.65) unstable; urgency=low
 
   * Fixed preconfiguring -- since version 0.3.60, it has unnecessarily

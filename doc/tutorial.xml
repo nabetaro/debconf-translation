@@ -244,6 +244,12 @@ Template: ....
       blank. There is no point in duplicating the short description.
     </para>
     <para>
+      Text in the long description will be word-wrapped, unless it is
+      prefixed by additional whitespace (beyond the one required space).
+      You can break it up into separate paragraphs by putting " ." on a
+      line by itself between them.
+    </para>
+    <para>
       Following along in our example, we create a templates file with two
       templates in it:
       <programlisting>
