@@ -143,6 +143,12 @@ sub import {
 		# OUT to communicate with our parent.
 		*STDIN=\*CHILD_STDIN;
 		*STDOUT=\*CHILD_STDOUT;
+	
+		# This has to be here to tell the frontend when we finish.
+		eval q{
+			sub END { stop() }
+		};
+			
 	}
 
 	# Make the Exporter still work.

@@ -111,7 +111,7 @@ is stored in the exitcode property of the object.
 
 sub _finish {
 	my $this=shift;
-	
+
 	waitpid $this->pid, 0;
 	$this->exitcode($? >> 8);
 	return '';
