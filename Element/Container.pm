@@ -17,7 +17,7 @@ hold other elements that are displayed when it is.
 
 =cut
 
-package Debian::DebConf::Element::Select;
+package Debian::DebConf::Element::Container;
 use Debian::DebConf::Element;
 use Debian::DebConf::ConfigDb;
 use strict;
@@ -75,14 +75,14 @@ Or are they? This is still being decided -- TODO.
 
 =cut
 
-sub visible {
-	my $this=shift;
-
-	# TODO: test it.
-
-	# Call parent class to deal with everything else.
-	return $this->SUPER::visible;
-}
+#sub visible {
+#	my $this=shift;
+#
+#	# TODO: test it.
+#
+#	# Call parent class to deal with everything else.
+#	return $this->SUPER::visible;
+#}
 
 =head2 show
 

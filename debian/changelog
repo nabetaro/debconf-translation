@@ -1,3 +1,16 @@
+debconf (0.1.67) unstable; urgency=low
+
+  * Fixed a truely braindead problem in Container.pm, which was breaking
+    Select Elements a bit. (Closes: #47683)
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 15:14:17 -0700
+
+debconf (0.1.66) unstable; urgency=low
+
+  * Fixed typo in debconf template. (Closes: #47458)
+
+ -- Joey Hess <joeyh@master.debian.org>  Sun, 24 Oct 1999 14:44:24 -0700
+
 debconf (0.1.65) unstable; urgency=low
 
   * Applied patch from Rafael Laboissiere to add an "exists" command.
