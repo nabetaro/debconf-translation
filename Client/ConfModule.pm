@@ -61,7 +61,8 @@ DEBIAN_HAS_FRONTEND is set, a FrontEnd is assumed to be running.
 If not, one is started up automatically and stdin and out are
 connected to it. A name of a FrontEnd to start can be passed in
 DEBIAN_FRONTEND, it defaults to using the base (non-interactive)
-FrontEnd.
+FrontEnd. Note that this function is always run when the module is
+loaded in the usual way.
 
 =cut
 
