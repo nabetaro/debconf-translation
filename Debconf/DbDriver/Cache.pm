@@ -209,6 +209,20 @@ sub removeowner {
 	return $owner;
 }
 
+=head2 owners(itemname)
+
+Pull owners out of the cache.
+
+=cut
+
+sub owners {
+	my $this=shift;
+	my $item=shift;
+
+	return unless $this->cached($item);
+	return keys %{$this->{cache}->{$item}->{owners}};
+}
+
 =head2 getfield(itemname, fieldname)
 
 Pulls the field out of the cache.
