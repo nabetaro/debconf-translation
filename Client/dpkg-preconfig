@@ -141,9 +141,6 @@ foreach my $deb (@debs) {
 
 	$frontend->default_title($packages{$deb});
 
-getversion($packages{$deb});
-next;
-
 	# Start up the confmodule, passing in the package version.
 	my $confmodule=Debian::DebConf::AutoSelect::confmodule($script,
 		'configure', getversion($packages{$deb}));
