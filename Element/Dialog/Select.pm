@@ -63,7 +63,9 @@ sub show {
 	
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
-	return $this->translate_to_C(scalar $this->frontend->showdialog(@params));
+	my $ret=$this->frontend->showdialog(@params);
+	return unless defined $ret;
+	return $this->translate_to_C($ret);
 }
 
 1
