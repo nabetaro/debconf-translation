@@ -165,7 +165,7 @@ changes, $Text::Wrap::columns is updated to match.
 
 =cut
 
-sub screenwith {
+sub screenwidth {
 	my $this=shift;
 	
 	$Text::Wrap::columns=$this->SUPER::screenwidth(@_);
