@@ -78,7 +78,7 @@ sub init {
 		$this->titlespacer(10);
 		$this->columnspacer(3);
 		$this->selectspacer(9);
-		$this->hasoutputfd(0);
+		$this->hasoutputfd(1);
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('dialog');

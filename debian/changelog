@@ -1,3 +1,14 @@
+debconf (1.2.38) unstable; urgency=low
+
+  * Conflict with whiptail versions before 0.51.4-7, which adds --output-fd
+    support.
+  * Turn on output-fd support for whiptail.
+  * Wrap priority question better on narrow terminals. Closes: #195485
+  * Make Net::LDAP use LDAPv3 since that's the default provided by slapd
+    now. Closes: #195673
+
+ -- Joey Hess <joeyh@debian.org>  Sun,  1 Jun 2003 13:31:15 -0400
+
 debconf (1.2.37) unstable; urgency=low
 
   * Conflict with dialogs older than 0.9b-20020814-1, which added --output-fd.

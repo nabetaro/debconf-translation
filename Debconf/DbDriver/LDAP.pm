@@ -90,7 +90,7 @@ sub binddb {
 	debug "db $this->{name}" => "talking to $this->{server}, data under $this->{basedn}";
 
 	# Whee, LDAP away!  Net::LDAP tells us about all these methods.
-	my $ds = Net::LDAP->new($this->{server}, port => $this->{port});
+	my $ds = Net::LDAP->new($this->{server}, port => $this->{port}, version => 3);
 	if (! $ds) {
 		$this->error("Unable to connect to LDAP server");
 	}
