@@ -141,6 +141,8 @@ database, and then telling the underlying db to save it.
 However, if the item is undefined in the cache, we instead tell the
 underlying db to remove it.
 
+Returns true unless any of the operations fail.
+
 =cut
 
 sub savedb {
@@ -148,14 +150,16 @@ sub savedb {
 	
 	return if $this->{readonly};
 
+	my $ret=1;
 	foreach my $item (keys %{$this->{cache}}) {
 		if (defined $this->{cache}->{$item}) {
-			return $this->save($item, $this->{cache}->{$item});
+			$ret=undef unless defined $this->save($item, $this->{cache}->{$item});
 		}
 		else {
-			return $this->remove($item);
+			$ret=undef unless defined $this->remove($item);
 		}
 	}
+	return $ret;
 }
 
 =head2 addowner(itemname, ownername)
