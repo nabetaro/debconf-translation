@@ -37,12 +37,6 @@ General:
   parallell list with the select list, to keep the actual tokens that the
   confmodule script gets back short. See modconf for how such a list could
   display in whiptail.
-* Select elements still arn't consitent. If a select element is not shown,
-  it is set to the first item on the list of possibilities. However, if it is
-  shown, but has one item on it, which is not the default value, the default 
-  value remains in effect. Insetead, the value should probably be set to
-  that one item that is on it. (er, I'm not sure if this is still relevant
-  -- test)
 * Finish dependncy checks. Currently, they don't handle conflicts, and they
   only look for the first versioned debconf dependancy on a line.
 * Darxus <darxus@Op.Net>
