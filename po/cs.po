@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-23 12:30+0100\n"
+"POT-Creation-Date: 2005-04-02 08:49+0200\n"
+"PO-Revision-Date: 2005-04-02 09:58+0200\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
-"Language-Team: Czech <provoz@debian.cz>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,10 +44,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Více"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -62,6 +58,10 @@ msgstr "Zpìt"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Dal¹í"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Více"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -104,7 +104,104 @@ msgstr "Toto rozhraní vy¾aduje øídící terminál."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU je nekompatibilní s emacsovým shellovým bufferem."
+msgstr "Term::ReadLine::GNU není kompatibilní se shellovým bufferem emacsu."
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "uchyluji se k rozhraní: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "nemohu inicializovat rozhraní: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Nemohu spustit rozhraní: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Databáze nastavení není v konfiguraèním souboru zadána."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Databáze ¹ablon není v konfiguraèním souboru zadána."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Volby Sigils a Smileys se ji¾ v konfiguraèním souboru nepou¾ívají. Prosím "
+"odstraòte je."
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problém nastavení databáze definované v èásti %s z %s."
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tZadá rozhraní debconfu, je¾ se má pou¾ít.\n"
+"  -p,  --priority\t\tZadá nejmen¹í prioritu zobrazených otázek.\n"
+"       --terse\t\t\tZapne struèný re¾im.\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignoruji neplatnou prioritu \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Dostupné priority jsou: %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"varování: mo¾né poru¹ení databáze. Pokusím se ji opravit pøidáním chybìjící "
+"otázky %s."
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"©ablona è.%s v %s má duplicitní pole \"%s\" s novou hodnotou \"%s\". Nìkteré "
+"dvì ¹ablony pravdìpodobnì nejsou oddìleny prázdným øádkem.\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Neznámé pole '%s' ¹ablony v èásti è.%s z %s\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Chyba zpracování ¹ablony poblí¾ '%s' v èásti è.%s z %s\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "©ablona è.%s v %s neobsahuje øádek 'Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Nápovìda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Nápovìda"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
@@ -131,8 +228,8 @@ msgid "Unable to save note."
 msgstr "Poznámka nelze ulo¾it."
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "Mo¾nosti"
 
@@ -188,100 +285,6 @@ msgid ""
 msgstr ""
 "Vstupní hodnota \"%s\" není v C volbách! To se nikdy nemìlo stát. Mo¾ná jsou "
 "¹ablony ¹patnì lokalizovány."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Nápovìda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Nápovìda"
-
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "uchyluji se k rozhraní: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "nemohu inicializovat rozhraní: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "Nemohu spustit rozhraní: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "Databáze nastavení není v konfiguraèním souboru zadána."
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "Databáze ¹ablon není v konfiguraèním souboru zadána."
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Volby Sigils a Smileys se ji¾ v konfiguraèním souboru nepou¾ívají. Prosím "
-"odstraòte je."
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problém nastavení databáze definované v èásti %s z %s."
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignoruji neplatnou prioritu \"%s\""
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "Dostupné priority jsou: %s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"varování: mo¾né poru¹ení databáze. Pokusím se ji opravit pøidáním chybìjící "
-"otázky %s."
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"©ablona è.%s v %s má duplicitní pole \"%s\" s novou hodnotou \"%s\". Nìkteré "
-"dvì ¹ablony pravdìpodobnì nejsou oddìleny prázdným øádkem.\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Neznámé pole '%s' ¹ablony v èásti è.%s z %s\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Chyba zpracování ¹ablony poblí¾ '%s' v èásti è.%s z %s\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "©ablona è.%s v %s neobsahuje øádek 'Template:'\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -339,6 +342,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Pou¾ití: dpkg-reconfigure [volby] balíky\n"
+"  -a,  --all\t\t\tPøekonfiguruje v¹echny balíky.\n"
+"  -u,  --unseen-only\t\tZobrazí jen dosud nezobrazené otázky.\n"
+"       --default-priority\tMísto nízké pou¾ije výchozí prioritu.\n"
+"       --force\t\t\tVynutí pøekonfiguraci poru¹ených balíkù."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -366,17 +374,19 @@ msgstr "Nemohu èíst stavový soubor: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Pou¾ití: debconf-communicate [volby] [balík]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Tento nástroj u¾ je pøekonán. Mìli byste zaèít "
+"pou¾ívat program po2debconf z balíku po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Pou¾ití: debconf-mergetemplate [volby] [¹ablony.ll ...] ¹ablony"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -384,6 +394,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tSlouèí i zastaralé pøeklady.\n"
+"\t--drop-old-templates\tZahodí celé zastaralé ¹ablony."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -417,13 +430,15 @@ msgstr "%s je zastaralý; zahazuji celou ¹ablonu!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Pou¾ití: debconf [volby] pøíkaz [argumenty]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=balík\t\tNastaví balík, který vlastní pøíkaz."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "pøednastavuji %s (%s)"
