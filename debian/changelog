@@ -1,4 +1,4 @@
-debconf (1.4.42) UNRELEASED; urgency=low
+debconf (1.4.42) unstable; urgency=low
 
   * Fix bug in man page example script. Closes: #286335
   * Add --unseen flag to debconf-set-selections. Closes: #286318
@@ -12,8 +12,10 @@ debconf (1.4.42) UNRELEASED; urgency=low
     - Fix passing of extended descriptions in DATA. Note they're newline
       escaped.
     - Pass choices for multiselect questions.
+    - Now usable with cdebconf as the client on the other side of the
+      passthrough channel.
 
- -- Joey Hess <joeyh@debian.org>  Sun, 19 Dec 2004 13:26:12 -0500
+ -- Joey Hess <joeyh@debian.org>  Thu, 13 Jan 2005 19:01:58 -0500
 
 debconf (1.4.41) unstable; urgency=low
 
