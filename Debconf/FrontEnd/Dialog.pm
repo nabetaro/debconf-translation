@@ -39,9 +39,11 @@ sub init {
 
 	$this->SUPER::init(@_);
 
-	# This environment variable screws up at least whiptail with the
-	# way we call it.
+	# These environment variable screws up at least whiptail with the
+	# way we call it. Posix does not allow safe arg passing like
+	# whiptail needs.
 	delete $ENV{POSIXLY_CORRECT} if exists $ENV{POSIXLY_CORRECT};
+	delete $ENV{POSIX_ME_HARDER} if exists $ENV{POSIX_ME_HARDER};
 	
 	# Detect all the ways people have managed to screw up their
 	# terminals (so far...)
