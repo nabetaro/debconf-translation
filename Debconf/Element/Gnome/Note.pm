@@ -72,7 +72,7 @@ sub init {
 
 =head1 AUTHOR
 
-Joey Hess <joey@kitenet.net>
+Eric Gillespie <epg@debian.org>
 
 =cut
 
