@@ -8,8 +8,6 @@ Debian::DebConf::Element::Multiselect - Base multiselect input element
 
 package Debian::DebConf::Element::Multiselect;
 use strict;
-use Debian::DebConf::Gettext;
-use Debian::DebConf::Log ':all';
 use Debian::DebConf::Element::Select; # perlbug
 use base qw(Debian::DebConf::Element::Select);
 

@@ -8,6 +8,7 @@ Debian::DebConf::Element::Select - Base select input element
 
 package Debian::DebConf::Element::Select;
 use strict;
+use Debian::DebConf::Log ':all';
 use Debian::DebConf::Gettext;
 use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
