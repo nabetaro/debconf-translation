@@ -45,8 +45,8 @@ old_opts="$@"
 for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
-	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
-	 "visible VISIBLE" "purge PURGE" "metaget METAGET" "exist EXIST"; do
+	 "fset FSET" "fget FGET" "visible VISIBLE" "purge PURGE" \
+	 "metaget METAGET" "exist EXIST"; do
 	# Break string up into words.
 	set -- $i
 	eval "db_$1 () {

@@ -7,9 +7,8 @@
 
 # Check to see if a FrontEnd is running.
 if [ ! "$DEBIAN_HAS_FRONTEND" ]; then
-	# Ok, this is pretty crazy. Since there is no FrontEnd, this
-	# program execs a FrontEnd. It will then run a new copy of $0 that
-	# can talk to it.
+	# Since there is no FrontEnd, this program execs a FrontEnd.
+	# It will then run a new copy of $0 that can talk to it.
 	exec /usr/share/debconf/frontend $0 "$@"
 fi
 
@@ -28,43 +27,45 @@ fi
 ###############################################################################
 # Commands.
 
-# Generate subroutines for all commands that don't have special handlers.
-# Each command must be listed twice, once in lower case, once in upper.
-# Doing that saves us a lot of calls to tr at load time. I just wish shell had
-# an upper-case function.
-_old_opts="$@"
-for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
-         "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
-	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
-	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
-	 "purge PURGE" "metaget METAGET" "version VERSION" "clear CLEAR" \
-	 "settitle SETTITLE"; do
-	# Break string up into words.
-	set -- $i
-	# Generate functions on the fly.
-	eval "db_$1 () {
-		echo \"$2 \$@\" >&3
-		# Set to newline to get whole line.
-		local IFS='
+_db_cmd () {
+	echo "$@" >&3
+	# Set to newline to get whole line.
+	local IFS='
 '
-		local _LINE
-		read -r _LINE
-		# Disgusting, but it's the only good way to split the line,
-		# preserving all other whitespace.
-		RET=\"\${_LINE#[! 	][ 	]}\"
-		return \${_LINE%%[ 	]*}
-	      }"
-done
-# $@ was clobbered above, unclobber.
-set -- $_old_opts
-unset _old_opts
+	local _LINE
+	read -r _LINE
+	# Disgusting, but it's the only good way to split the line,
+	# preserving all other whitespace.
+	RET="${_LINE#[! 	][ 	]}"
+	return ${_LINE%%[ 	]*}
+}
 
-# Just an old alias for input.
+db_capb ()	{ _db_cmd "CAPB $@"; }
+db_set ()	{ _db_cmd "SET $@"; }
+db_reset ()	{ _db_cmd "RESET $@"; }
+db_title ()	{ _db_cmd "TITLE $@"; }
+db_input ()	{ _db_cmd "INPUT $@"; }
+db_beginblock () { _db_cmd "BEGINBLOCK $@"; }
+db_endblock () 	{ _db_cmd "ENDBLOCK $@"; }
+db_go ()	{ _db_cmd "GO $@"; }
+db_get ()	{ _db_cmd "GET $@"; }
+db_register ()	{ _db_cmd "REGISTER $@"; }
+db_unregister () { _db_cmd "UNREGISTER $@"; }
+db_subst ()	{ _db_cmd "SUBST $@"; }
+db_fset ()	{ _db_cmd "FSET $@"; }
+db_fget ()	{ _db_cmd "FGET $@"; }
+db_purge ()	{ _db_cmd "PURGE $@"; }
+db_metaget ()	{ _db_cmd "METAGET $@"; }
+db_version ()	{ _db_cmd "VERSION $@"; }
+db_clear ()	{ _db_cmd "CLEAR $@"; }
+db_settitle ()	{ _db_cmd "SETTITLE $@"; }
+
+# An old alias for input.
 db_text () {
 	db_input $@
 }
 
-# Cannot read a return code, since there is none and we would block.
+# Cannot read a return code, since there is none and it would block.
 db_stop () {
 	echo STOP >&3
 }
