@@ -1,0 +1,58 @@
+=head1 NOM
+
+debconf-mergetemplate - fusionne plusieurs questionnaires debconf
+
+=head1 SYNOPSIS
+
+ debconf-mergetemplate [options] [templates.ll ...] templates
+
+=head1 DESCRIPTION
+
+Ce programme est utile si vous avez de nombreux questionnaires debconf que
+vous voulez fusionner dans un seul gros fichier. Tous les fichiers spécifiés
+seront lus, fusionnés et affichés sur la sortie standard.
+
+Cela peut être très utile si vous avez affaire à des questionnaires
+traduits. Dans ce cas, vous devriez avoir un questionnaire principal et
+plusieurs fichiers fournis par le traducteur. Ces fichiers auront des champs
+traduits et peut-être que les traducteurs auront laissé la version anglaise des
+champs qu'ils ont traduit, pour référence.
+
+Vous voulez donc fusionner tous les questionnaires traduits avec votre
+fichier principal. Chaque champ particulier à un fichier traduit
+doit être ajouté dans le bon questionnaire, mais les champs
+communs doivent être remplacés par les champs du fichier principal (qui
+devraient être plus à jour).
+
+Ce programme traite ce cas correctement, listez seulement chacun des
+questionnaires traduits et en dernier vos questionnaires principaux.
+
+=head1 OPTIONS
+
+=over 4
+
+=item --outdated
+
+Fusionne même les traductions obsolètes. L'action par défaut est de les laisser
+tomber en le signalant par un message d'avertissement.
+
+=item --drop-old-templates
+
+Si un questionnaire traduit possède une question-modèle qui n'est pas dans le
+fichier principal (c'est probablement une ancienne question), rejeter toute
+la question.
+
+=back
+
+=head1 VOIR AUSSI
+
+L<debconf-getlang(1)>
+
+=head1 AUTEUR
+
+Joey Hess <joeyh@debian.org>
+
+=head1 TRADUCTION
+
+Julien Louis <leonptitlouis@ifrance.com>
+

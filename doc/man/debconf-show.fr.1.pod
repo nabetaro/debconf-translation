@@ -1,0 +1,24 @@
+=head1 NOM
+
+debconf-show
+
+=head1 SYNOPSIS
+
+ debconf-show nomdupaquet
+
+=head1 DESCRIPTION
+
+B<debconf-show> affiche tous les éléments d'un paquet présents dans la base de
+données de debconf et leurs valeurs actuelles. Les éléments qui ont été affichés
+sont précédés d'un astérisque («E<nbsp>*E<nbsp>»).
+
+Cela peut être utile pour aider au débogage et très commode dans les rapports de
+bogues concernant un paquet utilisant debconf.
+
+=head1 AUTEUR
+
+Joey Hess <joeyh@debian.org>
+
+=head1 TRADUCTION
+
+Julien Louis <leonptitlouis@ifrance.com>

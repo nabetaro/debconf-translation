@@ -1,0 +1,71 @@
+=head1 NOM
+
+dpkg-reconfigure - reconfigure un paquet déjà installé
+
+=head1 SYNOPSIS
+
+ dpkg-reconfigure [options] paquets
+
+=head1 DESCRIPTION
+
+B<dpkg-reconfigure> reconfigure les paquets après qu'ils ont déjà été
+installés. Donnez-lui le nom d'un ou plusieurs paquets à reconfigurer.
+
+Au fond, cela a le même effet que la réinstallation du paquet. J'espère qu'un
+jour cela sera appelé par dpkg --reconfigure
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-f>I<type>, B<--frontend=>I<type>
+
+Selectionne l'interface à utiliser. L'interface par défaut peut être changée
+définitivement parE<nbsp>:
+
+ dpkg-reconfigure debconf
+
+Remarquez que si vous avez paramétré debconf pour utiliser par défaut
+l'interface non interactive, dpkg-reconfigure utilisera cette fois à la place
+l'interface «E<nbsp>dialogueE<Nbsp>», pour que vous puissier effectivement
+reconfigurer le paquet.
+
+=item B<-p>I<valeur>, B<--priority=>I<valeur>
+
+Spécifie la priorité minimum des questions qui seront affichées.
+dpkg-reconfigure affiche normalement les questions à priorité basse sans
+tenir compte de votre priorité par défaut.
+
+=item B<--all>
+
+Reconfigure tous les paquets installés utilisant debconf. AttentionE<nbsp>: cela
+peut prendre beaucoup de temps.
+
+=item B<-u>, B<--unseen-only>
+
+Par défaut, toutes les questions sont affichées, même si vous y avez déjà
+répondu. Cependant, si ce paramètre est activé, seulement les questions qui
+n'ont pas été affichées seront posées.
+
+=item B<--force>
+
+Force dpkg-reconfigure à reconfigurer un paquet même si celui-ci est dans un
+état contradictoire ou cassé. Utilisez ce paramètre avec précaution.
+
+=item B<-h>, B<--help>
+
+Affiche un message d'aide.
+
+=back
+
+=head1 VOIR AUSSI
+
+L<debconf(7)>
+
+=head1 AUTEUR
+
+Joey Hess <joeyh@debian.org>
+
+=head1 TRADUCTION
+
+Julien Louis <leonptitlouis@ifrance.com>
