@@ -6,24 +6,33 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-12-19 19:30+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-23 11:10-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Debian Description Translation Project <debconf@ddtp.debian.org>\n"
+"Last-Translator: Debian Description Translation Project <debconf@ddtp.debian."
+"org>\n"
 "Language-Team: de <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Description
+#. Choices
+#: ../templates:3
+msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
+msgstr ""
+
 #  Template: debconf/frontend
 #  ddtp-prioritize: 54
 #
-msgid ""
-"What interface should be used for configuring packages?"
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
 msgstr ""
 "Welche Schnittstelle soll zum Konfigurieren der Pakete verwendet werden?"
 
 #
+#. Description
+#: ../templates:5
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
@@ -32,6 +41,8 @@ msgstr ""
 "»look and feel«. Sie können wählen, welches User-Interface sie benutzen."
 
 #
+#. Description
+#: ../templates:5
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and the "
@@ -39,35 +50,41 @@ msgid ""
 "configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Das Dialog-Frontend ist ein symbolzeichenbasiertes vollbildschirm "
-"Interface, das Readline-Frontend verwendet ein traditionelleres "
-"Text-Interface und das Gnome-Frontend ist ein modernes X-Interface. Das "
-"Editor-Frontend läßt Sie Dinge mit Ihrem Lieblingseditor konfigurieren. "
-"Das nichtinteraktive Frontend stellt ihnen keine Fragen."
+"Das Dialog-Frontend ist ein symbolzeichenbasiertes vollbildschirm Interface, "
+"das Readline-Frontend verwendet ein traditionelleres Text-Interface und das "
+"Gnome-Frontend ist ein modernes X-Interface. Das Editor-Frontend läßt Sie "
+"Dinge mit Ihrem Lieblingseditor konfigurieren. Das nichtinteraktive Frontend "
+"stellt ihnen keine Fragen."
 
+#. Choices
+#: ../templates:17
+msgid "critical, high, medium, low"
+msgstr ""
 
-#. Description
 #  Template: debconf/priority
 #  ddtp-prioritize: 54
 #
-msgid ""
-"See only questions that are of what priority and higher?"
-msgstr ""
-"Die Priorität, mit der die Fragen gezeigt werden"
+#. Description
+#: ../templates:19
+msgid "See only questions that are of what priority and higher?"
+msgstr "Die Priorität, mit der die Fragen gezeigt werden"
 
 #
+#. Description
+#: ../templates:19
+#, fuzzy
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see: "
-"  - 'critical' only prompts you if the system might break. Pick it if you \n"
-"    are a newbie, or in a hurry. \n"
-"  - 'high' is for rather important questions \n"
-"  - 'medium' is for normal questions \n"
-"  - 'low' is for control freaks who want to see everything\n"
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf priorisiert die Fragen an Sie.  Wählen Sie die niedrigste "
-"Priorität für die Fragen, die Sie sehen möchten: "
-"  - »kritisch« wird nur gefragt, wenn das System zerstört werden \n"
+"Debconf priorisiert die Fragen an Sie.  Wählen Sie die niedrigste Priorität "
+"für die Fragen, die Sie sehen möchten:   - »kritisch« wird nur gefragt, wenn "
+"das System zerstört werden \n"
 "    könnte.  Nehmen Sie das, wenn Sie Neuling oder in Eile sind. \n"
 "  - »hoch« gilt für wichtige Fragen \n"
 "  - »mittel« ist für normale Fragen \n"
@@ -75,42 +92,43 @@ msgstr ""
 "    möchten\n"
 
 #
-msgid ""
-"Note that no matter what level you pick here, you will be able to see "
-"every question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Beachten Sie, daß Sie unabhängig von der hier gewählten Stufe jede "
-"Frage sehen können, wenn Sie ein Paket mit dpkg-reconfigure neu "
-"konfigurieren."
-
-
 #. Description
+#: ../templates:19
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Beachten Sie, daß Sie unabhängig von der hier gewählten Stufe jede Frage "
+"sehen können, wenn Sie ein Paket mit dpkg-reconfigure neu konfigurieren."
+
 #  Template: debconf/showold
 #  ddtp-prioritize: 54
 #
-msgid ""
-"Show all old questions again and again?"
-msgstr ""
-"Zeige alle alten Fragen wieder und wieder?"
+#. Description
+#: ../templates:34
+msgid "Show all old questions again and again?"
+msgstr "Zeige alle alten Fragen wieder und wieder?"
 
 #
+#. Description
+#: ../templates:34
 msgid ""
 "Debconf normally only asks you any given question once. Then it remembers "
 "your answer and never asks you that question again. If you prefer, debconf "
 "can ask you questions over and over again, each time you upgrade or "
 "reinstall a package that asks them."
 msgstr ""
-"Debconf fragt normal jede Frage nur einmal. Danach erinnert es sich an "
-"Ihre Antwort und fragt Sie diese Frage nie mehr. Wenn Sie es vorziehen, "
-"kann debconf Sie die Fragen immer wieder stellen wenn das entsprechende "
-"Paket installiert oder erneuert wird."
+"Debconf fragt normal jede Frage nur einmal. Danach erinnert es sich an Ihre "
+"Antwort und fragt Sie diese Frage nie mehr. Wenn Sie es vorziehen, kann "
+"debconf Sie die Fragen immer wieder stellen wenn das entsprechende Paket "
+"installiert oder erneuert wird."
 
 #
+#. Description
+#: ../templates:34
 msgid ""
-"Note that no matter what you choose here, you can see old questions again "
-"by using the dpkg-reconfigure program."
+"Note that no matter what you choose here, you can see old questions again by "
+"using the dpkg-reconfigure program."
 msgstr ""
 "Beachten Sie: egal was Sie hier auswählen, Sie können alte Fragen mit den "
 "Programm dpkg-reconfigure erneut stellen lassen."
-
-

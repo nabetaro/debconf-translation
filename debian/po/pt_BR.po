@@ -9,7 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_1.2.32\n"
-"POT-Creation-Date: 2003-03-07 12:15-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-23 11:10-0400\n"
 "PO-Revision-Date: 2003-03-15 21:59-0300\n"
 "Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -64,23 +65,24 @@ msgstr "Ver somente perguntas que sejam de qual prioridade ou superior ?"
 
 #. Description
 #: ../templates:19
+#, fuzzy
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
-"  - 'critical' only prompts you if the system might break. Pick it if you\n"
-"    are a newbie, or in a hurry.\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"O Debconf dá prioridade às perguntas que faz. Escolha a menor "
-"prioridade das questões que você deseja ver :\n"
-"  - 'crítica' somente pergunta algo caso o sistema possa sofrer danos. "
-"     Escolhe essa caso você seja iniciante ou esteja com pressa.\n"
+"O Debconf dá prioridade às perguntas que faz. Escolha a menor prioridade das "
+"questões que você deseja ver :\n"
+"  - 'crítica' somente pergunta algo caso o sistema possa sofrer danos.      "
+"Escolhe essa caso você seja iniciante ou esteja com pressa.\n"
 "  - 'alta' é para perguntas importantes.\n"
 "  - 'média' é para perguntas normais\n"
-"  - 'baixa' é para malucos por controle que desejam ver todas as "
-"     perguntas"
+"  - 'baixa' é para malucos por controle que desejam ver todas as      "
+"perguntas"
 
 #. Description
 #: ../templates:19
@@ -88,9 +90,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Note que, independente do que você escolher aqui, você poderá ver todas "
-"as perguntas caso você reconfigure o pacote com o comando "
-"dpkg-reconfigure."
+"Note que, independente do que você escolher aqui, você poderá ver todas as "
+"perguntas caso você reconfigure o pacote com o comando dpkg-reconfigure."
 
 #. Description
 #: ../templates:34
