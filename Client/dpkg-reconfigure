@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# Reconfigure a package, by running its confmodule and then its postinst.
+# Reconfigure a package.
 # This has the same effect as re-installing the package, basically. I hope
 # one day this will be called by dpkg --reconfigure 
 #
@@ -57,7 +57,10 @@ TOP:
 foreach my $pkg ($all ? allpackages() : @ARGV) {
 	# If this doesn't exist, the package probably doesn't use debconf,
 	# so skip it, becuase a normal package may misbehave when run here.
-	next unless -x "/var/lib/dpkg/info/$pkg.config";
+	if (! -x "/var/lib/dpkg/info/$pkg.config") {
+		warn "package \"$pkg\" is not installed or does not use debconf";
+		next;
+	}
 
 	# Set default title.
 	$frontend->default_title($pkg);
@@ -66,6 +69,7 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 	$_=`dpkg --status $pkg`;
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
+	print "--$status\n";
 	if (! defined $status || $status !~ m/ ok installed$/) {
 		warn "package \"$pkg\" is not fully installed";
 		exit 1;
@@ -81,24 +85,55 @@ foreach my $pkg ($all ? allpackages() : @ARGV) {
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
 		next unless -x "$infodir/$pkg.$script";
-		
-		# Start up the confmodule.
-		my $confmodule=Debian::DebConf::AutoSelect::confmodule(
-			"$infodir/$pkg.$script", @$info);
 
-		# Make sure any questions the confmodule registers are owned
-		# by this package.
-		$confmodule->owner($pkg);
+		# Test to see if the script uses debconf.
+		my $is_confmodule='';
+		open (IN, "<$infodir/$pkg.$script");
+		while (<IN>) {
+			if (/confmodule/) {
+				$is_confmodule=1;
+				last;
+			}
+		}
+		close IN;
+
+		if ($is_confmodule) {
+			# Start up the confmodule.
+			my $confmodule=Debian::DebConf::AutoSelect::confmodule(
+				"$infodir/$pkg.$script", @$info);
 	
-		# Talk to it until it is done.
-		1 while ($confmodule->communicate);
+			# Make sure any questions the confmodule registers are owned
+			# by this package.
+			$confmodule->owner($pkg);
+		
+			# Talk to it until it is done.
+			1 while ($confmodule->communicate);
 	
-		exit $confmodule->exitcode if $confmodule->exitcode > 0;
+			exit $confmodule->exitcode if $confmodule->exitcode > 0;
+		}
+		else {
+			# Not a confmodule, so run it as a normal script.
+			# Since it might run other programs that do use
+			# debconf, checkpoint the current database state
+			# and re-initialize it when the script finishes.
+			Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+			
+			$ENV{DEBIAN_HAS_FRONTEND}='';
+			my $ret=system("$infodir/$pkg.$script", @$info);
+			if (int($ret / 256) != 0) {
+				exit int($ret / 256);
+			}
+			$ENV{DEBIAN_HAS_FRONTEND}=1;
+			
+			Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
+			Debian::DebConf::Config::showold('true');
+		}
 	}
 }
 
 # Save state.
 Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
+<<<<<<< dpkg-reconfigure
 
 # Returns a list of all packages.
 sub allpackages {
@@ -115,3 +150,21 @@ sub allpackages {
 
 	return sort @ret;
 }
+=======
+
+# Returns a list of all installed packages.
+sub allpackages {
+	my @ret;
+	local $/="\n\n";
+	
+	open (STATUS, "</var/lib/dpkg/status")
+		|| die "Cannot read status file: $!";
+	while (<STATUS>) {
+		push @ret, $1
+			if m/Status:\s*.*installed\n/ && m/Package:\s*(.*)\n/;
+	}
+	close STATUS;
+
+	return sort @ret;
+}
+>>>>>>> 1.21.2.2
