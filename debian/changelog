@@ -1,3 +1,10 @@
+debconf (1.2.39) unstable; urgency=low
+
+  * Conflict with whiptail-utf8 until it gets --output-fd support.
+    Closes: #195818
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  2 Jun 2003 11:35:38 -0400
+
 debconf (1.2.38) unstable; urgency=low
 
   * Conflict with whiptail versions before 0.51.4-7, which adds --output-fd
