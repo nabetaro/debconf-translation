@@ -29,6 +29,9 @@ The name of the database. This field is required.
 
 Set to true if this database driver is read only. Defaults to false.
 
+In the config file the literal strings "true" and "false" can be used.
+Internally it uses 1 and 0 and.
+
 =item required
 
 Tells if a database driver is required for proper operation of
@@ -36,13 +39,17 @@ debconf. Required drivers can cause debconf to abort if they are not
 accessible. It can be useful to make remote databases non-required, so
 debconf is usable if connections to them go down. Defaults to true.
 
+In the config file the literal strings "true" and "false" can be used.
+Internally it uses 1 and 0 and.
+
 =back
 
 =cut
 
 # I rarely base objects on fields, but I want strong compile-time type
 # checking for this class of objects, and speed.
-use fields qw(name readonly required);
+use fields qw(name readonly required
+              accept_type reject_type accept_name reject_name);
 
 # Class data.
 our %drivers;
@@ -111,11 +118,11 @@ sub error {
 	my $this=shift;
 
 	if ($this->{required}) {
-		die 'Debconf DbDriver "'.$this->{name}.'" error: '.
+		die 'debconf: DbDriver "'.$this->{name}.'" error: '.
 			shift()."\n";
 	}
 	else {
-		print STDERR 'Debconf DbDriver "'.$this->{name}.'" warning: '.
+		print STDERR 'debconf: DbDriver "'.$this->{name}.'" warning: '.
 			shift()."\n";
 	}
 }

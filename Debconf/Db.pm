@@ -9,7 +9,9 @@ Debconf::Db - debconf database setup
 package Debconf::Db;
 use strict;
 use fields qw{root};
+use Debconf::DbDriver;
 our Debconf::Db $config=fields::new('Debconf::Db');
+our $rootdriver;
 
 =head1 DESCRIPTION
 
@@ -136,6 +138,7 @@ sub readconfig {
 
 	# Read global config stanza.
 	_hashify(<DEBCONF_CONFIG>, $config);
+	die "Root database not specified" unless exists $config->{root};
 	
 	# Now read in each database driver, and set them up.
 	# This assumes that there are no forward references in
@@ -154,6 +157,12 @@ sub readconfig {
 		"Debconf::DbDriver::$type"->new(%driver);
 	}
 	close DEBCONF_CONFIG;
+
+	# Look up the root driver.
+	$rootdriver=Debconf::DbDriver->driver($config->{root});
+	if (not ref $rootdriver) {
+		die "Root database driver \"".$config->{root}."\" was not initialized.\n";
+	}
 }
 
 =head1 AUTHOR
