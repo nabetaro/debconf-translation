@@ -160,8 +160,8 @@ my ($package, $version, $template, $config);
 unless (open(INFO, "-|")) {
 	# TODO: handle case where params overflow kernel command line limit.
 	# a-la-xargs
-	exec "/usr/lib/debconf/apt-extracttemplates", @debs or
-		print STDERR "debconf: exec of /usr/lib/debconf/apt-extracttemplates failed: $!";
+	exec "apt-extracttemplates", @debs or
+		print STDERR "debconf: exec of apt-extracttemplates failed: $!";
 }
 # Why buffer here? Well, suppose 300 packages are being installed, and
 # only the first and last use debconf. The first is preconfigured. Then

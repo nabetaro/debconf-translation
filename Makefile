@@ -3,13 +3,11 @@ pod2man=pod2man -c Debconf -r ""
 all:
 	$(MAKE) -C doc
 	$(MAKE) -C po
-	$(MAKE) -C apt
 
 clean:
 	find . -name \*~ | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
-	$(MAKE) -C apt clean
 	rm -f *.db
 
 install: install-utils install-docs install-rest
@@ -40,8 +38,7 @@ install-rest:
 	$(MAKE) -C po install
 	install -d $(prefix)/etc \
 		$(prefix)/var/cache/debconf \
-		$(prefix)/usr/share/debconf \
-		$(prefix)/usr/lib/debconf
+		$(prefix)/usr/share/debconf
 	install -m 0644 debconf.conf $(prefix)/etc/
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
@@ -56,7 +53,6 @@ install-rest:
 	# Other libs and helper stuff.
 	install -m 0644 confmodule.sh confmodule $(prefix)/usr/share/debconf/
 	install frontend $(prefix)/usr/share/debconf/
-	install -s apt/apt-extracttemplates $(prefix)/usr/lib/debconf/
 	install -m 0755 transition_db.pl $(prefix)/usr/share/debconf/
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \

@@ -3,38 +3,37 @@ Section: admin
 Priority: optional
 Maintainer: Joey Hess <joeyh@debian.org>
 Standards-Version: 3.5.2.0
-Build-Depends: perl, debhelper (>= 3.0.5), gettext, libapt-pkg-dev, g++
-Build-Depends-Indep: perl, debhelper (>= 3), links (>= 0.92), jade, sp, docbook-xml, docbook-stylesheets, sgml-data (>= 1.2), tidy
+Build-Depends: perl, debhelper (>= 3.0.5), gettext, links (>= 0.92), jade, sp, docbook-xml, docbook-stylesheets, sgml-data (>= 1.2), tidy
 
 Package: debconf
-Architecture: any
 Priority: standard
 Pre-Depends: perl-base (>= 5.6.0-19)
-Conflicts: debconf-utils (<< 0.4), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9a-20000730-1), whiptail (<< 0.50.8-1), libterm-stool-perl (<< 0.20), cdebconf (<< 0.10-5), debconf-utils (<< 0.9)
+Conflicts: debconf-utils (<< 0.9), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9a-20000730-1), whiptail (<< 0.50.8-1), libterm-stool-perl (<< 0.20), cdebconf (<< 0.10-5)
 Provides: debconf-tiny
 Replaces: debconf-tiny
-Depends: fileutils (>= 4.0-5), ${shlibs:Depends}
-Recommends: libterm-stool-perl | libterm-readline-gnu-perl
+Depends: fileutils (>= 4.0-5)
+Recommends: libterm-stool-perl | libterm-readline-gnu-perl, apt-utils (>= 0.5.1)
 Suggests: debconf-doc, whiptail | dialog | gnome-utils, liblocale-gettext-perl
+Architecture: all
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages
  use Debconf to ask questions when they are installed.
 
 Package: debconf-doc
-Architecture: all
 Conflicts: debconf (<< 0.3.10)
 Suggests: debian-policy (>= 3.5)
+Architecture: all
 Description: Debian configuration management system documentation
  This package contains lots of additional documentation for Debconf,
  including an introduction to Debconf, a user's guide, a programmer's
  tutorial, and the specification Debconf is based on.
 
 Package: debconf-utils
-Architecture: all
 Section: devel
 Depends: debconf (>= 0.9)
 Conflicts: debconf (<< 0.3.31)
 Replaces: debconf (<< 0.3.31)
+Architecture: all
 Description: Debconf utilities
  This package contains some small utilities to aid developers who are using
  debconf. There are utilities to aid with managing translated template

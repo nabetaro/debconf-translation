@@ -1,5 +1,14 @@
-debconf (0.9.06) experimental; urgency=low
+debconf (0.9.10) unstable; urgency=low
 
+  * The "but, I waited _11_days_" release.
+  * Modifications for apt 0.5.1: no longer includes apt-extracttemplates,
+    which is now in apt-utils, which you need to install now if you want
+    preconfiguration. This makes debconf not depend on the unstable apt
+    library, and makes it arch all again, woo hoo!
+  * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
+    Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question
+    as there is no reason to configure this during debconf install time,
+    and no good reason to use debconf to ask a question about it.
   * Wrote a flexible extensible layered backend database system for
     debconf. It's the long-missing quarter of debconf, and thus debconf
     will be ready for 1.0 once the kinks in it are worked out. See the
@@ -8,21 +17,24 @@ debconf (0.9.06) experimental; urgency=low
     /etc/debconf.conf.
   * Db reloads inside the same perl invocation (dpkg-reconfigure needs to
     do this sometimes) are no longer a problem, Closes: #85873
-  * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
-    Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question
-    as there is no reason to configure this during debconf install time,
-    and no good reason to use debconf to ask a question about it.
   * Removed various outdated database transition code.
-  * Added new transition code.
+  * I've had some unreproducible reports of the old debconf db upgrades
+    failing. The new code handles upgrades from either of the pervious two
+    varients of the db format, so should deal with those problems. 
+    Closes: #80940
+  * Added new transition code. Does not yet delete old database, as it has
+    not had sufficient testing.
   * Changed interface of debconf-communicate.
   * Made dpkg-preconfigure make one pass over the templates, and then a
-    second pass over the config scripts, should fix Overfiend's problem
+    second pass over the config scripts; should fix Overfiend's problem
     with shared templates and X.
   * Pre-depends on perl-base, to ensure that debconf is always usable,
     even if it is just unpacked and not yet configured.
   * Dutch template update, Closes: #87493
+  * Made everything use sane temp file opens, so the hack with
+    /var/lib/debconf/ containing temp files is no longer necessary.
 
- -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
+ -- Joey Hess <joeyh@debian.org>  Sun,  4 Mar 2001 14:42:31 -0800
 
 debconf (0.5.64) unstable; urgency=low
 
