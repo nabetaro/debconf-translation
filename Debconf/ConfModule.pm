@@ -13,7 +13,6 @@ use FileHandle;
 use Debconf::Gettext;
 use Debconf::Config qw(showold);
 use Debconf::Question;
-use Debconf::ConfigDb qw(disownquestion disownall);
 use Debconf::Priority qw(priority_valid high_enough);
 use Debconf::FrontEnd::Noninteractive;
 use Debconf::Log ':all';
@@ -524,7 +523,9 @@ sub command_unregister {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 	my $name=shift;
 	
-	disownquestion($name, $this->owner);
+	my $question=Debconf::Question->get($name) ||
+		return $codes{badparams}, "$name doesn't exist";
+	$question->removeowner($this->owner);
 	return $codes{success};
 }
 
@@ -538,7 +539,12 @@ sub command_purge {
 	my $this=shift;
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ > 0;
 	
-	disownall($this->owner);
+	my $i=Debconf::Question->iterate;
+	my $q;
+	while ($q = Debconf::Question->iterate($i)) {
+		$q->removeowner($this->owner);
+	}
+
 	return $codes{success};
 }
 

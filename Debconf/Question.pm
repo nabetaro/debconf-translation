@@ -83,6 +83,27 @@ sub get {
 	return undef;
 }
 
+=item iterate
+
+Iterate over all existing questions. If called without parameters, returns
+an iterator object. If called with the iterator, returns the next question,
+or undef if all have been iterated over.
+
+=cut
+
+sub iterate {
+	my $this=shift;
+	
+	if (! @_) {
+		return $Debconf::Db::config->iterate;
+	}
+	else {
+		my $name=$Debconf::Db::config->iterate(@_);
+		return unless defined $name;
+		return $this->get($name);
+	}
+}
+
 =back
 
 =head1 METHODS
