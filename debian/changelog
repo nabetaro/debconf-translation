@@ -1,7 +1,9 @@
-debconf (1.4.15) unstable; urgency=low
+debconf (1.4.16) unstable; urgency=medium
 
   * Dialog and whiptail differ in their handling of --nocancel with
     --defaultno. Never use the two options together. Closes: #236943
+  * Bump the urgency, this bug can cause bad things to happen and needs to be
+    fixed in testing.
 
  -- Joey Hess <joeyh@debian.org>  Wed, 10 Mar 2004 10:59:28 -0500
 
