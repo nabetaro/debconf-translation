@@ -79,7 +79,6 @@ Description-nl: Negeer vragen met een prioriteit lager dan..
 Template: debconf/frontend
 Type: select
 Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-nl:
 Description: What interface should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
@@ -90,8 +89,7 @@ Description: What interface should be used for configuring packages?
  your favorite text editor. The noninteractive frontend never asks you any
  questions. The dialog frontend is a primative frontend that is being
  phased out.
-Description-nl: Welke interface moet gebruikt worden bij het instellen
-van pakketten?
+Description-nl: Welke interface moet gebruikt worden bij het instellen van pakketten?
  Pakketten die debconf gebruiken voor hun configuratie delen een
  gezamelijke look-and-feel. U kunt selecteren welk type interface u wilt
  gebruiken.
