@@ -1,3 +1,10 @@
+debconf (1.4.1) unstable; urgency=low
+
+  * Patch from Denis Barbier to fix return values from select and multiselect
+    in the KDE frontend to take localisation into account. Closes: #225504
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 30 Dec 2003 10:16:38 -0500
+
 debconf (1.4.0) unstable; urgency=low
 
   * Add an exerimental KDE frontend, contributed by Peter Rockai.
