@@ -39,6 +39,10 @@ my $frontend=eval qq{
 };	
 die $@ if $@;
 
+# Make the frontend show questions even if the user has already seen them.
+# Since this is a reconfigure program, they may want to change their choices.
+$frontend->showold(1);
+
 TOP:
 foreach my $pkg (@ARGV) {
 	# Load up templates.

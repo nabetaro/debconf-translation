@@ -3,6 +3,9 @@ To Do Before Release:
   note stuff.
 * Make sure my spec changes are accepted by Wichert.
 * installing netbase_3.15-4.2_i386.deb hangs when the postinst exits :-(
+  Same with my new debconf'd lynx package. Interestingly, if you run the
+  postinst by hand, this doesn't happen. Could dpkg be messing up my 
+  SIGCHLD handling?
 
 General:
 * Internals have changed in 0.1.5 and need to be redocumented.
@@ -14,9 +17,6 @@ General:
   building a whole package, for testing. Adapt test.pl?
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be nice to have.
-* I need a flag that makes all isdefault flags be assummed to be on. Then
-  dpkg-reconfig will use that, and so the user gets to re-answer all
-  questions. Otherwise dpkg-reconfig is often a no-op.
 
 Line at a time frontend:
 * It can't tell how high the screen is unless LINES is exported, which
@@ -35,8 +35,9 @@ Dialog frontend:
   when it prompts for an input that is in the same block.
 
 Web based frontend:
-* Well, a little security would be nice! It has the same password problem
-  dialog has, too.
+* Well, a little security would be nice! Make sure it only allows connections
+  from localhost, but even that isn't really good enough.
+* It has the same password problem dialog has, too.
 * It can support blocks, so add them. I guess they could be used for
   arranging questions into tables or something.
 * It should have a config screen. In it, you configure the frontend itself.

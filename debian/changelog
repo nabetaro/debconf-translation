@@ -1,3 +1,10 @@
+debconf (0.1.12) unstable; urgency=low
+
+  * dpkg-reconfigure now sets a flag in FrontEnd::Base that makes old
+    questions be shown as well. This is very nice for reconfiguring stuff..
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu,  9 Sep 1999 16:19:21 -0700
+
 debconf (0.1.11) unstable; urgency=low
 
   * Added db_set command to confmodule.sh

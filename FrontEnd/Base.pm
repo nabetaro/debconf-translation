@@ -44,7 +44,8 @@ sub new {
 
 =head2 makeelement
 
-Create an Element from a Question. Pass in the Question, the Element is returned.
+Create an Element from a Question. Pass in the Question, the Element is
+returned.
 
 =cut
 
@@ -57,9 +58,9 @@ sub makeelement {
 
 =head2 add
 
-Add a Question to the list to be displayed to the user. Pass the Question and text
-indicating the priority of the Question. This creates an Element and adds it to the
-array in the elements property.
+Add a Question to the list to be displayed to the user. Pass the Question and
+text indicating the priority of the Question. This creates an Element and adds
+it to the array in the elements property.
 
 =cut
 
@@ -70,7 +71,8 @@ sub add {
 
 	# Skip items that the user has seen or that are unimportant.
 	return unless Debian::DebConf::Priority::high_enough($priority);
-	return if $question->flag_isdefault eq 'false';
+	# Set showold to make it ask even default questions.
+	return if ! $this->showold && $question->flag_isdefault eq 'false';
 
 	# Pass in the frontend to use as well, some elements need it.
 	push @{$this->{elements}}, $this->makeelement($question);
@@ -78,8 +80,8 @@ sub add {
 
 =head2 go
 
-Display accumulated Elements to the user. The Elements are in the elements property,
-and that property is cleared after the Elements are presented.
+Display accumulated Elements to the user. The Elements are in the elements
+property, and that property is cleared after the Elements are presented.
 
 =cut
 
