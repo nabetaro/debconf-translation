@@ -101,9 +101,8 @@ sub makeelement
 {
 	my $this=shift;
 	my $question=shift;
-	my $element=Debconf::Element->new(question => $question);
-	return unless ref $element; # Why is this here?
-	return $element;
+	
+	return Debconf::Element->new(question => $question);
 }
 
 =head2 capb_backup
@@ -208,8 +207,8 @@ sub go {
 
 		my ($ret, $val)=$this->talk('GET', $tag);
 		if ($ret eq "0") {
-			$element->question->value($val);
-			debug developer => "Setting value of $tag to $val";
+			$element->value($val);
+			debug developer => "Got \"$val\" for $tag";
 		}
 	}
 

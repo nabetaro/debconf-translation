@@ -62,7 +62,7 @@ sub show {
 
 	# Dialog returns the selected items, each on a line.
 	# Translate back to C, and turn into our internal format.
-	return join(", ", map { $this->translate_to_C($_) } split(/\n/, $value));
+	$this->value(join(", ", map { $this->translate_to_C($_) } split(/\n/, $value)));
 }
 
 1

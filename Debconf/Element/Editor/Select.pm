@@ -33,20 +33,27 @@ sub show {
 	$this->frontend->item($this->question->name, $default);
 }
 
-=item process
+=item value
 
 Verifies that the value is one of the choices. If not, or if the value
-isn't set, return whatever the old value of the Question was.
+isn't set, the value is not changed.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
+
+	return $this->SUPER::value() unless @_;
 	my $value=shift;
+	
 	my %valid=map { $_ => 1 } $this->question->choices_split;
 	
-	return $this->translate_to_C($value) if $valid{$value};
-	return $this->question->value;
+	if ($valid{$value}) {
+		return $this->SUPER::value($this->translate_to_C($value));
+	}
+	else {
+		return $this->SUPER::value($this->question->value);
+	}
 }
 
 =back

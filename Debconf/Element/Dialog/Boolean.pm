@@ -30,7 +30,7 @@ sub show {
 	}
 
 	my ($ret, $value)=$this->frontend->showdialog(@params);
-	return $ret eq 0 ? 'true' : 'false';
+	$this->value($ret eq 0 ? 'true' : 'false');
 }
 
 1

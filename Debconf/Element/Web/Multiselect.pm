@@ -49,16 +49,18 @@ sub show {
 	return $_;
 }
 
-=item process
+=item value
 
-This gets called once the user has entered a value. It expects to be passed
-all the values they selected. It processes these into the form used internally
-and returns that.
+When setting a value, this expects to be passed all the values they
+selected. It processes these into the form used internally.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
+
+	return $this->SUPER::value() unless @_;
+
 	# This forces the function that provides values to this method
 	# to be called in scalar context, so we are passed a list of
 	# the selected values.
@@ -69,7 +71,7 @@ sub process {
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
 	
-	return join(', ',  map { $choices[$_] } @values);
+	$this->SUPER::value(join(', ',  map { $choices[$_] } @values));
 }
 
 =back

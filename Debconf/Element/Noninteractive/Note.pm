@@ -35,7 +35,7 @@ sub show {
 	my $this=shift;
 
 	$this->sendmail(gettext("Debconf was not configured to display this note, so it mailed it to you."));
-	return '';
+	$this->value('');
 }
 
 =item sendmail

@@ -184,14 +184,14 @@ sub show {
 	# Prompt until a valid answer is entered.
 	my $value;
 	while (1) {
-		$value=$this->expandabbrev($this->frontend->prompt(
-						$this->question->description,
-						$default ne '' ? $abbrevs{$default} : ''),
-					   %abbrevs);
+		$value=$this->frontend->prompt($this->question->description,
+			$default ne '' ? $abbrevs{$default} : '');
+		return unless defined $value;
+		$value=$this->expandabbrev($value, %abbrevs);
 		last if $value ne '';
 	}
 	$this->frontend->display("\n");
-	return $this->translate_to_C($value);
+	$this->value($this->translate_to_C($value));
 }
 
 =back

@@ -17,6 +17,12 @@ This is a yes or no question.
 
 =cut
 
+=head1 METHODS
+
+=over 4
+
+=cut
+
 sub show {
 	my $this=shift;
 
@@ -35,20 +41,29 @@ sub show {
 	$this->frontend->item($this->question->name, $default);
 }
 
-=item process
+=item value
 
-Validates the input. If it's not valid, returns the old default.
+Overridden to handle translating the value that the user typed in. Also,
+if the user typed in something invalid, the value is not changed.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
+	
+	return $this->SUPER::value() unless @_;
 	my $value=shift;
 	
 	# Handle translated and non-translated replies.
-	return 'true' if $value eq 'yes' || $value eq gettext("yes");
-	return 'false' if $value eq 'no' || $value eq gettext("no");
-	return $this->question->value;
+	if ($value eq 'yes' || $value eq gettext("yes")) {
+		return $this->SUPER::value('true');
+	}
+	elsif ($value eq 'no' || $value eq gettext("no")) {
+		return $this->SUPER::value('false');
+	}
+	else {
+		return $this->SUPER::value($this->question->value);
+	}
 }
 
 =back

@@ -34,10 +34,10 @@ sub show {
 		my $default='';
 		$default=$this->question->value
 			if defined $this->question->value;
-		return $default
+		$this->value($default);
 	}
 	else {
-		return $ret;
+		$this->value($ret);
 	}
 }
 

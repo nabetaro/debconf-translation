@@ -48,22 +48,23 @@ sub show {
 	return $_;
 }
 
-=item process
+=item value
 
-This gets called once the user has entered a value. It is passed the
-value they entered. It saves the value in the associated Question.
+Overridden to handle translating the value back to C locale when it is set.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
+
+	return $this->SUPER::value() unless @_;
 	my $value=shift;
 
 	# Get the choices in the C locale.
 	$this->question->template->i18n('');
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
-	return $choices[$value];
+	$this->SUPER::value($choices[$value]);
 }
 
 =back

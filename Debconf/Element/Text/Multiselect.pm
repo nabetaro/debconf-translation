@@ -43,6 +43,7 @@ sub show {
 		$_=$this->frontend->prompt($this->question->description,
 		 	join(" ", map { $abbrevs{$_} }
 				  grep { $value{$_} } @choices));
+		return unless defined $_;
 
 		# Split up what they entered. They can separate items
 		# with whitespace, commas, etc.
@@ -69,7 +70,7 @@ sub show {
 	$this->frontend->display("\n");
 
 	if (defined $selected[0] && $selected[0] eq $none_of_the_above) {
-		return '';
+		$this->value('');
 	}
 	else {
 		# Make sure that no item was entered twice. If so, remove
@@ -77,8 +78,8 @@ sub show {
 		my %selected=map { $_ => 1 } @selected;
 
 		# Translate back to C locale, and join the list.
-		return join(', ', sort map { $this->translate_to_C($_) }
-		                       keys %selected);
+		$this->value(join(', ', sort map { $this->translate_to_C($_) }
+		                       keys %selected));
 	}
 }
 

@@ -138,9 +138,6 @@ sub add {
 
 Display accumulated Elements to the user.
 
-The return value of each element's show() method is used to set the value
-of the question associated with that element.
-
 This will normally return true, but if the user indicates they want to 
 back up, it returns false.
 
@@ -150,9 +147,8 @@ sub go {
 	my $this=shift;
 	$this->backup('');
 	foreach my $element (@{$this->elements}) {
-		my $value=$element->show;
+		$element->show;
 		return if $this->backup && $this->capb_backup;
-		$element->question->value($value);
 	}
 	return 1;
 }

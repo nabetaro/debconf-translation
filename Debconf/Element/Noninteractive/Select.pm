@@ -41,14 +41,15 @@ sub show {
 
 	if (! $inlist) {
 		if (@choices) {
-			$this->question->value($choices[0]);
+			$this->value($choices[0]);
 		}
 		else {
-			$this->question->value('');
+			$this->value('');
 		}
 	}
-
-	return $this->question->value;
+	else {
+		$this->value($value);
+	}
 }
 
 =back

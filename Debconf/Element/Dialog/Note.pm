@@ -22,7 +22,7 @@ sub show {
 	$this->frontend->showtext($this->question->description."\n\n".
 		$this->question->extended_description
 	);
-	return '';
+	$this->value('');
 }
 
 1

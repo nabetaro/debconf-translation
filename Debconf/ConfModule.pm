@@ -393,6 +393,7 @@ sub command_go {
 	if ($ret && (! $this->backed_up ||
 	             grep { $_->visible } @{$this->frontend->elements})) {
 		foreach (@{$this->frontend->elements}) {
+			$_->question->value($_->value);
 			push @{$this->seen}, $_->question if $_->visible && $_->question;
 		}
 		$this->frontend->clear;

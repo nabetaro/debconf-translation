@@ -180,13 +180,15 @@
 	    <entry>
 	      The most traditional frontend, this looks quite similar
 	      to how Debian configuration always has: a series of questions,
-	      printed out at the console using plain text. It does have
+	      printed out at the console using plain text. It includes
 	      readline support.
 	      <note>
 	        <para>
 	          I reccommend you install the
 	          <literal>libterm-readline-gnu-perl</literal> package
-	          to make the most of the readline support.
+	          to make the most of the readline support. It will even
+		  let you back up to a previous question via ctrl-U or Page
+		  Up.
 	        </para>
 	      </note>
 	      This is the best frontend for remote admin work over a slow

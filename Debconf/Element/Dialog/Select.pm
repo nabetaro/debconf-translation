@@ -62,9 +62,13 @@ sub show {
 	
 	@params=('--menu', $text, $lines, $columns, $menu_height, @params);
 
-	my $ret=$this->frontend->showdialog(@params);
-	return unless defined $ret;
-	return $this->translate_to_C($ret);
+	my $value=$this->frontend->showdialog(@params);
+	if (defined $value) {
+		$this->value($this->translate_to_C($value));
+	}
+	else {
+		$this->value('');
+	}
 }
 
 1

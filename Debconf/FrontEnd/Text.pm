@@ -20,6 +20,12 @@ local $|=1;
 This FrontEnd is for a simple user interface that uses plain text output. It
 uses ReadLine to make the user interface just a bit nicer.
 
+=head1 FIELDS
+
+=over 4
+
+=back
+
 =head1 METHODS
 
 =over 4
@@ -34,6 +40,39 @@ sub init {
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
 	$this->readline(Term::ReadLine->new('debconf'));
 	$this->readline->ornaments(1);
+
+	# Ctrl-u or pageup backs up, while ctrl-v or pagedown moves
+	# forward. These key bindings are only supported by Gnu ReadLine.
+	if (Term::ReadLine->ReadLine =~ /::Gnu$/) {
+		$this->readline->add_defun('previous-question',	
+			sub {
+				if ($this->capb_backup) {
+					$this->_skip(1);
+					$this->_direction(-1);
+					# Tell readline to quit. Yes, 
+					# this is really the best way. <sigh>
+					$this->readline->stuff_char(ord "\n");
+				}
+				else {
+					$this->readline->ding;
+				}
+			}, ord "\cu");
+		# This is only defined so people have a readline function
+		# they can remap if they desire.
+		$this->readline->add_defun('next-question',
+			sub {
+				if ($this->capb_backup) {
+					# Just move onward.
+					$this->readline->stuff_char(ord "\n");
+				}
+			}, ord "\cv");
+		# FIXME: I cannot figure out a better way to feed in a key 
+		# sequence -- someone help me.
+		$this->readline->parse_and_bind('"\e[5~": previous-question');
+		$this->readline->parse_and_bind('"\e[6~": next-question');
+		$this->capb('backup');
+	}
+
 	$this->interactive(1);
 	$this->linecount(0);
 	
@@ -41,6 +80,59 @@ sub init {
 	# prompts must include defaults or not.
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
 		$this->promptdefault(1);
+	}
+}
+
+=item go
+
+Overrides the default go method with something a little more sophisticated.
+This frontend supports backing up, but it doesn't support displaying blocks of
+questions at the same time. So backing up from one block to the next is
+taken care of for us, but we have to handle movement within a block. This
+includes letting the user move back and forth from one question to the next
+in the block, which this method supports.
+
+The really gritty part is that it keeps track of whether the user moves all
+the way out of the current block and back, in which case they have to start
+at the _last_ question of the previous block, not the first.
+
+=cut
+
+sub go {
+	my $this=shift;
+
+	# First, take care of any noninteractive elements in the block.
+	foreach my $element (grep ! $_->visible, @{$this->elements}) {
+		my $value=$element->show;
+		return if $this->backup && $this->capb_backup;
+		$element->question->value($value);
+	}
+
+	# Now we only have to deal with the interactive elements.
+	my @elements=grep $_->visible, @{$this->elements};
+	unless (@elements) {
+		$this->_didbackup('');
+		return 1;
+	}
+
+	# Figure out where to start, based on if we backed up to get here.
+	my $current=$this->_didbackup ? $#elements : 0;
+
+	# Loop through the elements from starting point until we move
+	# out of either side. The property named "_direction" will indicate
+	# which direction to go next; it is changed elsewhere.
+	$this->direction(1);
+	for (; $current > -1 && $current < @elements; $current += $this->_direction) {
+		my $value=$elements[$current]->show;
+	}
+
+	if ($current < 0) {
+		$this->_didbackup(1);
+		return;
+	}
+	else {
+		$this->_didbackup('');
+		return 1;
 	}
 }
 
@@ -126,6 +218,11 @@ Pass it the text to prompt the user with, and an optional default. The
 user will be prompted to enter input, and their input returned. If a
 title is pending, it will be displayed before the prompt.
 
+This function will return undef if the user opts to skip the question 
+(by backing up or moving on to the next question). Anything that uses this
+function should catch that and handle it, probably by exiting any
+read/validate loop it is in.
+
 =cut
 
 sub prompt {
@@ -137,40 +234,15 @@ sub prompt {
 	$this->linecount(0);
 	my $ret;
 	if (! $noshowdefault && $this->promptdefault && $default ne '') {
+		# Dumb readline.
 		$ret=$this->readline->readline($prompt."[$default] ", $default);
 	}
 	else {
-		# ctrl-u or pageup backs up
-		$this->readline->add_defun('previous-question',
-			sub {
-                       	$this->backup(1);
-	                        $this->_readline_done(1);
-	                }, ord "\cu");
-		# I cannot figure out a better way to feed in a key sequence
-		# -- someone help me.
-		$this->readline->parse_and_bind('"\e[5~": previous-question');
-
-		# Use readline in its callback mode, so we can break out of
-		# the loop if the user decides to back up.
-		$this->readline->callback_handler_install($prompt,
-			sub {
-				$this->_readline_done(1);
-				$this->_readline_val=shift;
-			}
-		);
-		$this->_readline_done('');
-		until ($this->_readline_done) {
-			$this->readline->callback_read_char;
-		}
-		$this->readline->callback_handler_remove;
-		# This is a huge hack. TODO: fixme
-		if ($this->backup) {
-			$ret=$default;
-		}
-		else {
-			$ret=$this->_readline_val;
-		}
+		$this->_skip('');
+		$ret=$this->readline->readline($prompt, $default);
+		return if $this->_skip;
 	}
+	$this->_direction(1);
 	$this->readline->addhistory($ret);
 	if ($ret eq '' && $this->promptdefault) {
 		return $default;

@@ -29,6 +29,7 @@ sub show {
 
 	# Prompt for input using the short description.
 	my $value=$this->frontend->prompt($this->question->description, $default);
+	return unless defined $value;
 	
 	# Handle defaults.
 	if ($value eq '') {
@@ -36,7 +37,7 @@ sub show {
 	}
 	
 	$this->frontend->display("\n");
-	return $value;
+	$this->value($value);
 }
 
 1

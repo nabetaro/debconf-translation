@@ -286,16 +286,6 @@ sub go {
 	foreach my $element (@elements) {
 		$element->show;
 	}
-	
-	if (! $this->backup) {
-		# Run through the slang elements, and get the values that
-		# were entered and shove them into the questions.
-		foreach my $element (@elements) {
-			next unless $element->widget;
-			
-			$element->question->value($element->value);
-		}
-	}
 
 	return ! $this->backup;
 }

@@ -133,7 +133,9 @@ sub go {
 		next if /^\s*#/;
 
 		if (/(.*?)="(.*)"/ && $eltname{$1}) {
-			$eltname{$1}->question->value($eltname{$1}->process($2));
+			# Elements can override the value method to
+			# process the input.
+			$eltname{$1}->value($2);
 		}
 	}
 	close IN;

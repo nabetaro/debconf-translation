@@ -42,7 +42,8 @@ sub show {
 	while (1) {
 		# Prompt for input.
 		$_=$this->frontend->prompt($this->question->description, $default);
-		
+		return unless defined $_;
+
 		# Handle defaults.
 		if ($_ eq '' && defined $default) {
 			$_=$default;
@@ -71,7 +72,7 @@ sub show {
 	}
 	
 	$this->frontend->display("\n");
-	return $value;
+	$this->value($value);
 }
 
 =back

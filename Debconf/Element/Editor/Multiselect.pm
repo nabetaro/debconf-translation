@@ -35,20 +35,24 @@ sub show {
 	$this->frontend->item($this->question->name, join ", ", $this->translate_default);
 }
 
-=item process
+=item value
 
-Convert from a space-separated list into the internal format. At the same
-time, validate each item and make sure it is allowable, or remove it.
+When value is set, convert from a space-separated list into the internal
+format. At the same time, validate each item and make sure it is allowable,
+or remove it.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
+
+	return $this->SUPER::value() unless @_;
 	my @values=split(',\s+', shift);
+
 	my %valid=map { $_ => 1 } $this->question->choices_split;
 	
-	return join(', ', sort map { $this->translate_to_C($_) }
-	                  grep { $valid{$_} } @values);
+	$this->SUPER::value(join(', ', sort map { $this->translate_to_C($_) }
+	                  grep { $valid{$_} } @values));
 }
 
 =back

@@ -107,8 +107,8 @@ sub closeclient {
 
 =item showclient
 
-Displays the passed text to the client. Can be called multiple times to build up
-a page.
+Displays the passed text to the client. Can be called multiple times to 
+build up a page.
 
 =cut
 
@@ -195,18 +195,18 @@ sub go {
 
 	# Now it's just a matter of matching up the element id's with values
 	# from the form, and passing the values from the form into the
-	# elements, for them to process, and then storing the processed data.
+	# elements.
 	foreach my $id ($query->param) {
 		next unless $idtoelt{$id};
 		
-		$idtoelt{$id}->question->value($idtoelt{$id}->process($query->param($id)));
+		$idtoelt{$id}->value($query->param($id));
 		delete $idtoelt{$id};
 	}
 	# If there are any elements that did not get a result back, that in
 	# itself is significant. For example, an unchecked checkbox will not
 	# get anything back.
 	foreach my $elt (values %idtoelt) {
-		$elt->question->value($elt->process(''));
+		$elt->value('');
 	}
 	
 	return 1;

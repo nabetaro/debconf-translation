@@ -40,18 +40,18 @@ sub show {
 	return $_;
 }
 
-=item process
+=item value
 
-This gets called once the user has entered a value, to process it before
-it is stored.
+Overridden to handle processing form input data.
 
 =cut
 
-sub process {
+sub value {
 	my $this=shift;
-	my $value=shift;
 
-	return $value eq 'on' ? 'true' : 'false';
+	return $this->SUPER::value() unless @_;
+	my $value=shift;
+	$this->SUPER::value($value eq 'on' ? 'true' : 'false');
 }
 
 =back

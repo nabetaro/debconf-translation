@@ -1,3 +1,14 @@
+debconf (0.5.20) unstable; urgency=low
+
+  * The text frontend now supports backing up! It's now probably the
+    most usable of all debconf frontends, if you're comfortable at the
+    command line. Give it a try! (Tab completion is on the horizon, too.)
+  * A pretty painful reorganization of how all Elements return and validate
+    values -- at least it's consistent now.
+  * Probability I broke something this time: 76.51%
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 16 Nov 2000 13:55:05 -0800
+
 debconf (0.5.01) unstable; urgency=low
 
   * Added something to the help to make select widgets more obvious.

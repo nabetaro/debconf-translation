@@ -15,6 +15,14 @@ use base qw(Debconf::Base);
 This is the base object on which many different types of input elements are
 built. Each element represents one user interface element in a FrontEnd. 
 
+=head1 FIELDS
+
+=over 4
+
+=item value
+
+The value the user entered into the element.
+
 =head1 METHODS
 
 =over 4
@@ -36,28 +44,12 @@ sub visible {
 
 =item show
 
-Causes the element to be displayed, allows the user to interact with it to
-specify a value, and returns the value they enter (this value is later used to
-set the value of the accociated question).
+Causes the element to be displayed, allows the user to interact with it.
+Typically causes the value field to be set.
 
 =cut
 
 sub show {}
-
-=item process
-
-Some types of Elements will be called on to process information gotten from
-the user. The default process subroutine simply spits the information back,
-it may need to be overridden to manipulate the values.
-
-=cut
-
-sub process {
-	my $this=shift;
-	my $value=shift;
-
-	return $value;
-}
 
 =back
 

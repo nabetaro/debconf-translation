@@ -11,7 +11,7 @@ else
 fi 
 
 db_version 2.0
-db_capb backup
+#db_capb backup
 db_title Demo
 
 # This implements a simple state machine so the back button can be handled.
@@ -49,7 +49,7 @@ while [ "$STATE" != 0 -a "$STATE" != 6 ]; do
 	else
 		STATE=`expr $STATE - 1`
 	fi
-	echo "ON STATE: $STATE"
+#	echo "ON STATE: $STATE"
 done
 
 # This is EVIL, never echo in your own config scripts!
