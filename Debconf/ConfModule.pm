@@ -184,8 +184,8 @@ sub process_command {
 	}
 	# Make sure that the command is valid.
 	if (! $this->can("command_$command")) {
-		return $codes{syntaxerror},
-		       "Unsupported command \"$command\" received from confmodule.";
+		return $codes{syntaxerror}.' '.
+		       "Unsupported command \"$command\" (full line was \"$_\") received from confmodule.";
 	}
 	# Now call the subroutine for the command.
 	$command="command_$command";
