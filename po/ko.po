@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2001-07-17 13:50-0400\n"
+"POT-Creation-Date: 2001-07-17 14:52-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -13,12 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../Debconf/AutoSelect.pm:64
-#, c-format
-msgid "failed to initialize frontend: %s"
+#: ../Debconf/AutoSelect.pm:62
+#, fuzzy, c-format
+msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:69
+#: ../Debconf/AutoSelect.pm:70
+#, fuzzy, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "frontend를 초기화할 수 없음: %s"
+
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"

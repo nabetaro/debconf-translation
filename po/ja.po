@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-07-17 13:50-0400\n"
+"POT-Creation-Date: 2001-07-17 14:52-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -14,12 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../Debconf/AutoSelect.pm:64
-#, c-format
-msgid "failed to initialize frontend: %s"
+#: ../Debconf/AutoSelect.pm:62
+#, fuzzy, c-format
+msgid "falling back to frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:69
+#: ../Debconf/AutoSelect.pm:70
+#, fuzzy, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "フロントエンドの初期化に失敗しました: %s"
+
+#: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"

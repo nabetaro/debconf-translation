@@ -53,17 +53,24 @@ sub make_frontend {
 	my $script=shift;
 	my $starttype=ucfirst($type || Debconf::Config->frontend);
 
+	my $showfallback=0;
 	foreach $type ($starttype, @{$fallback{$starttype}}, 'Noninteractive') {
-		debug user => "trying frontend $type";
+		if (! $showfallback) {
+			debug user => "trying frontend $type";
+		}
+		else {
+			warn(sprintf(gettext("falling back to frontend: %s"), $type));
+		}
 		$frontend=eval qq{
 			use Debconf::FrontEnd::$type;
 			Debconf::FrontEnd::$type->new();
 		};
 		return $frontend if defined $frontend;
 
-		warn sprintf(gettext("failed to initialize frontend: %s"), $type);
+		warn sprintf(gettext("unable to initialize frontend: %s"), $type);
 		$@=~s/\n.*//s;
-		warn "($@)\n";
+		warn "($@)";
+		$showfallback=1;
 	}
 
 	die sprintf(gettext("Unable to start a frontend: %s"), $@);
