@@ -116,7 +116,7 @@ sub AUTOLOAD {
 		my @ret=split(/ /, $ret, 2);
 		return @ret if wantarray;
 		return $ret[1];
-	}
+	};
 	goto &$AUTOLOAD;
 }
 

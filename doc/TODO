@@ -23,7 +23,6 @@ General:
 * Other frontends.
 * Should be able to jump to debconf config when debconf is interacting with
   the user.
-* i8n
 * When Client::ConfModule launches a frontend, the frontend doesn't see
   stuff echo'd to stdout, if it is echo'd inside a system. (Is this still
   true? Test.)
@@ -75,12 +74,3 @@ Web based frontend:
   One option would be to make it be in "quiet" mode -- this would make it
   not display extended descriptions, just provide links them. Another thing
   to configure would be what priority of questions it is displaying.
-
-GTK:
-* block support
-* Back should be disabled unless the confmodule supports it.
-* Lots of room here for UI improvements and really showing off everything
-  debconf can do.
-* segfaults on exit
-* I think it's currently completly broken right now. :-(
-* Handle multiselect items.
