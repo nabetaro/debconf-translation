@@ -25,6 +25,13 @@ information related to items in the database.
 
 Set to true if this database driver is read only.
 
+=item required
+
+Set to true if a database driver is required for proper operation of
+debconf. Required drivers can cause debconf to abort if they are not
+accessible. It can be useful to make remote databases non-required, so
+debconf is usable if connections to them go down.
+
 =back
 
 =cut
@@ -49,7 +56,7 @@ sub new {
 	}
 	my %params=@_;
 	foreach my $field (keys %params) {
-		if ($field eq 'readonly') {
+		if ($field eq 'readonly' || $field eq 'required') {
 			# Convert from true/false strings to numbers.
 			$this->{$field}=1,next if lc($params{$field}) eq "true";
 			$this->{$field}=1,next if lc($params{$field}) eq "false";
@@ -68,6 +75,27 @@ add initialization code.
 =cut
 
 sub init {}
+
+=head2 error(message)
+
+Rather than ever dying on errors, drivers should instead call
+this method to state than an error was encountered. If the driver is
+required, it will be a fatal error. If not, the error message will merely
+be displayed to the user, and debconf will continue on, "dazed and
+confuzed".
+
+=cut
+
+sub error {
+	my $this=shift;
+
+	if ($this->{required}) {
+		die shift()."\n";
+	}
+	else {
+		print STDERR shift()."\n";
+	}
+}
 
 =head2 iterate([itarator])
 

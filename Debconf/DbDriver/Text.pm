@@ -49,7 +49,7 @@ sub load {
 		flags => {},
 	);
 
-	open(TEXTDB_IN, $file) or die "$file: $!";
+	open(TEXTDB_IN, $file) or $this->error("$file: $!");
 	my $invars=0;
 	my $line;
 	while ($line = <TEXTDB_IN>) {
@@ -107,7 +107,7 @@ sub save {
 
 	return if $this->{readonly};
 
-	open(TEXTDB_OUT, ">$file") or die "$file: $!";
+	open(TEXTDB_OUT, ">$file") or $this->error("$file: $!");
 	foreach my $field (sort keys %{$data{fields}}) {
 		print TEXTDB_OUT ucfirst($field).": ".$data{fields}->{$field}."\n";
 	}

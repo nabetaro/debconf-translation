@@ -49,13 +49,13 @@ sub init {
 
 	$this->{extention} = "" unless defined $this->{extention};
 
-	die "No directory specified\n" unless $this->{directory};
+	$this->error("No directory specified") unless $this->{directory};
 	if (not -d $this->{directory} and not $this->{readonly}) {
 		mkdir $this->{directory} ||
-			die "mkdir $this->{directory}:$!";
+			$this->error("mkdir $this->{directory}:$!");
 	}
 	if (not -d $this->{directory}) {
-		die $this->{directory}." does not exist\n";
+		$this->error($this->{directory}." does not exist");
 	}
 	# TODO: lock the directory too, for read, or write. (Fctrnl
 	# locking?)
@@ -86,7 +86,7 @@ sub iterate {
 	
 	if (not $iterator) {
 		# uses dirhandle autovivification..
-		opendir($iterator, $this->{directory}) || die "opendir: $!";
+		opendir($iterator, $this->{directory}) || $this->error("opendir: $!");
 		return $iterator;
 	}
 

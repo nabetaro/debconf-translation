@@ -8,7 +8,7 @@ Debconf::DbDriver::Stack - stack of drivers
 
 package Debconf::DbDriver::Stack;
 use strict;
-use base qw(Debconf::DbDriver);
+use base 'Debconf::DbDriver';
 
 =head1 DESCRIPTION
 
@@ -35,6 +35,10 @@ readonly.
 
 =back
 
+=cut
+
+use fields qw(stack);
+
 =head1 METHODS
 
 =head2 init
@@ -46,8 +50,8 @@ On initialization, the topmost driver is checked for writability.
 sub init {
 	my $this=shift;
 
-	die "No stack set!" if ! $this->stack;
-	die "Topmost driver not writable!" if $this->stack->[0]->readonly;
+	$this->error("No stack set!") if ! $this->{stack};
+	$this->error("Topmost driver not writable!") if $this->{stack}->[0]->{readonly};
 	
 }
 
@@ -69,7 +73,7 @@ sub iterate {
 		# iterator. A final item is tacked on the back of the list;
 		# this is a hash reference; the hash lists items that
 		# the iterator has already seen.
-		$iterator=[(map { $_ => $_->iterate } @{$this->stack}), {} ];
+		$iterator=[(map { $_ => $_->iterate } @{$this->{stack}}), {} ];
 	}
 
 	# Iterate the first thing in our list.
@@ -102,7 +106,7 @@ sub savedb {
 	my $this=shift;
 
 	my $ret=1;
-	foreach my $driver (@{$this->stack}) {
+	foreach my $driver (@{$this->{stack}}) {
 		$ret=undef if not defined $driver->savedb(@_);
 	}
 	return $ret;
@@ -117,7 +121,7 @@ sub _query {
 	my $command=shift;
 	shift; # this again
 	
-	foreach my $driver (@{$this->stack}) {
+	foreach my $driver (@{$this->{stack}}) {
 		my $ret=$driver->$command(@_);
 		return $ret if defined $ret;
 	}
@@ -131,8 +135,8 @@ sub _change {
 	my $item=shift;
 
 	# Check to see if we can just write to some driver in the stack.
-	foreach my $driver (@{$this->stack}) {
-		last if $driver->readonly;
+	foreach my $driver (@{$this->{stack}}) {
+		last if $driver->{readonly};
 		if ($driver->exists($item)) {
 			return $driver->$command($item, @_);
 		}
@@ -140,19 +144,19 @@ sub _change {
 
 	# Find out what (readonly) driver on the stack first
 	# contains the item, and do the copy to the top of the stack.
-	foreach my $driver (@{$this->stack}) {
+	foreach my $driver (@{$this->{stack}}) {
 		if ($driver->exists($item)) {
 			my $ret=_nochange($driver, $command, $item, @_);
 			return $ret if defined $ret;
 			
 			# Nope, we have to copy after all.
-			_copy($item, $driver, $this->stack->[0]);
+			_copy($item, $driver, $this->{stack}->[0]);
 			last;
 		}
 	}
 
 	# Finally, do the write to the top of the stack.
-	return $this->stack->[0]->$command($item, @_);
+	return $this->{stack}->[0]->$command($item, @_);
 }
 
 # This handles copying an item. The destination is assumed not to
@@ -226,7 +230,7 @@ sub _nochange {
 		my $get='getvariable';
 	}
 	else {
-		die "internal error! ($command)";
+		$this->error("internal error; bad command: $command");
 	}
 
 	my $thing=shift;
