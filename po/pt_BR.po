@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2005-01-24 10:30-0200\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -321,11 +321,6 @@ msgstr "Pré-configurando pacotes ...\n"
 msgid "template parse error: %s"
 msgstr "erro na análise de template: %s"
 
-#: ../dpkg-preconfigure:191
-#, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "pré-configurando %s (%s)"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -389,6 +384,9 @@ msgstr "%s está desatualizado"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está desatualizado; desistindo do template!"
+
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "pré-configurando %s (%s)"
 
 #, fuzzy
 #~ msgid "Debconf was asked to save this "

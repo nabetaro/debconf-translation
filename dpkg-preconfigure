@@ -188,7 +188,7 @@ foreach my $line (@buffer) {
 
 	# Run config script if any.
 	if (defined $config && length $config && -e $config) {
-		debug user => sprintf(gettext("preconfiguring %s (%s)",$package,$version));
+		debug user => sprintf("preconfiguring %s (%s)",$package,$version);
 		chmod(0755, $config) or
 			die sprintf(gettext("debconf: can't chmod: %s"), $!);
 		$frontend->default_title($package);

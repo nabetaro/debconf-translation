@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -306,11 +306,6 @@ msgstr "패키지들을 미리 설정하는 중입니다...\n"
 msgid "template parse error: %s"
 msgstr "템플릿 parse 에러: %s"
 
-#: ../dpkg-preconfigure:191
-#, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "%s (%s) 미리 설정중"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -374,3 +369,6 @@ msgstr ""
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "%s (%s) 미리 설정중"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2004-07-21 10:16 +0200\n"
 "Last-Translator: Michael Piefel <piefel@debian.org>\n"
 "Language-Team: German, freelance\n"
@@ -323,11 +323,6 @@ msgstr ""
 msgid "template parse error: %s"
 msgstr "Template-Lesefehler: %s"
 
-#: ../dpkg-preconfigure:191
-#, fuzzy, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "Konfiguriere %s"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -391,6 +386,10 @@ msgstr "%s ist veraltet"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ist veraltet; lasse das ganze Tamplate fallen!"
+
+#, fuzzy
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "Konfiguriere %s"
 
 #~ msgid "Debconf was asked to save this "
 #~ msgstr "Debconf wurde gebeten, diese Notiz aufzubewahren, "

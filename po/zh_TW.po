@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2002-10-31 13:32+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
@@ -297,11 +297,6 @@ msgstr ""
 msgid "template parse error: %s"
 msgstr "樣板解讀錯誤: %s"
 
-#: ../dpkg-preconfigure:191
-#, fuzzy, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "正設定 %s"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -365,3 +360,7 @@ msgstr "%s 已經過時"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s 已經過時; 棄用整個樣板"
+
+#, fuzzy
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "正設定 %s"

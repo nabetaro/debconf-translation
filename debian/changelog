@@ -1,3 +1,10 @@
+debconf (1.4.45) unstable; urgency=low
+
+  * Fix bad use of gettext from previous patch. In fact, debug statements are
+    not intended to be translated, so revert that part of it. Closes: #293675
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  4 Feb 2005 20:14:08 -0500
+
 debconf (1.4.44) unstable; urgency=low
 
   * Fix a rogue quotation mark intorduced in the translatable string patch

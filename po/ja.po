@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2005-01-24 08:38+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -324,11 +324,6 @@ msgstr "パッケージを事前設定しています ...\n"
 msgid "template parse error: %s"
 msgstr "テンプレートの解析に失敗しました: %s"
 
-#: ../dpkg-preconfigure:191
-#, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "%s を事前設定しています (%s)"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -392,3 +387,6 @@ msgstr "%s の翻訳は古いものです"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s は古いものです。全テンプレートを無視します!"
+
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "%s を事前設定しています (%s)"

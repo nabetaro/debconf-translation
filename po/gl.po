@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -322,11 +322,6 @@ msgstr ""
 msgid "template parse error: %s"
 msgstr "erro na análise dos patróns: %s"
 
-#: ../dpkg-preconfigure:191
-#, fuzzy, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "Configurando %s"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -390,6 +385,10 @@ msgstr "%s non está completamente instalado"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr ""
+
+#, fuzzy
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "Configurando %s"
 
 #, fuzzy
 #~ msgid "Debconf was asked to save this "

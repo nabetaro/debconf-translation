@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-31 11:30-0500\n"
+"POT-Creation-Date: 2005-02-04 20:15-0500\n"
 "PO-Revision-Date: 2005-01-23 19:51+0100\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -337,11 +337,6 @@ msgstr "Preconfigurando paquetes ...\n"
 msgid "template parse error: %s"
 msgstr "Error procesando plantilla: %s"
 
-#: ../dpkg-preconfigure:191
-#, c-format
-msgid "preconfiguring %s (%s)"
-msgstr "preconfiguración de %s (%s)"
-
 #: ../dpkg-preconfigure:193
 #, c-format
 msgid "debconf: can't chmod: %s"
@@ -405,3 +400,6 @@ msgstr "%s está desactualizado"
 #, c-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está desactualizada: ¡descartando la plantilla completa!"
+
+#~ msgid "preconfiguring %s (%s)"
+#~ msgstr "preconfiguración de %s (%s)"
