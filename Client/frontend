@@ -44,7 +44,7 @@ else {
 	# using the script name, with "config" in it at the end replaced with
 	# "templates".
 	my $t="$ARGV[0].templates";
-	if (! -e $t) {
+	if (! -e $t && $t=~m/config$/) {
 		$t=$ARGV[0];
 		$t=~s/config$/templates/;
 	}
