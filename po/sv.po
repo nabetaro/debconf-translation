@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-02-14 14:26-0800\n"
+"POT-Creation-Date: 2001-02-23 16:05-0800\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr "kunde inte initiera skalet: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kan inte starta skal: %s"
 
-#: ../Debconf/ConfModule.pm:140
+#: ../Debconf/ConfModule.pm:139
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -39,30 +39,6 @@ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
-
-#: ../Debconf/Template.pm:170
-msgid "unknown file"
-msgstr "okänd fil"
-
-#: ../Debconf/Template.pm:203
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
-
-#: ../Debconf/Template.pm:210
-#, c-format
-msgid "Template #%s in %s does not contain a `Template:' line\n"
-msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
-
-#: ../Debconf/Template.pm:231
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
-"beror troligen på att två mallar inte avdelats korrekt med en ensam "
-"radbrytning.\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -166,16 +142,11 @@ msgstr ""
 "Varken whiptail eller dialog är installerade, så det dialogbaserade skalet "
 "kan inte användas."
 
-#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Debiankonfigurering"
 
-#: ../Debconf/FrontEnd/Editor.pm:97
-#, c-format
-msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: Kan inte skriva till temporärfil %s: %s"
-
-#: ../Debconf/FrontEnd/Editor.pm:100
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -183,7 +154,7 @@ msgstr ""
 "Du använder det textbehandlarbaserade debconfskalet för att konfigurera ditt "
 "system. Se slutet av detta dokument för detaljerade instruktioner."
 
-#: ../Debconf/FrontEnd/Editor.pm:117
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -199,11 +170,6 @@ msgstr ""
 "filen och ändra de poster som behövs, och spara och avsluta sedan. Vid den "
 "tidpunkten kommer debconf läsa den redigerade filen, och använda de värden "
 "du angivit för att konfigurera systemet."
-
-#: ../Debconf/FrontEnd/Editor.pm:131
-#, c-format
-msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: Kan inte läsa %s: %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
@@ -263,6 +229,26 @@ msgstr "Detta skal kräver en kontrollerande tty."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Obs: Debconf kör i webbläge. Gå till http://localhost:%i/"
 
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
+"beror troligen på att två mallar inte avdelats korrekt med en ensam "
+"radbrytning.\n"
+
+#: ../Debconf/Template.pm:202
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
+
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
@@ -297,19 +283,28 @@ msgstr "%s kunde inte konfigurera, med slutkod %s"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "Användning: dpkg-reconfigure [--frontend=typ] [--priority=värde] paket"
 
-#: ../dpkg-reconfigure:124
+#: ../dpkg-reconfigure:126
 msgid "must be run as root"
 msgstr "måste köras som root"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:159
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s är inte helt installerat"
 
-#: ../dpkg-reconfigure:233
+#: ../dpkg-reconfigure:232
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
+
+#~ msgid "unknown file"
+#~ msgstr "okänd fil"
+
+#~ msgid "debconf: Unable to write to temporary file %s: %s"
+#~ msgstr "debconf: Kan inte skriva till temporärfil %s: %s"
+
+#~ msgid "debconf: Unable to read %s: %s"
+#~ msgstr "debconf: Kan inte läsa %s: %s"
 
 #~ msgid "Unable to make element of type %s. Failed because: %s"
 #~ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"

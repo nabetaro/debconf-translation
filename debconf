@@ -58,6 +58,8 @@ usage unless $package and @command;
 # Initialize.
 debug developer => "debconf started";
 
+Debconf::Db->load;
+
 my $frontend=make_frontend();
 $frontend->default_title($package);
 
@@ -68,7 +70,7 @@ foreach my $fn (@templates) {
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=make_confmodule(join " ",@ARGV);
+my $confmodule=make_confmodule(join " ", @ARGV);
 
 # Make sure any questions the confmodule generates are owned by this package.
 $confmodule->owner($package);

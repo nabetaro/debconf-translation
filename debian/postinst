@@ -1,17 +1,20 @@
 #!/bin/sh -e
 
-# Source the debconf library only because it ensures our config script is
-# run.
+# Transition from old database format before debconf starts up.
+if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
+   dpkg --compare-versions "$2" lt 0.9.00; then
+	if [ -e /var/lib/debconf/config.db -o -e /var/lib/debconf/templates.db ]; then
+		/usr/share/debconf/transition_db.pl
+		# Temporarily, I will leave the old db around. Later, I may
+		# want to delete..
+	fi
+fi
+
 . /usr/share/debconf/confmodule
 
 # Kill accidential db cruft.
 if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.5.49; then
 	db_unregister foo/bar
-fi
-
-# Dir used to need to be mode 700; no longer.
-if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.00; then
-	chmod 755 /var/lib/debconf
 fi
 
 # This file is long obsolete, and was a conffile, so wasn't auto-removed.

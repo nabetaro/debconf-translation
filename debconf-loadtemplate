@@ -40,6 +40,7 @@ sub usage {
 my $owner=shift || usage();
 usage() unless @ARGV;
 
+Debconf::Db->load;
 Debconf::Template->load($_, $owner) foreach @ARGV;
 Debconf::Db->save;
 

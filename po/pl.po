@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-02-14 14:26-0800\n"
+"POT-Creation-Date: 2001-02-23 16:05-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
 
-#: ../Debconf/ConfModule.pm:140
+#: ../Debconf/ConfModule.pm:139
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -41,27 +41,6 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
-
-#: ../Debconf/Template.pm:170
-msgid "unknown file"
-msgstr ""
-
-#: ../Debconf/Template.pm:203
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
-
-#: ../Debconf/Template.pm:210
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a `Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
-
-#: ../Debconf/Template.pm:231
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -159,16 +138,11 @@ msgstr ""
 "Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
 "mo¿e zostaæ u¿yta."
 
-#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Konfiguracja Debiana"
 
-#: ../Debconf/FrontEnd/Editor.pm:97
-#, c-format
-msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: Nie uda³o siê pisaæ do pliku tymczasowego %s: %s"
-
-#: ../Debconf/FrontEnd/Editor.pm:100
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -176,7 +150,7 @@ msgstr ""
 "U¿ywasz nak³adki debconf opartej na edytorze. Dok³adne instrukcje znajduj± "
 "siê na koñcu dokumentu"
 
-#: ../Debconf/FrontEnd/Editor.pm:117
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -192,11 +166,6 @@ msgstr ""
 "potrzebne pozycje, zapisz go i zakoñcz edytor. W tym momencie debconf "
 "przeczyta zapisany plik i u¿yje wprowadzonych przez Ciebie warto¶ci do "
 "konfiguracji systemu."
-
-#: ../Debconf/FrontEnd/Editor.pm:131
-#, c-format
-msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: Nie uda³o siê czytaæ %s: %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
@@ -254,6 +223,23 @@ msgstr ""
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Uwaga: Debconf dzia³a w trybie www. Patrz http://localhost:%i/"
 
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s'"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nie zawiera linii `Template:'"
+
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
@@ -288,19 +274,25 @@ msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "U¿ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto¶æ] pakiety"
 
-#: ../dpkg-reconfigure:124
+#: ../dpkg-reconfigure:126
 msgid "must be run as root"
 msgstr "musi byæ uruchamiany jako root"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:159
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s nie jest w pe³ni zainstalowany"
 
-#: ../dpkg-reconfigure:233
+#: ../dpkg-reconfigure:232
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid "debconf: Unable to write to temporary file %s: %s"
+#~ msgstr "debconf: Nie uda³o siê pisaæ do pliku tymczasowego %s: %s"
+
+#~ msgid "debconf: Unable to read %s: %s"
+#~ msgstr "debconf: Nie uda³o siê czytaæ %s: %s"
 
 #~ msgid "Unable to make element of type %s. Failed because: %s"
 #~ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"

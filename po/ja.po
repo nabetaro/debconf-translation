@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2001-02-14 14:26-0800\n"
+"POT-Creation-Date: 2001-02-23 16:05-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -24,7 +24,7 @@ msgstr "フロントエンドの初期化に失敗しました: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/ConfModule.pm:140
+#: ../Debconf/ConfModule.pm:139
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -41,27 +41,6 @@ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"
-
-#: ../Debconf/Template.pm:170
-msgid "unknown file"
-msgstr ""
-
-#: ../Debconf/Template.pm:203
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "`%s' 付近でテンプレートの解析に失敗しました"
-
-#: ../Debconf/Template.pm:210
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a `Template:' line\n"
-msgstr "テンプレートに `Template:' 行がありません"
-
-#: ../Debconf/Template.pm:231
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -159,16 +138,11 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
-#: ../Debconf/FrontEnd/Editor.pm:97
-#, c-format
-msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: 一時ファイル %s に書き込みができません: %s"
-
-#: ../Debconf/FrontEnd/Editor.pm:100
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -176,7 +150,7 @@ msgstr ""
 "システムを設定するために、エディタベースの debconf フロントエンドを使用\n"
 "しています。詳しい説明はこのドキュメントの最後を見てください。"
 
-#: ../Debconf/FrontEnd/Editor.pm:117
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -192,11 +166,6 @@ msgstr ""
 "イルを編集して必要に応じて項目を変更し、ファイルを保存してエディタを終了\n"
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
-
-#: ../Debconf/FrontEnd/Editor.pm:131
-#, c-format
-msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: %s の読み込みに失敗しました: %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
@@ -256,6 +225,23 @@ msgstr ""
 "注意: Debconf はウェブモードで動作しています。\n"
 "http://localhost:%i/ をご覧ください。"
 
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "`%s' 付近でテンプレートの解析に失敗しました"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "テンプレートに `Template:' 行がありません"
+
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
@@ -290,19 +276,25 @@ msgstr "%s は終了コード %s で設定に失敗しました。"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr "使用方法: dpkg-reconfigure [--frontend=型] [--priority=値] パッケージ"
 
-#: ../dpkg-reconfigure:124
+#: ../dpkg-reconfigure:126
 msgid "must be run as root"
 msgstr "root で実行する必要があります"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:159
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s は完全にインストールされていません"
 
-#: ../dpkg-reconfigure:233
+#: ../dpkg-reconfigure:232
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
+
+#~ msgid "debconf: Unable to write to temporary file %s: %s"
+#~ msgstr "debconf: 一時ファイル %s に書き込みができません: %s"
+
+#~ msgid "debconf: Unable to read %s: %s"
+#~ msgstr "debconf: %s の読み込みに失敗しました: %s"
 
 #~ msgid "Unable to make element of type %s. Failed because: %s"
 #~ msgstr "%s 型の要素が作成できません。以下の理由により失敗しました: %s"

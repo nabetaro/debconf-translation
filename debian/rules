@@ -9,6 +9,10 @@ export DH_COMPAT=3
 # This has to be exported to make some magic below work.
 export DH_OPTIONS
 
+# Ensure that builds are self-hosting, which means I have to use the .pm
+# files in this package, not any that may be on the system.
+export PERL5LIB=.
+
 # I've broken up building to make the build-dependancies more sane,
 # since lots of stuff is needed for building arch dependant and independant
 # packages.

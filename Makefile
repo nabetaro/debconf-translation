@@ -39,8 +39,10 @@ install-utils:
 install-rest:
 	$(MAKE) -C po install
 	install -d $(prefix)/etc \
+		$(prefix)/var/cache/debconf \
 		$(prefix)/usr/share/debconf \
 		$(prefix)/usr/lib/debconf
+	install -m 0644 debconf.conf $(prefix)/etc/
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
 		xargs -i install -d $(prefix)/usr/share/perl5/{}
@@ -55,6 +57,7 @@ install-rest:
 	install -m 0644 confmodule.sh confmodule $(prefix)/usr/share/debconf/
 	install frontend $(prefix)/usr/share/debconf/
 	install -s apt/apt-extracttemplates $(prefix)/usr/lib/debconf/
+	install -m 0755 transition_db.pl $(prefix)/usr/share/debconf/
 	 # Modify config module to use correct db location.
 	sed 's:.*# CHANGE THIS AT INSTALL TIME:"/var/lib/debconf/":' \
 		< Debconf/Config.pm > $(prefix)/usr/share/perl5/Debconf/Config.pm

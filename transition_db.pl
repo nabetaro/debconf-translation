@@ -8,6 +8,8 @@ use Debconf::Template;
 
 my $dir = shift || '/var/lib/debconf';
 
+Debconf::Db->load;
+
 our %questions;
 our %templates;
 
@@ -41,6 +43,7 @@ foreach my $item (keys %questions) {
 	my $question=Debconf::Question->new($item, pop @owners);
 	$question->addowner($_) foreach @owners;
 }
+
 # Now that all the Question objects are made, we can fill them in.
 # Have to do it in two passes to prevent duplicate questions trying to 
 # be made.
@@ -76,13 +79,13 @@ foreach my $item (keys %questions) {
 		}
 		delete $questions{$item}->{flag_isdefault};
 	}
-	# All other flags. (ignoring for now, as there should be none)
-	#foreach my $flag (grep /^flag_/, keys %{$questions{$item}}) {
-	#	if ($questions{$item}->{$flag} eq 'true') {
-	#		$flag=~s/^flag_//;
-	#		$question->flag($flag, 'true');
-	#	}
-	#}
+	# All other flags.
+	foreach my $flag (grep /^flag_/, keys %{$questions{$item}}) {
+		if ($questions{$item}->{$flag} eq 'true') {
+			$flag=~s/^flag_//;
+			$question->flag($flag, 'true');
+		}
+	}
 	# All variables.
 	foreach my $var (keys %{$questions{$item}->{variables}}) {
 		$question->variable($var,

@@ -127,6 +127,8 @@ if ($> != 0) {
 	exit 1;
 }
 
+Debconf::Db->load;
+
 # If the default frontend is noninteractive, change it temporarily to
 # slang.
 if (frontend() eq 'Noninteractive') {

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-02-14 14:26-0800\n"
+"POT-Creation-Date: 2001-02-23 16:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -24,7 +24,7 @@ msgstr "не удалось инициализировать интерфейс `%s'"
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось использовать интерфейс: %s"
 
-#: ../Debconf/ConfModule.pm:140
+#: ../Debconf/ConfModule.pm:139
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
@@ -41,27 +41,6 @@ msgstr "Не удалось создать элемент типа %s. Причина: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
-
-#: ../Debconf/Template.pm:170
-msgid "unknown file"
-msgstr ""
-
-#: ../Debconf/Template.pm:203
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
-
-#: ../Debconf/Template.pm:210
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a `Template:' line\n"
-msgstr "Шаблон не содержит строки `Template:'"
-
-#: ../Debconf/Template.pm:231
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -163,16 +142,11 @@ msgstr ""
 "Ни одна из программ whiptail или dialog не установлена, поэтому вы не можете "
 "использовать dialog-интерфейс."
 
-#: ../Debconf/FrontEnd/Dialog.pm:231 ../Debconf/FrontEnd/Slang.pm:67
+#: ../Debconf/FrontEnd/Dialog.pm:230 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Настройка пакетов Debian"
 
-#: ../Debconf/FrontEnd/Editor.pm:97
-#, c-format
-msgid "debconf: Unable to write to temporary file %s: %s"
-msgstr "debconf: ошибка записи во временный файл %s: %s"
-
-#: ../Debconf/FrontEnd/Editor.pm:100
+#: ../Debconf/FrontEnd/Editor.pm:93
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
@@ -180,7 +154,7 @@ msgstr ""
 "Вы указали пакету debconf, что для настройки системы необходимо использовать "
 "текстовый редактор. Подробную информацию вы найдете в конце этого документа."
 
-#: ../Debconf/FrontEnd/Editor.pm:117
+#: ../Debconf/FrontEnd/Editor.pm:110
 msgid ""
 "The editor-based debconf frontend presents you with one or more text files "
 "to edit. This is one such text file. If you are familiar with standard unix "
@@ -196,11 +170,6 @@ msgstr ""
 "этот файл в соответствии с вашими потребностями, сохранить его и выйти из "
 "редактора. Затем программа debconf прочитает измененный файл и использует "
 "введенные вами параметры для настройки системы."
-
-#: ../Debconf/FrontEnd/Editor.pm:131
-#, c-format
-msgid "debconf: Unable to read %s: %s"
-msgstr "debconf: ошибка чтения %s: %s"
 
 #: ../Debconf/FrontEnd/Slang.pm:51
 msgid "TERM is not set, so the Slang frontend is not usable."
@@ -261,6 +230,23 @@ msgstr ""
 "Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
 
+#: ../Debconf/Template.pm:162
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:202
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Ошибка разбора шаблона около `%s'"
+
+#: ../Debconf/Template.pm:208
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Шаблон не содержит строки `Template:'"
+
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 msgstr ""
@@ -298,19 +284,25 @@ msgstr ""
 "Запуски: dpkg-reconfigure [--frontend=интерфейс] [--priority=приоритет] "
 "<названия пакетов>"
 
-#: ../dpkg-reconfigure:124
+#: ../dpkg-reconfigure:126
 msgid "must be run as root"
 msgstr "должна выполняться с правами пользователя root"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:159
 #, c-format
 msgid "%s is not fully installed"
 msgstr "Пакет %s установлен не полностью"
 
-#: ../dpkg-reconfigure:233
+#: ../dpkg-reconfigure:232
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#~ msgid "debconf: Unable to write to temporary file %s: %s"
+#~ msgstr "debconf: ошибка записи во временный файл %s: %s"
+
+#~ msgid "debconf: Unable to read %s: %s"
+#~ msgstr "debconf: ошибка чтения %s: %s"
 
 #~ msgid "Unable to make element of type %s. Failed because: %s"
 #~ msgstr "Не удалось создать элемент типа %s. Причина: %s"

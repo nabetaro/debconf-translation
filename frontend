@@ -24,6 +24,8 @@ use Debconf::Template;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
 
+Debconf::Db->load;
+
 debug developer => "frontend started";
 
 my $frontend=make_frontend();

@@ -148,6 +148,8 @@ if ($apt) {
 	showold('false');
 }
 
+Debconf::Db->load;
+
 my $frontend=make_frontend();
 
 # Use the external package scanner for speed. It takes a list of debs

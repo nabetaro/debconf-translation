@@ -13,16 +13,9 @@ debconf (0.9.00) experimental; urgency=low
   * Now uses apt 0.5's apt.conf.d directory to enable preconfiguration.
     Edit /etc/apt/apt.conf.d/debconf to turn it off. Removed the question;
     as there is no reason to configure this during debconf install time,
-    and no goo reason to use debconf to ask a question about it.
+    and no good reason to use debconf to ask a question about it.
   * Removed various outdated database transition code.
-
-NOT READY FOR RELEASE
-Before release, I must:
-* Finish integrating transition script.
-* I think that when REGISTER is called, I need to make the template get
-  owned by the question, inverse for unregister. -- implemented, needs a
-  lot of testing.
-* Test the PURGE command.
+  * Added new transition code.
 
  -- Joey Hess <joeyh@debian.org>  Mon, 19 Feb 2001 17:54:41 -0800
 

@@ -13,8 +13,8 @@ use FileHandle;
 use Debconf::Gettext;
 use Text::Wrap;
 use Text::Tabs;
-use Debconf::Question;
 use Debconf::Db;
+use Debconf::Question;
 use fields qw(template);
 
 # Class data

@@ -58,22 +58,19 @@ sub _hashify($$) {
 	return $i;
 }
 
-=item readconfig
+=item load
 
 Read a debconf config file, parse it, and set up the drivers.
 Reads from the standard locations unless a filename to read is specified.
 
-This function is called when the Db is loaded, so you will not typically
-need to call it.
-
 =cut
 
-sub readconfig {
+sub load {
 	my $class=shift;
 	my $cf=shift;
 	if (! $cf) {
 		$cf="$ENV{HOME}/.debconfrc"	if -e "$ENV{HOME}/.debconfrc";
-		$cf="/etc/debconf.cnf"		if -e "/etc/debconf.cnf";
+		$cf="/etc/debconf.conf"		if -e "/etc/debconf.conf";
 	}
 	die "No config file found" unless $cf;
 
@@ -114,9 +111,6 @@ sub readconfig {
 		die "Template database \"".$opts->{templates}."\" was not initialized.\n";
 	}
 }
-
-# Load up db on startup.
-readconfig();
 
 =item save
 

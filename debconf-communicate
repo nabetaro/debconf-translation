@@ -53,6 +53,8 @@ L<debconf-loadtemplate(8)>
 
 =cut
 
+Debconf::Db->load;
+
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();
 my $code=127;
