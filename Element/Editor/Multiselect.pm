@@ -9,8 +9,8 @@ Debian::DebConf::Element::Editor::MultiSelect - select from a list of choices
 package Debian::DebConf::Element::Editor::Multiselect;
 use strict;
 use Debian::DebConf::Gettext;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Multiselect; # perlbug
+use base qw(Debian::DebConf::Element::Multiselect);
 
 =head1 DESCRIPTION
 
@@ -30,18 +30,10 @@ sub show {
 
 	$this->frontend->comment($this->question->extended_description."\n\n".
 		"(".gettext("Choices").": ".join(", ", @choices).")\n".
-		gettext("(Enter zero or more items separated by spaces.)")."\n".
+		gettext("(Enter zero or more items separated by a comma followed by a space (', ').)")."\n".
 		$this->question->description."\n");
 
-	my $default='';
-	$default=$this->question->value if defined $this->question->value;
-
-	# Make sure the default is in the set of choices, else ignore it.
-	if (! grep { $_ eq $default } @choices) {
-		$default='';
-	}
-
-	$this->frontend->item($this->question->name, $default);
+	$this->frontend->item($this->question->name, join ", ", $this->translate_default);
 }
 
 =item process
@@ -53,10 +45,11 @@ time, validate each item and make sure it is allowable, or remove it.
 
 sub process {
 	my $this=shift;
-	my @values=split(' ', shift);
+	my @values=split(',\s+', shift);
 	my %valid=map { $_ => 1 } $this->question->choices_split;
 	
-	return join(', ', grep { $valid{$_} } @values);
+	return join(', ', sort map { $this->translate_to_C($_) }
+	                  grep { $valid{$_} } @values);
 }
 
 =back

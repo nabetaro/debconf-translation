@@ -57,8 +57,9 @@ else {
 	sub trytemplate {
 		my $fn=shift;
 		if (-e $fn) {
-			debug developer => 'I guess it is $fn';
-			return loadtemplatefile($fn, $package);
+			debug developer => "I guess it is $fn";
+			loadtemplatefile($fn, $package);
+			return 1;
 		}
 		else {
 			return;

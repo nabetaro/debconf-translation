@@ -27,7 +27,7 @@ a list. When possible, it uses the first letter of a list item as the
 abbreviation. If two items share a letter, it finds and uses an unused letter
 instead. If it uses up all letters of the alphabet, it uses numbers for the
 rest of the abbreviations. It allows you to mark some items as important; 
-it will allocate the best hotkeys to them that it can.
+it will allocate the best hotkeys for them that it can.
 
 Pass in reference to an array listing the important items, followed by 
 an array of all the items. A hash will be returned, with the items as keys

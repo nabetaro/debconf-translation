@@ -8,8 +8,8 @@ Debian::DebConf::Element::Dialog::Multiselect - a check list in a dialog box
 
 package Debian::DebConf::Element::Dialog::Multiselect;
 use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Multiselect; # perlbug
+use base qw(Debian::DebConf::Element::Multiselect);
 
 =head1 DESCRIPTION
 
@@ -28,10 +28,8 @@ sub show {
 	my $screen_lines=$this->frontend->screenheight - $this->frontend->spacer;
 	my @params=();
 	my @choices=$this->question->choices_split;
-	# Make a hash of which of the choices are currently selected.
-	my %value;
-	map { $value{$_} = 1 } $this->question->value_split;
-		
+	my %value = map { $_ => 1 } $this->translate_default;
+
 	# Figure out how many lines of the screen should be used to
 	# scroll the list. Look at how much free screen real estate
 	# we have after putting the description at the top. If there's
@@ -64,11 +62,8 @@ sub show {
 	$value='' if ! defined $value;
 
 	# Dialog returns the selected items, each on a line.
-	# Turn that into our internal format.
-	$value=~s/\n$//;
-	$value=~s/\n/, /g;
-
-	return $value;
+	# Translate back to C, and turn into our internal format.
+	return join(", ", map { $this->translate_to_C($_) } split(/\n/, $value));
 }
 
 1

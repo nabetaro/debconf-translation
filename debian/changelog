@@ -1,3 +1,16 @@
+debconf (0.3.38) unstable; urgency=low
+
+  * Fixed a minor bug in frontend -- notice when a template file has been
+    successfully loaded, and don't keep trying to find it.
+  * Applied the same fix to multiselect elements that I applied to select
+    elements in the last version. I think using internationalized debconf
+    should work pretty well now.
+  * The editor frontend now asks that you separate chocies in multiselect
+    questions with spaces and commas, so it will work if the choices
+    contain spaces.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 25 May 2000 13:19:43 -0700
+
 debconf (0.3.37) unstable; urgency=low
 
   * Added Russian translation, by Michael Sobolev <mss@transas.com>

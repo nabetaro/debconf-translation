@@ -9,14 +9,15 @@ Debian::DebConf::Element::Text::Multiselect - select multiple items
 package Debian::DebConf::Element::Text::Multiselect;
 use strict;
 use Debian::DebConf::Gettext;
+use Debian::DebConf::Element::Multiselect; # perlbug
 use Debian::DebConf::Element::Text::Select; # perlbug
-use base qw(Debian::DebConf::Element::Text::Select);
+use base qw(Debian::DebConf::Element::Multiselect Debian::DebConf::Element::Text::Select);
 
 =head1 DESCRIPTION
 
 This lets the user select multiple items from a list of values, using a plain
 text interface. (This is hard to do in plain text, and the UI I have made isn't
-very intuitive.)
+very intuitive. Better UI designs welcomed.)
 
 =cut
 
@@ -27,8 +28,7 @@ sub show {
 	my $none_of_the_above=gettext("none of the above");
 
 	my @choices=$this->question->choices_split;
-	my %value=map { $_ => 1 } $this->question->value_split;
-	my @important=keys %value;
+	my %value = map { $_ => 1 } my @important=$this->translate_default;
 	if ($this->frontend->promptdefault && $this->question->value ne '') {
 		push @choices, $none_of_the_above;
 		push @important, $none_of_the_above;
@@ -41,7 +41,6 @@ sub show {
 	$this->frontend->display("\n(".gettext("Type in the letters of the items you want to select, separated by spaces.").")\n");
 
 	# Prompt until a valid answer is entered.
-	my $value;
 	while (1) {
 		$_=$this->frontend->prompt($this->question->description,
 		 	join(" ", map { $abbrevs{$_} }
@@ -69,18 +68,20 @@ sub show {
 		last;
 	}
 
+	$this->frontend->display("\n");
+
 	if (defined $selected[0] && $selected[0] eq $none_of_the_above) {
-		$value='';
+		return '';
 	}
 	else {
 		# Make sure that no item was entered twice. If so, remove
 		# the duplicate.
 		my %selected=map { $_ => 1 } @selected;
-		$value=join(', ', sort keys %selected);
-	}
 
-	$this->frontend->display("\n");
-	return $value;
+		# Translate back to C locale, and join the list.
+		return join(', ', sort map { $this->translate_to_C($_) }
+		                       keys %selected);
+	}
 }
 
 1

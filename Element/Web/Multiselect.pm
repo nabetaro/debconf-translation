@@ -8,8 +8,8 @@ Debian::DebConf::Element::Web::Multiselect - A multi select box on a form
 
 package Debian::DebConf::Element::Web::Multiselect;
 use strict;
-use Debian::DebConf::Element; # perlbug
-use base qw(Debian::DebConf::Element);
+use Debian::DebConf::Element::Multiselect; # perlbug
+use base qw(Debian::DebConf::Element::Multiselect);
 
 =head1 DESCRIPTION
 
@@ -32,9 +32,7 @@ sub show {
 	s/\n/\n<br>\n/g;
 	$_.="\n<p>\n";
 
-	# Make a hash of which of the choices are currently selected.
-	my %value;
-	map { $value{$_} = 1 } $this->question->value_split;
+	my %value = map { $_ => 1 } $this->translate_default;
 
 	my $id=$this->id;
 	$_.="<b>".$this->question->description."</b>\n<select multiple name=\"$id\">\n";
@@ -67,10 +65,12 @@ sub process {
 	# the selected values.
 	my @values=@_;
 
+	# Get the choices in the C locale.
+	$this->question->template->i18n('');
 	my @choices=$this->question->choices_split;
-	my @parsedvalues=map { $choices[$_] } @values;
-
-	return join(', ', @parsedvalues);
+	$this->question->template->i18n(1);
+	
+	return join(', ',  map { $choices[$_] } @values);
 }
 
 =back
