@@ -19,11 +19,11 @@ use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
 sub show {
-	my $self = shift;
-	$self->frontend->newques(
-		$self->question->description, 
-		$self->frontend->maketext(
-			$self->question->extended_description));
+	my $this = shift;
+	$this->frontend->newques(
+		$this->question->description, 
+		$this->frontend->maketext(
+			$this->question->extended_description));
 	return '';
 }
 

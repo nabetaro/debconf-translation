@@ -37,11 +37,11 @@ Returns a new Question object.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 	
-	$self->flag_isdefault('true');
-	$self->variables({});
-	return $self;
+	$this->flag_isdefault('true');
+	$this->variables({});
+	return $this;
 }
 
 # This is a helper function that expands variables in a string.

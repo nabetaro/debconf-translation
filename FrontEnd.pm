@@ -34,13 +34,13 @@ Creates a new FrontEnd object and returns it.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 	
-	$self->elements([]);
-	$self->interactive('');
-	$self->capb('');
-	$self->title('');
-	return $self
+	$this->elements([]);
+	$this->interactive('');
+	$this->capb('');
+	$this->title('');
+	return $this
 }
 
 =head2 makeelement

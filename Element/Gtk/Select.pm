@@ -21,35 +21,35 @@ use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element::Select);
 
 sub show {
-	my $self = shift;
+	my $this = shift;
 	
 	my $vbox = new Gtk::VBox(0,5);
-	my $text = $self->frontend->maketext(
-			$self->question->extended_description);
+	my $text = $this->frontend->maketext(
+			$this->question->extended_description);
 
 	$vbox->pack_start($text, 1,1,0);
 	$text->show();
 
-	$self->{unchanged} = 1;
-	$self->{newvalue} = undef;
+	$this->{unchanged} = 1;
+	$this->{newvalue} = undef;
 
 	if (0) {
-		$self->radio($vbox);
+		$this->radio($vbox);
 	} else {
-		$self->dropdown($vbox);
+		$this->dropdown($vbox);
 	}
 
-	my $result = $self->frontend->newques(
-			$self->question->description, $vbox);
+	my $result = $this->frontend->newques(
+			$this->question->description, $vbox);
 
-	return $self->{newvalue};
+	return $this->{newvalue};
 }
 
 sub radio {
-	my ($self, $vbox) = @_;
+	my ($this, $vbox) = @_;
 	my $radio;
 
-	foreach my $opt ($self->question->choices_split) {
+	foreach my $opt ($this->question->choices_split) {
 		if ($radio) {
 			$radio = new Gtk::RadioButton($opt, $radio);
 		} else {
@@ -57,11 +57,11 @@ sub radio {
 		}
 		$radio->signal_connect("toggle",
 			sub { 
-				$self->{unchanged} = 0;
-				$self->{newvalue} = $opt;
+				$this->{unchanged} = 0;
+				$this->{newvalue} = $opt;
 			});
 		$radio->set_active(1) 
-			if ((defined $self->question->value) && ($opt eq $self->question->value));
+			if ((defined $this->question->value) && ($opt eq $this->question->value));
 		$vbox->pack_start($radio, 0,0,0);
 		$radio->show();
 	}
@@ -69,23 +69,23 @@ sub radio {
 }
 
 sub dropdown {
-	my ($self, $vbox) = @_;
+	my ($this, $vbox) = @_;
 	my $optmenu = new Gtk::OptionMenu;
 	my $menu = new Gtk::Menu;
 	my $menuitem;
 	my $n = 0;
 	my $hist;
 
-	foreach my $opt ($self->question->choices_split) {
+	foreach my $opt ($this->question->choices_split) {
 		$menuitem = new Gtk::RadioMenuItem($opt, $menuitem);
 		$menu->append($menuitem);
 		$menuitem->signal_connect("toggle",
 			sub { 
-				$self->{unchanged} = 0;
-				$self->{newvalue} = $opt;
+				$this->{unchanged} = 0;
+				$this->{newvalue} = $opt;
 			});
 		$menuitem->set_active(1), $hist = $n
-			if ((defined $self->question->value) && ($opt eq $self->question->value));
+			if ((defined $this->question->value) && ($opt eq $this->question->value));
 		$menuitem->show();
 		$n++;
 	}

@@ -38,25 +38,25 @@ any port number passed as a parameter to this function.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 	
-	$self->port(shift || 8001);
-	$self->formid(0);
-	$self->interactive(1);
-	$self->capb('backup');
+	$this->port(shift || 8001);
+	$this->formid(0);
+	$this->interactive(1);
+	$this->capb('backup');
 
 	# Bind to the port.
-	$self->server(IO::Socket::INET->new(
-		LocalPort => $self->port,
+	$this->server(IO::Socket::INET->new(
+		LocalPort => $this->port,
 		Proto => 'tcp',
 		Listen => 1,
 		Reuse => 1,
 		LocalAddr => '127.0.0.1',
-	)) || die "Can't bind to ".$self->port.": $!";
+	)) || die "Can't bind to ".$this->port.": $!";
 
-	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$self->port."/\n";
+	print STDERR "Note: Debconf is running in web mode. Go to http://localhost:".$this->port."/\n";
 
-	return $self;
+	return $this;
 }
 
 =head2 client

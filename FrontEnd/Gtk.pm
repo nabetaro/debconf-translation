@@ -33,10 +33,10 @@ Creates and returns a new FrontEnd::Gtk object.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 
-	$self->{interactive}=1;
-	$self->{capb} = 'backup';
+	$this->{interactive}=1;
+	$this->{capb} = 'backup';
 
 	# create the window. If display isn't set, this dies with 
 	# an untrappable error. So first test that and exit sanely, so
@@ -121,15 +121,15 @@ sub new {
 	             new Gtk::Button("Next"),
 	             new Gtk::Button("Back"));
 	($buttbox->pack_end($_,0,0,5), $_->show) foreach (@butts);
-	$butts[0]->signal_connect("clicked", sub { $self->Cancel; });
-	$butts[1]->signal_connect("clicked", sub { $self->Next; });
-	$butts[2]->signal_connect("clicked", sub { $self->Back; });
+	$butts[0]->signal_connect("clicked", sub { $this->Cancel; });
+	$butts[1]->signal_connect("clicked", sub { $this->Next; });
+	$butts[2]->signal_connect("clicked", sub { $this->Back; });
 
-	$self->{window} = $window;
-	$self->{questionframe} = $questionframe;
-	$self->{result} = "uninitialized";
+	$this->{window} = $window;
+	$this->{questionframe} = $questionframe;
+	$this->{result} = "uninitialized";
 
-	return $self;
+	return $this;
 }
 
 =head2 newques
@@ -137,28 +137,28 @@ sub new {
 =cut
 
 sub newques {
-	my $self = shift;
+	my $this = shift;
 	my $newtitle = shift; # string
 	my $newchild = shift; # Gtk widget
 
-	$self->{window}->show unless $self->{window_showing};
-	$self->{window_showing}=1;
+	$this->{window}->show unless $this->{window_showing};
+	$this->{window_showing}=1;
 
-	$self->{questionframe}->remove($self->{child})
-		if (defined $self->{child});
+	$this->{questionframe}->remove($this->{child})
+		if (defined $this->{child});
 
-	$self->{questionframe}->add($newchild);
+	$this->{questionframe}->add($newchild);
 	$newchild->show();
-	$self->{child} = $newchild;
+	$this->{child} = $newchild;
 
-	$self->{questionframe}->realize;
+	$this->{questionframe}->realize;
 
-	$self->{window}->set_title("Debian Configuration -- $newtitle");
+	$this->{window}->set_title("Debian Configuration -- $newtitle");
 
 	Gtk->gc;
 	Gtk->main;
 
-	return $self->{result};
+	return $this->{result};
 }
 
 =head2 maketext
@@ -166,7 +166,7 @@ sub newques {
 =cut
 
 sub maketext {
-	my $self = shift;
+	my $this = shift;
 	my $output = shift;
 
 	my $text = new Gtk::Text(undef,undef);
@@ -185,21 +185,21 @@ sub maketext {
 }
 
 sub Cancel {
-	my $self = shift;
+	my $this = shift;
 	Gtk->main_quit;
 	exit 1;
 }
 
 sub Back {
-	my $self = shift;
-	$self->{result} = "backup";
-	$self->backup(1);
+	my $this = shift;
+	$this->{result} = "backup";
+	$this->backup(1);
 	Gtk->main_quit;
 }
 
 sub Next {
-	my $self = shift;
-	$self->{result} = "";
+	my $this = shift;
+	$this->{result} = "";
 	Gtk->main_quit;
 }
 

@@ -19,21 +19,21 @@ use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
 sub show {
-	my $self = shift;
+	my $this = shift;
 	my $vbox = new Gtk::VBox(0,5);
 
-	my $text = $self->frontend->maketext(
-			$self->question->extended_description);
-	my $check = new Gtk::CheckButton($self->question->description);
-	$check->set_active($self->question->value eq "true" ? 1 : 0)
-		if defined $self->question->value;
+	my $text = $this->frontend->maketext(
+			$this->question->extended_description);
+	my $check = new Gtk::CheckButton($this->question->description);
+	$check->set_active($this->question->value eq "true" ? 1 : 0)
+		if defined $this->question->value;
 
 	$vbox->pack_start($text, 1,1,0);
 	$vbox->pack_start($check, 0,1,0);
 	$text->show(); $check->show();
 
-	my $result = $self->frontend->newques(
-			$self->question->description, $vbox);
+	my $result = $this->frontend->newques(
+			$this->question->description, $vbox);
 
 	return $check->active ? "true" : "false";
 }

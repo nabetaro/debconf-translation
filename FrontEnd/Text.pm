@@ -29,21 +29,21 @@ local $|=1;
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 	
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
-	$self->readline(Term::ReadLine->new('debian'));
-	$self->readline->ornaments(1);
-	$self->interactive(1);
-	$self->linecount(0);
+	$this->readline(Term::ReadLine->new('debian'));
+	$this->readline->ornaments(1);
+	$this->interactive(1);
+	$this->linecount(0);
 	
 	# Figure out which readline module has been loaded, to tell if
 	# prompts must include defaults or not.
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
-		$self->promptdefault(1);
+		$this->promptdefault(1);
 	}
 	
-	return $self;
+	return $this;
 }
 
 =head2 screenwidth

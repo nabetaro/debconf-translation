@@ -19,15 +19,15 @@ use Debian::DebConf::Element; # perlbug
 use base qw(Debian::DebConf::Element);
 
 sub show {
-	my $self = shift;
+	my $this = shift;
 	my $vbox = new Gtk::VBox(0,5);
-	my $text = $self->frontend->maketext(
-			$self->question->extended_description);
+	my $text = $this->frontend->maketext(
+			$this->question->extended_description);
 	my $label = new Gtk::Label("This note has been saved in your mailbox");
 	$vbox->pack_start($text, 1,1,0);
 	$vbox->pack_start($label, 0,1,0);
 	$text->show(); $label->show();
-	$self->frontend->newques($self->question->description, $vbox);
+	$this->frontend->newques($this->question->description, $vbox);
 	return '';
 }
 

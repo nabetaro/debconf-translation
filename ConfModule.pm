@@ -57,15 +57,15 @@ can use.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 	
-	$self->frontend(shift);
-	$self->version("2.0");
+	$this->frontend(shift);
+	$this->version("2.0");
 
 	# Let clients know a FrontEnd is actually running.
 	$ENV{DEBIAN_HAS_FRONTEND}=1;
 
-	return $self;
+	return $this;
 }
 
 =head2 startup

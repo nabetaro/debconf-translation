@@ -28,10 +28,10 @@ use base qw(Debian::DebConf::FrontEnd);
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
-	$self->resize; # Get current screen size.
-	$SIG{'WINCH'}=sub { $self->resize };
-	return $self;
+	my $this  = bless $proto->SUPER::new(@_), $class;
+	$this->resize; # Get current screen size.
+	$SIG{'WINCH'}=sub { $this->resize };
+	return $this;
 }
 
 =head2 resize

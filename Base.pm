@@ -34,9 +34,9 @@ Returns a new object of this class.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = {};
-	bless ($self, $class);
-	return $self;
+	my $this  = {};
+	bless ($this, $class);
+	return $this;
 }
 
 =head2 any_other_method

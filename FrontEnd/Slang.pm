@@ -33,19 +33,19 @@ use base qw(Debian::DebConf::FrontEnd);
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
-	my $self  = bless $proto->SUPER::new(@_), $class;
+	my $this  = bless $proto->SUPER::new(@_), $class;
 
-	$self->interactive(1);
+	$this->interactive(1);
 
 	# Set up the basic UI.
-	$self->screen(Term::Stool::Screen->new);
-	$self->titlebar(Term::Stool::TitleBar->new(
+	$this->screen(Term::Stool::Screen->new);
+	$this->titlebar(Term::Stool::TitleBar->new(
 		text => "Debian Configuration",
 	));
-	$self->helpbar(Term::Stool::HelpBar->new(
+	$this->helpbar(Term::Stool::HelpBar->new(
 		helpstack => [ "" ],
 	));
-	$self->mainwindow(Term::Stool::Window->new(
+	$this->mainwindow(Term::Stool::Window->new(
 		xoffset => 2, yoffset => 2, resize_hook => sub {
 			my $this=shift;
 
@@ -54,7 +54,7 @@ sub new {
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));
-	$self->descwindow(Term::Stool::Window->new(
+	$this->descwindow(Term::Stool::Window->new(
 		title => "Description",
 		xoffset => 2, resize_hook => sub {
 			my $this=shift;
@@ -65,7 +65,7 @@ sub new {
 			$this->height(int(($this->container->height - 6) / 2));
 		},
 	));	
-	$self->button_next(Term::Stool::Button->new(
+	$this->button_next(Term::Stool::Button->new(
 		text => "Next", width => 8, resize_hook => sub {
 			my $this=shift;
 
@@ -74,7 +74,7 @@ sub new {
 			$this->xoffset($this->container->width / 4);
 		},
 	));
-	$self->button_back(Term::Stool::Button->new(
+	$this->button_back(Term::Stool::Button->new(
 		text => "Back", width => 8, resize_hook => sub {
 			my $this=shift;
 
@@ -84,7 +84,7 @@ sub new {
 				- $this->width);
 		},
 	));
-	$self->panel(Term::Stool::Panel->new(
+	$this->panel(Term::Stool::Panel->new(
 		xoffset => 0, yoffset => 0, resize_hook => sub {
 			my $this=shift;
 			# Fill the window, with space for the buttons.
@@ -92,12 +92,12 @@ sub new {
 			$this->height($this->container->height - 3);
 		},
 	));
-	$self->mainwindow->add($self->panel, $self->button_next,
-		$self->button_back);
-	$self->screen->add($self->titlebar, $self->mainwindow,
-		$self->descwindow, $self->helpbar);
+	$this->mainwindow->add($this->panel, $this->button_next,
+		$this->button_back);
+	$this->screen->add($this->titlebar, $this->mainwindow,
+		$this->descwindow, $this->helpbar);
 
-	return $self;
+	return $this;
 }
 
 =head2 title
