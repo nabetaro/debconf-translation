@@ -1,0 +1,41 @@
+So you'd like to translate and/or internationalize debconf? Great!
+
+Unfortunatly, there are several different peices, that are all handled
+differently. 
+
+* First, and most important, are the po files, in the po/ directory.
+  You probably already know how this part works -- see gettext's info page.
+
+* The next bit you should translate is the debian/templates file,
+  generating a debian/templates.<lang> file. This is specific to debconf.
+  To generate a skeleton debian/templates.<lang> file, you can simply run:
+     debconf-getlang <lang> debian/templates > debian/templates.<lang>
+  Then edit the generated file, and fill in translations for all the empty
+  lines. When I change the main templates file, you can merge in my changes
+  via the debconf-mergetemplate command:
+     debconf-mergetemplate debian/templates debian/templates.<lang> > new
+  Then edit the new file. There is not currently a really easy way to see
+  what parts have changed and need their translations updated, but you
+  can always use diff.
+
+* Finally, you might want to translate some of debconf's docs. I don't yet
+  have a mechanism for translating the xml documentation. It is possible to
+  translate the man pages though. The man pages are generated from perl POD
+  documentation (man perlpod), the source to which is in the same file as
+  the program the man page documents. Unfortunatly, pod does not support
+  putting translated text in there too. However, there is a way to make a
+  standalone POD file that you can translate. Suppose you want to translate
+  dpkg-reconfigure's man page. Run this (in the Client/ directory):
+      perldoc -uF dpkg-reconfigure > dpkg-reconfigure.<lang>.pod
+  Now you have a .pod file with just the English text in it it. Replace
+  with translated text.
+
+Once you have translated file(s), send them to me and I'll include them in
+debhelper. After that, we have to worry about maintenance. I'll try to let
+you know if I make changes, but a better way might be for you to subscribe
+to the debconf-commits mailing list, where you can watch the cvs commits.
+    http://kitenet.net/cgi-bin/mailman/listinfo/debconf-commits
+
+Thanks for contributing to debconf! 
+
+Joey Hess <joeyh@debian.org>
