@@ -6,8 +6,8 @@ Version.pm:
 	echo -e "package Debian::DebConf::Version;\n\$$version='$(VERSION)';" > Version.pm
 
 test:
-	install -d Debian || true
-	cd Debian && ln -s .. DebConf || true
+	-install -d Debian
+	-cd Debian && ln -s .. DebConf
 	samples/$(PACKAGE)
 	rm -rf Debian
 

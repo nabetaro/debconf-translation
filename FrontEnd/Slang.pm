@@ -243,7 +243,8 @@ sub go {
 		$this->panel->display;
 		$this->screen->run($firstwidget);
 
-		# See which button is active (and thus was pressed).
+		# See which button is active (and thus was pressed), and
+		# deactivate it.
 		if ($this->button_next->active) {
 			$this->button_next->deactivate;
 			$this->button_next->display;
@@ -253,6 +254,7 @@ sub go {
 			$this->button_back->deactivate;
 			$this->button_back->display;
 		}
+		$this->mainwindow->buttonbar->active('');
 		# User interaction is done for now.
 		$this->helpbar->helpstack(["Working, please wait.."]);
 		$this->helpbar->display;
