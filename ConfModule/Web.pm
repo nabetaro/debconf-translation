@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::ConfModule::Base - ConfModule that interfaces to the web FrontEnd
+Debian::DebConf::ConfModule::Web - ConfModule that interfaces to the web FrontEnd
 
 =cut
 

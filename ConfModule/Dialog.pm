@@ -4,7 +4,7 @@
 
 =head1 NAME
 
-Debian::DebConf::ConfModule::Base - ConfModule that interfaces to the dialog FrontEnd
+Debian::DebConf::ConfModule::Dialog - ConfModule that interfaces to the dialog FrontEnd
 
 =cut
 

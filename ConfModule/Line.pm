@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::ConfModule::Base - ConfModule that interfaces to the line based FrontEnd
+Debian::DebConf::ConfModule::Line - ConfModule that interfaces to the line based FrontEnd
 
 =cut
 
