@@ -199,6 +199,24 @@ sub accept {
 	return 1;
 }
 
+=head2 ispassword(item)
+
+Returns true if the item appears to hold a password. This is pretty messy;
+we have to dig up its template (unless it _is_ a template).
+
+=cut
+
+sub ispassword {
+	my $this=shift;
+	my $item=shift;
+
+	my $template=Debconf::Template::Persistent->get($item);
+	return unless $template;
+	my $type=$template->type || '';
+	return 1 if $type eq 'password';
+	return 0;
+}
+
 =head2 iterate([itarator])
 
 Iterate over all available items. If called with no arguments, it returns

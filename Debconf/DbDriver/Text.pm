@@ -8,6 +8,7 @@ Debconf::Db::Text - plain text debconf db driver
 
 package Debconf::DbDriver::Text;
 use strict;
+use Fcntl;
 use Debconf::Log qw{:all};
 use base qw(Debconf::DbDriver::FlatDir);
 
@@ -114,7 +115,15 @@ sub save {
 	my %data=%{shift()};
 	my $file=$this->filename($item);
 
-	open(TEXTDB_OUT, ">$file") or $this->error("$file: $!");
+	# Write out passwords mode 600.
+	if ($this->ispassword($item)) {
+		sysopen(TEXTDB_OUT, $file, O_WRONLY | O_CREAT, 0600)
+			or $this->error("$file: $!");
+	}
+	else {
+	 	open(TEXTDB_OUT, ">$file") or $this->error("$file: $!");
+	}
+	
 	foreach my $field (sort keys %{$data{fields}}) {
 		my $val=$data{fields}->{$field};
 		$val=~s/\n/\\n/g;

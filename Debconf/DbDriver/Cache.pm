@@ -123,8 +123,6 @@ sub cached {
 
 	unless (exists $this->{cache}->{$item}) {
 		return unless $this->accept($item);
-		use Carp;
-		Carp::cluck("foo") unless defined $item;
 		debug "DbDriver $this->{name}" => "cache miss on $item";
 		my $cache=$this->load($item);
 		$this->{cache}->{$item}=$cache if $cache;

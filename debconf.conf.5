@@ -76,7 +76,9 @@ which contains plain text files. The format of the files is very simple to
 figure out, should you ever need to edit them directly. One file is used
 for each item in the database, so it doesn't scale to database with
 thousands of entries (on the ext2 filesystem anyway). But it is quick and
-efficient for smaller databases.
+efficient for smaller databases. Note that items which might contain
+passwords are written out into mode 600 files, while other files will be
+mode 644.
 .P
 The following things are configurable for this driver.
 .RS
