@@ -21,6 +21,7 @@ root's mailbox.
 
 package Debian::DebConf::Element::Noninteractive::Note;
 use strict;
+use Text::Wrap;
 use Debian::DebConf::Element::Noninteractive; # perlbug
 use base qw(Debian::DebConf::Element::Noninteractive);
 
@@ -40,15 +41,27 @@ sub show {
 		   $this->question->description;
 		$title=~s/'/\'/g;                                                                             # This comment here to work around stupid ' highlighting in jed
 	    	open (MAIL, "|mail -s '$title' root") or return;
-		print MAIL <<eof;
-This note was sent to you because debconf was asked to make sure you saw it,
-but debconf was running in noninteractive mode, or you have told it to not
-pause and show you unimportant notes. Here is the text of the note:
-
+		# Let's not clobber this, other parts of debconf might use
+		# Text::Wrap at other spacings.
+		my $old_columns=$Text::Wrap::columns;
+		$Text::Wrap::columns=75;
+		print MAIL wrap('', '', <<eof);
+This note was sent to you because debconf was asked to make sure you saw
+it, but debconf was running in noninteractive mode, or you have told it
+to not pause and show you unimportant notes. Here is the text of the note:
 eof
-		print MAIL $this->question->extended_description || $this->question->description;
+		print MAIL "\n";
+		if ($this->question->extended_description ne '') {
+			print MAIL wrap('', '', $this->question->extended_description);
+		}
+		else {
+			# Evil note!
+			print MAIL wrap('', '', $this->question->description);
+		}
 		print MAIL "\n";
 		close MAIL;
+
+		$Text::Wrap::columns=$old_columns;
 	}
 	
 	# Mark this note as shown. The frontend doesn't do this for us,
