@@ -1,0 +1,12 @@
+Source: debconf
+Section: admin
+Priority: optional
+Maintainer: Joey Hess <joeyh@master.debian.org>
+Standards-Version: 2.3.0.1
+
+Package: debconf
+Architecture: any
+Depends: perl | perl5
+Description: Debian configuration management system
+ Debconf is a configuration management system for debian packages. It is
+ used by some packages that need to ask questions when they are installed.
