@@ -73,7 +73,7 @@ sub command_capb {
 # Just store the title.
 sub command_title {
 	my $this=shift;
-	$this->{'title'}=join(' ',@_);
+	$this->frontend->title(join ' ', @_);
 
 	return;
 }

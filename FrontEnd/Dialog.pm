@@ -18,20 +18,26 @@ sub new {
 	my $class = ref($proto) || $proto;
 	my $self  = bless $proto->SUPER::new(@_), $class;
 	
-	# Autodetect if whiptail or dialog are available.
+	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG}) {
 		$self->{program}='whiptail';
 		$self->{borderwidth}=5;
 		$self->{borderheight}=6;
+		$self->{spacer}=1;
 	}
 	elsif (-x "/usr/bin/dialog") {
 		$self->{program}='dialog';
 		$self->{borderwidth}=4;
 		$self->{borderheight}=4;
+		$self->{spacer}=3;
 	}
 	else {
 		die "Neither whiptail nor dialog is installed, so the dialog based frontend cannot be used.";
 	}
+
+	# Things look better in an xterm if I clear the screen now. It cuts
+	# down on the nasty screen flickering.
+	system 'clear';
 
 	return $self;
 }
@@ -39,7 +45,7 @@ sub new {
 # Dialog and whiptail have an annoying property of requiring you specify
 # their dimentions explicitly. This function handles doing that. Just pass in
 # the text that will be displayed in the dialog, and it will spit out new
-# text, formatted nicely, then the width for the dialog, and then the height
+# text, formatted nicely, then the height for the dialog, and then the width
 # for the dialog.
 sub sizetext {
 	my $this=shift;

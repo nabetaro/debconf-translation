@@ -16,40 +16,51 @@ sub show {
 
 	# Get the question that is bound to this element.
 	my $question=ConfigDb::getquestion($this->{question});
-	
+
+	# Figure out how much space in the dialog box the prompt will take.
+	my ($text, $lines, $columns)=$this->frontend->sizetext(
+		$question->template->extended_description);
+
 	# How dialog is called depends on what type of question this is.
 	my $type=$question->template->type;
 	my $default=$question->value || $question->template->default;
 	my @params=();
 	if ($type eq 'boolean') {
-		@params=('--yesno', $question->template->extended_description,
-		         7, 0);
+		@params=('--yesno', $text, $lines, $columns);
 		if ($default eq 'false') {
 			push @params, '--defaultno';
 		}
 	}
 	elsif ($type eq 'select') {
-		@params=('--menu', 
-			 $question->template->extended_description,
-			 16, 0, 8);
-		my $c=0;			 
-		foreach (@{$question->template->choices}) {
+		my @choices=@{$question->template->choices};
+		
+		# Figure out how many lines of the screen should be used to
+		# scroll the list. Look at how much free screen real estate
+		# we have after putting the description at the top. If there's
+		# too little, the list will need to scroll.
+		my $menu_height=$#choices + 1;
+		my $screen_lines=($ENV{COLUMNS} || 80) - $this->frontend->borderwidth;
+		if ($lines + $#choices + 1 > $screen_lines) {
+			$menu_height = $screen_lines - $lines;
+		}
+		$lines=$lines + $menu_height + $this->frontend->spacer;
+		@params=('--menu', $text, $lines, $columns, $menu_height);
+		my $c=0;
+		foreach (@choices) {
 			push @params, $c++, $_;
 		}
 	}
 	elsif ($type eq 'text') {
-		# Wrap the text that goes in so I can figure out how many
-		# lines it takes.
-		@params=('--inputbox', $question->template->extended_description, 0 + 7, 
-			 $question->template->extended_description, 16, 75, 
-			 $default);
+		@params=('--inputbox', $text, 
+			$lines + $this->frontend->spacer, 
+			$columns, $default);
 	}
 	else {
 		die "Unsupported data type \"$type\"";
 	}
 
 	my $value;
-	my ($ret, $text)=$this->frontend->show_dialog(
+	my ($ret, $value)=$this->frontend->show_dialog(
 		$question->template->description, @params);
 
 	if ($type eq 'boolean') {
@@ -57,10 +68,7 @@ sub show {
 	}
 	elsif ($type eq 'select') {
 		my @choices=@{$question->template->choices};
-		$value=$choices[$text];
-	}
-	elsif ($type eq 'text') {
-		$value=$text;
+		$value=$choices[$value];
 	}
 
 	$question->value($value);
