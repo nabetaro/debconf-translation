@@ -10,7 +10,7 @@ Architecture: all
 Conflicts: debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), gnome-utils (<< 1.0.13-2), libgtk-perl (<< 0.6123-1), dialog (<< 0.9a-17), whiptail (<< 0.50-1)
 Provides: debconf-tiny
 Replaces: debconf-tiny
-Depends: data-dumper, perl | perl5
+Depends: data-dumper, perl | perl5, fileutils (>= 4.0-5)
 Suggests: libterm-readline-gnu-perl, whiptail | dialog | gnome-utils, libgtk-perl
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. It is

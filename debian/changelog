@@ -1,3 +1,13 @@
+debconf (0.2.56) unstable; urgency=low
+
+  * Depend on the version of fileutils that supported
+    --ignore-fail-on-non-empty, Closes: #52746 (should that bug really have
+    been grave? It could only be triggered if you installed debconf w/o
+    upgrading to potato fileutils, and then purged it.)
+  * Despite what the bug report says, the postinst has never ran rmdir.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 14 Dec 1999 19:38:24 -0800
+
 debconf (0.2.55) unstable; urgency=low
 
   * Added to the tutorial.
