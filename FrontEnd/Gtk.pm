@@ -173,8 +173,8 @@ sub makeelement {
 		die "Unknown type of element: \"$type\"";
 	}
 
-	$elt->question($question);
 	$elt->frontend($this);
+	$elt->question($question);
 
 	return $elt;
 }

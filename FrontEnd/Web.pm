@@ -99,10 +99,11 @@ sub makeelement {
 	else {
 		die "Unknown type of element: \"$type\"";
 	}
-	
-	$elt->question($question);
+
 	# Some elements need a handle to their FrontEnd.
 	$elt->frontend($this);
+	
+	$elt->question($question);
 
 	return $elt;
 }	

@@ -56,9 +56,7 @@ sub question {
 			}
 			next unless $ok;
 			
-			my $element=Debian::DebConf::Element->create_element($this->frontend);
-			$element->frontend($this->frontend);
-			$element->question($question);
+			my $element=$this->frontend->makeelement($question);
 			if (isa($element, "Debian::DebConf::Element::Container")) {
 				push @subcontainers, $element;
 			}

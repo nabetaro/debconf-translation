@@ -54,7 +54,10 @@ sub makeelement {
 	my $this=shift;
 	my $question=shift;
 
-	return Debian::DebConf::Element->new($question);
+	my $elt=Debian::DebConf::Element->new($question);
+	$elt->frontend($this);
+	$elt->question($question);
+	return $elt;
 }
 
 =head2 add
