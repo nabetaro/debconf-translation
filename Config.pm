@@ -102,7 +102,7 @@ the lifetime of the program) to override what's in the database.
 			return $override_priority;
 		}
 	
-		my $ret='low';
+		my $ret='medium';
 		my $question=Debian::DebConf::ConfigDb::getquestion(
 			'debconf/priority'
 		);

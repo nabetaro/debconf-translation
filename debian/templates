@@ -1,7 +1,7 @@
 Template: debconf/frontend
 Type: select
 Choices: Dialog, Text, Web, Noninteractive
-Default: Text
+Default: Dialog
 Description: What frontend should be used for configuring packages?
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they all use.
@@ -14,7 +14,7 @@ Description: What frontend should be used for configuring packages?
 Template: debconf/priority
 Type: select
 Choices: critical, high, medium, low
-Default: low
+Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
  might ask you. Only questions with a certain priority or higher are actually

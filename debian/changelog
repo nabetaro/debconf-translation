@@ -1,3 +1,15 @@
+debconf (0.2.73) frozen unstable; urgency=low
+
+  * Make dpkg-reconfigure work inside a base system that has no Getopt::Long.
+    This is critical to get into potato, because base-config has to be
+    dpkg-reconfigure'd on initial reboot to set the root password and so on.
+  * Really make dialog frontend default. I thought I did this 8 versions
+    back..
+  * Medium priority is now default.
+  * Probably fixed bug #55174, but who knows, I cannot reproduce it anyway.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 14 Jan 2000 20:20:44 -0800
+
 debconf (0.2.72) unstable; urgency=low
 
   * Renamed dpkg-preconfig to dpkg-preconfigure, for consistency.

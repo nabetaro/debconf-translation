@@ -147,7 +147,7 @@ sub go {
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
 		if ($this->backup) {
-			delete $this->{elements};
+			$this->{elements}=[];
 			$this->backup('');
 			return;
 		}

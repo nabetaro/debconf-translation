@@ -11,7 +11,6 @@ use Debian::DebConf::ConfigDb;
 use Debian::DebConf::Config;
 use Debian::DebConf::AutoSelect;
 use Debian::DebConf::Log ':all';
-use Getopt::Long;
 
 # See if they are root.
 if ($> != 0) {
@@ -21,11 +20,25 @@ if ($> != 0) {
 
 my $infodir="/var/lib/dpkg/info";
 
-Getopt::Long::config qw(bundling no_ignore_case permute);
-my $ret=GetOptions(
-	"frontend|f=s" => sub { shift; Debian::DebConf::Config::frontend(shift) },
-	"priority|p=s" => sub { shift; Debian::DebConf::Config::priority(shift) },
-);
+# Parse command line if GetOpt::Long is available, else just throw out all
+# options.
+eval qq{
+	use Getopt::Long;
+};
+if ($@) {
+	@ARGV=grep { ! /^-/ } @ARGV;
+}
+else {
+	eval qq{
+		Getopt::Long::config qw(bundling no_ignore_case permute);
+		GetOptions(
+			"frontend|f=s" => 
+				sub { shift; Debian::DebConf::Config::frontend(shift) },
+			"priority|p=s" =>
+				sub { shift; Debian::DebConf::Config::priority(shift) },
+		);
+	}
+}
 
 # Load up previous state information.
 Debian::DebConf::ConfigDb::loaddb(Debian::DebConf::Config::dbdir());
