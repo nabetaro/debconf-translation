@@ -1,3 +1,13 @@
+debconf (0.2.64) unstable; urgency=low
+
+  * Changed default frontend (again), back to the dialog frontend. I can't
+    really make my mind up on this, but my reasoning for using dialog is that
+    debconf-tiny is going to be used by several packages on a fresh install, 
+    so the user is going to see some debconf dialog stuff right from the
+    start. Changing to text half-way through is liable to be confusing.
+
+ -- Joey Hess <joeyh@debian.org>  Thu,  6 Jan 2000 23:24:55 -0800
+
 debconf (0.2.63) unstable; urgency=low
 
   * Removed apt-setup; it is in base-config now.
