@@ -87,15 +87,17 @@ sub iterator {
 
 	my %seen;
 	my @iterators = map { $_->iterator } @{$this->{stack}};
+	my $i = pop @iterators;
 	my $iterator=Debconf::Iterator->new(callback => sub {
-		while (my $i = pop @iterators) {
-			my $ret=$i->iterate;
-			next unless defined $ret;
-			next if $seen{$ret};
-			$seen{$ret}=1;
-			return $ret;
+		for (;;) {
+			while (my $ret = $i->iterate) {
+				next if $seen{$ret};
+				$seen{$ret}=1;
+				return $ret;
+			}
+			$i = pop @iterators;
+			return undef unless defined $i;
 		}
-		return undef;
 	});
 }
 

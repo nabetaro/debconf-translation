@@ -1,6 +1,8 @@
 debconf (1.0.32) unstable; urgency=low
 
-UNRE
+UNRE, waiting on .31 to get into testing, as it is RC, and this is probably not
+  * Fixed a bug in the stack driver's iterator, needed by FAI.
+    Thanks to Joerg Lehmann <joerg@luga.de> for the patch.
   * Typo and spelling corrections (did not change verbiage to verbage however;
     I do not intend that connotation). Closes: #131807
   * Added --force to dpkg-reconfigure.
