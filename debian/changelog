@@ -1,3 +1,21 @@
+debconf (0.9.40) unstable; urgency=high
+
+  * Fixed a bug in dpkg-reconfigure that made reconfiguring base-config
+    fail half way through because of db lock contention problems. Db->save
+    was not causing the db to shut down all the way, because
+    %DbDriver::drivers still had a reference to it. That should be a
+    WeakRef, but WeakRef's arn't available in base, so I had to solve it
+    differently: I redefined savedb() to also close the db, dropping all
+    locks. Closes: #95449 (The high urgency is because this breaks new
+    installs of woody..)
+  * Also fixed dpkg-reconfigure to re-load the db properly after all this
+    (typo).
+  * Fixed an overoptimization in the Text Dialog input Element that caused
+    it to default inconsistently to yes or no the first time, and y or n
+    thereafter.
+
+ -- Joey Hess <joeyh@debian.org>  Wed,  2 May 2001 14:50:57 -0400
+
 debconf (0.9.39) unstable; urgency=low
 
   * Changed the debug and log stuff in debconf.conf and removed log-to. 

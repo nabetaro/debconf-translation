@@ -11,9 +11,6 @@ use strict;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
 
-my $y=gettext("yes");
-my $n=gettext("no");
-
 =head1 DESCRIPTION
 
 This is a yes or no question, presented to the user using a plain text
@@ -27,6 +24,9 @@ interface.
 
 sub show {
 	my $this=shift;
+
+	my $y=gettext("yes");
+	my $n=gettext("no");
 
 	# Display the question's long desc first.
 	$this->frontend->display($this->question->extended_description."\n");

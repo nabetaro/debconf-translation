@@ -241,7 +241,8 @@ Each subclass must implement this method.
 
 =head2 savedb
 
-Save the entire database state.
+Save the entire database state, and closes down the driver's access to the
+database.
 
 Each subclass must implement this method.
 

@@ -112,7 +112,7 @@ sub init {
 
 =sub savedb
 
-Save the entire cache out to the file.
+Save the entire cache out to the file, then close the file.
 
 =cut
 
@@ -154,9 +154,9 @@ sub savedb {
 	rename($this->{filename}."-new", $this->{filename}) or
 		$this->error("rename failed: $!");
 
-	# Finally, store the open filehandle so the lock isn't dropped. This
-	# drops the lock on -old.
-	$this->{_fh} = $fh;
+	# Now drop the lock on -old (the lock on -new will be removed
+	# when this function returns and $fh goes out of scope.
+	delete $this->{_fh};
 
 	return 1;
 }
