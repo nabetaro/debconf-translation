@@ -7,7 +7,7 @@ Build-Depends: perl, debhelper (>= 3.0.5), gettext, html2text, jade, sp, docbook
 
 Package: debconf
 Priority: important
-Pre-Depends: perl-base (>= 5.6.0-19)
+Pre-Depends: perl-base (>= 5.6.1)
 Conflicts: debconf-utils (<< 0.9), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9a-20000730-1), whiptail (<< 0.50.8-1), libterm-stool-perl (<< 0.20), cdebconf (<< 0.10-5)
 Provides: debconf-tiny
 Replaces: debconf-tiny
@@ -31,7 +31,7 @@ Description: Debian configuration management system documentation
 
 Package: debconf-utils
 Section: devel
-Depends: debconf (>= 0.9.27)
+Depends: debconf (>= 0.9.59)
 Conflicts: debconf (<< 0.3.31)
 Replaces: debconf (<< 0.3.31)
 Architecture: all

@@ -132,15 +132,6 @@ sub startup {
 	my @args=$this->confmodule($confmodule);
 	push @args, @_ if @_;
 	
-	# Try to detect the uninitialized value bug. Seems very hard to
-	# reproduce, so I am going to rather excessive legths here.
-	my $bad='';
-	map { $bad=1 if ! defined $_ } @args;
-	if ($bad) {
-		use Carp;
-		Carp::cluck(gettext("debconf: Undefined values detected at confmodule startup! Please file a bug report, and include the stack trace below"));
-	}
-	
 	debug developer => "starting ".join(' ',@args);
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),

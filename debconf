@@ -6,7 +6,7 @@ debconf - runs a program under debconf
 
 =head1 SYNOPSIS
 
- debconf owner [-t templates] program [params]
+ debconf owner [options] program [params]
 
 =head1 DESCRIPTION
 
@@ -14,8 +14,27 @@ This program runs a program that uses debconf, and talkes to it via the
 debconf protocol, accessing the database and displaying questions as
 directed.
 
-If the -t flag is specified, the filename after it should be a debconf
-templates file, which will be loaded first.
+=head1 OPTIONS
+
+=over 4
+
+=item B<-f>I<type>, B<--frontend=>I<type>
+
+Specify a debconf frontend to use.
+
+=item B<-p>I<value>, B<--priority=>I<value>
+
+Specify the minimum priority of question that will be displayed.
+
+=item B<--package>=I<package>
+
+Tell debconf what package the program is a part of. Recommended.
+
+=item B<-t>I<file>, B<--templates>=I<file>
+
+Load up the specified file as a templates file first.
+
+=back
 
 =head 1 RETURN VALUE
 
@@ -23,57 +42,45 @@ This program returns the return code of the program it runs.
 
 =cut
 
-sub usage {
-	die "Usage: $0 [-t template] package program args\n";
-}
-
 use strict;
 use Debconf::Db;
 use Debconf::Template;
 use Debconf::AutoSelect qw(:all);
 use Debconf::Log qw(:all);
-
-# Parse parameters.
-my (@templates, $package, @command);
-# If only perl-base had getopt..
-for (my $x=0; $x < @ARGV;) {
-        $_=$ARGV[$x++];
-
-	if (/^-(?:t|-templates)$/) {
-		push @templates, $ARGV[$x++];
-	}
-	elsif (/^--?(\w+)/) {
-		print STDERR "Unknown option: $1\n";
-		usage();
-	}
-	elsif (! $package) {
-		$package=$_;
-	}
-	else {
-		push @command, $_;
-	}
-}
-usage unless $package and @command;
-
-# Initialize.
-debug developer => "debconf started";
+use Debconf::Config;
+use Debconf::Gettext;
 
 Debconf::Db->load;
+
+my $templates='';
+my $package='';
+Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
+qq{Syntax: debconf [options] program [params]
+  -t,  --templates		Load specified templates file.
+       --package		Specifiy package the program is part of.},
+	"templates|t=s",	\$templates,
+	"package=s",		\$package,
+);
+
+if (! @ARGV) {
+	warn gettext("you must specify a program to run");
+	exit(1);
+}
 
 my $frontend=make_frontend();
 $frontend->default_title($package);
 
 # Load templates.
-foreach my $fn (@templates) {
-	debug developer => "loading templates from $fn";
-	Debconf::Template->load($fn, $package);
+if (length $templates) {
+	debug developer => "loading templates from $templates";
+	Debconf::Template->load($templates, $package);
 }
 
 # Start up the confmodule we were asked to run.
-my $confmodule=make_confmodule(join " ", @command);
+my $confmodule=make_confmodule(join " ", @ARGV);
 
 # Make sure any questions the confmodule generates are owned by this package.
-$confmodule->owner($package);
+$confmodule->owner($package) if length $package;
 
 # Talk to it until it is done.
 1 while ($confmodule->communicate);

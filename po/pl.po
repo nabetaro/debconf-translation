@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-05-10 21:35-0400\n"
+"POT-Creation-Date: 2001-05-22 19:22-0400\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -24,19 +24,11 @@ msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
 
-#: ../Debconf/ConfModule.pm:141
-msgid ""
-"debconf: Undefined values detected at confmodule startup! Please file a bug "
-"report, and include the stack trace below"
-msgstr ""
-"debconf: wykryto niezdefiniowane warto¶ci przy starcie modu³u konfiguracji! "
-"Proszê zg³osiæ b³±d i za³±czyæ poni¿szy zrzut stosu"
-
-#: ../Debconf/Config.pm:83
+#: ../Debconf/Config.pm:84
 msgid "Config database not specified in config file."
 msgstr ""
 
-#: ../Debconf/Config.pm:87
+#: ../Debconf/Config.pm:88
 msgid "Template database not specified in config file."
 msgstr ""
 
@@ -248,57 +240,71 @@ msgstr ""
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Uwaga: Debconf dzia³a w trybie www. Patrz http://localhost:%i/"
 
-#: ../dpkg-preconfigure:120
-msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+#: ../dpkg-preconfigure:81
+msgid "(not preconfiguring packages since apt-utils is not installed)"
 msgstr ""
-"U¿ycie: dpkg-preconfigure [--frontend=typ] [--priority=warto¶æ] pliki.deb"
 
-#: ../dpkg-preconfigure:124
-#, c-format
-msgid "Unknown option: %s"
-msgstr "Nieznana opcja: %s"
-
-#: ../dpkg-preconfigure:144
-#, c-format
-msgid "dpkg-preconfigure: unable to re-open stdin: %s"
+#: ../dpkg-preconfigure:112
+#, fuzzy, c-format
+msgid "unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: nie uda³o siê ponownie otworzyæ stdin: %s"
 
-#: ../dpkg-preconfigure:157
-msgid "Usage: dpkg-preconfigure deb [...]"
+#: ../dpkg-preconfigure:125
+msgid "must specify some debs to preconfigure"
 msgstr ""
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:160
 #, c-format
 msgid "template parse error: %s"
 msgstr "b³±d w szablonie: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:174
 #, fuzzy, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "Nie uda³o siê zmieniæ uprawnieñ pliku: %s"
 
-#: ../dpkg-preconfigure:216
+#: ../dpkg-preconfigure:184
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"
 
-#: ../dpkg-reconfigure:14
-msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-msgstr "U¿ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto¶æ] pakiety"
-
-#: ../dpkg-reconfigure:128
+#: ../dpkg-reconfigure:72
 msgid "must be run as root"
 msgstr "musi byæ uruchamiany jako root"
 
-#: ../dpkg-reconfigure:159
+#: ../dpkg-reconfigure:113
+msgid "please specify a package to reconfigure"
+msgstr ""
+
+#: ../dpkg-reconfigure:127
 #, c-format
 msgid "%s is not fully installed"
 msgstr "%s nie jest w pe³ni zainstalowany"
 
-#: ../dpkg-reconfigure:232
+#: ../dpkg-reconfigure:200
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
+
+#~ msgid ""
+#~ "debconf: Undefined values detected at confmodule startup! Please file a "
+#~ "bug report, and include the stack trace below"
+#~ msgstr ""
+#~ "debconf: wykryto niezdefiniowane warto¶ci przy starcie modu³u "
+#~ "konfiguracji! Proszê zg³osiæ b³±d i za³±czyæ poni¿szy zrzut stosu"
+
+#~ msgid ""
+#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+#~ msgstr ""
+#~ "U¿ycie: dpkg-preconfigure [--frontend=typ] [--priority=warto¶æ] pliki.deb"
+
+#~ msgid "Unknown option: %s"
+#~ msgstr "Nieznana opcja: %s"
+
+#~ msgid ""
+#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
+#~ msgstr ""
+#~ "U¿ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto¶æ] pakiety"
 
 #~ msgid "debconf: Unable to write to temporary file %s: %s"
 #~ msgstr "debconf: Nie uda³o siê pisaæ do pliku tymczasowego %s: %s"

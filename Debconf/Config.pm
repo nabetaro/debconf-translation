@@ -22,8 +22,8 @@ our @config_files=("$ENV{HOME}/.debconfrc", "/etc/debconf.conf",
 =head1 DESCRIPTION
 
 This package holds configuration values for debconf. It supplies defaults,
-and allows them to be overridden by values from the environment, the config
-file, and values pulled out of the debconf database.
+and allows them to be overridden by values from the command line, the 
+environment, the config file, and values pulled out of the debconf database.
 
 =head1 METHODS
 
@@ -31,11 +31,12 @@ file, and values pulled out of the debconf database.
 
 =item load
 
-Reads and parses a config file. The config file format is a series of stanzas;
-the first stanza configures debconf as a whole, and then each of the rest sets
-up a database driver. This lacks the glorious nested bindish beauty of 
-Wichert's original idea, but it captures the essence of it. It will load
-from a set of standard locations unless a file to load is specified.
+This class method reads and parses a config file. The config file format is
+a series of stanzas; the first stanza configures debconf as a whole, and
+then each of the rest sets up a database driver. This lacks the glorious
+nested bindish beauty of Wichert's original idea, but it captures the
+essence of it. It will load from a set of standard locations unless a file
+to load is specified.
 
 =cut
 
@@ -95,6 +96,46 @@ sub load {
 		Debconf::Db->makedriver(%config);
 	}
 	close DEBCONF_CONFIG;
+}
+
+=item getopt
+
+This class method parses command line options in @ARGV with GetOptions from
+Getopt::Long.  Many meta configuration items can be overridden with command
+line options.
+
+The first parameter should be basic usage text for the program in
+question. Usage text for the globally supported options will be prepended
+to this if usage help must be printed.
+
+If any additonal parameters are passed to this function, they are also
+passed to GetOptions. This can be used to handle additional options.
+
+=cut
+
+sub getopt {
+	my $class=shift;
+	my $usage=shift;
+
+	my $showusage=sub { # closure
+		print STDERR $usage."\n";
+		print STDERR <<EOF;
+  -f,  --frontend		Specify debconf frontend to use.
+  -p,  --priority		Specify minimum priority question to show.
+  -s,  --showold		Redisplay old, already seen questions.
+EOF
+		exit 1;
+	};
+
+	require Getopt::Long; # Load only if this function is called.
+	Getopt::Long::Configure('bundling');
+	Getopt::Long::GetOptions(
+		'frontend|f=s',	sub { shift; $config->{frontend} = shift },
+		'priority|p=s',	sub { shift; $config->{priority} = shift },
+		'showold|s',	sub { $config->{showold} = 'true' },
+		'help|h',	$showusage,
+		@_,
+	) || $showusage->();
 }
 
 =item frontend

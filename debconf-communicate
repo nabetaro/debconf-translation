@@ -6,15 +6,9 @@ debconf-communicate - communicate with debconf
 
 =cut
 
-use strict;
-use Debconf::Db;
-use Debconf::AutoSelect qw(:all);
-
 =head1 SYNOPSIS
 
- echo command | debconf-communicate [package]
-
- cat file-of-commands | debconf-communicate [package]
+ echo commands | debconf-communicate [options] [package]
 
 =head1 DESCRIPTION
 
@@ -48,7 +42,14 @@ L<debconf-loadtemplate(8)>
 
 =cut
 
+use strict;
+use Debconf::Db;
+use Debconf::AutoSelect qw(:all);
+use Debconf::Config;
+
 Debconf::Db->load;
+
+Debconf::Config->getopt("Syntax: debconf-communicate [options] [package]");
 
 my $frontend=make_frontend();
 my $confmodule=make_confmodule();

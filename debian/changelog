@@ -1,3 +1,15 @@
+debconf (0.9.59) unstable; urgency=low
+
+  * Now that perl-base has Getopt::Long, I can get rid of the handrolled
+    option parsing code in most every debconf utility, saving quite some
+    LOC's. Even better, I was able to set up some global options for many
+    utilities, so -f, --frontend, -p, and --priority are standard. And all
+    the programs handle -h and --help too. More global options will likely
+    follow.
+  * Fixed dpkg-reconfigure --all.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 22 May 2001 17:36:50 -0400
+
 debconf (0.9.58) unstable; urgency=low
 
   * Modified Template->clearall() to actually remove fields, rather

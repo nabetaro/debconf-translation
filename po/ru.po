@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2001-05-10 21:35-0400\n"
+"POT-Creation-Date: 2001-05-22 19:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -24,19 +24,11 @@ msgstr "не удалось инициализировать интерфейс `%s'"
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось использовать интерфейс: %s"
 
-#: ../Debconf/ConfModule.pm:141
-msgid ""
-"debconf: Undefined values detected at confmodule startup! Please file a bug "
-"report, and include the stack trace below"
-msgstr ""
-"debconf: при старте модуля confmodule были обнаружены неинициализированные "
-"значения! Пожалуйста, сообщите об этой ошибке, приведя следующую информацию."
-
-#: ../Debconf/Config.pm:83
+#: ../Debconf/Config.pm:84
 msgid "Config database not specified in config file."
 msgstr ""
 
-#: ../Debconf/Config.pm:87
+#: ../Debconf/Config.pm:88
 msgid "Template database not specified in config file."
 msgstr ""
 
@@ -255,60 +247,74 @@ msgstr ""
 "Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
 
-#: ../dpkg-preconfigure:120
-msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+#: ../dpkg-preconfigure:81
+msgid "(not preconfiguring packages since apt-utils is not installed)"
 msgstr ""
-"Запуск: dpkg-preconfigure [--frontend=интерфейс] [--priority=приоритет] "
-"<файлы .deb>"
 
-#: ../dpkg-preconfigure:124
-#, c-format
-msgid "Unknown option: %s"
-msgstr "Неизвестный параметр: %s"
-
-#: ../dpkg-preconfigure:144
-#, c-format
-msgid "dpkg-preconfigure: unable to re-open stdin: %s"
+#: ../dpkg-preconfigure:112
+#, fuzzy, c-format
+msgid "unable to re-open stdin: %s"
 msgstr "dpkg-preconfigure: не удалось заново открыть stdin: %s"
 
-#: ../dpkg-preconfigure:157
-msgid "Usage: dpkg-preconfigure deb [...]"
+#: ../dpkg-preconfigure:125
+msgid "must specify some debs to preconfigure"
 msgstr ""
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:160
 #, c-format
 msgid "template parse error: %s"
 msgstr "ошибка разбора шаблона: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:174
 #, fuzzy, c-format
 msgid "debconf: can't chmod: %s"
 msgstr "Не удалось изменить режим доступа к файлу: %s"
 
-#: ../dpkg-preconfigure:216
+#: ../dpkg-preconfigure:184
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "не удалось настроить пакет %s, код ошибки %s"
 
-#: ../dpkg-reconfigure:14
-msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-msgstr ""
-"Запуски: dpkg-reconfigure [--frontend=интерфейс] [--priority=приоритет] "
-"<названия пакетов>"
-
-#: ../dpkg-reconfigure:128
+#: ../dpkg-reconfigure:72
 msgid "must be run as root"
 msgstr "должна выполняться с правами пользователя root"
 
-#: ../dpkg-reconfigure:159
+#: ../dpkg-reconfigure:113
+msgid "please specify a package to reconfigure"
+msgstr ""
+
+#: ../dpkg-reconfigure:127
 #, c-format
 msgid "%s is not fully installed"
 msgstr "Пакет %s установлен не полностью"
 
-#: ../dpkg-reconfigure:232
+#: ../dpkg-reconfigure:200
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
+
+#~ msgid ""
+#~ "debconf: Undefined values detected at confmodule startup! Please file a "
+#~ "bug report, and include the stack trace below"
+#~ msgstr ""
+#~ "debconf: при старте модуля confmodule были обнаружены "
+#~ "неинициализированные значения! Пожалуйста, сообщите об этой ошибке, "
+#~ "приведя следующую информацию."
+
+#~ msgid ""
+#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
+#~ msgstr ""
+#~ "Запуск: dpkg-preconfigure [--frontend=интерфейс] [--priority=приоритет] "
+#~ "<файлы .deb>"
+
+#~ msgid "Unknown option: %s"
+#~ msgstr "Неизвестный параметр: %s"
+
+#~ msgid ""
+#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
+#~ msgstr ""
+#~ "Запуски: dpkg-reconfigure [--frontend=интерфейс] [--priority=приоритет] "
+#~ "<названия пакетов>"
 
 #~ msgid "debconf: Unable to write to temporary file %s: %s"
 #~ msgstr "debconf: ошибка записи во временный файл %s: %s"

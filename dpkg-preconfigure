@@ -6,7 +6,9 @@ dpkg-preconfigure - let packages ask questions prior to their installation
 
 =head1 SYNOPSIS
 
- dpkg-preconfigure [--frontend=type] [--priority=value] package.deb
+ dpkg-preconfigure [options] package.deb
+
+ dpkg-preconfigure --apt
 
 =head1 DESCRIPTION
 
@@ -21,23 +23,13 @@ questions.
 
 =item B<-f>I<type>, B<--frontend=>I<type>
 
-Select the frontend to use. The default frontend can be permanently changed
-by:
-
- dpkg-reconfigure --priority=medium debconf
-
-Currently available frontends are slang, dialog, text, and web.
+Select the frontend to use.
 
 =item B<-p>I<value>, B<--priority=>I<value>
 
-Set the lowest priority of questions you are interested in. Valid
-priorities are currently low, medium, high, and critical. The default
-priority can be permanently changed by:
-
- dpkg-reconfigure --priority=medium debconf
-
-Any questions with a priority below the selected priority will be ignored
-and their default answers will be used.
+Set the lowest priority of questions you are interested in. Any questions
+with a priority below the selected priority will be ignored and their
+default answers will be used.
 
 =item B<--apt>
 
@@ -79,54 +71,30 @@ BEGIN {
 	};
 	if ($@) {
 		# Don't use gettext() on this because it may have failed to
-		# load.
+		# load!
 		print STDERR "debconf: Perl may be unconfigured ($@) -- aborting\n";
 		exit 0;
 	}
 }
 
 if (! -x "/usr/bin/apt-extracttemplates") {
-	warn "skipping preconfiguration (apt-utils is not installed)";
+	warn gettext("(not preconfiguring packages since apt-utils is not installed)");
 	exit;
 }
 
 Debconf::Db->load;
 
-# In apt mode, need unbuffered output.
+my $apt=0;
+Debconf::Config->getopt( # TODO: i18n this? What's the best way to break it up?
+qq{Syntax: dpkg-reconfigure [options] [debs]
+       --apt		Apt mode.},
+	"apt"		=> \$apt,
+);
+
+# In apt mode, need unbuffered output. Let's just enable it.
 $|=1;
 
-# Parse command line. I don't use Getopt::Long since it's not in base.
-my @debs;
-my $apt='';
-for (my $x=0; $x < @ARGV;) {
-	$_=$ARGV[$x++];
-	
-	if ($_ eq '--apt') {
-		$apt=1;
-	}
-	elsif (/^-(?:f|-frontend=)(.*)/) {
-		Debconf::Config->frontend($1);
-	}
-	elsif (/^-(?:f|-frontend)$/) {
-		Debconf::Config->frontend($ARGV[$x++]);
-	}
-	elsif (/^-(?:p|-priority=)(.*)/) {
-		Debconf::Config->priority($1);
-	}
-	elsif (/^-(?:p|-priority)$/) {
-		Debconf::Config->priority($ARGV[$x++]);
-	}
-	elsif (/^-(?:h|-help)$/) {
-		print STDERR gettext("Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles")."\n";
-		exit 1;
-	}
-	elsif (/^--?(\w+)/) {
-		print STDERR sprintf(gettext("Unknown option: %s"), $1)."\n";
-	}
-	else {
-		push @debs, $_;
-	}
-}
+my @debs=@ARGV;
 @ARGV=();
 
 # If running from apt, read package filenames on stdin.
@@ -141,20 +109,20 @@ if ($apt) {
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin should get input from the user, so re-open.
 	open (STDIN, "/dev/tty") ||
-		(print STDERR sprintf(gettext("dpkg-preconfigure: unable to re-open stdin: %s"), $!)."\n", exit 0);
+		(print STDERR sprintf("dpkg-preconfigure: ".gettext("unable to re-open stdin: %s"), $!)."\n", exit 0);
 
 	# Since we are running from apt, we will be preconfiguring some
-	# packages prior to installing them. If the user has debconf configured
-	# to re-ask seen questions, they will see the questions twice --
-	# once when the package is preconfigured, and once when it is installed
-	# to avoid that, turn off reasking of questions for the lifetime of
-	# this program. The user will thus see the questions only once, when
-	# the package is actually installed.
+	# packages prior to installing them. If the user has debconf
+	# configured to re-ask seen questions, they will see the questions
+	# twice -- once when the package is preconfigured, and once when it
+	# is installed to avoid that, turn off reasking of questions for
+	# the lifetime of this program. The user will thus see the
+	# questions only once, when the package is actually installed.
 	# This is a hack, but it's the best I can do.
 	Debconf::Config->showold('false');
 }
 elsif (! @debs) {
-	print STDERR sprintf(gettext("Usage: dpkg-preconfigure deb [...]")), "\n";
+	print STDERR sprintf("dpkg-preconfigure: ".gettext("must specify some debs to preconfigure")), "\n";
 	exit(1);
 }
 
