@@ -197,7 +197,7 @@ sub accept {
 	}
 
 	if (exists $this->{accept_type} || exists $this->{reject_type}) {
-		my $template=Debconf::Template::Persistent->get($item);
+		my $template=Debconf::Template::Persistent->get($name);
 		return 1 unless $template; # no type to act on
 		my $type=$template->type || '';
 		return if exists $this->{accept_type} && $name!~/$this->{accept_type}/;
@@ -207,7 +207,7 @@ sub accept {
 	return 1;
 }
 
-=head2 ispassword(item)
+=head2 ispassword(itemname)
 
 Returns true if the item appears to hold a password. This is pretty messy;
 we have to dig up its template (unless it _is_ a template).

@@ -72,7 +72,7 @@ BEGIN {
 		use FileHandle;
 		use Debconf::Db;
 		use Debconf::Template::Persistent;
-		use Debconf::Config qw(frontend priority showold tmpdir);
+		use Debconf::Config qw(frontend priority showold);
 		use Debconf::AutoSelect qw(:all);
 		use Debconf::Gettext;
 	};

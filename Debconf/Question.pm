@@ -318,6 +318,18 @@ sub template {
 		$Debconf::Db::config->getfield($this->{name}, 'template'));
 }
 
+=item name
+
+Returns the name of the question.
+
+=cut
+
+sub name {
+	my $this=shift;
+
+	return $this->{name};
+}
+
 =item AUTOLOAD
 
 Handles all fields except name, by creating accessor methods for them the

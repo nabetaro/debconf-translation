@@ -10,8 +10,8 @@ package Debconf::FrontEnd::Dialog;
 use strict;
 use Debconf::Gettext;
 use Debconf::Priority;
+use Debconf::TmpFile;
 use Debconf::Log qw(:all);
-use Debconf::Config qw(tmpdir);
 use Text::Wrap qw(wrap $columns);
 use Text::Tabs;
 use IPC::Open3;
@@ -145,11 +145,10 @@ sub showtext {
 		}
 		else {
 			# Dialog has to use a temp file.
-			my $name=tmpdir()."/dialog-tmp.$$";
-			open(FH, ">$name") or die "$name: $!";
-			print FH join("\n", @lines);
-			close FH;
-			@args=("--textbox", $name);
+			my $fh=Debconf::TmpFile::open();
+			print $fh join("\n", @lines);
+			close $fh;
+			@args=("--textbox", Debconf::TmpFile::filename());
 		}
 	}
 	else {
@@ -157,7 +156,7 @@ sub showtext {
 	}
 	$this->showdialog(@args, $num + $this->borderheight, $width);
 	if ($args[0] eq '--textbox') {
-		unlink $args[1];
+		Debconf::TmpFile::cleanup();
 	}
 }
 

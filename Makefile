@@ -38,11 +38,11 @@ install-utils:
 # Install all else.
 install-rest:
 	$(MAKE) -C po install
-	install -d \
-		$(prefix)/var/lib/debconf \
+	install -d $(prefix)/etc \
+		$(prefix)/var/lib/debconf/config \
+		$(prefix)/var/lib/debconf/templates \
 		$(prefix)/usr/share/debconf/templates \
 		$(prefix)/usr/lib/debconf
-	chmod 700 $(prefix)/var/lib/debconf
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
 		xargs -i install -d $(prefix)/usr/share/perl5/{}

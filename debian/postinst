@@ -22,8 +22,10 @@ if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.5.49; then
 	db_unregister foo/bar
 fi
 
-# Make sure the directory has safe permissions.
-chmod 700 /var/lib/debconf
+# Dir used to need to be mode 700; no longer.
+if [ "$1" = configure ] && dpkg --compare-versions "$2" lt 0.9.00; then
+	chmod 755 /var/lib/debconf
+fi
 
 # This file is long obsolete, and was a conffile, so wasn't auto-removed.
 rm -f /etc/debconf.cfg

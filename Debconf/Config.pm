@@ -10,7 +10,7 @@ package Debconf::Config;
 use strict;
 use Debconf::Question;
 use base qw(Exporter);
-our @EXPORT_OK = qw(tmpdir frontend priority helpvisible showold);
+our @EXPORT_OK = qw(frontend priority helpvisible showold);
 
 =head1 DESCRIPTION
 
@@ -21,18 +21,6 @@ database itself.
 =head1 METHODS
 
 =over 4
-
-=item tmpdir
-
-Where to put temporary files. /tmp isn't used because I don't bother
-opening these files safely, since that requires the use of Fcntl, which
-isn't in perl-base
-
-=cut
-
-sub tmpdir {
-	"./" # CHANGE THIS AT INSTALL TIME
-}
 
 =item frontend
 

@@ -9,9 +9,11 @@ Debconf::FrontEnd::Editor - Edit a config file to answer questions
 package Debconf::FrontEnd::Editor;
 use strict;
 use Text::Wrap;
+use Debconf::TmpFile;
 use Debconf::Gettext;
-use Debconf::Config qw{tmpdir};
 use base qw(Debconf::FrontEnd::Tty);
+
+my $fh;
 
 =head1 DESCRIPTION
 
@@ -41,7 +43,7 @@ sub comment {
 	my $this=shift;
 	my $comment=shift;
 
-	print TMP wrap('# ','# ',$comment);
+	print $fh wrap('# ','# ',$comment);
 	$this->filecontents(1);
 }
 
@@ -54,7 +56,7 @@ Displays a divider bar; a line of hashes.
 sub divider {
 	my $this=shift;
 
-	print TMP "\n".('#' x ($this->screenwidth - 1))."\n";
+	print $fh ("\n".('#' x ($this->screenwidth - 1))."\n");
 }
 
 =item item
@@ -68,7 +70,7 @@ sub item {
 	my $name=shift;
 	my $value=shift;
 
-	print TMP qq{$name="$value"\n\n};
+	print $fh "$name=\"$value\"\n\n";
 	$this->filecontents(1);
 }
 
@@ -82,24 +84,15 @@ user's editor. Then the file is parsed back in.
 sub go {
 	my $this=shift;
 	my @elements=@{$this->elements};
-	# Use a subdir under the tmpdir so editor backup files can be
-	# cleaned. End the filename in .sh because it is basically a shell
-	# format file, and this makes some editors do good things.
-	my $tmpdir=tmpdir()."input$$";
-	my $tmpfile="$tmpdir/configuration.sh";
-
 	return 1 unless @elements;
-
-	# Set up temporary file. It might have passwords written to it,
-	# so make it 0600.
-	mkdir $tmpdir, 0700;
-	open (TMP, ">$tmpfile") ||
-		die sprintf(gettext("debconf: Unable to write to temporary file %s: %s"), $tmpfile, $!);
-	chmod(0600, $tmpfile);
+	
+	# End the filename in .sh because it is basically a shell
+	# format file, and this makes some editors do good things.
+	$fh = Debconf::TmpFile::open('.sh');
 
 	$this->comment(gettext("You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."));
 	$this->divider;
-	print TMP "\n";
+	print $fh ("\n");
 
 	$this->filecontents('');
 	foreach my $element (@elements) {
@@ -109,26 +102,25 @@ sub go {
 	# Only proceed if something interesting was actually written to the
 	# file.
 	if (! $this->filecontents) {
-		unlink $tmpfile;
+		Debconf::TmpFile::cleanup();
 		return 1;
 	}
 	
 	$this->divider;
 	$this->comment(gettext("The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."));
-	print TMP "\n";
-	close TMP;
+	print $fh ("\n");
+	close $fh;
 	
 	# Launch editor.
 	my $editor=$ENV{EDITOR} || '/usr/bin/editor';
-	system $editor, $tmpfile;
+	system $editor, Debconf::TmpFile->filename;
 
 	# Now parse the temporary file, looking for lines that look like
 	# items. Figure out which Element corresponds to the item, and
 	# pass the text into it to be processed.
 	# FIXME: this isn't really very robust. Syntax errors are ignored.
 	my %eltname=map { $_->question->name => $_ } @elements;
-	open (IN, "<$tmpfile")
-		|| die sprintf(gettext("debconf: Unable to read %s: %s"), $tmpfile, $!);
+	open (IN, "<".Debconf::TmpFile::filename());
 	while (<IN>) {
 		next if /^\s*#/;
 
@@ -140,14 +132,7 @@ sub go {
 	}
 	close IN;
 	
-	# Clean up the entire contents of tmpdir. The editor probably
-	# left some backup files behind.
-	opendir (TMPDIR, $tmpdir);
-	while ($_=readdir(TMPDIR)) {
-		unlink ("$tmpdir/$_");
-	}
-	closedir TMPDIR;
-	rmdir $tmpdir;
+	Debconf::TmpFile::cleanup();
 
 	return 1;
 }
