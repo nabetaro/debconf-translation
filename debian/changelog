@@ -1,3 +1,15 @@
+debconf (0.9.28) unstable; urgency=high
+
+  * The "bugger testing" release.
+  * Uploaded with high urgency because I am SICK AND TIRED of getting
+    2 bugs a day from people who have downgraded to the ancient debconf in
+    testing and broken their systems, the 2 other bugs a day from people
+    who panic at the sight of a perl -w message, and the 3 or 4 messages a
+    day on -user from people who are experiencing other, tangential
+    problems.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 20 Mar 2001 12:20:53 -0800
+
 debconf (0.9.27) unstable; urgency=low
 
   * Moved config file reading into Debconf::Config. This let me easily add
