@@ -1,3 +1,15 @@
+debconf (0.2.91) unstable; urgency=low
+
+  * dpkg-preconfigure: It turns out that the trick of reading from stdin
+    until EOF, then reading more later only works if stdin is a tty. When it
+    was running from apt, that wasn't so, and so it caused dialog to lock up,
+    in a tight loop, unable to read keypresses from stdin. The fix is
+    pretty simple; just open /dev/tty and connect STDIN to it after reading
+    the filelist from apt. Closes: #56518, #57771 (important bugs).
+  * Disabled dialog exclusion that was added in the last release.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 14 Feb 2000 11:52:24 -0800
+
 debconf (0.2.90) unstable; urgency=low
 
   * Fixed dpkg-preconfigure to not use Getopt::Long, so it will work even on

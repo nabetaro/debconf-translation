@@ -57,9 +57,7 @@ sub new {
 		$self->{titlespacer}=10;
 		$self->{columnspacer}=3;
 	}
-	# Only use dialog if FORCE_DIALOG is on. This is here only until
-	# dialog stops looping forever (!) when run from debconf.
-	elsif (-x "/usr/bin/dialog" && defined $ENV{FORCE_DIALOG}) {
+	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$self->{program}='dialog';
 		$self->{borderwidth}=7;
 		$self->{borderheight}=6;
