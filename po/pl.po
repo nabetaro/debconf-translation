@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 0.3.39\n"
+"Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-04 20:15-0500\n"
-"PO-Revision-Date: 2004-02-03 02:17+0200\n"
+"POT-Creation-Date: 2005-02-12 09:43+0100\n"
+"PO-Revision-Date: 2005-02-15 15:21+0100\n"
 "Last-Translator: Emil Nowak <emil5@go2.pl>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Dalej"
-
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -60,6 +56,10 @@ msgstr "Powrót"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
+msgstr "Dalej"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
 msgstr "Dalej"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
@@ -105,6 +105,94 @@ msgstr "Ten interfejst wymaga terminala steruj±cego."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU nie jest zgodny z buforami pow³oki emacsa"
 
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "powrót do nak³adki: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Opcje Sigils i Smileys w pliku konfiguracyjnym nie s± ju¿ wykorzystywane - "
+"zaleca siê ich usuniêcie."
+
+#: ../Debconf/Config.pm:148
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Problem z ustawieniem bazy danych zdefiniowanej przez zwrotkê %s z %s."
+
+#: ../Debconf/Config.pm:277
+#, c-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Ignorowanie niew³a¶ciwego priorytetu \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, c-format
+msgid "Valid priorities are: %s"
+msgstr "W³a¶ciwe priorytety to: %s"
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"uwaga: mog³o nast±piæ uszkodzenie bazy danych. Zostanie wykonana próba "
+"naprawy przez dodanie brakuj±cego pytania %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Szablon nr %s w %s ma drugie pole \"%s\" z inn± warto¶ci± \"%s\". "
+"Prawdopodobnie dwa szablony nie zosta³y poprawnie rozdzielone przy pomocy "
+"pustej linii.\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Nieznane pole szablonu '%s', w czê¶ci nr %s pliku %s\n"
+
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
+
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Pomoc"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Pomoc"
+
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Zapisz (wy¶lij poczt±) uwagê"
@@ -131,8 +219,8 @@ msgid "Unable to save note."
 msgstr "Nie uda³o siê zapisaæ uwagi."
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
 msgid "Choices"
 msgstr "Pozycje do wyboru"
 
@@ -189,92 +277,6 @@ msgstr ""
 "Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
 "siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
 
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Pomoc"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Pomoc"
-
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "powrót do nak³adki: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-
-#: ../Debconf/Config.pm:148
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problem z ustawieniem bazy danych zdefiniowanej przez zwrotkê %s z %s."
-
-#: ../Debconf/Config.pm:277
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr ""
-
-#: ../Debconf/Config.pm:278
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr ""
-
-#: ../Debconf/Template.pm:90
-#, c-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"uwaga: mog³o nast±piæ uszkodzenie bazy danych. Zostanie wykonana próba "
-"naprawy przez dodanie brakuj±cego pytania %s."
-
-#: ../Debconf/Template.pm:201
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Szablon nr %s w %s ma drugie pole \"%s\" z inn± warto¶ci± \"%s\". "
-"Prawdopodobnie dwa szablony nie zosta³y poprawnie rozdzielone przy pomocy "
-"pustej linii.\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Nieznane pole szablonu '%s', w czê¶ci nr %s pliku %s\n"
-
-#: ../Debconf/Template.pm:252
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
-
-#: ../Debconf/Template.pm:258
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
-
 #: ../Debconf/FrontEnd.pm:131
 #, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
@@ -303,11 +305,11 @@ msgstr ""
 #: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
 #, c-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "Dzia³anie apt-extracttemplates zakoñczy³o siê b³êdem: %s"
 
 #: ../dpkg-preconfigure:167
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Prekonfiguracja pakietów ...\n"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -378,6 +380,5 @@ msgstr "%s jest nieaktualny"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s jest nieaktualne; zostaje pominiêty ca³y szablon!"
 
-#, fuzzy
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "Konfiguracja pakietu %s"
+msgid "preconfiguring %s (%s)"
+msgstr "Prekonfiguracja pakietu %s (%s)"
