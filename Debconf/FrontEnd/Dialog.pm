@@ -29,7 +29,7 @@ It handles all the messy communication with thse programs.
 =item init
 
 Checks to see if whiptail, or dialog are available, in that
-order. To make it use dialog, set FORCE_DIALOG in the environment.
+order. To make it use dialog, set DEBCONF_FORCE_DIALOG in the environment.
 
 =cut
 
@@ -67,8 +67,10 @@ sub init {
 	$this->capb('backup');
 
 	# Autodetect if whiptail or dialog is available and set magic numbers.
-	if (-x "/usr/bin/whiptail" && ! defined $ENV{FORCE_DIALOG} &&
-	    ! defined $ENV{FORCE_GDIALOG}) {
+	if (-x "/usr/bin/whiptail" && 
+	    (! defined $ENV{DEBCONF_FORCE_DIALOG} || ! -x "/usr/bin/dialog")) {
+# gdialog is currently disabled, see below.
+#	    (! defined $ENV{DEBCONF_FORCE_GDIALOG} || ! -x "/usr/bin/gdialog")) {
 		$this->program('whiptail');
 		$this->dashsep('--');
 		$this->borderwidth(5);
@@ -79,7 +81,9 @@ sub init {
 		$this->selectspacer(9);
 		$this->hasoutputfd(1);
 	}
-	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
+	elsif (-x "/usr/bin/dialog") {
+# gdialog is currently disabled, see below.
+#	    (! defined $ENV{DEBCONF_FORCE_GDIALOG} || ! -x "/usr/bin/gdialog")) {
 		$this->program('dialog');
 		$this->dashsep(''); # dialog does not need (or support) 
 		                    # double-dash separation
