@@ -19,6 +19,7 @@ the priorities of Questions.
 
 package Debian::DebConf::Priority;
 use strict;
+use Debian::DebConf::Config;
 
 =head1
 
@@ -39,7 +40,7 @@ my %priorities=(
 
 {
 
-	my $priority_level='medium';
+	my $priority_level=$Debian::DebConf::Config::priority;
 
 =head1 set
 
@@ -58,7 +59,7 @@ Set the current priority level to the specified value.
 =head1 high_enough
 
 Returns true iff the passed value is greater than or equal to
-the current priotiy level.
+the current priority level.
 
 =cut
 

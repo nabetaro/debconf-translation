@@ -1,3 +1,12 @@
+debconf (0.1.16) unstable; urgency=low
+
+  * Got rid of the DEBIAN_FRONTEND environment variable entirely. Instead,
+    /etc/debconf.cfg has a variable in it to specify the default frontend
+    to use.
+  * Also added a question priority variable to the config file.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon, 13 Sep 1999 15:40:15 -0700
+
 debconf (0.1.15) unstable; urgency=low
 
   * Broke the nasty perl code out of confmodule.sh, it's much cleaner now

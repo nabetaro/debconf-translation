@@ -1,5 +1,5 @@
 #!/bin/sh -e
 touch /etc/apt/apt.conf
 echo '// Pre-configure all packages before they are installed.' >> /etc/apt/apt.conf
-echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt --priority=low --frontend=dialog";};' >> /etc/apt/apt.conf
+echo 'DPkg::Pre-Install-Pkgs {"dpkg-preconfig --apt";};' >> /etc/apt/apt.conf
 #DEBHELPER#

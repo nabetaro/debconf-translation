@@ -33,6 +33,7 @@ A few functions have special features, as documented below:
 =cut
 
 package Debian::DebConf::Client::ConfModule;
+use Debian::DebConf::ConfigDb;
 use strict;
 use lib '.';
 use Exporter;
@@ -59,15 +60,13 @@ $|=1;
 Ensure that a FrontEnd is running.  It's a little hackish. If
 DEBIAN_HAS_FRONTEND is set, a FrontEnd is assumed to be running.
 If not, one is started up automatically and stdin and out are
-connected to it. A name of a FrontEnd to start can be passed in
-DEBIAN_FRONTEND, it defaults to using the base (non-interactive)
-FrontEnd. Note that this function is always run when the module is
-loaded in the usual way.
+connected to it. Note that this function is always run when the
+module is loaded in the usual way.
 
 =cut
 
 sub import {
-	my $type=ucfirst($ENV{DEBIAN_FRONTEND} || 'base' );
+	my $type=ucfirst($Debian::DebConf::Config::frontend);
 
 	# Ensure a frontend is running. If not, turn into one and fork off
 	# a child to continue.

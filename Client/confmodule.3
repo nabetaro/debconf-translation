@@ -32,9 +32,6 @@ examining the DEBIAN_HAS_FRONTEND variable. If it is set, a FrontEnd is
 assummed to be running. If not, the library turns into one, and runs a copy
 of the script that loaded the library connected to it. This means that if you
 source this library, you should do so very near to the top of your script,
-because everything before the souring of the library may well be run again.
-.P
-If no FrontEnd is running, a name of a FrontEnd to start can be passed in
-DEBIAN_FRONTEND, it defaults to using the base (non-interactive) FrontEnd.
+because everything before the sourcing of the library may well be run again.
 .SH AUTHOR
 Joey Hess <joey@kitenet.net>
