@@ -98,8 +98,8 @@ sub command_get {
 	my $question=shift;
 	
 	$question=ConfigDb::getquestion($question);
-	return $question->value if $question->value ne '';
-	return $question->template->default;
+	return $question->value if defined $question->value;
+	return $question->template->default || '';
 }
 
 # Add a mapping.
