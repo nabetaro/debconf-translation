@@ -1,12 +1,20 @@
+debconf (0.2.75) frozen unstable; urgency=low
+
+  * Corrected a bug in noninteractive select elements. Amoung other things,
+    this bug broke apt-setup in base-config (so it is a critical bug, yada,
+    yada). I believe this also Closes: #55036
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 15 Jan 2000 20:38:33 -0800
+
 debconf (0.2.74) frozen unstable; urgency=low
 
+  * I guess these changes are necessary to make debconf usable for people
+    who use locales, so this should _probably_ go into frozen.
   * Switched over to using perl's setlocale() function to determine the
     current locale. This means that locale aliases work, and that users
     who have a locale like 'es_ES.ISO-8859-1' see all the es_ES messages.
   * Added one level of locale fallback: for example, it looks for 'es'
     messages too in the case above.
-  * I guess these changes are necessary to make debconf usable for people
-    who use locales, so this should _probably_ go into frozen.
 
  -- Joey Hess <joeyh@debian.org>  Sat, 15 Jan 2000 02:20:39 -0800
 

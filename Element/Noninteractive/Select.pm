@@ -33,8 +33,8 @@ item in the select list. This is for consitancy with other select Elements.
 sub show {
 	my $this=shift;
 
-	my @choices=$this->question->choices_split;
-	if (! defined $this->question->value) {
+	if (! defined $this->question->value || $this->question->value eq '') {
+		my @choices=$this->question->choices_split;
 		if (@choices) {
 			$this->question->value($choices[0]);
 		}
@@ -42,6 +42,8 @@ sub show {
 			$this->question->value('');
 		}
 	}
+	
+	return $this->question->value;
 }
 
 1
