@@ -1,4 +1,7 @@
 General:
+* dpkg --reconfigure package should run the confmodule and then the
+  postinst. Then we don't need special packageconfig scripts anymore.
+  W/o modifiying dpkg, a dpkg-reconfig program could handle this.
 * Client::Confmodule's automatic frontend spawning stuff needs to happen.
   I'm undecided how. One way is to bacome the frontend, or exec a program
   that does, and start up anoither copy of itself. 
