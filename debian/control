@@ -16,3 +16,10 @@ Suggests: debconf-doc, whiptail | dialog | gnome-utils
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. It is
  used by some packages to prompt you for questions before they are installed.
+
+Package: debconf-doc
+Architecture: all
+Description: Debian configuration management system documentation
+ This package contains lots of additional documentation for Debconf,
+ including an introduction to Debconf, a user's guide, a programmer's
+ tutorial, and the specification Debconf is based on.
