@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"POT-Creation-Date: 2002-09-19 18:20-0400\n"
+"POT-Creation-Date: 2002-09-20 12:17-0400\n"
 "PO-Revision-Date: 2002-09-18 12:50+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -213,7 +213,7 @@ msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
 msgid "Configuring %s"
 msgstr "%s を設定しています"
 
-#: ../Debconf/Template.pm:85
+#: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -222,7 +222,7 @@ msgstr ""
 "警告： データベースが破壊されている可能性があります．たりない質問 %s を追加す"
 "ることにより修正しようと試みます．"
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -232,18 +232,18 @@ msgstr ""
 "重複してあります．二つのテンプレートが一つの改行により正しく分割されていない"
 "のかもしれません．\n"
 
-#: ../Debconf/Template.pm:221
+#: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "不明なテンプレートフィールド '%1$s' が %3$s の #%2$s にあります\n"
 
-#: ../Debconf/Template.pm:247
+#: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr ""
 "%3$s のスタンザ %2$s で， `%1$s' 付近でテンプレートの解析に失敗しました\n"
 
-#: ../Debconf/Template.pm:253
+#: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"

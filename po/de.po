@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-09-19 18:20-0400\n"
+"POT-Creation-Date: 2002-09-20 12:17-0400\n"
 "PO-Revision-Date: 2002-01-18 08:51+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -222,14 +222,14 @@ msgstr "Kann Debconf::Element::%s nicht laden. Fehlgeschlagen wegen: %s"
 msgid "Configuring %s"
 msgstr "Konfiguriere %s"
 
-#: ../Debconf/Template.pm:85
+#: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -239,17 +239,17 @@ msgstr ""
 "Wahrscheinlich sind zwei Templates nicht ordentlich durch eine leere Zeile "
 "abgetrennt.\n"
 
-#: ../Debconf/Template.pm:221
+#: ../Debconf/Template.pm:226
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Analysefehler im Template bei »%s« in Strophe Nr. %s von %s\n"
 
-#: ../Debconf/Template.pm:247
+#: ../Debconf/Template.pm:252
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Analysefehler im Template bei »%s« in Strophe Nr. %s von %s\n"
 
-#: ../Debconf/Template.pm:253
+#: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template Nr. %s in %s enthält keine »Template:« Zeile.\n"

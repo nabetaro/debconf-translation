@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.1.32\n"
-"POT-Creation-Date: 2002-09-19 18:20-0400\n"
+"POT-Creation-Date: 2002-09-20 12:17-0400\n"
 "PO-Revision-Date: 2002-09-10 10:19+0200\n"
 "Last-Translator: Martin Quinson <Martin.Quinson@tuxfamily.org>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -219,14 +219,14 @@ msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s."
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../Debconf/Template.pm:85
+#: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -236,17 +236,17 @@ msgstr ""
 "nouvelle valeur. Il manque probablement la ligne vide de séparation entre "
 "deux modèles.\n"
 
-#: ../Debconf/Template.pm:221
+#: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Erreur champ de modèle « %s » inconnu, dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:247
+#: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erreur d'analyse de modèle vers « %s », dans la partie #%s de %s\n"
 
-#: ../Debconf/Template.pm:253
+#: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le modèle #%s de %s ne contient pas de ligne « Template: »\n"

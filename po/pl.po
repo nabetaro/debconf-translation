@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2002-09-19 18:20-0400\n"
+"POT-Creation-Date: 2002-09-20 12:17-0400\n"
 "PO-Revision-Date: 2002-09-09 13:50+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -213,14 +213,14 @@ msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
 
-#: ../Debconf/Template.pm:85
+#: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -230,17 +230,17 @@ msgstr ""
 "Prawdopodobnie dwa szablony nie zosta³y poprawnie rozdzielone przy pomocy "
 "pustej linii.\n"
 
-#: ../Debconf/Template.pm:221
+#: ../Debconf/Template.pm:226
 #, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Nieznane pole szablonu '%s', w czê¶ci nr %s pliku %s\n"
 
-#: ../Debconf/Template.pm:247
+#: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
 
-#: ../Debconf/Template.pm:253
+#: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"

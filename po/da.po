@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf VERSION\n"
-"POT-Creation-Date: 2002-09-19 18:20-0400\n"
+"POT-Creation-Date: 2002-09-20 12:17-0400\n"
 "PO-Revision-Date: 2001-10-27 08:04+0200\n"
 "Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
 "Language-Team: none <>\n"
@@ -213,14 +213,14 @@ msgstr "Kunne ikke loade Debconf::Element::%s. Fejlede p.g.a.: %s"
 msgid "Configuring %s"
 msgstr "Konfigurerer %s"
 
-#: ../Debconf/Template.pm:85
+#: ../Debconf/Template.pm:90
 #, c-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
 
-#: ../Debconf/Template.pm:196
+#: ../Debconf/Template.pm:201
 #, c-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -231,18 +231,18 @@ msgstr ""
 "linje.\n"
 
 # FIXME 'stanza'?
-#: ../Debconf/Template.pm:221
+#: ../Debconf/Template.pm:226
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
 
 # FIXME 'stanza'?
-#: ../Debconf/Template.pm:247
+#: ../Debconf/Template.pm:252
 #, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Skabelon fortolknings fejl nær `%s', i stanza #%s af %s\n"
 
-#: ../Debconf/Template.pm:253
+#: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Skabelon #%s i %s indeholder ikke en 'Template:' linje\n"

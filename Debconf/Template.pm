@@ -28,6 +28,11 @@ $Debconf::Template::i18n=1;
 our %known_field = map { $_ => 1 }
 	qw{template description choices default type};
 
+# Convince perl to not do encoding conversions on text output to stdout.
+# Debconf does its own conversions.
+binmode(STDOUT);
+binmode(STDERR);
+	
 =head1 DESCRIPTION
 
 This is an object that represents a Template. Each Template has some associated
