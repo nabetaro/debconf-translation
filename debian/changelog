@@ -1,3 +1,17 @@
+debconf (1.1.32) unstable; urgency=low
+
+  * Added back Polish template translation. Closes: #160183
+  * Fixed bad use of gettext in gnome hostname thing. Closes: #160209
+  * Updated Polish po file. Closes: #160210
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  9 Sep 2002 12:36:08 -0400
+
+debconf (1.1.31) unstable; urgency=low
+
+  * Fixed undefined sigil problem with [More] prompt.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  6 Sep 2002 13:02:21 -0400
+
 debconf (1.1.30) unstable; urgency=low
 
   * Fixed stdin/stdout inversion in call to open3 in dialog frontend.

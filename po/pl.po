@@ -1,15 +1,15 @@
 # debconf
 # Copyright (C) 2000 Free Software Foundation, Inc.
-# Marcin Owsiany <porridge@pandora.info.bielsko.pl>, 2000.
+# Polish translation Copyright (C) Marcin Owsiany <porridge@debian.org>, 2000-2002.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2002-09-03 12:25-0400\n"
-"PO-Revision-Date: 2000-06-05 01:40+0200\n"
-"Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"POT-Creation-Date: 2002-09-09 13:13+0200\n"
+"PO-Revision-Date: 2002-09-09 13:50+0200\n"
+"Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
+"Language-Team: Polish <porridge@debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,49 +41,45 @@ msgid "no"
 msgstr "nie"
 
 #: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
 msgid "Save (mail) Note"
-msgstr "Zapisz uwagê"
+msgstr "Zapisz (wy¶lij poczt±) uwagê"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
+"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie."
 
 #: ../Debconf/Element/Gnome/Note.pm:50
-#, fuzzy
 msgid "The note has been mailed."
-msgstr "Uwaga zosta³a przes³ana do administratora"
+msgstr "Uwaga zosta³a wys³ana."
 
 #: ../Debconf/Element/Gnome/Note.pm:54
 msgid "Unable to save note."
 msgstr "Nie uda³o siê zapisaæ uwagi."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
+"Debconf zosta³ skonfigurowany tak, aby nie wy¶wietlaæ tej uwagi, wiêc "
+"zosta³a przes³ana do Ciebie."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:83
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf"
+msgstr "Debconf, dzia³aj±cy na %s"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
 msgstr "¿adna z powy¿ych"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Wpisz, oddzielone przecinkami, litery pozycji, które chcesz zaznaczyæ."
+msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
 
 #: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
@@ -101,21 +97,25 @@ msgstr ""
 #: ../Debconf/FrontEnd/Dialog.pm:45
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
+"Zmienna TERM nie jest ustawiona, wiêc interfejs dialog nie mo¿e dzia³aæ."
 
 #: ../Debconf/FrontEnd/Dialog.pm:48
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr ""
+msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
 
 #: ../Debconf/FrontEnd/Dialog.pm:51
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"Interfejs dialog nie mo¿e dzia³aæ na terminalu \"dumb\", buforze pow³oki "
+"emacsa ani bez terminala steruj±cego."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Interfejs dialog wymaga ekranu o wymiarach conajmniej 13 linii na 31 kolumn."
 
 #: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
@@ -155,12 +155,13 @@ msgstr ""
 "konfiguracji systemu."
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
-msgid "Debconf on $hostname"
-msgstr ""
+#, c-format
+msgid "Debconf on %s"
+msgstr "Debconf na %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr ""
+msgstr "Ten interfejst wymaga terminala steruj±cego."
 
 #: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
@@ -185,7 +186,7 @@ msgid "falling back to frontend: %s"
 msgstr "powrót do nak³adki: %s"
 
 #: ../Debconf/AutoSelect.pm:83
-#, fuzzy, c-format
+#, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 
@@ -196,16 +197,16 @@ msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
 
 #: ../Debconf/Config.pm:122
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 
 #: ../Debconf/Config.pm:126
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
 
 #: ../Debconf/FrontEnd.pm:137
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
+msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
@@ -218,34 +219,39 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
+"Szablon nr %s w %s ma drugie pole \"%s\" z inn± warto¶ci± \"%s\". "
+"Prawdopodobnie dwa szablony nie zosta³y poprawnie rozdzielone przy pomocy "
+"pustej linii.\n"
 
 #: ../Debconf/Template.pm:207
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
+msgstr "Nieznane pole szablonu '%s', w czê¶ci nr %s pliku %s\n"
 
 #: ../Debconf/Template.pm:233
-#, fuzzy, c-format
+#, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
+msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
 
 #: ../Debconf/Template.pm:239
-#, fuzzy, c-format
+#, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
+msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
 
 #: ../dpkg-preconfigure:113
-#, fuzzy, c-format
+#, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "dpkg-preconfigure: nie uda³o siê ponownie otworzyæ stdin: %s"
+msgstr "nie uda³o siê ponownie otworzyæ stdin: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "nale¿y podaæ pakiety do skonfigurowania"
 
 #: ../dpkg-preconfigure:131
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
+"opó¼nienie konfiguracji pakietu poniewa¿ pakiet apt-utils nie jest "
+"zainstalowany"
 
 #: ../dpkg-preconfigure:189
 #, c-format
@@ -253,23 +259,23 @@ msgid "template parse error: %s"
 msgstr "b³±d w szablonie: %s"
 
 #: ../dpkg-preconfigure:203
-#, fuzzy, c-format
+#, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "Nie uda³o siê zmieniæ uprawnieñ pliku: %s"
+msgstr "debconf: nie uda³o siê zmieniæ uprawnieñ: %s"
 
 #: ../dpkg-preconfigure:213
-#, fuzzy, c-format
+#, c-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"
 
 #: ../dpkg-reconfigure:97
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "musi byæ uruchamiany jako root"
+msgstr "%s musi byæ uruchamiany jako root"
 
 #: ../dpkg-reconfigure:125
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "proszê podaæ pakiet do skonfigurowania"
 
 #: ../dpkg-reconfigure:144
 #, c-format
@@ -284,117 +290,29 @@ msgstr "Nie mo¿na czytaæ pliku stanu: %s"
 #: ../debconf-mergetemplate:114
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "brakuje %s"
 
 #: ../debconf-mergetemplate:118
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "brakuje %s; %s zostaje pominiête"
 
 #: ../debconf-mergetemplate:141
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "t³umaczenie %s budzi w±tpliwo¶ci. Bajt %s: %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "t³umaczenie %s (bajt %s) budzi w±tpliwo¶ci: %s; zostaje pominiête"
 
 #: ../debconf-mergetemplate:163
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s nie jest w pe³ni zainstalowany"
+msgstr "%s jest nieaktualny"
 
 #: ../debconf-mergetemplate:168
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Debconf was asked to save this "
-#~ msgstr ""
-#~ "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
-
-#, fuzzy
-#~ msgid "note, so it mailed it to you."
-#~ msgstr ""
-#~ "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
-
-#~ msgid "Hide Help"
-#~ msgstr "Ukryj pomoc"
-
-#~ msgid "Show Help"
-#~ msgstr "Poka¿ pomoc"
-
-#, fuzzy
-#~ msgid "Tab and arrow keys move; space drops down lists."
-#~ msgstr "Przesuwanie klawiszami tab i strza³ek"
-
-#~ msgid "Working, please wait..."
-#~ msgstr "Proszê czekaæ"
-
-#, fuzzy
-#~ msgid "The note has been mailed to root"
-#~ msgstr "Uwaga zosta³a przes³ana do administratora"
-
-#~ msgid ""
-#~ "debconf: Undefined values detected at confmodule startup! Please file a "
-#~ "bug report, and include the stack trace below"
-#~ msgstr ""
-#~ "debconf: wykryto niezdefiniowane warto¶ci przy starcie modu³u "
-#~ "konfiguracji! Proszê zg³osiæ b³±d i za³±czyæ poni¿szy zrzut stosu"
-
-#~ msgid ""
-#~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
-#~ msgstr ""
-#~ "U¿ycie: dpkg-preconfigure [--frontend=typ] [--priority=warto¶æ] pliki.deb"
-
-#~ msgid "Unknown option: %s"
-#~ msgstr "Nieznana opcja: %s"
-
-#~ msgid ""
-#~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
-#~ msgstr ""
-#~ "U¿ycie: dpkg-reconfigure [--frontend=typ] [--priority=warto¶æ] pakiety"
-
-#~ msgid "debconf: Unable to write to temporary file %s: %s"
-#~ msgstr "debconf: Nie uda³o siê pisaæ do pliku tymczasowego %s: %s"
-
-#~ msgid "debconf: Unable to read %s: %s"
-#~ msgstr "debconf: Nie uda³o siê czytaæ %s: %s"
-
-#~ msgid "Unable to make element of type %s. Failed because: %s"
-#~ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
-
-#~ msgid "Unsupported command `%s'."
-#~ msgstr "Nieobs³ugiwana komenda `%s'."
-
-#~ msgid "Warning: Newline present in parameters passed to debconf."
-#~ msgstr ""
-#~ "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#~ msgid "This will probably cause strange things to happen!"
-#~ msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
-
-#~ msgid "%s is not installed or does not use debconf"
-#~ msgstr "%s nie jest zainstalowany lub nie u¿ywa debconfa"
-
-#~ msgid "Container element question method called before frontend was set."
-#~ msgstr "Wywo³ano metodê pytania przed ustawieniem nak³adki."
-
-#~ msgid ""
-#~ "This note was sent to you because Debconf was asked to make sure you saw "
-#~ "it, but Debconf was running in noninteractive mode, or you have told it "
-#~ "to not pause and show you unimportant notes. Here is the text of the note:"
-#~ msgstr ""
-#~ "Ta uwaga zosta³a do Ciebie wys³ana, poniewa¿ Debconf zosta³ poproszony o "
-#~ "to, aby Ci j± pokazaæ, ale by³ uruchomiony w trybie nieinteraktywnym lub "
-#~ "kaza³e¶/kaza³a¶ mu nie zatrzymywaæ siê ani nie pokazywaæ niewa¿nych uwag. "
-#~ "Oto jej tre¶æ:"
-
-#~ msgid "Unable to spawn dpkg: %s"
-#~ msgstr "Nie uda³o siê uruchomiæ dpkg: %s"
-
-#~ msgid "Configuring packages ..."
-#~ msgstr "Trwa konfiguracja pakietów ..."
+msgstr "%s jest nieaktualne; zostaje pominiêty ca³y szablon!"

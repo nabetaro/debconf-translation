@@ -66,7 +66,6 @@ sub show {
 
 		# Split up what they entered. They can separate items
 		# with whitespace or commas.
-		# TODO: i18n
 		@selected=split(/[	 ,]+/, $_);
 
 		# Expand what they entered.

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
-"POT-Creation-Date: 2002-09-03 12:25-0400\n"
+"POT-Creation-Date: 2002-09-09 12:36-0400\n"
 "PO-Revision-Date: 2002-01-18 08:51+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
@@ -163,8 +163,9 @@ msgstr ""
 "Werte verwenden, um das System zu konfigurieren."
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
-msgid "Debconf on $hostname"
-msgstr ""
+#, fuzzy, c-format
+msgid "Debconf on %s"
+msgstr "Debconf"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."

@@ -210,7 +210,8 @@ sub prompt {
 	$this->linecount(0);
 	my $ret;
 	$this->_skip(0);
-	my $sigil=$this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
+	my $sigil='';
+	$sigil=$this->sigil->get($params{question}->priority) if $this->sigil && $params{question};
 	if (! $noshowdefault && $this->promptdefault && $default ne '') {
 		$ret=$this->readline->readline($sigil.$prompt."[$default] ", $default);
 	}
