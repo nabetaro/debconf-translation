@@ -1,3 +1,10 @@
+debconf (0.5.46) unstable; urgency=low
+
+  * dpkg-preconfigure: don't split on apt-extractemplates output on 
+    ' ', use \s
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 14 Jan 2001 23:08:27 -0800
+
 debconf (0.5.45) unstable; urgency=low
 
   * Fixed type that broke slang note elements, Closes: #81869
