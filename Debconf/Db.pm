@@ -8,11 +8,13 @@ Debconf::Db - debconf database setup
 
 package Debconf::Db;
 use strict;
-use fields qw{root};
 use Debconf::Log qw{:all};
 use Debconf::DbDriver;
-our Debconf::Db $config=fields::new('Debconf::Db');
-our $driver;
+use fields qw{config templates};
+
+our Debconf::Db $opts=fields::new('Debconf::Db');
+our $config;
+our $templates;
 
 =head1 DESCRIPTION
 
@@ -21,19 +23,20 @@ database drivers. It doesn't actually implement the database; the drivers
 do that.
 
 The config file format is a series of stanzas. The first stanza configures
-the database as a whole, and then each of the rest sets up a database driver.
+the debconf as a whole, and then each of the rest sets up a database driver.
 For example:
 
   # This stanza is used for general debconf setup.
-  Root: main
+  Config: main
+  Templates: templates
 
   # This is my own local database.
-  Database: mydb
+  Name: mydb
   Driver: Text
-  Directory: /var/lib/debconf
+  Directory: /var/lib/debconf/config
 
   # This is another database that I use to hold only X server configuration.
-  Database: X
+  Name: X
   Driver: Text
   Directory: /etc/X11/debconf/
   # It's sorta hard to work out what questions belong to X; it
@@ -42,7 +45,7 @@ For example:
   Accept-Name: xserver|xfree86|xbase
   
   # This is our company's global, read-only (for me!) debconf database.
-  Database: company
+  Name: company
   Driver: SQL
   Server: debconf.foo.com
   Readonly: true
@@ -55,13 +58,13 @@ For example:
   Required: false
 
   # This special driver provides a few items from dhcp.
-  Database: dhcp
+  Name: dhcp
   Driver: DHCP
   Required: false
   Reject-Type: password
 
   # And I use this database to hold passwords safe and secure.
-  Database: passwords
+  Name: passwords
   Driver: FlatFile
   File: /etc/debconf/passwords
   Mode: 600
@@ -70,7 +73,7 @@ For example:
   Accept-Type: password
 
   # Let's put them all together in a database stack.
-  Database: main
+  Name: main
   Driver: Stack
   Stack: passwords, X, mydb, company, dhcp
   # So, all passwords go to the password database. Most X configuration
@@ -79,12 +82,21 @@ For example:
   # a particular value, it is looked up in the company-wide database 
   # or maybe dhcp (unless it's a password).
 
+  # A database is also used to hold templates. We don't need to make this
+  # as fancy.
+  Name: templates
+  Driver: text
+  Directory: /var/lib/debconf/templates
+
 This lacks the glorious nested bindish beauty of Wichert's original idea,
 but it captures the essence of it.
 
-This class makes available a $Debconf::Db::driver, which is the root db
-driver. Requests can be sent directly to the db by things like
-$Debconf::Db::driver->setfield(...)
+This class makes available a $Debconf::Db::config, which is the root db
+driver for storing state, and a $Debconf::Db::templates, which is the root
+db driver for storing template data.
+
+Requests can be sent directly to the db's by things like 
+$Debconf::Db::config->setfield(...)
 
 =cut
 
@@ -116,9 +128,8 @@ sub readconfig {
 	open (DEBCONF_CONFIG, $cf) or die "$cf: $!\n";
 	local $/="\n\n"; # read a stanza at a time
 
-	# Read global config stanza.
-	_hashify(<DEBCONF_CONFIG>, $config);
-	die "Root database not specified" unless exists $config->{root};
+	# Read global options stanza.
+	_hashify(<DEBCONF_CONFIG>, $opts);
 	
 	# Now read in each database driver, and set them up.
 	# This assumes that there are no forward references in
@@ -139,15 +150,24 @@ sub readconfig {
 	}
 	close DEBCONF_CONFIG;
 
-	# Look up the root driver.
-	$driver=Debconf::DbDriver->driver($config->{root});
-	if (not ref $driver) {
-		die "Root database driver \"".$config->{root}."\" was not initialized.\n";
+	# Look up the two database drivers.
+	$config=Debconf::DbDriver->driver($opts->{config});
+	if (not ref $config) {
+		die "Configuration database \"".$opts->{config}."\" was not initialized.\n";
+	}
+	$templates=Debconf::DbDriver->driver($opts->{templates});
+	if (not ref $templates) {
+		die "Template database \"".$opts->{templates}."\" was not initialized.\n";
 	}
 }
 
 sub import {
 	readconfig();
+}
+
+sub save {
+	$config->savedb if $config;
+	$templates->savedb if $templates;
 }
 
 =head1 AUTHOR
