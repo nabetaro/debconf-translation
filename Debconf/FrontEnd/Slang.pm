@@ -106,12 +106,12 @@ sub init {
 		press_hook => sub {
 			# Toggle display of the helpwindow.
 			if ($this->helpwindow->hidden) {
-				Debconf::Config->terse('false');
+				Debconf::Config->helpvisible('true');
 				$this->helpwindow->hidden(0);
 				$this->button_help->text($this->button_help->text_shown);
 			}
 			else {
-				Debconf::Config->terse('true');
+				Debconf::Config->helpvisible('false');
 				$this->helpwindow->hidden(1);
 				$this->button_help->text($this->button_help->text_hidden);
 			}
@@ -122,7 +122,7 @@ sub init {
 	
 	));
 	
-	if (Debconf::Config->terse eq 'false') {
+	if (Debconf::Config->helpvisible eq 'true') {
 		$this->button_help->text($this->button_help->text_shown);
 	}
 	else {

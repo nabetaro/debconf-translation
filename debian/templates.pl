@@ -82,7 +82,7 @@ Description-pl: Czy zawsze zadawaæ stare pytania?
  Zwróæ uwagê, ¿e bez wzglêdu na odpowied¼ na to pytanie mo¿esz zobaczyæ
  dowolne pytanie jeszcze raz u¿ywaj±c programu dpkg-reconfigure.
 
-Template: debconf/terse
+Template: debconf/helpvisible
 Type: boolean
 Default: true
 Description: Should debconf display extended help for questions?

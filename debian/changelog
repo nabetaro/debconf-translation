@@ -1,3 +1,14 @@
+debconf (0.9.75) unstable; urgency=low
+
+  * Put back debconf/helpvisible question, and made the slang frontend
+    toggle it again. This makes changes to the slang frontend help visiable
+    status made by hitting the button persistant again.
+  * In terse mode, default help to not visible no matter what the
+    helpvisible setting.
+  * Closes: #103621
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  7 Jul 2001 14:33:45 -0400
+
 debconf (0.9.74) unstable; urgency=low
 
   * Introducing terse mode. You know what you're doing, and so you're using
