@@ -128,26 +128,32 @@ parses the client's response and uses that to set values on the Elements.
 sub go {
 	my $this=shift;
 
-	return 1 unless @{$this->{elements}};
-
-	# Each form sent out has a unique id.
-	my $formid=$this->formid(1 + $this->formid);
-
 	my $httpheader="HTTP/1.0 200 Ok\nContent-type: text/html\n\n";
-	my $form="<html>\n<title>".$this->title."</title>\n<body>\n";
-	$form.="<form><input type=hidden name=formid value=$formid>\n";
+	my $form='';
 	my $id=0;
 	my %idtoelt;
 	foreach my $elt (@{$this->{elements}}) {
 		# Each element has a unique id that it'll use on the form.
 		$idtoelt{$id}=$elt;
 		$elt->id($id++);
-		$form.=$elt->show;
-		$form.="<hr>\n";
+		my $html=$elt->show;
+		if ($html ne '') {
+			$form.=$html."<hr>\n";
+		}
 	}
-	
+	# If the elements generated no html, return now.
+	return 1 if $form eq '';
+
 	$this->{elements}=[];
-	$form.="<p>\n";
+
+	# Each form sent out has a unique id.
+	my $formid=$this->formid(1 + $this->formid);
+
+	# Add the standard header to the html we already have.
+	$form="<html>\n<title>".$this->title."</title>\n<body>\n".
+	       "<form><input type=hidden name=formid value=$formid>\n".
+	       $form."<p>\n";
+
 	# Should the back button be displayed?
 	if ($this->capb_backup) {
 		$form.="<input type=submit value=Back name=back>\n";

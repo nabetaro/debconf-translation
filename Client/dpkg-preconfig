@@ -50,7 +50,7 @@ if ($apt) {
 		push @debs, $_ if $_;
 	}
 	# We have now reached the end of the first file on stdin.
-	# Furure reads from stdin will get input from the user.
+	# Future reads from stdin will get input from the user.
 
 	exit unless @debs;
 }
@@ -180,6 +180,9 @@ Debian::DebConf::ConfigDb::savedb(Debian::DebConf::Config::dbdir());
 			while (<STATUS>) {
 				my ($package)=m/Package:\s*(.*?)\n/;
 				($versions{$package})=m/Version:\s*(.*?)\n/;
+				if (! defined $versions{$package}) {
+					$versions{$package}='';
+				}
 			}
 			close STATUS;
 		}

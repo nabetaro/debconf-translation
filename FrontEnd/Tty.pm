@@ -48,7 +48,7 @@ sub resize {
 		$this->{'screenheight'}=$ENV{'LINES'};
 	}
 	else {
-		($this->{'screenheight'})=`stty -a` =~ m/rows (\d+)/s;
+		($this->{'screenheight'})=`stty -a </dev/tty` =~ m/rows (\d+)/s;
 		$this->{'screenheight'}=25 if ! $this->{'screenheight'};
 	}
 
@@ -56,7 +56,7 @@ sub resize {
 		$this->{'screenwidth'}=$ENV{'COLUMNS'};
 	}
 	else {
-		($this->{'screenwidth'})=`stty -a` =~ m/columns (\d+)/s;
+		($this->{'screenwidth'})=`stty -a </dev/tty` =~ m/columns (\d+)/s;
 		$this->{'screenwidth'}=80 if ! $this->{'screenwidth'};
 	}
 }

@@ -64,6 +64,9 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 		# program (which should be the second argument passed to the
 		# preinst or postinst that ran it), is the package version.
 		my $version=$ARGV[2];
+		if (! defined($version)) {
+			$version='';
+		}
 		my $confmodule=Debian::DebConf::AutoSelect::confmodule($config,
 			"configure", $version);
 

@@ -1,3 +1,13 @@
+debconf (0.2.24) unstable; urgency=low
+
+  * Fixed the stty error messages, and screen size detection should work
+    again. For some reason I had to make stty use /dev/tty for stdin, plain
+    default stdin doesn't work when dpkg-preconfig is being run by apt.
+  * Change undefined values to '' when starting confmodules, Closes: #49797
+  * Fixed web frontend to never display empty forms.
+
+ -- Joey Hess <joeyh@master.debian.org>  Wed, 10 Nov 1999 15:29:53 -0800
+
 debconf (0.2.23) unstable; urgency=low
 
   * Added sane defaults if stty -a fails. (Closes: a whole slew of bug
