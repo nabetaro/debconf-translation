@@ -24,15 +24,16 @@ sub show {
 	# Display the question's long desc first.
 	$this->frontend->display($this->question->extended_description."\n");
 	
-	my $prompt;
 	my %selectindfromlet = ();
 	my $type=$this->question->type;
 	my $default=$this->question->value;
 	my $pdefault='';
 	my @choices=$this->question->choices_split;
+	push @choices, "none of the above"
+		if $this->frontend->promptdefault && $default ne '';
 
 	# Output the list of choices, at the same time, generate
-	# a prompt with the full list in it.
+	# a prompt with the full list in it. 
 	my $uniquelet = 1;
 	my %selectletfromind;
 	%selectindfromlet = ();
@@ -49,8 +50,6 @@ sub show {
 			}
 			else {
 				# Nasty fallback, but this happens rarely.
-				# Unfortunatly, if the default is in this
-				# range, uppercasing it does no good..
 				$selectindfromlet{$_ - 25} = $_;
 			}
 		}
@@ -59,9 +58,7 @@ sub show {
 	foreach (0..$#choices) {
 		$this->frontend->display_nowrap("\t". $selectletfromind{$_}.". $choices[$_]");
 		if (defined $default && $choices[$_] eq $default) {
-			$prompt .= uc $selectletfromind{$_};
-		} else {
-			$prompt .= lc $selectletfromind{$_};
+			$pdefault = $selectletfromind{$_};
 		}
 	}
 	$this->frontend->display("\n");
@@ -70,18 +67,21 @@ sub show {
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->description.
-			" [$prompt] ", $pdefault);
+		$_=$this->frontend->prompt($this->question->description, $pdefault);
 		
-		# Handle defaults.
-		if ($_ eq '' && defined $default) {
-			$value=$default;
-			last;
-		}
-
 		my @choices=$this->question->choices_split;
 		if (defined $selectindfromlet{$_}) {
-			$value=$choices[$selectindfromlet{$_}]; 
+			if ($selectindfromlet{$_} > $#choices) {
+				# None of the above.
+				$value='';
+			}
+			else {
+				$value=$choices[$selectindfromlet{$_}];
+			}
+			last;
+		}
+		elsif ($_ eq '') {
+			$value='';
 			last;
 		}
 	}

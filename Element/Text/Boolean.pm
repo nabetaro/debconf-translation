@@ -28,25 +28,18 @@ sub show {
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
-	my $prompt;
 	if ($default eq 'true') {
-		$prompt="Yn";
 		$default='y';
 	}
 	elsif ($default eq 'false') {
-		$prompt="yN";
 		$default='n';
-	}
-	else {
-		$prompt="yn";
 	}
 
 	my $value='';
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->description.
-			" [$prompt] ", '');
+		$_=$this->frontend->prompt($this->question->description, $default);
 		
 		# Handle defaults.
 		if ($_ eq '' && defined $default) {

@@ -27,6 +27,9 @@ General:
   shown, but has one item on it, which is not the default value, the default 
   value remains in effect. Inseteads, the value should probably be set to
   that one item that is on it.
+* Add debcionf config question to ask if packages should be preconfigured.
+* Finish dependncy chacks. Currently, they don't handle conflicts, and they
+  only look for the first versioned debconf dependancy on a line.
 
 Text frontend:
 * Add some way to go back in the Text.pm front end. I don't know how to

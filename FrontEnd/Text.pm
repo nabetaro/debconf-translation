@@ -34,6 +34,13 @@ sub new {
 	$self->{'readline'}=Term::ReadLine->new('debian');
 	$self->{'readline'}->ornaments(1);
 	$self->{'interactive'}=1;
+	
+	# Figure out which readline module has been loaded, to tell if
+	# prompts must include defaults or not.
+	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
+		$self->{'promptdefault'}=1;
+	}
+	
 	return $self;
 }
 
@@ -85,7 +92,7 @@ sub display_nowrap {
 	push @lines, "" if $text=~/\n$/;
 	foreach (@lines) {
 		if (++$this->{'linecount'} > $this->screenheight - 2) {
-			$this->prompt("[More]");
+			$this->prompt("[More]", '');
 		}
 		print "$_\n";
 	}
@@ -123,18 +130,29 @@ title is pending, it will be displayed before the prompt.
 
 sub prompt {
 	my $this=shift;
-	my $prompt=shift;
+	my $prompt=(shift)." ";
 	my $default=shift;
+	my $noshowdefault=shift;
 
 	$this->{'linecount'}=0;
-	local $_=$this->{'readline'}->readline($prompt, $default);
-	$this->{'readline'}->addhistory($_);
-	return $_;
+	my $ret;
+	if (! $noshowdefault && $this->{'promptdefault'} && $default ne '') {
+		$ret=$this->{'readline'}->readline($prompt."[$default] ", $default);
+	}
+	else {
+		$ret=$this->{'readline'}->readline($prompt, $default);
+	}
+	$this->{'readline'}->addhistory($ret);
+	if ($ret eq '' && $this->{'promptdefault'}) {
+		return $default;
+	}
+	return $ret;
 }
 
 =head2 prompt_password
 
-Same as prompt, except what the user enters is not echoed to the screen.
+Same as prompt, except what the user enters is not echoed to the screen
+and the default is never shown in the prompt.
 
 =cut
 
@@ -146,7 +164,7 @@ sub prompt_password {
 	my $attribs=$this->{'readline'}->Attribs;
 	my $oldfunc=$attribs->{'redisplay_function'};
 	$attribs->{'redisplay_function'} = $attribs->{'shadow_redisplay'};
-	my $ret=$this->prompt($prompt, $default);
+	my $ret=$this->prompt($prompt, $default, 1);
 	$attribs->{'redisplay_function'} = $oldfunc;
 
 	return $ret;

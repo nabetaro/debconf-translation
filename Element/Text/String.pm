@@ -30,7 +30,7 @@ sub show {
 	$default=$this->question->value if defined $this->question->value;
 
 	# Prompt for input using the short description.
-	$_=$this->frontend->prompt($this->question->description." ", $default);
+	$_=$this->frontend->prompt($this->question->description, $default);
 	
 	# Handle defaults.
 	if ($_ eq '') {

@@ -29,6 +29,8 @@ sub show {
 	my %selectindfromlet = ();
 	my $type=$this->question->type;
 	my @choices=$this->question->choices_split;
+	push @choices, "none of the above"
+		if $this->frontend->promptdefault && $this->question->value ne '';
 	my @pdefault=();
 	my @selected=();
 
@@ -71,7 +73,7 @@ sub show {
 
 	while (1) {
 		# Prompt for input.
-		$_=$this->frontend->prompt($this->question->description.' ',
+		$_=$this->frontend->prompt($this->question->description,
 		 	join(" ",@pdefault));
 
 		# Split up what they entered. They can separate items
@@ -82,14 +84,27 @@ sub show {
 		# If not, loop.
 		my $ok=1;
 		map { $ok='' unless exists $selectindfromlet{$_} } @selected;
+		
+		# Make sure that they didn't select "none of the above"
+		# along with some other item. That's undefined, so don't
+		# accept it.
+		if ($#selected > 0) {
+			map { $ok='' if $choices[$selectindfromlet{$_}] eq 'none of the above' } @selected;
+		}
+		
 		last if $ok;
 	}
 
-	# Now tuen what they entered into the representation we use
-	# internally, and save it.
-	$this->question->value(join(', ', map { $choices[$selectindfromlet{$_}] } @selected));
+	if (defined $selected[0] && $choices[$selectindfromlet{$selected[0]}] eq 'none of the above') {
+		$this->question->value('');
+	}
+	else {
+		# Now turn what they entered into the representation we use
+		# internally, and save it.
+		$this->question->value(join(', ', map { $choices[$selectindfromlet{$_}] } @selected));
+	}		
+
 	$this->question->flag_isdefault('false');
-	
 	$this->frontend->display("\n");
 }
 

@@ -1,3 +1,19 @@
+debconf (0.2.41) unstable; urgency=low
+
+  * Changed how text frontend's select element indicates which choice is
+    default. It can now indicate when numbers are the default. Closes: #50751
+  * Detect if libterm-readline-*-perl is being used. If so, allow
+    interactive editing of the default, since that is supported. If not,
+    display the default as part of the prompt. This makes things more
+    consistent overall.
+  * Added 'none of the above' option to [multi]select elements, so if you
+    don't have libterm-readline-*-perl, you can still override the default
+    and choose nothing. Unfortunatly, I still don't see a way to do that with
+    string input elements..
+  * Since w3m is currently broken, dump pages with lynx for now.
+
+ -- Joey Hess <joeyh@master.debian.org>  Sat, 20 Nov 1999 14:08:55 -0800
+
 debconf (0.2.40) unstable; urgency=low
 
   * dpkg-preconfig: Do a basic dependancy check before attempting to
