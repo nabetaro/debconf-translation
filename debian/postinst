@@ -1,5 +1,11 @@
 #!/bin/sh -e
 
+# This directory unexpectedly lingered around for two people, still
+# containing .pm files that broke debconf upgrades. I don't know why.
+if [ -d /usr/lib/perl5/Debconf ]; then
+	rm -rf /usr/lib/perl5/Debconf
+fi
+
 # Transition from old database format before debconf starts up.
 if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
    dpkg --compare-versions "$2" lt 0.9.00; then
@@ -14,12 +20,6 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 	if [ ! -s /etc/apt/apt.conf ]; then
 		rm -f /etc/apt/apt.conf
 	fi
-fi
-
-# This directory unexpectedly lingered around for two people, still
-# containing .pm files that broke debconf upgrades. I don't know why.
-if [ -d /usr/lib/perl5/Debconf ]; then
-	rm -rf /usr/lib/perl5/Debconf
 fi
 
 . /usr/share/debconf/confmodule

@@ -1,3 +1,10 @@
+debconf (0.9.31) unstable; urgency=low
+
+  * debconf-mergetemplates: ignore locale settings, as they should not take
+    effect for this program. Closes: #91860
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 27 Mar 2001 23:43:44 -0800
+
 debconf (0.9.30) unstable; urgency=low
 
   * Jacobo Tarrio <jtarrio@iname.com> contributed a Galician translation,

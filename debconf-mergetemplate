@@ -39,7 +39,10 @@ templates files, and then your main templates file last.
 L<debconf-getlang(8)>
 
 =cut
- 
+
+# Ignore the users locale settings.
+Debconf::Template::Transient->i18n(0);
+
 my %templates;
 foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 	if (exists $templates{$template->template}) {
