@@ -8,7 +8,7 @@ Debconf::FrontEnd::Teletype - FrontEnd for any teletype
 
 package Debconf::FrontEnd::Teletype;
 use strict;
-use Text::Wrap;
+use Debconf::Encoding qw(width wrap);
 use Debconf::Gettext;
 use Debconf::Config;
 use base qw(Debconf::FrontEnd::ScreenSize);
@@ -70,7 +70,7 @@ sub display {
 	my $this=shift;
 	my $text=shift;
 	
-	$Text::Wrap::columns=$this->screenwidth;
+	$Debconf::Encoding::columns=$this->screenwidth;
 	$this->display_nowrap(wrap('','',$text));
 }
 
@@ -95,7 +95,7 @@ sub display_nowrap {
 	# Add to the display any pending title.
 	my $title=$this->title;
 	if (length $title) {
-		unshift @lines, $title, ('-' x length $title), '';
+		unshift @lines, $title, ('-' x width $title), '';
 		$this->title('');
 	}
 

@@ -7,16 +7,32 @@ Debconf::Encoding - Character encoding support for debconf
 =head1 DESCRIPTION
 
 This module profides facilities to convert between character encodings for
-debconf.
+debconf, as well as other functions to operate on characters.
 
-It uses Text::Iconv instead of perl's internal Encoding conversion library
-because I'm not really sure if perls encoding is 100% the same. There could be
-round-trip errors between iconv's encodings and perl's, conceivably.
+Debconf uses glibc's character encoding converter via Text::Iconv instead
+of perl's internal Encoding conversion library because I'm not really sure
+if perls encoding is 100% the same. There could be round-trip errors
+between iconv's encodings and perl's, conceivably.
 
 $Debconf::Encoding::charmap holds the user's charmap.
 
 Debconf::Encoding::convert()  takes a charmap and a string encoded in that
 charmap, and converts it to the user's charmap.
+
+Debconf::Encoding::wrap is a word-wrapping function, with the same interface
+as the one in Text::Wrap (except it doesn't gratuitously unexpend tabs).
+If Text::WrapI18N is available, it will be used for proper wrapping of
+multibtye encodings, combining and fullwidth characters, and languages that
+do not use whitespace between words.
+
+$Debconf::Encoding::columns is used to set the number of columns text is
+wrapped to by Debconf::Encoding::wrap
+
+Debconf::Encoding::width returns the number of columns required to display
+the given string. If available, Text::CharWidth is used to determine the
+width, to support combining and fullwidth characters.
+
+Any of the above can be exported, this module uses the exporter.
 
 =cut
 
@@ -27,10 +43,8 @@ use warnings;
 
 our $charmap;
 BEGIN {
-	# Well, this module is needed for non-english users. For now, 
-	# it is only recommended.
 	no warnings;
-	eval "use Text::Iconv";
+	eval q{	use Text::Iconv };
 	use warnings;
 	if (! $@) {
 		# I18N::Langinfo is not even in Debian as I write this, so
@@ -38,7 +52,32 @@ BEGIN {
 		$charmap = `locale charmap`;
 		chomp $charmap;
 	}
+	
+	no warnings;
+	eval q{ use Text::WrapI18N; use Text::CharWidth };
+	use warnings;
+	if (! $@) {
+		# Set up wrap and width functions to point to functions
+		# from the modules.
+		*wrap = *Text::WrapI18N::wrap;
+		*columns = *Text::WrapI18N::columns;
+		*width = *Text::CharWidth::mbswidth;
+	}
+	else {
+		# Use Text::Wrap for wrapping, but unexpand tabs.
+		require Text::Wrap;
+		require Text::Tabs;
+		sub _wrap { return Text::Tabs::expand(Text::Wrap::wrap(@_)) }
+		*wrap = *_wrap;
+		*columns = *Text::Wrap::columns;
+		# Cannot just use *CORE::length; perl is too dumb.
+		sub _dumbwidth { length shift }
+		*width = *_dumbwidth;
+	}
 }
+
+use base qw(Exporter);
+our @EXPORT_OK=qw(wrap $columns width convert $charmap);
 
 my $converter;
 my $old_input_charmap;
@@ -64,4 +103,3 @@ Joey Hess <joeyh@debian.org>
 =cut
 
 1
-

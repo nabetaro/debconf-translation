@@ -17,9 +17,12 @@ install-utils:
 	find . -maxdepth 1 -perm +100 -type f -name 'debconf-*' | grep -v debconf-show | grep -v debconf-copydb | \
 		xargs -i install {} $(prefix)/usr/bin
 
+# Anything that goes in the debconf-i18n package.
+install-i18n:
+	$(MAKE) -C po install
+
 # Install all else.
 install-rest:
-	$(MAKE) -C po install
 	install -d $(prefix)/etc \
 		$(prefix)/var/cache/debconf \
 		$(prefix)/usr/share/debconf \

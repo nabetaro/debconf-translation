@@ -12,8 +12,7 @@ use Debconf::Gettext;
 use Debconf::Priority;
 use Debconf::TmpFile;
 use Debconf::Log qw(:all);
-use Text::Wrap qw(wrap $columns);
-use Text::Tabs;
+use Debconf::Encoding qw(wrap $columns width);
 use IPC::Open3;
 use base qw(Debconf::FrontEnd::ScreenSize);
 
@@ -138,16 +137,17 @@ sub sizetext {
 	# is pre-wrap the text and then just look at the number of lines it
 	# takes up.
 	$columns = $this->screenwidth - $this->borderwidth - $this->columnspacer;
-	# Why call expand? Well, wrap gratuitously calls unexpand. However,
-	# unexpand puts in tabs dialog does not deal with the way one would
-	# expect. Bleagh.
-#	$Text::Wrap::break=q/\s+/;
-	$text=expand(wrap('', '', $text));
+	$text=wrap('', '', $text);
 	my @lines=split(/\n/, $text);
 	
-	# Now figure out what's the longest line. Look at the title size too.
-	my $window_columns=length($this->title) + $this->titlespacer;
-	map { $window_columns=length if length > $window_columns } @lines;
+	# Now figure out what's the longest line. Look at the title size
+	# too. Note use of width function to count columns, not just
+	# characters.
+	my $window_columns=width($this->title) + $this->titlespacer;
+	map {
+		my $w=width($_);
+		$window_columns = $w if $w > $window_columns;
+	} @lines;
 	
 	return $text, $#lines + 1 + $this->borderheight,
 	       $window_columns + $this->borderwidth;

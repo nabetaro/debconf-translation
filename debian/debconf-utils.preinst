@@ -1,0 +1,7 @@
+#!/bin/sh
+#DEBHELPER#
+
+# directory turned into symlink; give dpkg a hand.
+if [ ! -L /usr/share/doc/debconf-utils ]; then
+	rmdir /usr/share/doc/debconf-utils
+fi

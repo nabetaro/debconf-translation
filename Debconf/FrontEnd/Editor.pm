@@ -8,7 +8,7 @@ Debconf::FrontEnd::Editor - Edit a config file to answer questions
 
 package Debconf::FrontEnd::Editor;
 use strict;
-use Text::Wrap;
+use Debconf::Encoding q(wrap);
 use Debconf::TmpFile;
 use Debconf::Gettext;
 use base qw(Debconf::FrontEnd::ScreenSize);
@@ -142,14 +142,14 @@ sub go {
 =item screenwidth
 
 This method from my base class is overridden, so after the screen width
-changes, $Text::Wrap::columns is updated to match.
+changes, $Debconf::Encoding::columns is updated to match.
 
 =cut
 
 sub screenwidth {
 	my $this=shift;
 
-	$Text::Wrap::columns=$this->SUPER::screenwidth(@_);
+	$Debconf::Encoding::columns=$this->SUPER::screenwidth(@_);
 }
 
 =back

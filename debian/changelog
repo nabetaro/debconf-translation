@@ -1,3 +1,38 @@
+debconf (1.3.0) unstable; urgency=low
+
+  * Debconf will now use Tomohiro KUBOTA's Text::WrapI18N module for line
+    folding, thus supporting proper display of:
+     - multibyte encodings such as UTF-8, EUC-JP, EUC-KR, GB2312, and Big5,
+     - combining characters and fullwidth characters which occupy zero
+       and two columns on screen, and
+     - languages which don't use whitespace between words (Chinese and
+       Japanese) and mixture of such languages and other languages.
+  * Debconf also makes use of Tomohiro's Text::CharWidth module for character
+    counting.
+  * Known bugs:
+    - Line-folding of prompt line in readline frontend is not aware of
+      multibyte encodings nor combining/fullwidth characters (Bug#195678).
+    - For dialog frontend, "dialog" package should not be used because
+      it doesn't yet support multibyte encodings nor combining/fullwidth
+      characters (Bug#195674). (Dickey is working on it.)
+  * The above is made possible thanks to the work of Tomohiro KUBOTA
+    <kubota@debian.org>.
+  * Extended Deconf::Encoding module to provide wrap, $cols, and width.
+    It loads Tomohiro's modules if available, and falls back Text::Wrap and
+    length if not.
+  * Reorganized the i18n support, so all necessary packages are installed by
+    default (Closes: #196475, #173647), and so it can easily be removed 
+    (saving 500k) for those who don't need it and lack disk space. 
+    Introduced debconf-i18n and debconf-english packages.
+  * Link debconf-utils doc dir to debconf's, since it depends on it anyway.
+    With transition preinst script. Saves 60k.
+  * debconf-english and debconf-i18n are linked also.
+  * debconf-show: Act on all packages named on command line. Closes: #198036
+  * debconf.fr.7 update. Closes: #198096
+  * debian/po/fr.po update
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 21 Jun 2003 11:02:29 -0400
+
 debconf (1.2.42) unstable; urgency=low
 
   * Make the conflict with whiptail-utf8 versioned (to the last version

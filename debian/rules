@@ -27,7 +27,13 @@ binary-indep: build
 	dh_clean -k
 
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
+	$(MAKE) prefix=`pwd`/debian/debconf-i18n install-i18n
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
+
+	# Link doc dirs where appropriate.
+	for p in debconf-utils debconf-i18n debconf-english; do \
+		dh_link -p $$p usr/share/doc/debconf usr/share/doc/$$p; \
+	done
 
 	# Don't modify postrm, I purge differently than normal packages
 	# using me
@@ -36,8 +42,11 @@ binary-indep: build
 	dh_installdocs
 	dh_installdirs etc/apt/apt.conf.d/
 	cp debian/apt.conf debian/debconf/etc/apt/apt.conf.d/70debconf
-	dh_installman doc/man/gen/dpkg-*.8 doc/man/gen/debconf-show*.1 \
-		doc/man/gen/debconf-copydb*.1 doc/man/gen/debconf.1 \
+	dh_installman doc/man/gen/dpkg-*configure.8 \
+		doc/man/gen/debconf-show.1 doc/man/gen/debconf-copydb.1 \
+		doc/man/gen/debconf.1
+	dh_installman -p debconf-i18n doc/man/gen/dpkg-*.*.8 \
+		doc/man/gen/debconf-show*.*.1 doc/man/gen/debconf-copydb*.*.1 \
 		doc/man/gen/debconf.*.1
 	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.7 \
 		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
@@ -52,7 +61,6 @@ binary-indep: build
 
 	dh_python
 	dh_installchangelogs
-	dh_link
 	dh_compress
 	dh_fixperms
 	dh_installdeb

@@ -11,19 +11,42 @@ Pre-Depends: perl-base (>= 5.6.1-4)
 Conflicts: cdebconf, debconf-utils (<< 1.1.0), debconf-tiny (<< 1.0), apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9b-20020814-1), whiptail (<< 0.51.4-7), whiptail-utf8 (<= 0.50.17-13)
 Provides: debconf-2.0
 Replaces: debconf-tiny
+Depends: debconf-i18n | debconf-english
 Recommends: apt-utils (>= 0.5.1)
-Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, liblocale-gettext-perl, libterm-readline-gnu-perl, libgnome-perl, libnet-ldap-perl, libtext-iconv-perl
+Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome-perl, libnet-ldap-perl
 Architecture: all
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages
  use Debconf to ask questions when they are installed.
+
+Package: debconf-i18n
+Priority: important
+Conflicts: debconf-english
+Architecture: all
+Depends: debconf, liblocale-gettext-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtext-charwidth-perl
+Description: full internationalization support for debconf
+ This package provides full internationalization for debconf, including
+ translations into all available languages, support for using translated
+ debconf templates, and support for proper display of multibtye character
+ sets.
+
+Package: debconf-english
+Priority: extra
+Conflicts: debconf-i18n
+Architecture: all
+Depends: debconf
+Description: small footprint English-only debconf
+ This package is an alternative to the debconf-i18n package, intended for
+ systems that are administered only in English, and low-footprint systems.
+ If you install this package, debconf will not work properly in other
+ languages, but you'll save half a megabyte of disk space.
 
 Package: debconf-doc
 Conflicts: debconf (<< 0.3.10)
 Suggests: debian-policy (>= 3.5)
 Section: doc
 Architecture: all
-Description: Debian configuration management system documentation
+Description: debconf documentation
  This package contains lots of additional documentation for Debconf,
  including an introduction to Debconf, a user's guide, a programmer's
  tutorial, and the specification Debconf is based on.

@@ -9,7 +9,7 @@ debconf-show - query the debconf database
 sub usage {
 	print STDERR <<EOF;
 Usage: 
-    debconf-show packagename [--db=dbname]
+    debconf-show packagename [...] [--db=dbname]
     debconf-show --listowners [--db=dbname]
     debconf-show --listdbs
 EOF
@@ -18,7 +18,7 @@ EOF
 
 =head1 SYNOPSIS
 
- debconf-show packagename [--db=dbname]
+ debconf-show packagename [...] [--db=dbname]
  debconf-show --listowners [--db=dbname]
  debconf-show --listdbs
 
@@ -64,7 +64,7 @@ use Getopt::Long;
 
 my $db='';
 my $listowners=0;
-my $package='';
+my @packages;
 my $listdbs=0;
 
 # command options
@@ -75,7 +75,8 @@ GetOptions(
 ) || usage();
 
 unless ($listowners or $listdbs) {
-	$package = shift || usage();
+	@packages=@ARGV;
+	usage() unless @packages;
 }
 
 Debconf::Db->load(readonly => 'true');
@@ -114,24 +115,26 @@ if ($listdbs) {
 	# Display the config tree.
 	tree($conf);
 }
-elsif ($package) {
-	# Show the questions of a package.
+elsif (@packages) {
 	while (my $q=$qi->iterate) {
-		if (grep { $package eq $_} split(/, /, $q->owners)) {
-			if ($q->flag("seen") eq 'true') {
-				print "* ";
+		foreach my $package (@packages) {
+			# Show the questions of a package.
+			if (grep { $package eq $_} split(/, /, $q->owners)) {
+				if ($q->flag("seen") eq 'true') {
+					print "* ";
+				}
+				else {
+					print "  ";
+				}
+				print $q->name.": ";
+				if ($q->type eq 'password') {
+					print "(password omitted)";
+				}
+				else {
+					print $q->value;
+				}
+				print "\n";
 			}
-			else {
-				print "  ";
-			}
-			print $q->name.": ";
-			if ($q->type eq 'password') {
-				print "(password omitted)";
-			}
-			else {
-				print $q->value;
-			}
-			print "\n";
 		}
 	}
 }
