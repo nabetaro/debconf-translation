@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.17\n"
-"POT-Creation-Date: 2002-04-12 17:23-0400\n"
+"POT-Creation-Date: 2002-04-13 00:07-0400\n"
 "PO-Revision-Date: 2001-01-31 10:09+01:00\n"
 "Last-Translator: Martin Quinson <mquinson@ens-lyon.fr>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -121,7 +121,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:95
+#: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -129,7 +129,7 @@ msgstr ""
 "Ni whiptail ni dialog ne sont installés, donc le frontal basé sur dialog va "
 "être utilisé."
 
-#: ../Debconf/FrontEnd/Dialog.pm:247
+#: ../Debconf/FrontEnd/Dialog.pm:249
 msgid "Debian Configuration"
 msgstr "Configuration Debian"
 
@@ -180,17 +180,17 @@ msgstr "Retour"
 msgid "Next"
 msgstr "Suivant"
 
-#: ../Debconf/AutoSelect.pm:68
+#: ../Debconf/AutoSelect.pm:75
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "Utilisation à la place du frontal : %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:83
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "Impossible d'initialiser le frontal : %s"
 
-#: ../Debconf/AutoSelect.pm:82
+#: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Impossible de démarrer le frontal : %s"
@@ -280,6 +280,30 @@ msgstr "%s n'est pas totalement installé"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Impossible de lire le fichier d'état : %s"
+
+#: ../debconf-mergetemplate:100
+msgid "$basefield is missing"
+msgstr ""
+
+#: ../debconf-mergetemplate:104
+msgid "$basefield is missing; dropping $field"
+msgstr ""
+
+#: ../debconf-mergetemplate:118
+msgid "$field is fuzzy"
+msgstr ""
+
+#: ../debconf-mergetemplate:122
+msgid "$field is fuzzy; dropping it"
+msgstr ""
+
+#: ../debconf-mergetemplate:138
+msgid "is outdated"
+msgstr ""
+
+#: ../debconf-mergetemplate:143
+msgid "is outdated; dropping whole template!"
+msgstr ""
 
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "TERM n'a pas de valeur, l'interface Slang est donc inutilisable."

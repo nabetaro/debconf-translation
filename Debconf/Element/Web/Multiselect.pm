@@ -71,7 +71,7 @@ sub value {
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
 	
-	$this->SUPER::value(join(', ',  map { $choices[$_] } @values));
+	$this->SUPER::value(join(', ',  $this->order_values(map { $choices[$_] } @values)));
 }
 
 =back

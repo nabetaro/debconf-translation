@@ -283,26 +283,6 @@ sub clearall {
 	}
 }
 
-=head2 merge
-
-Pass in another Template and all the fields in that other template
-will be copied over onto the Template the method is called on.
-
-=cut
-
-sub merge {
-	my $this=shift;
-	my $other=shift;
-
-	foreach my $field (grep { $_ !~ /extended_/ } $other->fields) {
-		$this->$field($other->$field);
-		# If the other template has no extended part of the field,
-		# coply in nothing.
-		$field="extended_$field";
-		$this->$field($other->$field);
-	}
-}
-
 =head2 stringify
 
 This may be called as either a class method (in which case it takes a list

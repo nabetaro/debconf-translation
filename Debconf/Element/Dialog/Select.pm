@@ -28,7 +28,7 @@ sub show {
 	my $default=$this->translate_default;
 	my @params=();
 	my @choices=$this->question->choices_split;
-		
+	
 	# Figure out how many lines of the screen should be used to
 	# scroll the list. Look at how much free screen real estate
 	# we have after putting the description at the top. If there's
@@ -40,6 +40,7 @@ sub show {
 	
 	$lines=$lines + $menu_height + $this->frontend->spacer;
 	my $c=1;
+	my $selectspacer = $this->frontend->selectspacer;
 	foreach (@choices) {
 		if ($_ ne $default) {
 			push @params, $_, '';
@@ -48,6 +49,11 @@ sub show {
 			# Make the default go first so it is actually
 			# selected as the default.
 			@params=($_, '', @params);
+		}
+		# Choices wider than the description text? (Only needed for
+		# whiptail BTW.)
+		if ($columns < length($_) + $selectspacer) {
+			$columns = length($_) + $selectspacer;
 		}
 	}
 	

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2002-04-12 17:23-0400\n"
+"POT-Creation-Date: 2002-04-13 00:07-0400\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -124,7 +124,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:95
+#: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -132,7 +132,7 @@ msgstr ""
 "whiptail、dialog のいずれもインストールされていないため、\n"
 "ダイアログ形式のフロントエンドは使用できません。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:247
+#: ../Debconf/FrontEnd/Dialog.pm:249
 msgid "Debian Configuration"
 msgstr "Debian の設定"
 
@@ -184,17 +184,17 @@ msgstr "戻る"
 msgid "Next"
 msgstr "次へ"
 
-#: ../Debconf/AutoSelect.pm:68
+#: ../Debconf/AutoSelect.pm:75
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:83
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "フロントエンドの初期化に失敗しました: %s"
 
-#: ../Debconf/AutoSelect.pm:82
+#: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
@@ -279,6 +279,30 @@ msgstr "%s は完全にインストールされていません"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "ステータスファイルを読み込めません: %s"
+
+#: ../debconf-mergetemplate:100
+msgid "$basefield is missing"
+msgstr ""
+
+#: ../debconf-mergetemplate:104
+msgid "$basefield is missing; dropping $field"
+msgstr ""
+
+#: ../debconf-mergetemplate:118
+msgid "$field is fuzzy"
+msgstr ""
+
+#: ../debconf-mergetemplate:122
+msgid "$field is fuzzy; dropping it"
+msgstr ""
+
+#: ../debconf-mergetemplate:138
+msgid "is outdated"
+msgstr ""
+
+#: ../debconf-mergetemplate:143
+msgid "is outdated; dropping whole template!"
+msgstr ""
 
 #~ msgid "Hide Help"
 #~ msgstr "ヘルプを非表示"

@@ -8,10 +8,12 @@ debconf-mergetemplate - merge together multiple debconf template files
 
 use strict;
 use Debconf::Template::Transient;
+use Debconf::Config;
+use Debconf::Gettext;
 
 =head1 SYNOPSIS
 
- debconf-mergetemplate [templates.ll ...] templates
+ debconf-mergetemplate [options] [templates.ll ...] templates
 
 =head1 DESCRIPTION
 
@@ -36,22 +38,110 @@ templates files, and then your main templates file last.
 
 =head1 OPTIONS
 
+=over 4
+
+=item --outdated
+
+Merge in even outdated translations. The default is to drop them with a
+warning message.
+
+=back
+
 =head1 SEE ALSO
 
 L<debconf-getlang(1)>
 
 =cut
 
+my $outdated=0;
+Debconf::Config->getopt(
+qq{Syntax: debconf-mergetemplate [options] [templates.ll ...] templates
+        --outdated		Merge in even outdated translations.},
+       "outdated"		=> \$outdated,
+);
+
 # Ignore the user's locale settings.
 Debconf::Template::Transient->i18n(0);
 
-my %templates;
+sub is_fuzzy {
+	my $a=defuzz(shift);
+	my $b=shift;
+}
+
+sub defuzz {
+	my $value=shift;
+        # Ignore leading/trailing whitespace,
+	# and collapse other whitespace.
+	$value=~s/^\s+//gm;
+	$value=~s/\s+$//gm;
+	$value=~tr/ \t\n/ /s;
+	return $value;
+}
+
+my %templates = map { $_->template => $_ } Debconf::Template::Transient->load(pop @ARGV);
+
 foreach my $template (map { Debconf::Template::Transient->load($_) } @ARGV) {
 	if (exists $templates{$template->template}) {
-		$templates{$template->template}->merge($template);
+		my $master=$templates{$template->template};
+		foreach my $field (grep { /.+-.+/ } $template->fields) {
+			next if $field =~ /^extended_/;
+			if ($field =~ /(.+)-(.+)/) {
+				my $basefield = $1;
+				my $lang = $2;
+
+				# Get the english versions, including
+				# extended field if any.
+				my $t_val = $template->$basefield;
+				my $m_val = $master->$basefield;
+
+				if (! defined $t_val) {
+					if ($outdated) {
+						warn "debconf-mergetemplate: ".$template->template." ".
+						     gettext("$basefield is missing")."\n";
+					}
+					else {
+						warn "debconf-mergetemplate: ".$template->template." ".
+						     gettext("$basefield is missing; dropping $field")."\n";
+						     next;
+					}
+				}
+
+				my $extbasefield = "extended_$basefield";
+				$t_val .= "\n".$template->$extbasefield
+					if defined $template->$extbasefield;
+				$m_val .= "\n".$master->$extbasefield
+					if defined $master->$extbasefield;
+
+				if (defuzz($t_val) ne defuzz($m_val)) {
+				    	if ($outdated) {
+						warn "debconf-mergetemplate: ".$template->template." ".
+						     gettext("$field is fuzzy")."\n";
+					}
+					else {
+						warn "debconf-mergetemplate: ".$template->template." ".
+						     gettext("$field is fuzzy; dropping it")."\n";
+						next;
+					}
+				}
+			}
+			
+			$master->$field($template->$field);
+			# If the other template has no extended part of the field,
+			# coply in nothing.
+			$field="extended_$field";
+			$master->$field($template->$field);
+		}
 	}
 	else {
-		$templates{$template->template}=$template;
+		if ($outdated) {
+			warn "debconf-mergetemplate: ".$template->template." ".
+			     gettext("is outdated")."\n";
+			$templates{$template->template}=$template;
+		}
+		else {
+			warn "debconf-mergetemplate: ".$template->template." ".
+			     gettext("is outdated; dropping whole template!")."\n";
+		}
 	}
 }
 

@@ -57,7 +57,14 @@ other types, all the way to a Noninteractive frontend if all else fails.
 
 sub make_frontend {
 	my $script=shift;
-	my $starttype=ucfirst($type || Debconf::Config->frontend);
+	my $starttype=ucfirst($type);
+	if (! defined $starttype || ! length $starttype) {
+		$starttype = Debconf::Config->frontend;
+		if ($starttype =~ /[A-Z]/) {
+			debug developer => "Please do not capitalize the first letter of the debconf frontend.";
+		}
+		$starttype=ucfirst($starttype);
+	}
 
 	my $showfallback=0;
 	foreach $type ($starttype, @{$fallback{$starttype}}, 'Noninteractive') {

@@ -127,12 +127,21 @@ sub _expand_vars {
 	my $result='';
 	my $variable;
 	my $varval;
-	while ($rest =~ m/^(.*?)\${([^{}]+)}(.*)$/sg) {
+	my $escape;
+	while ($rest =~ m/^(.*?)(\\)?\${([^{}]+)}(.*)$/sg) {
 		$result.=$1;  # copy anything before the variable
-		$variable=$2;
-		$rest=$3; # continue trying to expand rest of text
-		$varval=$Debconf::Db::config->getvariable($this->{name}, $variable);
-		$result.=$varval if defined($varval); # expand the variable
+		$escape=$2;
+		$variable=$3;
+		$rest=$4; # continue trying to expand rest of text
+		if (defined $escape && length $escape) {
+			# escaped variable is not changed, though the
+			# escape is removed.
+			$result.="\${$variable}";
+		}
+		else {
+			$varval=$Debconf::Db::config->getvariable($this->{name}, $variable);
+			$result.=$varval if defined($varval); # expand the variable
+		}
 	}
 	$result.=$rest; # add on anything that's left.
 	

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2002-04-12 17:23-0400\n"
+"POT-Creation-Date: 2002-04-13 00:07-0400\n"
 "PO-Revision-Date: 2001-12-03 19:18+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "Language-Team: none\n"
@@ -119,7 +119,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:95
+#: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -127,7 +127,7 @@ msgstr ""
 "Varken whiptail eller dialog är installerade, så det dialogbaserade skalet "
 "kan inte användas."
 
-#: ../Debconf/FrontEnd/Dialog.pm:247
+#: ../Debconf/FrontEnd/Dialog.pm:249
 msgid "Debian Configuration"
 msgstr "Debiankonfigurering"
 
@@ -177,17 +177,17 @@ msgstr "Föregående"
 msgid "Next"
 msgstr "Nästa"
 
-#: ../Debconf/AutoSelect.pm:68
+#: ../Debconf/AutoSelect.pm:75
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "återgår till skal: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:83
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "kan inte initiera skal: %s"
 
-#: ../Debconf/AutoSelect.pm:82
+#: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Kan inte starta skal: %s"
@@ -275,6 +275,30 @@ msgstr "%s är inte helt installerat"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
+
+#: ../debconf-mergetemplate:100
+msgid "$basefield is missing"
+msgstr ""
+
+#: ../debconf-mergetemplate:104
+msgid "$basefield is missing; dropping $field"
+msgstr ""
+
+#: ../debconf-mergetemplate:118
+msgid "$field is fuzzy"
+msgstr ""
+
+#: ../debconf-mergetemplate:122
+msgid "$field is fuzzy; dropping it"
+msgstr ""
+
+#: ../debconf-mergetemplate:138
+msgid "is outdated"
+msgstr ""
+
+#: ../debconf-mergetemplate:143
+msgid "is outdated; dropping whole template!"
+msgstr ""
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

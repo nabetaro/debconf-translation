@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2002-04-12 17:23-0400\n"
+"POT-Creation-Date: 2002-04-13 00:07-0400\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -123,7 +123,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:95
+#: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -131,7 +131,7 @@ msgstr ""
 "Non están instalados whiptail nin dialog, así que non se pode emprega-la "
 "interface baseada en dialog."
 
-#: ../Debconf/FrontEnd/Dialog.pm:247
+#: ../Debconf/FrontEnd/Dialog.pm:249
 msgid "Debian Configuration"
 msgstr "Configuración de Debian"
 
@@ -182,17 +182,17 @@ msgstr "Anterior"
 msgid "Next"
 msgstr "Seguinte"
 
-#: ../Debconf/AutoSelect.pm:68
+#: ../Debconf/AutoSelect.pm:75
 #, c-format
 msgid "falling back to frontend: %s"
 msgstr "emprégase a interface: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:83
 #, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "non se puido inicializa-la interface: %s"
 
-#: ../Debconf/AutoSelect.pm:82
+#: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Non se puido arrincar unha interface: %s"
@@ -285,6 +285,30 @@ msgstr "%s non está completamente instalado"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "Non se puido le-lo ficheiro de estado: %s"
+
+#: ../debconf-mergetemplate:100
+msgid "$basefield is missing"
+msgstr ""
+
+#: ../debconf-mergetemplate:104
+msgid "$basefield is missing; dropping $field"
+msgstr ""
+
+#: ../debconf-mergetemplate:118
+msgid "$field is fuzzy"
+msgstr ""
+
+#: ../debconf-mergetemplate:122
+msgid "$field is fuzzy; dropping it"
+msgstr ""
+
+#: ../debconf-mergetemplate:138
+msgid "is outdated"
+msgstr ""
+
+#: ../debconf-mergetemplate:143
+msgid "is outdated; dropping whole template!"
+msgstr ""
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

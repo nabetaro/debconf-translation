@@ -70,7 +70,7 @@ sub value {
 		}
 	}
 
-	return join(', ', @vals);
+	return join(', ', $this->order_values(@vals));
 }
 
 =head1 AUTHOR

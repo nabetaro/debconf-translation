@@ -17,6 +17,33 @@ input element.
 
 =head1 METHODS
 
+=item order_values
+
+Given a set of values, reorders then to be in the same order as the choices
+field of the question's template, and returns them.
+
+=cut
+
+sub order_values {
+	my $this=shift;
+	my %vals=map { $_ => 1 } @_;
+	return grep { $vals{$_} } $this->question->choices_split;
+}
+
+=item show
+
+Unlike select lists, multiselect questions are visible if there is just one
+choice.
+
+=cut
+
+sub visible {
+        my $this=shift;
+
+        my @choices=$this->question->choices_split;
+        return ($#choices >= 0);
+}
+
 =item translate_default
 
 This method returns default value(s), in the user's language, suitable for

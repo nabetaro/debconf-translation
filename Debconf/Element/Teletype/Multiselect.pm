@@ -96,8 +96,9 @@ sub show {
 		my %selected=map { $_ => 1 } @selected;
 
 		# Translate back to C locale, and join the list.
-		$this->value(join(', ', sort map { $this->translate_to_C($_) }
-		                       keys %selected));
+		$this->value(join(', ', $this->order_values(
+				map { $this->translate_to_C($_) }
+		                keys %selected)));
 	}
 }
 

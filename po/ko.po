@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
-"POT-Creation-Date: 2002-04-12 17:23-0400\n"
+"POT-Creation-Date: 2002-04-13 00:07-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -121,7 +121,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Dialog.pm:95
+#: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -129,7 +129,7 @@ msgstr ""
 "Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
 "용할 수 없습니다."
 
-#: ../Debconf/FrontEnd/Dialog.pm:247
+#: ../Debconf/FrontEnd/Dialog.pm:249
 msgid "Debian Configuration"
 msgstr "데비안 설정"
 
@@ -179,17 +179,17 @@ msgstr "뒤로"
 msgid "Next"
 msgstr "다음"
 
-#: ../Debconf/AutoSelect.pm:68
+#: ../Debconf/AutoSelect.pm:75
 #, fuzzy, c-format
 msgid "falling back to frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:76
+#: ../Debconf/AutoSelect.pm:83
 #, fuzzy, c-format
 msgid "unable to initialize frontend: %s"
 msgstr "frontend를 초기화할 수 없음: %s"
 
-#: ../Debconf/AutoSelect.pm:82
+#: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
 msgstr "Frontend를 시작할 수 없습니다: %s"
@@ -278,6 +278,30 @@ msgstr "%s은(는) 완전히 설치되지 않았습니다"
 #, c-format
 msgid "Cannot read status file: %s"
 msgstr "상태 파일을 읽을 수 없습니다: %s"
+
+#: ../debconf-mergetemplate:100
+msgid "$basefield is missing"
+msgstr ""
+
+#: ../debconf-mergetemplate:104
+msgid "$basefield is missing; dropping $field"
+msgstr ""
+
+#: ../debconf-mergetemplate:118
+msgid "$field is fuzzy"
+msgstr ""
+
+#: ../debconf-mergetemplate:122
+msgid "$field is fuzzy; dropping it"
+msgstr ""
+
+#: ../debconf-mergetemplate:138
+msgid "is outdated"
+msgstr ""
+
+#: ../debconf-mergetemplate:143
+msgid "is outdated; dropping whole template!"
+msgstr ""
 
 #, fuzzy
 #~ msgid "This frontend probably needs a controlling tty."

@@ -48,11 +48,17 @@ sub show {
 	}
 	
 	$lines=$lines + $menu_height + $this->frontend->spacer;
+	my $selectspacer = $this->frontend->selectspacer;
 	my $c=1;
 	foreach (@choices) {
 		push @params, ($_, "");
 		push @params, ($value{$_} ? 'on' : 'off');
-		
+
+		# Choices wider than the description text? (Only needed for
+		# whiptail BTW.)
+		if ($columns < length($_) + $selectspacer) {
+			$columns = length($_) + $selectspacer;
+		}
 	}
 	
 	if ($this->frontend->dashsep) {
@@ -67,7 +73,7 @@ sub show {
 
 	# Dialog returns the selected items, each on a line.
 	# Translate back to C, and turn into our internal format.
-	$this->value(join(", ", map { $this->translate_to_C($_) } split(/\n/, $value)));
+	$this->value(join(", ", $this->order_values(map { $this->translate_to_C($_) } split(/\n/, $value))));
 }
 
 1

@@ -1,5 +1,10 @@
 debconf (1.1.0) unstable; urgency=low
 
+UNRE
+  * NOT targeted at woody.
+  * debconf-mergetemplate now drops out of date translations by default.
+    The --outdated flag allows for the old behavior of keeping them.
+    Closes: #131173
   * Split the configdb into two files, a password database and a database for
     all else. This allows normal users to query the debconf db for items that
     are not passwords, which should be generally useful. The immediate
@@ -18,7 +23,23 @@ debconf (1.1.0) unstable; urgency=low
     methods. And fixed a typo that had prevented it from working at all.
   * Added a DEBCONF_NOWARNINGS environment variable.
   * Have debconf-show open the db readonly, so it will not contend for locks.
-  * debhelper v4
+  * Put debconf-show in /usr/bin/.
+  * Turned on comment stripping of some more files.
+  * Now supports escaped substitution variables in templates, do it like
+    "\${foo}", and "${foo}" will be displayed. Closes: #122818
+  * Made the dialog frontend smarter about exceedingly wide select and
+    multiselect choices. Closes: #129224
+  * Using upper-case in the value of DEBIAN_FRONTEND is deprecated, and
+    debconf now warns when it detects this if DEBCONF_DEBUG is set to
+    developer. Closes: #131800
+  * Do not skip displaying multiselect questions that have only one choice;
+    the user still needs to choose between one and none. Closes: #139489
+  * Don't load Getopt::Long unless there are options to process in
+    Debconf::Config.
+  * A multiselect question, once displayed, gets its value set to the selected
+    choices, in the same order as those choices appear in its Choices field.
+    Previously, the order had been undefined. Closes: #129768, #135961
+  * Uses debhelper v4.
 
  -- Joey Hess <joeyh@debian.org>  Fri, 12 Apr 2002 13:54:03 -0400
 

@@ -43,14 +43,17 @@ install-rest:
 	install frontend $(prefix)/usr/share/debconf/
 	install -m 0755 transition_db.pl fix_db.pl $(prefix)/usr/share/debconf/
 	# Install essential programs.
-	install -d $(prefix)/usr/sbin
-	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' -or -name debconf-show -or -name debconf-copydb | \
+	install -d $(prefix)/usr/sbin $(prefix)/usr/bin
+	find . -maxdepth 1 -perm +100 -type f -name 'dpkg-*' | \
 		xargs -i install {} $(prefix)/usr/sbin
+	find . -maxdepth 1 -perm +100 -type f -name debconf-show -or -name debconf-copydb | \
+		xargs -i install {} $(prefix)/usr/bin
 	# Now strip all pod documentation from all .pm files and scripts.
 	find $(prefix)/usr/share/perl5/ $(prefix)/usr/sbin		\
 	     $(prefix)/usr/share/debconf/frontend 			\
-	     $(prefix)/usr/share/debconf/*.pl				\
-	     -name '*.pm' -or -name 'dpkg-*' | 				\
+	     $(prefix)/usr/share/debconf/*.pl $(prefix)/usr/bin		\
+	     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
+	     -name 'debconf-*' -or -name 'frontend' |			\
 	     grep -v Client/ConfModule | xargs perl -i.bak -ne ' 	\
 	     		print $$_."# This file was preprocessed, do not edit!\n" \
 				if m:^#!/usr/bin/perl:; 		\

@@ -71,6 +71,7 @@ sub init {
 		$this->spacer(1);
 		$this->titlespacer(10);
 		$this->columnspacer(3);
+		$this->selectspacer(9);
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('dialog');
@@ -81,6 +82,7 @@ sub init {
 		$this->spacer(0);
 		$this->titlespacer(4);
 		$this->columnspacer(2);
+		$this->selectspacer(0);
 	}
 # Disabled until it supports --passwordbox and --nocancel
 #	elsif (-x "/usr/bin/gdialog") {

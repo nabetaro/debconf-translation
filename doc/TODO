@@ -1,5 +1,4 @@
 General:
-* debconf-show should be able to open the db read-only.
 * The ConfModule should not return the backup return code, ever, if 
   the confmodule it talks to has not indicated it has that capability.
 * Get rid of the horrendous fd #3 hack in /usr/share/debconf/confmodule.
@@ -25,10 +24,6 @@ General:
   Dialog frontend couldn't support this, but the rest could.
 * I need to update the tutorial with better info on debugging, especially
   since debconf-loadtemplate and debconf-communicate should make it easier.
-
-I18N:
-* I should "use locale" here and there.
-
 
 Database:
 * The division between Debconf::Config and Debconf::Db still needs thought.

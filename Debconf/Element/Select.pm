@@ -20,7 +20,7 @@ This is a base Select input element.
 
 =over 4
 
-=item show
+=item visible
 
 Select elements are not really visible if there are less than two choices
 for them.

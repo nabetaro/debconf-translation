@@ -133,7 +133,10 @@ EOF
 		exit 1;
 	};
 
-	require Getopt::Long; # Load only if this function is called.
+	# don't load big Getopt::Long unless really necessary.
+	return unless grep { $_ =~ /^-/ } @ARGV;
+	
+	require Getopt::Long;
 	Getopt::Long::Configure('bundling');
 	Getopt::Long::GetOptions(
 		'frontend|f=s',	sub { shift; $config->{frontend} = shift },
@@ -159,6 +162,7 @@ file.
 
 sub frontend {
 	my $class=shift;
+	
 	return $ENV{DEBIAN_FRONTEND} if exists $ENV{DEBIAN_FRONTEND};
 	$config->{frontend}=shift if @_;
 	return $config->{frontend} if exists $config->{frontend};

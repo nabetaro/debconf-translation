@@ -51,8 +51,9 @@ sub value {
 
 	my %valid=map { $_ => 1 } $this->question->choices_split;
 	
-	$this->SUPER::value(join(', ', sort map { $this->translate_to_C($_) }
-	                  grep { $valid{$_} } @values));
+	$this->SUPER::value(join(', ', $this->order_values(
+			map { $this->translate_to_C($_) }
+			grep { $valid{$_} } @values)));
 }
 
 =back
