@@ -1,3 +1,11 @@
+debconf (0.5.39) unstable; urgency=low
+
+  * To keep debconf out of testing for nother two weeks, I fixed a bug
+    involving truncation of excessively-long short descriptions in the
+    slang frontend. Closes: #80163
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 31 Dec 2000 18:04:39 -0800
+
 debconf (0.5.38) unstable; urgency=low
 
   * I guess perl is fixed now, so I can remove the bogus dependancy.

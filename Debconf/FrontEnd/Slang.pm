@@ -225,7 +225,7 @@ sub go {
 				# possible.
 				my $this=shift;
 				my $length=length $this->text;
-				my $maxwidth=$this->container->width - 4;
+				my $maxwidth=$this->container->width - $this->x;
 				
 				if ($length <= $maxwidth) {
 					$this->width($length);
