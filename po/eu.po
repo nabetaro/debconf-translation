@@ -1,3 +1,6 @@
+# translation of eu.po to 
+# translation of eu.po to
+# translation of debconf-bug-.po to
 # translation of debconf-eu.po to Euskara
 # translation of debconf-1.4.24.eu.1.po to Euskara
 # translation of debconf-1.4.24.po to Euskara
@@ -7,12 +10,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf-eu\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-02 08:49+0200\n"
-"PO-Revision-Date: 2005-04-01 10:55+0200\n"
-"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Librezale.org <librezale@librezale.org>\n"
+"POT-Creation-Date: 2005-04-04 08:40+0200\n"
+"PO-Revision-Date: 2005-04-03 21:58+0200\n"
+"Last-Translator: Piarres Beobide pi@beobide.net\n"
+"Language-Team:  Librezale.org <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,6 +53,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf %s-n"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Gehiago"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -63,10 +70,6 @@ msgstr "Atzera"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Hurrengoa"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Gehiago"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -111,100 +114,6 @@ msgstr "Interfaze honek kontrol tty bat behar du."
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU ezin da emacs shell buferrekin erabili."
 
-#: ../Debconf/AutoSelect.pm:76
-#, perl-format
-msgid "falling back to frontend: %s"
-msgstr "Interfaze h saiatzen: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, perl-format
-msgid "unable to initialize frontend: %s"
-msgstr "Ezin da interfaze hau abiarazi: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, perl-format
-msgid "Unable to start a frontend: %s"
-msgstr "Ezin da interfaze hau abiarazi: %s"
-
-#: ../Debconf/Config.pm:128
-msgid "Config database not specified in config file."
-msgstr "Konefiguraz databasea ez dago ezarririk konfigurazio fitxategian."
-
-#: ../Debconf/Config.pm:132
-msgid "Template database not specified in config file."
-msgstr "Database txantilloia ez dago ezarririk konfigurazio fitxategian."
-
-#: ../Debconf/Config.pm:137
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Zeinu eta aurpegitxo (smileys) aukerak ez dira denbora gehiagoz erabiliko "
-"konfigurazio fitxategian. Mesedez ezabatu itzazu."
-
-#: ../Debconf/Config.pm:148
-#, perl-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Arazo bat %s-tik %s-ra parafoak ezarritako databasea ezartzerakoan."
-
-#: ../Debconf/Config.pm:197
-msgid ""
-"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
-"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
-"       --terse\t\t\tEnable terse mode.\n"
-msgstr ""
-
-#: ../Debconf/Config.pm:277
-#, perl-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "\"%s\"baliogabko lehentasuna alde batetara uzrten"
-
-#: ../Debconf/Config.pm:278
-#, perl-format
-msgid "Valid priorities are: %s"
-msgstr "Lentasun erabilgarriak: %s"
-
-#: ../Debconf/Template.pm:90
-#, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"kontuz: databasea ondatuta egon liteke. Konpontzen saituako da galdutako %s "
-"galdera gehitzen."
-
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"#%s Txantilloiak %s-n bikoiztutako \"%s\" eremu bat du \"%s\". balio "
-"berriarekin.Ziurrenik bi txantilloi ez daude lerro berri batez bereizirik.\n"
-
-#: ../Debconf/Template.pm:226
-#, perl-format
-msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "'%s' Txantilloi eremu ezezaguna #%s parafoan %s-n.\n"
-
-#: ../Debconf/Template.pm:252
-#, perl-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "'%s' gertu txantilloi errorea, #%s parafoan %s-n.\n"
-
-#: ../Debconf/Template.pm:258
-#, perl-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "#%s txantilloiak ez du 'Template:' lerro bat %s-n:\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Laguntza"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Laguntza"
-
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
 msgstr "Gorde oharra (epostaz)"
@@ -231,8 +140,8 @@ msgid "Unable to save note."
 msgstr "Ezin da oharra gorde."
 
 #: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
 #: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
 msgstr "Aukerak"
 
@@ -288,6 +197,103 @@ msgid ""
 msgstr ""
 "Emandako \"%s\" balioa ez da C aukeretan aurkitu! Hau ez zen inoiz gertatu "
 "beharko. Agian txantilloia gaizki lokalizaturik dago."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Laguntza"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "Interfaze h saiatzen: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "Ezin da interfaze hau abiarazi: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Ezin da interfaze hau abiarazi: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "Konefiguraz databasea ez dago ezarririk konfigurazio fitxategian."
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Database txantilloia ez dago ezarririk konfigurazio fitxategian."
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Zeinu eta aurpegitxo (smileys) aukerak ez dira denbora gehiagoz erabiliko "
+"konfigurazio fitxategian. Mesedez ezabatu itzazu."
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Arazo bat %s-tik %s-ra parafoak ezarritako databasea ezartzerakoan."
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tErabiliko den debconf interfazea ezarri.\n"
+"  -p,  --priority\t\tIkusiko diren galderen lehenespen baxuena ezarri.\n"
+"       --terse\t\t\tModu laburra gaitu.\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "\"%s\"baliogabko lehentasuna alde batetara uzrten"
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Lentasun erabilgarriak: %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"kontuz: databasea ondatuta egon liteke. Konpontzen saituako da galdutako %s "
+"galdera gehitzen."
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"#%s Txantilloiak %s-n bikoiztutako \"%s\" eremu bat du \"%s\". balio "
+"berriarekin.Ziurrenik bi txantilloi ez daude lerro berri batez bereizirik.\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "'%s' Txantilloi eremu ezezaguna #%s parafoan %s-n.\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "'%s' gertu txantilloi errorea, #%s parafoan %s-n.\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "#%s txantilloiak ez du 'Template:' lerro bat %s-n:\n"
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -346,6 +352,12 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Erabilera: dpkg-reconfigure [aukerak] paketeak\n"
+"  -a,  --all\t\t\tPakete guztiak birkonfiguratu.\n"
+"  -u,  --unseen-only\t\tBistarazi gabeko galderak bakarrik bistarazi.\n"
+"       --default-priority\tErabili lehenetsitako lehentasuna baxuaren "
+"ordez.\n"
+"       --force\t\t\tApurtutako paketeen birkonfiguraketa indartu."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -393,6 +405,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tBatu nahiz itzulpena zaharkiturik egon.\n"
+"\t--drop-old-templates\tBaztertu zaharkituriko txantilloi guztia."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -426,13 +441,12 @@ msgstr "%s zaharkiturik dago, txantilloia osoa alde batetara uzten!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Erabilera: debconf [aukerak] komandoak [argumentuak]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "%s (%s) aurrekonfiguratzen"
+"\n"
+"  -o,  --owner=package\t\tEzarri komandoaren jabe den paketea."
