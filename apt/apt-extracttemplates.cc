@@ -21,6 +21,7 @@
 #include "debfile.h"
 	
 #define TMPDIR "/var/lib/debconf/"
+#define STR(x) (x ? x : "")
 //#define TMPDIR "tmp/"
 
 void help(void)
@@ -34,6 +35,8 @@ char *writefile(const char *prefix, const char *data)
 	char fn[512];
 	static int i;
 	snprintf(fn, sizeof(fn), "%s%s.%u%d", TMPDIR, prefix, getpid(), i++);
+
+	if (data == NULL) data = "";
 
 	ofstream ofs(fn);
 	if (!ofs) return NULL;
@@ -53,8 +56,8 @@ void writeconfig(const DebFile &file)
 		return;
 	}
 	printf("%s %s %s %s\n",
-		file.Package,	// Package
-		file.Version,	// Version
+		STR(file.Package),	// Package
+		STR(file.Version),	// Version
 		templatefile,	// Template
 		configscript 	// Config
 	);
