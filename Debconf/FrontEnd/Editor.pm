@@ -112,8 +112,9 @@ sub go {
 	close $fh;
 	
 	# Launch editor.
-	my $editor=$ENV{EDITOR} || '/usr/bin/editor';
-	system $editor, Debconf::TmpFile->filename;
+	my $editor=$ENV{EDITOR} || $ENV{VISUAL} || '/usr/bin/editor';
+	# $editor may possibly contain spaces and options
+	system "$editor ".Debconf::TmpFile->filename;
 
 	# Now parse the temporary file, looking for lines that look like
 	# items. Figure out which Element corresponds to the item, and
