@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf-1.2.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-01 21:51-0500\n"
-"PO-Revision-Date: 2003-O1-17 22:07+0300\n"
-"Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
+"POT-Creation-Date: 2004-01-13 11:37-0500\n"
+"PO-Revision-Date: 2004-01-12 15:13-0200\n"
+"Last-Translator: Gustavo Noronha Silva <kov@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -40,11 +40,11 @@ msgstr ""
 "arquivo\n"
 "editado e usar os valores que você digitou para configurar o sistema. "
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf em %s"
 
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
@@ -64,9 +64,9 @@ msgid "Next"
 msgstr "Próximo"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "O TERM não está definido, então o frontend Dialog não é usável."
+msgstr ""
+"A variável TERM não está definida, então o frontend Dialog não é usável."
 
 #: ../Debconf/FrontEnd/Dialog.pm:53
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -81,13 +81,12 @@ msgstr ""
 "do emacs ou sem um terminal controlador."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
-"dialog não pode ser usado"
+"Nenhum programa estilo-dialog está instalado, então o frontend baseado em "
+"dialog não pode ser usado."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
@@ -105,9 +104,8 @@ msgid "This frontend requires a controlling tty."
 msgstr "Esse frontend requer um tty controlador."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "O frontend Slang é incompatível com buffers shell do emacs"
+msgstr "A Term::ReadLine::GNU é incompatível com buffers shell do Emacs."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
@@ -137,7 +135,7 @@ msgstr ""
 #: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
+msgstr "Problemas configurando o banco de dados definido pela stanza %s de %s."
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -145,6 +143,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"aviso: possível corrupção da base de dados. Vou tentar consertar adicionando "
+"a questão %s que está faltando de volta."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -157,9 +157,9 @@ msgstr ""
 "única linha.\n"
 
 #: ../Debconf/Template.pm:226
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
+msgstr "Campo de template desconhecido '%s', na stanza #%s de %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
@@ -171,27 +171,37 @@ msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:46
-#, fuzzy
+#: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Save (mail) Note"
-msgstr "Salvar Nota"
+msgstr "Salvar Nota (enviar por email)"
 
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
-"você."
+"Foi pedido ao Debconf que essa nota fosse salva, então ela foi enviada por "
+"email para você."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:57
+msgid "Information"
+msgstr "Informação"
+
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
 msgstr "A nota foi enviada por email."
 
-#: ../Debconf/Element/Gnome/Note.pm:56
+#: ../Debconf/Element/Gnome/Note.pm:62
+msgid "Error"
+msgstr "Erro"
+
+#: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
-#: ../Debconf/Element/Gnome.pm:140
+#: ../Debconf/Element/Gnome.pm:199
+msgid "_Help"
+msgstr "Aj_uda"
+
+#: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
 msgstr "Ajuda"
 
@@ -227,10 +237,8 @@ msgid "none of the above"
 msgstr "nenhuma das acima"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Digite as letras dos itens que você quer selecionar, separadas por espaços."
+msgstr "Digite os itens que quer selecionar, separados por espaços."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -277,9 +285,8 @@ msgid "must specify some debs to preconfigure"
 msgstr "é necessário especificar debs para preconfigurar"
 
 #: ../dpkg-preconfigure:121
-#, fuzzy
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "(não preconfigurando pacotes já que o apt-utils não está instalado)"
+msgstr "adiando configuração de pacotes, já que o apt-utils não está instalado"
 
 #: ../dpkg-preconfigure:179
 #, c-format
@@ -297,23 +304,23 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou na preconfiguração com estado de saída %s"
 
 #: ../dpkg-reconfigure:105
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "deve ser rodado como root"
+msgstr "%s deve ser rodado como root"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "especifique um pacote para reconfigurar"
 
 #: ../dpkg-reconfigure:157
-#, fuzzy, c-format
+#, c-format
 msgid "%s is not installed"
-msgstr "%s não está totalmente instalado"
+msgstr "%s não está instalado"
 
 #: ../dpkg-reconfigure:161
-#, fuzzy, c-format
+#, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s não está totalmente instalado"
+msgstr "%s está quebrado ou não completamente instalado"
 
 #: ../dpkg-reconfigure:238
 #, c-format
@@ -323,32 +330,32 @@ msgstr "Impossível ler o estado do arquivo: %s"
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "%s está faltando"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "%s está faltando; desistindo de %s"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s está fuzzy no byte %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s está fuzzy no byte %s: %s; desistindo dela"
 
 #: ../debconf-mergetemplate:168
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s não está totalmente instalado"
+msgstr "%s está desatualizado"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
+msgstr "%s está desatualizado; desistindo do template!"
 
 #, fuzzy
 #~ msgid "Debconf was asked to save this "

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-01 21:51-0500\n"
-"PO-Revision-Date: 2002-01-18 08:51+0100\n"
+"POT-Creation-Date: 2004-01-13 11:37-0500\n"
+"PO-Revision-Date: 2004-01-13 10:27+0100\n"
 "Last-Translator: Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>\n"
 "Language-Team: German, freelance\n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,8 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Sie benützen das Editor-basierte Debconf-Frontend um Ihr System zu "
-"konfigurieren. Siehe Ende dieser Unterlagen für genauere Anweisungen"
+"Sie benï¿½tzen das Editor-basierte Debconf-Frontend um Ihr System zu "
+"konfigurieren. Siehe Ende dieser Unterlagen fï¿½r genauere Anweisungen"
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -34,17 +34,17 @@ msgstr ""
 "Das Editor-basierte Debconf-Frontend legt Ihnen eine oder mehrere "
 "Textdateien zur Bearbeitung vor. Dieses ist eine solche Testdatei. Wenn Sie "
 "mit standard Unix-Konfigurationsdateien vertraut sind, wird ihnen diese "
-"Datei gewohnt scheinen. -- sie beinhaltet Erläuterungen und eingestreute "
-"Konfigurationselemente. Bearbeiten Sie die Datei, ändern Sie nach Bedarf "
-"Elemmente, speichern Sie sie anschließend und beenden Sie den Editor. Dann "
+"Datei gewohnt scheinen. -- sie beinhaltet Erlï¿½uterungen und eingestreute "
+"Konfigurationselemente. Bearbeiten Sie die Datei, ï¿½ndern Sie nach Bedarf "
+"Elemmente, speichern Sie sie anschlieï¿½end und beenden Sie den Editor. Dann "
 "wird Debconf die bearbeitete Datei lesen und die von Ihnen eingegebenen "
 "Werte verwenden, um das System zu konfigurieren."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf auf %s"
 
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
@@ -53,19 +53,18 @@ msgstr "Weiter"
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Achtung: Debconf läuft im Web-Modus. Gehen Sie zu http://localhost:%i/"
+msgstr ""
+"Achtung: Debconf lï¿½uft im Web-Modus. Gehen Sie zu http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr "Zurück"
+msgstr "Zurï¿½ck"
 
 #: ../Debconf/FrontEnd/Web.pm:167
-#, fuzzy
 msgid "Next"
-msgstr "Nächstes"
+msgstr "Weiter"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
 "TERM ist nicht gesetzt, das Dialog-Frontend kann daher nicht verwendet "
@@ -84,18 +83,19 @@ msgstr ""
 "Shellbuffer oder ohne ein steuerndes Terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:102
-#, fuzzy
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Weder Whiptail noch Dialog sind installiert, daher kann das Dialog-Frontend "
-"nicht verwendet werden."
+"Kein passendes Dialog-Programm ist installiert, daher kann das Dialog-"
+"Frontend nicht verwendet werden."
 
 #: ../Debconf/FrontEnd/Dialog.pm:109
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Fï¿½r das Dialog-Frontend muss das Bild mindestens 13 Zeilen lang und 31 "
+"Spalten breit sein."
 
 #: ../Debconf/FrontEnd/Dialog.pm:297
 msgid "Debian Configuration"
@@ -106,14 +106,13 @@ msgid "This frontend requires a controlling tty."
 msgstr "Dieses Frontend bedarf eines steuernden Terminals."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Das Dialog-Frontend ist mit dem Emacs-Shellbuffer nicht kompatibel"
+msgstr "Term::ReadLine::GNU ist mit dem Emacs-Shellbuffer nicht kompatibel."
 
 #: ../Debconf/AutoSelect.pm:76
 #, c-format
 msgid "falling back to frontend: %s"
-msgstr "greife zurück auf das Frontend: %s"
+msgstr "greife zurï¿½ck auf das Frontend: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, c-format
@@ -136,7 +135,7 @@ msgstr "Templatedatenbank in der Konfigurationsdatei nicht angegeben."
 #: ../Debconf/Config.pm:141
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
+msgstr "Problem beim Anlegen der Datenbank nach Absatz %s von %s."
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -144,6 +143,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"Warnung: mï¿½gliche Datenbankfehler. Versuche sie durch erneutes "
+"Hinzufï¿½gen der Fragen zu reparieren. Fehlende Frage: %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -151,45 +152,57 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Template Nr. %s in %s hat ein doppeltes Feld »%s« mit dem neuen Wert »%s«. "
-"Wahrscheinlich sind zwei Templates nicht ordentlich durch eine leere Zeile "
-"abgetrennt.\n"
+"Template Nr. %s in %s hat ein doppeltes Feld ï¿½%sï¿½ mit dem neuen Wert ï¿½%"
+"sï¿½. Wahrscheinlich sind zwei Templates nicht ordentlich durch eine leere "
+"Zeile abgetrennt.\n"
 
 #: ../Debconf/Template.pm:226
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Analysefehler im Template bei »%s« in Strophe Nr. %s von %s\n"
+msgstr "Unbekanntes Template-Feld bei ï¿½%sï¿½ in Absatz Nr. %s von %s\n"
 
 #: ../Debconf/Template.pm:252
-#, fuzzy, c-format
+#, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Analysefehler im Template bei »%s« in Strophe Nr. %s von %s\n"
+msgstr "Lesefehler im Template bei ï¿½%sï¿½ in Absatz Nr. %s von %s\n"
 
 #: ../Debconf/Template.pm:258
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template Nr. %s in %s enthält keine »Template:« Zeile.\n"
+msgstr "Template Nr. %s in %s enthï¿½lt keine ï¿½Template:ï¿½ Zeile.\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:46
+#: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Save (mail) Note"
 msgstr "Notiz aufbewahren (per E-Mail senden)"
 
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf wurde konfiguriert diese Nachricht nicht anzuzeigen, daher sendet es "
-"sie Ihnen."
+"Debconf wurde gebeten diese Nachricht zu speichern, daher sendet es sie "
+"Ihnen."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:57
+msgid "Information"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
 msgstr "Die Notiz wurde verschickt."
 
-#: ../Debconf/Element/Gnome/Note.pm:56
+#: ../Debconf/Element/Gnome/Note.pm:62
+msgid "Error"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
 msgstr "Kann die Notiz nicht sichern."
 
-#: ../Debconf/Element/Gnome.pm:140
+#: ../Debconf/Element/Gnome.pm:199
+#, fuzzy
+msgid "_Help"
+msgstr "Hilfe"
+
+#: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
 msgstr "Hilfe"
 
@@ -200,12 +213,11 @@ msgid "Choices"
 msgstr "Auswahl"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-#, fuzzy
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Geben Sie keinen oder mehr Begriffe durch ein Komma und ein Leerzeichen », "
-"« getrennt ein.)"
+"(Geben Sie keinen oder mehr Begriffe durch ein Komma und ein Leerzeichen "
+"ï¿½, ï¿½ getrennt ein.)"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -222,15 +234,14 @@ msgid "no"
 msgstr "nein"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
-#, fuzzy
 msgid "none of the above"
 msgstr "keines der Obigen"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
-"Geben Sie die Elemente, die Sie auswählen wollen, durch Leerzeichen getrennt "
-"ein."
+"Geben Sie die Elemente, die Sie auswï¿½hlen wollen, durch Leerzeichen "
+"getrennt ein."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -244,18 +255,18 @@ msgid "Debconf"
 msgstr "Debconf"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:87
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, auf %s"
 
 #: ../Debconf/Element/Select.pm:94
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Eingabewert »%s« nicht in der C Auswahl gefunden! Das sollte nie passieren. "
-"Vielleicht wurde das Template unvorschriftsmäßig localisiert."
+"Eingabewert ï¿½%sï¿½ nicht in der C Auswahl gefunden! Das sollte nie "
+"passieren. Vielleicht wurde das Template unvorschriftsmï¿½ï¿½ig localisiert."
 
 #: ../Debconf/FrontEnd.pm:137
 #, c-format
@@ -270,11 +281,11 @@ msgstr "Konfiguriere %s"
 #: ../dpkg-preconfigure:113
 #, c-format
 msgid "unable to re-open stdin: %s"
-msgstr "kann stdin nicht wieder öffnen: %s"
+msgstr "kann stdin nicht wieder ï¿½ffnen: %s"
 
 #: ../dpkg-preconfigure:116
 msgid "must specify some debs to preconfigure"
-msgstr "es müssen debs zum Vorkonfigurieren angegeben werden"
+msgstr "es mï¿½ssen debs zum Vorkonfigurieren angegeben werden"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -282,14 +293,14 @@ msgstr ""
 "Schiebe die Paket-Konfiguration auf, da apt-utils nicht installiert ist"
 
 #: ../dpkg-preconfigure:179
-#, fuzzy, c-format
+#, c-format
 msgid "template parse error: %s"
-msgstr "Template-Analysefehler: %s"
+msgstr "Template-Lesefehler: %s"
 
 #: ../dpkg-preconfigure:193
-#, fuzzy, c-format
+#, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: kann nicht chmod: %s"
+msgstr "debconf: kann kein chmod: %s"
 
 #: ../dpkg-preconfigure:203
 #, c-format
@@ -297,23 +308,23 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s konnte nicht vorkonfiguriert werden, Exit-Status %s"
 
 #: ../dpkg-reconfigure:105
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "muß als root ausgeführt werden"
+msgstr "%s muï¿½ als root ausgefï¿½hrt werden"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "bitte geben Sie ein Paket an, das Sie neu konfigurieren wollen"
 
 #: ../dpkg-reconfigure:157
-#, fuzzy, c-format
+#, c-format
 msgid "%s is not installed"
-msgstr "%s ist nicht komplett installiert"
+msgstr "%s ist nicht installiert"
 
 #: ../dpkg-reconfigure:161
-#, fuzzy, c-format
+#, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s ist nicht komplett installiert"
+msgstr "%s ist kaputt oder nicht komplett installiert"
 
 #: ../dpkg-reconfigure:238
 #, c-format
@@ -323,32 +334,32 @@ msgstr "Kann die Status-Datei nicht lesen: %s"
 #: ../debconf-mergetemplate:119
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "%s fehlt"
 
 #: ../debconf-mergetemplate:123
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "%s fehlt; lasse %s fallen"
 
 #: ../debconf-mergetemplate:146
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s ist unscharf in Byte %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s ist unschaft in Byte %s: %s; lasse es fallen"
 
 #: ../debconf-mergetemplate:168
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s ist nicht komplett installiert"
+msgstr "%s ist ï¿½beraltet"
 
 #: ../debconf-mergetemplate:173
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
+msgstr "%s ist ï¿½beraltet; lasse das ganze Tamplate fallen!"
 
 #~ msgid "Debconf was asked to save this "
 #~ msgstr "Debconf wurde gebeten diese Notiz aufzubewahren, "

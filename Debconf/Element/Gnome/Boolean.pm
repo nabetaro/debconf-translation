@@ -9,6 +9,7 @@ Debconf::Element::Gnome::Boolean - check box widget
 package Debconf::Element::Gnome::Boolean;
 use strict;
 use Gtk2;
+use Encode;
 use utf8;
 use base qw(Debconf::Element::Gnome);
 
@@ -20,10 +21,15 @@ This is a check box widget.
 
 sub init {
 	my $this=shift;
-
+	my $description=$this->question->description;
+	
 	$this->SUPER::init(@_);
-
-	$this->widget(Gtk2::CheckButton->new($this->question->description));
+	
+	if ($this->is_unicode_locale()) {
+		$description=decode("UTF-8", $description);
+	}
+	
+	$this->widget(Gtk2::CheckButton->new($description));
 	$this->widget->show;
 	$this->widget->set_active(($this->question->value eq 'true') ? 1 : 0);
 	$this->addwidget($this->widget);
@@ -40,9 +46,10 @@ sub value {
 	my $this=shift;
 
 	if ($this->widget->get_active) {
-	    return "true";
-	} else {
-	    return "false";
+		return "true";
+	}
+	else {
+		return "false";
 	}
 }
 

@@ -10,6 +10,7 @@ package Debconf::Element::Gnome::Select;
 use strict;
 use Gtk2;
 use Gnome2;
+use Encode;
 use utf8;
 use base qw(Debconf::Element::Gnome Debconf::Element::Select);
 
@@ -27,6 +28,13 @@ sub init {
 
 	$this->SUPER::init(@_);
 
+	my $j = 0;
+	if ($this->is_unicode_locale()) {
+		for ($j = 0; $j <= $#choices; $j++) {
+			$choices[$j] = decode("UTF-8", $choices[$j]);
+		}
+	}
+	
 	$this->widget(Gtk2::Combo->new);
 	$this->widget->show;
 
@@ -35,6 +43,9 @@ sub init {
 	$this->widget->entry->set_editable(0);
 
 	if (defined($default) and length($default) != 0) {
+		if ($this->is_unicode_locale()) {
+			$default=decode ("UTF-8", $default);
+		}
 		$this->widget->entry->set_text($default);
 	}
 	else {
@@ -55,7 +66,6 @@ locale.
 
 sub value {
 	my $this=shift;
-	my @choices=$this->question->choices_split;
 
 	return $this->translate_to_C($this->widget->entry->get_chars(0, -1));
 }

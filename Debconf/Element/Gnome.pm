@@ -8,10 +8,20 @@ Debconf::Element::Gnome - gnome UI element
 
 package Debconf::Element::Gnome;
 use strict;
+use I18N::Langinfo qw(langinfo CODESET);
+use Encode;
 use utf8;
 use Gtk2;
 use Debconf::Gettext;
 use base qw(Debconf::Element);
+
+sub is_unicode_locale {
+	my $codeset = langinfo(CODESET());
+	if ($codeset && $codeset =~ /^UTF-8$/) {
+		return 1;
+	}
+	return 0;
+}
 
 =head1 DESCRIPTION
 
@@ -96,8 +106,13 @@ Packs a label containing the short description into the hbox.
 
 sub adddescription {
 	my $this=shift;
-
-	my $label=Gtk2::Label->new($this->question->description);
+	my $description=$this->question->description;
+	
+	if (is_unicode_locale()) {
+		$description=decode("UTF-8", $description);
+	}
+	
+	my $label=Gtk2::Label->new($description);
 	$label->show;
 	$this->line1->pack_start($label, 0, 0, 0);
 }
@@ -113,15 +128,55 @@ sub addbutton {
 	my $this=shift;
 	my $text = shift;
 	my $callback = shift;
-
-	my $button = Gtk2::Button->new_with_label($text);
+	
+	my $button = Gtk2::Button->new_with_mnemonic($text);
 	$button->show;
 	$button->signal_connect("clicked", $callback);
-
+	
 	my $vbox = Gtk2::VBox->new(0, 0);
 	$vbox->show;
 	$vbox->pack_start($button, 1, 0, 0);
 	$this->hline1->pack_end($vbox, 0, 0, 0);
+}
+
+=item create_message_dialog
+
+This is needed because Gtk2::MessageDialog has a much
+worse behavior than the other Gtk2:: perl widgets when
+it comes to an UTF-8 locale.
+
+=cut
+
+sub create_message_dialog {
+	my $this = shift;
+	my $type = shift;
+	my $title = shift;
+	my $text = shift;
+	
+	my $dialog = 
+		Gtk2::Dialog->new_with_buttons($title, undef, 
+		                               "modal", "gtk-close", "close");
+	$dialog->set_border_width(3);
+	
+	my $hbox = Gtk2::HBox->new(0);
+	$dialog->vbox->pack_start($hbox, 1, 1, 5);
+	$hbox->show;
+	
+	my $alignment = Gtk2::Alignment->new(0.5, 0.0, 1.0, 0.0);
+	$hbox->pack_start($alignment, 1, 1, 3);
+	$alignment->show;
+	
+	my $image = Gtk2::Image->new_from_stock($type, "dialog");
+	$alignment->add($image);
+	$image->show;
+	
+	my $label = Gtk2::Label->new($text);
+	$label->set_line_wrap(1);
+	$hbox->pack_start($label, 1, 1, 2);
+	$label->show;
+	
+	$dialog->run;
+	$dialog->destroy;
 }
 
 =item addhelp
@@ -136,12 +191,14 @@ sub addhelp {
 	
 	my $help=$this->question->extended_description;
 	return unless length $help;
-
-	$this->addbutton(gettext("Help"), sub {
-		my $dialog = Gtk2::MessageDialog->new(undef, "modal", "info",
-						      "close", $help);
-		$dialog->run;
-		$dialog->destroy;
+	
+	if (is_unicode_locale()) {
+		$help=decode("UTF-8", $help);
+	}
+	
+	$this->addbutton(gettext("_Help"), sub {
+		$this->create_message_dialog("gtk-dialog-info",
+		                              gettext("Help"), $help);
 	});
 }
 

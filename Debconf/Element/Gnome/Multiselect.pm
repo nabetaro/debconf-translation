@@ -9,6 +9,7 @@ Debconf::Element::Gnome::Multiselect - a check list in a dialog box
 package Debconf::Element::Gnome::Multiselect;
 use strict;
 use Gtk2;
+use Encode;
 use utf8;
 use base qw(Debconf::Element::Gnome Debconf::Element::Multiselect);
 
@@ -19,8 +20,15 @@ sub init {
 
 
 	my $j = 0;
-	for ($j = 0; $j <= $#choices; $j++) {
-	    $choices[$j] = $choices[$j];
+	if ($this->is_unicode_locale()) {
+		for ($j = 0; $j <= $#choices; $j++) {
+			$choices[$j] = decode("UTF-8", $choices[$j]);
+		}
+	}
+	else {
+		for ($j = 0; $j <= $#choices; $j++) {
+			$choices[$j] = $choices[$j];
+		}
 	}
 
 	$this->SUPER::init(@_);
@@ -37,10 +45,10 @@ sub init {
 	my @buttons;
 	my $vbox = Gtk2::VBox->new(0, 0);
         for (my $i=0; $i <= $#choices; $i++) {
-	    $buttons[$i] = Gtk2::CheckButton->new($choices[$i]);
-	    $buttons[$i]->show;
-	    $buttons[$i]->set_active($default{$choices[$i]} ? 1 : 0);
-	    $vbox->pack_start($buttons[$i], 0, 0, 0);
+		$buttons[$i] = Gtk2::CheckButton->new($choices[$i]);
+		$buttons[$i]->show;
+		$buttons[$i]->set_active($default{$choices[$i]} ? 1 : 0);
+		$vbox->pack_start($buttons[$i], 0, 0, 0);
 	}
         $vbox->show;
         $this->widget->add_with_viewport($vbox);
@@ -68,7 +76,7 @@ sub value {
 	my @choices=$this->question->choices_split;
 	my @buttons = @{$this->buttons};
 	my ($ret, $val);
-
+	
 	my @vals;
 	for (my $i=0; $i <= $#choices; $i++) {
 		if ($buttons[$i]->get_active()) {

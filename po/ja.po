@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-01 21:51-0500\n"
+"POT-Creation-Date: 2004-01-13 11:37-0500\n"
 "PO-Revision-Date: 2003-07-11 00:16+0900\n"
 "Last-Translator: Junichi Uekawa <dancer@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 "して下さい。このとき、debconf は編集されたファイルを読み込み、入力された\n"
 "値をシステムの設定に利用します。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
@@ -171,24 +171,37 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s の テンプレート#%1$s に `Template:' 行がありません\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:46
+#: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Save (mail) Note"
 msgstr "注意を保存(メール)する"
 
-#: ../Debconf/Element/Gnome/Note.pm:48
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "この注意を保存するよう要求されたので、debconf があなたにメールを送りました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:57
+msgid "Information"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
 msgstr "この注意はメールされました。"
 
-#: ../Debconf/Element/Gnome/Note.pm:56
+#: ../Debconf/Element/Gnome/Note.pm:62
+msgid "Error"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
 msgstr "この注意を保存できません。"
 
-#: ../Debconf/Element/Gnome.pm:140
+#: ../Debconf/Element/Gnome.pm:199
+#, fuzzy
+msgid "_Help"
+msgstr "ヘルプ"
+
+#: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
 msgstr "ヘルプ"
 

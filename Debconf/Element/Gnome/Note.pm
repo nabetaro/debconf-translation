@@ -10,6 +10,7 @@ package Debconf::Element::Gnome::Note;
 use strict;
 use Debconf::Gettext;
 use Gtk2;
+use Encode;
 use utf8;
 use Debconf::Element::Noninteractive::Note;
 use base qw(Debconf::Element::Gnome);
@@ -23,6 +24,7 @@ that can be pressed to save the note.
 
 sub init {
 	my $this=shift;
+	my $extended_description = $this->question->extended_description;
 
 	$this->SUPER::init(@_);
 	$this->multiline(1);
@@ -34,29 +36,34 @@ sub init {
 	$text->set_wrap_mode ("word");
 	$text->set_editable (0);
 
-	my $vscrollbar = Gtk2::VScrollBar->new; #$text->vadj);
-	$vscrollbar->show;
+	my $scrolled_window = Gtk2::ScrolledWindow->new();
+	$scrolled_window->show;
+	$scrolled_window->set_policy('automatic', 'automatic');
+	$scrolled_window->add ($text);
 
 	$this->widget->show;
-	$this->widget->pack_start($text, 1, 1, 0);
-	$this->widget->pack_start($vscrollbar, 0, 0, 0);
+	$this->widget->pack_start($scrolled_window, 1, 1, 0);
 
-	$textbuffer->set_text($this->question->extended_description);
+	if ($this->is_unicode_locale()) {
+		$extended_description=decode ("UTF-8", $extended_description);
+	}
+
+	$textbuffer->set_text($extended_description);
 
 	$this->addbutton(gettext("Save (mail) Note"), sub {
-	    my $dialog;
-	    if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
-		$dialog = Gtk2::MessageDialog->new(undef, "modal", "info",
-						   "close", 
-						   gettext("The note has been mailed."));
-	    }
-	    else {
-		$dialog = Gtk2::MessageDialog->new(undef, "modal", "error",
-						   "close", 
-						   gettext("Unable to save note."));
-	    }
-	    $dialog->run;
-	    $dialog->destroy;
+		my $dialog;
+		if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
+			$this->create_message_dialog ("gtk-dialog-info",
+				gettext("Information"),
+				gettext("The note has been mailed."));
+		}
+		else {
+			$this->create_message_dialog ("gtk-dialog-error",
+				gettext("Error"),
+				gettext("Unable to save note."));
+		}
+		$dialog->run;
+		$dialog->destroy;
 	});
 
 	$this->widget->show;

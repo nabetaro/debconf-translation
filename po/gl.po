@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-01 21:51-0500\n"
+"POT-Creation-Date: 2004-01-13 11:37-0500\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -39,7 +39,7 @@ msgstr ""
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configura-lo sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, fuzzy, c-format
 msgid "Debconf on %s"
@@ -171,26 +171,39 @@ msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
 
-#: ../Debconf/Element/Gnome/Note.pm:46
+#: ../Debconf/Element/Gnome/Note.pm:53
 #, fuzzy
 msgid "Save (mail) Note"
 msgstr "Gravar Nota"
 
-#: ../Debconf/Element/Gnome/Note.pm:48
+#: ../Debconf/Element/Gnome/Note.pm:55
 #, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 "Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:57
+msgid "Information"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
 msgstr "Enviouse a nota por correo."
 
-#: ../Debconf/Element/Gnome/Note.pm:56
+#: ../Debconf/Element/Gnome/Note.pm:62
+msgid "Error"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
 msgstr "Non se puido grava-la nota."
 
-#: ../Debconf/Element/Gnome.pm:140
+#: ../Debconf/Element/Gnome.pm:199
+#, fuzzy
+msgid "_Help"
+msgstr "Axuda"
+
+#: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
 msgstr "Axuda"
 

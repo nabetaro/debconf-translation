@@ -16,11 +16,10 @@ use base qw{Debconf::FrontEnd};
 # Catch this so as not to confuse the poor users if Gtk or Gnome are not
 # installed.
 eval q{
-    use Gtk2;
-    use Gnome2;
+	use Gtk2;
+	use Gnome2;
 };
-die "Unable to load Gnome -- is libgnome2-perl installed?\n"
-	if $@;
+die "Unable to load Gnome -- is libgnome2-perl installed?\n" if $@;
 
 =head1 DESCRIPTION
 
@@ -38,10 +37,9 @@ Set up most of the GUI.
 
 our @ARGV_for_gnome=('--sm-disable');
 
-
 sub create_druid_page {
 	my $this=shift;
-
+	
    	$this->druid_page(Gnome2::DruidPageStandard->new);
 	$this->druid_page->set_logo($this->logo);
 	$this->druid_page->signal_connect("back", sub {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-09 11:53-0500\n"
+"POT-Creation-Date: 2004-01-13 11:37-0500\n"
 "PO-Revision-Date: 2004-01-09 00:30+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -32,7 +32,7 @@ msgid ""
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Gnome.pm:94 ../Debconf/FrontEnd/Kde.pm:58
 #: ../Debconf/FrontEnd/Kde.pm:70
 #, c-format
 msgid "Debconf on %s"
@@ -149,23 +149,35 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:46
+#: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Save (mail) Note"
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:48
+#: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:51
+#: ../Debconf/Element/Gnome/Note.pm:57
+msgid "Information"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:58
 msgid "The note has been mailed."
 msgstr ""
 
-#: ../Debconf/Element/Gnome/Note.pm:56
+#: ../Debconf/Element/Gnome/Note.pm:62
+msgid "Error"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:63
 msgid "Unable to save note."
 msgstr ""
 
-#: ../Debconf/Element/Gnome.pm:140
+#: ../Debconf/Element/Gnome.pm:199
+msgid "_Help"
+msgstr ""
+
+#: ../Debconf/Element/Gnome.pm:201
 msgid "Help"
 msgstr ""
 

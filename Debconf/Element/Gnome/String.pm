@@ -9,6 +9,7 @@ Debconf::Element::Gnome::String - text input widget
 package Debconf::Element::Gnome::String;
 use strict;
 use Gtk2;
+use Encode;
 use utf8;
 use base qw(Debconf::Element::Gnome);
 
@@ -28,7 +29,11 @@ sub init {
 
 	my $default='';
 	$default=$this->question->value if defined $this->question->value;
-
+	
+	if ($this->is_unicode_locale()) {
+		$default=decode("UTF-8", $default);
+	}
+	
 	$this->widget->set_text($default);
 
 	$this->adddescription;
