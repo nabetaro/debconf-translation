@@ -1,3 +1,11 @@
+debconf (0.2.10) unstable; urgency=low
+
+  * For some reason, jade was inserting '&#13;' into generated html, which
+    looks nasty in w3m. Fixed that, and also use w3m to dump html to text
+    now, so tables are legible.
+
+ -- Joey Hess <joeyh@master.debian.org>  Mon,  1 Nov 1999 16:55:15 -0800
+
 debconf (0.2.9) unstable; urgency=low
 
   * Squashed a ConfModule startup warning.

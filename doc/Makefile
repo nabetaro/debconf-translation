@@ -3,10 +3,10 @@ all: tutorial.html tutorial.txt introduction.html introduction.txt
 
 %.html: %.xml html.dsl
 	jade -V nochunks -t sgml -d html.dsl \
-		/usr/lib/sgml/declaration/xml.decl $< > $@
+		/usr/lib/sgml/declaration/xml.decl $< | sed 's/&#13;//' > $@
 
 %.txt: %.html
-	lynx -underscore -force_html -nolist -dump $< > $@
+	w3m -dump $< > $@
 
 clean:
 	rm -f hierarchy.txt *.css *.html tutorial.txt introduction.txt
