@@ -55,22 +55,14 @@ sub init {
 	elsif ($ENV{TERM} eq 'dumb' || $ENV{TERM} eq 'unknown') {
 		die gettext("Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";
 	}
-
-	# Whiptail and dialog can't deal with very small screens. Detect
-	# this and fail, forcing use of some other frontend.
-	# The numbers were arrived at by experimentation.
-	if ($this->screenheight < 13 || $this->screenwidth < 31) {
-		die gettext("Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.")."\n";
-	}
 	
 	$this->interactive(1);
 	$this->capb('backup');
 
 	# Autodetect if whiptail or dialog is available and set magic numbers.
 	if (-x "/usr/bin/whiptail" && 
-	    (! defined $ENV{DEBCONF_FORCE_DIALOG} || ! -x "/usr/bin/dialog")) {
-# gdialog is currently disabled, see below.
-#	    (! defined $ENV{DEBCONF_FORCE_GDIALOG} || ! -x "/usr/bin/gdialog")) {
+	    (! defined $ENV{DEBCONF_FORCE_DIALOG} || ! -x "/usr/bin/dialog") &&
+	    (! defined $ENV{DEBCONF_FORCE_XDIALOG} || ! -x "/usr/bin/Xdialog")) {
 		$this->program('whiptail');
 		$this->dashsep('--');
 		$this->borderwidth(5);
@@ -81,9 +73,8 @@ sub init {
 		$this->selectspacer(9);
 		$this->hasoutputfd(1);
 	}
-	elsif (-x "/usr/bin/dialog") {
-# gdialog is currently disabled, see below.
-#	    (! defined $ENV{DEBCONF_FORCE_GDIALOG} || ! -x "/usr/bin/gdialog")) {
+	elsif (-x "/usr/bin/dialog" &&
+	       (! defined $ENV{DEBCONF_FORCE_XDIALOG} || ! -x "/usr/bin/Xdialog")) {
 		$this->program('dialog');
 		$this->dashsep(''); # dialog does not need (or support) 
 		                    # double-dash separation
@@ -95,19 +86,29 @@ sub init {
 		$this->selectspacer(0);
 		$this->hasoutputfd(1);
 	}
-# Disabled until it supports --passwordbox and --nocancel
-#	elsif (-x "/usr/bin/gdialog") {
-#		$this->program}(gdialog);
-#		$this->borderwidth(5);
-#		$this->borderheight(6);
-#		$this->spacer(1);
-#		$this->titlespacer(10);
-#		$this->columnspacer(0);
-#	}
+	elsif (-x "/usr/bin/Xdialog" && defined $ENV{DISPLAY}) {
+		$this->program("Xdialog");
+		$this->borderwidth(7);
+		$this->borderheight(20);
+		$this->spacer(0);
+		$this->titlespacer(10);
+		$this->selectspacer(0);
+		$this->columnspacer(2);
+		# Depends on its geometry. Anything is possible, but
+		# this is reasonable.
+		$this->screenheight(200);
+	}
 	else {
-		die gettext("Neither whiptail nor dialog are installed, so the dialog based frontend cannot be used.");
+		die gettext("No usable dialog-like program is installed, so the dialog based frontend cannot be used.");
 	}
 
+	# Whiptail and dialog can't deal with very small screens. Detect
+	# this and fail, forcing use of some other frontend.
+	# The numbers were arrived at by experimentation.
+	if ($this->screenheight < 13 || $this->screenwidth < 31) {
+		die gettext("Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.")."\n";
+	}
+	
 	if (Debconf::Config->sigils ne 'false') {
 		# Defualt to not using smileys.
 		if (Debconf::Config->smileys eq 'true') {
@@ -267,8 +268,17 @@ sub showdialog {
 	my $savew=$^W;
 	$^W=0;
 	
-	if (not $this->capb_backup) {
-		unshift @_, '--nocancel';
+	unless ($this->capb_backup) {
+		if ($this->program ne 'Xdialog') {
+			unshift @_, '--nocancel';
+		}
+		else {
+			unshift @_, '--no-cancel';
+		}
+	}
+
+	if ($this->program eq 'Xdialog' && $_[0] eq '--passwordbox') {
+		$_[0]='--password --inputbox'
 	}
 	
 	my $sigil=$this->sigil->get($question->priority) if $this->sigil && $question;

@@ -6,129 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-21 17:15-0400\n"
+"POT-Creation-Date: 2003-10-20 19:50-0400\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8-bit\n"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "선택"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(컴마와 빈칸(', ')으로 분리된 0개 이상의 항목을 입력하세요.)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "예"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "아니오"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
-msgid "Save (mail) Note"
-msgstr "주의 저장"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
-
-#: ../Debconf/Element/Gnome/Note.pm:50
-#, fuzzy
-msgid "The note has been mailed."
-msgstr "이 주의는 root에게 메일로 보냈습니다."
-
-#: ../Debconf/Element/Gnome/Note.pm:54
-msgid "Unable to save note."
-msgstr "주의를 저장할 수 없습니다."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:83
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, %s에서 실행중"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "위에 있는 것 중에 없음"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "도움말"
-
-#: ../Debconf/Element/Select.pm:94
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
-"야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM이 설정되지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "대화상자 frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"대화상자 frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
-"는 사용할 수 없습니다."
-
-#: ../Debconf/FrontEnd/Dialog.pm:63
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-
-#: ../Debconf/FrontEnd/Dialog.pm:108
-msgid ""
-"Neither whiptail nor dialog are installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
-"용할 수 없습니다."
-
-#: ../Debconf/FrontEnd/Dialog.pm:286
-msgid "Debian Configuration"
-msgstr "데비안 설정"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -159,15 +43,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf"
 
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "이 frontend는 제어 tty를 필요로 합니다."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
-
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
 msgstr "계속"
@@ -185,6 +60,50 @@ msgstr "뒤로"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "다음"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+#, fuzzy
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM이 설정되지 않았으므로, 대화상자 frontend는 사용할 수 없습니다."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "대화상자 frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"대화상자 frontend는 dumb 터미널이나 이맥스 쉘 버퍼에서, 또는 제어 테미널 없이"
+"는 사용할 수 없습니다."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+#, fuzzy
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Whiptail 또는 dialog 모두 설치되지 않았으므로, 대화상자 기반의 frontend는 사"
+"용할 수 없습니다."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:296
+msgid "Debian Configuration"
+msgstr "데비안 설정"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "이 frontend는 제어 tty를 필요로 합니다."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+#, fuzzy
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Slang frontend는 이맥스 쉘 버퍼와 호환되지 않습니다"
 
 #: ../Debconf/AutoSelect.pm:75
 #, fuzzy, c-format
@@ -213,16 +132,6 @@ msgstr "설정 파일에 템플릿 데이터베이스가 지정되지 않았습니다."
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "%s 설정중"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -255,6 +164,98 @@ msgstr "`%1$s' 주위에서 템플릿 parse 에러, %3$s의 #%2$s절\n"
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s의 템플릿 #%1$s에 `Template:' 줄이 없습니다\n"
+
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
+msgstr "주의 저장"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
+
+#: ../Debconf/Element/Gnome/Note.pm:50
+#, fuzzy
+msgid "The note has been mailed."
+msgstr "이 주의는 root에게 메일로 보냈습니다."
+
+#: ../Debconf/Element/Gnome/Note.pm:54
+msgid "Unable to save note."
+msgstr "주의를 저장할 수 없습니다."
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "도움말"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "선택"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(컴마와 빈칸(', ')으로 분리된 0개 이상의 항목을 입력하세요.)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "예"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "아니오"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "위에 있는 것 중에 없음"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "선택하려고 하는 항목의 글자를 빈칸으로 분리해서 입력하세요."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:83
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, %s에서 실행중"
+
+#: ../Debconf/Element/Select.pm:94
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"C 선택에서 입력 값, \"%s\"이 발견되지 않았습니다! 이것은 절대 일어나지 않아"
+"야 합니다. 템플릿이 정확하게 지역화된 것 같지 않습니다."
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Debconf::Element::%s을(를) 읽을 수 없습니다. 실패 이유: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "%s 설정중"
 
 #: ../dpkg-preconfigure:113
 #, c-format

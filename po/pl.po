@@ -7,128 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-21 17:15-0400\n"
+"POT-Creation-Date: 2003-10-20 19:50-0400\n"
 "PO-Revision-Date: 2002-09-09 13:50+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Pozycje do wyboru"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "tak"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "nie"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-msgid "Save (mail) Note"
-msgstr "Zapisz (wy¶lij poczt±) uwagê"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie."
-
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "The note has been mailed."
-msgstr "Uwaga zosta³a wys³ana."
-
-#: ../Debconf/Element/Gnome/Note.pm:54
-msgid "Unable to save note."
-msgstr "Nie uda³o siê zapisaæ uwagi."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf zosta³ skonfigurowany tak, aby nie wy¶wietlaæ tej uwagi, wiêc "
-"zosta³a przes³ana do Ciebie."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:83
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, dzia³aj±cy na %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "¿adna z powy¿ych"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Pomoc"
-
-#: ../Debconf/Element/Select.pm:94
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
-"siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"Zmienna TERM nie jest ustawiona, wiêc interfejs dialog nie mo¿e dzia³aæ."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Interfejs dialog nie mo¿e dzia³aæ na terminalu \"dumb\", buforze pow³oki "
-"emacsa ani bez terminala steruj±cego."
-
-#: ../Debconf/FrontEnd/Dialog.pm:63
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Interfejs dialog wymaga ekranu o wymiarach conajmniej 13 linii na 31 kolumn."
-
-#: ../Debconf/FrontEnd/Dialog.pm:108
-msgid ""
-"Neither whiptail nor dialog are installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
-"mo¿e zostaæ u¿yta."
-
-#: ../Debconf/FrontEnd/Dialog.pm:286
-msgid "Debian Configuration"
-msgstr "Konfiguracja Debiana"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -160,15 +45,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Ten interfejst wymaga terminala steruj±cego."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
-
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
 msgstr "Dalej"
@@ -185,6 +61,51 @@ msgstr "Powrót"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Dalej"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr ""
+"Zmienna TERM nie jest ustawiona, wiêc interfejs dialog nie mo¿e dzia³aæ."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Interfejs dialog nie mo¿e dzia³aæ na terminalu \"dumb\", buforze pow³oki "
+"emacsa ani bez terminala steruj±cego."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+#, fuzzy
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Ani whiptail ani dialog nie s± zainstalowane, wiêc nak³adka `dialog' nie "
+"mo¿e zostaæ u¿yta."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Interfejs dialog wymaga ekranu o wymiarach conajmniej 13 linii na 31 kolumn."
+
+#: ../Debconf/FrontEnd/Dialog.pm:296
+msgid "Debian Configuration"
+msgstr "Konfiguracja Debiana"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Ten interfejst wymaga terminala steruj±cego."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+#, fuzzy
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Interfejs dialog nie jest zgodny z buforami pow³oki emacsa"
 
 #: ../Debconf/AutoSelect.pm:75
 #, c-format
@@ -213,16 +134,6 @@ msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "Konfiguracja pakietu %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -255,6 +166,96 @@ msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
+
+#: ../Debconf/Element/Gnome/Note.pm:45
+msgid "Save (mail) Note"
+msgstr "Zapisz (wy¶lij poczt±) uwagê"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie."
+
+#: ../Debconf/Element/Gnome/Note.pm:50
+msgid "The note has been mailed."
+msgstr "Uwaga zosta³a wys³ana."
+
+#: ../Debconf/Element/Gnome/Note.pm:54
+msgid "Unable to save note."
+msgstr "Nie uda³o siê zapisaæ uwagi."
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Pozycje do wyboru"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "tak"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "nie"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "¿adna z powy¿ych"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf zosta³ skonfigurowany tak, aby nie wy¶wietlaæ tej uwagi, wiêc "
+"zosta³a przes³ana do Ciebie."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:83
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, dzia³aj±cy na %s"
+
+#: ../Debconf/Element/Select.pm:94
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Warto¶æ wej¶ciowa \"%s\" nie zosta³a znaleziona w ¼ród³ach C! To niepowinno. "
+"siê nigdy zdarzyæ. Byæ mo¿e szablony nie zosta³y poprawnie przet³umaczone."
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "Konfiguracja pakietu %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format

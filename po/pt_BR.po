@@ -6,135 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf-1.2.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-21 17:15-0400\n"
+"POT-Creation-Date: 2003-10-20 19:50-0400\n"
 "PO-Revision-Date: 2003-O1-17 22:07+0300\n"
 "Last-Translator: André Luís Lopes <andrelop@ig.com.br>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Escolhas"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
-"(', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "sim"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "não"
-
-#: ../Debconf/Element/Gnome/Note.pm:45
-#, fuzzy
-msgid "Save (mail) Note"
-msgstr "Salvar Nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
-"você."
-
-#: ../Debconf/Element/Gnome/Note.pm:50
-msgid "The note has been mailed."
-msgstr "A nota foi enviada por email."
-
-#: ../Debconf/Element/Gnome/Note.pm:54
-msgid "Unable to save note."
-msgstr "Impossível salvar nota"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
-"você."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:83
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, rodando em %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "nenhuma das acima"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-#, fuzzy
-msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Digite as letras dos itens que você quer selecionar, separadas por espaços."
-
-#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../Debconf/Element/Select.pm:94
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
-"acontecer. Talvez os templates foram traduzidos incorretamente."
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-#, fuzzy
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "O TERM não está definido, então o frontend Dialog não é usável."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "O frontend Dialog é incompatível com buffers shell do emacs."
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"O frontend Dialog não vai funcionar em um terminal burro, num buffer shell "
-"do emacs ou sem um terminal controlador."
-
-#: ../Debconf/FrontEnd/Dialog.pm:63
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Caso você seja iniciante no sistema Debian GNU/Linux escolhe 'crítica' agora "
-"e veja somente as questões mais importantes."
-
-#: ../Debconf/FrontEnd/Dialog.pm:108
-msgid ""
-"Neither whiptail nor dialog are installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
-"dialog não pode ser usado"
-
-#: ../Debconf/FrontEnd/Dialog.pm:286
-msgid "Debian Configuration"
-msgstr "Configuração Debian"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -167,15 +45,6 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf"
 
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Esse frontend requer um tty controlador."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "O frontend Slang é incompatível com buffers shell do emacs"
-
 #: ../Debconf/FrontEnd/Teletype.pm:109
 msgid "More"
 msgstr "Mais"
@@ -192,6 +61,52 @@ msgstr "Anterior"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Próximo"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+#, fuzzy
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "O TERM não está definido, então o frontend Dialog não é usável."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "O frontend Dialog é incompatível com buffers shell do emacs."
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"O frontend Dialog não vai funcionar em um terminal burro, num buffer shell "
+"do emacs ou sem um terminal controlador."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+#, fuzzy
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Nem o whiptail nem o dialog estão isntalados então o frontend baseado em "
+"dialog não pode ser usado"
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Caso você seja iniciante no sistema Debian GNU/Linux escolhe 'crítica' agora "
+"e veja somente as questões mais importantes."
+
+#: ../Debconf/FrontEnd/Dialog.pm:296
+msgid "Debian Configuration"
+msgstr "Configuração Debian"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Esse frontend requer um tty controlador."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+#, fuzzy
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "O frontend Slang é incompatível com buffers shell do emacs"
 
 #: ../Debconf/AutoSelect.pm:75
 #, c-format
@@ -222,16 +137,6 @@ msgstr ""
 #, c-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-
-#: ../Debconf/FrontEnd.pm:137
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
-
-#: ../Debconf/FrontEnd.pm:209
-#, c-format
-msgid "Configuring %s"
-msgstr "Configurando %s"
 
 #: ../Debconf/Template.pm:90
 #, c-format
@@ -264,6 +169,102 @@ msgstr "Erro na análise do template perto de `%s', instãncie #%s de %s\n"
 #, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
+
+#: ../Debconf/Element/Gnome/Note.pm:45
+#, fuzzy
+msgid "Save (mail) Note"
+msgstr "Salvar Nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:48
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
+"você."
+
+#: ../Debconf/Element/Gnome/Note.pm:50
+msgid "The note has been mailed."
+msgstr "A nota foi enviada por email."
+
+#: ../Debconf/Element/Gnome/Note.pm:54
+msgid "Unable to save note."
+msgstr "Impossível salvar nota"
+
+#: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Escolhas"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Digite zero ou mais itens separados por uma vírgula seguida de um espaço "
+"(', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "sim"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "não"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "nenhuma das acima"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+#, fuzzy
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Digite as letras dos itens que você quer selecionar, separadas por espaços."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
+"você."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:83
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, rodando em %s"
+
+#: ../Debconf/Element/Select.pm:94
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Valor de entrada, \"%s\" não encontrado nas escolhas C! Isso nunca deveria "
+"acontecer. Talvez os templates foram traduzidos incorretamente."
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Impossível carregar Debconf::Element::%s. Falhou porque: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurando %s"
 
 #: ../dpkg-preconfigure:113
 #, c-format

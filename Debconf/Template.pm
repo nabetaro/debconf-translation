@@ -366,26 +366,33 @@ It pulls data out of the backend db.
 
 =cut
 
-# Helper for _getlocalelist
+# Helpers for _getlocalelist
 sub _addterritory {
 	my $locale=shift;
 	my $territory=shift;
 	$locale=~s/^([^_@.]+)/$1$territory/;
 	return $locale;
 }
+sub _addcharset {
+	my $locale=shift;
+	my $charset=shift;
+	$locale=~s/^([^@.]+)/$1$charset/;
+	return $locale;
+}
 # Returns the list of locale names as searched (with slight changes) by GNU libc
 sub _getlocalelist {
 	my $locale=shift;
-	my ($lang, $territory, $modifier, $charset)=($locale=~m/^
+	$locale=~s/(@[^.]+)//;
+	my $modifier=$1;
+	my ($lang, $territory, $charset)=($locale=~m/^
 	     ([^_@.]+)      #  Language
 	     (_[^_@.]+)?    #  Territory
-	     (@[^_@.]+)?    #  Modifier
 	     (\..+)?        #  Charset
 	     /x);
 	my (@ret) = ($lang);
 	@ret = map { $_.$modifier, $_} @ret if defined $modifier;
 	@ret = map { _addterritory($_,$territory), $_} @ret if defined $territory;
-	@ret = map { $_.$charset, $_} @ret if defined $charset;
+	@ret = map { _addcharset($_,$charset), $_} @ret if defined $charset;
 	return @ret;
 }
 

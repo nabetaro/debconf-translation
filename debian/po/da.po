@@ -5,13 +5,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf 1.3.15\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-08-21 17:15-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Debian Description Translation Project <debconf@ddtp.debian."
-"org>\n"
-"Language-Team: da <LL@li.org>\n"
+"PO-Revision-Date: 2003-10-19 16:00+0200\n"
+"Last-Translator: Morten Brix Pedersen <morten@wtf.dk>\n"
+"Language-Team: debian-l10n-danish <debian-l10n-danish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +18,7 @@ msgstr ""
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Editor, Noninteractive"
-msgstr ""
+msgstr "Dialog, Readline, Gnome, Tekstbehandler, Ikke-interaktivt"
 
 #  Template: debconf/frontend
 #  ddtp-prioritize: 54
@@ -57,7 +56,7 @@ msgstr ""
 #. Choices
 #: ../templates:17
 msgid "critical, high, medium, low"
-msgstr ""
+msgstr "kritisk, høj, mellem, lav"
 
 #  Template: debconf/priority
 #  ddtp-prioritize: 54
@@ -70,7 +69,6 @@ msgstr "Hvilken prioritet skal spørgsmål have for at blive vist?"
 #
 #. Description
 #: ../templates:19
-#, fuzzy
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -81,12 +79,12 @@ msgid ""
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
 "Debconf prioriterer de spørgsmål, den stiller dig. Vælg den laveste "
-"spørgsmåls-prioritet, du ønsker at se:   - 'kritisk' spørger dig kun hvis "
-"systemet potentielt kommer i uorden. \n"
+"spørgsmåls-prioritet, du ønsker at se:\n"
+" - 'kritisk' spørger dig kun hvis systemet potentielt kommer i uorden.\n"
 "    Vælg dette, hvis du er nybegynder eller har travlt. \n"
 "  - 'høj' for ret vigtige spørgsmål \n"
-"  - 'medium' for almindelige spørgmål \n"
-"  - 'lav' for kontrolnarkomaner, der vil have alt at se\n"
+"  - 'mellem' for almindelige spørgmål \n"
+"  - 'lav' for kontrolnarkomaner, der vil have alt at se"
 
 #
 #. Description
@@ -97,23 +95,3 @@ msgid ""
 msgstr ""
 "Bemærk at uanset hvilket niveau du vælger her, vil du kunne se samtlige "
 "spørgsmål, hvis du genopsætter pakken med kommandoen dpkg-reconfigure."
-
-#
-#~ msgid ""
-#~ "Debconf normally only asks you any given question once. Then it remembers "
-#~ "your answer and never asks you that question again. If you prefer, "
-#~ "debconf can ask you questions over and over again, each time you upgrade "
-#~ "or reinstall a package that asks them."
-#~ msgstr ""
-#~ "Debconf spørger dig normalt kun én gang. Så husker den dit svar og "
-#~ "stiller dig aldrig igen det spørgsmål. Hvis du foretrækker det, så kan "
-#~ "debconf stille dig spørgsmålene igen og igen, hver gang du opgraderer "
-#~ "eller geninstallerer en pakke, der stiller dem."
-
-#
-#~ msgid ""
-#~ "Note that no matter what you choose here, you can see old questions again "
-#~ "by using the dpkg-reconfigure program."
-#~ msgstr ""
-#~ "Bemærk at lige meget hvad du vælger her, kan du altid se de gamle "
-#~ "spørgsmål igen ved hjælp af programmet dpkg-reconfigure."
