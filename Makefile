@@ -44,12 +44,17 @@ tiny-install: install-common
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ | egrep 'Text|Web|Gtk' \
 		| grep -v Dialog/ | xargs rm -rf
 	# Strip out POD documentation and all other comments
-	# from all .pm files.
+	# from all .pm files. Also, don't use 'base'.
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.pm' | \
 		xargs perl -i.bak -ne ' \
 			$$cutting=!$$cutting if /^=/; \
-			next if $$cutting; \
-			print $$_ unless /^(=|\s*#)/ \
+			next if $$cutting || /^(=|\s*#)/; \
+			if (/(use\s+base\s+q.?[{(])(.*?)([})])/) { \
+				print "use vars qw{\@ISA}; use $$2; push \@ISA, q{$$2};\n" \
+			} \
+			else { \
+				print $$_ \
+			} \
 		'
 	find $(prefix)/usr/lib/perl5/Debian/DebConf/ -name '*.bak' | xargs rm -f
 	install -d $(prefix)/usr/sbin $(prefix)/usr/share/man/man8

@@ -14,29 +14,42 @@ use Debian::DebConf::Log ':all';
 
 my $infodir="/var/lib/dpkg/info";
 
-# Parse command line if GetOpt::Long is available, else just throw out all
-# options except --all.
-my $all='';
-eval qq{
-	use Getopt::Long;
-};
-if ($@) {
-	$all=1 if grep { $_ eq '--all' } @ARGV;
-	@ARGV=grep { ! /^-/ } @ARGV;
-}
-else {
-	eval q{
-		Getopt::Long::config qw(bundling no_ignore_case permute);
-		GetOptions(
-			"all" => \$all,
-			"frontend|f=s" =>
-				sub { shift; Debian::DebConf::Config::frontend(shift) },
-			"priority|p=s" =>
-				sub { shift; Debian::DebConf::Config::priority(shift) },
-			"help|h" => \&usage,
-		) || usage();
-	};
-	die $@ if $@;
+# Parse command line. I don't use Getopt::Long since it's not in base.
+my @packages;
+my $change_priority=1;
+for (my $x=0; $x < @ARGV;) {
+	$_=$ARGV[$x++];
+	
+	if ($_ eq '--all') {
+		@packages=allpackages();
+	}
+	elsif (/^-(?:d|-default-priority)$/) {
+		$change_priority='';
+	}
+	elsif (/^-(?:f|-frontend=)(.*)/) {
+		Debian::DebConf::Config::frontend($1);
+	}
+	elsif (/^-(?:f|-frontend)$/) {
+		Debian::DebConf::Config::frontend($ARGV[$x++]);
+	}
+	elsif (/^-(?:p|-priority=)(.*)/) {
+		Debian::DebConf::Config::priority($1);
+		$change_priority='';
+	}
+	elsif (/^-(?:p|-priority)$/) {
+		Debian::DebConf::Config::priority($ARGV[$x++]);
+		$change_priority='';
+	}
+	elsif (/^-(?:h|-help)$/) {
+		usage();
+	}
+	elsif (/^--?(\w+)/) {
+		print STDERR "Unknown option: $1\n";
+		usage();
+	}
+	else {
+		push @packages, $_;
+	}
 }
 
 # See if they are root.
@@ -54,8 +67,10 @@ my $frontend=Debian::DebConf::AutoSelect::frontend();
 # Since this is a reconfigure program, they may want to change their choices.
 Debian::DebConf::Config::showold('true');
 
-TOP:
-foreach my $pkg ($all ? allpackages() : @ARGV) {
+# Default to low priority unless some other priority was specified.
+Debian::DebConf::Config::priority('low') if $change_priority;
+
+foreach my $pkg (@packages) {
 	# If this doesn't exist, the package probably doesn't use debconf,
 	# so skip it, becuase a normal package may misbehave when run here.
 	if (! -x "/var/lib/dpkg/info/$pkg.config") {

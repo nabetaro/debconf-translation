@@ -1,3 +1,16 @@
+debconf (0.2.95) unstable; urgency=low
+
+  * dpkg-reconfigure: Now forces priority to low when reconfiguring
+    packages. People have often complained that it should do this,
+    so it does now. Added a swtich to disable this behavior, which should be
+    used by eg, the boot floppies when it reconfigures base-config. Also,
+    re-wrote the switch parsing to match how it's done in dpkg-preconfigure.
+  * Removed lots of extortions to use -plow from docs.
+  * Bother. base.pm is not in perl-base. Added nasty code to fix this when
+    building debconf-tiny.
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 21 Feb 2000 11:59:11 -0800
+
 debconf (0.2.94) unstable; urgency=low
 
   * Copyright and url updates.

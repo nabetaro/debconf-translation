@@ -118,11 +118,13 @@
       <blockquote>
         <para>
 	  <literal>
-	    dpkg-reconfigure --priority=medium debconf
+	    dpkg-reconfigure debconf
 	  </literal>
 	</para>
       </blockquote>
       This will ask all the questions you saw when debconf was first installed.
+      It may ask you other questions as well, since it asks even low priority
+      questions that may have been skipped when the package was installed.
       You can use it on any other package that uses debconf, as well.
     </para>
   </sect1>
@@ -211,7 +213,7 @@
       </table>
     </para>
     <para>
-      You can change the default frontend debconf uses by 
+      You can change the default frontend debconf uses by
       <link linkend="reconfigure">reconfiguring</link> debconf. On the other
       hand, if you just want to change the frontend for a minute, you can
       set the <literal>DEBIAN_FRONTEND</literal> environment variable to
