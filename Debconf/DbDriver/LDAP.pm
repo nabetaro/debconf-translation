@@ -1,7 +1,5 @@
 #!/usr/bin/perl -w
-
-# Copyright (C) 2002 Matthew Palmer.  Released under the GNU Public Licence
-# version 2.  http://www.fsf.org/copyleft/gpl.html and all that sort of thing.
+# Copyright (C) 2002 Matthew Palmer.
 
 =head1 NAME
 
