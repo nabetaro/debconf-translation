@@ -13,11 +13,15 @@ use Debian::DebConf::FrontEnd::Web;
 use Debian::DebConf::ConfModule::Dialog;
 use Debian::DebConf::ConfModule::Line;
 use Debian::DebConf::ConfModule::Web;
+use Debian::DebConf::Priority;
 use Getopt::Long;
 
 my $frontend_type='Dialog';
+my $priority;
+Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
-	"frontend|f=s", \$frontend_type,
+	"frontend|f=s" => \$frontend_type,
+	"priority|p=s" => sub { shift; Debian::DebConf::Priority::set(shift) },
 );
 $frontend_type=ucfirst($frontend_type);
 
