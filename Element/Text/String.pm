@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debian::DebConf::Element::Text::String - password input field
+Debian::DebConf::Element::Text::String - string input field
 
 =cut
                 
