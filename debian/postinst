@@ -16,6 +16,12 @@ if [ -z "$DEBIAN_HAS_FRONTEND" -a "$1" = configure ] && \
 	fi
 fi
 
+# This directory unexpectedly lingered around for two people, still
+# containing .pm files that broke debconf upgrades. I don't know why.
+if [ -d /usr/lib/perl5/Debconf ]; then
+	rm -rf /usr/lib/perl5/Debconf
+fi
+
 . /usr/share/debconf/confmodule
 
 # Kill accidential db cruft.

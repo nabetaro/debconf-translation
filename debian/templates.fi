@@ -1,38 +1,27 @@
-Template: debconf/showold
-Type: boolean
-Default: false
-Description: Show all old questions again and again?
- Debconf normally only asks you any given question once. Then it remembers
- your answer and never asks you that question again. If you prefer, debconf
- can ask you questions over and over again, each time you upgrade or
- reinstall a package that asks them.  
+Template: debconf/frontend
+Type: select
+Choices: Slang, Text, Editor, Dialog, Noninteractive
+Choices-fi: Slang, Teksti, Editori, Dialog, Automaattinen
+Default: Slang
+Description: What interface should be used for configuring packages?
+ Packages that use debconf for configuration share a common look and feel.
+ You can select the type of user interface they use. 
  .
- Note that no matter what you choose here, you can see old questions again
- by using the dpkg-reconfigure program.  
-Description-fi: Näytetäänkö vanhat kysymykset aina uudelleen?
- Yleensä debconf kysyy kunkin kysymyksen vain kerran, muistaa antamasi
- vastauksen eikä enää kysy samaa kysymystä uudestaan. Jos haluat, debconf
- voi kysyä kaikki kysymykset uudelleen aina paketteja päivitettäessä
- tai uudelleenasennettaessa.
+ The slang frontend provides a colorful, full-screen, character based
+ windowing interface, while the text frontend uses a more traditional plain
+ text interface. The editor frontend lets you configure things using your
+ favorite text editor. The noninteractive frontend never asks you any
+ questions. The dialog frontend is a primitive frontend that is being
+ phased out. 
+Description-fi: Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?
+ Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän.
+ Voit itse valita mieluisesi liittymän muutamasta vaihtoehdosta. 
  .
- Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan
- ajamalla "dpkg-reconfigure"-ohjelman.
-
-Template: debconf/switch-to-slang
-Type: boolean
-Default: true
-Description: Switch to the new, full-featured slang frontend?
- You are currently using debconf's dialog frontend. This frontend has been
- superceded by a new frontend, called the slang frontend, that does
- everything the dialog frontend does and more. It lets you see and answer
- multiple questions at a time, and is generally more flexable and pleasant
- to use. If you'd like, you can switch to that frontend now.  
-Description-fi: Vaihdetaanko uuteen slang-käyttöliittymään?
- Käytät nyt debconf:n dialog-käyttöliittymää. Tälle liittymälle on tullut
- parempi vaihtoehto, slang-liittymä, jossa on kaikki samat ominaisuudet
- ja muutama lisääkin. Slang-liittymä antaa mahdollisuuden nähdä monta
- kysymystä ja niiden vastaukset yhtä aikaa ja on muutenkin joustavampi
- ja mukavampi käyttää. Voit nyt vaihtaa siihen, jos haluat.
+ Slang on värikäs, ruudun täyttävä, päätteellä näkyvä graafinen liittymä.
+ Teksti on perinteisempi, paljasta tekstiä käyttävä liittymä. Editori
+ käyttää asetusten säätöön lempieditoriasi. Automaattinen liittymä ei
+ koskaan kysy kysymyksiä. Dialog on vanhempi liittymä, josta ollaan
+ luopumassa. 
 
 Template: debconf/priority
 Type: select
@@ -42,9 +31,9 @@ Default: medium
 Description: Ignore questions with a priority less than..
  Packages that use debconf for configuration prioritize the questions they
  might ask you. Only questions with a certain priority or higher are
- actually shown to you; all less important questions are skipped.  
+ actually shown to you; all less important questions are skipped. 
  .
- You can select the lowest priority of question you want to see:   
+ You can select the lowest priority of question you want to see:  
    - `critical' is for items that will probably break the system
      without user intervention.
    - `high' is for items that don't have reasonable defaults.
@@ -53,16 +42,16 @@ Description: Ignore questions with a priority less than..
      vast majority of cases.
  .
  For example, this question is of medium priority, and if your priority
- were  already `high' or `critical', you wouldn't see this question.  
+ were  already `high' or `critical', you wouldn't see this question. 
  .
  If you are new to the Debian GNU/Linux system choose `critical' now, so
- you only see the most important questions.  
-Description-fi: Sivuuta vähemmän tärkeät kysymykset
+ you only see the most important questions. 
+Description-fi: Kuinka tärkeät kysymykset haluat nähdä?
  Debconf:ia käyttävät paketit määrittävät kunkin kysymänsä kysymyksen
- tärkeyden. Sinulle näytetään vain valitsemasi tasoiset ja niitä
- tärkeämmät kysymykset; kaikille muille käytetään oletusasetuksia.
+ tärkeyden. Sinulle näytetään vain valitsemasi tasoiset ja niitä tärkeämmät
+ kysymykset; kaikille muille käytetään oletusasetuksia. 
  .
- Kysymysten tärkeystasot ja niiden merkitykset ovat
+ Kysymysten tärkeystasot ja niiden merkitykset ovat 
   - "kriittinen" asioille, jotka luultavasti rikkovat järjestelmän,
     jos niille ei valita sopivaa vaihtoehtoa,
   - "tärkeä" asioille, joille ei ole järkevää oletusasetusta,
@@ -71,35 +60,46 @@ Description-fi: Sivuuta vähemmän tärkeät kysymykset
     lähes kaikissa tapauksissa
  .
  Tämä kysymys on tasoltaan tavallinen, joten jos olisit aiemmin valinnut
- omaksi tasoksesi "kriittinen" tai "tärkeä", et edes näkisi tätä.
+ omaksi tasoksesi "kriittinen" tai "tärkeä", et edes näkisi tätä. 
  .
- Jos olet uusi Debian GNU/Linux -järjestelmän käyttäjä, valitse "kriittinen",
- jolloin joudut vastaamaan vain tärkeimpiin kysymyksiin.
+ Jos olet uusi Debian GNU/Linux -järjestelmän käyttäjä, valitse
+ "kriittinen", jolloin joudut vastaamaan vain tärkeimpiin kysymyksiin. 
 
-Template: debconf/frontend
-Type: select
-Choices: Slang, Text, Editor, Dialog, Noninteractive
-Choices-fi: Slang, Teksti, Editori, Dialog, Automaattinen
-Default: Slang
-Description: What interface should be used for configuring packages?
- Packages that use debconf for configuration share a common look and feel.
- You can select the type of user interface they use.  
+Template: debconf/showold
+Type: boolean
+Default: false
+Description: Show all old questions again and again?
+ Debconf normally only asks you any given question once. Then it remembers
+ your answer and never asks you that question again. If you prefer, debconf
+ can ask you questions over and over again, each time you upgrade or
+ reinstall a package that asks them. 
  .
- The slang frontend provides a colorful, full-screen, character based
- windowing interface, while the text frontend uses a more traditional plain
- text interface. The editor frontend lets you configure things using your
- favorite text editor. The noninteractive frontend never asks you any
- questions. The dialog frontend is a primative frontend that is being
- phased out.  
-Description-fi: Mitä käyttöliittymää pakkausten asetusten säätöön käytetään?
- Debconf yhdenmukaistaa sitä käyttävien pakettien asetuskäyttöliittymän.
- Voit itse valita mieluisesi liittymän muutamasta vaihtoehdosta.
+ Note that no matter what you choose here, you can see old questions again
+ by using the dpkg-reconfigure program. 
+Description-fi: Näytetäänkö vanhat kysymykset aina uudelleen?
+ Yleensä debconf kysyy kunkin kysymyksen vain kerran, muistaa antamasi
+ vastauksen eikä enää kysy samaa kysymystä uudestaan. Jos haluat, debconf
+ voi kysyä kaikki kysymykset uudelleen aina paketteja päivitettäessä tai
+ uudelleenasennettaessa. 
  .
- Slang on värikäs, ruudun täyttävä, päätteellä näkyvä graafinen liittymä.
- Teksti on perinteisempi, paljasta tekstiä käyttävä liittymä. Editori
- käyttää asetusten säätöön lempieditoriasi. Automaattinen liittymä ei
- koskaan kysy kysymyksiä. Dialog on vanhempi liittymä, josta ollaan
- luopumassa.
+ Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan
+ ajamalla "dpkg-reconfigure"-ohjelman. 
+
+Template: debconf/switch-to-slang
+Type: boolean
+Default: true
+Description: Switch to the new, full-featured slang frontend?
+ You are currently using debconf's dialog frontend. This frontend has been
+ superceded by a new frontend, called the slang frontend, that does
+ everything the dialog frontend does and more. It lets you see and answer
+ multiple questions at a time, and is generally more flexable and pleasant
+ to use. If you'd like, you can switch to that frontend now. 
+Description-fi: Vaihdetaanko uuteen slang-käyttöliittymään?
+ Käytät nyt debconf:n dialog-käyttöliittymää. Tälle liittymälle on tullut
+ parempi vaihtoehto, slang-liittymä, jossa on kaikki samat ominaisuudet ja
+ muutama lisääkin. Slang-liittymä antaa mahdollisuuden nähdä monta
+ kysymystä ja niiden vastaukset yhtä aikaa ja on muutenkin joustavampi ja
+ mukavampi käyttää. Voit nyt vaihtaa siihen, jos haluat. 
 
 Template: debconf/helpvisible
 Type: boolean
@@ -107,9 +107,9 @@ Default: true
 Description: Should debconf display extended help for questions?
  Debconf can display extended help for questions. Some frontends allow this
  display to be turned off, which may make them run a bit faster, or be less
- cluttered. This is mostly useful for experts.  
+ cluttered. This is mostly useful for experts. 
 Description-fi: Pitäisikö debconf:n näyttää laaja apu kysymyksille?
  Debconf voi näyttää kysymyksille laajan avustustekstin. Jotkut liittymät
- mahdollistavat tämän näytön poiskytkemisen, mikä voi nopeuttaa niitä
- tai siistiä näyttöä. Tämä poiskytkentä on hyödyllinen lähinnä
- asiantuntijoille.
+ mahdollistavat tämän näytön poiskytkemisen, mikä voi nopeuttaa niitä tai
+ siistiä näyttöä. Tämä poiskytkentä on hyödyllinen lähinnä
+ asiantuntijoille. 

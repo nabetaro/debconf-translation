@@ -60,7 +60,8 @@ sub new {
 	
 	# See if we can use an existing template.
 	return $template{$template} if exists $template{$template};
-	if ($Debconf::Db::templates->exists($template)) {
+	if ($Debconf::Db::templates->exists($template) and
+	    $Debconf::Db::templates->owners($template)) {
 		$this = fields::new($this);
 		$this->{template}=$template;
 		return $template{$template}=$this;
@@ -210,7 +211,7 @@ sub load {
 
 		# Create and populate template from hash.
 		my $template=$this->new($data{template}, @_);
-		# Ensure template is empty.
+		# Ensure template is empty, then fill with new data.
 		$template->clearall;
 		foreach my $key (keys %data) {
 			next if $key eq 'template';

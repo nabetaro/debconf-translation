@@ -1,3 +1,20 @@
+debconf (0.9.26) unstable; urgency=low
+
+  * Completed and updated Finnish translation by Jaakko Kangasharju
+    <ashar@iki.fi>
+  * Added code in the postinst to delete any files that inexplicably linger
+    in /usr/lib/perl5/Debconf/, since since files break the current debconf
+    badly. I don't know why two people have reported files there; it's
+    either user error or some crazy dpkg bug. Closes: #89471
+  * Check to make sure a template has owners besides just existing before
+    returning it in Template->new. This should not be necessary, but
+    it fixes a problem with the templates db sometimes having templates
+    that lack any owners. I hypothesize that the problem was caused by
+    one of the early 0.9x releases, but I cannot reproduce it, so this will
+    have to do for a workaround. Closes: #89155
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 18 Mar 2001 14:26:11 -0800
+
 debconf (0.9.25) unstable; urgency=low
 
   * Branden is able to trigger the most obscure cases. :-)

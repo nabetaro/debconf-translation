@@ -60,8 +60,6 @@ foreach my $item (keys %questions) {
 	$skipped++, next unless defined $tname;
 	my $template=Debconf::Template->get($tname);
 	unless (defined $template) {
-		# Template does not exist yet, so we have to pull it out of
-		# the %templates hash.
 		$template=Debconf::Template->new($tname, $item);
 	}
 	unless ($seen_templates{$template}) {
@@ -78,7 +76,7 @@ foreach my $item (keys %questions) {
 	
 	# Copy over all significant values to the question.
 
-	# This old flag morphes into the seen flag, inverting meaning.
+	# This old flag morphs into the seen flag, inverting meaning.
 	if (exists $questions{$item}->{flag_isdefault}) {
 		if ($questions{$item}->{flag_isdefault} eq 'false') {
 		    	$question->flag('seen', 'true');
