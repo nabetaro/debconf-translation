@@ -1,3 +1,12 @@
+debconf (0.4.07) unstable; urgency=low
+
+  * Fixed a subtle bug in the slang frontend. This bug made noninteractive
+    elements not be "shown" ever, so they didn't send mail. It also made
+    noninteractive select elements get "" shoved into them whenever they
+    were INPUT, which messed up some things like progeny's postfix package.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 31 Oct 2000 13:30:21 -0800
+
 debconf (0.4.06) unstable; urgency=low
 
   * Added a check to the metaget command to make sure the requested field

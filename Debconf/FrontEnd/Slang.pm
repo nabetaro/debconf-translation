@@ -240,7 +240,8 @@ sub go {
 
 	my $ret=1;
 
-	# Don't do any of this if there are no interactive widgets to show.
+	# Don't do any of this if there are no interactive widgets to show,
+	# since it causes output to the screen.
 	if ($firstwidget) {
 		# A title was probably set before there even was a
 		# mainwindow, so make sure it gets displayed now.
@@ -281,15 +282,20 @@ sub go {
 	}
 
 	if ($ret) {
-		# Run through the elements, and get the values that were
-		# entered and shove them into the questions.
+		# Display all elements. This does nothing for slang
+		# elements, but it causes noninteractive elements to do
+		# their thing.
 		foreach my $element (@elements) {
+			$element->show;
+		}
+		
+		# Run through slang the elements, and get the values that
+		# were entered and shove them into the questions.
+		foreach my $element (@elements) {
+			next unless $element->widget;
+			
 			$element->question->value($element->value);
-			# Only set isdefault if the element was visible,
-			# because we don't want to do it when showing
-			# noninteractive select elements and so on.
-			$element->question->flag_isdefault('false')
-				if $element->visible;
+			$element->question->flag_isdefault('false');
 		}
 	}
 

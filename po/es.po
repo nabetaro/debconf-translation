@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.66\n"
-"POT-Creation-Date: 2000-10-26 13:48-0700\n"
+"POT-Creation-Date: 2000-10-31 13:32-0800\n"
 "PO-Revision-Date: 2000-08-29 12:40+01:00\n"
 "Last-Translator: Enrique Zanardi <ezanard@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -55,6 +55,20 @@ msgstr "Error al procesar la plantilla, cerca de `%s'"
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "La plantilla con contiene una línea `Template:'"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Comando `%s' no soportado."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr ""
+"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
@@ -208,11 +222,11 @@ msgstr "Esconder Ayuda"
 msgid "Show Help"
 msgstr "Mostrar Ayuda"
 
-#: ../Debconf/FrontEnd/Slang.pm:260
+#: ../Debconf/FrontEnd/Slang.pm:261
 msgid "Tab and arrow keys move."
 msgstr "Mover con las flechas y el tabulador."
 
-#: ../Debconf/FrontEnd/Slang.pm:278
+#: ../Debconf/FrontEnd/Slang.pm:279
 msgid "Working, please wait..."
 msgstr "Trajando, por favor espere..."
 
@@ -225,20 +239,6 @@ msgstr "Más"
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Nota: Debconf está ejecutándose en modo web. Vaya a http://localhost:%i/"
-
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Comando `%s' no soportado."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr ""
-"Atencion: Hay un salto de línea en parámetros que se pasaron a debconf."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "¡Esto probablemente hará que pasen cosas extrañas!"
 
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2000-10-26 13:48-0700\n"
+"POT-Creation-Date: 2000-10-31 13:32-0800\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -55,6 +55,19 @@ msgstr "B³±d w szablonie w pobli¿u `%s'"
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Szablon nie zawiera linii `Template:'"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "Nieobs³ugiwana komenda `%s'."
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
@@ -200,11 +213,11 @@ msgstr "Ukryj pomoc"
 msgid "Show Help"
 msgstr "Poka¿ pomoc"
 
-#: ../Debconf/FrontEnd/Slang.pm:260
+#: ../Debconf/FrontEnd/Slang.pm:261
 msgid "Tab and arrow keys move."
 msgstr "Przesuwanie klawiszami tab i strza³ek"
 
-#: ../Debconf/FrontEnd/Slang.pm:278
+#: ../Debconf/FrontEnd/Slang.pm:279
 msgid "Working, please wait..."
 msgstr "Proszê czekaæ"
 
@@ -216,19 +229,6 @@ msgstr "Dalej"
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Uwaga: Debconf dzia³a w trybie www. Patrz http://localhost:%i/"
-
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "Nieobs³ugiwana komenda `%s'."
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "Uwaga: wykryto znak koñca linii w przekazanych debconfowi parametrach."
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "To prawdopodobnie spowoduje dziwne rzeczy!"
 
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"

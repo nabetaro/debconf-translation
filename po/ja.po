@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2000-10-26 13:48-0700\n"
+"POT-Creation-Date: 2000-10-31 13:32-0800\n"
 "PO-Revision-Date: 2000-09-28 22:30+0900\n"
 "Last-Translator: Keita Maehara <maehara@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -55,6 +55,19 @@ msgstr "`%s' 付近でテンプレートの解析に失敗しました"
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "テンプレートに `Template:' 行がありません"
+
+#: ../Debconf/Client/ConfModule.pm:109
+#, c-format
+msgid "Unsupported command `%s'."
+msgstr "`%s' は未サポートのコマンドです。"
+
+#: ../Debconf/Client/ConfModule.pm:119
+msgid "Warning: Newline present in parameters passed to debconf."
+msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
+
+#: ../Debconf/Client/ConfModule.pm:120
+msgid "This will probably cause strange things to happen!"
+msgstr "このためにおそらくおかしなことが起こります!"
 
 #: ../Debconf/Element/Container.pm:40
 msgid "Container element question method called before frontend was set."
@@ -200,11 +213,11 @@ msgstr "ヘルプを非表示"
 msgid "Show Help"
 msgstr "ヘルプを表示"
 
-#: ../Debconf/FrontEnd/Slang.pm:260
+#: ../Debconf/FrontEnd/Slang.pm:261
 msgid "Tab and arrow keys move."
 msgstr "タブか矢印キーで移動"
 
-#: ../Debconf/FrontEnd/Slang.pm:278
+#: ../Debconf/FrontEnd/Slang.pm:279
 msgid "Working, please wait..."
 msgstr "処理しています、お待ちください…"
 
@@ -218,19 +231,6 @@ msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "注意: Debconf はウェブモードで動作しています。\n"
 "http://localhost:%i/ をご覧ください。"
-
-#: ../Debconf/Client/ConfModule.pm:109
-#, c-format
-msgid "Unsupported command `%s'."
-msgstr "`%s' は未サポートのコマンドです。"
-
-#: ../Debconf/Client/ConfModule.pm:119
-msgid "Warning: Newline present in parameters passed to debconf."
-msgstr "警告: debconf に渡されるパラメータの中に改行があります。"
-
-#: ../Debconf/Client/ConfModule.pm:120
-msgid "This will probably cause strange things to happen!"
-msgstr "このためにおそらくおかしなことが起こります!"
 
 #: ../dpkg-preconfigure:112
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
