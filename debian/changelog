@@ -1,3 +1,13 @@
+debconf (1.4.20) unstable; urgency=low
+
+  * Update Ukrainian po file. Closes: #241044
+  * Fix more encoding problems with the gnome frontend introduced by the last
+    patch. Closes: #240898
+  * In the KDE frontend, don't show the window until there is a question to
+    ask. Closes: #239109
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 30 Mar 2004 12:04:56 -0500
+
 debconf (1.4.19) unstable; urgency=low
 
   * Fix Gnome frontend's display of select and multiselect questions
