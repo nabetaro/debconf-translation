@@ -1,3 +1,23 @@
+debconf (0.5.27) unstable; urgency=low
+
+  * If debconf is run without a controling tty..
+    - TERM will not be defined. This breaks the dialog frontend (which is
+      broken pretty badly by the lack of a tty too ;-), so detect 
+      lack of TERM and refuse to use that frontend.
+    - Same for slang frontend.
+    - Lack of a controlling tty messes with the Text frontend,
+      though it still half-way works in some circumstances.
+      I've made its parent, the Tty frontend, detect this and bail.
+    - That also affected the Editor frontend (which could perhaps work in
+      this situation, but only if you use an X based editor, and tough
+      luck then).
+    ... so in conculsion, if you do this, you'll probably get the
+    Noninteractive frontend. Woe on you if you're upgrading ssh and it
+    clobbers PermitRootLogin. :-(
+  * Tagged all frontend fallback messages for i18n.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 28 Nov 2000 13:26:38 -0800
+
 debconf (0.5.26) unstable; urgency=low
 
   * Corrected uninitialized value leading to looping bahavior in text

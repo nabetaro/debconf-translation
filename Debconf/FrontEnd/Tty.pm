@@ -8,6 +8,7 @@ Debconf::FrontEnd::Tty - Tty FrontEnd
 
 package Debconf::FrontEnd::Tty;
 use strict;
+use Debconf::Gettext;
 use base qw(Debconf::FrontEnd);
 
 =head1 DESCRIPTION
@@ -32,6 +33,9 @@ sub init {
 
 	$this->SUPER::init(@_);
 
+	# Yeah, you need a controlling tty. Make sure there is one.
+	open(TESTTY, "/dev/tty") || die gettext("This frontend requires a controlling tty.")."\n";
+
 	$this->resize; # Get current screen size.
 	$SIG{'WINCH'}=sub { $this->resize };
 }
@@ -51,7 +55,7 @@ sub resize {
 	}
 	else {
 		# Gotta be a better way..
-		my ($rows)=`stty -a </dev/tty` =~ m/rows (\d+)/s;
+		my ($rows)=`stty -a </dev/tty 2>/dev/null` =~ m/rows (\d+)/s;
 		$this->screenheight($rows || 25);
 	}
 
@@ -59,7 +63,7 @@ sub resize {
 		$this->screenwidth($ENV{'COLUMNS'});
 	}
 	else {
-		my ($cols)=`stty -a </dev/tty` =~ m/columns (\d+)/s;
+		my ($cols)=`stty -a </dev/tty 2>/dev/null` =~ m/columns (\d+)/s;
 		$this->screenwidth($cols || 80);
 	}
 }

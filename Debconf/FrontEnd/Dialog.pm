@@ -38,15 +38,19 @@ it use gdialog, set FORCE_GDIALOG in the environment.
 sub init {
 	my $this=shift;
 
-	# Running in emacs shell buffers does horrible things. Don't.
-	if ($ENV{TERM} =~ /emacs/i) {
-		die "Dialog frontend is incompatable with emacs shell buffers.\n";
+	$this->SUPER::init(@_);
+
+	# Detect all the ways people have managed to screw up their
+	# terminals (so far...)
+	if (! exists $ENV{TERM} || ! defined $ENV{TERM}) { 
+		die gettext("TERM is not set, so the Dialog frontend is not usable.")."\n";
+	}
+	elsif ($ENV{TERM} =~ /emacs/i) {
+		die gettext("Dialog frontend is incompatable with emacs shell buffers")."\n";
 	}
 	elsif ($ENV{TERM} eq 'dumb') {
-		die "Dialog frontend will not work on a dumb terminal or an emacs shell buffer.\n";
+		die gettext("Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";
 	}
-
-	$this->SUPER::init(@_);
 
 	$this->interactive(1);
 	$this->capb('backup');

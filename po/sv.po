@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.4.07\n"
-"POT-Creation-Date: 2000-11-25 16:42-0800\n"
+"POT-Creation-Date: 2000-11-28 14:07-0800\n"
 "PO-Revision-Date: 2000-11-12 23:28+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,13 @@ msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
 #, c-format
 msgid "Template #%s in %s does not contain a `Template:' line\n"
 msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
+
+#: ../Debconf/Template.pm:223
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
 
 #: ../Debconf/Client/ConfModule.pm:108
 #, c-format
@@ -144,7 +151,21 @@ msgstr ""
 "Skriv bokstäverna för de alternativ du vill markera, separerade med "
 "blanksteg."
 
-#: ../Debconf/FrontEnd/Dialog.pm:82
+#: ../Debconf/FrontEnd/Dialog.pm:46
+msgid "TERM is not set, so the Dialog frontend is not usable."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:49
+msgid "Dialog frontend is incompatable with emacs shell buffers"
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Dialog.pm:86
 msgid ""
 "Neither whiptail nor dialog are installed, so the dialog based frontend "
 "cannot be used."
@@ -152,7 +173,7 @@ msgstr ""
 "Varken whiptail eller dialog är installerade, så det dialogbaserade skalet "
 "kan inte användas."
 
-#: ../Debconf/FrontEnd/Dialog.pm:228 ../Debconf/FrontEnd/Slang.pm:63
+#: ../Debconf/FrontEnd/Dialog.pm:232 ../Debconf/FrontEnd/Slang.pm:67
 msgid "Debian Configuration"
 msgstr "Debiankonfigurering"
 
@@ -191,38 +212,56 @@ msgstr ""
 msgid "debconf: Unable to read %s: %s"
 msgstr "debconf: Kan inte läsa %s: %s"
 
-#: ../Debconf/FrontEnd/Slang.pm:68
+#: ../Debconf/FrontEnd/Slang.pm:51
+msgid "TERM is not set, so the Slang frontend is not usable."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Slang.pm:54
+msgid "Slang frontend is incompatable with emacs shell buffers"
+msgstr ""
+
+#: ../Debconf/FrontEnd/Slang.pm:57
+msgid ""
+"Slang frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+
+#: ../Debconf/FrontEnd/Slang.pm:72
 msgid "Help"
 msgstr "Hjälp"
 
-#: ../Debconf/FrontEnd/Slang.pm:91 ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Slang.pm:95 ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Nästa"
 
-#: ../Debconf/FrontEnd/Slang.pm:92 ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Slang.pm:96 ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
 msgstr "Föregående"
 
-#: ../Debconf/FrontEnd/Slang.pm:93
+#: ../Debconf/FrontEnd/Slang.pm:97
 msgid "Hide Help"
 msgstr "Göm hjälp"
 
-#: ../Debconf/FrontEnd/Slang.pm:94
+#: ../Debconf/FrontEnd/Slang.pm:98
 msgid "Show Help"
 msgstr "Visa hjälp"
 
-#: ../Debconf/FrontEnd/Slang.pm:256
+#: ../Debconf/FrontEnd/Slang.pm:260
 #, fuzzy
 msgid "Tab and arrow keys move; space drops down lists."
 msgstr "Tabbsteg och piltangeter flyttar."
 
-#: ../Debconf/FrontEnd/Slang.pm:278
+#: ../Debconf/FrontEnd/Slang.pm:282
 msgid "Working, please wait..."
 msgstr "Arbetar, var god vänta..."
 
 #: ../Debconf/FrontEnd/Text.pm:197
 msgid "More"
 msgstr "Mer"
+
+#: ../Debconf/FrontEnd/Tty.pm:37
+msgid "This frontend requires a controlling tty."
+msgstr ""
 
 #: ../Debconf/FrontEnd/Web.pm:65
 #, c-format

@@ -45,12 +45,16 @@ Set up most of the GUI.
 sub init {
 	my $this=shift;
 
-        # Running in emacs shell buffers does horrible things. Don't.
-	if ($ENV{TERM} =~ /emacs/i) {
-		die "Slang frontend is incompatable with emacs shell buffers.\n";
+	# Detect all the ways people have managed to screw up their
+	# terminals (so far...)
+	if (! exists $ENV{TERM} || ! defined $ENV{TERM}) {
+		die gettext("TERM is not set, so the Slang frontend is not usable.")."\n";
+	}
+	elsif ($ENV{TERM} =~ /emacs/i) {
+		die gettext("Slang frontend is incompatable with emacs shell buffers")."\n";
 	}
 	elsif ($ENV{TERM} eq 'dumb') {
-		die "Slang frontend will not work on a dumb terminal or an emacs shell buffer.\n";
+		die gettext("Slang frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.")."\n";
 	}
 
 	$this->SUPER::init(@_);
