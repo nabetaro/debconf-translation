@@ -48,7 +48,7 @@ use vars qw($AUTOLOAD @ISA @EXPORT_OK %EXPORT_TAGS);
 
 # List all valid commands here.
 @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
-	      unset set get register unregister previous_module
+	      unset set get register unregister previous_module clear
 	      start_frontend fset fget subst purge metaget visible exist);
 
 # Import :all to get everything.		   

@@ -37,7 +37,7 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "previous_module PREVIOUS_MODULE" "fset FSET" "fget FGET" \
-	 "purge PURGE" "metaget METAGET" "version VERSION"; do
+	 "purge PURGE" "metaget METAGET" "version VERSION" "clear CLEAR"; do
 	# Break string up into words.
 	set -- $i
 	# Generate function on the fly.
