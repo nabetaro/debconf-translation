@@ -93,7 +93,7 @@ sub AUTOLOAD {
 	chomp $ret;
 	my @ret=split(/ /, $ret, 2);
 	return @ret if wantarray;
-	return $ret[0];
+	return $ret[1];
 }
 
 =head1 AUTHOR

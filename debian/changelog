@@ -1,3 +1,11 @@
+debconf (0.2.27) unstable; urgency=low
+
+  * Corrected Client::ConfModule to return the right thing when one of its
+    functions is called in scalar context. It was returning the result code
+    by mistake, now it returns the value, like it is documented to do.
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 11 Nov 1999 21:18:40 -0800
+
 debconf (0.2.26) unstable; urgency=low
 
   * Added multiselect data type.

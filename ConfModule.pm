@@ -81,7 +81,8 @@ sub startup {
 
 	my @args=$this->confmodule($confmodule);
 	push @args, @_ if @_;
-
+	
+	debug "starting ".join(' ',@args);
 	$this->pid(open2($this->read_handle(FileHandle->new),
 		         $this->write_handle(FileHandle->new),
 			 @args)) || die $!;
