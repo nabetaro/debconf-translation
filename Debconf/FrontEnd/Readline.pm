@@ -47,8 +47,6 @@ sub init {
 	open(TESTTY, "/dev/tty") || die gettext("This frontend requires a controlling tty.")."\n";
 	close TESTTY;
 
-	$this->elementtype('Teletype'); # use Teletype frontend's elements.
-
 	$Term::ReadLine::termcap_nowarn = 1; # Turn off stupid termcap warning.
 	$this->readline(Term::ReadLine->new('debconf'));
 	$this->readline->ornaments(1);
@@ -91,6 +89,16 @@ sub init {
 	if (Term::ReadLine->ReadLine =~ /::Stub$/) {
 		$this->promptdefault(1);
 	}
+}
+
+=item elementtype
+
+This frontend uses the same elements as does the Teletype frontend.
+
+=cut
+
+sub elementtype {
+	return 'Teletype';
 }
 
 =item go

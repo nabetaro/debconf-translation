@@ -23,12 +23,6 @@ communicating with Elements to form that FrontEnd.
 
 =over 4
 
-=item elementtype
-
-What type of elements this frontend uses. Defaults to being set (by init) 
-to the same name as the frontend, but tightly-linked frontends might want
-to share elements; if so, one can set this to the other's elementtype.
-
 =item elements
 
 A reference to an array that contains all the elements that the FrontEnd
@@ -74,17 +68,33 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
+}
 
-	my $elementtype;
+=item elementtype
+
+What type of elements this frontend uses. Defaults to returning the same
+name as the frontend, but tightly-linked frontends might want to share
+elements; if so, one can override this with a method that returns the name
+of the other.
+
+This may be called as either a class or an object method.
+
+=cut
+
+sub elementtype {
+	my $this=shift;
+
+	
+	my $ret;
 	if (ref $this) {
 		# Called as object method.
-		($elementtype) = ref($this) =~ m/Debconf::FrontEnd::(.*)/;
+		($ret) = ref($this) =~ m/Debconf::FrontEnd::(.*)/;
 	}
 	else {
 		# Called as class method.
-		($elementtype) = $this =~ m/Debconf::FrontEnd::(.*)/;
+		($ret) = $this =~ m/Debconf::FrontEnd::(.*)/;
 	}
-	$this->elementtype($elementtype);
+	return $ret;
 }
 
 =item makeelement

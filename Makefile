@@ -72,7 +72,7 @@ install-rest:
 	     $(prefix)/usr/share/debconf/*.pl				\
 	     -name '*.pm' -or -name 'dpkg-*' | 				\
 	     grep -v Client/ConfModule | xargs perl -i.bak -ne ' 	\
-	     		print $$_."# This file was preprocessed, do not edit directly.\n" \
+	     		print $$_."# This file was preprocessed, do not edit!\n" \
 				if m:^#!/usr/bin/perl:; 		\
 	     		$$cutting=1 if /^=/; 				\
 	     		$$cutting="" if /^=cut/; 			\
