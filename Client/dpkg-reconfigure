@@ -50,9 +50,6 @@ foreach my $pkg (@ARGV) {
 #	# Load up templates.
 #	Debian::DebConf::ConfigDb::loadtemplatefile("$infodir/$pkg.templates")
 #		if -e "$infodir/$pkg.templates";
-#
-#	# Instantiate all questions.
-#	Debian::DebConf::ConfigDb::makequestions();
 
 	if (-x "/var/lib/dpkg/info/$pkg.config") {
 		# Start up the confmodule.

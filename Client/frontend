@@ -42,9 +42,6 @@ if ($ARGV[0] =~/\.(?:postinst|prerm)$/) {
 	Debian::DebConf::ConfigDb::loadtemplatefile($templates, $package)
 		if -e $templates;
 
-	# Instantiate all questions.
-	Debian::DebConf::ConfigDb::makequestions();
-
 	# Run config script, if any.
 	my $config=$ARGV[0];
 	$config=~s/\.(?:postinst|prerm)$/.config/;
