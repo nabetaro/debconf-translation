@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2000-05-16 09:38+0400\n"
+"POT-Creation-Date: 2000-06-16 02:11+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -41,28 +41,32 @@ msgstr "будет использован интерфейс `%s'"
 #: ../AutoSelect.pm:85
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Не удалось запустить интерфейс: %s"
+msgstr "Не удалось использовать интерфейс: %s"
 
 #: ../ConfModule.pm:128
 msgid ""
 "debconf: Undefined values detected at confmodule startup! Please file a bug "
 "report, and include the stack trace below"
 msgstr ""
-"detected: при старте модуля confmodule были обнаружены неинициализированные "
-"значения! Пожалуйста, сообщите об этой ошибке и включите нижеприведенную "
-"информацию."
+"debconf: при старте модуля confmodule были обнаружены неинициализированные "
+"значения! Пожалуйста, сообщите об этой ошибке, приведя следующую информацию."
+
+#: ../FrontEnd.pm:110
+#, c-format
+msgid "Unable to make element of type %s. Failed because: %s"
+msgstr "Не удалось создать элемент типа %s. Причина: %s"
 
 #: ../FrontEnd.pm:193
 #, c-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"
 
-#: ../Template.pm:186
+#: ../Template.pm:189
 #, c-format
 msgid "Template parse error near `%s'"
 msgstr "Ошибка разбора шаблона около `%s'"
 
-#: ../Template.pm:193
+#: ../Template.pm:196
 msgid "Template does not contain a `Template:' line"
 msgstr "Шаблон не содержит строки `Template:'"
 
@@ -72,16 +76,23 @@ msgstr ""
 "Попытка создать составной элемент интерфейса до того, как интерфейс был "
 "иницилизирован."
 
+#: ../Element/Select.pm:86
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Значение \"%s\" на найдено среди английских вариантов! Это не должно было случиться. "
+"Возможно, шаблоны были неправильно переведены."
+
 #: ../Element/Noninteractive/Note.pm:38
 msgid ""
 "This note was sent to you because Debconf was asked to make sure you saw it, "
 "but Debconf was running in noninteractive mode, or you have told it to not "
 "pause and show you unimportant notes. Here is the text of the note:"
 msgstr ""
-"Это письмо было вам отправлено в силу того, что сценарий настройки попытался "
-"вывести сообщение, которое должно было обязательно быть показано на экране, "
-"а debconf был использован в неинтерактивном режиме.  Ниже приведен текст "
-"этого сообщения:"
+"Это письмо было отправлено, посколько при работе debconf в неинтерактивном "
+"режиме сценарий настройки попытался вывести сообщение, приведенное ниже:"
 
 #: ../Element/Noninteractive/Note.pm:58
 msgid "Debconf"
@@ -97,14 +108,15 @@ msgstr "да"
 msgid "no"
 msgstr "нет"
 
-#: ../Element/Text/Multiselect.pm:27
+#: ../Element/Text/Multiselect.pm:28
 msgid "none of the above"
-msgstr "ни один из предложенного"
+msgstr "ни один из предложенных"
 
 #: ../Element/Text/Multiselect.pm:41
 msgid ""
 "Type in the letters of the items you want to select, separated by spaces."
-msgstr "Укажите буквы выбранных вариантов, разделяя их пробелами."
+msgstr ""
+"Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
 
 #: ../Element/Slang/Note.pm:29
 msgid "Save Note"
@@ -112,7 +124,9 @@ msgstr "Сохранить сообщение"
 
 #: ../Element/Slang/Note.pm:33
 msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно было вам отправлено по почте."
+msgstr ""
+"Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
+"было вам отправлено по почте."
 
 #: ../Element/Slang/Note.pm:34
 msgid "The note has been mailed to root."
@@ -122,13 +136,14 @@ msgstr "Сообщение было отправлено пользователю root."
 msgid "Unable to save note."
 msgstr "Сообщение сохранить не удалось."
 
-#: ../Element/Editor/Multiselect.pm:32 ../Element/Editor/Select.pm:31
+#: ../Element/Editor/Multiselect.pm:32 ../Element/Editor/Select.pm:32
 msgid "Choices"
 msgstr "Варианты"
 
 #: ../Element/Editor/Multiselect.pm:33
-msgid "(Enter zero or more items separated by spaces.)"
-msgstr "(Укажите ноль или больше элементов, разделяя их запятыми.)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Укажите необходимое количество элементов, разделяя их запятой с пробелом (', ').)"
 
 #: ../FrontEnd/Dialog.pm:217 ../FrontEnd/Slang.pm:48
 msgid "Debian Configuration"
@@ -140,27 +155,28 @@ msgstr "Подсказка"
 
 #: ../FrontEnd/Slang.pm:76 ../FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "Дальше"
+msgstr "Далее"
 
 #: ../FrontEnd/Slang.pm:77 ../FrontEnd/Web.pm:166
 msgid "Back"
-msgstr "Обратно"
+msgstr "Возврат"
 
-#: ../FrontEnd/Slang.pm:80
-msgid "Show Help"
-msgstr "Показать подсказку"
-
-#: ../FrontEnd/Slang.pm:81
+#: ../FrontEnd/Slang.pm:78
 msgid "Hide Help"
 msgstr "Убрать подсказку"
 
-#: ../FrontEnd/Slang.pm:231
-msgid "Tab and arrow keys move."
-msgstr "Для передвижения используйте стрелки и клавишу Tab."
+#: ../FrontEnd/Slang.pm:79
+msgid "Show Help"
+msgstr "Показать подсказку"
 
-#: ../FrontEnd/Slang.pm:249
+#: ../FrontEnd/Slang.pm:235
+msgid "Tab and arrow keys move."
+msgstr ""
+"Для перемещения по элементам диалога используйте стрелки и клавишу Tab."
+
+#: ../FrontEnd/Slang.pm:253
 msgid "Working, please wait..."
-msgstr "Идет работа, подождите, пожалуйста..."
+msgstr "Идет работа. Подождите, пожалуйста..."
 
 #: ../FrontEnd/Dialog.pm:74
 msgid ""
@@ -172,13 +188,13 @@ msgstr ""
 
 #: ../FrontEnd/Text.pm:96
 msgid "More"
-msgstr "Дальше"
+msgstr "Далее"
 
 #: ../FrontEnd/Web.pm:66
 #, c-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Внимание: используется web-интерфейс.  Откройте, пожалуйста, документ "
+"Замечание: используется web-интерфейс.  Откройте, пожалуйста, документ "
 "http://localhost:%i/"
 
 #: ../FrontEnd/Editor.pm:98
@@ -192,7 +208,7 @@ msgid ""
 "See the end of this document for detailed instructions."
 msgstr ""
 "Вы указали пакету debconf, что для настройки системы необходимо использовать "
-"текстовый редактор. Подробную информацию вы найдете в конце документа."
+"текстовый редактор. Подробную информацию вы найдете в конце этого документа."
 
 #: ../FrontEnd/Editor.pm:124
 msgid ""
@@ -203,14 +219,15 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Использующий текстовый редактор интерфейс к debconf предлагает вам один или больше "
-"текстовых файлов. Это один из таких файлов. Его формат схож с форматом стандартных конфигурационных "
-"файлов Unix: параметры и их значения идут в перемешку с комментариями, описывающими их. "
-"Вы должны соответствующим образом изменить этот файл, сохранить его и выйти из "
-"редактора. Теперь программа debconf прочитает измененный файл и использует введенные "
-"вами параметры для настройки системы."
+"Интерфейс к debconf, использующий текстовый редактор, предлагает вам один "
+"или больше текстовых файлов. Перед вами один из таких файлов. Его формат "
+"схож с форматом стандартных конфигурационных файлов Unix: параметры и их "
+"значения идут вперемешку с описывающими их комментариями. Вы должны изменить "
+"этот файл в соответствии с вашими потребностями, сохранить его и выйти из "
+"редактора. Затем программа debconf прочитает измененный файл и использует "
+"введенные вами параметры для настройки системы."
 
-#: ../FrontEnd/Editor.pm:137
+#: ../FrontEnd/Editor.pm:138
 #, c-format
 msgid "debconf: Unable to read %s: %s"
 msgstr "debconf: ошибка чтения %s: %s"
@@ -259,16 +276,16 @@ msgstr "не удалось настроить пакет %s, код ошибки %s"
 msgid "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 msgstr ""
 "Запуски: dpkg-reconfigure [--frontend=интерфейс] [--priority=приоритет] "
-"<имена пакетов>"
+"<названия пакетов>"
 
 #: ../Client/dpkg-reconfigure:127
 msgid "must be run as root"
-msgstr "должна выполняться справами пользователя root"
+msgstr "должна выполняться с правами пользователя root"
 
 #: ../Client/dpkg-reconfigure:150
 #, c-format
 msgid "%s is not installed or does not use debconf"
-msgstr "Пакет %s не установлен или не использует пакет debconf"
+msgstr "Пакет %s не установлен или не использует debconf"
 
 #: ../Client/dpkg-reconfigure:162
 #, c-format
