@@ -1,3 +1,12 @@
+debconf (1.4.11) unstable; urgency=low
+
+  * Updated Spanish templates translation. Closes: #232662
+  * Fix dialog frontend's handling of user entering nothing in an inputbox,
+    in this case whiptail's output FD is eof, and care must be taken to not
+    return undef. Closes: #233618, #226963, #227732
+
+ -- Joey Hess <joeyh@debian.org>  Sat, 14 Feb 2004 20:35:36 -0500
+
 debconf (1.4.10) unstable; urgency=low
 
   * Use treeview for gnome multiselect lists (kov). Closes: #232090
