@@ -93,7 +93,6 @@ but it captures the essence of it.
 # * I need to modify stacks a bit, to make this example work. When setting a
 #   value, call the accept method on each writable driver in turn, and write
 #   to the first that accepts it, rather than always writing to topmost.
-# * Parser for config file; object instantiation will be straightforward.
 # * Hook into the Question class.
 # * DbDriver's need access to Templates so they can tell what Type a
 #   given item is.

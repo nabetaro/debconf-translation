@@ -23,7 +23,7 @@ information related to items in the database.
 
 =item name
 
-The name of the database.
+The name of the database. This field is required.
 
 =item readonly
 
@@ -52,7 +52,8 @@ our %drivers;
 =head2 new
 
 Create a new object of this class. A hash of fields and values may be
-passed in to set initial state.
+passed in to set initial state. (And you have to use this to set the name,
+at the very least.)
 
 =cut
 
@@ -61,8 +62,10 @@ sub new {
 	unless (ref $this) {
 		$this = fields::new($this);
 	}
+	# Set defaults.
 	$this->{required}=1;
 	$this->{readonly}=0;
+	# Set fields from parameters.
 	my %params=@_;
 	foreach my $field (keys %params) {
 		if ($field eq 'readonly' || $field eq 'required') {
@@ -72,8 +75,16 @@ sub new {
 		}
 		$this->{$field}=$params{$field};
 	}
+	# Name is a required field.
+	unless (exists $this->{name}) {
+		# Set to something since error function uses this field..
+		$this->{name}="(unknown)";
+		$this->error("no name specified");
+	}
+	# Register in class data.
+	$drivers{$this->{name}} = $this;
+	# Other initialization.
 	$this->init;
-	$drivers{$this->{name}} = $this if exists $this->{name};
 	return $this;
 }
 
@@ -100,10 +111,12 @@ sub error {
 	my $this=shift;
 
 	if ($this->{required}) {
-		die "error: ".shift()."\n";
+		die 'Debconf DbDriver "'.$this->{name}.'" error: '.
+			shift()."\n";
 	}
 	else {
-		print STDERR "warning: ".shift()."\n";
+		print STDERR 'Debconf DbDriver "'.$this->{name}.'" warning: '.
+			shift()."\n";
 	}
 }
 
