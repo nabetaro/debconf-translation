@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.25\n"
-"POT-Creation-Date: 2001-05-02 15:03-0400\n"
+"POT-Creation-Date: 2001-05-03 15:36-0400\n"
 "PO-Revision-Date: 2001-03-18 20:10+0200\n"
 "Last-Translator: Jaakko Kangasharju <ashar@iki.fi>\n"
 "MIME-Version: 1.0\n"
@@ -47,26 +47,6 @@ msgstr "Debconf::Element::%s:n lataus epäonnistui: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "%s:n asetusten säätö"
-
-#: ../Debconf/Template.pm:163
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
-"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
-"toisistaan.\n"
-
-#: ../Debconf/Template.pm:203
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Kyselypohjan jäsennysvirhe lähellä `%s':a rivillä #%s tiedostossa %s\n"
-
-#: ../Debconf/Template.pm:209
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "`Template:'-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -254,6 +234,26 @@ msgstr "Tämä liittymä tarvitsee ohjaavan päätteen."
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Tiedotus: Debconf on seittiajossa. Mene osoitteeseen http://localhost:%i/"
+
+#: ../Debconf/Template.pm:163
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Kyselypohjassa #%s tiedostossa %s toistuu kenttä \"%s\" uudella arvolla \"%s"
+"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
+"toisistaan.\n"
+
+#: ../Debconf/Template.pm:203
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Kyselypohjan jäsennysvirhe lähellä `%s':a rivillä #%s tiedostossa %s\n"
+
+#: ../Debconf/Template.pm:209
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "`Template:'-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
 #: ../dpkg-preconfigure:120
 msgid "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
