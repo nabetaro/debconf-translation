@@ -5,7 +5,7 @@ all:
 
 clean:
 	find . -name \*~ | xargs rm -f
-	$(make) -C doc clean
+	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	$(MAKE) -C apt clean
 

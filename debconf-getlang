@@ -50,11 +50,16 @@ L<debconf-mergetemplate(8)|debconf-mergetemplate>
 
 =cut
 
-my $lang=shift;
+sub usage {
+	die "Usage: $0 lang file\n";
+}
+
+my $lang=shift || usage();
+my $fn=shift || usage();
 
 # I apologize for the silly baseball puns.
 my @out;
-foreach my $in (Debconf::Template->load(shift)) {
+foreach my $in (Debconf::Template->load($fn)) {
 	my $out=Debconf::Template->new;
 	
 	foreach my $field ($in->fields) {

@@ -34,7 +34,14 @@ L<debconf-communicate(8)|debconf-communicate>
 
 =cut
 
-my $owner=shift;
+sub usage {
+	die "Usage: $0 owner file\n";
+}
+
+my $owner=shift || usage();
+usage() unless @ARGV;
+
+loaddb(dbdir());
 registertemplates($owner, Debconf::Template->load($_)) foreach @ARGV;
 savedb(dbdir());
 

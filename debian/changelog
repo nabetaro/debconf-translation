@@ -1,3 +1,14 @@
+debconf (0.4.04) unstable; urgency=low
+
+  * confmodule: Properly quote arguments to frontend, just in case. 
+    Closes: #74827
+  * debconf-loadtemplates was totally hosed. It forgot to load the db up,
+    and so it wiped it all out when it saved it! Fixed, Closes: #74826
+  * Added basic syntax checking and usage to debconf-getlang (and
+    debconf-loadtemplate too). Closes: #74825
+
+ -- Joey Hess <joeyh@debian.org>  Mon, 23 Oct 2000 12:00:41 -0700
+
 debconf (0.4.03) unstable; urgency=low
 
   * Fixed a typo in the preinst. 
