@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.30\n"
-"POT-Creation-Date: 2002-12-10 12:29-0500\n"
+"POT-Creation-Date: 2003-02-15 12:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Michael Sobolev <mss@transas.com>\n"
 "Language-Team: Russian <debian-russian@lists.debian.org>\n"
@@ -50,8 +50,8 @@ msgstr "Сохранить сообщение"
 #, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
-"было вам отправлено по почте."
+"Сценарий настройки потребовал сохранить это сообщение, поэтому оно было вам "
+"отправлено по почте."
 
 #: ../Debconf/Element/Gnome/Note.pm:50
 #, fuzzy
@@ -67,7 +67,7 @@ msgstr "Сообщение сохранить не удалось."
 msgid ""
 "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
-"Сценарий настройки потребовал, чтобы вы увидели это сообщение, поэтому оно "
+"Сценарий настройки не требовал, чтобы вы увидели это сообщение, поэтому оно "
 "было вам отправлено по почте."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
@@ -77,17 +77,17 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Note.pm:83
 #, fuzzy, c-format
 msgid "Debconf, running at %s"
-msgstr "Debconf"
+msgstr "Debconf, работающий на %s"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "ни один из предложенных"
+msgstr "ни один из предложенных выше"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 #, fuzzy
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
-"Укажите буквы, соответсвующие выбранным вариантов, разделяя их пробелами."
+"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
 
 #: ../Debconf/Element/Gnome.pm:132 ../Debconf/Element/Gnome.pm:133
 msgid "Help"
@@ -105,21 +105,26 @@ msgstr ""
 #: ../Debconf/FrontEnd/Dialog.pm:49
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
+"Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr ""
+msgstr "Интерфейс dialog нельзя запускать из-под буферов emacs'а"
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
+"Интерфейс dialog не будет работать на ненастроенном (dumb) терминале, из "
+"буфера emacs'а, или в отсутствие контролирующего терминала."
 
 #: ../Debconf/FrontEnd/Dialog.pm:62
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
+"Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
+"ширину."
 
 #: ../Debconf/FrontEnd/Dialog.pm:101
 msgid ""
@@ -150,26 +155,27 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Интерфейс к debconf, использующий текстовый редактор, предлагает вам один "
-"или больше текстовых файлов. Перед вами один из таких файлов. Его формат "
-"схож с форматом стандартных конфигурационных файлов Unix: параметры и их "
-"значения идут вперемешку с описывающими их комментариями. Вы должны изменить "
-"этот файл в соответствии с вашими потребностями, сохранить его и выйти из "
-"редактора. Затем программа debconf прочитает измененный файл и использует "
-"введенные вами параметры для настройки системы."
+"Интерфейс к debconf, использующий текстовый редактор, предлагает вам "
+"редактировать некоторое количество текстовых файлов. Перед вами один из "
+"таких файлов. Его формат схож с форматом стандартных конфигурационных файлов "
+"Unix: параметры и их значения идут вперемешку с описывающими их "
+"комментариями. Вы должны изменить этот файл в соответствии с вашими "
+"потребностями, сохранить его и выйти из редактора. Затем программа debconf "
+"прочитает измененный файл и использует введенные вами параметры для "
+"настройки системы."
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
 #, fuzzy, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf на %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr ""
+msgstr "Этот интерфейс требует наличия контролирующего терминала."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
+msgstr "Term::ReadLine::GNU не может работать из-под буферов emacs'а."
 
 #: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
@@ -203,20 +209,20 @@ msgstr "не удалось инициализировать интерфейс `%s'"
 #: ../Debconf/AutoSelect.pm:89
 #, c-format
 msgid "Unable to start a frontend: %s"
-msgstr "Не удалось использовать интерфейс: %s"
+msgstr "Не удалось запустить интерфейс: %s"
 
 #: ../Debconf/Config.pm:124
 msgid "Config database not specified in config file."
-msgstr ""
+msgstr "База данных настройки не указана в файле настройки."
 
 #: ../Debconf/Config.pm:128
 msgid "Template database not specified in config file."
-msgstr ""
+msgstr "База данных шаблонов не указана в файле настройки."
 
 #: ../Debconf/FrontEnd.pm:137
 #, fuzzy, c-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Не удалось создать элемент типа %s. Причина: %s"
+msgstr "Не удалось создать элемент типа Debconf::Element::%s. Причина: %s"
 
 #: ../Debconf/FrontEnd.pm:209
 #, c-format
@@ -229,6 +235,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
+"внимание: возможно, повреждена база данных. Попытаюсь исправить ее, добавив "
+"отсутствующий вопрос %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -236,21 +244,23 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
+"Шаблон номер %s в %s содержит повторяющееся поле \"%s\" с новым значением \"%"
+"s\". Наверно, какие-то два шаблона не разделены пустой строкой.\n"
 
 #: ../Debconf/Template.pm:226
 #, fuzzy, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
+msgstr "Неизвестное поле шаблона `%s', в строфе номер %s из %s\n"
 
 #: ../Debconf/Template.pm:252
 #, fuzzy, c-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Ошибка разбора шаблона около `%s'"
+msgstr "Ошибка разбора шаблона около `%s', в строфе номер %s из %s\n"
 
 #: ../Debconf/Template.pm:258
 #, fuzzy, c-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Шаблон не содержит строки `Template:'"
+msgstr "Шаблон номер %s в %s не содержит строки `Template:'"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
@@ -259,11 +269,11 @@ msgstr "dpkg-preconfigure: не удалось заново открыть stdin: %s"
 
 #: ../dpkg-preconfigure:126
 msgid "must specify some debs to preconfigure"
-msgstr ""
+msgstr "чтобы пре-конфигурировать, нужно указать какие-нибудь deb-файлы"
 
 #: ../dpkg-preconfigure:131
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
+msgstr "так как не установлен apt-utils, настройка пакетов откладывается"
 
 #: ../dpkg-preconfigure:189
 #, c-format
@@ -273,31 +283,31 @@ msgstr "ошибка разбора шаблона: %s"
 #: ../dpkg-preconfigure:203
 #, fuzzy, c-format
 msgid "debconf: can't chmod: %s"
-msgstr "Не удалось изменить режим доступа к файлу: %s"
+msgstr "debconf: не удалось изменить режим доступа к файлу: %s"
 
 #: ../dpkg-preconfigure:213
 #, fuzzy, c-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "не удалось настроить пакет %s, код ошибки %s"
+msgstr "не удалось пре-конфигурировать пакет %s, код ошибки %s"
 
 #: ../dpkg-reconfigure:105
 #, fuzzy, c-format
 msgid "%s must be run as root"
-msgstr "должна выполняться с правами пользователя root"
+msgstr "%s должна выполняться с правами пользователя root"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
-msgstr ""
+msgstr "укажите пакет, который нужно пере-настроить"
 
 #: ../dpkg-reconfigure:157
 #, fuzzy, c-format
 msgid "%s is not installed"
-msgstr "Пакет %s установлен не полностью"
+msgstr "Пакет %s не установлен"
 
 #: ../dpkg-reconfigure:161
 #, fuzzy, c-format
 msgid "%s is broken or not fully installed"
-msgstr "Пакет %s установлен не полностью"
+msgstr "Пакет %s установлен не полностью или поврежден"
 
 #: ../dpkg-reconfigure:238
 #, c-format
@@ -307,32 +317,32 @@ msgstr "Ошибка чтения файла состояния: %s"
 #: ../debconf-mergetemplate:117
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "отсутствует %s"
 
 #: ../debconf-mergetemplate:121
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "отсутствует %s; бросаю %s"
 
 #: ../debconf-mergetemplate:144
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s является нечетким около байта %s: %s"
 
 #: ../debconf-mergetemplate:149
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s является нечетким около байта %s: %s; бросаю это"
 
 #: ../debconf-mergetemplate:166
 #, fuzzy, c-format
 msgid "%s is outdated"
-msgstr "Пакет %s установлен не полностью"
+msgstr "Пакет %s устарел"
 
 #: ../debconf-mergetemplate:171
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
+msgstr "Пакет %s устарел; бросаем весь шаблон!"
 
 #, fuzzy
 #~ msgid "Debconf was asked to save this "
@@ -404,7 +414,7 @@ msgstr ""
 #~ "Предупреждение: в переданных параметрах обнаружен символ перевода строки."
 
 #~ msgid "This will probably cause strange things to happen!"
-#~ msgstr "Это может привести к неожиданным результатам!"
+#~ msgstr "Это может привести к странным результатам!"
 
 #~ msgid "%s is not installed or does not use debconf"
 #~ msgstr "Пакет %s не установлен или не использует debconf"

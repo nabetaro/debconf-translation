@@ -20,21 +20,24 @@ jour cela sera appelé par dpkg --reconfigure
 
 =item B<-f>I<type>, B<--frontend=>I<type>
 
-Selectionne l'interface à utiliser. L'interface par défaut peut être changée
-définitivement parE<nbsp>:
+Sélectionne l'interface à utiliser. L'interface par défaut peut être fixée de
+façon permanente parE<nbsp>:
 
  dpkg-reconfigure debconf
 
 Remarquez que si vous avez paramétré debconf pour utiliser par défaut
-l'interface non interactive, dpkg-reconfigure utilisera cette fois à la place
-l'interface «E<nbsp>dialogueE<nbsp>», pour que vous puissier effectivement
-reconfigurer le paquet.
+l'interface non interactive, dpkg-reconfigure utilisera l'interface dialog à la
+place et vous devrez réellement reconfigurer le paquet.
 
 =item B<-p>I<valeur>, B<--priority=>I<valeur>
 
 Spécifie la priorité minimum des questions qui seront affichées.
-dpkg-reconfigure affiche normalement les questions à priorité basse sans
+Normalement, dpkg-reconfigure affiche les questions à priorité basse sans
 tenir compte de votre priorité par défaut.
+
+=item B<--default-priority>
+
+Utiliser la priorité par défaut, au lieu de forcer la priorité à low.
 
 =item B<--all>
 
@@ -44,7 +47,7 @@ peut prendre beaucoup de temps.
 =item B<-u>, B<--unseen-only>
 
 Par défaut, toutes les questions sont affichées, même si vous y avez déjà
-répondu. Cependant, si ce paramètre est activé, seulement les questions qui
+répondu. Cependant, si ce paramètre est activé, seules les questions qui
 n'ont pas été affichées seront posées.
 
 =item B<--force>

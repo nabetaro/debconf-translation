@@ -339,6 +339,11 @@ sera par défaut seulement lisible.
 Ajoute une base de données avant celles utilisées normalement, elle peut donc
 remplacer les valeurs des autres. La valeur de la variable fonctionne de la
 même manière que pour DEBCONF_DB_FALLBACK.
+.TP
+.B DEBCONF_SYSTEMRC
+Si cette variable d'environnement est fixée, debconf ignorera le fichier
+~/.debconfrc de l'utilisateur et utilisera à la place le fichier de
+configuration du système.
 .SH BOGUES
 Probablement beaucoup, il y a beaucoup de code ici.
 .P
