@@ -7,9 +7,9 @@ debconf-communicate - communicate with debconf
 =cut
 
 use strict;
-use Debian::DebConf::Config qw(dbdir);
-use Debian::DebConf::ConfigDb qw(loaddb savedb);
-use Debian::DebConf::AutoSelect qw(:all);
+use Debian::Debconf::Config qw(dbdir);
+use Debian::Debconf::ConfigDb qw(loaddb savedb);
+use Debian::Debconf::AutoSelect qw(:all);
 
 =head1 SYNOPSIS
 

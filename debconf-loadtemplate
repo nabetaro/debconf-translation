@@ -7,9 +7,9 @@ debconf-loadtemplate - load template file into debconf database
 =cut
 
 use strict;
-use Debian::DebConf::Config qw(dbdir);
-use Debian::DebConf::Template;
-use Debian::DebConf::ConfigDb qw(loaddb registertemplates savedb);
+use Debian::Debconf::Config qw(dbdir);
+use Debian::Debconf::Template;
+use Debian::Debconf::ConfigDb qw(loaddb registertemplates savedb);
 
 =head1 SYNOPSIS
 
@@ -35,7 +35,7 @@ L<debconf-communicate(8)|debconf-communicate>
 =cut
 
 my $owner=shift;
-registertemplates($owner, Debian::DebConf::Template->load($_)) foreach @ARGV;
+registertemplates($owner, Debian::Debconf::Template->load($_)) foreach @ARGV;
 savedb(dbdir());
 
 =head1 AUTHOR

@@ -19,11 +19,11 @@ all this.
 =cut
 
 use strict;
-use Debian::DebConf::Template;
-use Debian::DebConf::ConfigDb qw(loaddb savedb registertemplates);
-use Debian::DebConf::Config qw(dbdir);
-use Debian::DebConf::AutoSelect qw(:all);
-use Debian::DebConf::Log qw(:all);
+use Debian::Debconf::Template;
+use Debian::Debconf::ConfigDb qw(loaddb savedb registertemplates);
+use Debian::Debconf::Config qw(dbdir);
+use Debian::Debconf::AutoSelect qw(:all);
+use Debian::Debconf::Log qw(:all);
 
 debug developer => "frontend started";
 
@@ -59,7 +59,7 @@ else {
 		my $fn=shift;
 		if (-e $fn) {
 			debug developer => "I guess it is $fn";
-			registertemplates($package, Debian::DebConf::Template->load($fn));
+			registertemplates($package, Debian::Debconf::Template->load($fn));
 			return 1;
 		}
 		else {
@@ -96,7 +96,7 @@ if ($ARGV[0] =~/^(.*[.\/])(?:postinst|preinst)$/) {
 
 	# Load templates, if any.
 	my $templates=$base."templates";
-	registertemplates($package, Debian::DebConf::Template->load($templates))
+	registertemplates($package, Debian::Debconf::Template->load($templates))
 		if -e $templates;
 
 	# Run config script, if any.

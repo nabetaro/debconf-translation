@@ -4,9 +4,18 @@ debconf (0.4.00) unstable; urgency=low
     ways to do this, the quick hack way and the move lots of directories in
     cvs way. I took the latter. 
   * While I was reorganizing *EVERYTHING*, I renamed all the perl modules, 
-    what was Debian::DebConf::foo is not Debconf::foo. 
+    what was Debian::DebConf::foo is now Debconf::foo.
     Debian::DebConf::Client::ConfModule is now just Debconf::ConfModule, but 
     a stub module exists in the old location for backwards compatability.
+  * If you use the new module, you should depend on this version of
+    Debconf!
+  * I guess this means the filename in all the .po files are wrong, bug
+    since those filenames are in comments, the .po files should continue to
+    work, right?
+  * debconf-utils now depends on debconf >= 0.4, so it will continue to
+    work.
+  * Now builds out of a Makefile.PL. I hope this satisfies the person was
+    was so annoyingly complaining about my lack of one.
   * Needless to say, this was a massive PITA all around. I've NEVER going
     to do this again, so I hope I got it right.
 

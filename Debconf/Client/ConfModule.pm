@@ -2,11 +2,11 @@
 
 =head1 NAME
 
-Debian::DebConf::Client::ConfModule - client module for ConfModules
+Debconf::Client::ConfModule - client module for ConfModules
 
 =head1 SYNOPSIS
 
- use Debian::DebConf::Client::ConfModule ':all';
+ use Debconf::Client::ConfModule ':all';
  version('2.0');
  my $capb=capb('backup');
  input("medium", "foo/bar");
@@ -35,10 +35,10 @@ everything, simply import ":all".
 
 =cut
 
-package Debian::DebConf::Client::ConfModule;
-use Debian::DebConf::Gettext;
-use Debian::DebConf::ConfigDb;
-use Debian::DebConf::Config;
+package Debconf::Client::ConfModule;
+use Debconf::Gettext;
+use Debconf::ConfigDb;
+use Debconf::Config;
 use strict;
 use vars qw($AUTOLOAD @EXPORT_OK %EXPORT_TAGS);
 use base qw(Exporter);
@@ -73,7 +73,7 @@ sub import {
 		unless $ENV{DEBIAN_HAS_FRONTEND};
 
 	# Make the Exporter still work.
-	Debian::DebConf::Client::ConfModule->export_to_level(1, @_);
+	Debconf::Client::ConfModule->export_to_level(1, @_);
 
 	# A truely gross hack. This only is needed if
 	# /usr/share/debconf/confmodule is loaded, and then this

@@ -70,11 +70,11 @@ BEGIN {
 	eval qq{
 		use strict;
 		use FileHandle;
-		use Debian::DebConf::ConfigDb qw(loaddb savedb registertemplates);
-		use Debian::DebConf::Config qw(frontend priority showold
+		use Debian::Debconf::ConfigDb qw(loaddb savedb registertemplates);
+		use Debian::Debconf::Config qw(frontend priority showold
 					       dbdir tmpdir);
-		use Debian::DebConf::AutoSelect qw(:all);
-		use Debian::DebConf::Gettext;
+		use Debian::Debconf::AutoSelect qw(:all);
+		use Debian::Debconf::Gettext;
 	};
 	if ($@) {
 		# Don't use gettext() on this because it may have failed to
@@ -177,7 +177,7 @@ foreach (@buffer) {
 	# Load templates if any.
 	if (defined $template && length $template) {
 		eval q{
-			registertemplates($package, Debian::DebConf::Template->load($template))
+			registertemplates($package, Debian::Debconf::Template->load($template))
 		};
 		unlink $template;
 		if ($@) {
