@@ -96,10 +96,6 @@ sub new {
 		$self->button_back);
 	$self->screen->add($self->titlebar, $self->mainwindow,
 		$self->descwindow, $self->helpbar);
-	
-	# Force a screen resize so the screen size is known.
-	$self->screen->slang_init;
-	$self->screen->resize;
 
 	return $self;
 }
@@ -115,7 +111,7 @@ sub title {
 	
 	return $this->{title} unless @_;
 	$this->{'title'} = shift;
-	if ($this->mainwindow) {
+	if ($this->mainwindow && $this->screen->initialized) {
 		$this->mainwindow->title($this->{'title'});
 		$this->mainwindow->display;
 	}
@@ -133,11 +129,18 @@ user did, and the associated Question is set to that value.
 
 sub go {
         my $this=shift;
+	my @elements=@{$this->elements};
 
-	# Create and lay out all the widgets.
+	return 1 unless @elements;
+
+	# Make sure slang is up and running, and the screen size is known.
+	$this->screen->slang_init;
+
+	# Create and lay out all the widgets in the panel.
+	$this->panel->clear;
 	my $y=0;
 	my $firstwidget='';
-	foreach my $element (@{$this->elements}) {
+	foreach my $element (@elements) {
 		# Alternate some text (the short description)..
 		my $text=Term::Stool::Text->new(
 			yoffset => $y++,
