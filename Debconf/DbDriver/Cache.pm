@@ -326,6 +326,23 @@ sub setfield {
 	return $this->{cache}->{$item}->{fields}->{$field} = $value;	
 }
 
+=head2 removefield(itemname, fieldname)
+
+Remove the field from the cache, if the underlying db is not readonly.
+
+=cut
+
+sub removefield {
+	my $this=shift;
+	my $item=shift;
+	my $field=shift;
+
+	return if $this->{readonly};
+	return unless $this->cached($item);
+	$this->{dirty}->{$item}=1;
+	return delete $this->{cache}->{$item}->{fields}->{$field};
+}
+
 =head2 fields(itemname)
 
 Pulls the field list out of the cache.

@@ -64,6 +64,20 @@ sub fields {
 	return keys %{$this->{_fields}};
 }
 
+=head2 clearall
+
+Clears all the fields of the object.
+                
+=cut
+                
+sub clearall {
+	my $this=shift;
+
+	foreach my $field (keys %{$this->{_fields}}) {
+		delete $this->{_fields}->{$field};
+	}
+}
+
 =head2 AUTOLOAD
 
 Creates and calls accessor methods to handle fields. 

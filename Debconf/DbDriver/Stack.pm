@@ -254,6 +254,15 @@ sub _nochange {
 		}
 		return $value; # no change
 	}
+	elsif ($command eq 'removefield') {
+		my $value=shift;
+		
+		# If the field is not present, no change.
+		foreach my $field ($driver->fields($item)) {
+			return if $field eq $value;
+		}
+		return $value; # no change
+	}
 
 	# Ok, the rest is close to the same for fields, flags, and variables.
 	my @list;
@@ -298,6 +307,7 @@ sub removeowner { $_[0]->_change('removeowner', @_)	}
 sub owners	{ $_[0]->_query('owners', @_)		}
 sub getfield	{ $_[0]->_query('getfield', @_)		}
 sub setfield	{ $_[0]->_change('setfield', @_)	}
+sub removefield { $_[0]->_change('removefield', @_)	}
 sub fields	{ $_[0]->_query('fields', @_)		}
 sub getflag	{ $_[0]->_query('getflag', @_)		}
 sub setflag	{ $_[0]->_change('setflag', @_)		}

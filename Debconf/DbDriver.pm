@@ -290,6 +290,13 @@ setting failed.
 
 Each subclass must implement this method.
 
+=head2 removefield(itemname, fieldname)
+
+Remove the given field from the given item, if it exists. This is _not_ the
+same as setting the field to '', instead, it removes it from the list of
+fields. Returns true unless removing of the field failed, when it will
+return undef.
+
 =head2 fields(itemname)
 
 Return the fields present in the item.

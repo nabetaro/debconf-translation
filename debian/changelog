@@ -1,3 +1,15 @@
+debconf (0.9.58) unstable; urgency=low
+
+  * Modified Template->clearall() to actually remove fields, rather
+    than just setting them to ''. The old behavior broke badly if a
+    localized Choices field was "cleared" -- debconf would then refuse to
+    display that question in that locale, since there were no choices to
+    choose from. Closes: #95487
+  * To make that fix possible, I had to add yet another function to the
+    DbDriver interface, removefield().
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 15 May 2001 18:39:23 -0400
+
 debconf (0.9.57) unstable; urgency=low
 
   * Removed all the lvalue stuff. Not used (I hope!), breaks under perl
