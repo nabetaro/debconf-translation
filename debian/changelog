@@ -1,3 +1,10 @@
+debconf (0.2.67) unstable; urgency=low
+
+  * When the back button is hit, clear the buffer of all questions.
+    Fixes some truely confusing behavior.
+
+ -- Joey Hess <joeyh@debian.org>  Fri,  7 Jan 2000 18:55:39 -0800
+
 debconf (0.2.66) unstable; urgency=low
 
   * Fixed type that was making a sbin file, Closes: #0.2.65

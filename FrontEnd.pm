@@ -132,8 +132,8 @@ Display accumulated Elements to the user. The Elements are in the elements
 property, and that property is cleared after the Elements are presented.
 
 After showing each element, checks to see if the object's backup property has
-been set; if so, doesn't display any of the other pending questions, and 
-return false. The default is to return true.
+been set; if so, doen't display any of the other pending questions (remove them
+from the buffer), and return false. The default is to return true.
 
 The return value of each element's show() method is used to set the value of
 the question associated with that element.
@@ -147,6 +147,7 @@ sub go {
 	foreach my $element (@{$this->elements}) {
 		my $value=$element->show;
 		if ($this->backup) {
+			delete $this->{elements};
 			$this->backup('');
 			return;
 		}
