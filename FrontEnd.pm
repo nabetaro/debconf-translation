@@ -99,6 +99,7 @@ sub makeelement {
 		# Called as class method.
 		($frontend_type)=$this=~m/DebConf::FrontEnd::(.*)/;
 	}
+	debug("question is $question; question->template is $question->template\n");
 	my $type=$frontend_type.'::'.ucfirst($question->template->type);
 
 	my $element=eval qq{
