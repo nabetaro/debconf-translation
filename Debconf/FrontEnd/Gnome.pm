@@ -38,6 +38,11 @@ Set up most of the GUI.
 sub init {
 	my $this=shift;
 	
+	# Gnome really does suck. Why does it try to parse @ARGV when it
+	# inits?
+	my @gnome_sucks=@ARGV;
+	@ARGV=();
+	
 	# Ya know, this really sucks. The authors of GTK seemed to just not
 	# conceive of a program that can, *gasp*, work even if GTK doesn't
 	# load. So this thing throws a fatal, essentially untrappable
@@ -54,6 +59,7 @@ sub init {
 		exit(0); # success
 	}
 	Gnome->init('Debconf');
+	@ARGV=@gnome_sucks;
 	
 	$this->SUPER::init(@_);
 	$this->interactive(1);

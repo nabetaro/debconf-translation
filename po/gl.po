@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.9.29\n"
-"POT-Creation-Date: 2001-10-08 19:01-0400\n"
+"POT-Creation-Date: 2001-10-18 15:05-0400\n"
 "PO-Revision-Date: 2001-09-03 21:55+0200\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@iname.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -49,26 +49,6 @@ msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"O patrón número %s en %s tén un campo \"%s\" duplicado co novo valor \"%s\". "
-"É posible que dous patróns non estén correctamente separados cun retorno de "
-"carro.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -130,7 +110,7 @@ msgstr ""
 "Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:65
+#: ../Debconf/FrontEnd/Gnome.pm:71
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -223,6 +203,26 @@ msgstr "Máis"
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "Esta interface precisa dun terminal de control."
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"O patrón número %s en %s tén un campo \"%s\" duplicado co novo valor \"%s\". "
+"É posible que dous patróns non estén correctamente separados cun retorno de "
+"carro.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Erro na análise do patrón preto de `%s', na estrofa número %s de %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "O patrón número %s en %s non contén unha liña 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.52\n"
-"POT-Creation-Date: 2001-10-08 19:01-0400\n"
+"POT-Creation-Date: 2001-10-18 15:05-0400\n"
 "PO-Revision-Date: 2000-01-30 17:00+0100\n"
 "Last-Translator: Peter Karlsson <peterk@debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,26 +44,6 @@ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
-"beror troligen på att två mallar inte avdelats korrekt med en ensam "
-"radbrytning.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
-
-#: ../Debconf/Template.pm:226
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -128,7 +108,7 @@ msgstr ""
 "per e-post."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:65
+#: ../Debconf/FrontEnd/Gnome.pm:71
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -222,6 +202,26 @@ msgstr "Mer"
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "Detta skal kräver en kontrollerande tty."
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
+"beror troligen på att två mallar inte avdelats korrekt med en ensam "
+"radbrytning.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Tolkningsfel nära \"%s\" i mall, i strof %s av %s\n"
+
+#: ../Debconf/Template.pm:226
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Mall %s i %s innehåller inte någon \"Template:\"-rad\n"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format

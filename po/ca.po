@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.0\n"
-"POT-Creation-Date: 2001-10-08 19:01-0400\n"
+"POT-Creation-Date: 2001-10-18 15:05-0400\n"
 "PO-Revision-Date: 2001-08-29 02:37+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Debian Catalan l10n Team <debian-l10n-catalan@lists.debian."
@@ -50,26 +50,6 @@ msgstr "No s'ha pogut carregar Debconf::Element::%s. Error degut a: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurant %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"La plantilla #%s en %s te un camp \"%s\" duplicat amb nou valor \"%s\". "
-"Probablement dos plantilles no estàn separades adequadament per un sol "
-"retorn de carro.\n"
-
-#: ../Debconf/Template.pm:220
-#, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Error d'analisi de plantilla prop de `%s', en la estrofa #%s de %s\n"
-
-#: ../Debconf/Template.pm:226
-#, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "La plantilla #%s en %s no conté una línia 'Template:'\n"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -133,7 +113,7 @@ msgstr ""
 "enviat."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:65
+#: ../Debconf/FrontEnd/Gnome.pm:71
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -227,6 +207,26 @@ msgstr "Mes"
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "Aquesta interfície requereix una tty controladora."
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+"La plantilla #%s en %s te un camp \"%s\" duplicat amb nou valor \"%s\". "
+"Probablement dos plantilles no estàn separades adequadament per un sol "
+"retorn de carro.\n"
+
+#: ../Debconf/Template.pm:220
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Error d'analisi de plantilla prop de `%s', en la estrofa #%s de %s\n"
+
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "La plantilla #%s en %s no conté una línia 'Template:'\n"
 
 #: ../dpkg-preconfigure:113
 #, c-format

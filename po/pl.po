@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.3.39\n"
-"POT-Creation-Date: 2001-10-08 19:01-0400\n"
+"POT-Creation-Date: 2001-10-18 15:05-0400\n"
 "PO-Revision-Date: 2000-06-05 01:40+0200\n"
 "Last-Translator: Marcin Owsiany <porridge@pandora.info.bielsko.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -46,23 +46,6 @@ msgstr "Nie uda³o siê utworzyæ elementu typu %s z powodu: %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
-
-#: ../Debconf/Template.pm:176
-#, c-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-
-#: ../Debconf/Template.pm:220
-#, fuzzy, c-format
-msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B³±d w szablonie w pobli¿u `%s'"
-
-#: ../Debconf/Template.pm:226
-#, fuzzy, c-format
-msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../Debconf/Element/Select.pm:85
 #, c-format
@@ -126,7 +109,7 @@ msgstr ""
 "Debconf mia³ za zadanie zapisaæ t± uwagê, wiêc zosta³a przes³ana do Ciebie"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
-#: ../Debconf/FrontEnd/Gnome.pm:65
+#: ../Debconf/FrontEnd/Gnome.pm:71
 msgid "Debconf"
 msgstr "Debconf"
 
@@ -215,6 +198,23 @@ msgstr "Dalej"
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr ""
+
+#: ../Debconf/Template.pm:176
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
+msgstr ""
+
+#: ../Debconf/Template.pm:220
+#, fuzzy, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "B³±d w szablonie w pobli¿u `%s'"
+
+#: ../Debconf/Template.pm:226
+#, fuzzy, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Szablon nie zawiera linii `Template:'"
 
 #: ../dpkg-preconfigure:113
 #, fuzzy, c-format
