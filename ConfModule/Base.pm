@@ -102,6 +102,16 @@ sub command_get {
 	return $question->template->default || '';
 }
 
+# Set a value.
+sub command_set {
+	my $this=shift;
+	my $question=shift;
+	my $value=shift;
+
+	$question=ConfigDb::getquestion($question);
+	$question->value($value);
+}
+
 # Add a mapping.
 sub command_register {
 	my $this=shift;
