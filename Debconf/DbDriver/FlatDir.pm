@@ -15,7 +15,7 @@ use base qw(Debconf::DbDriver);
 This is a debconf database driver that uses a plain text file for
 each individual item. The files are all contained in a single
 subdirectory, and are named the same as the item name, except '/' is
-replaced with ':' in the filename.
+replaced with ':' in the filename, and an optional extention is added.
 
 Derived modules must implement the methods for reading and writing the
 file contents.
@@ -83,7 +83,9 @@ sub iterate {
 		return $iterator;
 	}
 
-	return readdir($iterator);
+	my $ret=readdir($iterator);
+	closedir($iterator) if not defined $ret;
+	return $ret;
 }
 
 =head2 exists(itemname)
