@@ -2,12 +2,11 @@
 # Copyright (C) 2001 Free Software Foundation, Inc.
 # Shell Hung <shell@debian.org>, 2001
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.0.22\n"
-"POT-Creation-Date: 2002-10-29 20:38-0500\n"
-"PO-Revision-Date: 2001-12-18 04:09+800\n"
+"Project-Id-Version: debconf 1.2.13\n"
+"POT-Creation-Date: 2002-10-31 13:27-0500\n"
+"PO-Revision-Date: 2002-10-31 13:32+800\n"
 "Last-Translator: Shell Hung <shell@debian.org>\n"
 "Language-Team: Debian Chinese <debian-chinese-big5@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +43,6 @@ msgid "Save (mail) Note"
 msgstr "儲存備忘"
 
 #: ../Debconf/Element/Gnome/Note.pm:48
-#, fuzzy
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr "Debconf 並沒有設定顯示這個備忘, 所以直接郵寄給您."
 
@@ -92,7 +90,6 @@ msgstr ""
 "地化."
 
 #: ../Debconf/FrontEnd/Dialog.pm:45
-#, fuzzy
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr "TERM 並未設定, 對話視窗介面不能執行."
 
@@ -109,7 +106,7 @@ msgstr "對話介面並不能在純終端上運作, 例如Emacs 外殼綬沖,或沒有控制終端."
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
+msgstr "對話介面要求畫面必須為 13 行高及 31 字元閣度."
 
 #: ../Debconf/FrontEnd/Dialog.pm:97
 msgid ""
@@ -143,18 +140,17 @@ msgstr ""
 "而且會使用您的設定值設定系統. "
 
 #: ../Debconf/FrontEnd/Gnome.pm:73
-#, fuzzy, c-format
+#, c-format
 msgid "Debconf on %s"
-msgstr "Debconf"
+msgstr "Debconf 在 %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
 msgstr "這個介面需求可控制的tty."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
-#, fuzzy
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "對話介面與Emacs 外殼綬沖不兼容"
+msgstr "Term::ReadLine::GNU 與 Emacs 外殼綬沖不兼容"
 
 #: ../Debconf/FrontEnd/Teletype.pm:110
 msgid "More"
@@ -211,7 +207,7 @@ msgstr "正設定 %s"
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
-msgstr ""
+msgstr "警告: 資料庫可能已受損壞. 將會賞試修復沒有的項目 %s."
 
 #: ../Debconf/Template.pm:201
 #, c-format
@@ -223,9 +219,9 @@ msgstr ""
 "的新行分格.\n"
 
 #: ../Debconf/Template.pm:226
-#, fuzzy, c-format
+#, c-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 $%s 之 %s\n"
+msgstr "在 %s 部份的樣板解讀錯誤, 是總數的 #%s 之 %s\n"
 
 #: ../Debconf/Template.pm:252
 #, c-format
@@ -266,23 +262,23 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預設定 %s 失敗, 中止狀態 %s"
 
 #: ../dpkg-reconfigure:97
-#, fuzzy, c-format
+#, c-format
 msgid "%s must be run as root"
-msgstr "需要由 root 的執行"
+msgstr "%s 是需要由 root 的執行"
 
 #: ../dpkg-reconfigure:125
 msgid "please specify a package to reconfigure"
 msgstr "請指定要再設定的包件"
 
 #: ../dpkg-reconfigure:145
-#, fuzzy, c-format
+#, c-format
 msgid "%s is not installed"
-msgstr "%s 並未完全安裝"
+msgstr "%s 並未安裝"
 
 #: ../dpkg-reconfigure:149
-#, fuzzy, c-format
+#, c-format
 msgid "%s is broken or not fully installed"
-msgstr "%s 並未完全安裝"
+msgstr "%s 未安裝完成"
 
 #: ../dpkg-reconfigure:226
 #, c-format
@@ -292,35 +288,29 @@ msgstr "不能讀取狀態檔案: %s"
 #: ../debconf-mergetemplate:117
 #, c-format
 msgid "%s is missing"
-msgstr ""
+msgstr "沒有 %s"
 
 #: ../debconf-mergetemplate:121
 #, c-format
 msgid "%s is missing; dropping %s"
-msgstr ""
+msgstr "沒有 %s; 棄用 %s"
 
 #: ../debconf-mergetemplate:144
 #, c-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr ""
+msgstr "%s 是不正確的, 位置在 %s: %s"
 
 #: ../debconf-mergetemplate:149
 #, c-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr ""
+msgstr "%s 是不正確的, 位置在 %s: %s; 放棄中"
 
 #: ../debconf-mergetemplate:166
-#, fuzzy, c-format
+#, c-format
 msgid "%s is outdated"
-msgstr "%s 並未完全安裝"
+msgstr "%s 已經過時"
 
 #: ../debconf-mergetemplate:171
 #, c-format
 msgid "%s is outdated; dropping whole template!"
-msgstr ""
-
-#~ msgid "Debconf was asked to save this "
-#~ msgstr "Debconf 要求儲存這個 "
-
-#~ msgid "note, so it mailed it to you."
-#~ msgstr "備忘, 並且郵寄給您."
+msgstr "%s 已經過時; 棄用整個樣板"
