@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-   DebConf::Client::ConfModule - client module for ConfModules
+Debian::DebConf::Client::ConfModule - client module for ConfModules
 
 =cut
 
@@ -164,3 +164,5 @@ sub AUTOLOAD {
 Joey Hess <joey@kitenet.net>
 
 =cut
+
+1

@@ -1,9 +1,23 @@
 #!/usr/bin/perl -w
-#
-# FrontEnd that presents a simple dialog interface, using whiptail (or dialog)
-# This inherits from the generic FrontEnd and just defines some methods to
-# handle commands.
 
+=head1 NAME
+
+DebConf::FrontEnd::Dialog - dialog FrontEnd
+
+=cut
+
+=head1 DESCRIPTION
+
+This FrontEnd is for a user interface based on dialog, whiptail, or gdialog.
+It will use whichever is available, but prefers to use whiptail if available.
+It handles all the messy communication with thse programs.
+
+=cut
+
+=head1 METHODS
+
+=cut
+   
 package Debian::DebConf::FrontEnd::Dialog;
 use Debian::DebConf::FrontEnd::Base;
 use Debian::DebConf::Element::Dialog::String;
@@ -14,9 +28,20 @@ use Debian::DebConf::Element::Dialog::Note;
 use Debian::DebConf::Priority;
 use Text::Wrap qw(wrap $columns);
 use IPC::Open3;
+use Fcntl;
+use POSIX qw(tmpnam);
 use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd::Base);
+
+=head2 new
+
+Creates and returns a new FrontEnd::Dialog object. It will look to see if
+whiptail, or dialog, or gdialog are available, in that order. To make it use
+dialog, set FORCE_DIALOG in the environment. To make it use gdialog, set
+FORCE_GDIALOG in the environment.
+
+=cut
 
 sub new {
 	my $proto = shift;
@@ -55,7 +80,13 @@ sub new {
 	return $self;
 }
 
-# Create an input element.
+=head2 makeelement
+
+This overrides the method in the Base FrontEnd, and creates Elements in the
+Element::Dialog class. Each data type has a different Element created for it.
+
+=cut
+
 sub makeelement {
 	my $this=shift;
 	my $question=shift;
@@ -90,11 +121,16 @@ sub makeelement {
 	return $elt;
 }	
 
-# Dialog and whiptail have an annoying property of requiring you specify
-# their dimentions explicitly. This function handles doing that. Just pass in
-# the text that will be displayed in the dialog and then the title of the
-# dialog, and it will spit out new text, formatted nicely, then the height for
-# the dialog, and then the width for the dialog.
+=head2 sizetext
+
+Dialog and whiptail have an annoying property of requiring you specify
+their dimentions explicitly. This function handles doing that. Just pass in
+the text that will be displayed in the dialog and then the title of the
+dialog, and it will spit out new text, formatted nicely, then the height for
+the dialog, and then the width for the dialog.
+
+=cut
+
 sub sizetext {
 	my $this=shift;
 	my $title=shift;	
@@ -116,12 +152,14 @@ sub sizetext {
 	       $window_columns + $this->borderwidth;
 }
 
-use Fcntl;
-use POSIX qw(tmpnam);
+=head2 showtext
 
-# Pass this a title and some text and it will display the text to the user in
-# a dialog. If the text is too long to fit in one dialog, it will use as many
-# as are required.
+Pass this a title and some text and it will display the text to the user in
+a dialog. If the text is too long to fit in one dialog, it will use a scrollable
+dialog.
+
+=cut
+
 sub showtext {
 	my $this=shift;
 	my $title=shift;
@@ -160,12 +198,17 @@ sub showtext {
 	}
 }
 
-# Shows a dialog. The first parameter is the dialog title (not to be
-# confused with the frontend's main title). The remainder are passed to
-# whiptail/dialog.
-# 
-# It returns a list consiting of the return code of whiptail and anything
-# whiptail outputs to stderr.
+=head2 showdialog
+
+Displays a dialog. The first parameter is the dialog title (not to be
+confused with the FrontEnd's main title). The remainder are passed to
+whiptail/dialog.
+
+It returns a list with two elements. The first is the return code of dialog. The
+second, anything it outputs to stderr.
+
+=cut
+
 sub showdialog {
 	my $this=shift;
 	my $title=shift;
@@ -207,5 +250,11 @@ sub showdialog {
 
 	return ($? >> 8), $stderr;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

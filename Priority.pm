@@ -1,9 +1,30 @@
 #!/usr/bin/perl -w
-#
-# This module deals with question priority levels.
+
+=head1 NAME
+
+Debian::DebConf::Priority - priority level module
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a simple perl module, not an object. It is used to deal with
+the priorities of Questions.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 package Debian::DebConf::Priority;
 use strict;
+
+=head1
+
+Currently known priorities are low, medium, high, and critical.
+
+=cut
 
 my %priorities=(
 	'low' => 0,
@@ -12,11 +33,20 @@ my %priorities=(
 	'critical' => 3,
 );
 
+=head1 METHODS
+
+=cut
+
 {
 
 	my $priority_level='medium';
 
-	# Set the priority level.
+=head1 set
+
+Set the current priority level to the specified value.
+
+=cut
+
 	sub set {
 		my $new=shift;
 		
@@ -25,8 +55,13 @@ my %priorities=(
 		$priority_level=$new;
 	}
 
-	# Returns true if the passed priority is high enough to be displayed under
-	# the current priority level.
+=head1 high_enough
+
+Returns true iff the passed value is greater than or equal to
+the current priotiy level.
+
+=cut
+
 	sub high_enough {
 		my $priority=shift;
 	
@@ -36,5 +71,10 @@ my %priorities=(
 	}
 }	
 
-1
+=head1 AUTHOR
 
+Joey Hess <joey@kitenet.net>
+
+=cut
+
+1

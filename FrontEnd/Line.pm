@@ -1,6 +1,21 @@
 #!/usr/bin/perl -w
-#
-# FrontEnd that presents a simple line-at-a-time interface.
+
+=head1 NAME
+
+DebConf::FrontEnd::Line - line-at-a-time FrontEnd
+
+=cut
+
+=head1 DESCRIPTION
+
+This FrontEnd is for a simple user interface that uses plain text output. It
+uses ReadLine to make the user interface just a bit nicer.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 package Debian::DebConf::FrontEnd::Line;
 use Debian::DebConf::FrontEnd::Base;
@@ -26,7 +41,13 @@ sub new {
 	return $self;
 }
 
-# Create an input element.
+=head2 makeelement
+
+This overrides the method in the Base FrontEnd, and creates Elements in the]
+Element::Line class. Each data type has a different Element created for it.
+
+=cut
+
 sub makeelement {
 	my $this=shift;
 	my $question=shift;
@@ -61,8 +82,14 @@ sub makeelement {
 	return $elt;
 }	
 
-# Display text nicely wrapped. If too much text is displayed at once, will
-# page it.
+=head2 display
+
+Displays text wrapped to fit on the screen. If too much text is displayed at
+once, it will page it. If a title has been set and has not yet been displayed,
+displays it first.
+
+=cut
+
 sub display {
 	my $this=shift;
 	my $text=shift;
@@ -70,7 +97,13 @@ sub display {
 	$this->display_nowrap(wrap('','',$text));
 }
 
-# Display text without wrapping but still page it.
+=head2 display_nowrap
+
+Display text, paging if necessary. If a title has been set and has not yet been
+displayed, displays it first.
+
+=cut
+
 sub display_nowrap {
 	my $this=shift;
 	my $text=shift;
@@ -91,7 +124,13 @@ sub display_nowrap {
 	}
 }
 
-# Display a title. Only do so once per title.
+=head2 title
+
+Display a title. Only do so once per title. The title is stored in the title
+property of the object.
+
+=cut
+
 sub title {
 	my $this=shift;
 	
@@ -102,7 +141,14 @@ sub title {
 	$this->{'title'}='';
 }
 
-# Display a prompt and get input.
+=head2 prompt
+
+Pass it the text to prompt the user with, and an optional default. The user will be
+prompted to enter input, and their input returned. If a title is pending, it will be
+displayed before the prompt.
+
+=cut
+
 sub prompt {
 	my $this=shift;
 	my $prompt=shift;
@@ -116,5 +162,11 @@ sub prompt {
 	$this->{'readline'}->addhistory($_);
 	return $_;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

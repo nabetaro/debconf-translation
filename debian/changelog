@@ -1,6 +1,10 @@
 debconf (0.1.7) unstable; urgency=low
 
-  * 
+  * Added beginnings of GTK frontend by AJ.
+  * Began moving the docs from internals.txt into POD documentation. It was
+    getting out of sync with the code, this will prevent that. Only Elements
+    still need to be converted.
+  * Fixed unset bug in confmodule.sh
 
  -- Joey Hess <joeyh@master.debian.org>  Mon,  2 Aug 1999 16:06:33 -0700
 

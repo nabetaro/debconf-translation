@@ -1,10 +1,36 @@
 #!/usr/bin/perl -w
-#
-# Template object for Debian configuration management system.
+
+=head1 NAME
+
+Debian::DebConf::Template - Template object
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an object that represents a Template. Each Template has some associated
+data, the fields of the template structure. To get at this data, just use 
+$template->fieldname to read a field, and $template->fieldname(value) to write a
+field. Any field names at all can be used, the convention is to lower-case their
+names. All Templates should have a "template" field that is their name. Most have
+"default", "type", and "description" fields as well. The field named 
+"extended_description" holds the extended description, if any.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 package Debian::DebConf::Template;
 use strict;
 use vars qw($AUTOLOAD);
+
+=head2 new
+
+Returns a new Template object.
+
+=cut
 
 sub new {
 	my $proto = shift;
@@ -36,9 +62,14 @@ sub _savefield {
 	}
 }
 
-# Pass this another Template and all properties of the object you
-# call this method on will be copied over onto the other Template
-# and any old values in the other Template will be removed.
+=head2 merge
+
+Pass this another Template and all properties of the object you
+call this method on will be copied over onto the other Template
+and any old values in the other Template will be removed.
+
+=cut
+
 sub merge {
 	my $this=shift;
 	my $other=shift;
@@ -53,8 +84,13 @@ sub merge {
 	}
 }
 
-# This method parses a string containing a template and stores all the
-# information in the template object.
+=head2 parse
+
+This method parses a string containing a template and stores all the
+information in the Template object.
+
+=cut
+
 sub parse {
 	my $this=shift;
 	my $text=shift;
@@ -97,5 +133,11 @@ sub AUTOLOAD {
 	$this->{$property}=shift if @_;
 	$this->{$property};
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

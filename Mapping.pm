@@ -1,6 +1,19 @@
 #!/usr/bin/perl -w
-#
-# Mapping object for Debian configuration management system.
+
+=head1 NAME
+
+Debian::DebConf::Mapping - Template to Question mapping object
+
+=cut
+
+=head1 DESCRIPTION
+
+This is an object that represents a mapping between a Question and a Template.
+
+Set the template property to the name of the template the Question is mapped to. Set
+the question property to the name of the Question.
+
+=cut
 
 package Debian::DebConf::Mapping;
 use strict;
@@ -23,5 +36,11 @@ sub AUTOLOAD {
 	$this->{$property}=shift if @_;
 	$this->{$property};
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

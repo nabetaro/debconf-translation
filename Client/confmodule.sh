@@ -74,7 +74,7 @@ for i in "capb CAPB" "stop STOP" "reset RESET" "title TITLE" \
 done
 # $@ was clobbered above, unclobber.
 set -- $old_opts
-unset $old_opts
+unset old_opts
 
 # By default, the current protocol version is sent to the frontend. You can
 # pass in a different version to override this.
@@ -85,4 +85,10 @@ version () {
 		_command "VERSION 1.0"
 	fi
 	read RET
+}
+
+# Just an alias for input. It tends to make more sense to use this to display
+# text, since displaying text isn't really asking for input.
+text () {
+	input $@
 }

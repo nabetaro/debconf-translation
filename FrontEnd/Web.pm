@@ -1,9 +1,23 @@
 #!/usr/bin/perl -w
-#
-# FrontEnd that acts as a web server. It's worth noting that this doesn't
-# worry about security at all, so it really isn't ready for use. It's a
-# proof-of-concept only. In fact, it's probably the crappiest web server ever.
-# It only accpets one client at a time as well..
+
+=head1 NAME
+
+DebConf::FrontEnd::Web - web FrontEnd
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a FrontEnd that acts as a small, stupid web server. It's worth noting
+that this doesn't worry about security at all, so it really isn't ready for
+use. It's a proof-of-concept only. In fact, it's probably the crappiest web
+server ever. It only accpets one client at a time!
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 package Debian::DebConf::FrontEnd::Web;
 use Debian::DebConf::FrontEnd::Base;
@@ -19,6 +33,13 @@ use CGI;
 use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::FrontEnd::Base);
+
+=head2 new
+
+Creates and returns an object of this class. The object binds to port 8001, or any
+port number passed as a parameter to this function.
+
+=cut
 
 # Pass in the port to bind to, 8001 is default.
 sub new {
@@ -39,7 +60,13 @@ sub new {
 	return $self;
 }
 
-# Create an input element.
+=head2 makeelement
+
+This overrides the method in the Base FrontEnd, and creates Elements in the
+Element::Web class. Each data type has a different Element created for it.
+
+=cut
+
 sub makeelement {
 	my $this=shift;
 	my $question=shift;
@@ -74,10 +101,15 @@ sub makeelement {
 	return $elt;
 }	
 
-# This returns the client that is currently waiting for input. Of course,
-# if there is no client, it waits for one to connect. As a side affect,
-# when a client connects, this also we reads in any http commands it has 
-# for us and puts them in the commands property.
+=head2 client
+
+This method ensures that a client is connected to the web server and waiting for
+input. If there is no client, it blocks until one connects. As a side affect, when
+a client connects, this also reads in any HTTP commands it has for us and puts them
+in the commands property.
+
+=cut
+
 sub client {
 	my $this=shift;
 	
@@ -96,7 +128,12 @@ sub client {
 	$this->{'client'}=$client;
 }
 
-# Forcibly close the current client's connection.
+=head2 closeclient
+
+Forcibly close the current client's connection to the web server.
+
+=cut
+
 sub closeclient {
 	my $this=shift;
 	
@@ -104,7 +141,13 @@ sub closeclient {
 	$this->client('');
 }
 
-# Just display something to a client.
+=head2 showclient
+
+Displays the passed text to the client. Can be called multiple times to build up
+a page.
+
+=cut
+
 sub showclient {
 	my $this=shift;
 	my $page=shift;
@@ -113,10 +156,17 @@ sub showclient {
 	print $client $page;
 }
 
-# This is called when it's time to display questions. It calls each element to
-# get the html to display for it, and bundles it all up into a web page which
-# is displayed to the client. Then it gets a response from the client and
-# parses it.
+=head2 go
+
+This overrides to go method in the Base FrontEnd. It
+goes through each pending Element and asks it to return the html that
+corresponds to that Element. It bundles all the html together into a
+web page and displays the web page to the client. Then it waits for the
+client to fill out the form, parses the client's response and uses that to
+set values on the Elements.
+
+=cut
+
 sub go {
 	my $this=shift;
 
@@ -182,5 +232,11 @@ sub go {
 	}
 	return '';
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

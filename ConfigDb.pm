@@ -1,7 +1,23 @@
 #!/usr/bin/perl -w
-#
-# Debian configuration database. This includes questions and templates and
-# is an interface to the actual backend databases.
+
+=head1 NAME
+
+Debian::DebConf::ConfigDb -- debian configuration database
+
+=cut
+
+=head1 DESCRIPTION
+
+Debian configuration database. This is an interface to the actual
+backend databases. It keeps track of Questions, Mappings, and Templates.
+This is a simple perl module, not a full-fledged object. It's a bit of a
+catchall, and perhaps the ugliest part of debconf.
+
+=cut
+
+=head1 METHODS
+
+=cut
 
 package Debian::DebConf::ConfigDb;
 use Debian::DebConf::Template;
@@ -10,14 +26,24 @@ use Debian::DebConf::Mapping;
 use strict;
 use vars qw($AUTOLOAD %templates %questions %mappings);
 
-# Pass in the name of the question and this will return the specified question
-# object.
+=head2 getquestion
+
+Pass in the name of the question and this will return the specified question
+object.
+
+=cut
+
 sub getquestion {
 	return $questions{(shift)};
 }
 
-# Loads up a file containing templates. Register mappings for each template in
-# the file to questions with the same name.
+=head2 loadtemplatefile
+
+Loads up a file containing templates (pass the filename to load). Creates Template
+objects and corresponding Mapping objects.
+
+=cut
+
 sub loadtemplatefile {
 	my $fn=shift;
 	
@@ -57,7 +83,12 @@ sub loadtemplatefile {
 	return 1;
 }
 
-# Instantiate Questions from templates and question mapping data.
+=head2 makequestions
+
+Instantiates Questions from Templates and Mappings.
+
+=cut
+
 sub makequestions {
 	foreach my $mapping (values %mappings) {
 		my $template=$templates{$mapping->template};
@@ -73,7 +104,13 @@ sub makequestions {
 	}
 }
 
-# Add a mapping.
+=head2 addmapping
+
+Create a Mapping and add it to the database. Pass the name of the template and
+the name of the question it is mapped to.
+
+=cut
+
 sub addmapping {
 	my $template_text=shift;
 	my $location=shift;
@@ -109,6 +146,12 @@ sub addmapping {
 	$questions{$location}=$question;
 }
 
+=head2 removemapping
+
+Removes a given mapping from the database. Pass the name of the mapping.
+
+=cut
+
 # Remove a mapping.
 sub removemapping {
 	my $location=shift;
@@ -116,8 +159,13 @@ sub removemapping {
 	delete $mappings{$location};
 }
 
-# Save the current state to disk. This is a quick hack, there is a whole
-# backend db in the spec that this ignores.
+=head2 savedb
+
+Save the current state to disk. This is a quick hack, there is a whole
+backend db in the spec that this ignores. Pass the filename to save to.
+
+=cut
+
 use Data::Dumper;
 sub savedb {
 	my $fn=shift;
@@ -131,9 +179,21 @@ sub savedb {
 	close OUT;
 }
 
-# Load the current state from disk. Again, a quick hack.
+=head2 loaddb
+
+Loads the current state from disk. Again, a quick hack. Pass the filename
+to load.
+
+=cut
+
 sub loaddb {
 	require shift;
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1

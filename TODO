@@ -2,6 +2,7 @@ To Do Before Release:
 * Update all packages in the apt repository to work with changed text and
   note stuff.
 * Make sure my spec changes are accepted by Wichert.
+* installing netbase_3.15-4.2_i386.deb hangs when the postinst exits :-(
 
 General:
 * Internals have changed in 0.1.5 and need to be redocumented.
@@ -9,6 +10,8 @@ General:
   they've already seen?)
 * Proper backend database, but that's a whole other ball of wax.
 * Other frontends.
+* Need a good simple way for a developer to run a .config script w/o
+  building a whole package, for testing. Adapt test.pl?
 * The apt mods don't allow you to predepend on something and then use it in
   a config script. That would be nice to have.
 

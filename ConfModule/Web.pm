@@ -1,6 +1,19 @@
 #!/usr/bin/perl -w
-#
-# ConfModule that interfaces to the web FrontEnd.
+
+=head1 NAME
+
+Debian::DebConf::ConfModule::Base - ConfModule that interfaces to the web FrontEnd
+
+=cut
+
+=head1 DESCRIPTION
+
+This is a ConfModule that interfaces to the web FrontEnd.
+
+Currently, this is identical to the Base ConfModule, except it has the capability to
+backup, and so its capb property is set appropriatly.
+
+=cut
 
 package Debian::DebConf::ConfModule::Web;
 use Debian::DebConf::ConfModule::Base;
@@ -8,7 +21,6 @@ use strict;
 use vars qw(@ISA);
 @ISA=qw(Debian::DebConf::ConfModule::Base);
 
-# This module can backup.
 sub new {
 	my $proto = shift;
 	my $class = ref($proto) || $proto;
@@ -16,5 +28,11 @@ sub new {
 	$self->{capb} = 'backup';
 	return $self;					
 }
+
+=head1 AUTHOR
+
+Joey Hess <joey@kitenet.net>
+
+=cut
 
 1
