@@ -103,9 +103,8 @@ sub readconfig {
 	}
 }
 
-sub import {
-	readconfig();
-}
+# Load up db on startup.
+readconfig();
 
 sub save {
 	$config->savedb if $config;
