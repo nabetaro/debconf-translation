@@ -6,9 +6,10 @@
 # separate, running configuration module.
 #
 # There are a number of stub methods that are called in response to commands
-# from the client. Each has the same name as the command, and is fed in the
-# parameters given after the command (split on whitespace), and whatever it
-# returns is passed back to the configuration module.
+# from the client. Each has the same name as the command, with "command_"
+# prepended, and is fed in the parameters given after the command (split on
+# whitespace), and whatever it returns is passed back to the configuration
+# module.
 
 package ConfModule::Base;
 use strict;
