@@ -121,7 +121,7 @@ COLUMN:	for ($num_cols = $max_cols; $num_cols > 0; $num_cols--) {
 
 		# The last choice should end up in the last column, or there
 		# are still too many columns.
-		return if ceil(($#choices + 1) / $max_lines) - 1 < $num_cols;
+		next if ceil(($#choices + 1) / $max_lines) - 1 < $num_cols;
 
 		foreach (my $choice=1; $choice <= $#choices + 1; $choice++) {
 			my $choice_length=2
