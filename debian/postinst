@@ -20,4 +20,7 @@ fi
 # Make sure the directory has safe permissions.
 chmod 700 /var/lib/debconf
 
+# This file is long obsolete, and was a conffile, so wasn't auto-removed.
+rm -f /etc/debconf.cfg
+
 #DEBHELPER#
