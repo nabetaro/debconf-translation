@@ -158,6 +158,19 @@ sub value {
 	}
 }
 
+=head2 value_split
+
+This takes the result of the value method and simply splits it up into
+individual values and returns them as a list.
+
+=cut
+
+sub value_split {
+	my $this=shift;
+	
+	return split(/,\s+/, $this->value);
+}
+
 =head2 owners
 
 This method allows you to get/set the owners of a Question. The owners are

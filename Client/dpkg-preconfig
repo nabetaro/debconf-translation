@@ -33,7 +33,7 @@ $|=1;
 my $apt;
 Getopt::Long::config qw(bundling no_ignore_case permute);
 my $ret=GetOptions(
-	"frontend|f=s" => sub { shift; ebian::DebConf::Config::frontend(shift) },
+	"frontend|f=s" => sub { shift; Debian::DebConf::Config::frontend(shift) },
 	"priority|p=s" => sub { shift; Debian::DebConf::Config::priority(shift) },
 	"apt|a" => \$apt,
 );

@@ -24,7 +24,7 @@ use vars qw(@ISA);
 
 =head2 show
 
-Select elements are not really visible there are less than two choices
+Select elements are not really visible if there are less than two choices
 for them.
 
 =cut

@@ -63,6 +63,14 @@ Description: This is a much longer test text.
 
 Template: demo/select
 Type: select
+Default: red
 Choices: ${colors}
 Description: What is your favorite color?
  This is a demo select list item. The list is generated on the fly.
+
+Template: demo/multiselect
+Type: multiselect
+Choices: slashdot, freshmeat, linux.com, linuxtoday, linux.org, lwn
+Default: slashdot, linux.com, lwn
+Description: Which web sites do you visit frequently?
+ There should be some selected as defaults.

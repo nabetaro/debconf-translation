@@ -1,3 +1,13 @@
+debconf (0.2.26) unstable; urgency=low
+
+  * Added multiselect data type.
+  * Wrote input elements for this type for all frontends except the Gtk
+    frontend. The Gtk frontend needs a bit of a redesign before it can
+    handle this, I think.
+  * Made dpkg-preconfig properly accept -f and --frontend, Closes: #49920
+
+ -- Joey Hess <joeyh@master.debian.org>  Thu, 11 Nov 1999 12:30:39 -0800
+
 debconf (0.2.25) unstable; urgency=low
 
   * Removed gtk frontend from list of frontends. If you already have it

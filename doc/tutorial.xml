@@ -129,7 +129,7 @@ esac
       a Debian control file:
       <programlisting>
 Template: <parameter>packagename</parameter>/<parameter>something</parameter>
-Type: <parameter>[select,string,boolean,note,text,password]</parameter>
+Type: <parameter>[select,multiselect,string,boolean,note,text,password]</parameter>
 Default: <parameter>[an optional default value]</parameter>
 Description: Blah blah blah?
  Blah blah blah. Blah blah. Blah blah blah. Blah blah? Blah
@@ -173,6 +173,16 @@ Template: ....
 	      <literal>
 	        Choices: yes, no, maybe
 	      </literal>
+	    </entry>
+	  </row>
+	  <row>
+	    <entry>multiselect</entry>
+	    <entry>
+	      Just like the select data type, except the user can choose any
+	      number of items from the list. This means that the 
+	      <literal>Default:</literal> field and the actual value of the
+	      question may be a comma and space delimited list of values,
+	      just like the <literal>Choices:</literal> field.
 	    </entry>
 	  </row>
 	  <row>
