@@ -45,7 +45,7 @@ sub read {
 		if ($invars) {
 			if ($line =~ /^\s/) {
 				$line =~ s/^\s+//;
-				my ($var, $value)=split(/\s*=\s*/, $line, 2);
+				my ($var, $value)=split(/\s*=\s?/, $line, 2);
 				$value=~s/\\n/\n/g;
 				$ret{variables}->{$var}=$value;
 				next;
@@ -56,7 +56,7 @@ sub read {
 		}
 
 		# Process the main structure.
-		my ($key, $value)=split(/:\s*/, $line, 2);
+		my ($key, $value)=split(/:\s?/, $line, 2);
 		$key=lc($key);
 		if ($key eq 'owners') {
 			foreach my $owner (split(/,\s+/, $value)) {

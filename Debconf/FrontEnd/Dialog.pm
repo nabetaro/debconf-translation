@@ -78,6 +78,7 @@ sub init {
 		$this->titlespacer(10);
 		$this->columnspacer(3);
 		$this->selectspacer(9);
+		$this->hasoutputfd(0);
 	}
 	elsif (-x "/usr/bin/dialog" && ! defined $ENV{FORCE_GDIALOG}) {
 		$this->program('dialog');
@@ -89,6 +90,7 @@ sub init {
 		$this->titlespacer(4);
 		$this->columnspacer(2);
 		$this->selectspacer(0);
+		$this->hasoutputfd(1);
 	}
 # Disabled until it supports --passwordbox and --nocancel
 #	elsif (-x "/usr/bin/gdialog") {
@@ -266,19 +268,45 @@ sub showdialog {
 	}
 	
 	my $sigil=$this->sigil->get($question->priority) if $this->sigil && $question;
+
+	# Set up a pipe to the output fd, before calling open3. Mess with
+	# $^F to make the fd not be close-on-exec.
+	my $savef=$^F;
+	if ($this->hasoutputfd) {
+		$^F=128;
+		pipe(OUTPUT_RDR, OUTPUT_WTR) || die "pipe: $!";
+		unshift @_, "--output-fd", fileno(OUTPUT_WTR);
+	}
 	
 	my $pid = open3('>&STDOUT', '<&STDIN', \*ERRFH, $this->program,
 		'--backtitle', gettext("Debian Configuration"),
 		'--title', $sigil.$this->title, @_);
-	my $stderr;
-	while (<ERRFH>) {
-		$stderr.=$_;
+	close OUTPUT_WTR if $this->hasoutputfd;
+	my $output;
+	if ($this->hasoutputfd) {
+		while (<OUTPUT_RDR>) {
+			$output.=$_;
+		}
+		my $error=0;
+		while (<ERRFH>) {
+			print STDERR $_;
+			$error++;
+		}
+		if ($error) {
+			die sprintf("debconf: %s output to the above errors, giving up!", $this->program)."\n";
+		}
 	}
-	chomp $stderr;
+	else {
+		while (<ERRFH>) { # ugh
+			$output.=$_;
+		}
+	}
+	chomp $output;
 
 	# Have to put the wait here to make sure $? is set properly.
 	wait;
 	$^W=$savew;
+	$^F=$savef;
 
 	# Restore stdout, stdin.
 	open(STDOUT, ">&SAVEOUT") || die $!;
@@ -296,10 +324,10 @@ sub showdialog {
 	}
 
 	if (wantarray) {
-		return $ret, $stderr;
+		return $ret, $output;
 	}
 	else {
-		return $stderr;
+		return $output;
 	}
 }
 

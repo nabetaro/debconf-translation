@@ -1,3 +1,22 @@
+debconf (1.2.37) unstable; urgency=low
+
+  * Conflict with dialogs older than 0.9b-20020814-1, which added --output-fd.
+  * Add support to dialog frontend for using the --output-fd switch when using
+    dialog, to separate error messages and output. Closes: #194331
+    However, whiptail does not yet implement --output-fd, so you can still
+    screw your system up using whiptail and a bad TERM setting. This is
+    whiptail bug #55182.
+  * Updated Japanese translation. Closes: #193747
+  * Updated French translation. Closes: #194525
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 28 May 2003 11:50:49 -0400
+
+debconf (1.2.36) unstable; urgency=low
+
+  * 822 formatter: Support values beginning with whitepace. (See #189026)
+
+ -- Joey Hess <joeyh@debian.org>  Mon,  5 May 2003 15:51:32 -0400
+
 debconf (1.2.35) unstable; urgency=low
 
   * Several French translation updates from Julien Louis. Closes: #189448
