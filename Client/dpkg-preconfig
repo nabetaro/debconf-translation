@@ -18,7 +18,6 @@ BEGIN {
 		use Debian::DebConf::ConfigDb;
 		use Debian::DebConf::Config;
 		use Debian::DebConf::AutoSelect;
-		use Debian::DebConf::Config;
 		use Debian::DebConf::Version;
 	};
 	if ($@) {
@@ -59,7 +58,7 @@ if ($apt) {
 	# this program. The user will thus see the questions only once, when
 	# the package is actually installed.
 	# This is a hack, but it's the best I can do.
-	Debian::Debconf::Config::showold('');
+	Debian::DebConf::Config::showold('');
 }
 
 # Load up previous state information.

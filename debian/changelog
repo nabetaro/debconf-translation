@@ -2,6 +2,10 @@ debconf (0.2.63) unstable; urgency=low
 
   * Removed apt-setup; it is in base-config now.
   * Minor README change.
+  * Now build-depends on sgml-data, to follow the bouncing xml.dcl.
+  * In fact, I have to change things to use a new name and path for that
+    file too.
+  * Really fixed that typo.
 
  -- Joey Hess <joeyh@debian.org>  Thu,  6 Jan 2000 20:32:15 -0800
 
