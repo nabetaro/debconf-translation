@@ -1,160 +1,335 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Finnish translation of debconf
+# Copyright (C) 2001 Jaakko Kangasharju
+# Jaakko Kangasharju <ashar@iki.fi>, 2001.
+# Tommi Vainikainen, 2004.
 #
-#    Translators, please read /usr/share/doc/po-debconf/README-trans
-#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-28 19:07-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2004-01-01 21:51-0500\n"
+"PO-Revision-Date: 2004-01-09 13:34+0200\n"
+"Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
+"Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Type: select
-#. Choices
-#: ../templates:3
-#, fuzzy
-msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr "Dialog, Readline, Gnome, Editori, Automaattinen"
-
-#. Type: select
-#. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Mit‰ k‰yttˆliittym‰‰ pakkausten asetusten s‰‰tˆˆn k‰ytet‰‰n?"
-
-#. Type: select
-#. Description
-#: ../templates:5
+#: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
 msgstr ""
-"Debconf yhdenmukaistaa sit‰ k‰ytt‰vien pakettien asetusk‰yttˆliittym‰n. Voit "
-"itse valita mieluisesi liittym‰n muutamasta vaihtoehdosta."
+"K√§yt√§t debconfin editori-liittym√§√§ j√§rjestelm√§si asetusten s√§√§t√∂√∂n. Katso "
+"yksityiskohtaiset ohjeet t√§m√§n tiedoston lopusta."
 
-#. Type: select
-#. Description
-#: ../templates:5
-#, fuzzy
+#: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Dialog on ruudun t‰ytt‰v‰ p‰‰tteell‰ n‰kyv‰ liittym‰. Readline on "
-"perinteisempi pelkk‰‰ teksti‰ k‰ytt‰v‰ liittym‰. Gnome tarjoaa nykyaikaisen "
-"X-pohjaisen liittym‰n. Editori k‰ytt‰‰ asetusten s‰‰tˆˆn lempieditoriasi. "
-"Automaattinen liittym‰ ei koskaan kysy kysymyksi‰."
+"Debconfin editori-liittym√§ antaa sinulle k√§sitelt√§viksi yhden tai useampia "
+"tekstitiedostoja, kuten t√§m√§n. Jos olet jo n√§hnyt unixin asetustiedostoja, "
+"t√§m√§nkin tiedoston ulkon√§k√∂ on tuttu -- sis√§lt√∂n√§ on asetustietoja, joiden "
+"lomassa on kommentteja. Muuta haluamiasi asetuksia, tallenna tiedosto ja "
+"poistu, mink√§ j√§lkeen debconf lukee editoidun tiedoston ja s√§√§t√§√§ asetukset "
+"sy√∂tt√§miesi tietojen perusteella."
 
-#. Type: select
-#. Choices
-#: ../templates:18
-msgid "critical, high, medium, low"
-msgstr "kriittinen, t‰rke‰, tavallinen, v‰h‰p‰tˆinen"
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:58
+#: ../Debconf/FrontEnd/Kde.pm:70
+#, c-format
+msgid "Debconf on %s"
+msgstr "Debconf @ %s"
 
-#. Type: select
-#. Description
-#: ../templates:20
-msgid "See only questions that are of what priority and higher?"
+#: ../Debconf/FrontEnd/Teletype.pm:109
+msgid "More"
+msgstr "Lis√§√§"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, c-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
+"Tiedotus: Debconf on seittiajossa. Mene osoitteeseen http://localhost:%i/"
 
-#. Type: select
-#. Description
-#: ../templates:20
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Takaisin"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Seuraava"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "Dialog-liittym√§ ei ole k√§ytett√§viss√§, koska TERM ei ole asetettu."
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialog-liittym√§√§ ei voi k√§ytt√§√§ emacsin komentotulkkiymp√§rist√∂ss√§"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
-"  - 'critical' only prompts you if the system might break.\n"
-"    Pick it if you are a newbie, or in a hurry.\n"
-"  - 'high' is for rather important questions\n"
-"  - 'medium' is for normal questions\n"
-"  - 'low' is for control freaks who want to see everything"
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
 msgstr ""
+"Dialog-liittym√§ ei toimi tyhm√§ll√§ p√§√§tteell√§, emacsin "
+"komentotulkkiymp√§rist√∂ss√§ tai ohjaavan p√§√§tteen puuttuessa."
 
-#. Type: select
-#. Description
-#: ../templates:20
-#, fuzzy
+#: ../Debconf/FrontEnd/Dialog.pm:102
 msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "Ei k√§ytt√∂kelpoista dialog:n kaltaista ohjelmaa asennettuna, joten dialog-pohjaista liittym√§√§ ei voi k√§ytt√§√§."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Dialog-liittym√§ tarvitsee v√§hint√§√§n 13 rivi√§ pitk√§n ja 31 saraketta leve√§n ruudun."
+
+#: ../Debconf/FrontEnd/Dialog.pm:297
+msgid "Debian Configuration"
+msgstr "Debianin asetusten s√§√§t√∂"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "T√§m√§ liittym√§ tarvitsee ohjaavan p√§√§tteen."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU ei ole yhteensopiva Emacsin komentotulkkipuskureihin."
+
+#: ../Debconf/AutoSelect.pm:76
+#, c-format
+msgid "falling back to frontend: %s"
+msgstr "siirryn vaihtoehtoiseen liittym√§√§n: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, c-format
+msgid "unable to initialize frontend: %s"
+msgstr "liittym√§n alustus ep√§onnistui: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, c-format
+msgid "Unable to start a frontend: %s"
+msgstr "Liittym√§n k√§ynnistys ep√§onnistui: %s"
+
+#: ../Debconf/Config.pm:125
+msgid "Config database not specified in config file."
+msgstr "Asetustietokantaa ei ole m√§√§ritelty asetustiedostossa."
+
+#: ../Debconf/Config.pm:129
+msgid "Template database not specified in config file."
+msgstr "Kyselypohjatietokantaa ei ole m√§√§ritelty asetustiedostossa."
+
+#: ../Debconf/Config.pm:141
+#, c-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Ongelma laitettaessa s√§keist√∂n %s/%s m√§√§ritt√§m√§√§ tietokantaa k√§ytt√∂kuntoon."
+
+#: ../Debconf/Template.pm:90
+#, c-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "varoitus: mahdollinen tietokannan turmelus.  Yritet√§√§n korjata lis√§√§m√§ll√§ takaisin puuttuva kysymys %s."
+
+#: ../Debconf/Template.pm:201
+#, c-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly seperated by a lone newline.\n"
 msgstr ""
-"Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan "
-"ajamalla \"dpkg-reconfigure\"-ohjelman."
+"Kyselypohjassa #%s tiedostossa %s toistuu kentt√§ \"%s\" uudella arvolla \"%s"
+"\". Mahdollisesti kahta eri pohjaa ei ole erotettu rivinvaihdolla "
+"toisistaan.\n"
 
-#~ msgid "Show all old questions again and again?"
-#~ msgstr "N‰ytet‰‰nkˆ vanhat kysymykset aina uudelleen?"
+#: ../Debconf/Template.pm:226
+#, c-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Tuntematon kentt√§ \"%s\", s√§keist√∂ss√§ #%s tiedostossa %s\n"
 
-#~ msgid ""
-#~ "Debconf normally only asks you any given question once. Then it remembers "
-#~ "your answer and never asks you that question again. If you prefer, "
-#~ "debconf can ask you questions over and over again, each time you upgrade "
-#~ "or reinstall a package that asks them."
-#~ msgstr ""
-#~ "Yleens‰ debconf kysyy kunkin kysymyksen vain kerran, muistaa antamasi "
-#~ "vastauksen eik‰ en‰‰ kysy samaa kysymyst‰ uudestaan. Jos haluat, debconf "
-#~ "voi kysy‰ kaikki kysymykset uudelleen aina paketteja p‰ivitett‰ess‰ tai "
-#~ "uudelleenasennettaessa."
+#: ../Debconf/Template.pm:252
+#, c-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Kyselypohjan j√§sennysvirhe l√§hell√§ \"%s\":a rivill√§ #%s tiedostossa %s\n"
 
-#~ msgid ""
-#~ "Note that no matter what you choose here, you can see old questions again "
-#~ "by using the dpkg-reconfigure program."
-#~ msgstr ""
-#~ "Riippumatta valinnastasi nyt voit vastata kaikkiin kysymyksiin uudestaan "
-#~ "ajamalla \"dpkg-reconfigure\"-ohjelman."
+#: ../Debconf/Template.pm:258
+#, c-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Debconf:ia k‰ytt‰v‰t paketit m‰‰ritt‰v‰t kunkin kysym‰ns‰ kysymyksen "
-#~ "t‰rkeyden. Sinulle n‰ytet‰‰n vain valitsemasi tasoiset ja niit‰ "
-#~ "t‰rke‰mm‰t kysymykset; kaikille muille k‰ytet‰‰n oletusasetuksia."
+#: ../Debconf/Element/Gnome/Note.pm:46
+msgid "Save (mail) Note"
+msgstr "Tallenna (postita) ilmoitus"
 
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ "  - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ "  - 'high' is for items that don't have reasonable defaults.\n"
-#~ "  - 'medium' is for normal items that have reasonable defaults.\n"
-#~ "  - 'low' is for trivial items that have defaults that will work in the\n"
-#~ "    vast majority of cases."
-#~ msgstr ""
-#~ "Kysymysten t‰rkeystasot ja niiden merkitykset ovat\n"
-#~ " - \"kriittinen\" asioille, jotka luultavasti rikkovat j‰rjestelm‰n,\n"
-#~ "   jos niille ei valita sopivaa vaihtoehtoa,\n"
-#~ " - \"t‰rke‰\" asioille, joille ei ole j‰rkev‰‰ oletusasetusta,\n"
-#~ " - \"tavallinen\" asioille, joille on j‰rkev‰ oletusasetus,\n"
-#~ " - \"v‰h‰p‰tˆinen\" asioille, joiden j‰rkev‰ oletusasetus on kelvollinen\n"
-#~ "   l‰hes kaikissa tapauksissa"
+#: ../Debconf/Element/Gnome/Note.pm:48
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf tallensi t√§m√§n ilmoituksen postittamalla sen sinulle."
 
-#~ msgid ""
-#~ "If you are new to the Debian GNU/Linux system choose 'critical' now, so "
-#~ "you only see the most important questions."
-#~ msgstr ""
-#~ "Jos olet uusi Debian GNU/Linux -j‰rjestelm‰n k‰ytt‰j‰, valitse "
-#~ "\"kriittinen\", jolloin joudut vastaamaan vain t‰rkeimpiin kysymyksiin."
+#: ../Debconf/Element/Gnome/Note.pm:51
+msgid "The note has been mailed."
+msgstr "Ilmoitus on l√§hetetty."
 
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "T‰m‰ kysymys on tasoltaan tavallinen, joten jos olisit aiemmin valinnut "
-#~ "omaksi tasoksesi \"kriittinen\" tai \"t‰rke‰\", et edes n‰kisi t‰t‰."
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "Unable to save note."
+msgstr "Ilmoituksen tallennus ep√§onnistui."
 
-#~ msgid "Ignore questions with a priority less than.."
-#~ msgstr "Kuinka t‰rke‰t kysymykset haluat n‰hd‰?"
+#: ../Debconf/Element/Gnome.pm:140
+msgid "Help"
+msgstr "Ohje"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Valinnat"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Sy√∂t√§ nolla tai useampia pilkulla ja v√§lily√∂nnill√§ (', ') erotettuja "
+"arvoja.)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "kyll√§"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "ei"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ei mik√§√§n edellisist√§"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Sy√∂t√§ haluamasi vaihtoehdot v√§lily√∂nneill√§ erotettuina."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"T√§m√§ ilmoitus postitettiin, koska debconf on asetettu olemaan n√§ytt√§m√§tt√§ "
+"sit√§."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, c-format
+msgid "Debconf, running at %s"
+msgstr "Debconf koneella %s"
+
+#: ../Debconf/Element/Select.pm:94
+#, c-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Arvoa \"%s\" ei l√∂ytynyt C-valinnoista! N√§in ei pit√§isi koskaan k√§yd√§. "
+"Kyselypohjien paikallistamisessa saattaa olla vikaa."
+
+#: ../Debconf/FrontEnd.pm:137
+#, c-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Debconf::Element::%s:n lataus ep√§onnistui: %s"
+
+#: ../Debconf/FrontEnd.pm:209
+#, c-format
+msgid "Configuring %s"
+msgstr "%s:n asetusten s√§√§t√∂"
+
+#: ../dpkg-preconfigure:113
+#, c-format
+msgid "unable to re-open stdin: %s"
+msgstr "vakiosy√∂tteen uudelleenavaus ep√§onnistui: %s"
+
+#: ../dpkg-preconfigure:116
+msgid "must specify some debs to preconfigure"
+msgstr "esiasetukseen on m√§√§ritett√§v√§ paketteja"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "pakettien esiasetusta ei tehd√§, koska apt-utils:ia ei ole asennettu"
+
+#: ../dpkg-preconfigure:179
+#, c-format
+msgid "template parse error: %s"
+msgstr "kyselypohjan j√§sennysvirhe: %s"
+
+#: ../dpkg-preconfigure:193
+#, c-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: en voi muuttaa oikeuksia: %s"
+
+#: ../dpkg-preconfigure:203
+#, c-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s:n esiasetus ep√§onnistui; paluukoodi oli %s"
+
+#: ../dpkg-reconfigure:105
+#, c-format
+msgid "%s must be run as root"
+msgstr "%s on ajettava root-oikeuksilla"
+
+#: ../dpkg-reconfigure:137
+msgid "please specify a package to reconfigure"
+msgstr "tarvitsen k√§sitelt√§v√§n paketin nimen"
+
+#: ../dpkg-reconfigure:157
+#, c-format
+msgid "%s is not installed"
+msgstr "%s ei ole t√§ysin asennettu"
+
+#: ../dpkg-reconfigure:161
+#, c-format
+msgid "%s is broken or not fully installed"
+msgstr "%s on rikki tai ei ole t√§ysin asennettu"
+
+#: ../dpkg-reconfigure:238
+#, c-format
+msgid "Cannot read status file: %s"
+msgstr "Tilatiedoston luku ep√§onnistui: %s"
+
+#: ../debconf-mergetemplate:119
+#, c-format
+msgid "%s is missing"
+msgstr "%s puuttuu"
+
+#: ../debconf-mergetemplate:123
+#, c-format
+msgid "%s is missing; dropping %s"
+msgstr "%s puuttuu; j√§tet√§√§n %s"
+
+#: ../debconf-mergetemplate:146
+#, c-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s on sekava tavusta %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, c-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s on sekava tavusta %s: %s; j√§tet√§√§n se"
+
+#: ../debconf-mergetemplate:168
+#, c-format
+msgid "%s is outdated"
+msgstr "%s on p√§ivitt√§m√§tt√§"
+
+#: ../debconf-mergetemplate:173
+#, c-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s on p√§ivitt√§m√§tt√§; j√§tet√§√§n koko malli!"
