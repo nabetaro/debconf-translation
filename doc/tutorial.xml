@@ -333,7 +333,8 @@ Template: ....
               indicate failure and other unusual occurances, so you need to trap
 	      that to prevent <literal>set -e</literal> shell scripts from dying.
 	    </para></note>
-	    For details, see  <literal>confmodule.3</literal>.
+	    For details, see <literal>confmodule.3</literal> and the
+	    debconf protocol specification in Debian policy.
 	  </para>
 	</listitem>
 	<listitem>
@@ -347,7 +348,7 @@ Template: ....
 	    corresponds to a command in the protocol -- you pass parameters 
 	    into it and it returns the result. For details, see the 
 	    <literal>Debconf::Client::ConfModule (3pm)</literal> man
-	    page.
+	    page, and the debconf protocol specification in Debian policy.
 	  </para>
 	</listitem>
 	<listitem>

@@ -8,20 +8,20 @@ Description: What interface should be used for configuring packages?
  You can select the type of user interface they use.
  .
  The dialog frontend is a full-screen, character based interface, while the
- text frontend uses a more traditional plain text interface, and the gnome
- frontend is a modern X interface. The editor frontend lets you configure
- things using your favorite text editor. The noninteractive frontend never
- asks you any questions.
+ readline frontend uses a more traditional plain text interface, and the
+ gnome frontend is a modern X interface. The editor frontend lets you
+ configure things using your favorite text editor. The noninteractive
+ frontend never asks you any questions.
 Description-pt_BR: Que interface deve ser usada para configurar os pacotes?
- Pacotes que usam o debconf para configuções compartilham uma interface
- e um modo de usar comuns. Você pode selecionar o tipo de interface de
- usuário que eles irão usar.
+ Pacotes que usam o debconf para configurações compartilham uma interface e
+ um modo de usar comuns. Você pode selecionar o tipo de interface que eles 
+ irão usar.
  .
- O frontend dialog é em tela cheia, baseado em texto enquanto o frontend
- readline usa uma interface mais tradicional de texto puro e o frontend
- gnome é uma interface X moderna. O frontend editor permite que você
- configure os pacotes usando seu editor de textos favorito. O frontend
- não interativo nunca faz perguntas a você.
+ A interface dialog é em tela cheia, baseado em texto enquanto a interface
+ readline usa uma interface mais tradicional de texto puro e a interface
+ gnome é uma interface X moderna. a interface editor permite que você
+ configure os pacotes usando seu editor de textos favorito. A interface
+ nãointerativa nunca faz perguntas a você.
 
 Template: debconf/priority
 Type: select
@@ -50,12 +50,12 @@ Description-pt_BR: Ignorar perguntas com uma prioridade menor que...
  Os pacotes que usam o debconf para configuração priorizam as perguntas que
  podem fazer a você. Apenas as perguntas com uma certa prioridade ou maior
  são realmente mostradas a você; todas as perguntas menos  importantes são
- deixadas.
+ puladas.
  .
  Você pode selecionar a menor prioridade de perguntas que você quer ver:
    - `crítica' é para itens que irão provavelmente quebrar seu sistema
      sem intervenção do usuário.
-   - `alta' é para itens que não tem padrões razoáveis.
+   - `alta' é para itens que não têm padrões razoáveis.
    - `média' é para itens normais que têm padrões razoáveis.
    - `baixa' é para itens triviais que tem padrões que funcionarão na
      vasta maioria dos casos.
@@ -78,4 +78,7 @@ Description-pt_BR: Mostrar as perguntas antigas sempre?
  O Debconf normalmente só faz uma pergunta uma vez. Ele então se lembra da
  sua resposta e nunca mais faz a mesma pergunta. Se você preferir, o
  debconf pode perguntar toda vez que você atualizar ou reinstalar um pacote
- que que tem perguntas.
+ que pergunta alguma coisa.
+ .
+ Note que, independete do que você escolher aqui, você pode ver perguntas
+ antigas novamente usando o programa dpkg-reconfigure.
