@@ -42,13 +42,10 @@ our %question;
 
 =over 4
 
-=item new(name)
+=item new(name, owner)
 
 The name of the question to create, and an owner for the question must
 be passed to this function.
-
-The function will either create a question and return it, or return
-a reference to an existing question with the given name.
 
 New questions default to having their seen flag set to "false".
 
@@ -58,7 +55,8 @@ sub new {
 	my Debconf::Question $this=shift;
 	my $name=shift;
 	my $owner=shift;
-	return $question{$name} if exists $question{$name};
+	die "A question called \"$name\" already exists"
+		if exists $question{$name};
 	unless (ref $this) {
 		$this = fields::new($this);
 	}
@@ -69,7 +67,7 @@ sub new {
 	return $question{$name}=$this;
 }
 
-=item get(question)
+=item get(name)
 
 Get an existing question.
 
@@ -79,7 +77,7 @@ sub get {
 	my Debconf::Question $this=shift;
 	my $name=shift;
 	return $question{$name} if exists $question{$name};
-	if ($Debconf::Db::driver->exists($name)) {
+	if ($Debconf::Db::config->exists($name)) {
 		return $question{$name} = fields::new($this);
 	}
 	return undef;
@@ -100,7 +98,7 @@ sub _expand_vars {
 		
 	return '' unless defined $text;
 
-	my @vars=$Debconf::Db::driver->variables($this->{name});
+	my @vars=$Debconf::Db::config->variables($this->{name});
 	
 	my $rest=$text;
 	my $result='';
@@ -108,7 +106,7 @@ sub _expand_vars {
 	while ($rest =~ m/^(.*?)\${([^{}]+)}(.*)$/sg) {
 		$result.=$1;  # copy anything before the variable
 		$rest=$3; # continue trying to expand rest of text
-		$varval=$Debconf::Db::driver->getvariable($this->{name}, $2);
+		$varval=$Debconf::Db::config->getvariable($this->{name}, $2);
 		$result.=$varval if defined($varval); # expand the variable
 	}
 	$result.=$rest; # add on anything that's left.
@@ -181,10 +179,10 @@ sub variable {
 	my $var=shift;
 	
 	if (@_) {
-		return $Debconf::Db::driver->setvariable($this->{name}, $var, shift);
+		return $Debconf::Db::config->setvariable($this->{name}, $var, shift);
 	}
 	else {
-		return $Debconf::Db::driver->getvariable($this->{name}, $var);
+		return $Debconf::Db::config->getvariable($this->{name}, $var);
 	}
 }
 
@@ -205,16 +203,16 @@ sub flag {
 		debug developer => "The isdefault flag is deprecated, use the seen flag instead";
 		if (@_) {
 			my $value=(shift eq 'true') ? 'false' : 'true';
-			$Debconf::Db::driver->setflag($this->{name}, 'seen', $value);
+			$Debconf::Db::config->setflag($this->{name}, 'seen', $value);
 		}
-		return ($Debconf::Db::driver->getflag($this->{name}, 'seen') eq 'true') ? 'false' : 'true';
+		return ($Debconf::Db::config->getflag($this->{name}, 'seen') eq 'true') ? 'false' : 'true';
 	}
 
 	if (@_) {
-		return $Debconf::Db::driver->setflag($this->{name}, $flag, shift);
+		return $Debconf::Db::config->setflag($this->{name}, $flag, shift);
 	}
 	else {
-		return $Debconf::Db::driver->getflag($this->{name}, $flag);
+		return $Debconf::Db::config->getflag($this->{name}, $flag);
 	}
 }
 
@@ -229,11 +227,11 @@ sub value {
 	my $this = shift;
 	
 	if (@_ == 0) {
-		my $ret=$Debconf::Db::driver->getfield($this->{name}, 'value');
+		my $ret=$Debconf::Db::config->getfield($this->{name}, 'value');
 		return $ret if defined $ret;
 		return $this->template->default if ref $this->template;
 	} else {
-		return $Debconf::Db::driver->setfield($this->{name}, 'value', shift);
+		return $Debconf::Db::config->setfield($this->{name}, 'value', shift);
 	}
 }
 
@@ -262,7 +260,7 @@ Adding an owner that is already listed has no effect.
 sub addowner {
 	my $this=shift;
 
-	return $Debconf::Db::driver->addowner($this->{name}, shift);
+	return $Debconf::Db::config->addowner($this->{name}, shift);
 }
 
 =item removeowner
@@ -275,7 +273,7 @@ to remove.
 sub removeowner {
 	my $this=shift;
 
-	return $Debconf::Db::driver->removeowner($this->{name}, shift);
+	return $Debconf::Db::config->removeowner($this->{name}, shift);
 }
 
 =item AUTOLOAD
@@ -296,9 +294,9 @@ sub AUTOLOAD {
 		my $this=shift;
 
 		if (@_) {
-			return $Debconf::Db::driver->setfield($this->{name}, $field, shift);
+			return $Debconf::Db::config->setfield($this->{name}, $field, shift);
 		}
-		my $ret=$Debconf::Db::driver->getfield($this->{name}, $field);
+		my $ret=$Debconf::Db::config->getfield($this->{name}, $field);
 		return $ret if defined $ret;
 		# Fall back to template values.
 		return $this->{template}->$field() if ref $this->{template};
