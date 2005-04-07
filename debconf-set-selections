@@ -8,7 +8,7 @@ debconf-set-selections - insert new default values into the debconf database
 
 sub usage {
 	print STDERR <<EOF;
-Usage: debconf-set-selections [-vc] [file]
+Usage: debconf-set-selections [-vcu] [file]
   -v, --verbose     verbose output
   -c, --checkonly   only check the input file format
   -u, --unseen      do not set the 'seen' flag
