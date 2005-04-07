@@ -1,7 +1,17 @@
 debconf (1.4.48) UNRELEASED; urgency=low
 
-  * Apply patch from Denis Barbier to translate --help output. See #167177
-  * Man page typo fixs. Closes: #302746, #302749, #302747, #302748, #302752
+  * Joey Hess
+    - Apply patch from Denis Barbier to translate --help output. See #167177
+    - Make debconf-set-selections not fail if it encounters an unknown
+      question type.
+    - Overload the type field in preseed files; if it's "seen" then
+      instead set the seen flag; this allows for preseeding that only changes
+      a default value but still leaves the question unseen.
+    - This obsoletes the --unseen flag in debconf-set-selections, but
+      I've left it in and working for now since things probably already use
+      it.
+  * Christian Perrier
+    - Man page typo fixs. Closes: #302746, #302749, #302747, #302748, #302752
   * Program translation updates:
     - Slovak. Closes: #302509
     - Spanish. Closes: #302528
@@ -19,7 +29,7 @@ debconf (1.4.48) UNRELEASED; urgency=low
     - Greek: Closes: #302850
     - Tagalog: Closes: #303172
 
- -- Christian Perrier <bubulle@kheops.frmug.org>  Wed,  6 Apr 2005 09:30:14 +0200
+ -- Joey Hess <joeyh@debian.org>  Thu,  7 Apr 2005 16:35:55 -0400
 
 debconf (1.4.47) unstable; urgency=low
 

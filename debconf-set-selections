@@ -11,7 +11,7 @@ sub usage {
 Usage: debconf-set-selections [-vcu] [file]
   -v, --verbose     verbose output
   -c, --checkonly   only check the input file format
-  -u, --unseen      do not set the 'seen' flag
+  -u, --unseen      do not set the 'seen' flag when preseeding values
 EOF
 	exit(1);
 }
@@ -47,6 +47,21 @@ question. The second is the name of the question, the third value is the
 type of this question, and the fourth value (through the end of the line)
 is the value to use for the answer of the question.
 
+Alternatively, the third value can be "seen"; then the preseed line only
+controls whether the question is marked as seen in debconf's database. Note
+that preseeding a question's value defaults to marking that question as
+seen, so to override the default value without marking a question seen, you
+need two lines.
+
+=head1 EXAMPLES
+
+ # Force debconf priority to critical.
+ debconf debconf/priority select critical
+
+ # Override default frontend to readline, but allow user to select.
+ debconf debconf/frontend select readline
+ debconf debconf/frontend seen false
+
 =head1 OPTIONS
 
 =over 4
@@ -74,6 +89,11 @@ use vars qw(%opts $filename $debug $error $checkonly $unseen);
 sub info {
 	my $msg = shift;
 	print STDERR "info: $msg\n" if $debug;
+}
+
+sub warning {
+	my $msg = shift;
+	print STDERR "warning: $msg\n";
 }
 
 sub error {
@@ -114,18 +134,37 @@ sub load_answer {
 	}
 }
 
+sub set_flag {
+	my ($owner, $label, $flag, $content) = @_;
+
+	info "Setting $flag flag";
+
+	my $question=Debconf::Question->get($label);
+	if (! $question) {
+		error("Cannot find a question for $label");
+		return;
+	}
+	$question->flag($flag, $content);
+}
+
 my @knowntypes = qw(select boolean string multiselect note password text title);
+my @knownflags = qw(seen);
 
 sub ok_format {
 	my ($owner, $label, $type, $content) = @_;
-	if (! defined $owner || ! defined $label || ! defined $content ||
-	    ! grep { $_ eq $type } @knowntypes) {
+	if (! defined $owner || ! defined $label || ! defined $content) {
+		error "parse error on line $.: '$_'";
+		return;
+	}
+	elsif (! grep { $_ eq $type } @knowntypes, @knownflags) {
+		warning "Unknown type $type, skipping line $.";
 		return;
 	}
 	else {
 		return 1;
 	}
 }
+
 GetOptions(
 	"verbose|v" => \$debug,
 	"checkonly|c" => \$checkonly,
@@ -146,13 +185,15 @@ while (<>) {
 	if (! defined $content) {
 		$content='';
 	}
-
 	if (ok_format($owner, $label, $type, $content)) {
-		info "Trying to set '$label' [$type] to '$content'";
-		load_answer($owner, $label, $type, $content);
-	}
-	else {
-		error "parse error on line $.: '$_'";
+		if (grep { $_ eq $type } @knownflags) {
+			info "Trying to set '$type' flag to '$content'";
+			set_flag($owner, $label, $type, $content);
+		}
+		else {
+			info "Trying to set '$label' [$type] to '$content'";
+			load_answer($owner, $label, $type, $content);
+		}
 	}
 }
 
