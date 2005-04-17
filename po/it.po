@@ -1,17 +1,15 @@
 # debconf Italian translation
 # Copyright (C) 2004 the debconf development team
 # This file is distributed under the same license as the debconf package.
-# Stefano Canepa <sc@linux.it> e 
-# Danilo Piazzalunga <danilopiazza@libero.it>, 2004.
-# Stefano Canepa <sc@linux.it>, 2005
-#
+# Stefano Canepa <sc@linux.it>, 2004-2005
+# Danilo Piazzalunga <danilopiazza@libero.it>, 2004-2005
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf\n"
+"Project-Id-Version: debconf 1.4.48\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-23 23:11+0100\n"
-"Last-Translator: Stefano Canepa <sc@linux.it>\n"
+"PO-Revision-Date: 2005-04-16 14:18+0200\n"
+"Last-Translator: Danilo Piazzalunga <danilopiazza@libero.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,7 +229,7 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Le opzioni «sigils» e «smileys» nel file config non sono più usate e "
+"Le opzioni «Sigils» e «Smileys» nel file config non sono più usate e "
 "pertanto vanno rimosse."
 
 #: ../Debconf/Config.pm:148
@@ -245,6 +243,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend               Specifica il frontend di debconf da usare.\n"
+"  -p,  --priority               Specifica la priorità minima da mostrare.\n"
+"       --terse                  Abilita la modalità concisa.\n"
 
 #: ../Debconf/Config.pm:277
 #, perl-format
@@ -347,6 +348,12 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Uso: dpkg-reconfigure [opzioni] pacchetti\n"
+"  -a,  --all                    Riconfigura tutti i pacchetti.\n"
+"  -u,  --unseen-only            Mostra solo le domande non ancora viste.\n"
+"       --default-priority       Usa la priorità predefinita anziché quella\n"
+"                                più bassa.\n"
+"       --force                  Riconfigura i pacchetti anche se rovinati."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -365,7 +372,7 @@ msgstr "%s non è installato"
 #: ../dpkg-reconfigure:160
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s è rovinato a non completamente installato"
+msgstr "%s è rovinato o non completamente installato"
 
 #: ../dpkg-reconfigure:237
 #, perl-format
@@ -374,17 +381,19 @@ msgstr "Impossibile leggere il file dello stato: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Uso: debconf-communicate [opzioni] [pacchetto]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Questo programma è deprecato. Usare invece il "
+"programma po2debconf incluso in po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Uso: debconf-mergetemplate [opzioni] [templates.ll ...] template"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -392,6 +401,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated              Unisce anche le traduzioni obsolete.\n"
+"        --drop-old-templates    Scarta completamente i template obsoleti."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -425,13 +437,13 @@ msgstr "%s è obsoleto; il template sarà completamente omesso!"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Uso: debconf [opzioni] comando [argomenti]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "Preconfigurazione di %s in corso di (%s)"
+"\n"                                 
+"  -o,  --owner=package          Specifica il pacchetto a cui il comando\n"
+"                                apppartiene."
