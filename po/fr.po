@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.21\n"
+"Project-Id-Version: debconf 1.4.47\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-31 09:35-1000\n"
-"PO-Revision-Date: 2005-01-23 08:52+0100\n"
+"PO-Revision-Date: 2005-04-01 20:55+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "Cette interface a besoin d'un terminal de contrôle."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU est incompatible avec les tampons shell d'Emacs"
+msgstr "Term::ReadLine::GNU est incompatible avec les tampons shell d'Emacs."
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
@@ -251,11 +251,14 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tspécifie l'interface debconf à utiliser ;\n"
+"  -p,  --priority\t\tspécifie la priorité minimale à afficher ;\n"
+"       --terse\t\t\tactive le mode laconique (« terse »)."
 
 #: ../Debconf/Config.pm:277
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "La priorité « %s » non valable sera ignorée"
+msgstr "La priorité « %s » non valable sera ignorée"
 
 #: ../Debconf/Config.pm:278
 #, perl-format
@@ -353,6 +356,13 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Usage : dpkg-reconfigure [options] paquets\n"
+"  -a,  --all\t\t\treconfigure tous les paquets ;\n"
+"  -u,  --unseen-only\t\taffiche seulement les questions qui n'ont\n"
+"                    \t\tpas encore été posées ;\n"
+"       --default-priority\tutilise la priorité par défaut plutôt\n"
+"                         \tque la priorité basse ;\n"
+"       --force\t\t\tforce la reconfiguration des paquets cassés."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -361,7 +371,7 @@ msgstr "%s doit être lancé par le super-utilisateur"
 
 #: ../dpkg-reconfigure:136
 msgid "please specify a package to reconfigure"
-msgstr "Veuillez indiquer un paquet à reconfigurer"
+msgstr "Veuillez indiquer un paquet à reconfigurer."
 
 #: ../dpkg-reconfigure:156
 #, perl-format
@@ -380,17 +390,19 @@ msgstr "Impossible de lire le fichier d'état : %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Usage : debconf-communicate [options] [paquet]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate : Cet outil est obsolète. Vous devriez désormais "
+"utiliser le programme po2debconf du paquet po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Usage : debconf-mergetemplate [options] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -398,6 +410,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tfusionne même les traductions obsolètes ;\n"
+"\t--drop-old-templates\tSupprime les questionnaires qui ne sont pas à jour."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -431,13 +446,15 @@ msgstr "%s est obsolète ; l'ensemble du message est abandonné !"
 
 #: ../debconf:84
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Usage : debconf [options] commande [arguments]"
 
 #: ../debconf:86
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=paquet\t\tpositionns le paquet auquel appartient la commande."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "préconfiguration de %s (%s)"
