@@ -220,7 +220,7 @@ DEBCONF_DB_OVERRIDE, to make it easy to do this on the fly. Here is a sample
 use:
 .P
    cat /var/cache/debconf/config.dat | \\
-   ssh root@target "DEBCONF_FRONTEND=noninteractive \\
+   ssh root@target "DEBIAN_FRONTEND=noninteractive \\
                   DEBCONF_DB_FALLBACK=Pipe apt-get upgrade"
 .P	
 This makes the debconf on the remote host read in the data that is piped
