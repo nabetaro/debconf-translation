@@ -5,13 +5,16 @@ debconf (1.4.49) UNRELEASED; urgency=low
   * Fix an enxironment variable name in debconf(7). Closes: #305260
   * Document in the debconf-set-selections man page that
     debconf-get-selections is in debconf-utils. Closes: #305262
+  * Fix typo in Debconf/Template.pm : s/speerated/separated
+    Unfuzzy translations
+    Closes: #307165
   * Program translation updates:
     - Italian.
     - French, directly received from l10n team
     - Danish. Closes: #305994
     - Vietnamese. Closes: #307067
 
- -- Christian Perrier <bubulle@debian.org>  Sat, 30 Apr 2005 19:55:46 +0200
+ -- Christian Perrier <bubulle@debian.org>  Sun,  1 May 2005 19:51:02 +0200
 
 debconf (1.4.48) unstable; urgency=low
 

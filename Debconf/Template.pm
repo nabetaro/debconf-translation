@@ -198,7 +198,7 @@ sub load {
 
 			if ($field ne '') {
 				if (exists $data{$field}) {
-					die sprintf(gettext("Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly seperated by a lone newline.\n"), $., $file, $field, $value);
+					die sprintf(gettext("Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly separated by a lone newline.\n"), $., $file, $field, $value);
 				}
 				$data{$field}=$value;
 				$data{"extended_$field"}=$extended
