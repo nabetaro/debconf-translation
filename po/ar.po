@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-01 19:48+0200\n"
+"POT-Creation-Date: 2005-05-04 19:24-0400\n"
 "PO-Revision-Date: 2005-01-29 16:38+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf على %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "المزيد"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -57,10 +61,6 @@ msgstr "السابق"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "التالي"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "المزيد"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -101,6 +101,96 @@ msgstr "تحتاج هذه الواجهة إلى مبرقة (tty) تحكّم."
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU ليس متوافق مع مخازن صدفة emacs."
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "حفظ (البريد) الملاحظة"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "طُلب من debconf حفظ هذه الملاحظة، فقام بإرساله إليك بالبريد."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "معلومات"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "تم إرسال هذه الملاحظة بالبريد."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "خطأ"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "تعذر حفظ الملاحظة."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "الخيارات"
+
+# # CHECK
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "نعم"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "لا"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf، يعمل على %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ليس أياً مما أعلاه"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "أدخل العناصر التي تريد اختيارها، مفصولة بمسافات."
+
+# # CHECK
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"لم يُعثر على قيمة الإدخال، \"%s\" في خيارات C! يجب أن لا يحدث هذا أبداً. يبدو "
+"أن القوالب تُرجمت بشكل غير صحيح."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_مساعدة"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "مساعدة"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -191,96 +281,6 @@ msgstr "خطأ في إعراب القالب قُرْب `%s'، في المَقْ�
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "القالب #%s في %s لا يحتوي على سطر 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_مساعدة"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "مساعدة"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "حفظ (البريد) الملاحظة"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "طُلب من debconf حفظ هذه الملاحظة، فقام بإرساله إليك بالبريد."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "معلومات"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "تم إرسال هذه الملاحظة بالبريد."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "خطأ"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "تعذر حفظ الملاحظة."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-msgid "Choices"
-msgstr "الخيارات"
-
-# # CHECK
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "نعم"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "لا"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf، يعمل على %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "ليس أياً مما أعلاه"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "أدخل العناصر التي تريد اختيارها، مفصولة بمسافات."
-
-# # CHECK
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"لم يُعثر على قيمة الإدخال، \"%s\" في خيارات C! يجب أن لا يحدث هذا أبداً. يبدو "
-"أن القوالب تُرجمت بشكل غير صحيح."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format

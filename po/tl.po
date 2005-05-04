@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-01 19:48+0200\n"
+"POT-Creation-Date: 2005-05-04 19:24-0400\n"
 "PO-Revision-Date: 2005-04-05 15:23+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -49,6 +49,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf sa %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Meron pa"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -63,10 +67,6 @@ msgstr "Bumalik"
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
 msgstr "Susunod"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Meron pa"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
 msgid "TERM is not set, so the dialog frontend is not usable."
@@ -110,6 +110,100 @@ msgstr "Ang mukha na ito ay nangangailangan ng controlling tty."
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU ay hindi kabagay sa emacs shell buffer."
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Imbakin (koreo) Tanda"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa "
+"inyo."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Impormasyon"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Ang tanda ay ipinadala sa koreo."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Error"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Hindi naimbak ang tanda."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Pagpipilian"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Magbigay ng wala o labis na mga aytem na hiniwalay ng koma at sundan ng "
+"puwang (', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "oo"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "hindi"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Hindi nakasaayos ang debconf upang ipakita ang tanda, kaya't ito'y ipinadala "
+"sa inyo."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, pinatakbo sa %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "wala sa itaas"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Ibinigay na halaga, \"%s\" hindi nahanap sa mga pagpipilian! Hindi ito dapat "
+"mangyari. Maaaring ang mga template ay hindi akma ang pagka-lokalisado."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Tulong"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Tulong"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -202,100 +296,6 @@ msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Tulong"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Tulong"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Imbakin (koreo) Tanda"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa "
-"inyo."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Impormasyon"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Ang tanda ay ipinadala sa koreo."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Error"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Hindi naimbak ang tanda."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-msgid "Choices"
-msgstr "Pagpipilian"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Magbigay ng wala o labis na mga aytem na hiniwalay ng koma at sundan ng "
-"puwang (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "oo"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "hindi"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Hindi nakasaayos ang debconf upang ipakita ang tanda, kaya't ito'y ipinadala "
-"sa inyo."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, pinatakbo sa %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "wala sa itaas"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Ibinigay na halaga, \"%s\" hindi nahanap sa mga pagpipilian! Hindi ito dapat "
-"mangyari. Maaaring ang mga template ay hindi akma ang pagka-lokalisado."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format

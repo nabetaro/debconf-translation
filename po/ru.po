@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-01 19:48+0200\n"
+"POT-Creation-Date: 2005-05-04 19:24-0400\n"
 "PO-Revision-Date: 2005-01-23 12:21+0100\n"
 "Last-Translator: Nikolai Prokoschenko <nikolai@prokoschenko.de>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -48,6 +48,10 @@ msgstr ""
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
 
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Далее"
+
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
@@ -59,10 +63,6 @@ msgstr "Возврат"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
-msgstr "Далее"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
 msgstr "Далее"
 
 #: ../Debconf/FrontEnd/Dialog.pm:50
@@ -108,6 +108,101 @@ msgstr "Этот интерфейс требует наличия контрол
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
 msgstr "Term::ReadLine::GNU не может работать из-под буферов emacs'а."
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Сохранить(почтовое) сообщение"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf потребовал сохранить это сообщение, поэтому оно былоотправлено вам "
+"по почте."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Информация"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Сообщение было отправлено по почте."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Ошибка"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Сообщение сохранить не удалось."
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Варианты"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
+"(', ').)"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "да"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "нет"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf не настроен показывать увидели это сообщение, поэтому оно было вам "
+"отправлено по почте."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, работающий на %s"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ни один из предложенных выше"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
+"случиться. Возможно, шаблоны были неправильно переведены."
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Help"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Подсказка"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -194,101 +289,6 @@ msgstr "Ошибка разбора шаблона около `%s', в стро�
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон номер %s в %s не содержит строки `Template:'\n"
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Help"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Подсказка"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Сохранить(почтовое) сообщение"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf потребовал сохранить это сообщение, поэтому оно былоотправлено вам "
-"по почте."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Информация"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Сообщение было отправлено по почте."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Ошибка"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Сообщение сохранить не удалось."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-msgid "Choices"
-msgstr "Варианты"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
-"(', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "да"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "нет"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf не настроен показывать увидели это сообщение, поэтому оно было вам "
-"отправлено по почте."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, работающий на %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "ни один из предложенных выше"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Значение \"%s\" на найдено среди английских вариантов! Это не должно было "
-"случиться. Возможно, шаблоны были неправильно переведены."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
