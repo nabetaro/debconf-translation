@@ -1,5 +1,5 @@
 # List here all source files with translatable strings.
-POTFILES=$(shell find ../Debconf -type f -name \*.pm) \
+POTFILES=$(sort $(shell find ../Debconf -type f -name \*.pm)) \
 	../dpkg-* ../debconf-* ../debconf
 
 POFILES=$(wildcard *.po)
