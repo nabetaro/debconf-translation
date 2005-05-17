@@ -146,6 +146,7 @@ $ENV{DEBCONF_RECONFIGURE}=1;
 foreach my $pkg (@packages) {
 	# Set default title.
 	$frontend->default_title($pkg);
+	$frontend->info(undef);
 
 	# Get the package version. Also check to make sure it is installed.
 	$_=`dpkg --status $pkg`;

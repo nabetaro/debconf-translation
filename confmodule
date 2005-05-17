@@ -62,6 +62,7 @@ db_version ()	{ _db_cmd "VERSION $@"; }
 db_clear ()	{ _db_cmd "CLEAR $@"; }
 db_settitle ()	{ _db_cmd "SETTITLE $@"; }
 db_previous_module () { _db_cmd "PREVIOUS_MODULE $@"; }
+db_info ()	{ _db_cmd "INFO $@"; }
 
 # An old alias for input.
 db_text () {

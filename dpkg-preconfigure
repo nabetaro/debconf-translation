@@ -192,6 +192,7 @@ foreach my $line (@buffer) {
 		chmod(0755, $config) or
 			die sprintf(gettext("debconf: can't chmod: %s"), $!);
 		$frontend->default_title($package);
+		$frontend->info(undef);
 		my $confmodule=make_confmodule($config, 'configure', $version);
 		# Make sure any questions created are owned by the correct package.
 		$confmodule->owner($package);

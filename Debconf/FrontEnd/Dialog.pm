@@ -278,8 +278,15 @@ sub showdialog {
 		unshift @_, "--output-fd", fileno(OUTPUT_WTR);
 	}
 	
+	my $backtitle='';
+	if (defined $this->info) {
+		$backtitle = $this->info->description;
+	} else {
+		$backtitle = gettext("Debian Configuration");
+	}
+
 	my $pid = open3('>&STDOUT', '<&STDIN', \*ERRFH, $this->program,
-		'--backtitle', gettext("Debian Configuration"),
+		'--backtitle', $backtitle,
 		'--title', $this->title, @_);
 	close OUTPUT_WTR if $this->hasoutputfd;
 	my $output='';

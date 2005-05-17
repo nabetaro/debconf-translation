@@ -684,6 +684,37 @@ sub command_fset {
 	return $codes{success}, $question->flag($flag, $value);
 }
 
+=item command_info
+
+Pass this a question name. It displays the given template as an out-of-band
+informative message. Unlike inputting a note, this doesn't require an
+acknowledgement from the user, and depending on the frontend it may not even
+be displayed at all. Frontends should display the info persistently until
+some other info comes along.
+
+With no arguments, this resets the info message to a default value.
+
+=cut
+
+sub command_info {
+	my $this=shift;
+
+	if (@_ == 0) {
+		$this->frontend->info(undef);
+	} elsif (@_ == 1) {
+		my $question_name=shift;
+
+		my $question=Debconf::Question->get($question_name) ||
+			return $codes{badparams}, "\"$question_name\" doesn't exist";
+
+		$this->frontend->info($question);
+	} else {
+		return $codes{syntaxerror}, "Incorrect number of arguments";
+	}
+
+	return $codes{success};
+}
+
 =item command_visible
 
 Deprecated.

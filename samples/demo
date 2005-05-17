@@ -25,6 +25,7 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 		db_input high demo/multiselect || true
 	;;
 	3)
+		db_info demo/info
 		db_input critical demo/string || true
 		db_input low demo/password || true
 		db_input low demo/text || true

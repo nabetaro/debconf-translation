@@ -40,6 +40,13 @@ Holds any special capabilities the FrontEnd supports.
 
 The title of the FrontEnd.
 
+=item info
+
+A question containing an informative message to be displayed, without
+requiring any acknowledgement from the user. FrontEnds may choose not to
+implement this. If they do implement it, they should display the info
+persistently until some other info comes along.
+
 =item backup
 
 A flag that Elements can set when they are displayed, to tell the FrontEnd
@@ -68,6 +75,7 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
+	$this->info(undef);
 }
 
 =item elementtype
