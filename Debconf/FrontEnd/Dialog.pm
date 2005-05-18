@@ -285,7 +285,7 @@ sub showdialog {
 		$backtitle = gettext("Debian Configuration");
 	}
 
-	my $pid = open3('>&STDOUT', '<&STDIN', \*ERRFH, $this->program,
+	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
 		'--backtitle', $backtitle,
 		'--title', $this->title, @_);
 	close OUTPUT_WTR if $this->hasoutputfd;
@@ -315,9 +315,12 @@ sub showdialog {
 	$^W=$savew;
 	$^F=$savef;
 
-	# Restore stdout, stdin.
-	open(STDOUT, ">&SAVEOUT") || die $!;
+	# Restore stdin, stdout. Must be this way round because open3 closed
+	# stdin, and if we dup onto stdout first Perl tries to use the free
+	# fd 0 as a temporary fd and then warns about reopening STDIN as
+	# STDOUT.
 	open(STDIN, "<&SAVEIN") || die $!;
+	open(STDOUT, ">&SAVEOUT") || die $!;
 
 	# Now check dialog's return code to see if escape (255 (really -1)) or
 	# Cancel (1) were hit. If so, make a note that we should back up.
