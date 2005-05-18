@@ -20,6 +20,9 @@ to talk with debconf on stdio. The program's output is expected to be debconf
 protocol commands, and it is expected to read result codes on stdin. See
 L<debconf-devel(7)> for details about the debconf protocol.
 
+The command to be run under debconf must be specified in a way that will
+let your PATH find it.
+
 =head1 OPTIONS
 
 =over 4
