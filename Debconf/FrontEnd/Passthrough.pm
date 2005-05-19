@@ -239,6 +239,71 @@ sub go {
 	return 1;
 }
 
+=head2 progress
+
+Send necessary data about any progress bar template to the UI agent, and
+then ask it to display the progress bar changes.
+
+=cut
+
+sub progress {
+	my $this=shift;
+	my $subcommand=shift;
+	my $question=shift;
+
+	if (defined $question) {
+		my $tag=$question->template->template;
+		my $type=$question->template->type;
+		my $desc=$question->description;
+		my $extdesc=$question->extended_description;
+
+		$this->talk('DATA', $tag, 'type', $type);
+
+		if ($desc) {
+			$desc =~ s/\n/\\n/g;
+			$this->talk('DATA', $tag, 'description', $desc);
+		}
+
+		if ($extdesc) {
+			$extdesc =~ s/\n/\\n/g;
+			$this->talk('DATA', $tag, 'extended_description',
+			            $extdesc);
+		}
+	}
+
+	return $this->talk('PROGRESS', $subcommand, @_);
+}
+
+sub progress_start {
+	my $this=shift;
+
+	$this->progress('START', $_[2], @_);
+}
+
+sub progress_set {
+	my $this=shift;
+
+	$this->progress('SET', undef, @_);
+}
+
+sub progress_step {
+	my $this=shift;
+
+	$this->progress('STEP', undef, @_);
+}
+
+sub progress_info {
+	my $this=shift;
+
+	$this->progress('INFO', $_[0], @_);
+}
+
+sub progress_stop {
+	my $this=shift;
+
+	$this->progress('STOP', undef);
+}
+
 =back
 
 =head1 AUTHOR
