@@ -14,6 +14,8 @@ use Debconf::TmpFile;
 use Debconf::Log qw(:all);
 use Debconf::Encoding qw(wrap $columns width);
 use IPC::Open3;
+use POSIX;
+use Fcntl;
 use base qw(Debconf::FrontEnd::ScreenSize);
 
 =head1 DESCRIPTION
@@ -223,24 +225,10 @@ sub makeprompt {
 	return ($text, $lines, $columns);
 }
 
-=item showdialog
-
-Displays a dialog. After the first parameters which should point to the question
-being displayed, all remaining parameters are passed to whiptail/dialog.
-
-If called in a scalar context, returns whatever dialog outputs to stderr.
-If called in a list context, returns the return code of dialog, then the
-stderr output.
-
-Note that the return code of dialog is examined, and if the user hit escape
-or cancel, this frontend will assume they wanted to back up. In that case,
-showdialog will return undef.
-
-=cut
-
-sub showdialog {
+sub startdialog {
 	my $this=shift;
 	my $question=shift;
+	my $wantinputfd=shift;
 	
 	debug debug => "preparing to run dialog. Params are:" ,
 		join(",", $this->program, @_);
@@ -248,12 +236,18 @@ sub showdialog {
 	# Save stdout, stdin, the open3 below messes with them.
 	use vars qw{*SAVEOUT *SAVEIN};
 	open(SAVEOUT, ">&STDOUT") || die $!;
-	open(SAVEIN, "<&STDIN") || die $!;
+	$this->dialog_saveout(\*SAVEOUT);
+	if ($wantinputfd) {
+		$this->dialog_savein(undef);
+	} else {
+		open(SAVEIN, "<&STDIN") || die $!;
+		$this->dialog_savein(\*SAVEIN);
+	}
 
 	# If warnings are enabled by $^W, they are actually printed to
 	# stdout by IPC::Open3 and get stored in $stdout below! 
 	# So they must be disabled.
-	my $savew=$^W;
+	$this->dialog_savew($^W);
 	$^W=0;
 	
 	unless ($this->capb_backup || grep { $_ eq '--defaultno' } @_) {
@@ -269,13 +263,14 @@ sub showdialog {
 		$_[0]='--password --inputbox'
 	}
 	
-	# Set up a pipe to the output fd, before calling open3. Mess with
-	# $^F to make the fd not be close-on-exec.
-	my $savef=$^F;
+	# Set up a pipe to the output fd, before calling open3.
+	use vars qw{*OUTPUT_RDR *OUTPUT_WTR};
 	if ($this->hasoutputfd) {
-		$^F=128;
 		pipe(OUTPUT_RDR, OUTPUT_WTR) || die "pipe: $!";
-		unshift @_, "--output-fd", fileno(OUTPUT_WTR);
+		my $flags=fcntl(\*OUTPUT_WTR, F_GETFD, 0);
+		fcntl(\*OUTPUT_WTR, F_SETFD, $flags & ~FD_CLOEXEC);
+		$this->dialog_output_rdr(\*OUTPUT_RDR);
+		unshift @_, "--output-fd", fileno(\*OUTPUT_WTR);
 	}
 	
 	my $backtitle='';
@@ -285,17 +280,43 @@ sub showdialog {
 		$backtitle = gettext("Debian Configuration");
 	}
 
-	my $pid = open3('<&STDIN', '>&STDOUT', \*ERRFH, $this->program,
+	use vars qw{*INPUT_RDR *INPUT_WTR};
+	if ($wantinputfd) {
+		pipe(INPUT_RDR, INPUT_WTR) || die "pipe: $!";
+		autoflush INPUT_WTR 1;
+		my $flags=fcntl(\*INPUT_RDR, F_GETFD, 0);
+		fcntl(\*INPUT_RDR, F_SETFD, $flags & ~FD_CLOEXEC);
+		$this->dialog_input_wtr(\*INPUT_WTR);
+	} else {
+		$this->dialog_input_wtr(undef);
+	}
+
+	use vars qw{*ERRFH};
+	my $pid = open3($wantinputfd ? '<&INPUT_RDR' : '<&STDIN', '>&STDOUT',
+		\*ERRFH, $this->program,
 		'--backtitle', $backtitle,
 		'--title', $this->title, @_);
+	$this->dialog_errfh(\*ERRFH);
+	$this->dialog_pid($pid);
 	close OUTPUT_WTR if $this->hasoutputfd;
+}
+
+sub waitdialog {
+	my $this=shift;
+
+	my $input_wtr=$this->dialog_input_wtr;
+	if ($input_wtr) {
+		close $input_wtr;
+	}
+	my $output_rdr=$this->dialog_output_rdr;
+	my $errfh=$this->dialog_errfh;
 	my $output='';
 	if ($this->hasoutputfd) {
-		while (<OUTPUT_RDR>) {
+		while (<$output_rdr>) {
 			$output.=$_;
 		}
 		my $error=0;
-		while (<ERRFH>) {
+		while (<$errfh>) {
 			print STDERR $_;
 			$error++;
 		}
@@ -304,23 +325,24 @@ sub showdialog {
 		}
 	}
 	else {
-		while (<ERRFH>) { # ugh
+		while (<$errfh>) { # ugh
 			$output.=$_;
 		}
 	}
 	chomp $output;
 
 	# Have to put the wait here to make sure $? is set properly.
-	waitpid($pid, 0);
-	$^W=$savew;
-	$^F=$savef;
+	waitpid($this->dialog_pid, 0);
+	$^W=$this->dialog_savew;
 
 	# Restore stdin, stdout. Must be this way round because open3 closed
 	# stdin, and if we dup onto stdout first Perl tries to use the free
 	# fd 0 as a temporary fd and then warns about reopening STDIN as
 	# STDOUT.
-	open(STDIN, "<&SAVEIN") || die $!;
-	open(STDOUT, ">&SAVEOUT") || die $!;
+	if (defined $this->dialog_savein) {
+		open(STDIN, '<&', $this->dialog_savein) || die $!;
+	}
+	open(STDOUT, '>&', $this->dialog_saveout) || die $!;
 
 	# Now check dialog's return code to see if escape (255 (really -1)) or
 	# Cancel (1) were hit. If so, make a note that we should back up.
@@ -340,6 +362,29 @@ sub showdialog {
 	else {
 		return $output;
 	}
+}
+
+=item showdialog
+
+Displays a dialog. After the first parameters which should point to the question
+being displayed, all remaining parameters are passed to whiptail/dialog.
+
+If called in a scalar context, returns whatever dialog outputs to stderr.
+If called in a list context, returns the return code of dialog, then the
+stderr output.
+
+Note that the return code of dialog is examined, and if the user hit escape
+or cancel, this frontend will assume they wanted to back up. In that case,
+showdialog will return undef.
+
+=cut
+
+sub showdialog {
+	my $this=shift;
+	my $question=shift;
+
+	$this->startdialog($question, 0, @_);
+	return $this->waitdialog(@_);
 }
 
 =back

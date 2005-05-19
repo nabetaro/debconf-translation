@@ -109,6 +109,7 @@ sub go {
 		else {
 			$this->win->setBackEnabled(0);
 		}
+		$this->win->setNextEnabled(1);
 	
 		$this->win->show;
 		debug frontend => "QTF: -- ENTER EVENTLOOP --------";
@@ -134,6 +135,53 @@ sub go {
 	}
 	return '' if $this->goback;
 	return 1;
+}
+
+sub progress_start {
+	my $this=shift;
+	$this->SUPER::progress_start(@_);
+
+	my $element=$this->progress_bar;
+	$this->vbox->addWidget($element->top);
+	$element->top->show;
+	$this->vbox->addItem($this->space);
+	# TODO: no backup support yet
+	$this->win->setBackEnabled(0);
+	$this->win->setNextEnabled(0);
+	$this->win->show;
+	$this->qtapp->processEvents;
+}
+
+sub progress_set {
+	my $this=shift;
+	$this->SUPER::progress_set(@_);
+
+	$this->qtapp->processEvents;
+}
+
+sub progress_info {
+	my $this=shift;
+	$this->SUPER::progress_info(@_);
+
+	$this->qtapp->processEvents;
+}
+
+sub progress_stop {
+	my $this=shift;
+	$this->SUPER::progress_stop(@_);
+
+	$this->qtapp->processEvents;
+
+	my $element=$this->progress_bar;
+	$this->vbox->remove($element->top);
+	$element->top->hide;
+	$element->destroy;
+	$this->vbox->removeItem($this->space);
+
+	if ($this->cancelled) {
+		$this->shutdown;
+		exit;
+	}
 }
 
 =item shutdown

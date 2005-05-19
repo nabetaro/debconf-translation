@@ -50,6 +50,16 @@ sub setTitle {
 	this->title->setText($_[0]);
 }
 
+=item setNextEnabled
+
+Pass a true/false value to enable or disable the next button.
+
+=cut
+
+sub setNextEnabled {
+	bNext->setEnabled(shift);
+}
+
 =item setBackEnabled
 
 Pass a true/false value to enable or disable the back button.

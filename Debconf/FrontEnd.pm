@@ -104,6 +104,27 @@ sub elementtype {
 	return $ret;
 }
 
+my %nouse;
+
+sub _loadelementclass {
+	my $this=shift;
+	my $type=shift;
+	my $nodebug=shift;
+
+	# See if we need to load up the object class.. The eval
+	# inside here is leak-prone if run multiple times on a
+	# given type, so make sure to only ever do it once per type.
+	if (! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
+		return if $nouse{$type};
+		eval qq{use Debconf::Element::$type};
+		if ($@ || ! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
+			warn sprintf(gettext("Unable to load Debconf::Element::%s. Failed because: %s"), $type, $@) if ! $nodebug;
+			$nouse{$type}=1;
+			return;
+		}
+	}
+}
+
 =item makeelement
 
 Creates an Element of the type used by this FrontEnd. Pass in the question
@@ -118,8 +139,6 @@ off those debug messages.
 
 =cut
 
-my %nouse;
-
 sub makeelement {
 	my $this=shift;
 	my $question=shift;
@@ -129,18 +148,7 @@ sub makeelement {
 	my $type=$this->elementtype.'::'.ucfirst($question->type);
 	$type=~s/::$//; # in case the question has no type..
 
-	# See if we need to load up the object class.. The eval
-	# inside here is leak-prone if run multiple times on a
-	# given type, so make sure to only ever do it once per type.
-	if (! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
-		return if $nouse{$type};
-		eval qq{use Debconf::Element::$type};
-		if ($@ || ! UNIVERSAL::can("Debconf::Element::$type", 'new')) {
-			warn sprintf(gettext("Unable to load Debconf::Element::%s. Failed because: %s"), $type, $@) if ! $nodebug;
-			$nouse{$type}=1;
-			return;
-		}
-	}
+	$this->_loadelementclass($type, $nodebug);
 
 	my $element="Debconf::Element::$type"->new(question => $question);
 	return if ! ref $element;
@@ -184,6 +192,88 @@ sub go {
 		return if $this->backup && $this->capb_backup;
 	}
 	return 1;
+}
+
+=item progress_start
+
+Start a progress bar.
+
+=cut
+
+sub progress_start {
+	my $this=shift;
+	my $min=shift;
+	my $max=shift;
+	my $question=shift;
+
+	my $type = $this->elementtype.'::Progress';
+	$this->_loadelementclass($type);
+
+	my $element="Debconf::Element::$type"->new(question => $question);
+	unless (ref $element) {
+		# TODO: error somehow
+		return;
+	}
+	$element->frontend($this);
+	$element->progress_min($min);
+	$element->progress_max($max);
+	$element->progress_cur($min);
+
+	$element->start;
+
+	$this->progress_bar($element);
+}
+
+=item progress_set
+
+Set the value of a progress bar, within the minimum and maximum values
+passed when starting it.
+
+=cut
+
+sub progress_set {
+	my $this=shift;
+	my $value=shift;
+
+	$this->progress_bar->set($value);
+}
+
+=item progress_step
+
+Step a progress bar by the given amount.
+
+=cut
+
+sub progress_step {
+	my $this=shift;
+	my $inc=shift;
+
+	$this->progress_set($this->progress_bar->progress_cur + $inc);
+}
+
+=item progress_info
+
+Set an informational message to be displayed along with the progress bar.
+
+=cut
+
+sub progress_info {
+	my $this=shift;
+	my $question=shift;
+
+	$this->progress_bar->info($question);
+}
+
+=item progress_stop
+
+Tear down a progress bar.
+
+=cut
+
+sub progress_stop {
+	my $this=shift;
+
+	$this->progress_bar->stop;
 }
 
 =item clear

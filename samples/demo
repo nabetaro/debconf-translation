@@ -16,7 +16,7 @@ db_settitle demo/title
 
 # This implements a simple state machine so the back button can be handled.
 STATE=1
-while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
+while [ "$STATE" != 0 -a "$STATE" != 8 ]; do
 	case $STATE in
 	1)
 		db_input high demo/boolean || true
@@ -45,6 +45,18 @@ while [ "$STATE" != 0 -a "$STATE" != 7 ]; do
 		
 	;;
 	6)
+		db_progress START 0 10 demo/progress/title
+		sleep 1
+		db_progress SET 2
+		sleep 1
+		db_progress INFO demo/progress/info
+		db_progress STEP 3
+		sleep 1
+		db_progress STEP 1
+		sleep 1
+		db_progress STOP
+	;;
+	7)
 		db_subst demo/subst user joeuser
 		db_input high demo/subst || true
 	;;

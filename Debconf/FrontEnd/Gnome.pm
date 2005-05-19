@@ -149,6 +149,51 @@ sub go {
 	return 1;
 }
 
+sub progress_start {
+	my $this=shift;
+	$this->SUPER::progress_start(@_);
+
+	my $element=$this->progress_bar;
+	$this->druid_page->vbox->pack_start($element->hbox, $element->fill, $element->expand, 0);
+	$this->druid_page->set_title(to_Unicode($this->title));
+	# TODO: no backup support yet
+	$this->druid->set_buttons_sensitive(0, 0, 1, 1);
+	$this->win->show;
+
+	while (Gtk2->events_pending) {
+		Gtk2->main_iteration;
+	}
+}
+
+sub progress_set {
+	my $this=shift;
+	$this->SUPER::progress_set(@_);
+
+	while (Gtk2->events_pending) {
+		Gtk2->main_iteration;
+	}
+}
+
+sub progress_info {
+	my $this=shift;
+	$this->SUPER::progress_info(@_);
+
+	while (Gtk2->events_pending) {
+		Gtk2->main_iteration;
+	}
+}
+
+sub progress_stop {
+	my $this=shift;
+	$this->SUPER::progress_stop(@_);
+
+	while (Gtk2->events_pending) {
+		Gtk2->main_iteration;
+	}
+
+	$this->create_druid_page();
+}
+
 =back
 
 =head1 AUTHOR

@@ -715,6 +715,91 @@ sub command_info {
 	return $codes{success};
 }
 
+=item command_progress
+
+Progress bar handling. Pass this a subcommand name followed by any arguments
+required by the subcommand, as follows:
+
+=over 4
+
+=item START
+
+Pass this a minimum value, a maximum value, and a question name. It creates
+a progress bar with the specified range and the description of the specified
+question as the title.
+
+=item SET
+
+Pass this a value. It sets the current position of the progress bar to the
+specified value.
+
+=item STEP
+
+Pass this an increment. It increments the current position of the progress
+bar by the specified amount.
+
+=item INFO
+
+Pass this a template name. It displays the specified template as an
+informational message in the progress bar.
+
+=item STOP
+
+This subcommand takes no arguments. It destroys the progress bar.
+
+=back
+
+=cut
+
+sub command_progress {
+	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 1;
+	my $subcommand=shift;
+	$subcommand=lc($subcommand);
+
+	if ($subcommand eq 'start') {
+		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 3;
+		my $min=shift;
+		my $max=shift;
+		my $question_name=shift;
+
+		return $codes{syntaxerror}, "min ($min) > max ($max)" if $min > $max;
+
+		my $question=Debconf::Question->get($question_name) ||
+			return $codes{badparams}, "$question_name doesn't exist";
+
+		$this->frontend->progress_start($min, $max, $question);
+	}
+	elsif ($subcommand eq 'set') {
+		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
+		my $value=shift;
+		$this->frontend->progress_set($value);
+	}
+	elsif ($subcommand eq 'step') {
+		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
+		my $inc=shift;
+		$this->frontend->progress_step($inc);
+	}
+	elsif ($subcommand eq 'info') {
+		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
+		my $question_name=shift;
+
+		my $question=Debconf::Question->get($question_name) ||
+			return $codes{badparams}, "$question_name doesn't exist";
+
+		$this->frontend->progress_info($question);
+	}
+	elsif ($subcommand eq 'stop') {
+		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 0;
+		$this->frontend->progress_stop();
+	}
+	else {
+		return $codes{syntaxerror}, "Unknown subcommand";
+	}
+
+	return $codes{success}, "OK";
+}
+
 =item command_visible
 
 Deprecated.
