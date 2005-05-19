@@ -898,7 +898,8 @@ It's rather hackish how debconf figures out what templates files to load,
 and when it loads them. When the config, preinst, and postinst scripts
 invoke debconf, it will automatically figure out where the templates file
 is, and load it. Standalone programs that use debconf will cause debconf to
-look for templates files in /usr/share/debconf/progname.templates. And if a
+look for templates files in /usr/share/debconf/templates/progname.templates.
+And if a
 postrm wants to use debconf at purge time, the templates won't be available
 unless debconf had a chance to load them in its postinst. This is messy,
 but rather unavoidable. In the future some of these programs may be able to

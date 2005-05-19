@@ -908,7 +908,8 @@ charger ressemble vraiment à une bidouille. Lorsque les scripts config, preinst
 et postinst invoquent debconf, il trouvera automatiquement l'emplacement du
 fichier templates et le chargera. Les programmes indépendants qui utilisent
 debconf forceront debconf à rechercher les fichiers templates dans
-/usr/share/debconf/nomduprog.templates. Et si un postrm veut utiliser debconf au
+/usr/share/debconf/templates/nomduprog.templates. Et si un postrm veut utiliser
+debconf au
 moment de la purge, les questionnaires ne seront pas disponibles à moins que
 debconf ait une opportunité de les charger dans son postinst. Cela n'est pas
 très propre mais presque inévitable. Certains de ces programmes pourraient

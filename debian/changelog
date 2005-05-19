@@ -12,6 +12,8 @@ debconf (1.4.50) UNRELEASED; urgency=low
       call.
     - Add progress bar support, using the cdebconf PROGRESS protocol. The
       editor and web frontend implementations are stubs.
+    - Correct location of standalone template files in debconf-devel(7)
+      (should be /usr/share/debconf/templates/progname.templates).
   * Joey Hess
     - debconf man page update. Closes: #309698
 
