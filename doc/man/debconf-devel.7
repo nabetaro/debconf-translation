@@ -223,8 +223,8 @@ code (the first word of the reply), and an optional extended result code
 and other numbers to indicate various kinds of failure. For full details,
 see the table in Debian policy's debconf specification document.
 .P
-The extended return code is genrally free form and unspecified, so you
-should generally ignore it, and should certianly not try to parse it in a
+The extended return code is generally free form and unspecified, so you
+should generally ignore it, and should certainly not try to parse it in a
 program to work out what debconf is doing. The exception is commands like 
 GET, that cause a value to be returned in the extended return code.
 .P
@@ -340,7 +340,7 @@ substitution. This is useful if you need to display some message to the
 user that you can't hard-code in the templates file.
 .IP
 Do not try to use SUBST to change the default value of a question; it won't
-work since there is a SET command explicitely for that purpose.
+work since there is a SET command explicitly for that purpose.
 .TP
 .B FGET question flag
 Questions can have flags associated with them. The flags can have a value
@@ -518,7 +518,7 @@ in separate files; one file per translation. In the past, the
 and
 .BR debconf-mergetemplate (1)
 programs were used to manage debian/template.ll files. This has been
-supsesceded by the po-debconf package, which lets you deal with debconf
+superseded by the po-debconf package, which lets you deal with debconf
 translations in .po files, just like any other translations. Your
 translators will thank you for using this new improved mechanism. 
 .P

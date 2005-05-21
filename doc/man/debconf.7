@@ -82,7 +82,7 @@ connection, or for those who are comfortable with unix.
 This is the anti-frontend. It never interacts with you at all, and
 makes the default answers be used for all questions. It will
 occasionally mail root with messages the package wanted to display,
-but that's it; otherwise it is completly silent and unobtrusive, a
+but that's it; otherwise it is completely silent and unobtrusive, a
 perfect frontend for automatic installs.  If you are using this
 front-end, and require non-default answers to questions, you will need
 to pre-populate the debconf database; see the section below on
@@ -212,7 +212,7 @@ automatically by a single LDAP server.
 .P
 But perhaps you're using something a little bit easier to set up like, say,
 the default debconf database configuration, or you just don't want your
-remote systes to use LDAP all the time. In this case the best approach is
+remote systems to use LDAP all the time. In this case the best approach is
 to temporarily configure the remote systems to stack your database
 underneath their own existing databases, so they pull default values out of
 it. Debconf offers two environment variables, DEBCONF_DB_FALLBACK and
@@ -224,7 +224,7 @@ use:
                   DEBCONF_DB_FALLBACK=Pipe apt-get upgrade"
 .P	
 This makes the debconf on the remote host read in the data that is piped
-accross the ssh connection and interpret it as a plain text format debconf
+across the ssh connection and interpret it as a plain text format debconf
 database. It then uses that database as a fallback database -- a
 read-only database that is queried for answers to questions if the system's
 main debconf database lacks answers.
@@ -245,7 +245,7 @@ Here's another method:
   ssh root@target "DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get upgrade
 .P
 Here you copy the database over with scp, and then ssh over and make
-debconf use the file you copied over. This illistrates a shorthand you can
+debconf use the file you copied over. This illustrates a shorthand you can
 use in the DEBCONF_DB_FALLBACK parameters -- if a field name is left off, it
 defaults to "filename".
 .P
@@ -304,7 +304,7 @@ suppress display of fatal errors.
 .TP
 .B DEBCONF_TERSE
 Set to "yes" to enable terse mode, in which debconf frontends cut down on
-the verbage as much as possible.
+the verbiage as much as possible.
 .TP
 .B DEBCONF_DB_FALLBACK
 Stack a database after the normally used databases, so that it is used as a
@@ -314,7 +314,7 @@ existing database in debconf.conf, then that database will be used.
 Otherwise, the environment variable can be used to configure a database on the
 fly, by telling the type of database, and optionally passing field:value
 settings, inside curly braces after the type. Spaces are used to separate
-fields, so you cannot specifiy a field value containing whitespace.
+fields, so you cannot specify a field value containing whitespace.
 .P
 Thus, this uses the fallbackdb in debconf.conf:
   DEBCONF_DB_FALLBACK=fallbackdb
