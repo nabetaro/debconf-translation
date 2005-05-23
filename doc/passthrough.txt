@@ -95,8 +95,17 @@ defined, viz:
 
 	SET <tag> <value>
   where:
-  	<tag> is the name of the templte
+  	<tag> is the name of the template
 	<value> is the default value of the question
+
+If any substitution variables were set, corresponding SUBST commands may be
+sent:
+
+	SUBST <tag> <key> <value>
+  where:
+	<tag> is the name of the template
+	<key> is the name of the variable to substitute
+	<value> is the value to substitute in place of the named variable
 
 Finally, a corresponding INPUT command will be sent as:
 

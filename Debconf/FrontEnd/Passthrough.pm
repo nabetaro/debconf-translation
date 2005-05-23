@@ -208,7 +208,12 @@ sub go {
 
 		$this->talk('SET', $tag, $default) if $default ne '';
 
-                
+		my @vars=$Debconf::Db::config->variables($question->{name});
+		for my $var (@vars) {
+			my $val=$Debconf::Db::config->getvariable($question->{name}, $var);
+			$val='' unless defined $val;
+			$this->talk('SUBST', $tag, $var, $val);
+		}
 
 		$this->talk('INPUT', $question->priority, $tag);
 	}
