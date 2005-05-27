@@ -13,6 +13,8 @@ use IO::Socket;
 use IO::Handle;
 use Debconf::FrontEnd;
 use Debconf::Element;
+use Debconf::Element::Select;
+use Debconf::Element::Multiselect;
 use Debconf::Log qw(:all);
 use base qw(Debconf::FrontEnd);
 
@@ -108,8 +110,9 @@ sub shutdown {
 =head2 makeelement
 
 This frontend doesn't really make use of Elements to interact with the user,
-so it uses generic Elements as placeholders. This method simply makes
-one.
+so it uses generic Elements as placeholders (except for select and
+multiselect Elements for which it needs translation methods). This method
+simply makes one.
 
 =cut
 
@@ -117,8 +120,14 @@ sub makeelement
 {
 	my $this=shift;
 	my $question=shift;
-	
-	return Debconf::Element->new(question => $question);
+
+	my $type=$question->type;
+	if ($type eq "select" || $type eq "multiselect") {
+		$type=ucfirst($type);
+		return "Debconf::Element::$type"->new(question => $question);
+	} else {
+		return Debconf::Element->new(question => $question);
+	}
 }
 
 =head2 capb_backup
@@ -185,7 +194,14 @@ sub go {
 		my $type = $question->template->type;
 		my $desc = $question->description;
 		my $extdesc = $question->extended_description;
-		my $default = $question->value;
+		my $default;
+		if ($type eq 'select') {
+			$default = $element->translate_default;
+		} elsif ($type eq 'multiselect') {
+			$default = join ', ', $element->translate_default;
+		} else {
+			$default = $question->value;
+		}
 
                 $this->talk('DATA', $tag, 'type', $type);
 
@@ -228,10 +244,17 @@ sub go {
 	foreach my $element (@{$this->elements}) {
 		if ($element->visible) {
 			my $tag = $element->question->template->template;
+			my $type = $element->question->template->type;
 
 			my ($ret, $val)=$this->talk('GET', $tag);
 			if ($ret eq "0") {
-				$element->value($val);
+				if ($type eq 'select') {
+					$element->value($element->translate_to_C($val));
+				} elsif ($type eq 'multiselect') {
+					$element->value(join(', ', map { $element->translate_to_C($_) } split(', ', $val)));
+				} else {
+					$element->value($val);
+				}
 				debug developer => "Got \"$val\" for $tag";
 			}
 		} else {

@@ -16,6 +16,9 @@ debconf (1.4.50) UNRELEASED; urgency=low
       (should be /usr/share/debconf/templates/progname.templates).
     - Extend passthrough protocol slightly to send SUBST commands for any
       substitution variables that are set for each question.
+    - Translate select/multiselect defaults to the current locale when
+      sending them to a passthrough UI agent, and translate the value
+      returned by the UI agent back to C.
   * Joey Hess
     - debconf man page update. Closes: #309698
   * Christian Perrier
