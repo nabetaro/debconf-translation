@@ -244,69 +244,65 @@ sub go {
 	return 1;
 }
 
-=head2 progress
+=head2 progress_data
 
-Send necessary data about any progress bar template to the UI agent, and
-then ask it to display the progress bar changes.
+Send necessary data about any progress bar template to the UI agent.
 
 =cut
 
-sub progress {
+sub progress_data {
 	my $this=shift;
 	my $subcommand=shift;
 	my $question=shift;
 
-	if (defined $question) {
-		my $tag=$question->template->template;
-		my $type=$question->template->type;
-		my $desc=$question->description;
-		my $extdesc=$question->extended_description;
+	my $tag=$question->template->template;
+	my $type=$question->template->type;
+	my $desc=$question->description;
+	my $extdesc=$question->extended_description;
 
-		$this->talk('DATA', $tag, 'type', $type);
+	$this->talk('DATA', $tag, 'type', $type);
 
-		if ($desc) {
-			$desc =~ s/\n/\\n/g;
-			$this->talk('DATA', $tag, 'description', $desc);
-		}
-
-		if ($extdesc) {
-			$extdesc =~ s/\n/\\n/g;
-			$this->talk('DATA', $tag, 'extended_description',
-			            $extdesc);
-		}
+	if ($desc) {
+		$desc =~ s/\n/\\n/g;
+		$this->talk('DATA', $tag, 'description', $desc);
 	}
 
-	return $this->talk('PROGRESS', $subcommand, @_);
+	if ($extdesc) {
+		$extdesc =~ s/\n/\\n/g;
+		$this->talk('DATA', $tag, 'extended_description', $extdesc);
+	}
 }
 
 sub progress_start {
 	my $this=shift;
 
-	$this->progress('START', $_[2], @_);
+	$this->progress_data('START', $_[2]);
+	return $this->talk('PROGRESS', 'START', $_[0], $_[1], $_[2]->template->template);
 }
 
 sub progress_set {
 	my $this=shift;
 
-	$this->progress('SET', undef, @_);
+	return $this->talk('PROGRESS', 'SET', $_[0]);
 }
 
 sub progress_step {
 	my $this=shift;
 
-	$this->progress('STEP', undef, @_);
+	return $this->talk('PROGRESS', 'STEP', $_[0]);
 }
 
 sub progress_info {
 	my $this=shift;
 
-	$this->progress('INFO', $_[0], @_);
+	$this->progress_data('INFO', $_[0]);
+	return $this->talk('PROGRESS', 'INFO', $_[0]->template->template);
 }
 
 sub progress_stop {
 	my $this=shift;
 
-	$this->progress('STOP', undef);
+	return $this->talk('PROGRESS', 'STOP');
 }
 
 =back
