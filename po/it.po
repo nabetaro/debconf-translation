@@ -7,199 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.48\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-16 14:18+0200\n"
 "Last-Translator: Danilo Piazzalunga <danilopiazza@libero.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Si sta usando il frontend di debconf basato su editor di testo per "
-"configurare il proprio sistema. Per istruzioni dettagliate, vedere la fine "
-"di questo documento."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Il frontend di debconf basato su editor di testo presenta uno o più file di "
-"testo da modificare. Questo è uno dei suddetti file. Se si ha familiarità "
-"con i file di configurazione standard di unix, questo file risulterà "
-"familiare, contiene direttive di configurazione corredate di commenti. "
-"Modificare il file cambiando ogni elemento in base a quanto si desidera, "
-"quindi salvare e uscire; a questo punto, debconf leggerà il file modificato "
-"e userà i valori specificati per configurare il sistema."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf su %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Ancora"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Nota: debconf è in modalità web. Andare su http://localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Indietro"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Avanti"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"TERM non è impostata per cui il frontend a dialoghi non può essere usato."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Il frontend a dialoghi è incompatibile con i buffer di shell di emacs"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Il frontend a dialoghi non funziona su dumb terminal, un buffer di shell di "
-"emacs o senza un terminale di controllo"
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Non è installato nessun programma di gestione di dialoghi utilizzabile, "
-"pertanto non può essere usato nessun fontend a dialoghi."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Il frontend a dialoghi richiede uno schermo che misuri almeno 13 righe in "
-"altezza e 31 colonne in larghezza."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Configurazione di Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Questo frontend richiede un terminale di controllo."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU è incompatibile con i buffer di shell di emacs."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Salvare (spedire) la nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"È stato chiesto a debconf di salvare questa nota, così è stata spedita a voi."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informazioni"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "La nota è stata spedita."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Errore"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Impossibile salvare la nota."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Scelte"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"Inserire zero o più elementi separati da una virgola seguita da uno spazio "
-"(«, »)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "sì"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "no"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
-"spedita."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, in esecuzione su %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "nessuna delle precedenti"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Inserire gli elementi che si vuole scegliere, separati da spazi."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Valore di input «%s» non trovato nelle scelte C! Questo non dovrebbe "
-"succedere mai. Forse i template sono stati tradotti in modo errato."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "A_iuto"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Aiuto"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -257,6 +71,202 @@ msgstr "La priorità «%s» non è valida e verrà ignorata."
 msgid "Valid priorities are: %s"
 msgstr "Le priorità valide sono: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Scelte"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "sì"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "no"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"Inserire zero o più elementi separati da una virgola seguita da uno spazio "
+"(«, »)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "A_iuto"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Aiuto"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Salvare (spedire) la nota"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"È stato chiesto a debconf di salvare questa nota, così è stata spedita a voi."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informazioni"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "La nota è stata spedita."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Errore"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Impossibile salvare la nota."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
+"spedita."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, in esecuzione su %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Valore di input «%s» non trovato nelle scelte C! Questo non dovrebbe "
+"succedere mai. Forse i template sono stati tradotti in modo errato."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "nessuna delle precedenti"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Inserire gli elementi che si vuole scegliere, separati da spazi."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Impossibile caricare Debconf::Element::%s. Fallito perché: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "Configurazione in corso di %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr ""
+"TERM non è impostata per cui il frontend a dialoghi non può essere usato."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Il frontend a dialoghi è incompatibile con i buffer di shell di emacs"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Il frontend a dialoghi non funziona su dumb terminal, un buffer di shell di "
+"emacs o senza un terminale di controllo"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Non è installato nessun programma di gestione di dialoghi utilizzabile, "
+"pertanto non può essere usato nessun fontend a dialoghi."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Il frontend a dialoghi richiede uno schermo che misuri almeno 13 righe in "
+"altezza e 31 colonne in larghezza."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Configurazione di Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Si sta usando il frontend di debconf basato su editor di testo per "
+"configurare il proprio sistema. Per istruzioni dettagliate, vedere la fine "
+"di questo documento."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Il frontend di debconf basato su editor di testo presenta uno o più file di "
+"testo da modificare. Questo è uno dei suddetti file. Se si ha familiarità "
+"con i file di configurazione standard di unix, questo file risulterà "
+"familiare, contiene direttive di configurazione corredate di commenti. "
+"Modificare il file cambiando ogni elemento in base a quanto si desidera, "
+"quindi salvare e uscire; a questo punto, debconf leggerà il file modificato "
+"e userà i valori specificati per configurare il sistema."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf su %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Questo frontend richiede un terminale di controllo."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU è incompatibile con i buffer di shell di emacs."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Ancora"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Nota: debconf è in modalità web. Andare su http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Indietro"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Avanti"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -292,16 +302,6 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Il template n°%s in %s non contiene la riga «Template:»\n"
 
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Impossibile caricare Debconf::Element::%s. Fallito perché: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "Configurazione in corso di %s"
-
 #: ../dpkg-preconfigure:113
 #, perl-format
 msgid "unable to re-open stdin: %s"
@@ -335,7 +335,7 @@ msgstr "errori analizzando il template: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: impossibile eseguire chmod: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ha fallito nel preconfigurare, con lo stato di uscita %s"
@@ -364,17 +364,17 @@ msgstr "%s deve essere eseguito da root"
 msgid "please specify a package to reconfigure"
 msgstr "specificare un pacchetto da riconfigurare"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s non è installato"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s è rovinato o non completamente installato"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Impossibile leggere il file dello stato: %s"
@@ -435,11 +435,11 @@ msgstr "%s è obsoleto"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s è obsoleto; il template sarà completamente omesso!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "Uso: debconf [opzioni] comando [argomenti]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
@@ -448,15 +448,13 @@ msgstr ""
 "  -o,  --owner=package          Specifica il pacchetto a cui il comando\n"
 "                                apppartiene."
 
-#: ../Debconf/Template.pm:201
-#, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
-msgstr ""
-"Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s\". "
-"Probabilmente due template non sono separati in modo corretto da un solo "
-"carattere di newline.\n"
+#~ msgid ""
+#~ "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+#~ "Probably two templates are not properly seperated by a lone newline.\n"
+#~ msgstr ""
+#~ "Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s"
+#~ "\". Probabilmente due template non sono separati in modo corretto da un "
+#~ "solo carattere di newline.\n"
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Preconfigurazione di %s in corso di (%s)"

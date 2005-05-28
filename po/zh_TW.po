@@ -7,184 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-01 18:03+0800\n"
 "Last-Translator: Kanru Chen <koster@debian.org.tw>\n"
 "Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"您選擇了文字編輯器形式的 debconf 介面設定系統. 留意這份文件最後有詳細的說明。"
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"編輯器形式的 debconf 會給你一到多個要修改的檔案。這是其中一個檔案。如果您熟識"
-"標準的 Unix 設定檔案，這個檔案在你看起來應該很親切 -- 這個檔案包含了不同的設"
-"定項目。修改檔案，更改任何修要的項目，然後儲存並離開。在任何時間， debconf 都"
-"會讀取已修改的檔案，而且會使用您的設定值設定系統。"
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf 在 %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "更多"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "注意: Debconf 執行在 Web 模式. 請瀏覽 http://localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "返回"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "下一步"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "系統未設定 TERM 環境變數，對話式介面無法使用。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "對話式介面與 Emacs shell 緩衝區不相容"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"對話介面並不能在簡易終端(dumb terminal)、Emacs shell 緩衝區上運作，或沒有控制"
-"終端。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr "沒有安裝任何對話形式的程式，所以對話形式的介面將不能使用。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "對話介面要求畫面必須為 13 行高及 31 字元閣度。"
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Debian 設定"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "這個介面需要可控制的 tty。"
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU 與 Emacs shell 緩衝區不相容"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "儲存(郵寄)備忘"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf 並沒有設定顯示這個備忘，所以直接郵寄給您。"
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "訊息"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "這個備忘已經郵寄了。"
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "錯誤"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "不能儲存備忘。"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "選擇"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(輸入零或多個項目，以逗號及一個空格 (', ')分格。)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "是"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "否"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf 並沒有設定顯示這個備忘，所以直接郵寄給您。"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf，執行在 %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "以上都沒有"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "輸入您想選擇的項目，以空格分開。"
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"輸入值，\"%s\" 沒有在 C 選擇中找到！這是永不會發生的。可能樣板受到不正確的本"
-"地化."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "求助(_H)"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "求助"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -240,6 +69,187 @@ msgstr "忽略無效的優先順序 \"%s\""
 msgid "Valid priorities are: %s"
 msgstr "有效的順序為：%s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "選擇"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "是"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "否"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(輸入零或多個項目，以逗號及一個空格 (', ')分格。)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "求助(_H)"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "求助"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "儲存(郵寄)備忘"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf 並沒有設定顯示這個備忘，所以直接郵寄給您。"
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "訊息"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "這個備忘已經郵寄了。"
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "錯誤"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "不能儲存備忘。"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr "Debconf 並沒有設定顯示這個備忘，所以直接郵寄給您。"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf，執行在 %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"輸入值，\"%s\" 沒有在 C 選擇中找到！這是永不會發生的。可能樣板受到不正確的本"
+"地化."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "以上都沒有"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "輸入您想選擇的項目，以空格分開。"
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "不能載入 Debconf::Element::%s，失敗原因：%s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "正在設定 %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "系統未設定 TERM 環境變數，對話式介面無法使用。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "對話式介面與 Emacs shell 緩衝區不相容"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"對話介面並不能在簡易終端(dumb terminal)、Emacs shell 緩衝區上運作，或沒有控制"
+"終端。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "沒有安裝任何對話形式的程式，所以對話形式的介面將不能使用。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "對話介面要求畫面必須為 13 行高及 31 字元閣度。"
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Debian 設定"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"您選擇了文字編輯器形式的 debconf 介面設定系統. 留意這份文件最後有詳細的說明。"
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"編輯器形式的 debconf 會給你一到多個要修改的檔案。這是其中一個檔案。如果您熟識"
+"標準的 Unix 設定檔案，這個檔案在你看起來應該很親切 -- 這個檔案包含了不同的設"
+"定項目。修改檔案，更改任何修要的項目，然後儲存並離開。在任何時間， debconf 都"
+"會讀取已修改的檔案，而且會使用您的設定值設定系統。"
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf 在 %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "這個介面需要可控制的 tty。"
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU 與 Emacs shell 緩衝區不相容"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "更多"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "注意: Debconf 執行在 Web 模式. 請瀏覽 http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "返回"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "下一步"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -270,16 +280,6 @@ msgstr "%3$s 中第 %2$s 部份 \"%1$s\" 附近的樣板解析出錯\n"
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "樣板 #%s 在 %s 沒有包含 'Template:' 字句\n"
-
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "不能載入 Debconf::Element::%s，失敗原因：%s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "正在設定 %s"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -314,7 +314,7 @@ msgstr "樣板解讀錯誤：%s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: 不能改變權限：%s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預先設定 %s 失敗，中止狀態 %s"
@@ -342,17 +342,17 @@ msgstr "%s 需要由 root 執行"
 msgid "please specify a package to reconfigure"
 msgstr "請指定要再設定的包件"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s 並未安裝"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s 已損壞或未安裝完成"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "不能讀取狀態檔案：%s"
@@ -413,11 +413,11 @@ msgstr "%s 已經過期"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s 已經過期；棄用整個樣板"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "使用方法： debconf [選項] 命令 [參數]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

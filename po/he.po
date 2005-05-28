@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-01 22:04+0200\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Hebrew <webmaster@guides.co.il>\n"
@@ -17,180 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: Israel\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"אתה משתמש בממשק מבוסס עורך של debconf כדי להגדיר את המערכת שלך. ראה את סופו "
-"של מסך זה להוראות מפורטות."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"הממשק מבוסס עורך של debconf מציג לך אחד או יותר קבצי טקסט לעריכה. זהו קובץ "
-"כזה . אם אתה מכיר עם הסטנדרט של קבצי הגדרות ב-unix, קובץ זה יראה מוכר לך - "
-"הוא מכיל הערות משולבות בפרטי הגדרות. ערוך את הקובץ ושנה את כל הפריטים כנדרש, "
-"לאחר מכן שמור וצא. בשלב זה, debconf יקרא את הקובץ הערוך וישתמש בערכים שהכנסת "
-"כדי להגדיר את המערכת."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf על %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "עוד"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "הערה: Debconf רץ במצב web. גש לכתובת http://localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "אחורה"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "הבא"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "המשתנה TERM לא מוגדר, כך שממשק של dialog לא שמיש."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "הממשק של Dialog אינו תואם עם באפרי המעטפת של emacs"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"הממשק של Dialog לא יכול כמסוף טיפש, כבאפר מעטפת של emacs או בלי טרמינל שולט."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"לא מותקנת תוכנה בסגנון dialog שהיא שמישה, כך שממשק המבוסס dailog לא יכול "
-"להיות בשימוש."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "הממשק Dialog דורש מסך שהוא לפחות בגובה 13 שורות וברוחב של 31 טורים."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "הגדרת Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "ממשק זה דורש tty שולט."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU אינו תואם לבאפרי המעטפת של emacs."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "שמור (שלח בדואר) הערה"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf התבקשה לשמור את ההערה הזאת, ולכן היא נשלחה אליך."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "מידע"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "ההערה נשלחה בדואר."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "שגיאה"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "לא מסוגל לשמור הערה."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "בחירות"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(הכנס אפס או יותר פריטים מופרסים בפסיק ואחריו רווח (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "כן"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "לא"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr "Debconf לא הוגדרה להציג את הערה זאת, אז היא נשלח אליך בדואר."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, רץ ב-%s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "אף אחד מהרשומים"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "הכנס את הפריטים שאתה רוצה לבחור, מופרדים ברווחים."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"ערך הקלט, \"%s\" לא מוגדר באפשרויות C! זה לא אמור לקרות לעולם! אולי התבניות "
-"עברו לוקליזציה בצורה לא נכונה."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_עזרה"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "עזרה"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -247,6 +73,190 @@ msgstr "מתעלם מעדיפות לא חוקית \"%s\""
 msgid "Valid priorities are: %s"
 msgstr "עדיפויות חוקיות הן: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "בחירות"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "כן"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "לא"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(הכנס אפס או יותר פריטים מופרסים בפסיק ואחריו רווח (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_עזרה"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "עזרה"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "שמור (שלח בדואר) הערה"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf התבקשה לשמור את ההערה הזאת, ולכן היא נשלחה אליך."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "מידע"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "ההערה נשלחה בדואר."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "שגיאה"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "לא מסוגל לשמור הערה."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr "Debconf לא הוגדרה להציג את הערה זאת, אז היא נשלח אליך בדואר."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, רץ ב-%s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"ערך הקלט, \"%s\" לא מוגדר באפשרויות C! זה לא אמור לקרות לעולם! אולי התבניות "
+"עברו לוקליזציה בצורה לא נכונה."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "אף אחד מהרשומים"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "הכנס את הפריטים שאתה רוצה לבחור, מופרדים ברווחים."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "לא ניתן לטעון את Debconf::Element::%s. כשלון בגלל: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "מגדיר את  %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "המשתנה TERM לא מוגדר, כך שממשק של dialog לא שמיש."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "הממשק של Dialog אינו תואם עם באפרי המעטפת של emacs"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"הממשק של Dialog לא יכול כמסוף טיפש, כבאפר מעטפת של emacs או בלי טרמינל שולט."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"לא מותקנת תוכנה בסגנון dialog שהיא שמישה, כך שממשק המבוסס dailog לא יכול "
+"להיות בשימוש."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "הממשק Dialog דורש מסך שהוא לפחות בגובה 13 שורות וברוחב של 31 טורים."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "הגדרת Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"אתה משתמש בממשק מבוסס עורך של debconf כדי להגדיר את המערכת שלך. ראה את סופו "
+"של מסך זה להוראות מפורטות."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"הממשק מבוסס עורך של debconf מציג לך אחד או יותר קבצי טקסט לעריכה. זהו קובץ "
+"כזה . אם אתה מכיר עם הסטנדרט של קבצי הגדרות ב-unix, קובץ זה יראה מוכר לך - "
+"הוא מכיל הערות משולבות בפרטי הגדרות. ערוך את הקובץ ושנה את כל הפריטים כנדרש, "
+"לאחר מכן שמור וצא. בשלב זה, debconf יקרא את הקובץ הערוך וישתמש בערכים שהכנסת "
+"כדי להגדיר את המערכת."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf על %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "ממשק זה דורש tty שולט."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU אינו תואם לבאפרי המעטפת של emacs."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "עוד"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "הערה: Debconf רץ במצב web. גש לכתובת http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "אחורה"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "הבא"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -278,16 +288,6 @@ msgstr "שגיאת עיבוד תבנית ליד `%s', בפסקה #%s של %s\n"
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "התבנית #%s ב-%s אינה מכילה 'Template:'\n"
-
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "לא ניתן לטעון את Debconf::Element::%s. כשלון בגלל: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "מגדיר את  %s"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -322,7 +322,7 @@ msgstr "שגיאה בעיבוד תבנית: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: לא יכול לשנות הרשאות: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s נכשלה להגדרה מראש, עם קוד יציאה %s"
@@ -350,17 +350,17 @@ msgstr "%s חייב להיות root"
 msgid "please specify a package to reconfigure"
 msgstr "ציין בבקשה חבילה להגדרה מראש"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s אינה מותקנת"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s שבורה או לא מותקנת באופן מלא"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "לא יכול לקרוא את קובץ הסטטוס: %s"
@@ -420,11 +420,11 @@ msgstr "%s אינה מעודכנת"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s אינה מעודכנת; מוריד את כל התבנית!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "שימוש: debconf [options] command [args]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

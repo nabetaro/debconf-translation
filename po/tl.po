@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-05 15:23+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -16,194 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2, plural=n>1;\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Gumagamit kayo ng mukha ng debconf na editor-based upang isaayos ang inyong "
-"sistema. Basahin ang sukdulan ng babasahin para sa detalyadong mga bilin."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Ang mukha ng debconf na editor-based ay nagpi-prisinta ng ilang mga "
-"taklasang teksto na inyong ie-edit. Ito ay halimbawa ng ganoong taklasang "
-"teksto. Kung kayo'y pamilyar sa taklasang pagsasaayos na karaniwan sa unix, "
-"itong taklasan ay makikilala ninyo -- naglalaman ito ng mga komento na may "
-"kahalong mga aytem ng pagsasaayos. Iedit ang taklasan, baguhin ang mga aytem "
-"na kailangan, imbakin ang taklasan at lumabas. Sa puntong iyon, babasahin ng "
-"debconf ang na-edit na taklasan, at gagamitin ang mga halagang inyong "
-"pinasok upang masaayos ang sistema."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf sa %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Meron pa"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Paunawa: Ang debconf ay tumatakbo sa modang web. Tignan sa http://localhost:%"
-"i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Bumalik"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Susunod"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "Hindi nakatakda ang TERM, kaya't hindi magamit ang mukha na dialog."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Hindi maaring gamitin ang mukha na dialog sa emacs shell buffer"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Hindi gagana ang mukha na dialog sa dumb terminal, sa emacs shell buffer, o "
-"kung walang controlling terminal."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Walang magamit na programang katulad ng dialog na naka-instol, kaya't hindi "
-"magamit ang mukha na batay sa dialog."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Ang mukha na dialog ay nangangailangan ng tabing na di kukulang sa 13 linya "
-"kataas at 31 hilera ang lapad."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Pagsasaayos ng Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Ang mukha na ito ay nangangailangan ng controlling tty."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU ay hindi kabagay sa emacs shell buffer."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Imbakin (koreo) Tanda"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa "
-"inyo."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Impormasyon"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Ang tanda ay ipinadala sa koreo."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Error"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Hindi naimbak ang tanda."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Pagpipilian"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Magbigay ng wala o labis na mga aytem na hiniwalay ng koma at sundan ng "
-"puwang (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "oo"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "hindi"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Hindi nakasaayos ang debconf upang ipakita ang tanda, kaya't ito'y ipinadala "
-"sa inyo."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, pinatakbo sa %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "wala sa itaas"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Ibinigay na halaga, \"%s\" hindi nahanap sa mga pagpipilian! Hindi ito dapat "
-"mangyari. Maaaring ang mga template ay hindi akma ang pagka-lokalisado."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Tulong"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Tulong"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -263,6 +75,204 @@ msgstr "Di pinansin ang di tanggap na antas \"%s\""
 msgid "Valid priorities are: %s"
 msgstr "Mga tanggap na mga antas ay: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Pagpipilian"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "oo"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "hindi"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Magbigay ng wala o labis na mga aytem na hiniwalay ng koma at sundan ng "
+"puwang (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Tulong"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Tulong"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Imbakin (koreo) Tanda"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Hiniling ang debconf na imbakin ang tandang ito, kaya't ito'y inemail sa "
+"inyo."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Impormasyon"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Ang tanda ay ipinadala sa koreo."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Error"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Hindi naimbak ang tanda."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Hindi nakasaayos ang debconf upang ipakita ang tanda, kaya't ito'y ipinadala "
+"sa inyo."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, pinatakbo sa %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Ibinigay na halaga, \"%s\" hindi nahanap sa mga pagpipilian! Hindi ito dapat "
+"mangyari. Maaaring ang mga template ay hindi akma ang pagka-lokalisado."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "wala sa itaas"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Hindi maipasok ang Debconf::Element::%s. Sawi dahil sa: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "Isinasaayos ang %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "Hindi nakatakda ang TERM, kaya't hindi magamit ang mukha na dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Hindi maaring gamitin ang mukha na dialog sa emacs shell buffer"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Hindi gagana ang mukha na dialog sa dumb terminal, sa emacs shell buffer, o "
+"kung walang controlling terminal."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Walang magamit na programang katulad ng dialog na naka-instol, kaya't hindi "
+"magamit ang mukha na batay sa dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Ang mukha na dialog ay nangangailangan ng tabing na di kukulang sa 13 linya "
+"kataas at 31 hilera ang lapad."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Pagsasaayos ng Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Gumagamit kayo ng mukha ng debconf na editor-based upang isaayos ang inyong "
+"sistema. Basahin ang sukdulan ng babasahin para sa detalyadong mga bilin."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Ang mukha ng debconf na editor-based ay nagpi-prisinta ng ilang mga "
+"taklasang teksto na inyong ie-edit. Ito ay halimbawa ng ganoong taklasang "
+"teksto. Kung kayo'y pamilyar sa taklasang pagsasaayos na karaniwan sa unix, "
+"itong taklasan ay makikilala ninyo -- naglalaman ito ng mga komento na may "
+"kahalong mga aytem ng pagsasaayos. Iedit ang taklasan, baguhin ang mga aytem "
+"na kailangan, imbakin ang taklasan at lumabas. Sa puntong iyon, babasahin ng "
+"debconf ang na-edit na taklasan, at gagamitin ang mga halagang inyong "
+"pinasok upang masaayos ang sistema."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf sa %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Ang mukha na ito ay nangangailangan ng controlling tty."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU ay hindi kabagay sa emacs shell buffer."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Meron pa"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Paunawa: Ang debconf ay tumatakbo sa modang web. Tignan sa http://localhost:%"
+"i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Bumalik"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Susunod"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -296,16 +306,6 @@ msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
-
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Hindi maipasok ang Debconf::Element::%s. Sawi dahil sa: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "Isinasaayos ang %s"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -342,7 +342,7 @@ msgstr "error sa pag-parse ng template: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: hindi ma-chmod: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "sawi ang pagsasaayos ng %s, may exit status na %s"
@@ -371,17 +371,17 @@ msgstr "%s ay dapat ipatakbo bilang root"
 msgid "please specify a package to reconfigure"
 msgstr "paki-takda ang pakete na isasaayos muli"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ay hindi naka-instol"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ay sira o hindi buong na-instol"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Hindi mabasa ang taklasang status: %s"
@@ -443,11 +443,11 @@ msgstr "%s ay laos na"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ay laos na; tinatapon ang buong template!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "Pag-gamit: debconf [mga opsyon] utos [mga arg]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

@@ -6,196 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-02 09:58+0200\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Pro konfiguraci systému pou¾íváte rozhraní zalo¾ené na textovém editoru. "
-"Podrobné informace naleznete na konci tohoto dokumentu."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Rozhraní debconfu zalo¾ené na textovém editoru vám nabídne k úpravám jeden "
-"nebo více textových souborù. Toto je jeden z nich. Pokud znáte standardní "
-"unixové konfiguraèní soubory, bude vám tento soubor pøipadat povìdomý -- "
-"obsahuje kometáøe prolo¾ené konfiguraèními polo¾kami. Upravte soubor dle "
-"potøeb, ulo¾te jej a ukonèete editor. V této fázi si debconf pøeète upravený "
-"soubor a pou¾ije zadané hodnoty pro nastavení systému."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf na %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Více"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Poznámka: Debconf bì¾í ve webovém re¾imu. Podívejte se na http://localhost:%"
-"i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Zpìt"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Dal¹í"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "Promìnná TERM není nastavená, dialogové rozhraní se nedá pou¾ít."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Dialogové rozhraní je nekompatibilní s emacsovým shellovým bufferem."
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Dialogové rozhraní nebude pracovat na hloupém terminálu, shellovém bufferu "
-"emacsu, nebo bez øídícího terminálu."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Není instalován ¾ádný dialogový program, tak¾e dialogové rozhraní nemù¾e být "
-"pou¾ito."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialogové rozhraní vy¾aduje obrazovku minimálnì 13 øádkù vysokou a 31 "
-"sloupcù ¹irokou."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Nastavení Debianu"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Toto rozhraní vy¾aduje øídící terminál."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU není kompatibilní se shellovým bufferem emacsu."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Ulo¾it poznámku (poslat po¹tou)"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf byl po¾ádán, aby ulo¾il tuto poznámku, tak¾e vám ji poslal."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informace"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Poznámka byla poslána."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Chyba"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Poznámka nelze ulo¾it."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Mo¾nosti"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Zadejte nula nebo více polo¾ek oddìlených èárkou, za kterou následuje "
-"mezera (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "ano"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "ne"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf nebyl nastaven pro zobrazení této poznámky, tak¾e vám ji poslal."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf bì¾ící na %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "nic z uvedeného"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Zadejte polo¾ky, které chcete vybrat, oddìlené mezerami."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Vstupní hodnota \"%s\" není v C volbách! To se nikdy nemìlo stát. Mo¾ná jsou "
-"¹ablony ¹patnì lokalizovány."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Nápovìda"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Nápovìda"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -253,6 +70,199 @@ msgstr "Ignoruji neplatnou prioritu \"%s\""
 msgid "Valid priorities are: %s"
 msgstr "Dostupné priority jsou: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Mo¾nosti"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ano"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "ne"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Zadejte nula nebo více polo¾ek oddìlených èárkou, za kterou následuje "
+"mezera (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Nápovìda"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Nápovìda"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Ulo¾it poznámku (poslat po¹tou)"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf byl po¾ádán, aby ulo¾il tuto poznámku, tak¾e vám ji poslal."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informace"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Poznámka byla poslána."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Chyba"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Poznámka nelze ulo¾it."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf nebyl nastaven pro zobrazení této poznámky, tak¾e vám ji poslal."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf bì¾ící na %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Vstupní hodnota \"%s\" není v C volbách! To se nikdy nemìlo stát. Mo¾ná jsou "
+"¹ablony ¹patnì lokalizovány."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "nic z uvedeného"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Zadejte polo¾ky, které chcete vybrat, oddìlené mezerami."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Nemohu nahrát Debconf::Element::%s. Selhal, proto¾e: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "Nastavuji %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "Promìnná TERM není nastavená, dialogové rozhraní se nedá pou¾ít."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialogové rozhraní je nekompatibilní s emacsovým shellovým bufferem."
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Dialogové rozhraní nebude pracovat na hloupém terminálu, shellovém bufferu "
+"emacsu, nebo bez øídícího terminálu."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Není instalován ¾ádný dialogový program, tak¾e dialogové rozhraní nemù¾e být "
+"pou¾ito."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Dialogové rozhraní vy¾aduje obrazovku minimálnì 13 øádkù vysokou a 31 "
+"sloupcù ¹irokou."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Nastavení Debianu"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Pro konfiguraci systému pou¾íváte rozhraní zalo¾ené na textovém editoru. "
+"Podrobné informace naleznete na konci tohoto dokumentu."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Rozhraní debconfu zalo¾ené na textovém editoru vám nabídne k úpravám jeden "
+"nebo více textových souborù. Toto je jeden z nich. Pokud znáte standardní "
+"unixové konfiguraèní soubory, bude vám tento soubor pøipadat povìdomý -- "
+"obsahuje kometáøe prolo¾ené konfiguraèními polo¾kami. Upravte soubor dle "
+"potøeb, ulo¾te jej a ukonèete editor. V této fázi si debconf pøeète upravený "
+"soubor a pou¾ije zadané hodnoty pro nastavení systému."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf na %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Toto rozhraní vy¾aduje øídící terminál."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU není kompatibilní se shellovým bufferem emacsu."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Více"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Poznámka: Debconf bì¾í ve webovém re¾imu. Podívejte se na http://localhost:%"
+"i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Zpìt"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Dal¹í"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -285,16 +295,6 @@ msgstr "Chyba zpracování ¹ablony poblí¾ '%s' v èásti è.%s z %s\n"
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "©ablona è.%s v %s neobsahuje øádek 'Template:'\n"
-
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Nemohu nahrát Debconf::Element::%s. Selhal, proto¾e: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "Nastavuji %s"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -329,7 +329,7 @@ msgstr "chyba zpracování ¹ablony: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nemohu zmìnit práva: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s nemohl být pøednastaven, skonèil chybou %s"
@@ -357,17 +357,17 @@ msgstr "%s se musí spou¹tìt jako root"
 msgid "please specify a package to reconfigure"
 msgstr "zadejte balík pro rekonfiguraci"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s není nainstalován"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s je poru¹ený, nebo není plnì nainstalovaný"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nemohu èíst stavový soubor: %s"
@@ -428,11 +428,11 @@ msgstr "%s je zastaralý"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s je zastaralý; zahazuji celou ¹ablonu!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "Pou¾ití: debconf [volby] pøíkaz [argumenty]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

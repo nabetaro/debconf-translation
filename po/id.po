@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-01-25 13:04+0700\n"
 "Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
 "Language-Team: Debian Indonesia L10N Team <debian-l10n-id@gurame.fisika.ui."
@@ -16,192 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Bahasa Indonesia\n"
 "X-Poedit-Country: Indonesia\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Anda sedang menggunakan antarmuka debconf berbasis editor untuk "
-"mengonfigurasi sistem. Lihat pada akhir dokumen ini untuk petunjuk lengkap."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih "
-"berkas teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika "
-"Anda tidak akrab dengan berkas konfigurasi standar unix, berkas ini akan "
-"tampak akrab bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
-"item konfigurasi. Ubahlah file ini, ganti sebarang item yang diperlukan, dan "
-"simpanlah lalu keluar. Pada titik ini debconf akan membaca berkas yang telah "
-"diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf pada %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Lagi"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Catatan: Debconf berjalan dalam modus web. Cobalah ke http://localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Kembali"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Lanjut"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM tidak disetel, jadi antarmuka dialog tidak berguna."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Antarmuka dialog tidak sesuai dengan penyangga (buffer) shell emacs"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Antar muka dialog tidak akan bekerja pada sebuah terminal dumb, sebuah "
-"penyangga shell emacs, atau tanpa sebuah terminal pengendali"
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Tidak ada program mirip dialog yang dapat dipakai. Jadi antarmuka berbasis "
-"dialog tidak dapat digunakan"
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Antarmuka dialog membutuhkan layar minimal tinggi 13 baris dan lebar 31 "
-"kolom."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Konfigurasi Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Antarmuka ini membutuhkan sebuah tty pengendali."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU tidak sesuai dengan penyangga shell emacs."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Simpan (kirim) Catatan"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf telah diminta untuk menyimpan catatan ini, jadi akan dikirimkan "
-"kepada Anda."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informasi"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Catatan telah dikirimkan."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Ada Kesalahan"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Catatan tidak dapat disimpan"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "PIlihan"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Masukkan nol item atau lebih, dipisahkan dengan koma diikuti dengan spasi "
-"(', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "ya"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "tidak"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf tidak dikonfigurasi untuk menampilkan catatan ini, jadi akan "
-"dikirimkan kepada Anda."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, berjalan pada %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "tak satupun di atas"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Masukkan item yang ingin Anda pilih, dipisahkan dengan koma."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Nilai masukkan, \"%s\" tidak ditemukan dalam pilihan C! Hal ini tidak boleh "
-"terjadi. Mungkin template salah diterjemahkan."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Panduan"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Panduan"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -257,6 +71,202 @@ msgstr "Abaikan prioritas \"%s\" yang tidak sah"
 msgid "Valid priorities are: %s"
 msgstr "Prioritas yang sah adalah: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "PIlihan"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ya"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "tidak"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Masukkan nol item atau lebih, dipisahkan dengan koma diikuti dengan spasi "
+"(', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Panduan"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Panduan"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Simpan (kirim) Catatan"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf telah diminta untuk menyimpan catatan ini, jadi akan dikirimkan "
+"kepada Anda."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Informasi"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Catatan telah dikirimkan."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Ada Kesalahan"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Catatan tidak dapat disimpan"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf tidak dikonfigurasi untuk menampilkan catatan ini, jadi akan "
+"dikirimkan kepada Anda."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, berjalan pada %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Nilai masukkan, \"%s\" tidak ditemukan dalam pilihan C! Hal ini tidak boleh "
+"terjadi. Mungkin template salah diterjemahkan."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "tak satupun di atas"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Masukkan item yang ingin Anda pilih, dipisahkan dengan koma."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Tidak dapat memuat Debconf::Element::%s. Gagal karena: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "Sedang mengonfigurasi %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM tidak disetel, jadi antarmuka dialog tidak berguna."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Antarmuka dialog tidak sesuai dengan penyangga (buffer) shell emacs"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Antar muka dialog tidak akan bekerja pada sebuah terminal dumb, sebuah "
+"penyangga shell emacs, atau tanpa sebuah terminal pengendali"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Tidak ada program mirip dialog yang dapat dipakai. Jadi antarmuka berbasis "
+"dialog tidak dapat digunakan"
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Antarmuka dialog membutuhkan layar minimal tinggi 13 baris dan lebar 31 "
+"kolom."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Konfigurasi Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Anda sedang menggunakan antarmuka debconf berbasis editor untuk "
+"mengonfigurasi sistem. Lihat pada akhir dokumen ini untuk petunjuk lengkap."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih "
+"berkas teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika "
+"Anda tidak akrab dengan berkas konfigurasi standar unix, berkas ini akan "
+"tampak akrab bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
+"item konfigurasi. Ubahlah file ini, ganti sebarang item yang diperlukan, dan "
+"simpanlah lalu keluar. Pada titik ini debconf akan membaca berkas yang telah "
+"diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf pada %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Antarmuka ini membutuhkan sebuah tty pengendali."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU tidak sesuai dengan penyangga shell emacs."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Lagi"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Catatan: Debconf berjalan dalam modus web. Cobalah ke http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Kembali"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Lanjut"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -291,16 +301,6 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s dalam %s tidak berisi sebuah baris 'Template:'\n"
 
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Tidak dapat memuat Debconf::Element::%s. Gagal karena: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "Sedang mengonfigurasi %s"
-
 #: ../dpkg-preconfigure:113
 #, perl-format
 msgid "unable to re-open stdin: %s"
@@ -334,7 +334,7 @@ msgstr "Kesalahan penguraian template: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: tidak dapat chmod: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Prakonfigurasi %s gagal, dengan status %s"
@@ -357,17 +357,17 @@ msgstr "%s harus dijalankan sebagai root"
 msgid "please specify a package to reconfigure"
 msgstr "Mohon tentukan sebuah paket untuk dikonfigurasi ulang"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s tidak dipasang"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s rusak atau tidak sepenuhnya terpasang"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Tidak dapat membaca berkas status: %s"
@@ -423,11 +423,11 @@ msgstr "%s sudah usang"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s sudah usang; seluruh template dihapus!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr ""
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

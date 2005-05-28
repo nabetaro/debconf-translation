@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-01 19:30+0300\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -14,191 +14,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Sisteminizi yapılandırmak için hâlihazırda metin düzenleyicisi tabanlı bir "
-"debconf önyüzü kullanıyorsunuz.  Ayrıntılı talimatlar için lütfen bu "
-"belgenin son kısmına bakın."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Metin düzenleyicisi tabanlı debconf önyüzü, düzenlenmeniz için size bir veya "
-"daha fazla sayıda metin dosyası sunar.  Bu da böyle bir metin dosyası.  "
-"Standart unix yapılandırma dosyalarına aşina iseniz bu dosya size tanıdık "
-"gelecektir.  Dosya, açıklama satırlarıyla karıştırılmış yapılandırma öğeleri "
-"içermektedir.  Gerekli öğeleri değiştirerek dosyayı düzenleyin ve daha sonra "
-"dosyayı kaydederek çıkın.  Bu yapıldığında, debconf düzenlenmiş dosyayı "
-"okuyacak ve sistemi yapılandırmak için girdiğiniz değerleri kullanacaktır."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Daha"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Not: Debconf şu an web kipinde çalışıyor.  http://localhost:%i/ bağına girin."
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Geri"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Sonraki"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM ayarlanmadığından 'dialog' önyüzü kullanılamaz."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Dialog önyüzü emacs kabuk tamponlarıyla uyumsuzdur"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Dialog önyüzü bir akılsız (dumb) terminalde, emacs kabuk tamponunda veya "
-"ayarlanmış bir terminal mevcut olmadığında çalışmayacaktır."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Kullanılabilir nitelikte dialog benzeri bir program kurulu olmadığından "
-"dialog tabanlı önyüz kullanılamaz."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialog önyüzü en az 13 satır boyunda ve 31 sütun genişliğinde bir ekran "
-"gerektirir."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Debian Yapılandırması"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Bu önyüz, denetleyici bir tty gerektirir."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU emacs kabuk tamponlarıyla uyumsuzdur."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Notu (eposta) Kaydet"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf'un kaydetmesi istendiğinden bu not size postalandı."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Bilgi"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Not postalandı."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Hata"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Not kaydedilemedi."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Seçimler"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Sıfır, bir veya daha fazla sayıda öğeyi virgül ve boşluk (', ') ile "
-"ayırarak girin.)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "evet"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "hayır"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf bu notu gösterecek şekilde yapılandırılmadığından, not size "
-"postalandı."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf %s ile çalışıyor"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "yukarıdakilerden hiçbiri"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Seçmek istediğiniz öğeleri boşluklarla ayırarak girin."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Giriş değeri \"%s\", C seçenekleri arasında bulunamadı!  Böyle bir hata asla "
-"olmamalıydı.  Şablonların yerelleştirilmesinde hata yapılmış olabilir."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Yardım"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Yardım"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -256,6 +71,201 @@ msgstr "Geçersiz \"%s\" önceliği göz ardı ediliyor"
 msgid "Valid priorities are: %s"
 msgstr "Geçerli öncelikler şunlardır: %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Seçimler"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "evet"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "hayır"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Sıfır, bir veya daha fazla sayıda öğeyi virgül ve boşluk (', ') ile "
+"ayırarak girin.)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Yardım"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Notu (eposta) Kaydet"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr "Debconf'un kaydetmesi istendiğinden bu not size postalandı."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Bilgi"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Not postalandı."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Hata"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Not kaydedilemedi."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf bu notu gösterecek şekilde yapılandırılmadığından, not size "
+"postalandı."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf %s ile çalışıyor"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Giriş değeri \"%s\", C seçenekleri arasında bulunamadı!  Böyle bir hata asla "
+"olmamalıydı.  Şablonların yerelleştirilmesinde hata yapılmış olabilir."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "yukarıdakilerden hiçbiri"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Seçmek istediğiniz öğeleri boşluklarla ayırarak girin."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Debconf::Element:%s yüklenemedi.  Hatanın nedeni: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "%s yapılandırılıyor"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM ayarlanmadığından 'dialog' önyüzü kullanılamaz."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialog önyüzü emacs kabuk tamponlarıyla uyumsuzdur"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Dialog önyüzü bir akılsız (dumb) terminalde, emacs kabuk tamponunda veya "
+"ayarlanmış bir terminal mevcut olmadığında çalışmayacaktır."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Kullanılabilir nitelikte dialog benzeri bir program kurulu olmadığından "
+"dialog tabanlı önyüz kullanılamaz."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Dialog önyüzü en az 13 satır boyunda ve 31 sütun genişliğinde bir ekran "
+"gerektirir."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Debian Yapılandırması"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Sisteminizi yapılandırmak için hâlihazırda metin düzenleyicisi tabanlı bir "
+"debconf önyüzü kullanıyorsunuz.  Ayrıntılı talimatlar için lütfen bu "
+"belgenin son kısmına bakın."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Metin düzenleyicisi tabanlı debconf önyüzü, düzenlenmeniz için size bir veya "
+"daha fazla sayıda metin dosyası sunar.  Bu da böyle bir metin dosyası.  "
+"Standart unix yapılandırma dosyalarına aşina iseniz bu dosya size tanıdık "
+"gelecektir.  Dosya, açıklama satırlarıyla karıştırılmış yapılandırma öğeleri "
+"içermektedir.  Gerekli öğeleri değiştirerek dosyayı düzenleyin ve daha sonra "
+"dosyayı kaydederek çıkın.  Bu yapıldığında, debconf düzenlenmiş dosyayı "
+"okuyacak ve sistemi yapılandırmak için girdiğiniz değerleri kullanacaktır."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Bu önyüz, denetleyici bir tty gerektirir."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU emacs kabuk tamponlarıyla uyumsuzdur."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Daha"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Not: Debconf şu an web kipinde çalışıyor.  http://localhost:%i/ bağına girin."
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Geri"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Sonraki"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -290,16 +300,6 @@ msgstr "Şablon ayrıştırma hatası; '%1$s' civarında (%3$s #%2$s)\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s #%1$s şablonu 'Template:' satırı içermiyor\n"
 
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Debconf::Element:%s yüklenemedi.  Hatanın nedeni: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "%s yapılandırılıyor"
-
 #: ../dpkg-preconfigure:113
 #, perl-format
 msgid "unable to re-open stdin: %s"
@@ -333,7 +333,7 @@ msgstr "şablon ayrıştırma hatası: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod başarısız: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ön yapılandırması başarısız, çıkış kodu %s"
@@ -361,17 +361,17 @@ msgstr "%s root olarak çalıştırılmalı"
 msgid "please specify a package to reconfigure"
 msgstr "lütfen tekrar yapılandırılacak bir paket belirtin"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s kurulu değil"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s bozuk veya tam olarak kurulu değil"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Durum dosyası okunamıyor: %s"
@@ -433,11 +433,11 @@ msgstr "%s güncelliğini yitirmiş"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s güncelliğini yitirmiş; şablon kullanılmayacak!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "Kullanım: debconf [seçenekler] komut [değişkenler]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

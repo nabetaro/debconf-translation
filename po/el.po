@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-04 19:24-0400\n"
+"POT-Creation-Date: 2005-05-28 21:05+0100\n"
 "PO-Revision-Date: 2005-04-01 21:04EEST\n"
 "Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
 "org>\n"
@@ -22,195 +22,6 @@ msgstr ""
 "org>\n"
 "org>\n"
 "X-Generator: KBabel 1.9.1\n"
-
-#: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Έχετε επιλέξει το κειμενογράφο ως τρόπο ρύθμισης του συστήματός σας. "
-"Λεπτομερείς οδηγίες αναγράφονται στο τέλος αυτού του κειμένου."
-
-#: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Η ρύθμιση μέσω κειμενογράφου σας παρουσιάζει μια λίστα με ένα ή περισσότερα "
-"αρχεία κειμένου προς επεξεργασία. Αυτό είναι ένα τέτοιο αρχείο. Αν έχετε "
-"εμπειρία με τυπικά αρχεία ρυθμίσεων του unix, η μορφή του αρχείου αυτού θα "
-"σας φανεί γνωστή -- περιέχει σχόλια εν μέσω ρυθμίσεων. Επεξεργαστείτε το "
-"αρχείο, αλλάζοντας όποιες ρυθμίσεις χρειάζονται, αποθηκεύστε το αρχείο και "
-"εξέλθετε από το πρόγραμμα. Στο σημείο αυτό, το debconf θα διαβάσει το "
-"επεξεργασμένο αρχείο και θα χρησιμοποιήσει τις ρυθμίσεις που δώσατε."
-
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
-#, perl-format
-msgid "Debconf on %s"
-msgstr "Debconf στο %s"
-
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Περισσότερα"
-
-#: ../Debconf/FrontEnd/Web.pm:65
-#, perl-format
-msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. Δείτε τη http://"
-"localhost:%i/"
-
-#: ../Debconf/FrontEnd/Web.pm:165
-msgid "Back"
-msgstr "Προηγούμενο"
-
-#: ../Debconf/FrontEnd/Web.pm:167
-msgid "Next"
-msgstr "Επόμενο"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"Η μεταβλητή TERM δεν είναι ορισμένη, έτσι ο διαλογικός τρόπος δεν είναι "
-"διαθέσιμος."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Το διαλογικό περιβάλλον δεν είναι συμβατό με το κέλυφος του emacs."
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Το διαλογικό περιβάλλον δε λειτουργεί σε απλοϊκό (dumb) τερματικό, "
-"περιβάλλον κέλυφος του emacs, ή χωρίς τυλέτυπο ελέγχου."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Δε βρέθηκε εγκατεστημένο λειτουργικό πρόγραμμα τύπου dialog, έτσι δε μπορεί "
-"να χρησιμοποιηθεί το διαλογικό περιβάλλον."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
-"τουλάχιστον."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Ρύθμιση του Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Το περιβάλλον αυτό απαιτεί ένα τυλέτυπο (tty) ελέγχου."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Αποθήκευση (αποστολή) Σημείωσης"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
-"έστειλεμέσω ηλ. ταχυδρομείου."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Πληροφορίες"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Η σημείωση έχει αποσταλεί."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Σφάλμα"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Αδύνατη η αποθήκευση της σημείωσης."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Select.pm:31
-msgid "Choices"
-msgstr "Επιλογές"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "ναι"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "όχι"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
-"έστειλε μέσω ηλ. ταχυδρομείου."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, perl-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, τρέχει στο %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "καμία από τις παραπάνω"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Εισάγετε τις επιλογές σας, χωρισμένες με κενό."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Η επιλογή που δώσατε, \"%s\" δε βρέθηκε σε C επιλογές! Αυτό δε θα έπρεπε να "
-"έχει συμβεί. Πιθανόν τα πρότυπα δε μεταφράστηκαν σωστά."
-
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "Βοήθεια"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Βοήθεια"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -270,6 +81,205 @@ msgstr "Θα αγνοηθεί η μή έγκυρη ιδιότητα \"%s\""
 msgid "Valid priorities are: %s"
 msgstr "Οι έγκυρες ιδιότητες είναι : %s"
 
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Επιλογές"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ναι"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "όχι"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "Βοήθεια"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Αποθήκευση (αποστολή) Σημείωσης"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
+"έστειλεμέσω ηλ. ταχυδρομείου."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Πληροφορίες"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Η σημείωση έχει αποσταλεί."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Αδύνατη η αποθήκευση της σημείωσης."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
+"έστειλε μέσω ηλ. ταχυδρομείου."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, τρέχει στο %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Η επιλογή που δώσατε, \"%s\" δε βρέθηκε σε C επιλογές! Αυτό δε θα έπρεπε να "
+"έχει συμβεί. Πιθανόν τα πρότυπα δε μεταφράστηκαν σωστά."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "καμία από τις παραπάνω"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Εισάγετε τις επιλογές σας, χωρισμένες με κενό."
+
+#: ../Debconf/FrontEnd.pm:121
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
+
+#: ../Debconf/FrontEnd.pm:301
+#, perl-format
+msgid "Configuring %s"
+msgstr "Ρύθμιση του %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr ""
+"Η μεταβλητή TERM δεν είναι ορισμένη, έτσι ο διαλογικός τρόπος δεν είναι "
+"διαθέσιμος."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Το διαλογικό περιβάλλον δεν είναι συμβατό με το κέλυφος του emacs."
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Το διαλογικό περιβάλλον δε λειτουργεί σε απλοϊκό (dumb) τερματικό, "
+"περιβάλλον κέλυφος του emacs, ή χωρίς τυλέτυπο ελέγχου."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Δε βρέθηκε εγκατεστημένο λειτουργικό πρόγραμμα τύπου dialog, έτσι δε μπορεί "
+"να χρησιμοποιηθεί το διαλογικό περιβάλλον."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
+"τουλάχιστον."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Ρύθμιση του Debian"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Έχετε επιλέξει το κειμενογράφο ως τρόπο ρύθμισης του συστήματός σας. "
+"Λεπτομερείς οδηγίες αναγράφονται στο τέλος αυτού του κειμένου."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Η ρύθμιση μέσω κειμενογράφου σας παρουσιάζει μια λίστα με ένα ή περισσότερα "
+"αρχεία κειμένου προς επεξεργασία. Αυτό είναι ένα τέτοιο αρχείο. Αν έχετε "
+"εμπειρία με τυπικά αρχεία ρυθμίσεων του unix, η μορφή του αρχείου αυτού θα "
+"σας φανεί γνωστή -- περιέχει σχόλια εν μέσω ρυθμίσεων. Επεξεργαστείτε το "
+"αρχείο, αλλάζοντας όποιες ρυθμίσεις χρειάζονται, αποθηκεύστε το αρχείο και "
+"εξέλθετε από το πρόγραμμα. Στο σημείο αυτό, το debconf θα διαβάσει το "
+"επεξεργασμένο αρχείο και θα χρησιμοποιήσει τις ρυθμίσεις που δώσατε."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf στο %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Το περιβάλλον αυτό απαιτεί ένα τυλέτυπο (tty) ελέγχου."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr ""
+"Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Περισσότερα"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. Δείτε τη http://"
+"localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Προηγούμενο"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Επόμενο"
+
 #: ../Debconf/Template.pm:90
 #, perl-format
 msgid ""
@@ -302,16 +312,6 @@ msgstr "Σφάλμα ανάλυσης προτύπου κοντά στο `%s', �
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Το πρότυπο #%s στο %s δεν περιέχει μια γραμμή 'Template:'\n"
-
-#: ../Debconf/FrontEnd.pm:131
-#, perl-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, perl-format
-msgid "Configuring %s"
-msgstr "Ρύθμιση του %s"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -348,7 +348,7 @@ msgstr "σφάλμα ανάλυσης προτύπου: %s"
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: αδύνατη η εκτέλεση της chmod: %s"
 
-#: ../dpkg-preconfigure:203
+#: ../dpkg-preconfigure:204
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λάθους %s"
@@ -376,17 +376,17 @@ msgstr "Το %s πρέπει να εκτελεστεί ως χρήστης root"
 msgid "please specify a package to reconfigure"
 msgstr "παρακαλώ δηλώστε το πακέτο προς επαναρύθμιση"
 
-#: ../dpkg-reconfigure:156
+#: ../dpkg-reconfigure:157
 #, perl-format
 msgid "%s is not installed"
 msgstr "το %s δεν είναι εγκατεστημένο"
 
-#: ../dpkg-reconfigure:160
+#: ../dpkg-reconfigure:161
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "το %s είναι κατεστραμμένο ή όχι πλήρως εγκατεστημένο"
 
-#: ../dpkg-reconfigure:237
+#: ../dpkg-reconfigure:238
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Αδύνατη η ανάγνωση του αρχείου κατάστασης: %s"
@@ -447,11 +447,11 @@ msgstr "το %s είναι απηρχαιωμένο"
 msgid "%s is outdated; dropping whole template!"
 msgstr "το %s είναι απηρχαιωμένο, παραλείπεται ολόκληρο το πρότυπο!"
 
-#: ../debconf:84
+#: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
 msgstr "Χρήση: debconf [επιλογές] εντολή [παράμετροι]"
 
-#: ../debconf:86
+#: ../debconf:89
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
