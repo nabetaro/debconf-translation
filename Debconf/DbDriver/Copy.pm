@@ -36,7 +36,7 @@ sub copy {
 	# First copy the owners, which makes sure $dest has the item.
 	my @owners=$src->owners($item);
 	if (! @owners) {
-		@owners=("unknwon");
+		@owners=("unknown");
 	}
 	foreach my $owner (@owners) {
 		my $template = Debconf::Template->get($src->getfield($item, 'template'));
