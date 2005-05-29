@@ -176,6 +176,40 @@ sub title
 	$this->talk('TITLE', $title);
 }
 
+=head2 settitle
+
+Pass title question name along to the UI agent, along with necessary data
+about it.
+
+=cut
+
+sub settitle
+{
+	my $this = shift;
+	my $question = shift;
+
+	$this->{title} = $question->description;
+
+	my $tag = $question->template->template;
+	my $type = $question->template->type;
+	my $desc = $question->description;
+	my $extdesc = $question->extended_description;
+
+	$this->talk('DATA', $tag, 'type', $type);
+
+	if ($desc) {
+		$desc =~ s/\n/\\n/g;
+		$this->talk('DATA', $tag, 'description', $desc);
+	}
+
+	if ($extdesc) {
+		$extdesc =~ s/\n/\\n/g;
+		$this->talk('DATA', $tag, 'extended_description', $extdesc);
+	}
+
+	$this->talk('SETTITLE', $tag);
+}
+
 =head2 go
 
 Asks the UI agent to display all pending questions, first using the special 

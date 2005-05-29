@@ -2,6 +2,8 @@ debconf (1.4.51) UNRELEASED; urgency=low
 
   * Colin Watson
     - Fix spelling of "unknown" in copied database items with no owners.
+    - Pass SETTITLE straight through the passthrough frontend (with
+      accompanying DATA) rather than turning it into TITLE. Closes: #292989
 
  -- Colin Watson <cjwatson@debian.org>  Sun, 29 May 2005 00:04:27 +0100
 

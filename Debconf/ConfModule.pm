@@ -408,7 +408,11 @@ sub command_settitle {
 	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "\"$question_name\" doesn't exist";
 
-	$this->frontend->title($question->description);
+	if ($this->frontend->can('settitle')) {
+		$this->frontend->settitle($question);
+	} else {
+		$this->frontend->title($question->description);
+	}
 	
 	return $codes{success};
 }
