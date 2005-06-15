@@ -1,5 +1,8 @@
 debconf (1.4.52) UNRELEASED; urgency=low
 
+  * Colin Watson:
+    - Lower-case the field name passed to METAGET, since the template
+      database stores fields that way.
   * Debconf translations:
     - Vietnamese added. Closes: #313509
 

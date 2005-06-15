@@ -632,7 +632,8 @@ sub command_metaget {
 	
 	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
-	my $fieldval=$question->$field();
+	my $lcfield=lc $field;
+	my $fieldval=$question->$lcfield();
 	unless (defined $fieldval) {
 		return $codes{badparams}, "$field does not exist";
 	}
