@@ -3,6 +3,8 @@ debconf (1.4.52) UNRELEASED; urgency=low
   * Colin Watson:
     - Lower-case the field name passed to METAGET, since the template
       database stores fields that way.
+    - If a template name ending in -C is requested (e.g. via METAGET),
+      return the untranslated template regardless of the locale.
   * Debconf translations:
     - Vietnamese added. Closes: #313509
 

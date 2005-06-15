@@ -429,6 +429,14 @@ sub AUTOLOAD {
 		}
 		
 		my $ret;
+
+		# Asking for *-C overrides i18n.
+		if ($field =~ s/-c$//i) {
+			$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
+			return $ret if defined $ret;
+			return '';
+		}
+
 		# Check to see if i18n and/or charset encoding should
 		# be used.
 		if ($Debconf::Template::i18n && @langs) {
