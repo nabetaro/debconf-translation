@@ -5,6 +5,7 @@ debconf (1.4.52) UNRELEASED; urgency=low
       database stores fields that way.
     - If a template name ending in -C is requested (e.g. via METAGET),
       return the untranslated template regardless of the locale.
+    - Strip off DOS line endings in debconf-set-selections.
   * Debconf translations:
     - Vietnamese added. Closes: #313509
   * Programs translations:

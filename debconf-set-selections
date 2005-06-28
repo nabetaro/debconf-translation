@@ -183,6 +183,7 @@ $error = 0;
 while (<>) {
 	chomp;
 	s/\#.*$//;
+	s/\r$//;
 	next if /^\s*$/;
 	# Allow multiple spaces between all values except the last one.
 	# Extra whitespace in the content is significant.
