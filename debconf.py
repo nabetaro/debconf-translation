@@ -29,13 +29,14 @@ LOW, MEDIUM, HIGH, CRITICAL = 'low', 'medium', 'high', 'critical'
 
 class Debconf:
 
-    def __init__(self, title=None):
+    def __init__(self, title=None, read=None, write=None):
         for command in ('capb set reset title input beginblock endblock go get'
                         ' register unregister subst fset fget previous_module'
                         ' visible purge metaget exist version settitle'
                         ' info progress').split():
             self.setCommand(command)
-        self.write, self.read = sys.stdout, sys.stdin
+        self.read = read or sys.stdin
+        self.write = write or sys.stdout
         sys.stdout = sys.stderr
         self.setUp(title)
 

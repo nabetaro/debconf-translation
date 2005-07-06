@@ -9,6 +9,9 @@ debconf (1.4.52) UNRELEASED; urgency=low
     - Autoflush stdout in debconf-communicate so that stdout can be a pipe.
     - Clean up stray newlines in DEBCONF_DEBUG=developer debconf-communicate
       output.
+    - Add read and write keyword arguments to debconf.py:Debconf.__init__(),
+      to allow using this module with a debconf-communicate subprocess
+      rather than having to re-exec the current process inside a frontend.
   * Debconf translations:
     - Vietnamese added. Closes: #313509
   * Programs translations:
