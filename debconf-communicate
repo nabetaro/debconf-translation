@@ -59,6 +59,7 @@ my $code=127;
 autoflush STDOUT 1;
 
 while (<>) {
+	chomp;
 	my $ret=$confmodule->process_command($_);
 	($code, undef)=split(/ /, $ret, 2);
 	print "$ret\n";

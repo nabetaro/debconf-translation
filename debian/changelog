@@ -7,6 +7,8 @@ debconf (1.4.52) UNRELEASED; urgency=low
       return the untranslated template regardless of the locale.
     - Strip off DOS line endings in debconf-set-selections.
     - Autoflush stdout in debconf-communicate so that stdout can be a pipe.
+    - Clean up stray newlines in DEBCONF_DEBUG=developer debconf-communicate
+      output.
   * Debconf translations:
     - Vietnamese added. Closes: #313509
   * Programs translations:
