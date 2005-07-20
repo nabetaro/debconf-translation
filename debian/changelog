@@ -14,6 +14,8 @@ debconf (1.4.53) UNRELEASED; urgency=low
   * add Test::CopyDBTest::test_201431. Closes: #201431
   * modify debconf.schema because extendedDescription attribute has an
     inappropriate matching rule => slapd (2.2.23-8) failed
+  * set the type of the template in Template::new because if we don't
+    use Template::load, it do not appear in template instance
 
  -- Joey Hess <joeyh@debian.org>  Wed, 20 Jul 2005 10:19:12 -0400
 

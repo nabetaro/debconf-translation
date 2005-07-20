@@ -103,6 +103,7 @@ sub new {
 		$this = fields::new($this);
 	}
 	$this->{template}=$template;
+
 	# Create a question in the db to go with it, unless
 	# one with the same name already exists. If one with the same name
 	# exists, it may be a shared question so we add the current owner
@@ -119,6 +120,7 @@ sub new {
 	# This is what actually creates the template in the db.
 	return unless $Debconf::Db::templates->addowner($template, $template, $type);
 
+	$Debconf::Db::templates->setfield($template, 'type', $type);
 	return $template{$template}=$this;
 }
 
