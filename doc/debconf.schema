@@ -49,7 +49,7 @@ attributetype ( 1.3.6.1.4.9586.1.2.1.6
 attributetype ( 1.3.6.1.4.9586.1.2.1.8
 	NAME 'extendedDescription'
 	DESC 'An extended description for this template'
-	SUBSTR caseIgnoreSubstringsMatch
+	EQUALITY octetStringMatch
 	SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
 
 objectclass ( 1.3.6.1.4.9586.1.2.2.1

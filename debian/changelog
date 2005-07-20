@@ -12,6 +12,8 @@ debconf (1.4.53) UNRELEASED; urgency=low
     data between cache and ldap on shutdown.
   * add unit tests to validate debconf_copydb.
   * add Test::CopyDBTest::test_201431. Closes: #201431
+  * modify debconf.schema because extendedDescription attribute has an
+    inappropriate matching rule => slapd (2.2.23-8) failed
 
  -- Joey Hess <joeyh@debian.org>  Wed, 20 Jul 2005 10:19:12 -0400
 
