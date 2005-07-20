@@ -266,11 +266,33 @@ sub shutdown
 	}
 
 	$ds->unbind();
+
+	$this->SUPER::shutdown(@_);
 }
 				
 # Empty routine
 
 sub load {}
+
+=sub remove
+
+Called by Cache::shutdown, nothing to do because already done in LDAP::shutdown
+
+=cut
+
+sub remove {
+	return 1;
+}
+
+=sub save
+
+Called by Cache::shutdown, nothing to do because already done in LDAP::shutdown
+
+=cut
+
+sub save {
+	return 1;
+}
 
 =head1 AUTHOR
 

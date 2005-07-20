@@ -16,6 +16,8 @@ debconf (1.4.53) UNRELEASED; urgency=low
     inappropriate matching rule => slapd (2.2.23-8) failed
   * set the type of the template in Template::new because if we don't
     use Template::load, it do not appear in template instance
+  * call Cache::shutdown in LDAP::shutdown to synchronize data between
+    cache and ldap.
 
  -- Joey Hess <joeyh@debian.org>  Wed, 20 Jul 2005 10:19:12 -0400
 
