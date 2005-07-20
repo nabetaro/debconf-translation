@@ -2,6 +2,7 @@ package Test::AllTests;
 
 use strict;
 use Test::Unit::TestSuite;
+use Test::CopyDBTest;
 use Test::Debconf::DbDriver::DirTreeTest;
 use Test::Debconf::DbDriver::FileTest;
 use Test::Debconf::DbDriver::LDAPTest;
@@ -12,6 +13,9 @@ sub suite {
 	# create an empty suite
 	my $suite = Test::Unit::TestSuite->empty_new("All Tests Suite");
     
+	# add CopyDB test suite
+	$suite->add_test(Test::CopyDBTest->suite());
+
 	# add DirTree test suite
 	$suite->add_test(Test::Debconf::DbDriver::DirTreeTest->suite());
 

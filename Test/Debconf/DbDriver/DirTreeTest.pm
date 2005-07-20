@@ -29,12 +29,6 @@ sub new_driver {
 	$self->{driver} = Debconf::DbDriver::DirTree->new(%params);
 }
 
-sub shutdown_driver {
-	my $self = shift;
-
-	$self->{driver}->shutdown();
-}
-
 sub set_up {
 	my $self = shift;
 	

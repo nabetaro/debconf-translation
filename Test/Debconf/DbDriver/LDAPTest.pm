@@ -1,4 +1,5 @@
 # constants
+my $tmp_base_dir = "/tmp/debconf-test/debconf/dbdriver/ldap";
 my $_SERVER = 'localhost';
 my $_PORT = '9009';
 my $_LDAPDIR = 'Test/Debconf/DbDriver/ldap';
@@ -6,53 +7,23 @@ my $_LDAPDIR = 'Test/Debconf/DbDriver/ldap';
 package LDAPTestSetup;
 
 use strict;
+use Test::Debconf::DbDriver::SLAPD;
 use base qw(Test::Unit::Setup);
 
 sub set_up{
 	my $self = shift();
 
-	# be sure that we have no residues before starting new test 
-	$self->slapd_clean();
+	system("mkdir -p $tmp_base_dir") == 0
+		or die "Can not create tmp data directory";
 
-	#
-	# start local slapd daemon for testing
-	#
-	my $conf = "$_LDAPDIR/slapd.conf";
-	my $ldif = "$_LDAPDIR/ldap.ldif";
-	my $slapdbin = '/usr/sbin/slapd';
-	my $slapaddbin = '/usr/sbin/slapadd';
-
-	# is there slapd installed?
-	if (! -x $slapdbin) {
-		die "Unable to find $slapdbin, is slapd package installed ?"; 
-	}
-
-	system("$slapdbin -f $conf -h ldap://$_SERVER:$_PORT") == 0
-		or die "Error in slapd call";
-	system("$slapaddbin -f $conf -l $ldif") == 0
-		or die "Error in slapadd call";
+	$self->{slapd} = Test::Debconf::DbDriver::SLAPD->new('localhost',9009,$tmp_base_dir);
+	$self->{slapd}->slapd_start();
 }
 
 sub tear_down{
 	my $self = shift();
     
-	$self->slapd_clean();
-}
-
-# kill slapd daemon and delete sldap data files
-sub slapd_clean {
-	my $self = shift;
-
-	my $pf = "$_LDAPDIR/slapd.pid";
-	if ( -f $pf) {
-		open(PIDFILE, $pf) or die "Can not open file: $pf";
-		my $pid = <PIDFILE>;
-		kill 'TERM',$pid;
-		close PIDFILE;
-	}
-	system("rm -f $_LDAPDIR/*.dbb $_LDAPDIR/slapd.args $_LDAPDIR/slapd.pid $_LDAPDIR/replog*") == 0
-		or die "Can not delete slapd data files";
-
+	$self->{slapd}->slapd_stop();
 }
 
 =head1 NAME
@@ -90,12 +61,6 @@ sub new_driver {
 	);
     
 	$self->{driver} = Debconf::DbDriver::LDAP->new(%params);
-}
-
-sub shutdown_driver {
-	my $self = shift;
-
-	$self->{driver}->shutdown();
 }
 
 sub set_up {

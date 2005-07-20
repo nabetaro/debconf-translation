@@ -117,6 +117,34 @@ sub test_item_4 {
 	$self->go_test_item();
 }
 
+sub test_shutdown {
+	my $self = shift;
+	$self->{testname} = 'test_shutdown';
+
+	# item for testing
+	my $item = { 
+		name => 'debconf-test/test_shutdown',
+		entry => { 
+			owners => { 'debconf' => 1 },
+			fields => {},
+			variables => {},
+			flags => { seen => 'true'},
+		} 
+	}; 
+
+	$self->add_item($item, 'debconf',$self->{driver});
+
+	$self->{driver}->shutdown();
+
+	 # verify if item is in cache and not in a dirty state
+	$self->assert(defined $self->{driver}->cachedata($item->{name}),
+	              'item not defined in cache'); 
+	# verify that item is not in a dirty state
+	$self->assert($self->{driver}->{dirty}->{$item->{name}} == 0,
+		      'item still in a dirty state in cache');
+
+}
+
 sub go_test_item {
 	my $self = shift;
 	my $itemname = $self->{item}->{name};
@@ -146,4 +174,28 @@ sub reconnectdb {
 	$self->new_driver();
 }
 
+sub shutdown_driver {
+	my $self = shift;
+
+	$self->{driver}->shutdown();
+}
+
+sub add_item {
+	my $self = shift;
+	my $item = shift;
+	my $owner = shift;
+	my $dbdriver = shift;
+
+	$dbdriver->addowner($item->{name}, $owner);
+
+	foreach my $field (keys %{$item->{entry}->{fields}}) {
+		$dbdriver->setfield($item->{name}, $field, $item->{entry}->{fields}->{$field});
+	}
+	foreach my $flag (keys %{$item->{entry}->{flags}}) {
+		$dbdriver->setflag($item->{name}, $flag, $item->{entry}->{flags}->{$flag});
+	}
+	foreach my $variable (keys %{$item->{entry}->{variables}}) {
+		$dbdriver->setvariable($item->{name}, $variable, $item->{entry}->{variables}->{$variable});
+	}
+}
 1;
