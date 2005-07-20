@@ -83,6 +83,10 @@ Save the databases, and shutdown the drivers.
 =cut
 
 sub save {
+	# FIXME: Debconf::Db->save shutdown only
+	# drivers which are declared in Config and Templates fields
+	# in conf file while load method (see above) make and init ALL drivers
+
 	$config->shutdown if $config;
 	# FIXME: if debconf is killed right here, the db is inconsistent.
 	$templates->shutdown if $templates;
