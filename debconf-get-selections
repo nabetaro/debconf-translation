@@ -14,7 +14,7 @@ Output the current debconf database in a format understandable by
 debconf-set-selections.
 
 To dump the debconf database of the debian-installer, from
-/var/log/debian-installer/cdebconf, use the --installer
+/var/log/installer/cdebconf, use the --installer
 parameter.
 
 =cut
@@ -31,7 +31,7 @@ my $defaultowner="unknown";
 
 if (@ARGV && $ARGV[0] eq '--installer') {
 	# A bit of a hack..
-	my $di_path="/var/log/debian-installer/cdebconf";
+	my $di_path="/var/log/installer/cdebconf";
 	$Debconf::Db::config=Debconf::Db->makedriver(
 		driver => "File", 
 		name => "di_questions",
