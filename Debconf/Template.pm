@@ -433,8 +433,9 @@ sub AUTOLOAD {
 		my $ret;
 
 		# Asking for *-C overrides i18n.
-		if ($field =~ s/-c$//i) {
-			$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
+		if ($field =~ /-c$/i) {
+			(my $plainfield = $field) =~ s/-c$//i;
+			$ret=$Debconf::Db::templates->getfield($this->{template}, $plainfield);
 			return $ret if defined $ret;
 			return '';
 		}
