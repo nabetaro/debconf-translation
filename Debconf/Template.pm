@@ -426,7 +426,7 @@ sub AUTOLOAD {
 	no strict 'refs';
 	*$AUTOLOAD = sub {
 		my $this=shift;
-			if (@_) {
+		if (@_) {
 			return $Debconf::Db::templates->setfield($this->{template}, $field, shift);
 		}
 		
