@@ -25,6 +25,7 @@ debconf (1.4.53) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix template -C handling to avoid clobbering $field for later requests
     for the same template.
+  * debconf-get-selections: Tolerate both old and new d-i logfile paths.
 
  -- Colin Watson <cjwatson@debian.org>  Tue, 26 Jul 2005 18:43:33 +0100
 

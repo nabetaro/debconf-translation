@@ -31,7 +31,12 @@ my $defaultowner="unknown";
 
 if (@ARGV && $ARGV[0] eq '--installer') {
 	# A bit of a hack..
-	my $di_path="/var/log/installer/cdebconf";
+	my $di_path;
+	if (-d "/var/log/installer") {
+		$di_path="/var/log/installer/cdebconf";
+	} else {
+		$di_path="/var/log/debian-installer/cdebconf";
+	}
 	$Debconf::Db::config=Debconf::Db->makedriver(
 		driver => "File", 
 		name => "di_questions",
