@@ -26,6 +26,9 @@ debconf (1.4.53) UNRELEASED; urgency=low
   * Fix template -C handling to avoid clobbering $field for later requests
     for the same template.
   * debconf-get-selections: Tolerate both old and new d-i logfile paths.
+  * Implement the DATA command, so that debconf can act as a UI agent
+    communicating with another instance of debconf running the passthrough
+    frontend.
 
  -- Colin Watson <cjwatson@debian.org>  Tue, 26 Jul 2005 18:43:33 +0100
 

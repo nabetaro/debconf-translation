@@ -805,6 +805,43 @@ sub command_progress {
 	return $codes{success}, "OK";
 }
 
+=item command_data
+
+Accept template data from the client, for use on the UI agent side of the
+passthrough frontend.
+
+TODO: Since process_command() collapses multiple spaces in commands into
+single spaces, this doesn't quite handle bulleted lists correctly.
+
+=cut
+
+sub command_data {
+	my $this=shift;
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 3;
+	my $template=shift;
+	my $item=shift;
+	my $value=join(' ', @_);
+	$value=~s/\\([n"\\])/($1 eq 'n') ? "\n" : $1/eg;
+
+	my $tempobj=Debconf::Template->get($template);
+	if (! $tempobj) {
+		if ($item ne 'type') {
+			return $codes{badparams}, "Template data field '$item' received before type field";
+		}
+		$tempobj=Debconf::Template->new($template, $this->owner, $value);
+		if (! $tempobj) {
+			return $codes{internalerror}, "Internal error making template";
+		}
+	} else {
+		if ($item eq 'type') {
+			return $codes{badparams}, "Template type already set";
+		}
+		$tempobj->$item($value);
+	}
+
+	return $codes{success};
+}
+
 =item command_visible
 
 Deprecated.
