@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-08 23:08-0400\n"
+"POT-Creation-Date: 2005-07-31 18:20+0100\n"
 "PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -257,7 +257,7 @@ msgid ""
 "missing question %s."
 msgstr "警告：数据库可能已被损坏。将会尝试修复缺失的项目 %s。"
 
-#: ../Debconf/Template.pm:201
+#: ../Debconf/Template.pm:203
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -266,17 +266,17 @@ msgstr ""
 "%2$s 中的第 %1$s 模板有一个重复字段“%3$s”，其中新值为“%4$s”。造成问题的原因可"
 "能是两个模板没有以正确地用换行符分隔开。\n"
 
-#: ../Debconf/Template.pm:226
+#: ../Debconf/Template.pm:228
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "%3$s 中第 %2$s 部分有未知的模板字段“%1$s”\n"
 
-#: ../Debconf/Template.pm:252
+#: ../Debconf/Template.pm:254
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "%3$s 中第 %2$s 部分“%1$s”附近的模板解析出错\n"
 
-#: ../Debconf/Template.pm:258
+#: ../Debconf/Template.pm:260
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%2$s 中第 %1$s 模板未包含“Template:”行\n"
