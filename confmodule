@@ -32,14 +32,12 @@ fi
 _db_cmd () {
 	echo "$@" >&3
 	# Set to newline to get whole line.
-	local IFS='
-'
-	local _LINE
-	read -r _LINE
+	IFS='
+' read -r _db_internal_line
 	# Disgusting, but it's the only good way to split the line,
 	# preserving all other whitespace.
-	RET="${_LINE#[! 	][ 	]}"
-	return ${_LINE%%[ 	]*}
+	RET="${_db_internal_line#[! 	][ 	]}"
+	return ${_db_internal_line%%[ 	]*}
 }
 
 db_capb ()	{ _db_cmd "CAPB $@"; }
