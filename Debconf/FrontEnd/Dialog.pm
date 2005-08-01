@@ -22,7 +22,7 @@ use base qw(Debconf::FrontEnd::ScreenSize);
 
 This FrontEnd is for a user interface based on dialog or whiptail.
 It will use whichever is available, but prefers to use whiptail if available.
-It handles all the messy communication with thse programs.
+It handles all the messy communication with these programs.
 
 =head1 METHODS
 
@@ -115,7 +115,7 @@ sub init {
 =item sizetext
 
 Dialog and whiptail have an annoying field of requiring you specify
-their dimentions explicitly. This function handles doing that. Just pass in
+their dimensions explicitly. This function handles doing that. Just pass in
 the text that will be displayed in the dialog, and it will spit out new text,
 formatted nicely, then the height for the dialog, and then the width for the
 dialog.
