@@ -383,8 +383,29 @@ sub showdialog {
 	my $this=shift;
 	my $question=shift;
 
+	# It's possible to ask questions in the middle of a progress bar.
+	# However, whiptail doesn't like having two instances of itself
+	# trying to talk to the same terminal, so we need to shut the
+	# progress bar down temporarily.
+	if (defined $this->progress_bar) {
+		$this->progress_bar->stop;
+	}
+
 	$this->startdialog($question, 0, @_);
-	return $this->waitdialog(@_);
+	my @ret;
+	if (wantarray) {
+		@ret=$this->waitdialog(@_);
+	} else {
+		my $ret=$this->waitdialog(@_);
+		@ret=($ret);
+	}
+
+	# Restart the progress bar if necessary.
+	if (defined $this->progress_bar) {
+		$this->progress_bar->start;
+	}
+
+	return @ret;
 }
 
 =back

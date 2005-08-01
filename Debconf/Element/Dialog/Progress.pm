@@ -38,9 +38,14 @@ sub start {
 	$this->saved_title($this->frontend->title);
 	$this->frontend->title($this->question->description);
 
-	# Make sure dialog allocates a bit of extra space, to allow for
-	# later PROGRESS INFO commands.
-	my ($dummy, $lines, $columns)=$this->frontend->sizetext(' ');
+	my ($text, $lines, $columns);
+	if (defined $this->_info) {
+		($text, $lines, $columns)=$this->frontend->sizetext($this->_info->description);
+	} else {
+		# Make sure dialog allocates a bit of extra space, to allow
+		# for later PROGRESS INFO commands.
+		($text, $lines, $columns)=$this->frontend->sizetext(' ');
+	}
 
 	my @params=('--gauge');
 	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
@@ -60,6 +65,8 @@ sub set {
 sub info {
 	my $this=shift;
 	my $question=shift;
+
+	$this->_info($question);
 
 	# TODO: start a new, bigger dialog if this won't fit
 	my ($text, $lines, $columns)=$this->frontend->sizetext($question->description);

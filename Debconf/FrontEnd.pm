@@ -274,6 +274,7 @@ sub progress_stop {
 	my $this=shift;
 
 	$this->progress_bar->stop;
+	$this->progress_bar(undef);
 }
 
 =item clear

@@ -1,3 +1,12 @@
+debconf (1.4.54) UNRELEASED; urgency=low
+
+  * Make dialog progress bars interruptible: if a question needs to be asked
+    while a progress bar is up, we tear down the progress bar and restore it
+    afterwards where we left off. The gnome frontend is still broken in this
+    situation, although at least kde and readline work fine.
+
+ -- Colin Watson <cjwatson@debian.org>  Mon,  1 Aug 2005 16:00:33 +0100
+
 debconf (1.4.53) unstable; urgency=low
 
   [ Luk Claes ]
