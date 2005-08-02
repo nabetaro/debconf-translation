@@ -49,7 +49,7 @@ sub start {
 
 	my @params=('--gauge');
 	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
-	push @params, ($text, $lines + $this->frontend->spacer, $columns, 0);
+	push @params, ($text, $lines + $this->frontend->spacer, $columns, $this->_percent);
 
 	$this->frontend->startdialog($this->question, 1, @params);
 
