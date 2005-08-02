@@ -49,9 +49,12 @@ sub start {
 
 	my @params=('--gauge');
 	push @params, $this->frontend->dashsep if $this->frontend->dashsep;
-	push @params, (' ', $lines + $this->frontend->spacer, $columns, 0);
+	push @params, ($text, $lines + $this->frontend->spacer, $columns, 0);
 
 	$this->frontend->startdialog($this->question, 1, @params);
+
+	$this->_lines($lines);
+	$this->_columns($columns);
 }
 
 sub set {
@@ -68,8 +71,12 @@ sub info {
 
 	$this->_info($question);
 
-	# TODO: start a new, bigger dialog if this won't fit
 	my ($text, $lines, $columns)=$this->frontend->sizetext($question->description);
+	if ($lines > $this->_lines or $columns > $this->_columns) {
+		# Start a new, bigger dialog if this won't fit.
+		$this->stop;
+		$this->start;
+	}
 
 	# TODO: escape the "XXX" marker required by dialog somehow? */
 
