@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-01 16:19+0100\n"
+"POT-Creation-Date: 2005-08-02 15:04+0100\n"
 "PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -44,12 +44,12 @@ msgid ""
 "remove them."
 msgstr "配置文件中的 Sigils 和 Smileys 选项已不再被使用，请删除他们。"
 
-#: ../Debconf/Config.pm:148
+#: ../Debconf/Config.pm:159
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "在设定由 %2$s 第 %1$s 部分所定义的数据库时出错。"
 
-#: ../Debconf/Config.pm:197
+#: ../Debconf/Config.pm:208
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -59,12 +59,12 @@ msgstr ""
 "  -p,  --priority\t\t指定要显示的问题的最优先级。\n"
 "       --terse\t\t\t开启简要模式。\n"
 
-#: ../Debconf/Config.pm:277
+#: ../Debconf/Config.pm:288
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "忽略无效的优先级“%s”"
 
-#: ../Debconf/Config.pm:278
+#: ../Debconf/Config.pm:289
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "有效的优先级为：%s"
