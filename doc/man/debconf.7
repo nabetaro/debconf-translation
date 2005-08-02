@@ -334,6 +334,11 @@ Stack a database before the normally used databases, so that it can
 override values from them. The value of the variable works the same as does
 the value of DEBCONF_DB_FALLBACK.
 .TP
+.B DEBCONF_DB_REPLACE
+Use a given database instead of the normally used databases.
+This may be useful for testing with a separate database without having to
+create a separate debconf.conf, or to avoid locking the normal databases.
+.TP
 .B DEBCONF_SYSTEMRC
 If this environment variable is set, debconf will ignore a user's
 ~/.debconfrc file, and use the system one instead.
