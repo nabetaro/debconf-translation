@@ -1,7 +1,11 @@
 debconf (1.4.55) UNRELEASED; urgency=low
 
+  [ Joey Hess ]
   * confmodule: avoid using non-XSI local variables; instead use a nasty
     temporary IFS setting hack and _db_local_ namespace. Closes: #242011
+
+  [ Colin Watson ]
+  * Fix error message on uninitialised template database.
 
  -- Joey Hess <joeyh@debian.org>  Mon,  1 Aug 2005 16:52:47 -0400
 
