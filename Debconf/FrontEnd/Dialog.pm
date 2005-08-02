@@ -392,12 +392,11 @@ sub showdialog {
 	}
 
 	$this->startdialog($question, 0, @_);
-	my @ret;
+	my (@ret, $ret);
 	if (wantarray) {
 		@ret=$this->waitdialog(@_);
 	} else {
-		my $ret=$this->waitdialog(@_);
-		@ret=($ret);
+		$ret=$this->waitdialog(@_);
 	}
 
 	# Restart the progress bar if necessary.
@@ -405,7 +404,11 @@ sub showdialog {
 		$this->progress_bar->start;
 	}
 
-	return @ret;
+	if (wantarray) {
+		return @ret;
+	} else {
+		return $ret;
+	}
 }
 
 =back
