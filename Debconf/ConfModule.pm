@@ -136,7 +136,7 @@ sub startup {
 	my $confmodule=shift;
 
 	# There is an implicit clearing of any previously pending questions
-	# when a new confmodule is ran.
+	# when a new confmodule is run.
 	$this->frontend->clear;
 	$this->busy([]);
 	

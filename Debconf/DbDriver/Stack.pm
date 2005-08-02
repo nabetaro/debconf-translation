@@ -35,7 +35,7 @@ given item, and then perform the write.
 A reference to an array of drivers. The topmost driver should not be
 readonly, unless the whole stack is.
 
-In the config file, a comma-delimeted list of driver names can be specified
+In the config file, a comma-delimited list of driver names can be specified
 for this field.
 
 =back
