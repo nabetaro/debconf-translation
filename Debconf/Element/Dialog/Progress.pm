@@ -46,6 +46,11 @@ sub start {
 		# for later PROGRESS INFO commands.
 		($text, $lines, $columns)=$this->frontend->sizetext(' ');
 	}
+	# Force progress bar to full available width, to avoid windows
+	# flashing.
+	if ($this->frontend->screenwidth - $this->frontend->columnspacer > $columns) {
+		$columns = $this->frontend->screenwidth - $this->frontend->columnspacer;
+	}
 
 	my @params=('--gauge');
 	push @params, $this->frontend->dashsep if $this->frontend->dashsep;

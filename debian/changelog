@@ -1,7 +1,13 @@
-debconf (1.4.56) unstable; urgency=low
+debconf (1.4.56) UNRELEASED; urgency=low
 
+  [ Luk Claes ]
   * Debconf translations:
     - Arabic added (thanks Mohammed Adnène Trojette). Closes: #320762
+
+  [ Colin Watson ]
+  * Force dialog progress bars to the full available screen width right from
+    the start, to avoid the box flashing as longer info messages are added.
+    Matches cdebconf.
 
  -- Luk Claes <luk@debian.org>  Tue,  2 Aug 2005 22:48:49 +0200
 
