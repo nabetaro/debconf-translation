@@ -342,6 +342,8 @@ create a separate debconf.conf, or to avoid locking the normal databases.
 .B DEBCONF_SYSTEMRC
 If this environment variable is set, debconf will ignore a user's
 ~/.debconfrc file, and use the system one instead.
+If it is set to the name of a regular file, debconf will use that file in
+preference to the system configuration files.
 .TP
 .B DEBCONF_FORCE_DIALOG
 If this environment variable is set, debconf will use dialog in preference

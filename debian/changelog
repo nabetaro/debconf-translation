@@ -14,6 +14,8 @@ debconf (1.4.56) UNRELEASED; urgency=low
     bar starts and restoring it when it stops doesn't work if somebody sets
     the title when a progress bar is up. Instead, remember the last title
     that was explicitly requested and restore that on progress stop.
+  * If DEBCONF_SYSTEMRC is set to a file that exists, use it in preference
+    to the system debconf.conf files.
 
  -- Luk Claes <luk@debian.org>  Tue,  2 Aug 2005 22:48:49 +0200
 

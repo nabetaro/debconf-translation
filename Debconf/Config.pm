@@ -20,7 +20,9 @@ use fields qw(config templates frontend frontend_forced priority terse reshow
 our $config=fields::new('Debconf::Config');
 
 our @config_files=("/etc/debconf.conf", "/usr/share/debconf/debconf.conf");
-if (! $ENV{DEBCONF_SYSTEMRC}) {
+if ($ENV{DEBCONF_SYSTEMRC}) {
+	unshift @config_files, $ENV{DEBCONF_SYSTEMRC};
+} else {
 	# I don't use $ENV{HOME} because it can be a bit untrustworthy if
 	# set by programs like sudo, and that proved to be confusing
 	unshift @config_files, ((getpwuid($>))[7])."/.debconfrc";
