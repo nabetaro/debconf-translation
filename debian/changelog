@@ -8,6 +8,8 @@ debconf (1.4.56) UNRELEASED; urgency=low
   * Force dialog progress bars to the full available screen width right from
     the start, to avoid the box flashing as longer info messages are added.
     Matches cdebconf.
+  * Fix zero-arg case of passthrough's title method to return the title
+    rather than emptying it.
 
  -- Luk Claes <luk@debian.org>  Tue,  2 Aug 2005 22:48:49 +0200
 

@@ -170,6 +170,7 @@ Pass title along to the UI agent.
 sub title
 {
 	my $this = shift;
+	return $this->{title} unless @_;
 	my $title = shift;
 
 	$this->{title} = $title;
