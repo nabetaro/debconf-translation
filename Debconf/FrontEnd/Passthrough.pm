@@ -94,19 +94,6 @@ sub talk {
 	return $tag;
 }
 
-=head2 shutdown
-
-Let the UI agent know we're shutting down.
-
-=cut
-
-sub shutdown {
-	my $this=shift;
-	
-	debug developer => "Sending done signal";
-	$this->talk('STOP');
-}
-
 =head2 makeelement
 
 This frontend doesn't really make use of Elements to interact with the user,

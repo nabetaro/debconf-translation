@@ -16,6 +16,12 @@ debconf (1.4.56) UNRELEASED; urgency=low
     that was explicitly requested and restore that on progress stop.
   * If DEBCONF_SYSTEMRC is set to a file that exists, use it in preference
     to the system debconf.conf files.
+  * Never send STOP through the passthrough interface. One of the uses for
+    passthrough is putting a progress bar in front of base-config's package
+    installation, and that previously sent a STOP after every package, which
+    shut down the debconf instance running the progress bar. Frontends shut
+    themselves down anyway when their input goes away, so the STOP was
+    unnecessary.
 
  -- Luk Claes <luk@debian.org>  Tue,  2 Aug 2005 22:48:49 +0200
 
