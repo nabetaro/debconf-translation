@@ -22,6 +22,8 @@ debconf (1.4.56) UNRELEASED; urgency=low
     shut down the debconf instance running the progress bar. Frontends shut
     themselves down anyway when their input goes away, so the STOP was
     unnecessary.
+  * Allow setting the pipe driver's outfd to 'none' to throw the database
+    away on shutdown. Helps with #312072.
 
  -- Luk Claes <luk@debian.org>  Tue,  2 Aug 2005 22:48:49 +0200
 

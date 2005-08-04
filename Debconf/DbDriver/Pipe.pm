@@ -29,7 +29,11 @@ database.
 
 =item outfd
 
-File descriptor number to write to. Defaults to writing to stdout.
+File descriptor number to write to. Defaults to writing to stdout. If
+it's set to "none", the db will be thrown away rather than saved.
+
+Setting both infd and outfd to none gets you a writable temporary db in
+memory.
 
 =item format
 
@@ -95,7 +99,7 @@ sub init {
 =sub shutdown
 
 Save the entire cache out to the fd. Always writes the cache, even if it's
-not dirty, for consitency's sake.
+not dirty, for consistency's sake.
 
 =cut
 
@@ -106,20 +110,24 @@ sub shutdown {
 
 	my $fh;
 	if (defined $this->{outfd}) {
-		open ($fh, ">&=$this->{outfd}") or
-			$this->error("could not open file descriptor #$this->{outfd}: $!");
+		if ($this->{outfd} ne 'none') {
+			open ($fh, ">&=$this->{outfd}") or
+				$this->error("could not open file descriptor #$this->{outfd}: $!");
+		}
 	}
 	else {
 		open ($fh, '>-');
 	}
 	
-	$this->{format}->beginfile;
-	foreach my $item (sort keys %{$this->{cache}}) {
-		next unless defined $this->{cache}->{$item}; # skip deleted
-		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+	if (defined $fh) {
+		$this->{format}->beginfile;
+		foreach my $item (sort keys %{$this->{cache}}) {
+			next unless defined $this->{cache}->{$item}; # skip deleted
+			$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+		}
+		$this->{format}->endfile;
+		close $fh;
 	}
-	$this->{format}->endfile;
-	close $fh;
 
 	return 1;
 }
