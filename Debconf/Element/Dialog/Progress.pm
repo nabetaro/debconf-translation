@@ -35,7 +35,6 @@ sub start {
 	my $this=shift;
 
 	# Use the short description as the window title, matching cdebconf.
-	$this->saved_title($this->frontend->title);
 	$this->frontend->title($this->question->description);
 
 	my ($text, $lines, $columns);
@@ -99,7 +98,7 @@ sub stop {
 	my $this=shift;
 
 	$this->frontend->waitdialog;
-	$this->frontend->title($this->saved_title);
+	$this->frontend->title($this->frontend->requested_title);
 }
 
 1

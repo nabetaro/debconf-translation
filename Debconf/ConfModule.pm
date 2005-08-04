@@ -389,6 +389,7 @@ Stores the specified title in the associated FrontEnds title field.
 sub command_title {
 	my $this=shift;
 	$this->frontend->title(join ' ', @_);
+	$this->frontend->requested_title($this->frontend->title);
 
 	return $codes{success};
 }
@@ -413,6 +414,7 @@ sub command_settitle {
 	} else {
 		$this->frontend->title($question->description);
 	}
+	$this->frontend->requested_title($this->frontend->title);
 	
 	return $codes{success};
 }

@@ -40,6 +40,11 @@ Holds any special capabilities the FrontEnd supports.
 
 The title of the FrontEnd.
 
+=item requested_title
+
+The title last explicitly requested for the FrontEnd. May be temporarily
+overridden by another title, e.g. for progress bars.
+
 =item info
 
 A question containing an informative message to be displayed, without
@@ -75,6 +80,7 @@ sub init {
 	$this->interactive('');
 	$this->capb('');
 	$this->title('');
+	$this->requested_title('');
 	$this->info(undef);
 }
 
@@ -300,6 +306,7 @@ sub default_title {
 	my $this=shift;
 	
 	$this->title(sprintf(gettext("Configuring %s"), shift));
+	$this->requested_title($this->title);
 }
 
 =item shutdown

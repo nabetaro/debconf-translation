@@ -35,7 +35,6 @@ sub start {
 	$this->expand(1);
 
 	# Use the short description as the window title.
-	$this->saved_title($frontend->title);
 	$frontend->title($description);
 
 	$this->widget(Gtk2::ProgressBar->new());
@@ -65,7 +64,7 @@ sub stop {
 	my $this=shift;
 	my $frontend=$this->frontend;
 
-	$frontend->title($this->saved_title);
+	$frontend->title($frontend->requested_title);
 }
 
 1;

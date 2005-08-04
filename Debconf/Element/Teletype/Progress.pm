@@ -20,7 +20,6 @@ look particularly good, but it will work.
 sub start {
 	my $this=shift;
 
-	$this->saved_title($this->frontend->title);
 	$this->frontend->title($this->question->description);
 	$this->frontend->display('');
 	$this->last(0);
@@ -49,7 +48,7 @@ sub stop {
 	my $this=shift;
 
 	$this->frontend->display("\n");
-	$this->frontend->title($this->saved_title);
+	$this->frontend->title($this->frontend->requested_title);
 }
 
 1;
