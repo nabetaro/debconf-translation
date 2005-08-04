@@ -18,12 +18,12 @@ use base 'Debconf::DbDriver::Cache';
 
 This is a debconf database driver that uses a plain text file for
 each individual item. The files are contained in a directory tree, and
-are named according to item names, with slashes replaces by colons.
+are named according to item names, with slashes replaced by colons.
 
 It uses a Format module to handle reading and writing the files, so the
 files can be of any format.
 
-This is foundation for other DbDrivers, and it not itself useable as one.
+This is a foundation for other DbDrivers, and is not itself usable as one.
 
 =head1 FIELDS
 

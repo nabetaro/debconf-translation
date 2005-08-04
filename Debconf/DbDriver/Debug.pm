@@ -24,7 +24,7 @@ method call output rather verbose debugging output.
 
 =item db
 
-All requests are passed to this database, with loggin.
+All requests are passed to this database, with logging.
 
 =back
 

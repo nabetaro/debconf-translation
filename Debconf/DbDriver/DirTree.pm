@@ -12,7 +12,7 @@ use Debconf::Log qw(:all);
 use base 'Debconf::DbDriver::Directory';
 
 # Works around a bug in perl. This was fixed as of perl 5.8.3-2, but I am
-# leaing this for upgrades for a while.
+# leaving this for upgrades for a while.
 use fields "perl_hates_dirtree";
 
 =head1 DESCRIPTION

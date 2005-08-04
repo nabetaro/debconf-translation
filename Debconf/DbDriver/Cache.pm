@@ -15,7 +15,7 @@ use base 'Debconf::DbDriver';
 
 This is a base class for cacheable database drivers. Use this as the base
 class for your driver if it makes sense to load and store items as a whole
-(eg, if you are using text files to reprosent each item, or downloading whole
+(eg, if you are using text files to represent each item, or downloading whole
 items over the net).
 
 Don't use this base class for your driver if it makes more sense for your
