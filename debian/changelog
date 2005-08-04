@@ -15,7 +15,7 @@ debconf (1.4.56) UNRELEASED; urgency=low
     the title when a progress bar is up. Instead, remember the last title
     that was explicitly requested and restore that on progress stop.
   * If DEBCONF_SYSTEMRC is set to a file that exists, use it in preference
-    to the system debconf.conf files.
+    to the system debconf.conf files. Closes: #299216
   * Never send STOP through the passthrough interface. One of the uses for
     passthrough is putting a progress bar in front of base-config's package
     installation, and that previously sent a STOP after every package, which
