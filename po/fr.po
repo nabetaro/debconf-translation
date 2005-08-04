@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.47\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-05-26 00:56+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -32,19 +32,19 @@ msgstr "Impossible d'initialiser l'interface : %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Impossible de démarrer l'interface : %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des réglages."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr ""
 "Le fichier de configuration n'indique pas l'emplacement de la base de "
 "données des messages (« templates »)."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -52,14 +52,14 @@ msgstr ""
 "Les options Sigils et Smileys ne sont plus utilisées dans le fichier de "
 "configuration. Veuillez les supprimer."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Problème pendant la configuration de la base de données définie au "
 "paragraphe %s sur %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -69,12 +69,12 @@ msgstr ""
 "  -p,  --priority\t\tspécifie la priorité minimale à afficher ;\n"
 "       --terse\t\t\tactive le mode laconique (« terse »).\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "La priorité « %s » non valable sera ignorée"
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Les priorités valables sont: %s"
@@ -173,12 +173,12 @@ msgstr "aucun des éléments mentionnés"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Entrez les éléments que vous voulez choisir, séparés par des espaces."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"

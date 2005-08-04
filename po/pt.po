@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-01-23 14:54+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -31,16 +31,16 @@ msgstr "não foi possível inicializar o frontend: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Não foi possível iniciar o frontend: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr ""
 "Base de dados de configuração não especificada no ficheiro de configuração."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Base de dados template não especificada no ficheiro de configuração."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -48,12 +48,12 @@ msgstr ""
 "As opções Sigils e Smileys no ficheiro de configuração já não são "
 "utilizadas. Por favor remova-as."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problema ao definir a base de dados definida por stanza %s de %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -64,12 +64,12 @@ msgstr ""
 "mostrar.\n"
 "       --terse\t\t\tHabilitar o modo abreviado.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "A ignorar a prioridade inválida \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "As prioridades válidas são: %s"
@@ -168,12 +168,12 @@ msgstr "nenhum dos acima"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Introduza os items que deseja escolher, separados por espaços."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Não conseguiu carregar Debconf::Element::%s. Falhou devido a: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "A configurar %s"

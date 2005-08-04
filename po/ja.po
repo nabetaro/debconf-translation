@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-01 21:31+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
@@ -30,15 +30,15 @@ msgstr "フロントエンドの初期化に失敗しました: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "フロントエンドの起動ができませんでした: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "設定データベースが設定ファイルで指定されていません。"
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "テンプレートデータベースが設定ファイルで指定されていません。"
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -46,13 +46,13 @@ msgstr ""
 "設定ファイルの Sigils と Smileys オプションは使われなくなりました。削除してく"
 "ださい。"
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "%2$s の %1$s で定義されたデータベースを設定するのに問題が発生しました。"
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -62,12 +62,12 @@ msgstr ""
 "  -p,  --priority\t\t表示する最小優先度を指定する。\n"
 "       --terse\t\t\t簡潔モードを有効にする。\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "不正なプロパティ \"%s\" を無視します"
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "有効なプロパティは次のとおりです: %s"
@@ -164,12 +164,12 @@ msgstr "上記以外"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "空白で区切りながら、選択したい項目を入力してください。"
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s をロードできません. 失敗した理由: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s を設定しています"

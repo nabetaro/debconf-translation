@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-03 21:58+0200\n"
 "Last-Translator: Piarres Beobide pi@beobide.net\n"
 "Language-Team:  Librezale.org <librezale@librezale.org>\n"
@@ -36,15 +36,15 @@ msgstr "Ezin da interfaze hau abiarazi: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Ezin da interfaze hau abiarazi: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "Konefiguraz databasea ez dago ezarririk konfigurazio fitxategian."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Database txantilloia ez dago ezarririk konfigurazio fitxategian."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -52,12 +52,12 @@ msgstr ""
 "Zeinu eta aurpegitxo (smileys) aukerak ez dira denbora gehiagoz erabiliko "
 "konfigurazio fitxategian. Mesedez ezabatu itzazu."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Arazo bat %s-tik %s-ra parafoak ezarritako databasea ezartzerakoan."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -67,12 +67,12 @@ msgstr ""
 "  -p,  --priority\t\tIkusiko diren galderen lehenespen baxuena ezarri.\n"
 "       --terse\t\t\tModu laburra gaitu.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "\"%s\"baliogabko lehentasuna alde batetara uzrten"
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Lentasun erabilgarriak: %s"
@@ -169,12 +169,12 @@ msgstr "aurrekoetako bat ere ez"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Sar aukeratu nahi dituzunak, leku batez bereizirik."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Ezin izan da Debconf::Element::%s kargatu. Errorea : %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s konfiguratzen"

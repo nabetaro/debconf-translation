@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-01 08:26+0200\n"
 "Last-Translator: Peter KLFMANiK Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -31,15 +31,15 @@ msgstr "nedá sa inicializovať rozhranie: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Nedá sa spustiť rozhranie: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "V konfiguračnom súbore nie je zadaná databáza nastavení."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "V konfiguračnom súbore nie je zadaná databáza šablón."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -47,12 +47,12 @@ msgstr ""
 "V  konfiguračnom súbore sa už voľby Sigils a Smileys nepoužívajú. Odstráňte "
 "ich, prosím."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problém pri nastavení databázy definovanej v časti %s z %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -62,12 +62,12 @@ msgstr ""
 "  -p,  --priority\t\tNastavenie minimálnej priority pre zobrazenie otázok.\n"
 "       --terse\t\t\tPovolenie stručného módu.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ignoruje sa neplatná priorita \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Dostupné priority sú: %s"
@@ -163,12 +163,12 @@ msgstr "nič z uvedeného"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Zadajte položky, ktoré chcete vybrať, oddelené medzerami."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nedá sa načítať Debconf::Element::%s. Neúspech kvôli: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Nastavovanie %s"

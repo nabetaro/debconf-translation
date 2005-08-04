@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.40\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-01-23 19:00+0100\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -30,19 +30,19 @@ msgstr "no s'ha pogut iniciar la interfície: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "No s'ha pogut iniciar una interfície: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr ""
 "La base de dades de configuracions no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr ""
 "La base de dades de plantilles no està especificada en el fitxer de "
 "configuració."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -50,26 +50,26 @@ msgstr ""
 "Les opcions «Sigils» i «Smileys» en el fitxer de configuració ja no "
 "s'utilitzen. Si us plau, elimineu-les."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Ha hagut un problema en configurar la base de dades definida per l'estrofa %"
 "s de %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "S'està descartant la prioritat «%s» invàlida"
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Les prioritats vàlides són: %s"
@@ -168,12 +168,12 @@ msgstr "cap de les anteriors"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Introduïu els elements que voleu seleccionar, separats per espais."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "No s'ha pogut carregar Debconf::Element::%s. Error degut a: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configuració del paquet «%s»"

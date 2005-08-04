@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-01-23 12:21+0100\n"
 "Last-Translator: Nikolai Prokoschenko <nikolai@prokoschenko.de>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -31,15 +31,15 @@ msgstr "не удалось инициализировать интерфейс:
 msgid "Unable to start a frontend: %s"
 msgstr "Не удалось запустить интерфейс: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "База данных настройки не указана в файле настройки."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "База данных шаблонов не указана в файле настройки."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -47,24 +47,24 @@ msgstr ""
 "Параметры Sigils и Smileys в файле настройки устарели и больше не "
 "используются. Удалите их."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Проблемы при настройке базы данных, заданной строфой %s в %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Игнорирование неправильного приоритета \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Допустимые приоритеты: %s"
@@ -164,12 +164,12 @@ msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
 "Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Не удалось загрузить Debconf::Element::%s. Причина: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Идет настройка пакета %s"

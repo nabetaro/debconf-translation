@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-02-15 15:21+0100\n"
 "Last-Translator: Emil Nowak <emil5@go2.pl>\n"
 "Language-Team: Polish <porridge@debian.org>\n"
@@ -29,15 +29,15 @@ msgstr "nie uda³o siê zainicjalizowaæ nak³adki: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "nie uda³o siê uruchomiæ nak³adki: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Brak bazy danych szablonów w pliku konfiguracyjnym."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -45,24 +45,24 @@ msgstr ""
 "Opcje Sigils i Smileys w pliku konfiguracyjnym nie s± ju¿ wykorzystywane - "
 "zaleca siê ich usuniêcie."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "Problem z ustawieniem bazy danych zdefiniowanej przez zwrotkê %s z %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ignorowanie niew³a¶ciwego priorytetu \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "W³a¶ciwe priorytety to: %s"
@@ -159,12 +159,12 @@ msgstr "¿adna z powy¿ych"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Wpisz, oddzielone przecinkami, pozycje, które chcesz zaznaczyæ."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"

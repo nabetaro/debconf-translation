@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-05 15:23+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -32,15 +32,15 @@ msgstr "hindi maihanda ang mukha: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Hindi mapatakbo ang mukha: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "Hindi nakatakda ang database ng pagsasaayos sa taklasang pagkaayos."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Hindi nakatakda ang template database sa taklasang pagkaayos."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -48,13 +48,13 @@ msgstr ""
 "Ang mga option ng Sigil at Smiley sa taklasang pagkaayos ay hindi na "
 "ginagamit. Paki-tanggal ang mga ito."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Nagka-problema sa paghanda ng database na tinutukoy ng estropa %s ng %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -65,12 +65,12 @@ msgstr ""
 "ipapakita.\n"
 "       --terse\t\t\tGamitin ang modong tuwiran.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Di pinansin ang di tanggap na antas \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Mga tanggap na mga antas ay: %s"
@@ -169,12 +169,12 @@ msgstr "wala sa itaas"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Hindi maipasok ang Debconf::Element::%s. Sawi dahil sa: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Isinasaayos ang %s"

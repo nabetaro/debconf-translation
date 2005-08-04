@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-01 18:03+0800\n"
 "Last-Translator: Kanru Chen <koster@debian.org.tw>\n"
 "Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>\n"
@@ -30,26 +30,26 @@ msgstr "啟始前端介面失敗：%s"
 msgid "Unable to start a frontend: %s"
 msgstr "不能開啟前端介面：%s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "設定檔中沒有指定設定資料庫"
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "設定檔中沒有指定樣板資料庫"
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr "設定檔中的 Sigils 和 Smileys 選項已不再使用。請移除它們。"
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr "在設定由 %2$s 第 %1$s 部份所定義的資料庫時出錯。"
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -59,12 +59,12 @@ msgstr ""
 "  -p,  --priority\t\t指定要顯示的問題的最小優先層級。\n"
 "       --terse\t\t\t使用簡潔模式。\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "忽略無效的優先順序 \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "有效的順序為：%s"
@@ -157,12 +157,12 @@ msgstr "以上都沒有"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "輸入您想選擇的項目，以空格分開。"
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "不能載入 Debconf::Element::%s，失敗原因：%s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "正在設定 %s"

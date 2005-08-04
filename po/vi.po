@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-05-01 14:45+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -30,27 +30,27 @@ msgstr "không thể khởi động tiền tiêu: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Không thể bắt đầu tiền tiêu: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "Chưa ghi rõ cơ sở dữ liệu cấu hình trong tập tin cấu hình."
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Chưa ghi rõ cơ sở dữ liệu mẫu trong tập tin cấu hình."
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr "Không còn dùng lại những tùy chọn Sigils và Smileys. Hãy loại bỏ suốt."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Gặp lỗi khi thiết lập cơ sở dữ liệu đã định nghĩa do đoạn dòng %s của %s."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -60,12 +60,12 @@ msgstr ""
 "  -p,  --priority\t\tSGhi rõ _ưu tiên_ tối thiểu cân hiển thị.\n"
 "       --terse\t\t\tHiệu lực chế độ _ngắn gọn_.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Đang bỏ qua ưu tiên không hợp lê \"%s\"."
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Ưu tiên hợp lệ: %s"
@@ -162,12 +162,12 @@ msgstr "không ở trên"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Hãy nhận những mục mà bạn muốn chọn, định giới bằng dấu cách."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Không tải được Debconf::Element::%s. Thất bại vì: %s."
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Đang cấu hình %s..."

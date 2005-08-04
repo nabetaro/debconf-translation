@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.42\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-02 15:04+0100\n"
+"POT-Creation-Date: 2005-08-04 20:51+0100\n"
 "PO-Revision-Date: 2005-04-23 15:23+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@mbjnet.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -28,15 +28,15 @@ msgstr "kunne ikke klargøre brugerflade: %s"
 msgid "Unable to start a frontend: %s"
 msgstr "Kunne ikke starte en brugerflade: %s"
 
-#: ../Debconf/Config.pm:128
+#: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr "Opsætningsdatabase ikke angivet i opsætningsfil"
 
-#: ../Debconf/Config.pm:132
+#: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
 msgstr "Skabelondatabase ikke angivet i opsætningsfil"
 
-#: ../Debconf/Config.pm:137
+#: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
@@ -44,13 +44,13 @@ msgstr ""
 "Sigils- og Smileys-tilvalg bruges ikke længere i opsætningsfilen. Fjern dem "
 "venligst."
 
-#: ../Debconf/Config.pm:159
+#: ../Debconf/Config.pm:161
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
 "Opsætning af database, defineret ved kombination %s af %s, gav problemer."
 
-#: ../Debconf/Config.pm:208
+#: ../Debconf/Config.pm:210
 msgid ""
 "  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
@@ -61,12 +61,12 @@ msgstr ""
 "  -p,  --prioritet\t\tAnfør hvor lavt prioriterede spørgsmål der vises.\n"
 "       --terse\t\t\tSkær spørgsmål og information ned til et minimum.\n"
 
-#: ../Debconf/Config.pm:288
+#: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
 msgstr "Ignorerer ugyldig prioritering \"%s\""
 
-#: ../Debconf/Config.pm:289
+#: ../Debconf/Config.pm:291
 #, perl-format
 msgid "Valid priorities are: %s"
 msgstr "Gyldige prioriteringer er: %s"
@@ -161,12 +161,12 @@ msgstr "ingen af ovenstående"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Vælg de ønskede punkter, adskilt af mellemrum."
 
-#: ../Debconf/FrontEnd.pm:121
+#: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Kunne ikke indlæse Debconf::Element::%s. Fejlede pga.: %s"
 
-#: ../Debconf/FrontEnd.pm:302
+#: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
 msgstr "Sætter %s op"
