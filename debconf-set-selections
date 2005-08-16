@@ -53,6 +53,9 @@ that preseeding a question's value defaults to marking that question as
 seen, so to override the default value without marking a question seen, you
 need two lines.
 
+Lines can be continued to the next line by ending them with a "\"
+character.
+
 =head1 EXAMPLES
 
  # Force debconf priority to critical.
@@ -170,6 +173,15 @@ sub ok_format {
 	}
 }
 
+sub mungeline ($) {
+	my $line=shift;
+	chomp $line;
+	$line=~s/\#.*$//;
+	$line=~s/\r$//;
+	return $line;
+}
+
+
 GetOptions(
 	"verbose|v" => \$debug,
 	"checkonly|c" => \$checkonly,
@@ -181,9 +193,11 @@ Debconf::Db->load;
 $error = 0;
 
 while (<>) {
-	chomp;
-	s/\#.*$//;
-	s/\r$//;
+	$_=mungeline($_);
+	while (/\\$/ && ! eof) {
+		s/\\$//;
+		$_.=mungeline(<>);
+	}
 	next if /^\s*$/;
 	# Allow multiple spaces between all values except the last one.
 	# Extra whitespace in the content is significant.
