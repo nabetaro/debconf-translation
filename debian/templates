@@ -17,14 +17,18 @@ Template: debconf/priority
 Type: select
 _Choices: critical, high, medium, low
 Default: medium
-_Description: See only questions that are of what priority and higher?
- Debconf prioritizes the questions it asks you. Pick the lowest priority of
- question you want to see:
-   - 'critical' only prompts you if the system might break.
-     Pick it if you are a newbie, or in a hurry.
-   - 'high' is for rather important questions
-   - 'medium' is for normal questions
-   - 'low' is for control freaks who want to see everything
+_Description: Ignore questions with a priority less than...
+ Packages that use debconf for configuration prioritize the questions they
+ might ask you. Only questions with a certain priority or higher are
+ actually shown to you; all less important questions are skipped.
  .
- Note that no matter what level you pick here, you will be able to see
- every question if you reconfigure a package with dpkg-reconfigure.
+ You can select the lowest priority of question you want to see:
+  - 'critical' is for items that will probably break the system
+     without user intervention.
+  - 'high' is for items that don't have reasonable defaults.
+  - 'medium' is for normal items that have reasonable defaults.
+  - 'low' is for trivial items that have defaults that will work in
+    the vast majority of cases.
+ .
+ For example, this question is of medium priority, and if your priority
+ were already 'high' or 'critical', you wouldn't see this question.
