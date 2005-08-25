@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-25 14:21+0200\n"
+"POT-Creation-Date: 2005-08-25 17:27+0200\n"
 "PO-Revision-Date: 2004-11-18 18:11+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@gmail.com>\n"
 "Language-Team: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
@@ -75,28 +75,19 @@ msgstr "उन प्रश्नों की उपेक्षा करे�
 #. Description
 #: ../templates:20
 msgid ""
-"Packages that use debconf for configuration prioritize the questions they "
-"might ask you. Only questions with a certain priority or higher are actually "
-"shown to you; all less important questions are skipped."
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
 msgstr ""
 
 #. Type: select
 #. Description
 #: ../templates:20
 msgid ""
-"You can select the lowest priority of question you want to see:\n"
-" - 'critical' is for items that will probably break the system\n"
-"    without user intervention.\n"
-" - 'high' is for items that don't have reasonable defaults.\n"
-" - 'medium' is for normal items that have reasonable defaults.\n"
-" - 'low' is for trivial items that have defaults that will work in\n"
-"   the vast majority of cases."
-msgstr ""
-
-#. Type: select
-#. Description
-#: ../templates:20
-msgid ""
-"For example, this question is of medium priority, and if your priority were "
-"already 'high' or 'critical', you wouldn't see this question."
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
