@@ -652,8 +652,8 @@ Votre script config ressemblera à quelque chose comme ça\ :
 
 	# Stocke les valeurs du fichier de configuration
  	# dans la base de données de debconf
- 	db_set mypackage/foo FOO
- 	db_set mypackage/bar BAR
+ 	db_set mypackage/foo "$FOO"
+ 	db_set mypackage/bar "$BAR"
  fi
 
  # Pose les questions.

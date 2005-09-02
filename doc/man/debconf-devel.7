@@ -627,8 +627,8 @@ Your config script will look something like this:
 
  	# Store values from config file into
  	# debconf db.
- 	db_set mypackage/foo FOO
- 	db_set mypackage/bar BAR
+ 	db_set mypackage/foo "$FOO"
+ 	db_set mypackage/bar "$BAR"
  fi
 
  # Ask questions.
