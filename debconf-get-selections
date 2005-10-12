@@ -58,6 +58,9 @@ while (my $q = $qi->iterate) {
 	my ($name, $type, $value) = ($q->name, $q->type, $q->value);
 	next if (! length $type || $type eq 'text' || $type eq 'note' || $type eq 'error' || $type eq 'title');
 	print "# ".$q->description."\n";
+	if ($q->type eq 'seelct' || $q->type eq 'multiselect') {
+		print "# Choices: ".join(", ", $q->choices)."\n";
+	}
 	if ($q->owners) {
 		foreach my $owner (split ", ", $q->owners) {
 			print "$owner\t$name\t$type\t$value\n";
