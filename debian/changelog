@@ -7,18 +7,17 @@ debconf (1.4.59) UNRELEASED; urgency=low
   [ Joey Hess ]
   * Fix variables in man page example. Patch from Jérémy Bobbio.
     Closes: #326134
+  * debconf-get-selections: Include a comment with available choices for
+    select and multiselect questions.
 
   [ Luk Claes ]
   * Programs translations:
     - Russian updated. Closes: #332880
   * Debconf translations:
     - Romanian updated. Closes: #333199
+    - Portuguese updated. Closes: #332934
 
-  [ Joey Hess ]
-  * debconf-get-selections: Include a comment with available choices for
-    select and multiselect questions.
-
- -- Joey Hess <joeyh@debian.org>  Tue, 11 Oct 2005 22:35:14 -0400
+ -- Luk Claes <luk@debian.org>  Wed, 12 Oct 2005 14:14:40 +0200
 
 debconf (1.4.58) unstable; urgency=low
 
