@@ -141,22 +141,35 @@ unless (open(INFO, "-|")) {
 	my $static_len=length("apt-extracttemplates");
 	my $len=$static_len;
 	my @collect;
+	if ($apt && @debs > 30) {
+		STDERR->autoflush(1);
+	}
 	foreach my $deb (@debs) {
 		$len += length($deb) + 1;
-		if ($len < $command_max) {
+		if ($len < $command_max && @collect < 30) {
 			push @collect, $deb;
 		}
 		else {
 			if (system("apt-extracttemplates", @collect) != 0) {
 				print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
 			}
+			if ($apt && @debs > 30) {
+				$progress += @collect;
+				printf STDERR "\r".gettext("Extracting templates from packages: %d%%"), $progress * 100 / @debs;
+			}
 				
 			@collect=($deb);
 			$len=$static_len + length($deb) + 1;
 		}
 	}
-	exec "apt-extracttemplates", @collect or
+	if (system("apt-extracttemplates", @collect) != 0) {
 		print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
+	}
+	if ($apt && @debs > 30) {
+		$progress += @collect;
+		printf STDERR "\r".gettext("Extracting templates from packages: %d%%")."\n", $progress * 100 / @debs;
+	}
+	exit;
 }
 # Why buffer here? Well, suppose 300 packages are being installed, and
 # only the first and last use debconf. The first is preconfigured. Then

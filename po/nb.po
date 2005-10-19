@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-25 12:13-0400\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-08-23 21:16+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -315,26 +315,31 @@ msgstr "må oppgi noen debs som skal settes opp på forhånd"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "utsetter pakkeoppsett, siden apt-utils ikke er installert"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates mislyktes: %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "apt-extracttemplates mislyktes: %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "Forhåndsoppsetter pakker ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "maltolkingsfeil: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: klarer ikke chmod: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "forhåndsoppsettet av %s mislyktes med avslutningsstatus %s"

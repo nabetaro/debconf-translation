@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.42\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-04-23 15:23+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@mbjnet.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -308,26 +308,31 @@ msgstr "er nødt til at angive nogle debianpakker for at prækonfigurere"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "udsætter pakkeopsætning da apt-utils ikke er installeret"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates fejlede: %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "apt-extracttemplates fejlede: %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "Prækonfigurerer pakker ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Fortolkningsfejl i skabelon: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kan ikke chmod: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s fejlede i prækonfigurering med afslutningsstatus %s"

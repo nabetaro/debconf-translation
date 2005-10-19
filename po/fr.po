@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.47\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-05-26 00:56+0200\n"
 "Last-Translator: Julien Louis <leonptitlouis@ifrance.com>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -324,26 +324,31 @@ msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "la configuration des paquets est reportée, car apt-utils n'est pas installé"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "Échec d'apt-extracttemplates : %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "Échec d'apt-extracttemplates : %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "Préconfiguration des paquets ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erreur d'analyse de message : %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf : impossible de changer le mode : %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"

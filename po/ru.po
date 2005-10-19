@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-17 20:50+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-09-17 11:29+0400\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -15,6 +15,200 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "будет использован интерфейс: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "не удалось инициализировать интерфейс: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Не удалось запустить интерфейс: %s"
+
+#: ../Debconf/Config.pm:130
+msgid "Config database not specified in config file."
+msgstr "База данных настройки не указана в файле настройки."
+
+#: ../Debconf/Config.pm:134
+msgid "Template database not specified in config file."
+msgstr "База данных шаблонов не указана в файле настройки."
+
+#: ../Debconf/Config.pm:139
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Параметры Sigils и Smileys в файле настройки устарели и больше не "
+"используются. Удалите их."
+
+#: ../Debconf/Config.pm:161
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Проблемы при настройке базы данных, заданной строфой %s в %s."
+
+#: ../Debconf/Config.pm:210
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+
+#: ../Debconf/Config.pm:290
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Игнорирование неправильного приоритета \"%s\""
+
+#: ../Debconf/Config.pm:291
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Допустимые приоритеты: %s"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Варианты"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "да"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "нет"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
+"(', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Help"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Подсказка"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr "Сохранить(почтовое) сообщение"
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf получил команду сохранить это сообщение, поэтому оно былоотправлено "
+"вам по почте."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr "Информация"
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr "Сообщение было отправлено по почте."
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr "Ошибка"
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+msgid "Unable to save note."
+msgstr "Не удалось сохранить сообщение."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf не настроен показывать это сообщение, поэтому оно было вам "
+"отправлено по почте."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, работающий на %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Входное значение \"%s\" на найдено среди вариантов локали С! Это не должно "
+"было случиться. Возможно, шаблоны были неправильно переведены."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ни один из предложенных выше"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
+
+#: ../Debconf/FrontEnd.pm:127
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Не удалось загрузить Debconf::Element::%s. Причина: %s"
+
+#: ../Debconf/FrontEnd.pm:308
+#, perl-format
+msgid "Configuring %s"
+msgstr "Идет настройка пакета %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr ""
+"Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Интерфейс dialog нельзя запускать из-под буферов emacs'а"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Интерфейс dialog не будет работать на неуправляемом (dumb) терминале, из "
+"буфера emacs'а, или в отсутствие контролирующего терминала."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Ни одна из dialog подобных программ не установлена, поэтому вы не можете "
+"использовать dialog-интерфейс."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
+"ширину."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "Настройка пакетов Debian"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -44,12 +238,24 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
-#, c-format
+#, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
 
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Этот интерфейс работает только с управляющего терминала."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU не может работать из-под буферов emacs'а."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Далее"
+
 #: ../Debconf/FrontEnd/Web.pm:65
-#, c-format
+#, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Замечание: используется web-интерфейс. Откройте http://localhost:%i/"
 
@@ -61,100 +267,8 @@ msgstr "Возврат"
 msgid "Next"
 msgstr "Далее"
 
-#: ../Debconf/FrontEnd/Teletype.pm:96
-msgid "More"
-msgstr "Далее"
-
-#: ../Debconf/FrontEnd/Dialog.pm:50
-msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
-
-#: ../Debconf/FrontEnd/Dialog.pm:53
-msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Интерфейс dialog нельзя запускать из-под буферов emacs'а"
-
-#: ../Debconf/FrontEnd/Dialog.pm:56
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Интерфейс dialog не будет работать на неуправляемом (dumb) терминале, из "
-"буфера emacs'а, или в отсутствие контролирующего терминала."
-
-#: ../Debconf/FrontEnd/Dialog.pm:102
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Ни одна из dialog подобных программ не установлена, поэтому вы не можете "
-"использовать dialog-интерфейс."
-
-#: ../Debconf/FrontEnd/Dialog.pm:109
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
-"ширину."
-
-#: ../Debconf/FrontEnd/Dialog.pm:282
-msgid "Debian Configuration"
-msgstr "Настройка пакетов Debian"
-
-#: ../Debconf/FrontEnd/Readline.pm:47
-msgid "This frontend requires a controlling tty."
-msgstr "Этот интерфейс работает только с управляющего терминала."
-
-#: ../Debconf/FrontEnd/Readline.pm:58
-msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU не может работать из-под буферов emacs'а."
-
-#: ../Debconf/AutoSelect.pm:76
-#, c-format
-msgid "falling back to frontend: %s"
-msgstr "будет использован интерфейс: %s"
-
-#: ../Debconf/AutoSelect.pm:84
-#, c-format
-msgid "unable to initialize frontend: %s"
-msgstr "не удалось инициализировать интерфейс: %s"
-
-#: ../Debconf/AutoSelect.pm:90
-#, c-format
-msgid "Unable to start a frontend: %s"
-msgstr "Не удалось запустить интерфейс: %s"
-
-#: ../Debconf/Config.pm:127
-msgid "Config database not specified in config file."
-msgstr "База данных настройки не указана в файле настройки."
-
-#: ../Debconf/Config.pm:131
-msgid "Template database not specified in config file."
-msgstr "База данных шаблонов не указана в файле настройки."
-
-#: ../Debconf/Config.pm:136
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Параметры Sigils и Smileys в файле настройки устарели и больше не "
-"используются. Удалите их."
-
-#: ../Debconf/Config.pm:147
-#, c-format
-msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Проблемы при настройке базы данных, заданной строфой %s в %s."
-
-#: ../Debconf/Config.pm:262
-#, c-format
-msgid "Ignoring invalid priority \"%s\""
-msgstr "Игнорирование неправильного приоритета \"%s\""
-
-#: ../Debconf/Config.pm:263
-#, c-format
-msgid "Valid priorities are: %s"
-msgstr "Допустимые приоритеты: %s"
-
 #: ../Debconf/Template.pm:90
-#, c-format
+#, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
@@ -162,138 +276,37 @@ msgstr ""
 "внимание: возможно, повреждена база данных. Будет сделана попытка исправить "
 "ее, добавив отсутствующий вопрос %s."
 
-#: ../Debconf/Template.pm:201
-#, c-format
+#: ../Debconf/Template.pm:203
+#, fuzzy, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly seperated by a lone newline.\n"
+"Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Шаблон номер %s в %s содержит повторяющееся поле \"%s\" с новым значением "
-"\"%s\". Наверно, какие-то два шаблона не разделены пустой строкой.\n"
+"Шаблон номер %s в %s содержит повторяющееся поле \"%s\" с новым значением \"%"
+"s\". Наверно, какие-то два шаблона не разделены пустой строкой.\n"
 
-#: ../Debconf/Template.pm:226
-#, c-format
+#: ../Debconf/Template.pm:228
+#, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Неизвестное поле шаблона `%s', в строфе номер %s из %s\n"
 
-#: ../Debconf/Template.pm:252
-#, c-format
+#: ../Debconf/Template.pm:254
+#, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Ошибка разбора шаблона около `%s', в строфе номер %s из %s\n"
 
-#: ../Debconf/Template.pm:258
-#, c-format
+#: ../Debconf/Template.pm:260
+#, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблон номер %s в %s не содержит строки `Template:'\n"
 
-#: ../Debconf/Element/Gnome.pm:183
-msgid "_Help"
-msgstr "_Help"
-
-#: ../Debconf/Element/Gnome.pm:185
-msgid "Help"
-msgstr "Подсказка"
-
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Сохранить(почтовое) сообщение"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf получил команду сохранить это сообщение, поэтому оно было"
-"отправлено вам по почте."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Информация"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Сообщение было отправлено по почте."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Ошибка"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Не удалось сохранить сообщение."
-
-#: ../Debconf/Element/Editor/Multiselect.pm:31
-#: ../Debconf/Element/Editor/Select.pm:31
-#: ../Debconf/Element/Editor/Boolean.pm:30
-msgid "Choices"
-msgstr "Варианты"
-
-#: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
-"(', ').)"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:36
-#: ../Debconf/Element/Editor/Boolean.pm:59
-#: ../Debconf/Element/Teletype/Boolean.pm:28
-msgid "yes"
-msgstr "да"
-
-#: ../Debconf/Element/Editor/Boolean.pm:30
-#: ../Debconf/Element/Editor/Boolean.pm:39
-#: ../Debconf/Element/Editor/Boolean.pm:62
-#: ../Debconf/Element/Teletype/Boolean.pm:29
-msgid "no"
-msgstr "нет"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf не настроен показывать это сообщение, поэтому оно "
-"было вам отправлено по почте."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
-msgid "Debconf"
-msgstr "Debconf"
-
-#: ../Debconf/Element/Noninteractive/Note.pm:87
-#, c-format
-msgid "Debconf, running at %s"
-msgstr "Debconf, работающий на %s"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:27
-msgid "none of the above"
-msgstr "ни один из предложенных выше"
-
-#: ../Debconf/Element/Teletype/Multiselect.pm:47
-msgid "Enter the items you want to select, separated by spaces."
-msgstr "Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
-
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
-#, c-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Входное значение \"%s\" на найдено среди вариантов локали С! Это не должно было "
-"случиться. Возможно, шаблоны были неправильно переведены."
-
-#: ../Debconf/FrontEnd.pm:131
-#, c-format
-msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Не удалось загрузить Debconf::Element::%s. Причина: %s"
-
-#: ../Debconf/FrontEnd.pm:203
-#, c-format
-msgid "Configuring %s"
-msgstr "Идет настройка пакета %s"
-
 #: ../dpkg-preconfigure:113
-#, c-format
+#, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "не удалось заново открыть stdin: %s"
 
 #: ../dpkg-preconfigure:116
+#, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "для предварительной настройки нужно указать какие-нибудь deb-файлы"
 
@@ -301,72 +314,125 @@ msgstr "для предварительной настройки нужно ук
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "так как не установлен apt-utils, настройка пакетов откладывается"
 
-#: ../dpkg-preconfigure:179
-#, c-format
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr ""
+
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr ""
+
+#: ../dpkg-preconfigure:181
+msgid "Preconfiguring packages ...\n"
+msgstr ""
+
+#: ../dpkg-preconfigure:193
+#, perl-format
 msgid "template parse error: %s"
 msgstr "ошибка разбора шаблона: %s"
 
-#: ../dpkg-preconfigure:193
-#, c-format
+#: ../dpkg-preconfigure:207
+#, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: не удалось изменить режим доступа к файлу: %s"
 
-#: ../dpkg-preconfigure:203
-#, c-format
+#: ../dpkg-preconfigure:218
+#, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "не удалось выполнить начальную настройку пакета %s, код ошибки %s"
 
+#: ../dpkg-reconfigure:92
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+
 #: ../dpkg-reconfigure:104
-#, c-format
+#, perl-format
 msgid "%s must be run as root"
 msgstr "%s требует выполнения с правами суперпользователя"
 
-#: ../dpkg-reconfigure:136
+#: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
 msgstr "укажите пакет, который нужно перенастроить"
 
-#: ../dpkg-reconfigure:156
-#, c-format
+#: ../dpkg-reconfigure:158
+#, perl-format
 msgid "%s is not installed"
 msgstr "Пакет %s не установлен"
 
-#: ../dpkg-reconfigure:160
-#, c-format
+#: ../dpkg-reconfigure:162
+#, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "Пакет %s установлен не полностью или поврежден"
 
-#: ../dpkg-reconfigure:237
-#, c-format
+#: ../dpkg-reconfigure:239
+#, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Ошибка чтения файла состояния: %s"
 
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr ""
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr ""
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+
 #: ../debconf-mergetemplate:119
-#, c-format
+#, perl-format
 msgid "%s is missing"
 msgstr "отсутствует %s"
 
 #: ../debconf-mergetemplate:123
-#, c-format
+#, perl-format
 msgid "%s is missing; dropping %s"
 msgstr "отсутствует %s; отбрасывание %s"
 
 #: ../debconf-mergetemplate:146
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s"
 msgstr "%s имеет нечёткий перевод начиная с %s байта: %s"
 
 #: ../debconf-mergetemplate:151
-#, c-format
+#, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
 msgstr "%s имеет нечёткий перевод начиная с %s байта: %s; отбрасывание"
 
 #: ../debconf-mergetemplate:168
-#, c-format
+#, perl-format
 msgid "%s is outdated"
 msgstr "Пакет %s устарел"
 
 #: ../debconf-mergetemplate:173
-#, c-format
+#, perl-format
 msgid "%s is outdated; dropping whole template!"
 msgstr "Пакет %s устарел; игнорирование всего шаблона!"
 
+#: ../debconf:87
+msgid "Usage: debconf [options] command [args]"
+msgstr ""
+
+#: ../debconf:89
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""

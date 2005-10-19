@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-05-01 14:45+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -311,26 +311,31 @@ msgstr "phải ghi rõ một số deb (tập tin gói Debian) để cấu hình 
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "đang tri hoãn cấu hình gói vì chưa cài đặt apt-utils (tiện ích apt)"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates (giải nén mẫu) đã thất bại: %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "apt-extracttemplates (giải nén mẫu) đã thất bại: %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "Đang cấu hình gói trước ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "lỗi phân tách mẫu: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: không thể chmod: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s không cấu hình được trước, có trang thái thoát là %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -295,26 +295,31 @@ msgstr "必须指定要预设定的 deb 包"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "因为并未安装 apt-utils，所以软件包的设定过程将被推迟"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates 失败：%s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "apt-extracttemplates 失败：%s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "正在预设定软件包 ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "模板解读错误: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf：无法改变权限：%s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "预设定 %s 失败，退出状态为 %s"

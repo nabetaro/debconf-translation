@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-04-01 21:04EEST\n"
 "Last-Translator: Greek Translation Team <debian-l10n-greek@lists.debian."
 "org>\n"
@@ -329,26 +329,31 @@ msgstr ""
 "καθυστέρηση της ρύθμισης του πακέτου, εφόσον το apt-utils δεν είναι "
 "εγκατεστημένο"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "η apt-extracttemplates απέτυχε: %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "η apt-extracttemplates απέτυχε: %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "Προρύθμιση πακέτων ... \n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "σφάλμα ανάλυσης προτύπου: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: αδύνατη η εκτέλεση της chmod: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λάθους %s"

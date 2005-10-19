@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.58\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 20:51+0100\n"
+"POT-Creation-Date: 2005-10-19 15:19+0100\n"
 "PO-Revision-Date: 2005-10-13 17:42+0200\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -312,26 +312,31 @@ msgstr "m�ste ange n�gra debpaket att f�rkonfigurera"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "f�rdr�jer paketkonfigurering eftersom apt-utils ej �r installerat"
 
-#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates misslyckades: %s"
 
-#: ../dpkg-preconfigure:167
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, fuzzy, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "apt-extracttemplates misslyckades: %s"
+
+#: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
 msgstr "F�rkonfigurerar paket ...\n"
 
-#: ../dpkg-preconfigure:179
+#: ../dpkg-preconfigure:193
 #, perl-format
 msgid "template parse error: %s"
 msgstr "malltolkfel: %s"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:207
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kan inte byta �gare: %s"
 
-#: ../dpkg-preconfigure:204
+#: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s misslyckades med f�rkonfigurering, med slutkod %s"
@@ -383,8 +388,8 @@ msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Detta verktyg �r f�r�ldrat. Du b�r byta till programmet "
-"po2debconf i paketet po-debconf."
+"debconf-mergetemplate: Detta verktyg �r f�r�ldrat. Du b�r byta till "
+"programmet po2debconf i paketet po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
@@ -480,13 +485,14 @@ msgstr ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "
 #~ "bug report, and include the stack trace below"
 #~ msgstr ""
-#~ "debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd en "
-#~ "felrapport och inkludera stackspårningen nedan"
+#~ "debconf: Odefinierade värden detekterade vid confmodule-uppstart! Sänd "
+#~ "en felrapport och inkludera stackspårningen nedan"
 
 #~ msgid ""
 #~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 #~ msgstr ""
-#~ "Användning: dpkg-preconfigure [--frontend=typ] [--priority=värde] debfiler"
+#~ "Användning: dpkg-preconfigure [--frontend=typ] [--priority=värde] "
+#~ "debfiler"
 
 #~ msgid "Unknown option: %s"
 #~ msgstr "Okänd flagga: %s"
@@ -529,5 +535,5 @@ msgstr ""
 #~ "to not pause and show you unimportant notes. Here is the text of the note:"
 #~ msgstr ""
 #~ "Denna notis sändes till dig eftersom Debconf ombads se till att du såg "
-#~ "den, men Debconf körde i ickeinteraktivt läge, eller så har du bett det "
-#~ "att inte pausa och visa oviktiga notiser. Här är texten i notisen:"
+#~ "den, men Debconf körde i ickeinteraktivt läge, eller så har du bett "
+#~ "det att inte pausa och visa oviktiga notiser. Här är texten i notisen:"

@@ -10,6 +10,13 @@ debconf (1.4.59) UNRELEASED; urgency=low
   * debconf-get-selections: Include a comment with available choices for
     select and multiselect questions.
 
+  [ Colin Watson ]
+  * Add progress indicator to dpkg-preconfigure if we're running in apt mode
+    and there are more than 30 packages (arbitrarily selected) to
+    preconfigure. We'll make more calls to apt-extracttemplates as a result,
+    but the progress indicator only ticks once every 30 packages so it
+    shouldn't be too bad.
+
   [ Luk Claes ]
   * Programs translations:
     - Russian updated. Closes: #332880
