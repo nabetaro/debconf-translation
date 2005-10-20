@@ -96,7 +96,18 @@ sub init {
 	$this->win->set_title(to_Unicode(sprintf(gettext("Debconf on %s"), $hostname)));
 	$this->win->signal_connect("delete_event", sub { exit });
 	
-	$this->logo(Gtk2::Gdk::Pixbuf->new_from_file("/usr/share/pixmaps/debian-logo.png"));
+	my $distribution;
+	if (system('type lsb_release >/dev/null 2>&1') == 0) {
+		$distribution=lc(`lsb_release -is`);
+		chomp $distribution;
+	} elsif (-e '/etc/debian_version') {
+		$distribution='debian';
+	}
+
+	my $logo="/usr/share/pixmaps/$distribution-logo.png";
+	if (-e $logo) {
+		$this->logo(Gtk2::Gdk::Pixbuf->new_from_file($logo));
+	}
 	
 	$this->druid(Gnome2::Druid->new);
 	$this->druid->show;

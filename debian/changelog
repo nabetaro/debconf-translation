@@ -19,6 +19,9 @@ debconf (1.4.59) UNRELEASED; urgency=low
   * Fix typo in debconf-show(1). Closes: #326739
   * Mention in debconf(1) that debconf(7) is in the debconf-doc package.
     Closes: #308888
+  * Look at the output of 'lsb_release -is' (falling back to 'debian' if
+    /etc/debian_version is present) to figure out which logo to display in
+    the Gnome frontend.
 
   [ Luk Claes ]
   * Programs translations:
