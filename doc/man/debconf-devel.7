@@ -135,7 +135,7 @@ with commas and spaces, like this:
 .TP
 .B multiselect
 Like the select data type, except the user can choose any number of items
-from the choices list (or chose none of them).
+from the choices list (or choose none of them).
 .TP
 .B note
 Rather than being a question per se, this datatype indicates a note that
@@ -176,9 +176,9 @@ question.
 .RS
 The 'Description' field, like the description of a Debian package, has
 two parts: A short description and an extended description. Note that some
-debconf frontends don't displays the long description, or might only
-display it if the user asks for help. So the short description should be
-able to stand on its own.
+debconf frontends don't display the long description, or might only display
+it if the user asks for help. So the short description should be able to
+stand on its own.
 .P
 If you can't think up a long description, then first, think some more. Post
 to debian-devel. Ask for help. Take a writing class! That extended
@@ -332,8 +332,8 @@ field of its template).
 .TP
 .B SUBST question key value
 Questions can have substitutions embedded in their 'Description' and 'Choices'
-fields (use of substitutions in 'Choices' fields is a bit of a hack though,
-and better mechanism will eventually be developed). These substitutions
+fields (use of substitutions in 'Choices' fields is a bit of a hack though;
+a better mechanism will eventually be developed). These substitutions
 look like "${key}". When the question is displayed, the substitutions are
 replaced with their values. This command can be used to set the value of a
 substitution. This is useful if you need to display some message to the
@@ -351,11 +351,11 @@ of "true" or "false". This command returns the value of a flag.
 This sets the value of a question's flag. The value must be either "true"
 or "false".
 .P
-One common flag is the "seen" flag. It is normally only set if a user already
-seen a question. Debconf usually only displays questions to users if they
-have the seen flag set to "false" (or if it is reconfiguring a package).
+One common flag is the "seen" flag. It is normally only set if a user has
+already seen a question. Debconf usually only displays questions to users if
+they have the seen flag set to "false" (or if it is reconfiguring a package).
 Sometimes you want the user to see a question again -- in these cases you can
-set the seen flag to false to force the debconf to redisplay it.
+set the seen flag to false to force debconf to redisplay it.
 .RE
 .TP
 .B METAGET question field
@@ -483,11 +483,11 @@ separating the two activities as is done in the config and postinst
 scripts. 
 .P
 Note that if your package's sole use of debconf is in the postrm, you should
-make your package's postinst sources /usr/share/debconf/confmodule, to give
+make your package's postinst source /usr/share/debconf/confmodule, to give
 debconf a chance to load up your templates file into its database. Then the
 templates will be available when your package is being purged.
 .P
-You can also use debconf in other, stand alone programs. The issue to watch
+You can also use debconf in other, standalone programs. The issue to watch
 out for here is that debconf is not intended to be, and must not be used as
 a registry. This is unix after all, and programs are configured by files in
 /etc, not by some nebulous debconf database (that is only a cache anyway
@@ -509,7 +509,7 @@ the normal English field.
 Besides the 'Description' field, you should translate the 'Choices' field
 of a select or multiselect template. Be sure to list the translated choices
 in the same order as they appear in the main 'Choices' field. You do not
-need to translate the 'Default' field of a select of multiselect question,
+need to translate the 'Default' field of a select or multiselect question,
 and the value of the question will be automatically returned in English.
 .P
 You will find it easier to manage translations if you keep them
@@ -597,7 +597,7 @@ For details about setting this up, see
 and note that /etc/debconf.conf makes a good template for a personal
 ~/.debconfrc file.
 .RE
-.SH "ADVANCED PROGRAMING WITH DEBCONF"
+.SH "ADVANCED PROGRAMMING WITH DEBCONF"
 .SS "Config file handling"
 Many of you seem to want to use debconf to help manage config files that
 are part of your package. Perhaps there is no good default to ship in a
