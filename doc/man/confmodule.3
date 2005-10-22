@@ -22,7 +22,7 @@ as a return code (and so those return codes must be captured or ignored).
 .SH NOTES
 Once this library is loaded, any text you later output will go to standard
 error, rather than standard output. This is a good thing in general, because
-text send to standard output is interpreted by the FrontEnd as commands. If
+text sent to standard output is interpreted by the FrontEnd as commands. If
 you do want to send a command directly to the FrontEnd, you must output it
 to file descriptor 3, like this:
   echo GET foo/bar >&3
