@@ -61,7 +61,7 @@ binary-indep: build
 
 	dh_python
 	dh_installchangelogs
-	dh_compress
+	dh_compress -X demo.templates -X tutorial.templates
 	dh_fixperms
 	dh_installdeb
 	dh_gencontrol

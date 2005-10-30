@@ -10,6 +10,7 @@ debconf (1.4.59) UNRELEASED; urgency=low
     Closes: #326134
   * debconf-get-selections: Include a comment with available choices for
     select and multiselect questions.
+  * Don't compress demo templates file. Closes: #336477
 
   [ Colin Watson ]
   * Add progress indicator to dpkg-preconfigure if we're running in apt mode
@@ -32,7 +33,7 @@ debconf (1.4.59) UNRELEASED; urgency=low
     - Romanian updated. Closes: #333199
     - Portuguese updated. Closes: #332934
 
- -- Luk Claes <luk@debian.org>  Thu, 13 Oct 2005 23:49:16 +0200
+ -- Joey Hess <joeyh@debian.org>  Sun, 30 Oct 2005 11:01:47 -0500
 
 debconf (1.4.58) unstable; urgency=low
 
