@@ -24,6 +24,8 @@ debconf (1.4.59) UNRELEASED; urgency=low
   * Look at the output of 'lsb_release -is' (falling back to 'debian' if
     /etc/debian_version is present) to figure out which logo to display in
     the Gnome frontend.
+  * Install python confmodule for both python2.3 and python2.4 (since
+    /usr/lib/site-python doesn't work properly yet).
 
   [ Luk Claes ]
   * Programs translations:

@@ -59,7 +59,8 @@ binary-indep: build
 	echo "Install debconf-doc and see /usr/share/doc/debconf-doc/changelog.gz" >> debian/debconf.changelog
 	echo "for the remainder of this changelog." >> debian/debconf.changelog
 
-	dh_python
+	dh_python -V2.3
+	dh_python -V2.4
 	dh_installchangelogs
 	dh_compress -X demo.templates -X tutorial.templates
 	dh_fixperms
