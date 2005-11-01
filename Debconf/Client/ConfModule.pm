@@ -77,7 +77,7 @@ sub import {
 	# Make the Exporter still work.
 	Debconf::Client::ConfModule->export_to_level(1, @_);
 
-	# A truely gross hack. This only is needed if
+	# A truly gross hack. This is only needed if
 	# /usr/share/debconf/confmodule is loaded, and then this
 	# perl module is used. In that case, this module needs to write
 	# to fd #3, rather than stdout. See changelog 0.3.74.
