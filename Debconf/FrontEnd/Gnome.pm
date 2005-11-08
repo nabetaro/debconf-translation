@@ -96,7 +96,7 @@ sub init {
 	$this->win->set_title(to_Unicode(sprintf(gettext("Debconf on %s"), $hostname)));
 	$this->win->signal_connect("delete_event", sub { exit });
 	
-	my $distribution;
+	my $distribution='';
 	if (system('type lsb_release >/dev/null 2>&1') == 0) {
 		$distribution=lc(`lsb_release -is`);
 		chomp $distribution;
