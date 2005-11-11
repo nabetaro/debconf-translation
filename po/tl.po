@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-19 15:19+0100\n"
-"PO-Revision-Date: 2005-04-05 15:23+0800\n"
+"PO-Revision-Date: 2005-11-11 17:42+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "MIME-Version: 1.0\n"
@@ -44,9 +44,7 @@ msgstr "Hindi nakatakda ang template database sa taklasang pagkaayos."
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr ""
-"Ang mga option ng Sigil at Smiley sa taklasang pagkaayos ay hindi na "
-"ginagamit. Paki-tanggal ang mga ito."
+msgstr "Ang mga opsyon ng Sigil at Smiley sa talaksang pagkaayos ay hindi na ginagamit. Paki-tanggal ang mga ito."
 
 #: ../Debconf/Config.pm:161
 #, perl-format
@@ -68,7 +66,7 @@ msgstr ""
 #: ../Debconf/Config.pm:290
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Di pinansin ang di tanggap na antas \"%s\""
+msgstr "Hindi pinansin ang imbalidong antas \"%s\""
 
 #: ../Debconf/Config.pm:291
 #, perl-format
@@ -98,9 +96,7 @@ msgstr "hindi"
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Magbigay ng wala o labis na mga aytem na hiniwalay ng koma at sundan ng "
-"puwang (', ').)"
+msgstr "(Magbigay ng wala o labis na mga aytem na hiniwalay ng kuwit at sundan ng puwang (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -112,7 +108,7 @@ msgstr "Tulong"
 
 #: ../Debconf/Element/Gnome/Note.pm:52
 msgid "Save (mail) Note"
-msgstr "Imbakin (koreo) Tanda"
+msgstr "Imbakin (email) Tanda"
 
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
@@ -126,7 +122,7 @@ msgstr "Impormasyon"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
-msgstr "Ang tanda ay ipinadala sa koreo."
+msgstr "Ang tanda ay ipinadala sa email."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
@@ -167,12 +163,12 @@ msgstr "wala sa itaas"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Ibigay ang mga aytem na nais niyong piliin, hiniwalay ng mga puwang."
+msgstr "Ibigay ang mga aytem na nais niyong piliin, nakahiwalay ng mga puwang."
 
 #: ../Debconf/FrontEnd.pm:127
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Hindi maipasok ang Debconf::Element::%s. Sawi dahil sa: %s"
+msgstr "Hindi maipasok ang Debconf::Element::%s. Bigo dahil sa: %s"
 
 #: ../Debconf/FrontEnd.pm:308
 #, perl-format
@@ -295,7 +291,7 @@ msgstr ""
 #: ../Debconf/Template.pm:228
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Di kilalang template field '%s', sa estropa #%s ng %s\n"
+msgstr "Hindi kilalang template field '%s', sa estropa #%s ng %s\n"
 
 #: ../Debconf/Template.pm:254
 #, perl-format
@@ -315,27 +311,25 @@ msgstr "hindi mabuksan muli ang stdin: %s"
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "kailangan magtakda ng ilang mga deb na isasaayos bago ng instol"
+msgstr "kailangan magtakda ng ilang mga deb na isasaayos bago ng pagluklok"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi naka-"
-"instol"
+msgstr "ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi nakaluklok"
 
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr "sawi ang apt-extracttemplates: %s"
+msgstr "bigo ang apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "sawi ang apt-extracttemplates: %s"
+msgstr "Binubuklat ang mga template mula sa mga pakete: %d%%"
 
 #: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
-msgstr "Isinasaayos ang mga pakete bago instolahin ...\n"
+msgstr "Isinasaayos ang mga pakete bago luklokin ...\n"
 
 #: ../dpkg-preconfigure:193
 #, perl-format
@@ -350,7 +344,7 @@ msgstr "debconf: hindi ma-chmod: %s"
 #: ../dpkg-preconfigure:218
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "sawi ang pagsasaayos ng %s, may exit status na %s"
+msgstr "bigo ang pagsasaayos ng %s, may exit status na %s"
 
 #: ../dpkg-reconfigure:92
 msgid ""
@@ -379,17 +373,17 @@ msgstr "paki-takda ang pakete na isasaayos muli"
 #: ../dpkg-reconfigure:158
 #, perl-format
 msgid "%s is not installed"
-msgstr "%s ay hindi naka-instol"
+msgstr "%s ay hindi nakaluklok"
 
 #: ../dpkg-reconfigure:162
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s ay sira o hindi buong na-instol"
+msgstr "%s ay sira o hindi buong nailuklok"
 
 #: ../dpkg-reconfigure:239
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Hindi mabasa ang taklasang status: %s"
+msgstr "Hindi mabasa ang talaksang status: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
@@ -426,7 +420,7 @@ msgstr "Wala ang %s"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "Wala ang %s; tinatapon ang %s"
+msgstr "Wala ang %s; hindi ginamit ang %s"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
@@ -436,7 +430,7 @@ msgstr "%s ay malabo sa byte %s: %s"
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s ay malabo sa byte %s: %s; tinatapon"
+msgstr "%s ay malabo sa byte %s: %s; hindi gagamitin"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
@@ -446,7 +440,7 @@ msgstr "%s ay laos na"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s ay laos na; tinatapon ang buong template!"
+msgstr "%s ay laos na; hindi gagamitin ang buong template!"
 
 #: ../debconf:87
 msgid "Usage: debconf [options] command [args]"
@@ -461,4 +455,4 @@ msgstr ""
 "  -o,  --owner=pakete\t\tItakda ang pakete na may-ari ng utos na ito."
 
 #~ msgid "preconfiguring %s (%s)"
-#~ msgstr "isinasaayos bago instolahin %s (%s)"
+#~ msgstr "isinasaayos bago iluklok ang %s (%s)"
