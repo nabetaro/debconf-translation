@@ -2,14 +2,14 @@
 # Copyright 2000-2005 Peter Karlsson
 # Peter Karlsson <peterk@debian.org>, 2000-2005.
 # Peter Karlsson <peterk@debian.org>, 2005.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.58\n"
+"Project-Id-Version: debconf 1.4.59\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-19 15:19+0100\n"
-"PO-Revision-Date: 2005-10-13 17:42+0200\n"
+"PO-Revision-Date: 2005-11-11 14:43+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,8 @@ msgid "Template database not specified in config file."
 msgstr "Malldatabas inte angiven i inställningsfil."
 
 #: ../Debconf/Config.pm:139
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"Sigils- och Smileys-inställningarna i konfigurationsfilen används inte "
-"längre. Ta bort dem."
+msgid "The Sigils and Smileys options in the config file are no longer used. Please remove them."
+msgstr "Sigils- och Smileys-inställningarna i konfigurationsfilen används inte längre. Ta bort dem."
 
 #: ../Debconf/Config.pm:161
 #, perl-format
@@ -93,11 +89,8 @@ msgid "no"
 msgstr "nej"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Ange noll eller flera poster separerade med komma följt av blanksteg (\", "
-"\").)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Ange noll eller flera poster separerade med komma följt av blanksteg (\", \").)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -132,11 +125,8 @@ msgid "Unable to save note."
 msgstr "Kan inte spara notis."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
-"per e-post."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgstr "Debconf är inte inställt för att visa denna notis, så den har sänts till dig per e-post."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -147,14 +137,11 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf på %s"
 
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#: ../Debconf/Element/Select.pm:95
+#: ../Debconf/Element/Select.pm:110
 #, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
-msgstr ""
-"Indatavärde, \"%s\" hittades inte i C-val! Detta skall inte inträffa. Kanske "
-"översattes mallarna felaktigt."
+msgid "Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."
+msgstr "Indatavärde, \"%s\" hittades inte i C-val! Detta skall inte inträffa. Kanske översattes mallarna felaktigt."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -183,57 +170,31 @@ msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "Dialogskalet är inkompatibelt med emacs-skalbuffertar"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"Dialogskalet fungerar inte på en dum terminal, i en emacs-skalbuffert, eller "
-"utan en kontrollerande terminal."
+msgid "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal."
+msgstr "Dialogskalet fungerar inte på en dum terminal, i en emacs-skalbuffert, eller utan en kontrollerande terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"Inget användbart dialogliknande program har installerats, så det "
-"dialogbaserade skalet kan inte användas."
+msgid "No usable dialog-like program is installed, so the dialog based frontend cannot be used."
+msgstr "Inget användbart dialogliknande program har installerats, så det dialogbaserade skalet kan inte användas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialogskalet kräver en skärm som minst är 13 rader hög och 31 kolumner bred."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Dialogskalet kräver en skärm som minst är 13 rader hög och 31 kolumner bred."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
 msgid "Debian Configuration"
 msgstr "Debiankonfigurering"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"Du använder det textbehandlarbaserade debconfskalet för att konfigurera ditt "
-"system. Se slutet av detta dokument för detaljerade instruktioner."
+msgid "You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."
+msgstr "Du använder det textbehandlarbaserade debconfskalet för att konfigurera ditt system. Se slutet av detta dokument för detaljerade instruktioner."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"Det textbehandlarbaserade debconfskalet ger dig en eller flera textfiler att "
-"redigera. Detta är en sådan fil. Om du är van vid vanliga "
-"konfigurationsfiler i Unix kommer du känna igen formatet på den här filen -- "
-"den innehåller kommentarer med interfolierade konfigurationsposter. Redigera "
-"filen och ändra de poster som behövs, och spara och avsluta sedan. Vid den "
-"tidpunkten kommer debconf läsa den redigerade filen, och använda de värden "
-"du angivit för att konfigurera systemet."
+msgid "The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."
+msgstr "Det textbehandlarbaserade debconfskalet ger dig en eller flera textfiler att redigera. Detta är en sådan fil. Om du är van vid vanliga konfigurationsfiler i Unix kommer du känna igen formatet på den här filen -- den innehåller kommentarer med interfolierade konfigurationsposter. Redigera filen och ändra de poster som behövs, och spara och avsluta sedan. Vid den tidpunkten kommer debconf läsa den redigerade filen, och använda de värden du angivit för att konfigurera systemet."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Gnome.pm:96
+#: ../Debconf/FrontEnd/Kde.pm:61
 #: ../Debconf/FrontEnd/Kde.pm:72
 #, perl-format
 msgid "Debconf on %s"
@@ -266,22 +227,13 @@ msgstr "Nästa"
 
 #: ../Debconf/Template.pm:90
 #, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"varning: databasen kan vara trasig. Försöker reparera genom att lägga "
-"tillbaka den saknade frågan %s."
+msgid "warning: possible database corruption. Will attempt to repair by adding back missing question %s."
+msgstr "varning: databasen kan vara trasig. Försöker reparera genom att lägga tillbaka den saknade frågan %s."
 
 #: ../Debconf/Template.pm:203
 #, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly separated by a lone newline.\n"
-msgstr ""
-"Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det "
-"beror troligen på att två mallar inte avdelats korrekt med en ensam "
-"radbrytning.\n"
+msgid "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly separated by a lone newline.\n"
+msgstr "Mall %s i %s har ett dubblerat \"%s\"-fält med det nya värdet \"%s\". Det beror troligen på att två mallar inte avdelats korrekt med en ensam radbrytning.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -312,15 +264,17 @@ msgstr "måste ange några debpaket att förkonfigurera"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "fördröjer paketkonfigurering eftersom apt-utils ej är installerat"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:154
+#: ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates misslyckades: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#: ../dpkg-preconfigure:158
+#: ../dpkg-preconfigure:170
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates misslyckades: %s"
+msgstr "Plockar ut mallar från paketen: %d%%"
 
 #: ../dpkg-preconfigure:181
 msgid "Preconfiguring packages ...\n"
@@ -384,12 +338,8 @@ msgid "Usage: debconf-communicate [options] [package]"
 msgstr "Användning: debconf-communicate [flaggor] [paket]"
 
 #: ../debconf-mergetemplate:14
-msgid ""
-"debconf-mergetemplate: This utility is deprecated. You should switch to "
-"using po-debconf's po2debconf program."
-msgstr ""
-"debconf-mergetemplate: Detta verktyg är föråldrat. Du bör byta till "
-"programmet po2debconf i paketet po-debconf."
+msgid "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program."
+msgstr "debconf-mergetemplate: Detta verktyg är föråldrat. Du bör byta till programmet po2debconf i paketet po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
@@ -449,86 +399,63 @@ msgstr ""
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Konfigurerar %s (%s)"
-
 #~ msgid "Debconf was asked to save this "
 #~ msgstr "Debconf ombads spara denna "
-
 #~ msgid "note, so it mailed it to you."
 #~ msgstr "notis, sÃ¥ den har sÃ¤nts till dig per e-post."
-
 #~ msgid "TERM is not set, so the Slang frontend is not usable."
 #~ msgstr "TERM Ã¤r inte satt, sÃ¥ slang-skalet kan inte anvÃ¤ndas."
-
 #~ msgid ""
 #~ "Slang frontend will not work on a dumb terminal, an emacs shell buffer, "
 #~ "or without a controlling terminal."
 #~ msgstr ""
 #~ "Slangskalet fungerar inte pÃ¥ en dum terminal, i en emacs-skalbuffert, "
 #~ "eller utan en kontrollerande terminal."
-
 #~ msgid "Hide Help"
 #~ msgstr "GÃ¶m hjÃ¤lp"
-
 #~ msgid "Show Help"
 #~ msgstr "Visa hjÃ¤lp"
-
 #~ msgid "Tab and arrow keys move; space drops down lists."
 #~ msgstr "Tabbsteg och piltangeter flyttar; blanksteg visar listor."
-
 #~ msgid "Working, please wait..."
 #~ msgstr "Arbetar, var god vÃ¤nta..."
-
 #~ msgid "The note has been mailed to root"
 #~ msgstr "Notisen har sÃ¤nts till root per e-post"
-
 #~ msgid ""
 #~ "debconf: Undefined values detected at confmodule startup! Please file a "
 #~ "bug report, and include the stack trace below"
 #~ msgstr ""
 #~ "debconf: Odefinierade vÃ¤rden detekterade vid confmodule-uppstart! SÃ¤nd "
 #~ "en felrapport och inkludera stackspÃ¥rningen nedan"
-
 #~ msgid ""
 #~ "Usage: dpkg-preconfigure [--frontend=type] [--priority=value] debfiles"
 #~ msgstr ""
 #~ "AnvÃ¤ndning: dpkg-preconfigure [--frontend=typ] [--priority=vÃ¤rde] "
 #~ "debfiler"
-
 #~ msgid "Unknown option: %s"
 #~ msgstr "OkÃ¤nd flagga: %s"
-
 #~ msgid ""
 #~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 #~ msgstr ""
 #~ "AnvÃ¤ndning: dpkg-reconfigure [--frontend=typ] [--priority=vÃ¤rde] paket"
-
 #~ msgid "unknown file"
 #~ msgstr "okÃ¤nd fil"
-
 #~ msgid "debconf: Unable to write to temporary file %s: %s"
 #~ msgstr "debconf: Kan inte skriva till temporÃ¤rfil %s: %s"
-
 #~ msgid "debconf: Unable to read %s: %s"
 #~ msgstr "debconf: Kan inte lÃ¤sa %s: %s"
-
 #~ msgid "Unable to make element of type %s. Failed because: %s"
 #~ msgstr "Kan inte skapa element av typ %s. Misslyckades eftersom: %s"
-
 #~ msgid "Unsupported command `%s'."
 #~ msgstr "Kommandot \"%s\" stÃ¶ds ej."
-
 #~ msgid "Warning: Newline present in parameters passed to debconf."
 #~ msgstr "Varning: Nyradstecken i flagga given till debconf."
-
 #~ msgid "This will probably cause strange things to happen!"
 #~ msgstr "Detta kommer troligen gÃ¶ra att konstiga saker hÃ¤nder!"
-
 #~ msgid "%s is not installed or does not use debconf"
 #~ msgstr "%s Ã¤r inte installerat eller anvÃ¤nder inte debconf"
-
 #~ msgid "Container element question method called before frontend was set."
 #~ msgstr "BehÃ¥llarelementsfrÃ¥gemetod anropad innan skal valts."
-
 #~ msgid ""
 #~ "This note was sent to you because Debconf was asked to make sure you saw "
 #~ "it, but Debconf was running in noninteractive mode, or you have told it "
@@ -537,3 +464,4 @@ msgstr ""
 #~ "Denna notis sÃ¤ndes till dig eftersom Debconf ombads se till att du sÃ¥g "
 #~ "den, men Debconf kÃ¶rde i ickeinteraktivt lÃ¤ge, eller sÃ¥ har du bett "
 #~ "det att inte pausa och visa oviktiga notiser. HÃ¤r Ã¤r texten i notisen:"
+
