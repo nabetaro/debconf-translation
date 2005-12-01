@@ -16,7 +16,7 @@ _Description: What interface should be used for configuring packages?
 Template: debconf/priority
 Type: select
 _Choices: critical, high, medium, low
-Default: medium
+Default: high
 _Description: Ignore questions with a priority less than...
  Debconf prioritizes the questions it asks you. Pick the lowest priority of
  question you want to see:

@@ -273,7 +273,7 @@ sub frontend_forced {
 
 The lowest priority of questions you want to see. Looks at first the value
 of DEBIAN_PRIORITY, second the config file, third the database, and if all
-of those fail, defaults to "medium".
+of those fail, defaults to "high".
 
 If a value is passed to this function, it changes it temporarily (for
 the lifetime of the program) to override what's in the database or config
@@ -296,7 +296,7 @@ sub priority {
 	}
 	return $config->{priority} if exists $config->{priority};
 
-	my $ret='medium';
+	my $ret='high';
 	my $question=Debconf::Question->get('debconf/priority');
 	if ($question) {
 		$ret=$question->value || $ret;
