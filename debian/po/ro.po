@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_debian_po_ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-01 11:26-0600\n"
+"POT-Creation-Date: 2005-08-25 17:27+0200\n"
 "PO-Revision-Date: 2005-10-11 00:01+0300\n"
 "Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -34,7 +34,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.10.2\n"
-"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1))\n"
 
 #. Type: select
 #. Choices
@@ -54,7 +55,9 @@ msgstr "Ce fel de interfaţă ar trebui folosită pentru configurarea pachetelor
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr "Pachetele care folosesc debconf pentru configurare, sunt asemănătoare în aspect şi comportament. Puteţi selecta tipul de interfaţă utilizat de ele."
+msgstr ""
+"Pachetele care folosesc debconf pentru configurare, sunt asemănătoare în "
+"aspect şi comportament. Puteţi selecta tipul de interfaţă utilizat de ele."
 
 #. Type: select
 #. Description
@@ -66,7 +69,14 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr "Interfaţa dialog este o interfaţă în mod text, pe tot ecranul, în timp ce linia de comandă foloseşte o interfaţă în mod text, mai tradiţională, şi, atât  interfaţa gnome cât şi kde sunt interfeţe moderne în X, care se incadrează în mediile respective (dar pot fi folosite şi în mediul X). Interfaţa editor vă permite sa configuraţi lucrurile folosind editorul de text preferat de dvs. Interafţa non-interactivă nu vă întreabă niciodată vreo întrebare."
+msgstr ""
+"Interfaţa dialog este o interfaţă în mod text, pe tot ecranul, în timp ce "
+"linia de comandă foloseşte o interfaţă în mod text, mai tradiţională, şi, "
+"atât  interfaţa gnome cât şi kde sunt interfeţe moderne în X, care se "
+"incadrează în mediile respective (dar pot fi folosite şi în mediul X). "
+"Interfaţa editor vă permite sa configuraţi lucrurile folosind editorul de "
+"text preferat de dvs. Interafţa non-interactivă nu vă întreabă niciodată "
+"vreo întrebare."
 
 #. Type: select
 #. Choices
@@ -80,6 +90,8 @@ msgstr "critic, ridicat, mediu, scăzut"
 msgid "Ignore questions with a priority less than..."
 msgstr "Ignoră întrebările cu prioritatea mai mică decât..."
 
+#. Type: select
+#. Description
 #: ../templates:20
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
@@ -90,7 +102,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf prioritizează întrebările pe care vi le pune. Alegeţi cea mai mică prioritate a întrebărilor pe care doriţi să le vedeţi:\n"
+"Debconf prioritizează întrebările pe care vi le pune. Alegeţi cea mai mică "
+"prioritate a întrebărilor pe care doriţi să le vedeţi:\n"
 "  - 'critic' apare doar când sistemul se poate să se strice.\n"
 "     Alegeţi-o dacă sunteţi începător, sau vă grăbiţi.\n"
 "  - 'ridicat' este pentru întrebări destul de importante\n"
@@ -103,7 +116,6 @@ msgstr ""
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr "A se nota că indiferent ce nivel alegeţi aici, veţi putea să vedeţi fiecare întrebare dacă reconfiguraţi un pachet cu dpkg-reconfigure."
-
-
-
+msgstr ""
+"A se nota că indiferent ce nivel alegeţi aici, veţi putea să vedeţi fiecare "
+"întrebare dacă reconfiguraţi un pachet cu dpkg-reconfigure."

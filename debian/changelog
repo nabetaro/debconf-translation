@@ -1,7 +1,7 @@
-debconf (1.4.61) UNRELEASED; urgency=low
+debconf (1.4.61) unstable; urgency=low
 
   * The default debconf priority changes from medium to high in this release.
-    This is consitent with the default pririty used already for fresh
+    This is consistent with the default pririty used already for fresh
     installs by d-i, and with the definitions of debconf priorities -- high
     priority questions have no reasonable default answer so should be
     displayed, while medium priority questions do have a default and can be
@@ -10,7 +10,7 @@ debconf (1.4.61) UNRELEASED; urgency=low
     Please do not use this change as an excuse to inflate priorities of
     questions!
 
- -- Joey Hess <joeyh@debian.org>  Thu,  1 Dec 2005 17:47:54 -0500
+ -- Joey Hess <joeyh@debian.org>  Thu,  1 Dec 2005 18:07:08 -0500
 
 debconf (1.4.60) unstable; urgency=low
 
