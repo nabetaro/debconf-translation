@@ -66,7 +66,7 @@ use Debconf::AutoSelect qw(:all);
 use Debconf::Gettext;
 use Debconf::Config;
 
-# FInd the end of the options for this command, and the beginning of the
+# Find the end of the options for this command, and the beginning of the
 # command to run, which may have arguments. Break those arguments out.
 my (@argv, @command);
 for (my $x=0; $x <= $#ARGV; $x++) {

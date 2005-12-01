@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-01-23 14:54+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -238,8 +238,8 @@ msgstr ""
 "necessário, depois grave-o e saia. Nesse ponto, o debconf irá ler o ficheiro "
 "editado, e utilizar os valores que introduziu para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
@@ -328,21 +328,21 @@ msgstr "apt-extracttemplates falhou: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "apt-extracttemplates falhou: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "A pré-configurar os pacotes...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erro de parse do template: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: não pode fazer chmod: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou a pré-configuração, com estado de saída %s"
@@ -443,11 +443,11 @@ msgstr "%s está ultrapassado"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está ultrapassado; deixando todo o template!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "Utilizador: debconf [opções] comando [args]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

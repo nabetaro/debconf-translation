@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.42\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-04-23 15:23+0200\n"
 "Last-Translator: Morten Bo Johansen <mojo@mbjnet.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
@@ -229,8 +229,8 @@ msgstr ""
 "nødvendigt, gem den og afslut så. Derefter vil debconf læse den redigerede "
 "fil og bruge værdierne du indtastede til at sætte systemet op."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf på %s"
@@ -318,21 +318,21 @@ msgstr "apt-extracttemplates fejlede: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "apt-extracttemplates fejlede: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "Prækonfigurerer pakker ...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Fortolkningsfejl i skabelon: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: kan ikke chmod: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s fejlede i prækonfigurering med afslutningsstatus %s"
@@ -431,11 +431,11 @@ msgstr "%s er forældet"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s er forældet; udelader hele skabelonen!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "Brug: debconf [tilvalg] kommando [argumenter]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

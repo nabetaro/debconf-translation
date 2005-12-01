@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-01-23 18:48+0200\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -230,8 +230,8 @@ msgstr ""
 "poistu, minkä jälkeen debconf lukee editoidun tiedoston ja säätää asetukset "
 "syöttämiesi tietojen perusteella."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf @ %s"
@@ -322,21 +322,21 @@ msgstr "apt-extracttemplates epäonnistui: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "apt-extracttemplates epäonnistui: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "Esiräätälöidään paketteja...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "kyselypohjan jäsennysvirhe: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: en voi muuttaa oikeuksia: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
@@ -425,11 +425,11 @@ msgstr "%s on päivittämättä"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s on päivittämättä; jätetään koko malli!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr ""
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

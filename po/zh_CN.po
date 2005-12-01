@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -219,8 +219,8 @@ msgstr ""
 "一些注释和设定项目。请编辑此文件，更改任何必要的项目，然后保存并离开。同时，"
 "debconf 会读取已修改的文件，并使用您输入的值来配置系统。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf 运行于 %s"
@@ -305,21 +305,21 @@ msgstr "apt-extracttemplates 失败：%s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "apt-extracttemplates 失败：%s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "正在预设定软件包 ...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "模板解读错误: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf：无法改变权限：%s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "预设定 %s 失败，退出状态为 %s"
@@ -418,11 +418,11 @@ msgstr "%s 已经过时"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s 已经过时；弃用整个模板！"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "用法：debconf [选项] 命令 [参数]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

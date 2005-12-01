@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-04-01 12:07+0200\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -249,8 +249,8 @@ msgstr ""
 "debconf leerá el fichero editado, y usará los valores introducidos para "
 "configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -344,21 +344,21 @@ msgstr "fallo al ejecutar «apt-extracttemplates»: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "fallo al ejecutar «apt-extracttemplates»: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "Preconfigurando paquetes ...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Error procesando plantilla: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: no puedo cambiar los permisos: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Fallo al preconfigurar %s, con el código de salida %s"
@@ -461,11 +461,11 @@ msgstr "%s está desactualizado"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está desactualizada: ¡descartando la plantilla completa!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "Modo de uso: debconf [opciones] orden [argumentos]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

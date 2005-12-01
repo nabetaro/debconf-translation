@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-04-01 22:04+0200\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Hebrew <webmaster@guides.co.il>\n"
@@ -226,8 +226,8 @@ msgstr ""
 "לאחר מכן שמור וצא. בשלב זה, debconf יקרא את הקובץ הערוך וישתמש בערכים שהכנסת "
 "כדי להגדיר את המערכת."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf על %s"
@@ -313,21 +313,21 @@ msgstr "apt-extracttemplates נכשל: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "apt-extracttemplates נכשל: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "מגדיר מראש חבילות ...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "שגיאה בעיבוד תבנית: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: לא יכול לשנות הרשאות: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s נכשלה להגדרה מראש, עם קוד יציאה %s"
@@ -425,11 +425,11 @@ msgstr "%s אינה מעודכנת"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s אינה מעודכנת; מוריד את כל התבנית!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "שימוש: debconf [options] command [args]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

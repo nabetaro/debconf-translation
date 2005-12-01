@@ -11,11 +11,11 @@ use strict;
 use utf8;
 use Debconf::Gettext;
 use Debconf::Config;
-eval q{
-	use Qt;
-	# use Qt::debug qw(verbose gc calls);
-};
-die "Unable to load Qt -- is libqt-perl installed?\n" if $@;
+BEGIN {
+	eval { require Qt };
+	die "Unable to load Qt -- is libqt-perl installed?\n" if $@;
+	Qt->import;
+}
 use Debconf::FrontEnd::Kde::Wizard;
 use Debconf::Log ':all';
 use base qw{Debconf::FrontEnd};

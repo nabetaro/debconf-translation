@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-19 15:19+0100\n"
+"POT-Creation-Date: 2005-12-01 16:07-0500\n"
 "PO-Revision-Date: 2005-04-03 13:37+0300\n"
 "Last-Translator: \n"
 "Language-Team:  <ro@li.org>\n"
@@ -246,8 +246,8 @@ msgstr ""
 "salvaţi-l şi ieşiţi. În acest punct, debconf va citi fişierul editat, şi va "
 "folosi valorile introduse pentru a configura sistemul."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:60
+#: ../Debconf/FrontEnd/Kde.pm:71
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf la %s"
@@ -338,21 +338,21 @@ msgstr "eşuare extragere şabloane apt: %s"
 msgid "Extracting templates from packages: %d%%"
 msgstr "eşuare extragere şabloane apt: %s"
 
-#: ../dpkg-preconfigure:181
+#: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
 msgstr "Se preconfigurează pachetele ...\n"
 
-#: ../dpkg-preconfigure:193
+#: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
 msgstr "eroare la analiza şablonului: %s"
 
-#: ../dpkg-preconfigure:207
+#: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nu pot schimba permisiunea de acces: %s"
 
-#: ../dpkg-preconfigure:218
+#: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s eşuat la preconfigurare, cu starea de ieşire %s"
@@ -452,11 +452,11 @@ msgstr "%s este depăşit"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s este depăşit, renunţ la întregul şablon!"
 
-#: ../debconf:87
+#: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
 msgstr "Utilizare: debconf [opţiuni] comanda [argumente]"
 
-#: ../debconf:89
+#: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
