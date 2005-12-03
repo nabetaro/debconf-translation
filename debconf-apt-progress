@@ -328,7 +328,7 @@ sub create_config () {
 	local *CONFIG;
 	open CONFIG, '>', "$tempdir/debconf-apt-progress.conf"
 		or die "$0: can't write to $tempdir/debconf-apt-progress.conf: $!";
-	print CONFIG <<EOF;
+	print CONFIG <<"EOF";
 Config: configdb
 Templates: templatedb
 
