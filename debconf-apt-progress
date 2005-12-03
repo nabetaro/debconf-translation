@@ -76,6 +76,12 @@ Stop a running progress bar.
 
 Send the normal output from apt to the given file.
 
+=item B<--logstderr>
+
+Send the normal output from apt to stderr. If you supply neither
+B<--logfile> nor B<--logstderr>, the normal output from apt will be
+discarded.
+
 =item B<-->
 
 Terminate options. Since you will normally need to give at least the B<-y>
@@ -122,7 +128,7 @@ use Getopt::Long;
 use Debconf::Client::ConfModule ();
 
 my ($config, $start, $from, $to, $stop);
-my $logfile;
+my ($logfile, $logstderr);
 
 my $tempdir;
 my $cleanup_tempdir = 0;
@@ -246,9 +252,12 @@ sub run_progress ($$@) {
 	if (defined $logfile) {
 		open APT_LOG, '>>', $logfile
 			or die "$0: can't open $logfile: $!";
-	} else {
+	} elsif ($logstderr) {
 		open APT_LOG, '>&STDERR'
 			or die "$0: can't duplicate stderr: $!";
+	} else {
+		open APT_LOG, '>', '/dev/null'
+			or die "$0: can't open /dev/null: $!";
 	}
 	nocloexec(\*APT_LOG);
 
@@ -370,7 +379,8 @@ my $result = GetOptions('config'    => \$config,
 			'from=i'    => \$from,
 			'to=i'      => \$to,
 			'stop'      => \$stop,
-			'logfile=s' => \$logfile);
+			'logfile=s' => \$logfile,
+			'logstderr' => \$logstderr);
 
 if (defined $from and not defined $to) {
 	die "$0: --from requires --to\n";
