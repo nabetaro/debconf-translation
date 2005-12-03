@@ -6,8 +6,10 @@ debconf (1.4.62) UNRELEASED; urgency=low
 
   [ Joey Hess ]
   * Remove newline removal code from perl mangling in Makefile.
+  * Reword debconf-apt-progress/preparing template since it might be used for
+    removals too.
 
- -- Joey Hess <joeyh@debian.org>  Sat,  3 Dec 2005 18:23:43 -0500
+ -- Joey Hess <joeyh@debian.org>  Sat,  3 Dec 2005 18:40:09 -0500
 
 debconf (1.4.61) unstable; urgency=low
 
