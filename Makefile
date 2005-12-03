@@ -71,7 +71,7 @@ install-rest:
 	     		$$cutting=1 if /^=/; 				\
 	     		$$cutting="" if /^=cut/; 			\
 			next if /use lib/;				\
-			next if $$cutting || /^(=|\s*#)/ || $$_ eq "\n";\
+			next if $$cutting || /^(=|\s*#)/;		\
 			print $$_					\
 		'
 	find $(prefix) -name '*.bak' | xargs rm -f
