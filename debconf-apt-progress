@@ -328,15 +328,20 @@ sub create_config () {
 	local *CONFIG;
 	open CONFIG, '>', "$tempdir/debconf-apt-progress.conf"
 		or die "$0: can't write to $tempdir/debconf-apt-progress.conf: $!";
-	print CONFIG <<"EOF";
+	print CONFIG <<EOF;
 Config: configdb
 Templates: templatedb
-
+EOF
+	# work around whitespace-removal by debconf's Makefile
+	print CONFIG "\n";
+	print CONFIG <<EOF;
 Name: configdb
 Driver: File
 Mode: 600
 Filename: $tempdir/progressconfig.dat
-
+EOF
+	print CONFIG "\n";
+	print CONFIG <<EOF;
 Name: templatedb
 Driver: File
 Mode: 644
