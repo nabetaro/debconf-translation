@@ -1,0 +1,431 @@
+#!/usr/bin/perl -w
+
+=head1 NAME
+
+debconf-apt-progress - install packages using debconf to display a progress bar
+
+=head1 SYNOPSIS
+
+ debconf-apt-progress [--] command [args ...]
+ debconf-apt-progress --config
+ debconf-apt-progress --start
+ debconf-apt-progress --from waypoint --to waypoint [--] command [args ...]
+ debconf-apt-progress --stop
+
+=head1 DESCRIPTION
+
+B<debconf-apt-progress> installs packages using debconf to display a
+progress bar. The given I<command> should be any command-line apt frontend;
+specifically, it must send progress information to the file descriptor
+selected by the C<APT::Status-Fd> configuration option, and must keep the
+file descriptors nominated by the C<APT::Keep-Fds> configuration option open
+when invoking debconf (directly or indirectly), as those file descriptors
+will be used for the debconf passthrough protocol.
+
+The arguments to the command you supply should generally include B<-y> (for
+B<apt-get> or B<aptitude>) or similar to avoid the apt frontend prompting
+for input. B<debconf-apt-progress> cannot do this itself because the
+appropriate argument may differ between apt frontends.
+
+The B<--start>, B<--stop>, B<--from>, and B<--to> options may be used to
+create a progress bar with multiple segments for different stages of
+installation, provided that the caller is a debconf confmodule. The caller
+may also interact with the progress bar itself using the debconf protocol if
+it so desires.
+
+debconf locks its config database when it starts up, which makes it
+unfortunately inconvenient to have one instance of debconf displaying the
+progress bar and another passing through questions from packages being
+installed. To work around this, you'll need to use the B<--config> option,
+which sets up separate databases and a configuration file which you can put
+in the C<DEBCONF_SYSTEMRC> environment variable. See L<the EXAMPLES
+section/EXAMPLES> below.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--config>
+
+Copy the system debconf databases to a temporary directory and set up a
+debconf configuration file pointing to them, and output the path to that
+directory. The caller should call this before starting its debconf frontend,
+and start up the frontend with the C<DEBCONF_SYSTEMRC> environment variable
+set to C<E<lt>directoryE<gt>/debconf-apt-progress.conf>; after the debconf
+frontend has shut down, it should remove everything in that directory.
+
+=item B<--start>
+
+Start up a progress bar, running from 0 to 100 by default.
+
+=item B<--from> I<waypoint>
+
+Install packages with their progress bar beginning at this "waypoint". Must
+be used with B<--to>.
+
+=item B<--to> I<waypoint>
+
+Install packages with their progress bar ending at this "waypoint". Must be
+used with B<--from>.
+
+=item B<--stop>
+
+Stop a running progress bar.
+
+=item B<--logfile> I<file>
+
+Send the normal output from apt to the given file.
+
+=item B<-->
+
+Terminate options. Since you will normally need to give at least the B<-y>
+argument to the command being run, you will usually need to use B<--> to
+prevent that being interpreted as an option to B<debconf-apt-progress>
+itself.
+
+=head1 EXAMPLES
+
+Install the GNOME desktop and an X window system development environment
+within a progress bar:
+
+ debconf-apt-progress -- aptitude -y install gnome x-window-system-dev
+
+Install the GNOME, KDE, and XFCE desktops within a single progress bar,
+allocating 45% of the progress bar for each of GNOME and KDE and the
+remaining 10% for XFCE:
+
+ #! /bin/sh
+ set -e
+ case $1 in
+   '')
+     CONFIG="$(debconf-apt-progress --config)"
+     trap 'rm -rf "$CONFIG"' EXIT HUP INT QUIT TERM
+     DEBCONF_SYSTEMRC="$CONFIG/debconf-apt-progress.conf" "$0" debconf
+     ;;
+   debconf)
+     . /usr/share/debconf/confmodule
+     debconf-apt-progress --start
+     debconf-apt-progress --from 0 --to 45 -- apt-get -y install gnome
+     debconf-apt-progress --from 45 --to 90 -- apt-get -y install kde
+     debconf-apt-progress --from 90 --to 100 -- apt-get -y install xfce4
+     debconf-apt-progress --stop
+     ;;
+ esac
+
+=cut
+
+use strict;
+use POSIX;
+use Fcntl;
+use Getopt::Long;
+# Avoid starting the debconf frontend just yet.
+use Debconf::Client::ConfModule ();
+
+my ($config, $start, $from, $to, $stop);
+my $logfile;
+
+my $tempdir;
+my $cleanup_tempdir = 0;
+
+if ($ENV{DEBCONF_APT_PROGRESS_FRONTEND}) {
+	# We're being called by ourselves, and the temporary config has been
+	# set up; it's now safe to start debconf.
+	import Debconf::Client::ConfModule;
+}
+
+sub checkopen (@) {
+	my $file = $_[0];
+	my $fd = POSIX::open($file, &POSIX::O_RDONLY);
+	defined $fd or die "$0: can't open $_[0]: $!\n";
+	return $fd;
+}
+
+sub checkclose ($) {
+	my $fd = $_[0];
+	unless (POSIX::close($fd)) {
+		return if $! == &POSIX::EBADF;
+		die "$0: can't close fd $fd: $!\n";
+	}
+}
+
+sub checkdup2 ($$) {
+	my ($oldfd, $newfd) = @_;
+	checkclose($newfd);
+	POSIX::dup2($oldfd, $newfd)
+		or die "$0: can't dup fd $oldfd to $newfd: $!\n";
+}
+
+sub nocloexec (*) {
+	my $fh = shift;
+	my $flags = fcntl($fh, F_GETFD, 0);
+	fcntl($fh, F_SETFD, $flags & ~FD_CLOEXEC);
+}
+
+# Open the given file descriptors to make sure they won't accidentally be
+# used by Perl, leading to confusion.
+sub reservefds (@) {
+	my $null = checkopen('/dev/null');
+	my $close = 1;
+	for my $fd (@_) {
+		if ($null == $fd) {
+			$close = 0;
+		} else {
+			checkclose($fd);
+			checkdup2($null, $fd);
+		}
+	}
+	if ($close) {
+		checkclose($null);
+	}
+}
+
+sub passthrough (@) {
+	my $priority = Debconf::Client::ConfModule::get('debconf/priority');
+
+	defined(my $pid = fork) or die "$0: can't fork: $!\n";
+	if (!$pid) {
+		close STATUS_READ;
+		$^F = 6; # avoid close-on-exec
+		my $null = checkopen('/dev/null');
+		checkdup2(0, 5);
+		# If the shell confmodule was previously loaded, we need to
+		# use fd 3 rather than stdout.
+		if (exists $ENV{DEBCONF_REDIR} and $ENV{DEBCONF_REDIR}) {
+			checkdup2(3, 6);
+			checkclose(3);
+		} else {
+			checkdup2(1, 6);
+		}
+		if ($null != 0) {
+			checkdup2($null, 0);
+			checkclose($null);
+		}
+		if (fileno(APT_LOG) != 1) {
+			checkclose(1);
+			checkdup2(fileno(APT_LOG), 1);
+		}
+		if (fileno(APT_LOG) != 2) {
+			checkclose(2);
+			checkdup2(fileno(APT_LOG), 2);
+		}
+		close APT_LOG;
+		delete $ENV{DEBIAN_HAS_FRONTEND};
+		delete $ENV{DEBCONF_REDIR};
+		delete $ENV{DEBCONF_SYSTEMRC};
+		delete $ENV{DEBCONF_PIPE}; # just in case ...
+		$ENV{DEBIAN_FRONTEND} = 'passthrough';
+		$ENV{DEBIAN_PRIORITY} = $priority;
+		$ENV{DEBCONF_READFD} = 5;
+		$ENV{DEBCONF_WRITEFD} = 6;
+		$ENV{APT_LISTCHANGES_FRONTEND} = 'none';
+		exec @_;
+	}
+
+	close STATUS_WRITE;
+	return $pid;
+}
+
+sub run_progress ($$@) {
+	my $from = shift;
+	my $to = shift;
+	my $command = shift;
+	local (*STATUS_READ, *STATUS_WRITE);
+	local *APT_LOG;
+
+	Debconf::Client::ConfModule::progress(
+		'INFO', 'debconf-apt-progress/preparing');
+
+	reservefds(4, 5, 6);
+
+	pipe STATUS_READ, STATUS_WRITE or die "$0: can't create pipe: $!";
+	checkdup2(fileno(STATUS_WRITE), 4);
+	open STATUS_WRITE, '>&=4'
+		or die "$0: can't reopen STATUS_WRITE as fd 4: $!";
+	nocloexec(\*STATUS_WRITE);
+
+	if (defined $logfile) {
+		open APT_LOG, '>>', $logfile
+			or die "$0: can't open $logfile: $!";
+	} else {
+		open APT_LOG, '>&STDERR'
+			or die "$0: can't duplicate stderr: $!";
+	}
+	nocloexec(\*APT_LOG);
+
+	my $pid = passthrough $command,
+		'-o', 'APT::Status-Fd=4',
+		'-o', 'APT::Keep-Fds::=5',
+		'-o', 'APT::Keep-Fds::=6',
+		@_;
+
+	while (<STATUS_READ>) {
+		chomp;
+		my ($status, $pkg, $percent, $description) = split ':', $_, 4;
+
+		# Crude waypointing. 15% was chosen to match base-installer,
+		# but could benefit from timing tests under various
+		# bandwidth conditions.
+		my ($min, $len);
+		if ($status eq 'dlstatus') {
+			$min = 0;
+			$len = 15;
+		} elsif ($status eq 'pmstatus') {
+			$min = 15;
+			$len = 85;
+		} else {
+			next;
+		}
+
+		$percent = ($percent * $len / 100 + $min);
+		$percent = ($percent * ($to - $from) / 100 + $from);
+		$percent =~ s/\..*//;
+		Debconf::Client::ConfModule::progress('SET', $percent);
+		Debconf::Client::ConfModule::subst(
+			'debconf-apt-progress/info', 'DESCRIPTION',
+			$description);
+		Debconf::Client::ConfModule::progress(
+			'INFO', 'debconf-apt-progress/info');
+	}
+
+	waitpid $pid, 0;
+	my $status = $?;
+
+	# make sure that the progress bar always gets to the end
+	Debconf::Client::ConfModule::progress('SET', $to);
+
+	return ($status >> 8);
+}
+
+sub create_tempdir ($) {
+	$cleanup_tempdir = shift;
+	# File::Temp is in perl-modules, so we can't use it. Boo.
+	$tempdir = `mktemp -d -t debconf-apt-progress.XXXXXX`;
+	unless (defined $tempdir) {
+		die "$0: can't create temporary directory: $!";
+	}
+	chomp $tempdir;
+}
+
+sub create_config () {
+	system('debconf-copydb', 'configdb', 'progressconfigdb',
+		'-c', 'Name:progressconfigdb', '-c', 'Driver:File',
+		'-c', "Filename:$tempdir/progressconfig.dat");
+	$? == 0 or die "$0: failed to create progressconfig.dat: $?";
+	# ignore errors for now; see bug #321290
+	my $pid = fork;
+	if ($pid) {
+		waitpid $pid, 0;
+		die "$0: child process failed: $?" if $?;
+	} else {
+		open STDERR, '>', '/dev/null'
+			or die "$0: can't reopen stderr on /dev/null: $!";
+		exec('debconf-copydb', 'templatedb', 'progresstemplatedb',
+			'-c', 'Name:progresstemplatedb', '-c', 'Driver:File',
+			'-c', "Filename:$tempdir/progresstemplates.dat")
+			or die "$0: failed to create progresstemplates.dat: $!";
+	}
+
+	local *CONFIG;
+	open CONFIG, '>', "$tempdir/debconf-apt-progress.conf"
+		or die "$0: can't write to $tempdir/debconf-apt-progress.conf: $!";
+	print CONFIG <<EOF;
+Config: configdb
+Templates: templatedb
+
+Name: configdb
+Driver: File
+Mode: 600
+Filename: $tempdir/progressconfig.dat
+
+Name: templatedb
+Driver: File
+Mode: 644
+Filename: $tempdir/progresstemplates.dat
+EOF
+	close CONFIG;
+
+	return $tempdir;
+}
+
+sub start_bar () {
+	Debconf::Client::ConfModule::progress(
+		'START', 0, 100, 'debconf-apt-progress/title');
+	Debconf::Client::ConfModule::progress(
+		'INFO', 'debconf-apt-progress/preparing');
+}
+
+sub stop_bar () {
+	Debconf::Client::ConfModule::progress('STOP');
+}
+
+my @saved_argv = @ARGV;
+
+my $result = GetOptions('config'    => \$config,
+			'start'     => \$start,
+			'from=i'    => \$from,
+			'to=i'      => \$to,
+			'stop'      => \$stop,
+			'logfile=s' => \$logfile);
+
+if (defined $from and not defined $to) {
+	die "$0: --from requires --to\n";
+} elsif (defined $to and not defined $from) {
+	die "$0: --to requires --from\n";
+}
+
+my $mutex = 0;
+++$mutex if $config;
+++$mutex if $start;
+++$mutex if $stop;
+++$mutex if defined $from;
+if ($mutex > 1) {
+	die "$0: must use only one of --config, --start, --from/--to, or --stop\n";
+}
+
+my $status = 0;
+
+if ($config) {
+	create_tempdir(0);
+	print create_config(), "\n";
+} elsif ($start) {
+	import Debconf::Client::ConfModule;
+	start_bar();
+} elsif (defined $from) {
+	import Debconf::Client::ConfModule;
+	$status = run_progress($from, $to, @ARGV);
+} elsif ($stop) {
+	import Debconf::Client::ConfModule;
+	stop_bar();
+} elsif (! $ENV{DEBIAN_HAS_FRONTEND}) {
+	create_tempdir(1);
+	$ENV{DEBCONF_SYSTEMRC} = create_config() . "/debconf-apt-progress.conf";
+	# Rather than just starting debconf here, we execute ourselves again
+	# so that we have an opportunity to clean up the temporary config
+	# afterwards.
+	$ENV{DEBCONF_APT_PROGRESS_FRONTEND} = 1;
+	system ($0, @saved_argv);
+	$status = ($? >> 8);
+} else {
+	start_bar();
+	$status = run_progress(0, 100, @ARGV);
+	stop_bar();
+}
+
+END {
+	if ($cleanup_tempdir and defined $tempdir) {
+		my $savestatus = $?;
+		# File::Path is in perl-modules, so we can't use it. Boo.
+		system('rm', '-rf', $tempdir);
+		$? = $savestatus;
+	}
+}
+
+exit $status;
+
+=head1 AUTHORS
+
+Colin Watson <cjwatson@debian.org>
+
+Joey Hess <joeyh@debian.org>
+
+=cut

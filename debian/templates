@@ -28,3 +28,16 @@ _Description: Ignore questions with a priority less than...
  .
  Note that no matter what level you pick here, you will be able to see
  every question if you reconfigure a package with dpkg-reconfigure.
+
+Template: debconf-apt-progress/title
+Type: text
+_Description: Installing packages
+
+Template: debconf-apt-progress/preparing
+Type: text
+_Description: Preparing for installation...
+
+Template: debconf-apt-progress/info
+Type: text
+# Not translated; apt emits translated descriptions for us already.
+Description: ${DESCRIPTION}

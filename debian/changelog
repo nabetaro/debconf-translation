@@ -1,3 +1,10 @@
+debconf (1.4.62) UNRELEASED; urgency=low
+
+  * Add debconf-apt-progress, as discussed on debian-boot@, to install
+    packages using debconf to display a progress bar. Requires apt 0.6.41.
+
+ -- Colin Watson <cjwatson@debian.org>  Sat,  3 Dec 2005 13:18:29 +0000
+
 debconf (1.4.61) unstable; urgency=low
 
   * The default debconf priority changes from medium to high in this release.
