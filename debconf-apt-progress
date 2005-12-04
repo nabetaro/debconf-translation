@@ -304,6 +304,9 @@ sub start_bar () {
 
 sub stop_bar () {
 	Debconf::Client::ConfModule::progress('STOP');
+	# If we don't stop, we leave a zombie in case some daemon fails to
+	# disconnect from fd 3.
+	Debconf::Client::ConfModule::stop();
 }
 
 # Restore saved environment variables.
