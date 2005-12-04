@@ -3,6 +3,8 @@ debconf (1.4.62) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add debconf-apt-progress, as discussed on debian-boot@, to install
     packages using debconf to display a progress bar. Requires apt 0.6.41.
+  * Fix DEBCONF_DB_REPLACE to work properly when given a database name from
+    debconf.conf.
 
   [ Joey Hess ]
   * Remove newline removal code from perl mangling in Makefile.

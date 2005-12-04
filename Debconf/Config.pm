@@ -139,14 +139,6 @@ sub load {
 		print STDERR "debconf: ".gettext("The Sigils and Smileys options in the config file are no longer used. Please remove them.")."\n";
 	}
 
-	# DEBCONF_DB_REPLACE bypasses the normal databases. We do still need
-	# to set up the normal databases anyway so that the template
-	# database is available, but we load them all read-only.
-	if (exists $ENV{DEBCONF_DB_REPLACE}) {
-		_env_to_driver($ENV{DEBCONF_DB_REPLACE}, name => "_ENV_REPLACE");
-		$config->{config} = "_ENV_REPLACE";
-	}
-
 	# Now read in each database driver, and set it up.
 	while (<DEBCONF_CONFIG>) {
 		my %config=(@defaults);
@@ -163,6 +155,14 @@ sub load {
 		}
 	}
 	close DEBCONF_CONFIG;
+
+	# DEBCONF_DB_REPLACE bypasses the normal databases. We do still need
+	# to set up the normal databases anyway so that the template
+	# database is available, but we load them all read-only above.
+	if (exists $ENV{DEBCONF_DB_REPLACE}) {
+		$config->{config} = _env_to_driver($ENV{DEBCONF_DB_REPLACE},
+			name => "_ENV_REPLACE");
+	}
 
 	# Allow environment overriding of primary database driver
 	my @finalstack = ($config->{config});
