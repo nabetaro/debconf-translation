@@ -36,10 +36,9 @@ it so desires.
 debconf locks its config database when it starts up, which makes it
 unfortunately inconvenient to have one instance of debconf displaying the
 progress bar and another passing through questions from packages being
-installed. To work around this, you'll need to use the B<--config> option,
-which sets up separate databases and a configuration file which you can put
-in the C<DEBCONF_SYSTEMRC> environment variable. See L<the EXAMPLES
-section/EXAMPLES> below.
+installed. If you're using a multiple-segment progress bar, you'll need to
+eval the output of the B<--config> option before starting the debconf
+frontend to work around this. See L<the EXAMPLES section/EXAMPLES> below.
 
 =head1 OPTIONS
 
@@ -47,12 +46,7 @@ section/EXAMPLES> below.
 
 =item B<--config>
 
-Copy the system debconf databases to a temporary directory and set up a
-debconf configuration file pointing to them, and output the path to that
-directory. The caller should call this before starting its debconf frontend,
-and start up the frontend with the C<DEBCONF_SYSTEMRC> environment variable
-set to C<E<lt>directoryE<gt>/debconf-apt-progress.conf>; after the debconf
-frontend has shut down, it should remove everything in that directory.
+Print environment variables necessary to start up a progress bar frontend.
 
 =item B<--start>
 
@@ -104,9 +98,8 @@ remaining 10% for XFCE:
  set -e
  case $1 in
    '')
-     CONFIG="$(debconf-apt-progress --config)"
-     trap 'rm -rf "$CONFIG"' EXIT HUP INT QUIT TERM
-     DEBCONF_SYSTEMRC="$CONFIG/debconf-apt-progress.conf" "$0" debconf
+     eval "$(debconf-apt-progress --config)"
+     "$0" debconf
      ;;
    debconf)
      . /usr/share/debconf/confmodule
@@ -129,15 +122,6 @@ use Debconf::Client::ConfModule ();
 
 my ($config, $start, $from, $to, $stop);
 my ($logfile, $logstderr);
-
-my $tempdir;
-my $cleanup_tempdir = 0;
-
-if ($ENV{DEBCONF_APT_PROGRESS_FRONTEND}) {
-	# We're being called by ourselves, and the temporary config has been
-	# set up; it's now safe to start debconf.
-	import Debconf::Client::ConfModule;
-}
 
 sub checkopen (@) {
 	my $file = $_[0];
@@ -183,6 +167,12 @@ sub reservefds (@) {
 	if ($close) {
 		checkclose($null);
 	}
+}
+
+# Does this environment variable exist, and is it non-empty?
+sub envnonempty ($) {
+	my $name = shift;
+	return (exists $ENV{$name} and $ENV{$name} ne '');
 }
 
 sub passthrough (@) {
@@ -305,57 +295,6 @@ sub run_progress ($$@) {
 	return ($status >> 8);
 }
 
-sub create_tempdir ($) {
-	$cleanup_tempdir = shift;
-	# File::Temp is in perl-modules, so we can't use it. Boo.
-	$tempdir = `mktemp -d -t debconf-apt-progress.XXXXXX`;
-	unless (defined $tempdir) {
-		die "$0: can't create temporary directory: $!";
-	}
-	chomp $tempdir;
-}
-
-sub create_config () {
-	system('debconf-copydb', 'configdb', 'progressconfigdb',
-		'-c', 'Name:progressconfigdb', '-c', 'Driver:File',
-		'-c', "Filename:$tempdir/progressconfig.dat");
-	$? == 0 or die "$0: failed to create progressconfig.dat: $?";
-	# ignore errors for now; see bug #321290
-	my $pid = fork;
-	if ($pid) {
-		waitpid $pid, 0;
-		die "$0: child process failed: $?" if $?;
-	} else {
-		open STDERR, '>', '/dev/null'
-			or die "$0: can't reopen stderr on /dev/null: $!";
-		exec('debconf-copydb', 'templatedb', 'progresstemplatedb',
-			'-c', 'Name:progresstemplatedb', '-c', 'Driver:File',
-			'-c', "Filename:$tempdir/progresstemplates.dat")
-			or die "$0: failed to create progresstemplates.dat: $!";
-	}
-
-	local *CONFIG;
-	open CONFIG, '>', "$tempdir/debconf-apt-progress.conf"
-		or die "$0: can't write to $tempdir/debconf-apt-progress.conf: $!";
-	print CONFIG <<EOF;
-Config: configdb
-Templates: templatedb
-
-Name: configdb
-Driver: File
-Mode: 600
-Filename: $tempdir/progressconfig.dat
-
-Name: templatedb
-Driver: File
-Mode: 644
-Filename: $tempdir/progresstemplates.dat
-EOF
-	close CONFIG;
-
-	return $tempdir;
-}
-
 sub start_bar () {
 	Debconf::Client::ConfModule::progress(
 		'START', 0, 100, 'debconf-apt-progress/title');
@@ -365,6 +304,18 @@ sub start_bar () {
 
 sub stop_bar () {
 	Debconf::Client::ConfModule::progress('STOP');
+}
+
+# Restore saved environment variables.
+if (envnonempty('DEBCONF_APT_PROGRESS_DB_REPLACE')) {
+	$ENV{DEBCONF_DB_REPLACE} = $ENV{DEBCONF_APT_PROGRESS_DB_REPLACE};
+} else {
+	delete $ENV{DEBCONF_DB_REPLACE};
+}
+if (envnonempty('DEBCONF_APT_PROGRESS_DB_OVERRIDE')) {
+	$ENV{DEBCONF_DB_OVERRIDE} = $ENV{DEBCONF_APT_PROGRESS_DB_OVERRIDE};
+} else {
+	delete $ENV{DEBCONF_DB_OVERRIDE};
 }
 
 my @saved_argv = @ARGV;
@@ -395,8 +346,14 @@ if ($mutex > 1) {
 my $status = 0;
 
 if ($config) {
-	create_tempdir(0);
-	print create_config(), "\n";
+	print <<'EOF';
+DEBCONF_APT_PROGRESS_DB_REPLACE="$DEBCONF_DB_REPLACE"
+DEBCONF_APT_PROGRESS_DB_OVERRIDE="$DEBCONF_DB_OVERRIDE"
+export DEBCONF_APT_PROGRESS_DB_REPLACE DEBCONF_APT_PROGRESS_DB_OVERRIDE
+DEBCONF_DB_REPLACE=configdb
+DEBCONF_DB_OVERRIDE='Pipe{infd:none outfd:none}'
+export DEBCONF_DB_REPLACE DEBCONF_DB_OVERRIDE
+EOF
 } elsif ($start) {
 	import Debconf::Client::ConfModule;
 	start_bar();
@@ -407,27 +364,26 @@ if ($config) {
 	import Debconf::Client::ConfModule;
 	stop_bar();
 } elsif (! $ENV{DEBIAN_HAS_FRONTEND}) {
-	create_tempdir(1);
-	$ENV{DEBCONF_SYSTEMRC} = create_config() . "/debconf-apt-progress.conf";
-	# Rather than just starting debconf here, we execute ourselves again
-	# so that we have an opportunity to clean up the temporary config
-	# afterwards.
-	$ENV{DEBCONF_APT_PROGRESS_FRONTEND} = 1;
-	system ($0, @saved_argv);
-	$status = ($? >> 8);
+	# Save existing environment variables.
+	if (envnonempty('DEBCONF_DB_REPLACE')) {
+		$ENV{DEBCONF_APT_PROGRESS_DB_REPLACE} =
+			$ENV{DEBCONF_DB_REPLACE};
+	}
+	if (envnonempty('DEBCONF_DB_OVERRIDE')) {
+		$ENV{DEBCONF_APT_PROGRESS_DB_OVERRIDE} =
+			$ENV{DEBCONF_DB_OVERRIDE};
+	}
+	# Make sure the main configdb is opened read-only ...
+	$ENV{DEBCONF_DB_REPLACE} = 'configdb';
+	# ... and stack a writable db on top of it, since the passthrough
+	# instance is going to be sending us db updates.
+	$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
+	@ARGV = @saved_argv;
+	import Debconf::Client::ConfModule;
 } else {
 	start_bar();
 	$status = run_progress(0, 100, @ARGV);
 	stop_bar();
-}
-
-END {
-	if ($cleanup_tempdir and defined $tempdir) {
-		my $savestatus = $?;
-		# File::Path is in perl-modules, so we can't use it. Boo.
-		system('rm', '-rf', $tempdir);
-		$? = $savestatus;
-	}
 }
 
 exit $status;
