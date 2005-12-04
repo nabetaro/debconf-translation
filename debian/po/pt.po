@@ -35,8 +35,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-25 17:27+0200\n"
+"Report-Msgid-Bugs-To: joeyh@debian.org\n"
+"POT-Creation-Date: 2005-12-04 12:53-0500\n"
 "PO-Revision-Date: 2005-10-09 21:20+0000\n"
 "Last-Translator:  Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team:  Portuguese <traduz@debianpt.org>\n"
@@ -63,8 +63,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Os pacotes que utilizam debconf para a configuração partilham um aspecto "
-"e comportamento idênticos. Você pode escolher o tipo de interface com o "
+"Os pacotes que utilizam debconf para a configuração partilham um aspecto e "
+"comportamento idênticos. Você pode escolher o tipo de interface com o "
 "utilizador que eles utilizam."
 
 #. Type: select
@@ -78,13 +78,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"O frontend dialog é um interface de caracteres, de ecrã completo, "
-"enquanto que o frontend readline utiliza um interface mais tradicional "
-"de texto simples, e ambos os frontend gnome e kde são interfaces modernos "
-"com o X, cabendo nos respectivos desktop (embora possam ser utilizados "
-"em qualquer ambiente X). O frontend editor deixa-o configurar as coisas "
-"utilizando o seu editor de texto favorito. O frontend não-interactivo "
-"nunca pergunta quaisquer questões."
+"O frontend dialog é um interface de caracteres, de ecrã completo, enquanto "
+"que o frontend readline utiliza um interface mais tradicional de texto "
+"simples, e ambos os frontend gnome e kde são interfaces modernos com o X, "
+"cabendo nos respectivos desktop (embora possam ser utilizados em qualquer "
+"ambiente X). O frontend editor deixa-o configurar as coisas utilizando o seu "
+"editor de texto favorito. O frontend não-interactivo nunca pergunta "
+"quaisquer questões."
 
 #. Type: select
 #. Choices
@@ -110,7 +110,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"O debconf atribui prioridades às questões que lhe coloca. Escolha a prioridade mais baixa da questão que deseja ver:\n"
+"O debconf atribui prioridades às questões que lhe coloca. Escolha a "
+"prioridade mais baixa da questão que deseja ver:\n"
 "  - 'crítica' apenas faz perguntas se o sistema se pode estragar.\n"
 "    Escolha-a se for um newbie, ou se estiver com pressa.\n"
 "  - 'alta' é para questões importantes\n"
@@ -124,8 +125,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Note que qualquer que seja o nível que escolher aqui, poderá ver todas "
-"as questões se reconfigurar o pacote com dpkg-reconfigure."
+"Note que qualquer que seja o nível que escolher aqui, poderá ver todas as "
+"questões se reconfigurar o pacote com dpkg-reconfigure."
+
+#. Type: text
+#. Description
+#: ../templates:34
+msgid "Installing packages"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../templates:38
+msgid "Please wait..."
+msgstr ""
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
