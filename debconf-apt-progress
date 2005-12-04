@@ -50,17 +50,24 @@ Print environment variables necessary to start up a progress bar frontend.
 
 =item B<--start>
 
-Start up a progress bar, running from 0 to 100 by default.
+Start up a progress bar, running from 0 to 100 by default. Use B<--from> and
+B<--to> to use other endpoints.
 
 =item B<--from> I<waypoint>
 
-Install packages with their progress bar beginning at this "waypoint". Must
-be used with B<--to>.
+If used with B<--start>, make the progress bar begin at I<waypoint> rather
+than 0.
+
+Otherwise, install packages with their progress bar beginning at this
+"waypoint". Must be used with B<--to>.
 
 =item B<--to> I<waypoint>
 
-Install packages with their progress bar ending at this "waypoint". Must be
-used with B<--from>.
+If used with B<--start>, make the progress bar end at I<waypoint> rather
+than 100.
+
+Otherwise, install packages with their progress bar ending at this
+"waypoint". Must be used with B<--from>.
 
 =item B<--stop>
 
@@ -295,9 +302,10 @@ sub run_progress ($$@) {
 	return ($status >> 8);
 }
 
-sub start_bar () {
+sub start_bar ($$) {
+	my ($from, $to) = @_;
 	Debconf::Client::ConfModule::progress(
-		'START', 0, 100, 'debconf-apt-progress/title');
+		'START', $from, $to, 'debconf-apt-progress/title');
 	Debconf::Client::ConfModule::progress(
 		'INFO', 'debconf-apt-progress/preparing');
 }
@@ -331,19 +339,24 @@ my $result = GetOptions('config'    => \$config,
 			'logfile=s' => \$logfile,
 			'logstderr' => \$logstderr);
 
-if (defined $from and not defined $to) {
-	die "$0: --from requires --to\n";
-} elsif (defined $to and not defined $from) {
-	die "$0: --to requires --from\n";
+unless ($start) {
+	if (defined $from and not defined $to) {
+		die "$0: --from requires --to\n";
+	} elsif (defined $to and not defined $from) {
+		die "$0: --to requires --from\n";
+	}
 }
 
 my $mutex = 0;
 ++$mutex if $config;
 ++$mutex if $start;
 ++$mutex if $stop;
-++$mutex if defined $from;
 if ($mutex > 1) {
-	die "$0: must use only one of --config, --start, --from/--to, or --stop\n";
+	die "$0: must use only one of --config, --start, or --stop\n";
+}
+
+if (($config or $stop) and (defined $from or defined $to)) {
+	die "$0: cannot use --from or --to with --config or --stop\n";
 }
 
 my $status = 0;
@@ -359,7 +372,9 @@ export DEBCONF_DB_REPLACE DEBCONF_DB_OVERRIDE
 EOF
 } elsif ($start) {
 	import Debconf::Client::ConfModule;
-	start_bar();
+	$from = 0 unless defined $from;
+	$to = 100 unless defined $to;
+	start_bar($from, $to);
 } elsif (defined $from) {
 	import Debconf::Client::ConfModule;
 	$status = run_progress($from, $to, @ARGV);
@@ -384,7 +399,7 @@ EOF
 	@ARGV = @saved_argv;
 	import Debconf::Client::ConfModule;
 } else {
-	start_bar();
+	start_bar(0, 100);
 	$status = run_progress(0, 100, @ARGV);
 	stop_bar();
 }
