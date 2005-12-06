@@ -2,6 +2,9 @@ debconf (1.4.63) UNRELEASED; urgency=low
 
   * debconf-apt-progress: Allow --from and --to to be used with --start to
     change the endpoints of the created progress bar.
+  * Add DebconfCommunicator class to debconf.py to allow speaking the
+    debconf protocol over a debconf-communicate subprocess. Useful for
+    querying the debconf database noninteractively.
 
  -- Colin Watson <cjwatson@debian.org>  Sun,  4 Dec 2005 21:45:56 +0000
 

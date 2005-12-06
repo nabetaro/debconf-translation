@@ -1,4 +1,7 @@
-# Copyright: Moshe Zadka (c) 2002
+# Copyright:
+#   Moshe Zadka (c) 2002
+#   Canonical Ltd. (c) 2005 (DebconfCommunicator)
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
@@ -21,6 +24,7 @@
 # SUCH DAMAGE.
 
 import sys, os
+import popen2
 
 class DebconfError(Exception):
     pass
@@ -86,6 +90,24 @@ class Debconf:
 
     def getString(self, question):
         return self.get(question)
+
+
+class DebconfCommunicator(debconf.Debconf, object):
+    def __init__(self, owner, title=None):
+        self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
+                                     owner])
+        super(DebconfCommunicator, self).__init__(title=title,
+                                                  read=self.dccomm.fromchild,
+                                                  write=self.dccomm.tochild)
+
+    def shutdown(self):
+        if self.dccomm is not None:
+            self.dccomm.tochild.close()
+            self.dccomm.wait()
+            self.dccomm = None
+
+    def __del__(self):
+        self.shutdown()
 
 
 _frontEndProgram = '/usr/share/debconf/frontend'
