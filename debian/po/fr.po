@@ -2,14 +2,14 @@
 # packages/po/fr.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # translation of fr-new.po to French
 # translation of di-fr.po to French
 # translation of fr.po to French
 # French messages for debian-installer.
 # Copyright (C) 2004 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Christian Perrier <bubulle@debian.org>, 2002-2004.
+# Christian Perrier <bubulle@debian.org>, 2002-2004, 2005.
 # Pierre Machard <pmachard@debian.org>, 2002-2004.
 # Denis Barbier <barbier@debian.org>, 2002-2004.
 # Philippe Batailler <philippe.batailler@free.fr>, 2002-2004.
@@ -17,17 +17,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: fr\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-06-28 07:31+0200\n"
+"PO-Revision-Date: 2005-12-09 07:13+0100\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.10.2\n"
 
 #. Type: select
 #. Choices
@@ -116,49 +116,10 @@ msgstr ""
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Installation des paquets"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Les paquets qui utilisent debconf pour leur configuration déterminent un "
-#~ "degré de priorité pour les questions qu'ils sont susceptibles de vous "
-#~ "poser. Seules les questions avec une certaine priorité, ou une priorité "
-#~ "plus importante que celle que vous aurez sélectionnée, seront affichées ; "
-#~ "toutes les questions d'importance moindre seront ignorées."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Vous pouvez définir la priorité la plus basse pour les questions qui vous "
-#~ "sont posées :\n"
-#~ " - « critique » concerne les questions qui risqueraient de casser le\n"
-#~ "   système si l'utilisateur n'y répondait pas lui-même ;\n"
-#~ " - « élevée » pour les questions ne pouvant pas avoir de réponse\n"
-#~ "   par défaut satisfaisante ;\n"
-#~ " - « intermédiaire » concerne les questions ordinaires dont les\n"
-#~ "   réponses par défaut sont adéquates ;\n"
-#~ " - « basse » pour les questions triviales dont les réponses par\n"
-#~ "   défaut satisferont la grande majorité des cas."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Par exemple, la question à laquelle vous êtes en train de répondre a une "
-#~ "priorité « intermédiaire » ; si vous aviez d'ores et déjà choisi une "
-#~ "priorité « élevée » ou « critique », vous n'auriez pas vu cette question."
+msgstr "Veuillez patienter..."
