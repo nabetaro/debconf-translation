@@ -13,6 +13,8 @@ debconf (1.4.63) UNRELEASED; urgency=low
     really old versions of debconf.
 
   [ Christian Perrier ]
+  * Add debconf-updatepo to the clean rule as recommended to always have
+    up-to-date PO files for debconf translations.
   * Debconf translations:
     - French updated
 

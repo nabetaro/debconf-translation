@@ -15,6 +15,8 @@ clean:
 	dh_testroot
 	rm -f build-stamp
 	$(MAKE) clean
+	# This will guarantee that PO files are always synced with templates
+	debconf-updatepo
 	dh_clean debian/debconf.changelog
 
 # Build architecture-independent files here.
