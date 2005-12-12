@@ -7,6 +7,10 @@ debconf (1.4.63) UNRELEASED; urgency=low
     debconf protocol over a debconf-communicate subprocess. Useful for
     querying the debconf database noninteractively.
 
+  [ Luk Claes ]
+  * Translations:
+    - Baskish updated programs and updated debconf (Closes: #342093).
+
   [ Joey Hess ]
   * Slightly optimised the postinst script while leaving old transition
     handling code in it by moving old code into blocks with a single check for
