@@ -1,3 +1,4 @@
+# translation of ru.po to Russian
 # translation of po_ru.po to Russian
 # Copyright (C) 2004, 2005 Free Software Foundation, Inc.
 # Michael Sobolev <mss@transas.com>, 2004.
@@ -8,7 +9,7 @@ msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-04 12:52-0500\n"
-"PO-Revision-Date: 2005-09-17 11:29+0400\n"
+"PO-Revision-Date: 2005-12-10 11:39+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +59,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tЗадать желаемый debconf интерфейс.\n"
+"  -p,  --priority\t\tУказать желаемый приоритет задаваемых вопросов.\n"
+"       --terse\t\t\tВключить лаконичный режим.\n"
 
 #: ../Debconf/Config.pm:290
 #, perl-format
@@ -90,8 +94,7 @@ msgid "no"
 msgstr "нет"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
 "(', ').)"
@@ -111,8 +114,8 @@ msgstr "Сохранить(почтовое) сообщение"
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf получил команду сохранить это сообщение, поэтому оно былоотправлено "
-"вам по почте."
+"Debconf получил команду сохранить это сообщение, поэтому оно было "
+"отправлено вам по почте."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -131,8 +134,7 @@ msgid "Unable to save note."
 msgstr "Не удалось сохранить сообщение."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf не настроен показывать это сообщение, поэтому оно было вам "
 "отправлено по почте."
@@ -161,8 +163,7 @@ msgstr "ни один из предложенных выше"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
+msgstr "Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
 
 #: ../Debconf/FrontEnd.pm:127
 #, perl-format
@@ -172,16 +173,15 @@ msgstr "Не удалось загрузить Debconf::Element::%s. Причи�
 #: ../Debconf/FrontEnd.pm:308
 #, perl-format
 msgid "Configuring %s"
-msgstr "Идет настройка пакета %s"
+msgstr "Настраивается пакет %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
+msgstr "Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Интерфейс dialog нельзя запускать из-под буферов emacs'а"
+msgstr "Интерфейс dialog не совместим с shelll буферами emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
@@ -200,8 +200,7 @@ msgstr ""
 "использовать dialog-интерфейс."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
 "ширину."
@@ -233,7 +232,7 @@ msgstr ""
 "Unix: параметры и их значения идут вперемешку с описывающими их "
 "комментариями. Вы должны изменить этот файл в соответствии с вашими "
 "потребностями, сохранить его и выйти из редактора. Затем программа debconf "
-"прочитает измененный файл и использует введенные вами параметры для "
+"прочитает изменённый файл и использует введённые вами параметры для "
 "настройки системы."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
@@ -274,16 +273,16 @@ msgid ""
 "missing question %s."
 msgstr ""
 "внимание: возможно, повреждена база данных. Будет сделана попытка исправить "
-"ее, добавив отсутствующий вопрос %s."
+"её, добавив отсутствующий вопрос %s."
 
 #: ../Debconf/Template.pm:203
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Шаблон номер %s в %s содержит повторяющееся поле \"%s\" с новым значением \"%"
-"s\". Наверно, какие-то два шаблона не разделены пустой строкой.\n"
+"Шаблон номер %s в %s содержит повторяющееся поле \"%s\" с другим значением "
+"\"%s\". Вероятно, два шаблона не разделены пустой строкой.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -308,7 +307,7 @@ msgstr "не удалось заново открыть stdin: %s"
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "для предварительной настройки нужно указать какие-нибудь deb-файлы"
+msgstr "для предварительной настройки нужно указать несколько deb-файлов"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -317,16 +316,16 @@ msgstr "так как не установлен apt-utils, настройка п
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "ошибка при работе apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr ""
+msgstr "Извлечение шаблонов из пакетов: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Предварительная настройка пакетов ...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format
@@ -351,6 +350,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Использование: dpkg-reconfigure [параметры] пакеты\n"
+"  -a,  --all\t\t\tПеренастройка всех пакетов.\n"
+"  -u,  --unseen-only\t\tПоказывать только ещё не просмотренные вопросы.\n"
+"       --default-priority\tИспользовать приоритет по умолчанию вместо низкого.\n"
+"       --force\t\t\tПринудительная переконфигурация сломанных пакетов."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -369,7 +373,7 @@ msgstr "Пакет %s не установлен"
 #: ../dpkg-reconfigure:162
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "Пакет %s установлен не полностью или поврежден"
+msgstr "Пакет %s сломан или установлен не полностью"
 
 #: ../dpkg-reconfigure:239
 #, perl-format
@@ -378,17 +382,19 @@ msgstr "Ошибка чтения файла состояния: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Использование: debconf-communicate [параметры] [пакет]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Эта программа устарела. Используйте вместо неё"
+"программу po2debconf из пакета po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Использование: debconf-mergetemplate [параметры] [templates.ll ...] шаблоны"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -396,6 +402,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tВыполнять объединение даже с устаревшими переводами.\n"
+"\t--drop-old-templates\tВыкидывать устаревшие шаблоны полностью."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -429,10 +438,13 @@ msgstr "Пакет %s устарел; игнорирование всего ша
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Использование: debconf [параметры] команда [аргументы]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=пакет\t\tУказать пакет, которому принадлежит команда."
+

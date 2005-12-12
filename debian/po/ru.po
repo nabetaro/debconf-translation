@@ -2,7 +2,7 @@
 # packages/po/ru.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # translation of ru.po to Russian
 # Russian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
@@ -10,14 +10,15 @@
 # Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004.
 # Yuri Kozlov <yuray@id.ru>, 2004, 2005.
 # Dmitry Beloglazov <dm-guest@alioth.debian.org>, 2005.
+# Yuri Kozlov <kozlov.y@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-25 21:11+0400\n"
-"Last-Translator: Yuri Kozlov <yuray@id.ru>\n"
+"PO-Revision-Date: 2005-12-10 11:00+0300\n"
+"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,44 +116,11 @@ msgstr ""
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Устанавливаются пакеты"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Подождите..."
 
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "В пакетах, настраиваемых при помощи debconf, каждому вопросу присвоен "
-#~ "уровень его важности. Вам будут заданы лишь те вопросы, которые важнее "
-#~ "определённого уровня. Все менее важные вопросы будут пропущены."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Выберите уровень важности, начиная с которого вы хотите видеть вопросы:\n"
-#~ " -- 'критический' -- вопросы, ответы на которые без вмешательства "
-#~ "пользователя могут привести к неработоспособности системы.\n"
-#~ " -- 'высокий' -- вопросы без приемлемого варианта по умолчанию.\n"
-#~ " -- 'средний' -- вопросы с разумным вариантом по умолчанию.\n"
-#~ " -- 'низкий' -- простейшие вопросы, для которых есть варианты по "
-#~ "умолчанию, работающие в подавляющем большинстве случаев."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Например, этот вопрос -- вопрос среднего уровня важности, и если желаемый "
-#~ "уровень был бы установлен в 'высокий' или 'критический', то вы бы не "
-#~ "увидели этого вопроса."
