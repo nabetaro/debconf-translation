@@ -2,17 +2,17 @@
 # packages/po/gl.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # Gallegan messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-01 18:02+0200\n"
+"PO-Revision-Date: 2005-12-12 09:33+0100\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galego <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -22,15 +22,14 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:3
-#, fuzzy
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr "Dialog, Readline, Gnome, Editor, Non interactivo"
+msgstr "Dialog, Readline, Gnome, Kde, Editor, Non interactivo"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr "¿Que interface se debería empregar para configura-los paquetes?"
+msgstr "¿Que interface se debería empregar para configurar os paquetes?"
 
 #. Type: select
 #. Description
@@ -40,12 +39,11 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "Os paquetes que empregan debconf para a configuración comparten unha "
-"aparencia común. Pode escolle-lo tipo de interface de usuario que empregan."
+"aparencia común. Pode escoller o tipo de interface de usuario que empregan."
 
 #. Type: select
 #. Description
 #: ../templates:5
-#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -54,11 +52,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"A interface dialog é unha interface de pantalla completa, en modo texto, "
-"mentres que a interface de readline é unha máis tradicional, de texto "
-"simple, e a interface gnome é unha interface X moderna. A interface do "
-"editor permítelle configura-las cousas empregando o seu editor de texto "
-"favorito. A interface non interactiva nunca lle fai preguntas."
+"A interface dialog é unha interface de pantalla completa en modo texto, "
+"mentres que a interface readline emprega unha interface de texto simple máis "
+"traicional; as interfaces gnome e kde son interfaces modernas de X, que "
+"encaixan cos respectivos escritorios (pero que se poden empregar en calquera "
+"ambiente X). A interface editor permítelle configurar as cousas empregando o "
+"seu editor de texto favorito. A interface non interactiva nunca lle fai "
+"preguntas."
 
 #. Type: select
 #. Choices
@@ -84,6 +84,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf asígnalle prioridades ás preguntas que lle fai. Escolla a prioridade "
+"mínima das preguntas que quere ver:\n"
+"  - \"crítica\" só lle pregunta se o sistema pode romper.\n"
+"    Escóllaa se non ten experiencia o se ten présa.\n"
+"  - \"alta\" é para preguntas máis ben importantes\n"
+"  - \"media\" é para preguntas normais\n"
+"  - \"baixa\" é para fanáticos do control que o queren ver todo"
 
 #. Type: select
 #. Description
@@ -92,18 +99,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Teña en conta que, sen importar o nivel que escolla aquí, ha poder ver "
+"tódalas preguntas se reconfigura un paquete con dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "A instalar os paquetes"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Agarde..."
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
