@@ -182,32 +182,6 @@ sub envnonempty ($) {
 	return (exists $ENV{$name} and $ENV{$name} ne '');
 }
 
-sub start_debconf (@) {
-	if (! $ENV{DEBIAN_HAS_FRONTEND}) {
-		# Save existing environment variables.
-		if (envnonempty('DEBCONF_DB_REPLACE')) {
-			$ENV{DEBCONF_APT_PROGRESS_DB_REPLACE} =
-				$ENV{DEBCONF_DB_REPLACE};
-		}
-		if (envnonempty('DEBCONF_DB_OVERRIDE')) {
-			$ENV{DEBCONF_APT_PROGRESS_DB_OVERRIDE} =
-				$ENV{DEBCONF_DB_OVERRIDE};
-		}
-
-		# Make sure the main configdb is opened read-only ...
-		$ENV{DEBCONF_DB_REPLACE} = 'configdb';
-		# ... and stack a writable db on top of it, since the
-		# passthrough instance is going to be sending us db updates.
-		$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
-
-		# Restore @ARGV so that
-		# Debconf::Client::ConfModule::import() can use it.
-		@ARGV = @_;
-	}
-
-	import Debconf::Client::ConfModule;
-}
-
 sub passthrough (@) {
 	my $priority = Debconf::Client::ConfModule::get('debconf/priority');
 
@@ -365,8 +339,6 @@ my $result = GetOptions('config'    => \$config,
 			'logfile=s' => \$logfile,
 			'logstderr' => \$logstderr);
 
-my @processed_argv = @ARGV;
-
 unless ($start) {
 	if (defined $from and not defined $to) {
 		die "$0: --from requires --to\n";
@@ -387,8 +359,6 @@ if (($config or $stop) and (defined $from or defined $to)) {
 	die "$0: cannot use --from or --to with --config or --stop\n";
 }
 
-start_debconf(@saved_argv) unless $config;
-
 my $status = 0;
 
 if ($config) {
@@ -401,13 +371,33 @@ DEBCONF_DB_OVERRIDE='Pipe{infd:none outfd:none}'
 export DEBCONF_DB_REPLACE DEBCONF_DB_OVERRIDE
 EOF
 } elsif ($start) {
+	import Debconf::Client::ConfModule;
 	$from = 0 unless defined $from;
 	$to = 100 unless defined $to;
 	start_bar($from, $to);
 } elsif (defined $from) {
+	import Debconf::Client::ConfModule;
 	$status = run_progress($from, $to, @ARGV);
 } elsif ($stop) {
+	import Debconf::Client::ConfModule;
 	stop_bar();
+} elsif (! $ENV{DEBIAN_HAS_FRONTEND}) {
+	# Save existing environment variables.
+	if (envnonempty('DEBCONF_DB_REPLACE')) {
+		$ENV{DEBCONF_APT_PROGRESS_DB_REPLACE} =
+			$ENV{DEBCONF_DB_REPLACE};
+	}
+	if (envnonempty('DEBCONF_DB_OVERRIDE')) {
+		$ENV{DEBCONF_APT_PROGRESS_DB_OVERRIDE} =
+			$ENV{DEBCONF_DB_OVERRIDE};
+	}
+	# Make sure the main configdb is opened read-only ...
+	$ENV{DEBCONF_DB_REPLACE} = 'configdb';
+	# ... and stack a writable db on top of it, since the passthrough
+	# instance is going to be sending us db updates.
+	$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
+	@ARGV = @saved_argv;
+	import Debconf::Client::ConfModule;
 } else {
 	start_bar(0, 100);
 	$status = run_progress(0, 100, @ARGV);
