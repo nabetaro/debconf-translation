@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: po_ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-04 12:52-0500\n"
+"POT-Creation-Date: 2005-12-20 15:28-0500\n"
 "PO-Revision-Date: 2005-12-10 11:39+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -94,7 +94,8 @@ msgid "no"
 msgstr "нет"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Укажите необходимое количество элементов, разделяя их запятой с пробелом "
 "(', ').)"
@@ -114,8 +115,8 @@ msgstr "Сохранить(почтовое) сообщение"
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Debconf получил команду сохранить это сообщение, поэтому оно было "
-"отправлено вам по почте."
+"Debconf получил команду сохранить это сообщение, поэтому оно было отправлено "
+"вам по почте."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -134,7 +135,8 @@ msgid "Unable to save note."
 msgstr "Не удалось сохранить сообщение."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf не настроен показывать это сообщение, поэтому оно было вам "
 "отправлено по почте."
@@ -163,7 +165,8 @@ msgstr "ни один из предложенных выше"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
+msgstr ""
+"Укажите буквы, соответствующие выбранным вариантам, разделяя их пробелами."
 
 #: ../Debconf/FrontEnd.pm:127
 #, perl-format
@@ -177,7 +180,8 @@ msgstr "Настраивается пакет %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
+msgstr ""
+"Не установлена переменная TERM, поэтому запустить интерфейс dialog нельзя."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -200,7 +204,8 @@ msgstr ""
 "использовать dialog-интерфейс."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Интерфейс dialog требует экран не менее 13 строк в высоту и 31 колонок в "
 "ширину."
@@ -353,7 +358,8 @@ msgstr ""
 "Использование: dpkg-reconfigure [параметры] пакеты\n"
 "  -a,  --all\t\t\tПеренастройка всех пакетов.\n"
 "  -u,  --unseen-only\t\tПоказывать только ещё не просмотренные вопросы.\n"
-"       --default-priority\tИспользовать приоритет по умолчанию вместо низкого.\n"
+"       --default-priority\tИспользовать приоритет по умолчанию вместо "
+"низкого.\n"
 "       --force\t\t\tПринудительная переконфигурация сломанных пакетов."
 
 #: ../dpkg-reconfigure:104
@@ -389,12 +395,13 @@ msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Эта программа устарела. Используйте вместо неё"
-"программу po2debconf из пакета po-debconf."
+"debconf-mergetemplate: Эта программа устарела. Используйте вместо "
+"неёпрограмму po2debconf из пакета po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Использование: debconf-mergetemplate [параметры] [templates.ll ...] шаблоны"
+msgstr ""
+"Использование: debconf-mergetemplate [параметры] [templates.ll ...] шаблоны"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -447,4 +454,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=пакет\t\tУказать пакет, которому принадлежит команда."
-
