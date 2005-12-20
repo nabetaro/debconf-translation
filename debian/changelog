@@ -1,3 +1,11 @@
+debconf (1.4.64) UNRELEASED; urgency=low
+
+  * debconf-apt-progress: Make sure to start up a debconf frontend properly
+    (including saving/restoring @ARGV) in all modes except --config, not
+    just in the all-in-one mode.
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 20 Dec 2005 22:06:37 +0000
+
 debconf (1.4.63) unstable; urgency=low
 
   [ Colin Watson ]
