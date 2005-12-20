@@ -19,7 +19,6 @@ clean:
 	debconf-updatepo
 	dh_clean debian/debconf.changelog
 
-# Build architecture-independent files here.
 binary-indep:
 binary-indep: build
 	dh_testdir
@@ -73,7 +72,6 @@ binary-indep: build
 	dh_builddeb
 
 binary-arch:
-# Nothing to do
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary
