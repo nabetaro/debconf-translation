@@ -1,3 +1,13 @@
+MUNGE=xargs perl -i.bak -ne ' \
+		print $$_."\# This file was preprocessed, do not edit!\n" \
+			if m:^\#!/usr/bin/perl:; \
+		$$cutting=1 if /^=/; \
+		$$cutting="" if /^=cut/; \
+		next if /use lib/; \
+		next if $$cutting || /^(=|\s*\#)/; \
+		print $$_ \
+	'
+
 all: Debconf/FrontEnd/Kde/WizardUi.pm
 	$(MAKE) -C doc
 	$(MAKE) -C po
@@ -64,16 +74,8 @@ install-rest:
 	     $(prefix)/usr/share/debconf/frontend 			\
 	     $(prefix)/usr/share/debconf/*.pl $(prefix)/usr/bin		\
 	     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
-	     -name 'debconf-*' -or -name 'frontend' |			\
-	     grep -v Client/ConfModule | xargs perl -i.bak -ne ' 	\
-	     		print $$_."# This file was preprocessed, do not edit!\n" \
-				if m:^#!/usr/bin/perl:; 		\
-	     		$$cutting=1 if /^=/; 				\
-	     		$$cutting="" if /^=cut/; 			\
-			next if /use lib/;				\
-			next if $$cutting || /^(=|\s*#)/;		\
-			print $$_					\
-		'
+	     -name 'debconf-*' -or -name 'frontend' | 			\
+	     grep -v Client/ConfModule | $(MUNGE)
 	find $(prefix) -name '*.bak' | xargs rm -f
 
 demo:

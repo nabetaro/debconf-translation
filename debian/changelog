@@ -27,7 +27,11 @@ debconf (1.4.63) UNRELEASED; urgency=low
   * Debconf translations:
     - French updated
 
- -- Luk Claes <luk@debian.org>  Mon, 19 Dec 2005 19:56:24 +0100
+  [ Joey Hess ]
+  * Changes to the Makefile to deal with changed quoting rules for continued
+    strings in new version of make.
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 20 Dec 2005 14:56:12 -0500
 
 debconf (1.4.62) unstable; urgency=low
 
