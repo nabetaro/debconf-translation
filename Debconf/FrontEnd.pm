@@ -61,6 +61,10 @@ that the user has indicated they want to back up.
 
 This will be set if the confmodule states it has the backup capability.
 
+=item progress_bar
+
+The element used for the currently running progress bar, if any.
+
 =back
 
 =head1 METHODS

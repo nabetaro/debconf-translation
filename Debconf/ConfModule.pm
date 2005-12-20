@@ -763,6 +763,10 @@ sub command_progress {
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 1;
 	my $subcommand=shift;
 	$subcommand=lc($subcommand);
+	
+	if ($subcommand ne 'start' && ! $this->frontend->progress_bar) {
+		return $codes{internalerror}, "progress bar not started";
+	}
 
 	if ($subcommand eq 'start') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 3;
