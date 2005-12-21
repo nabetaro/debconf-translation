@@ -1,3 +1,11 @@
+debconf (1.4.65) unstable; urgency=HIGH
+
+  * Remove my progress bar check of the last version since it breaks
+    passthrough, especially where the actual progress bar was started by the
+    destination frontend.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 21 Dec 2005 03:37:19 -0500
+
 debconf (1.4.64) unstable; urgency=HIGH
 
   [ Colin Watson ]
