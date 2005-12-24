@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-05 22:25+0100\n"
-"Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
+"PO-Revision-Date: 2005-12-23 17:25+0100\n"
+"Last-Translator: Parlin Imanuel Toh <pt@samip-online.com>\n"
 "Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
 "id>\n"
 "MIME-Version: 1.0\n"
@@ -32,13 +32,13 @@ msgstr ""
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr ""
+msgstr "Dialog, Readline, Gnome, Kde, Editor, Non-interaktif"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr ""
+msgstr "Antarmuka apa yang akan digunakan untuk mengonfigurasi paket?"
 
 #. Type: select
 #. Description
@@ -47,6 +47,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Paket-paket yang menggnakan debconf untuk configurasi menggunakan antar muka "
+"yang seragam. Anda dapat memilih jenis antarmuka pengguna yang dipakai."
 
 #. Type: select
 #. Description
@@ -59,6 +61,11 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"Antar muka dialog menggunakan antarmuka berbasis karakter layar penuh, sementar "
+"readline menggunakan antar muka teks yang lebih tradisional, baik gnome dan "
+"kde menggunakan antar muka grafis (X). Antarmuka editor memungkinkan anda "
+"mengkonfigurasikan hal-hal menggunakan teks editor kesayangan anda. Antarmuka "
+"noniteraktif tak pernah menanyakan pertanyaan apapun."
 
 #. Type: select
 #. Choices
@@ -84,6 +91,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf memprioritaskan pertanyaan yang ditanyakan pada anda. Pilih prioritas "
+"pertanyaan terendah yang ingin anda lihat:\n"
+"  - 'kritis' hanya akan menampilkan prompt bila sistem akan rusak.\n"
+"    Pilih ini bila anda pengguna baru, atau sedang terburu-buru.\n"
+"  - 'tinggi' untuk pertanyaan yang cukup penting.\n"
+"  - 'sedang' untuk pertanyaan-pertanyaan normal\n"
+"  - 'rendah' untuk melihat segalanya"
 
 #. Type: select
 #. Description
@@ -92,52 +106,19 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Perhatikan bahwa apapun level yang anda pilih saat ini, anda akan dapat "
+"melihat semua pertanyaan bila anda mengkonfigurasi ulang sebuah paket dengan "
+"dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Memasang paket-paket"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Mohon menunggu..."
 
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Paket-paket yang menggunakan debconf untuk konfigurasi, memberi prioritas "
-#~ "pada pertanyaan yang mungkin ditanyakan pada Anda. Hanya pertanyaan "
-#~ "dengan prioritas tertentu atau lebih tinggi yang akan ditanyakan pada "
-#~ "Anda; semua pertanyaan yang kurang penting tidak akan ditanyakan."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Anda dapat memilih prioritas pertanyaan terendah yang ingin Anda lihat:\n"
-#~ " - 'kritis' untuk hal-hal yang dapat merusak sistem\n"
-#~ "    tanpa campur tangan pengguna.\n"
-#~ " - 'tinggi' untuk hal-hal yang tidak memiliki nilai bawaan\n"
-#~ "    yang bisa ditentukan. \n"
-#~ " - 'sedang' untuk hal-hal normal yang memiliki nilai bawaan\n"
-#~ "    yang bisa ditentukan. \n"
-#~ " - 'rendah' untuk hal-hal biasa yang memiliki nilai bawaan\n"
-#~ "     yang pada umumnya dapat membuat sistem berfungsi normal."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Sebagai contoh, pertanyaan ini berprioritas sedang, dan bila prioritas "
-#~ "yang Anda pilih 'tinggi' atau 'kritis', Anda tidak akan melihat "
-#~ "pertanyaan ini."
