@@ -1,5 +1,15 @@
 debconf (1.4.66) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
+  * DEBCONF_DB_REPLACE causes all databases from the config file to be
+    opened read-only, including the templates database, partly because it's
+    hard to do otherwise and partly because DEBCONF_DB_REPLACE is used for
+    passthrough applications which want to avoid two debconf instances both
+    opening the same templates database read-write. Unfortunately this
+    breaks if anyone tries to register new templates. As a workaround, stack
+    a throwaway pipe database in front of the configured templates database
+    if DEBCONF_DB_REPLACE is in use. Closes: #343902
+
   * Translations:
     - Indonesian updated debconf (Closes: #344512).
     - Greek updated debconf (Closes: #344585).

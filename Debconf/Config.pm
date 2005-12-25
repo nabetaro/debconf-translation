@@ -162,6 +162,24 @@ sub load {
 	if (exists $ENV{DEBCONF_DB_REPLACE}) {
 		$config->{config} = _env_to_driver($ENV{DEBCONF_DB_REPLACE},
 			name => "_ENV_REPLACE");
+		# Unfortunately a read-only template database isn't always
+		# good enough, so we need to stack a throwaway one in front
+		# of it just in case anything tries to register new
+		# templates. There is no provision yet for keeping this
+		# database around after debconf exits.
+		Debconf::Db->makedriver(
+			driver => "Pipe",
+			name => "_ENV_REPLACE_templates",
+			infd => "none",
+			outfd => "none",
+		);
+		my @template_stack = ("_ENV_REPLACE_templates", $config->{templates});
+		Debconf::Db->makedriver(
+			driver => "Stack",
+			name => "_ENV_stack_templates",
+			stack => join(", ", @template_stack),
+		);
+		$config->{templates} = "_ENV_stack_templates";
 	}
 
 	# Allow environment overriding of primary database driver
