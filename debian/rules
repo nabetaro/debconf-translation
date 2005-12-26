@@ -39,8 +39,9 @@ binary-indep: build
 	dh_installdebconf -n
 	
 	dh_installdocs
-	dh_installdirs etc/apt/apt.conf.d/
+	dh_installdirs etc/apt/apt.conf.d/ /etc/bash_completion.d/
 	cp debian/apt.conf debian/debconf/etc/apt/apt.conf.d/70debconf
+	cp bash_completion debian/debconf/etc/bash_completion.d/debconf
 	dh_installman doc/man/gen/dpkg-*configure.8 \
 		doc/man/gen/debconf-show.1 doc/man/gen/debconf-copydb.1 \
 		doc/man/gen/debconf.1 doc/man/gen/debconf-communicate.1 \
