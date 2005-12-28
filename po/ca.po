@@ -2,14 +2,15 @@
 # Copyright © 2001, 2002, 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the debconf package.
 # Jordi Mallach <jordi@debian.org>, 2001, 2002, 2004, 2005.
+# Guillem Jover <guillem@debian.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.40\n"
+"Project-Id-Version: debconf 1.4.66\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-25 10:47+0000\n"
-"PO-Revision-Date: 2005-01-23 19:00+0100\n"
-"Last-Translator: Jordi Mallach <jordi@debian.org>\n"
+"PO-Revision-Date: 2005-12-28 03:29+0200\n"
+"Last-Translator: Guillem Jover <guillem@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,6 +64,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tEspecifica la interfície de debconf a usar.\n"
+"  -p,  --priority\t\tEspecifica la prioritat mínima de preguntes a mostrar.\n"
+"       --terse\t\t\tHabilita el mode concís.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -186,7 +190,7 @@ msgstr ""
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr ""
-"La interfície de dialog és incompatible amb els búfers de shell d'emacs."
+"La interfície de dialog és incompatible amb els búfers de l'intèrpret d'emacs."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
@@ -194,7 +198,7 @@ msgid ""
 "without a controlling terminal."
 msgstr ""
 "La interfície de dialog no funcionarà en un terminal tonto, un búfer de "
-"shell d'emacs, o sense un terminal control·lador."
+"l'intèrpret d'emacs, o sense un terminal control·lador."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -253,7 +257,8 @@ msgstr "Aquesta interfície requereix una tty controladora."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU és incompatible amb els buffers de shell d'emacs."
+msgstr ""
+"Term::ReadLine::GNU és incompatible amb els buffers de l'intèrpret d'emacs."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -331,9 +336,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates ha fallat: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates ha fallat: %s"
+msgstr "S'estan extraient les plantilles dels paquets: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -362,6 +367,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Forma d'ús: dpkg-reconfigure [opcions] paquet\n"
+"  -a,  --all\t\t\tReconfigura tots els paquets.\n"
+"  -u,  --unseen-only\t\tMostra només preguntes encara no vistes.\n"
+"       --default-priority\tUsa la prioritat predeterminada en comptes de baixa.\n"
+"       --force\t\t\tForça la reconfiguració de paquets trencats."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -389,17 +399,19 @@ msgstr "No es pot llegir el fitxer d'estat: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Forma d'ús: debconf-communicate [opcions] [paquet]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Aquesta utilitat és obsoleta. Haurieu decanviar al "
+"programa de po-debconf, po2debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Forma d'ús: debconf-mergetemplate [opcions] [plantilla.ll ...] plantilla"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -407,6 +419,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tFusiona fins i tot traduccions desactualitzades.\n"
+"\t--drop-old-templates\tDescarta plantilles senceres desactualitzades."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -436,17 +451,19 @@ msgstr "%s està desactualitzat"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s està desactualitzat; es descarta la plantilla sencera!"
+msgstr "%s està desactualitzat; s'està descartant la plantilla sencera!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Forma d'ús: debconf [opcions] ordre [args]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=paquet\t\tEstableix el paquet que poseeix l'ordre."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "s'està preconfigurant %s (%s)"
