@@ -92,7 +92,7 @@ class Debconf:
         return self.get(question)
 
 
-class DebconfCommunicator(debconf.Debconf, object):
+class DebconfCommunicator(Debconf, object):
     def __init__(self, owner, title=None):
         self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
                                      owner])
