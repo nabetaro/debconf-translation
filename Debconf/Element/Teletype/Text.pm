@@ -12,7 +12,7 @@ use base qw(Debconf::Element);
 
 =head1 DESCRIPTION
 
-This is a peice of text to output to the user.
+This is a piece of text to output to the user.
 
 =cut
 
