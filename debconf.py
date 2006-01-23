@@ -85,8 +85,8 @@ class Debconf:
         return 0
 
     def getBoolean(self, question):
-        bool = self.get(question)
-        return bool == 'true'
+        result = self.get(question)
+        return result == 'true'
 
     def getString(self, question):
         return self.get(question)
