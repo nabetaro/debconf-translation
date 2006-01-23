@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-Debconf::Element::Editor::Text - Just test to display to user.
+Debconf::Element::Editor::Text - Just text to display to user.
 
 =cut
 
