@@ -71,6 +71,11 @@ Description: This is a much longer test note.
  12345678901234567898012345678901234567890123456789012345678901234567890
  end
 
+Template: demo/error
+Type: error
+Description: This is an error message.
+ This question should be displayed regardless of priority or the seen flag.
+
 Template: demo/select
 Type: select
 Choices: ${colors}, gray, grey, tan, orange, maroon, black, white, navy blue, chartruse, mahogony, blue, bluegreen, beige

@@ -7,6 +7,10 @@ debconf (1.4.69) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix shadowing of 'bool' builtin in debconf.py getBoolean() (found by
     pychecker).
+  * Add support for templates of type 'error', which are largely treated
+    like notes except that they are displayed no matter what the priority
+    and even if they've previously been seen. For example, this can be used
+    for input validation errors. This is compatible with cdebconf.
 
  -- Luk Claes <luk@debian.org>  Fri, 20 Jan 2006 10:49:32 +0100
 

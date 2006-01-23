@@ -16,7 +16,7 @@ db_settitle demo/title
 
 # This implements a simple state machine so the back button can be handled.
 STATE=1
-while [ "$STATE" != 0 -a "$STATE" != 8 ]; do
+while [ "$STATE" != 0 -a "$STATE" != 10 ]; do
 	case $STATE in
 	1)
 		db_input high demo/boolean || true
@@ -59,6 +59,12 @@ while [ "$STATE" != 0 -a "$STATE" != 8 ]; do
 	7)
 		db_subst demo/subst user joeuser
 		db_input high demo/subst || true
+	;;
+	8)
+		db_input high demo/error || true
+	;;
+	9)
+		db_input low demo/error || true
 	;;
 	esac
 	

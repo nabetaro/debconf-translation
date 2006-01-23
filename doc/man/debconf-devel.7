@@ -152,6 +152,11 @@ frontends will not use it at all. There is no point in using this datatype
 yet, since no frontends support it well. It may even be removed in the
 future.
 .TP
+.B error
+This datatype is used for error messages, such as input validation errors.
+Debconf will show a question of this type even if the priority is too high
+or the user has already seen it.
+.TP
 .B title
 This datatype is used for titles, to be set with the SETTITLE command.
 .RE

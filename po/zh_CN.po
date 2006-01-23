@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 10:47+0000\n"
+"POT-Creation-Date: 2006-01-23 19:05+0000\n"
 "PO-Revision-Date: 2005-04-02 14:22+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlos_liu@yahoo.com>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -125,6 +125,13 @@ msgstr "错误"
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "不能保存备忘。"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+#, fuzzy
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr "Debconf 并不显示这份备忘，所以它将被直接寄给您。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""

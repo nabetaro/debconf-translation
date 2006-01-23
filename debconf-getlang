@@ -159,7 +159,7 @@ sub getlang {
 	
 		# Work out what fields need to be translated.
 		my @needfields=qw{description};
-		if ($master->type !~ /^((multi)?select|note|boolean)$/) {
+		if ($master->type !~ /^((multi)?select|note|error|boolean)$/) {
 			push @needfields, 'default' if defined $master->default;
 		}
 		if ($master->type =~ /(multi)?select/) {

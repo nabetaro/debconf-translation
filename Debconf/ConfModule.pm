@@ -265,12 +265,16 @@ sub command_input {
 	# not.
 	my $visible=1;
 
-	# Don't show items that are unimportant.
-	$visible='' unless high_enough($priority);
+	# Error questions are always shown even if they're asked at a low
+	# priority or have already been seen.
+	if ($question->type ne 'error') {
+		# Don't show items that are unimportant.
+		$visible='' unless high_enough($priority);
 
-	# Don't re-show already seen questions, unless reconfiguring.
-	$visible='' if ! Debconf::Config->reshow &&
-	               $question->flag('seen') eq 'true';
+		# Don't re-show already seen questions, unless reconfiguring.
+		$visible='' if ! Debconf::Config->reshow &&
+			       $question->flag('seen') eq 'true';
+	}
 
 	# We may want to set the seen flag on noninteractive questions
 	# even though they aren't shown.

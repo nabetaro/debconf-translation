@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 0.5.49\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-25 10:47+0000\n"
+"POT-Creation-Date: 2006-01-23 19:05+0000\n"
 "PO-Revision-Date: 2001-01-30 11:20+0900\n"
 "Last-Translator: Eungkyu Song <eungkyu@sparcs.kaist.ac.kr>\n"
 "Language-Team: Debian-KR Project Team <debian-kr-devel@lists.debian.or.kr>\n"
@@ -121,6 +121,14 @@ msgstr "에러"
 #: ../Debconf/Element/Gnome/Note.pm:61
 msgid "Unable to save note."
 msgstr "주의를 저장할 수 없습니다."
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+#, fuzzy
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr ""
+"Debconf는 이 주의를 표시하도록 설정되지 않았으므로, 메일로 보낼 것입니다."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
