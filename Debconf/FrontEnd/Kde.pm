@@ -168,11 +168,11 @@ sub progress_info {
 
 sub progress_stop {
 	my $this=shift;
+	my $element=$this->progress_bar;
 	$this->SUPER::progress_stop(@_);
 
 	$this->qtapp->processEvents;
 
-	my $element=$this->progress_bar;
 	$this->vbox->remove($element->top);
 	$element->top->hide;
 	$element->destroy;
