@@ -3,6 +3,7 @@ debconf (1.4.69) UNRELEASED; urgency=low
   [ Luk Claes ]
   * Translations:
     - Japanese updated debconf and programs. Closes: #348965
+    - Simplified Chinese updated debconf. Closes: #349600
 
   [ Colin Watson ]
   * Fix shadowing of 'bool' builtin in debconf.py getBoolean() (found by
@@ -13,7 +14,7 @@ debconf (1.4.69) UNRELEASED; urgency=low
     for input validation errors. This is compatible with cdebconf.
   * Fix crash in kde frontend while handling PROGRESS STOP.
 
- -- Luk Claes <luk@debian.org>  Fri, 20 Jan 2006 10:49:32 +0100
+ -- Luk Claes <luk@debian.org>  Wed, 25 Jan 2006 10:47:10 +0100
 
 debconf (1.4.68) unstable; urgency=low
 
