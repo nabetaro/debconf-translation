@@ -11,7 +11,11 @@ if [ ! "$DEBIAN_HAS_FRONTEND" ]; then
 	export PERL_DL_NONLAZY
 	# Since there is no FrontEnd, this program execs a FrontEnd.
 	# It will then run a new copy of $0 that can talk to it.
-	exec /usr/share/debconf/frontend $0 "$@"
+	if [ "$DEBCONF_USE_CDEBCONF" ]; then
+		exec /usr/lib/cdebconf/debconf $0 "$@"
+	else
+		exec /usr/share/debconf/frontend $0 "$@"
+	fi
 fi
 
 # Only do this once.
@@ -21,7 +25,12 @@ if [ -z "$DEBCONF_REDIR" ]; then
 	# script is using this library not be parsed as confmodule commands.
 	#
 	# To actually send something to standard output, send it to fd 3.
-	exec 3>&1 1>&2
+	exec 3>&1
+	if [ "$DEBCONF_USE_CDEBCONF" ]; then
+		exec 1>&5
+	else
+		exec 1>&2
+	fi
 	DEBCONF_REDIR=1
 	export DEBCONF_REDIR
 fi

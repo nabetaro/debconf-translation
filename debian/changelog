@@ -1,6 +1,16 @@
 debconf (1.4.70) UNRELEASED; urgency=low
 
+  [ Christian Perrier ]
   * Fix spelling error in French translation
+
+  [ Colin Watson ]
+  * Add experimental confmodule support for cdebconf, now that the file
+    conflicts between debconf and cdebconf have been removed: set
+    DEBCONF_USE_CDEBCONF to have /usr/share/debconf/confmodule try to run
+    the cdebconf frontend rather than the debconf frontend. (I expect this
+    not to work smoothly yet; for a start, cdebconf won't have a useful
+    database!)
+  * Only conflict with cdebconf (<< 0.96).
 
  -- Christian Perrier <bubulle@debian.org>  Thu, 26 Jan 2006 20:41:26 +0100
 
