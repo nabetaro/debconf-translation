@@ -1,14 +1,14 @@
 # german po-file for debconf
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>, 2002.
-# Michael Piefel <piefel@debian.org>, 2004
+# Michael Piefel <piefel@debian.org>, 2004, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2004-07-21 10:16 +0200\n"
+"PO-Revision-Date: 2006-01-27 14:57+0100\n"
 "Last-Translator: Michael Piefel <piefel@debian.org>\n"
 "Language-Team: German, freelance\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tZu benutzendes Debconf-Frontend angeben.\n"
+"  -p,  --priority\t\tMinimale anzuzeigende Priorität für Fragen angeben.\n"
+"       --terse\t\t\tKompakten Modus aktivieren.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -130,13 +133,12 @@ msgid "Unable to save note."
 msgstr "Kann die Notiz nicht sichern."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf wurde nicht konfiguriert, diese Nachricht anzuzeigen, daher sendet "
-"es sie Ihnen."
+"Debconf wurde nicht konfiguriert, diese Fehlernachricht anzuzeigen, daher "
+"sendet es sie Ihnen."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -329,16 +331,16 @@ msgstr ""
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr ""
+msgstr "apt-extracttemplates schlug fehl: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr ""
+msgstr "Extrahier Templates aus Paketen: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr ""
+msgstr "Vorkonfiguration der Pakete ...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format
@@ -363,6 +365,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Aufruf: dpkg-reconfigure [Optionen] Pakete\n"
+"  -a,  --all\t\t\tAlle Pakete neu konfigurieren.\n"
+"  -u,  --unseen-only\t\tNur noch nicht gestellte Fragen zeigen.\n"
+"       --default-priority\tVoreingestellte Priorität benutzen (statt niedrig).\n"
+"       --force\t\t\tNeukonfiguration kaputter Pakete erzwingen."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -390,17 +397,19 @@ msgstr "Kann die Status-Datei nicht lesen: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Aufruf: debconf-communicate [Optionen] [Paket]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Dieses Werkzeug ist veraltet. Sie sollten stattdessen "
+"das Programm po2debconf aus po-debconf benutzen."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Aufruf: debconf-mergetemplate [Optionen] [Templates.ll ...] Templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -408,6 +417,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tSelbst veraltete Übersetzungen einbeziehen.\n"
+"\t--drop-old-templates\tVeraltete Templates ganz ignorieren."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -441,13 +453,15 @@ msgstr "%s ist veraltet; lasse das ganze Tamplate fallen!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Aufruf: debconf [Optionen] Befehl [Argumente]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=package\t\tDas Paket setzen, dem der Befehl gehört."
 
 #, fuzzy
 #~ msgid "preconfiguring %s (%s)"

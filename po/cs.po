@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-12-30 17:57+0100\n"
+"PO-Revision-Date: 2006-01-27 13:45+0100\n"
 "Last-Translator: Miroslav Kure <kurem@debian.cz>\n"
 "Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -130,12 +130,12 @@ msgid "Unable to save note."
 msgstr "Poznámka nelze uložit."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf nebyl nastaven pro zobrazení této poznámky, takže vám ji poslal."
+"Debconf nebyl nastaven pro zobrazení této chybové hlášky, takže vám ji "
+"poslal."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -312,7 +312,7 @@ msgstr "nemohu znovu otevřít standardní vstup: %s"
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "musíte zadat nějaké balíky pro předkonfiguraci"
+msgstr "musíte zadat nějaké balíky pro přednastavení"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -330,7 +330,7 @@ msgstr "Extrahuji z balíků šablony: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr "Přednastavuji balíky ...\n"
+msgstr "Přednastavuji balíky...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format

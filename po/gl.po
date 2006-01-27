@@ -1,13 +1,13 @@
 # Galician translation of debconf.
 # Copyright (C) 2001 Jacobo Tarrío Barreiro.
-# Jacobo Tarrío <jtarrio@debian.org>, 2001, 2005.
+# Jacobo Tarrío <jtarrio@debian.org>, 2001, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-02-22 18:26+0100\n"
+"PO-Revision-Date: 2006-01-27 14:48+0100\n"
 "Last-Translator: Jacobo Tarrío <jtarrio@debian.org>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -62,6 +62,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tEspecifica a interface de debconf a empregar.\n"
+"  -p,  --priority\t\tEspecifica a prioridade mínima das preguntas.\n"
+"       --terse\t\t\tActiva o modo calado.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -133,12 +136,11 @@ msgid "Unable to save note."
 msgstr "Non se puido gravar a nota."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
+"Non se configurou debconf para amosar este erro, así que lla enviou a Vd."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -328,9 +330,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates non funcionou: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates non funcionou: %s"
+msgstr "A extraer os patróns dos paquetes: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -359,6 +361,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Emprego: dpkg-reconfigure [opcións] paquetes\n"
+"  -a,  --all\t\t\tReconfigura tódolos paquetes.\n"
+"  -u,  --unseen-only\t\tAmosa só as preguntas que non se fixeron.\n"
+"       --default-priority\tEmprega a prioridade predeterminada.\n"
+"       --force\t\t\tForza a reconfiguración dos paquetes rotos."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -386,17 +393,19 @@ msgstr "Non se puido ler o ficheiro de estado: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Emprego: debconf-communicate [opcións] [paquete]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Esta utilidade vaise extinguir. Debería empregar o "
+"programa po2debconf de po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Emprego: debconf-mergetemplate [opcións] [patróns.ll ...] patróns"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -404,6 +413,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tMestura incluso as traducións anticuadas.\n"
+"\t--deop-old-templates\tOmite os patróns anticuados enteiros."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -437,13 +449,15 @@ msgstr "%s é antigo de máis; descártase o patrón enteiro"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Emprego: debconf [opcións] orde [args]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=paquete\t\tFixa o paquete que contén a orde."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Preconfigurando %s (%s)"
@@ -511,3 +525,4 @@ msgstr ""
 #~ "Usage: dpkg-reconfigure [--frontend=type] [--priority=value] packages"
 #~ msgstr ""
 #~ "Emprego: dpkg-reconfigure [--frontend=tipo] [--priority=valor] paquetes"
+
