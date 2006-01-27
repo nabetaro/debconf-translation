@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2006-01-07 13:56+0100\n"
+"PO-Revision-Date: 2006-01-27 17:01+0100\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tUrčí rozhranie pre debconf.\n"
+"  -p,  --priority\t\tUrčí minimálnu prioritu zobrazovaných otázok.\n"
+"       --terse\t\t\tUmožní stručný režim.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -129,12 +132,12 @@ msgid "Unable to save note."
 msgstr "Poznámka sa nedá uložiť."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf nebol nastavený na zobrazenie tejto poznámky, takže vám ju poslal."
+"Debconf nebol nastavený na zobrazenie tejto chybovej správy, takže vám ju "
+"poslal."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -166,7 +169,7 @@ msgstr "nič z uvedeného"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Zadajte položky, ktoré chcete vybrať, oddelené medzerami."
+msgstr "Zadajte položky, ktoré si chcete zvoliť, oddelené medzerami."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -275,7 +278,7 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"varovanie: možné narušenie databázy. Pokus o opravu sa vykoná pridaním "
+"upozornenie: možno je poškodená databáza. Pokus o opravu sa vykoná pridaním "
 "chýbajúcej otázky %s."
 
 #: ../Debconf/Template.pm:203
@@ -310,11 +313,11 @@ msgstr "nedá sa znovu otvoriť štandartný vstup: %s"
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "musíte zadať nejaké balíky pre prednastavenie"
+msgstr "musíte zadať nejaké balíky na predbežné nastavenie"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "odkladám nastavenie balíkov, pretože apt-utils nie sú nainštalované"
+msgstr "nastavenie balíkov sa odkladá, pretože nie sú nainštalované nástroje apt-utils"
 
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
@@ -322,13 +325,13 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates zlyhalo: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates zlyhalo: %s"
+msgstr "Z balíkov sa vyberajú šablóny: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr "Prednastavujú sa balíky ...\n"
+msgstr "Pripravuje sa nastavenie balíkov ...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format
@@ -343,7 +346,7 @@ msgstr "debconf: nedajú sa zmeniť práva: %s"
 #: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s sa nedá prednastaviť, výstupná chyba %s"
+msgstr "%s sa nedá pripraviť na nastavenie, výstupná chyba %s"
 
 #: ../dpkg-reconfigure:92
 msgid ""
@@ -353,11 +356,16 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Použitie: dpkg-reconfigure [voľby] balíky\n"
+"  -a,  --all\t\t\tRekonfigurácia všetkých balíkov.\n"
+"  -u,  --unseen-only\t\tZobrazí iba tie otázky, ktoré ešte neboli zodpovedané.\n"
+"       --default-priority\tPoužije predvolenú prioritu namiesto nízkej.\n"
+"       --force\t\t\tVynúti rekonfiguráciu poškodených balíkov."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s sa musí spustiť ako root"
+msgstr "%s sa musí spustiť s právami root-a"
 
 #: ../dpkg-reconfigure:137
 msgid "please specify a package to reconfigure"
@@ -371,7 +379,7 @@ msgstr "%s nie je nainštalovaný"
 #: ../dpkg-reconfigure:162
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s je narušený, alebo nie je úplne nainštalovaný"
+msgstr "%s je poškodený alebo nie je úplne nainštalovaný"
 
 #: ../dpkg-reconfigure:239
 #, perl-format
@@ -380,17 +388,19 @@ msgstr "Nedá sa načítať stavový súbor: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Použitie: debconf-communicate [voľby] [balík]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: Tento nástroj by sa už nemal používať. Mali by ste "
+"prejsť na používanie programu po2debconf z balíka po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Použitie: debconf-mergetemplate [voľby] [šablóny.ll ...] šablóny"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -398,6 +408,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tZlúčiť aj v prípade zastaralých prekladov.\n"
+"\t--drop-old-templates\tZahodiť všetky zastaralé šablóny."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -431,13 +444,12 @@ msgstr "%s je zastaralý; zahadzuje sa celá šablóna!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Použitie: debconf [voľby] príkaz [parametre]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "prednastavuje sa %s (%s)"
+"\n"
+"  -o,  --owner=balík\t\tNastaví balík, v ktorom sa nachádza daný príkaz."
