@@ -7,6 +7,7 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Holger Wansing <linux@wansing-online.de>, 2006.
 # Dennis Stampfer <seppy@debian.org>, 2003, 2004, 2005.
 # Alwin Meschede <ameschede@gmx.de>, 2003, 2004.
 # Bastian Blank <waldi@debian.org>, 2003.
@@ -20,13 +21,12 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-08-03 22:00+0200\n"
-"Last-Translator: Holger Wansing <h.wansing@onlinehome.de>\n"
+"PO-Revision-Date: 2006-01-27 23:09+0100\n"
+"Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"Content-Transfer-Encoding: 8bit"
 
 #. Type: select
 #. Choices
@@ -52,7 +52,7 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Pakete die Debconf für die Konfiguration verwenden, teilen ein gemeinsames "
+"Pakete, die Debconf für die Konfiguration verwenden, haben ein gemeinsames "
 "»look and feel«. Sie können wählen, welche Benutzerschnittstelle sie "
 "benutzen."
 
@@ -60,7 +60,6 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:5
-#, fuzzy
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -69,13 +68,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Das Dialog-Frontend ist eine zeichenbasierte Vollbildschirmdarstellung, "
+"Das Dialog-Frontend nutzt eine zeichenbasierte Vollbildschirmdarstellung, "
 "während das Readline-Frontend eine eher traditionelle einfache "
 "Textschnittstelle verwendet, und sowohl das GNOME- als auch das KDE-Frontend "
 "sind moderne X-Schnittstellen, die in den jeweiligen Desktop eingepasst sind "
 "(aber in beliebigen X-Umgebungen verwendet werden können). Das Editor-"
 "Frontend läßt Sie die Dinge mit Ihrem Lieblingseditor konfigurieren. Das "
-"nicht-interaktive Frontend fragt Sie nie irgendeine Frage."
+"nicht-interaktive Frontend stellt Ihnen nie irgendeine Frage."
 
 #. Type: select
 #. Choices
@@ -87,7 +86,7 @@ msgstr "kritisch, hoch, mittel, niedrig"
 #. Description
 #: ../templates:20
 msgid "Ignore questions with a priority less than..."
-msgstr "Ignoriere Fragen mit einer Priorität niedriger als..."
+msgstr "Ignoriere Fragen mit einer Priorität niedriger als ..."
 
 #. Type: select
 #. Description
@@ -101,6 +100,14 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Abhängig von der gewählten Priorität stellt Debconf Ihnen Fragen "
+"oder unterdrückt diese. Wählen Sie die niedrigste Prioritätsstufe der Fragen, "
+"die Sie sehen möchten:\n"
+"  - »kritisch« fragt Sie nur, wenn das System beschädigt werden könnte.\n"
+"    Wählen Sie dies, wenn Sie Linux-Neuling sind oder es eilig haben.\n"
+"  - »hoch« ist für ziemlich wichtige Fragen.\n"
+"  - »mittel« ist für normale Fragen.\n"
+"  - »niedrig« ist für Kontrollfreaks, die alles sehen möchten."
 
 #
 #. Type: select
@@ -117,13 +124,13 @@ msgstr ""
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Installiere Pakete"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Bitte warten ..."
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
