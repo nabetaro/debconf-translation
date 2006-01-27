@@ -9,14 +9,12 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-04-01 22:04+0200\n"
+"PO-Revision-Date: 2006-01-27 21:07+0200\n"
 "Last-Translator: Lior Kaplan <webmaster@guides.co.il>\n"
 "Language-Team: Hebrew <webmaster@guides.co.il>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Hebrew\n"
-"X-Poedit-Country: Israel\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -131,11 +129,10 @@ msgid "Unable to save note."
 msgstr "לא מסוגל לשמור הערה."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
-msgstr "Debconf לא הוגדרה להציג את הערה זאת, אז היא נשלח אליך בדואר."
+msgstr "Debconf לא הוגדרה להציג את הודעת שגיאה זאת, לכן היא נשלח אליך בדואר."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -316,9 +313,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates נכשל: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates נכשל: %s"
+msgstr "חולץ תבניות מהחבילה: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -446,3 +443,4 @@ msgstr ""
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "מגדיר מראש את %s (%s)"
+
