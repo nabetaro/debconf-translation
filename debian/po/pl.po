@@ -6,14 +6,14 @@
 # Polish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Copyright (C) 2004-2005 Bartosz Feñski <fenio@debian.org>
+# Copyright (C) 2004-2006 Bartosz Feñski <fenio@debian.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-27 16:39+0200\n"
+"PO-Revision-Date: 2006-01-28 01:28+0100\n"
 "Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
 "MIME-Version: 1.0\n"
@@ -24,13 +24,13 @@ msgstr ""
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr ""
+msgstr "Dialog, readline, Gnome, Kde, edytor, nieinteraktywnie"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr ""
+msgstr "Którego interfejsu u¿yæ do konfiguracji pakietów?"
 
 #. Type: select
 #. Description
@@ -38,7 +38,10 @@ msgstr ""
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr ""
+msgstr 
+"Pakiety korzystaj±ce do konfiguracji z debconfa wspó³dziel± jeden "
+"wygl±d i sposób u¿ycia. Mo¿esz wybraæ rodzaj interfejsu wykorzystywanego "
+"do tego."
 
 #. Type: select
 #. Description
@@ -51,6 +54,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"Nak³adka dialog jest pe³noekranowa i wy¶wietla menu w trybie tekstowym "
+"podczas gdy nak³adka readline jest bardziej tradycyjnym interfejsem i "
+"korzysta ze zwyk³ego tekstu. Zarówno nak³adka Gnome jak i Kde s± "
+"nowoczesnymi interfejsami dostosowanymi do poszczególnych ¶rodowisk "
+"(ale mog± zostaæ u¿yte w jakimkolwiek ¶rodowisku X). Nak³adka edytor "
+"pozwala konfigurowaæ z wykorzystaniem ulubionego edytora tekstowego. "
+"Nak³adka nieinteraktywna nigdy nie zadaje ¿adnych pytañ."
 
 #. Type: select
 #. Choices
@@ -76,6 +86,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf u¿ywa priorytetów dla zadawanych pytañ. Wybierz najni¿szy priorytet "
+"pytañ jakie chcesz zobaczyæ:\n"
+"  - 'krytyczny' zadaje pytania tylko je¶li istnieje niebezpieczeñstwo \n"
+    "uszkodzenia systemu. Zalecane dla pocz±tkuj±cych\n"
+"  - 'wysoki' dla raczej istotnych pytañ\n"
+"  - '¶redni' dla zwyczajnych pytañ\n"
+"  - 'niski' dla tych, którzy chc± kontrolowaæ ka¿dy szczegó³"
 
 #. Type: select
 #. Description
@@ -84,18 +101,21 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Pamiêtaj, ¿e bez wzglêdu na to jaki poziom wybierzesz, istnieje mo¿liwo¶æ "
+"ujrzenia wszystkich pytañ po przekonfigurowaniu pakietu z u¿yciem "
+"dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Instalowanie pakietów"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Proszê czekaæ..."
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "

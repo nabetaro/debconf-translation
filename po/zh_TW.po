@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-04-01 18:03+0800\n"
+"PO-Revision-Date: 2006-01-28 22:39+0800\n"
 "Last-Translator: Kanru Chen <koster@debian.org.tw>\n"
 "Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -127,11 +127,12 @@ msgid "Unable to save note."
 msgstr "不能儲存備忘。"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
-msgstr "Debconf 並沒有設定顯示這個備忘，所以直接郵寄給您。"
+msgstr ""
+"Debconf 並沒有設定顯示這個錯誤訊息，所以直接"
+"郵寄給您。"
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -308,9 +309,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates 失敗：%s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates 失敗：%s"
+msgstr "從套件中提取樣板：%d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
