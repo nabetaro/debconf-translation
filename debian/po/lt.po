@@ -6,7 +6,7 @@
 # Lithuanian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Kęstutis Biliūnas <kebil@kaunas.init.lt>, 2004, 2005.
+# Kęstutis Biliūnas <kebil@kaunas.init.lt>, 2004, 2005, 2006.
 # Marius Gedminas <mgedmin@b4net.lt>, 2004.
 # Darius Skilinskas <darius10@takas.lt>, 2005.
 #
@@ -15,24 +15,25 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-26 10:28+0300\n"
+"PO-Revision-Date: 2006-01-28 22:40+0200\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #. Type: select
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr ""
+msgstr "Dialog, Readline (komandinė eilutė), Gnome, Kde, "
+"tekstinis redaktorius, neinteraktyvus"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr ""
+msgstr "Kokia sąsaja turėtų būti naudojama paketų konfigūravimui?"
 
 #. Type: select
 #. Description
@@ -41,6 +42,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Paketai, naudojantys debconf, naudoja vieną bendrą naudotojo sąsaja. "
+"Galite pasirinkti Jums tinkamiausią sąsajos tipą."
 
 #. Type: select
 #. Description
@@ -53,6 +56,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"Dialog - tai pilnaekranė tekstine sąsaja, tuo tarpu Readline yra labiau tradicinė "
+"tekstinė sąsaja. Gnome ir Kde yra šiuolaikinės X naudotojo sąsajos, skirtos "
+"dirbti atitinkamuose darbastaliuose (bet gali būti naudojamos bet kurioje X "
+"aplinkoje). Tekstinio redaktoriaus sąsaja leidžia atlikti konfigūravimą naudojant "
+"Jūsų mėgiamą tekstinį redaktorių. Neinteraktyvi sąsaja niekuomet nepateiks "
+"Jums jokių klausimų."
 
 #. Type: select
 #. Choices
@@ -78,6 +87,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf skiria jums pateikiamų klausimų prioritetus. Pasirinkti žemiausią, "
+"norimų matyti klausimų, prioriteta:\n"
+"  -  'kritiškas' rodys tik kritiškus sistemos darbui klausimusi\n"
+"     Pasirinkite šį, jei esate pradedantysis, arba jei skubate.\n"
+"  -  'aukštas' rodo svarbiausius klausimus\n"
+"  -  'vidutinis' rodo normalius klausimus\n"
+"  -  'žemas' skirtas tiems, kurie nori matyti viską"
 
 #. Type: select
 #. Description
@@ -86,51 +102,17 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Pastebėkite, kad nepriklausomai nuo to, kurį prioritetiškumo lygį pasirinksite, "
+"Jūs visada galėsite matyti visus klausimus vykdydami programą dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Diegiami paketai"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Paketai, konfigūracijai naudojantys debconf'ą, suteikia prioritetus "
-#~ "užduodamiems klausimams. Jums bus rodomi tik klausimai su su pasirinktu "
-#~ "arba aukštesniu prioritetu. Visi mažiau svarbūs klausimai bus praleisti."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Galite pasirinkti žemiausią rodomų klausimų prioritetiškumą:\n"
-#~ " - 'kritiškas' - klausimams, kurie neįsikišus naudotojui greičiausiai\n"
-#~ "    nulauš sistemą.\n"
-#~ " - 'aukštas' - klausimams, neturintiems priimtino numatytojo\n"
-#~ "    varianto.\n"
-#~ " - 'vidutinis' - įprastiems klausimams, turintiems priimtiną\n"
-#~ "    numatytąjį variantą.\n"
-#~ " - 'žemas' - paprastiems klausimams, turintiems numatytąjį\n"
-#~ "    atsakymo variantą, tinkantį didžiumai atvejų."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Pavyzdžiui, šis klausimas turi vidutinį prioritetą, ir jei Jūsų "
-#~ "pasirinktas prioritetas jau būtų nustatytas kaip 'aukštas' ar "
-#~ "'kritiškas', jūs šio klausimo nematytumėte."
+msgstr "Palaukite..."
