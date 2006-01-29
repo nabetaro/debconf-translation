@@ -2,14 +2,14 @@
 # Copyright (C) 2004 the debconf development team
 # This file is distributed under the same license as the debconf package.
 # Stefano Canepa <sc@linux.it>, 2004-2005
-# Danilo Piazzalunga <danilopiazza@libero.it>, 2004-2005
+# Danilo Piazzalunga <danilopiazza@gmail.com>, 2004-2006
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.48\n"
+"Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-04-16 14:18+0200\n"
-"Last-Translator: Danilo Piazzalunga <danilopiazza@libero.it>\n"
+"POT-Creation-Date: 2006-01-29 13:06+0100\n"
+"PO-Revision-Date: 2006-01-29 13:11+0100\n"
+"Last-Translator: Danilo Piazzalunga <danilopiazza@gmail.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,13 +132,12 @@ msgid "Unable to save note."
 msgstr "Impossibile salvare la nota."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
-"spedita."
+"Debconf non è stato configurato per mostrare questo messaggio d'errore, così "
+"ve l'ha spedito."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -291,7 +290,7 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s\". "
+"Il template n°%s in %s ha un campo duplicato «%s» con nuovo valore «%s». "
 "Probabilmente due template non sono separati in modo corretto da un solo "
 "carattere di newline.\n"
 
@@ -331,9 +330,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates fallito: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates fallito: %s"
+msgstr "Estrazione dei template dai pacchetti: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -461,14 +460,3 @@ msgstr ""
 "\n"
 "  -o,  --owner=package          Specifica il pacchetto a cui il comando\n"
 "                                apppartiene."
-
-#~ msgid ""
-#~ "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-#~ "Probably two templates are not properly seperated by a lone newline.\n"
-#~ msgstr ""
-#~ "Il template n°%s in %s ha un campo duplicato \"%s\" con nuovo valore \"%s"
-#~ "\". Probabilmente due template non sono separati in modo corretto da un "
-#~ "solo carattere di newline.\n"
-
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "Preconfigurazione di %s in corso di (%s)"
