@@ -110,7 +110,11 @@ class DebconfCommunicator(Debconf, object):
         self.shutdown()
 
 
-_frontEndProgram = '/usr/share/debconf/frontend'
+if ('DEBCONF_USE_CDEBCONF' in os.environ and
+    os.environ['DEBCONF_USE_CDEBCONF'] != ''):
+    _frontEndProgram = '/usr/lib/cdebconf/debconf'
+else:
+    _frontEndProgram = '/usr/share/debconf/frontend'
 
 def runFrontEnd():
     if not os.environ.has_key('DEBIAN_HAS_FRONTEND'):

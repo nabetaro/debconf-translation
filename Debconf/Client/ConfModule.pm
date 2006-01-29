@@ -71,7 +71,12 @@ module is loaded in the usual way.
 sub import {
 	if (! $ENV{DEBIAN_HAS_FRONTEND}) {
 		$ENV{PERL_DL_NONLAZY}=1;
-		exec "/usr/share/debconf/frontend", $0, @ARGV;
+		if (exists $ENV{DEBCONF_USE_CDEBCONF} and
+		    $ENV{DEBCONF_USE_CDEBCONF} ne '') {
+			exec "/usr/lib/cdebconf/debconf", $0, @ARGV;
+		} else {
+			exec "/usr/share/debconf/frontend", $0, @ARGV;
+		}
 	}
 
 	# Make the Exporter still work.
