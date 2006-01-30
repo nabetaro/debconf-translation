@@ -7,10 +7,10 @@
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2006.
 # 
 msgid ""
-""
-msgstr "Project-Id-Version: debian-installer Level 1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-04 12:55-0700\n"
+msgstr ""
+"Project-Id-Version: debian-installer Level 1\n"
+"Report-Msgid-Bugs-To: joeyh@debian.org\n"
+"POT-Creation-Date: 2005-12-04 12:53-0500\n"
 "PO-Revision-Date: 2006-01-27 18:56+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -20,30 +20,31 @@ msgstr "Project-Id-Version: debian-installer Level 1\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: LocFactoryEditor 1.6b31\n"
 
-#.Type: select
-#.Choices
-#:../templates:3
+#. Type: select
+#. Choices
+#: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "hộp thoại, Readline, Gnome, Kde, trình hiệu chỉnh, không tương tác"
 
-#.Type: select
-#.Description
-#:../templates:5
+#. Type: select
+#. Description
+#: ../templates:5
 msgid "What interface should be used for configuring packages?"
 msgstr "Để cấu hình gói tin, trình debconf nên dùng giao diện nào?"
 
-#.Type: select
-#.Description
-#:../templates:5
+#. Type: select
+#. Description
+#: ../templates:5
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr "Các gói tin dùng debconf để cấu hình thì có cùng kiểu dạng hình thức và cảm "
+msgstr ""
+"Các gói tin dùng debconf để cấu hình thì có cùng kiểu dạng hình thức và cảm "
 "giác. Tại đây bạn có thể "
 
-#.Type: select
-#.Description
-#:../templates:5
+#. Type: select
+#. Description
+#: ../templates:5
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -51,26 +52,29 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr "Tiền tiêu hộp thoại là một giao diện đựa vào ký tự trong toàn màn hình, còn "
+msgstr ""
+"Tiền tiêu hộp thoại là một giao diện đựa vào ký tự trong toàn màn hình, còn "
 "tiền tiêu readline dùng một giao diện chữ thô truyền thống hơn, và hai giao "
 "diện gnome và kde đều là giao diện X hiện thời, thích hợp với màn hình nền X "
 "ấy (nhưng mà bạn có thể sử dụng chúng trong bất cứ môi trường X nào). Tiền "
 "tiêu trình hiệu chỉnh cho phép bạn cấu hình tùy chọn dùng trình hiệu chỉnh "
 "văn bản ưa thích. Tiền tiêu không tương tác không phải hỏi gì."
 
-#.Type: select
-#.Choices
-#:../templates:18
+#. Type: select
+#. Choices
+#: ../templates:18
 msgid "critical, high, medium, low"
 msgstr "Tới hạn, cao, trung bình, thấp"
 
-#.Type: select
-#.Description
-#:../templates:20
+#. Type: select
+#. Description
+#: ../templates:20
 msgid "Ignore questions with a priority less than..."
 msgstr "Bỏ qua các câu hỏi với mức độ ưu tiên thấp hơn so với..."
 
-#:../templates:20
+#. Type: select
+#. Description
+#: ../templates:20
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -79,7 +83,8 @@ msgid ""
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
-msgstr "Trình debconf định quyền ưu tiên cho câu hỏi cấu hình. Bạn có muốn xem câu "
+msgstr ""
+"Trình debconf định quyền ưu tiên cho câu hỏi cấu hình. Bạn có muốn xem câu "
 "hỏi có ưu tiên thấp nhất nào?\n"
 " • nghiêm trọng\tnhắc bạn chỉ khi hệ thống sắp bị hỏng\n"
 "\t\t\t\t\tHãy chọn điều này nếu bạn là một người dùng mới,\n"
@@ -88,24 +93,25 @@ msgstr "Trình debconf định quyền ưu tiên cho câu hỏi cấu hình. B�
 " • vừa\t\t\tcho câu hỏi bình thường\n"
 " • thấp\t\t\tcho người dùng muốn biết mọi điều.\t\t\t"
 
-#.Type: select
-#.Description
-#:../templates:20
+#. Type: select
+#. Description
+#: ../templates:20
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr "Hãy ghi chú rằng cho dẫu là bạn chọn mức độ nào, bạn vẫn còn có thể xem mọi "
+msgstr ""
+"Hãy ghi chú rằng cho dẫu là bạn chọn mức độ nào, bạn vẫn còn có thể xem mọi "
 "câu hỏi bằng cách cấu hình lại một gói tin, dùng lệnh «dpkg-reconfigure "
 "<tên_gói_tin>»."
 
-#.Type: text
-#.Description
-#:../templates:34
+#. Type: text
+#. Description
+#: ../templates:34
 msgid "Installing packages"
 msgstr "Đang cài đặt gói."
 
-#.Type: text
-#.Description
-#:../templates:38
+#. Type: text
+#. Description
+#: ../templates:38
 msgid "Please wait..."
 msgstr "Hãy chờ..."
