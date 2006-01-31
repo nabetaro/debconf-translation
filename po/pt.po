@@ -2,14 +2,17 @@
 # Copyright (C) 2004 Miguel Figueiredo <elmig@debianpt.org>
 # This file is distributed under the same license as the debconf package.
 # Miguel Figueiredo <elmig@debianpt.org>, 2004.
-# 2005.01.23 - Miguel Figueiredo <elmig@debianpt.org> - 1f2u fixed.
-# 2005.04.02 - Miguel Figueiredo <elmig@debianpt.org> - 8u new strings.
+#
+# 2005-01-23 - Miguel Figueiredo <elmig@debianpt.org> - 1f2u fixed.
+# 2005-04-02 - Miguel Figueiredo <elmig@debianpt.org> - 8u new strings.
+# 2006-01-29 - Miguel Figueiredo <elmig@debianpt.org> - 2f
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-01-23 14:54+0000\n"
+"PO-Revision-Date: 2006-01-29 23:07+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,13 +139,12 @@ msgid "Unable to save note."
 msgstr "Não foi possível gravar a nota."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"O Debconf não foi configurado para mostrar esta nota, por isso enviou-a via "
-"mail para si."
+"O Debconf não foi configurado para mostrar esta mensagem de erro, por "
+"isso enviou-a por mail para si."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -333,9 +335,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates falhou: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates falhou: %s"
+msgstr "A extraír templates a partir dos pacotes: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"

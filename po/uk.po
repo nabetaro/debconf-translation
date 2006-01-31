@@ -1,22 +1,20 @@
-# translation of debconf.po to Ukrainian
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Eugeniy Meshcheryakov <eugen@univ.kiev.ua>, 2004, 2005.
+# translation of debconf-uk.po to Ukrainian
+# This file is distributed under the same license as the debconf package.
 #
+# Eugeniy Meshcheryakov <eugen@univ.kiev.ua>, 2004, 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf-uk_uk\n"
+"Project-Id-Version: debconf-uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-04-01 20:39+0300\n"
+"PO-Revision-Date: 2006-01-31 01:41+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.1\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -52,8 +50,7 @@ msgstr ""
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Виникла проблема при налаштуванні бази даних, визначеної в строфі %s з %s."
+msgstr "Виникла проблема при налаштуванні бази даних, визначеної в строфі %s з %s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -97,8 +94,7 @@ msgid "no"
 msgstr "ні"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Вкажіть необхідну кількість параметрів, розділяючи їх комою з пробілом (', "
 "').)"
@@ -118,8 +114,8 @@ msgstr "Зберегти повідомлення"
 #: ../Debconf/Element/Gnome/Note.pm:53
 msgid "Debconf was asked to save this note, so it mailed it to you."
 msgstr ""
-"Сценарій налаштування запросив збереження повідомлення, тому воно було "
-"відправлене поштою."
+"Сценарій налаштування запросив збереження повідомлення, тому його було "
+"відправлено поштою."
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
@@ -127,7 +123,7 @@ msgstr "Інформація"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
-msgstr "Повідомлення було відіслане."
+msgstr "Повідомлення було відіслано."
 
 #: ../Debconf/Element/Gnome/Note.pm:60
 msgid "Error"
@@ -138,17 +134,15 @@ msgid "Unable to save note."
 msgstr "Не можу зберегти повідомлення."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf був налаштований не відображувати це повідомлення, тому воно було "
-"відправлене поштою."
+"Debconf не був налаштований відображувати це повідомлення про помилку, тому його "
+"відправлено поштою."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf був налаштований не відображувати це повідомлення, тому воно було "
 "відправлене поштою."
@@ -177,8 +171,7 @@ msgstr "жоден з перерахованих"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
+msgstr "Вкажіть літери, що відповідають вибраним варіантам, розділяючи їх пробілами."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -217,8 +210,7 @@ msgstr ""
 "може бути застосована."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Для діалогового інтерфейсу потрібен термінал не менше 13 рядків в висоту та "
 "31 стовпчиків в ширину."
@@ -338,9 +330,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "помилка при виконанні apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "помилка при виконанні apt-extracttemplates: %s"
+msgstr "Видобування шаблонів з пакунків: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -413,8 +405,7 @@ msgstr ""
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
-"Використання: debconf-mergetemplate [опції] [templates.ll ...] templates"
+msgstr "Використання: debconf-mergetemplate [опції] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -467,3 +458,4 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=пакунок\t\tВказати пакунок, що володіє даною командою."
+
