@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.59\n"
+"Project-Id-Version: debconf 1.4.69\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-11-17 13:19+0100\n"
+"PO-Revision-Date: 2006-01-26 19:22+0100\n"
 "Last-Translator: Steve Petruzzello <dlist@bluewin.ch>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "X-Poedit-Language: French\n"
-"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Poedit-SourceCharset: ISO-8859-15\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "Utilisation de l'interface %s à la place"
+msgstr "Utilisation de l'interface %s en remplacement"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
@@ -79,7 +79,7 @@ msgstr "La priorité « %s » non valable sera ignorée"
 #: ../Debconf/Config.pm:309
 #, perl-format
 msgid "Valid priorities are: %s"
-msgstr "Les priorités valables sont: %s"
+msgstr "Les priorités valables sont : %s"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../Debconf/Element/Gnome/Note.pm:55
 msgid "Information"
-msgstr "Informations"
+msgstr "Information"
 
 #: ../Debconf/Element/Gnome/Note.pm:56
 msgid "The note has been mailed."
@@ -143,13 +143,12 @@ msgid "Unable to save note."
 msgstr "Impossible d'enregistrer la note."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf n'a pas été configuré pour afficher cette note, il vous l'a donc "
-"envoyée par courrier électronique."
+"Debconf n'a pas été configuré pour afficher ce message d'erreur, il vous l'a "
+"donc envoyée par courrier électronique."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -318,7 +317,7 @@ msgstr "Erreur d'analyse de message vers « %s », dans la partie #%s de %s\n"
 #: ../Debconf/Template.pm:260
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Le message #%s de %s ne contient pas de ligne « Template: »\n"
+msgstr "Le message n° %s de %s ne contient pas de ligne « Template: »\n"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
@@ -328,7 +327,7 @@ msgstr "impossible de réouvrir stdin : %s"
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "Vous devez indiquer des paquets à pré-configurer"
+msgstr "Vous devez indiquer des paquets à préconfigurer"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -347,7 +346,7 @@ msgstr "Extraction des modèles depuis les paquets : %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr "Préconfiguration des paquets ...\n"
+msgstr "Préconfiguration des paquets...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format
@@ -362,7 +361,7 @@ msgstr "debconf : impossible de changer le mode : %s"
 #: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "Échec de la pré-configuration de %s, avec le code d'erreur %s"
+msgstr "Échec de la préconfiguration de %s, avec le code d'erreur %s"
 
 #: ../dpkg-reconfigure:92
 msgid ""
@@ -375,9 +374,9 @@ msgstr ""
 "Usage : dpkg-reconfigure [options] paquets\n"
 "  -a,  --all\t\t\treconfigure tous les paquets ;\n"
 "  -u,  --unseen-only\t\taffiche seulement les questions qui n'ont\n"
-"                    \t\tpas encore été posées ;\n"
+"                    \t\tpas encore été posées ;\n"
 "       --default-priority\tutilise la priorité par défaut plutôt\n"
-"                         \tque la priorité basse ;\n"
+"                         \tque la priorité basse ;\n"
 "       --force\t\t\tforce la reconfiguration des paquets cassés."
 
 #: ../dpkg-reconfigure:104
@@ -406,14 +405,14 @@ msgstr "Impossible de lire le fichier d'état : %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr "Usage : debconf-communicate [options] [paquet]"
+msgstr "Utilisation : debconf-communicate [options] [paquet]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate : Cet outil est obsolète. Vous devriez désormais "
+"debconf-mergetemplate : cet outil est obsolète. Vous devriez désormais "
 "utiliser le programme po2debconf du paquet po-debconf."
 
 #: ../debconf-mergetemplate:66
@@ -427,7 +426,7 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tfusionne même les traductions obsolètes ;\n"
+"        --outdated\t\tFusionne même les traductions obsolètes ;\n"
 "\t--drop-old-templates\tSupprime les questionnaires qui ne sont pas à jour."
 
 #: ../debconf-mergetemplate:119
@@ -462,7 +461,7 @@ msgstr "%s est obsolète ; l'ensemble du message est abandonné !"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr "Usage : debconf [options] commande [paramètres]"
+msgstr "Utilisation : debconf [options] commande [paramètres]"
 
 #: ../debconf:90
 msgid ""
@@ -470,4 +469,4 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=paquet\t\tpositionns le paquet auquel appartient la commande."
+"  -o,  --owner=paquet\t\tDéfinit le paquet auquel appartient la commande."
