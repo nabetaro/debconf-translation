@@ -2,9 +2,9 @@
 # Copyright (C) 2003, 2004 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Osman Yüksel <yuxel@sonsuzdongu.com>, 2004.
-# Recai Oktaş <roktas@omu.edu.tr>, 2004, 2006.
-# Özgür Murat Homurlu <ozgurmurat@gmx.net>, 2004.
+# Osman YÃ¼ksel <yuxel@sonsuzdongu.com>, 2004.
+# Recai OktaÅŸ <roktas@omu.edu.tr>, 2004, 2006.
+# Ã–zgÃ¼r Murat Homurlu <ozgurmurat@gmx.net>, 2004.
 # Halil Demirezen <halild@bilmuh.ege.edu.tr>, 2004.
 # Murat Demirten <murat@debian.org>, 2004.
 #
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
 "PO-Revision-Date: 2006-01-30 19:50+0200\n"
-"Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
+"Last-Translator: Recai OktaÅŸ <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,13 +26,13 @@ msgstr ""
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr "Diyalog, Readline, Gnome, Kde, Düzenleyici, Etkileşimsiz"
+msgstr "Diyalog, Readline, Gnome, Kde, DÃ¼zenleyici, EtkileÅŸimsiz"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr "Paketleri yapılandırmak için hangi arayüz kullanılacak?"
+msgstr "Paketleri yapÄ±landÄ±rmak iÃ§in hangi arayÃ¼z kullanÄ±lacak?"
 
 #. Type: select
 #. Description
@@ -41,9 +41,9 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Yapılandırma için debconf kullanan paketler ortak bir görüntü ve "
-"izlenim verirler. Yapılandırmada kullanılacak arayüz tipini "
-"seçebilirsiniz."
+"YapÄ±landÄ±rma iÃ§in debconf kullanan paketler ortak bir gÃ¶rÃ¼ntÃ¼ ve "
+"izlenim verirler. YapÄ±landÄ±rmada kullanÄ±lacak arayÃ¼z tipini "
+"seÃ§ebilirsiniz."
 
 #. Type: select
 #. Description
@@ -56,25 +56,25 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Diyalog arayüzü tam ekran, metin tabanlı bir arayüz sunarken; Readline daha "
-"geleneksel bir salt metin arayüzü, gnome ve kde ise kendi masaüstü ortamlarına "
-"uygun şekilde (fakat herhangi bir X ortamı içinde de kullanılabilecek) daha çağdaş "
-"X arayüzleri sunmaktadır. Düzenleyici arayüzü, kullanmayı tercih ettiğiniz metin "
-"düzenleyici ile elle yapılandırmaya olanak sağlar. Etkileşimsiz arayüz herhangi "
+"Diyalog arayÃ¼zÃ¼ tam ekran, metin tabanlÄ± bir arayÃ¼z sunarken; Readline daha "
+"geleneksel bir salt metin arayÃ¼zÃ¼, gnome ve kde ise kendi masaÃ¼stÃ¼ ortamlarÄ±na "
+"uygun ÅŸekilde (fakat herhangi bir X ortamÄ± iÃ§inde de kullanÄ±labilecek) daha Ã§aÄŸdaÅŸ "
+"X arayÃ¼zleri sunmaktadÄ±r. DÃ¼zenleyici arayÃ¼zÃ¼, kullanmayÄ± tercih ettiÄŸiniz metin "
+"dÃ¼zenleyici ile elle yapÄ±landÄ±rmaya olanak saÄŸlar. EtkileÅŸimsiz arayÃ¼z herhangi "
 "bir soru sormaz."
 
 #. Type: select
 #. Choices
 #: ../templates:18
 msgid "critical, high, medium, low"
-msgstr "kritik, yüksek, orta, düşük"
+msgstr "kritik, yÃ¼ksek, orta, dÃ¼ÅŸÃ¼k"
 
 #. Type: select
 #. Description
 #: ../templates:20
 msgid "Ignore questions with a priority less than..."
 msgstr ""
-"Göz ardı edilecek sorular aşağıdakinden düşük önceliğe sahip olacak..."
+"GÃ¶z ardÄ± edilecek sorular aÅŸaÄŸÄ±dakinden dÃ¼ÅŸÃ¼k Ã¶nceliÄŸe sahip olacak..."
 
 #. Type: select
 #. Description
@@ -88,13 +88,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf görüntülediği sorulara öncelikler verir. Görmek istediğiniz "
-"sorular için en düşük önceliği seçin:\n"
+"Debconf gÃ¶rÃ¼ntÃ¼lediÄŸi sorulara Ã¶ncelikler verir. GÃ¶rmek istediÄŸiniz "
+"sorular iÃ§in en dÃ¼ÅŸÃ¼k Ã¶nceliÄŸi seÃ§in:\n"
 "  - 'kritik' size sadece sistemi bozabilecek durumlarda soru sorar.\n"
-"     Yeni başlayan birisi ya da aceleci birisiyseniz bunu seçin.\n"
-"  - 'yüksek' önemi daha yüksek sorular\n"
-"  - 'orta' normal düzeyde sorular\n"
-"  - 'düşük' bütün seçenekleri görmek isteyen kontrol düşkünleri için"
+"     Yeni baÅŸlayan birisi ya da aceleci birisiyseniz bunu seÃ§in.\n"
+"  - 'yÃ¼ksek' Ã¶nemi daha yÃ¼ksek sorular\n"
+"  - 'orta' normal dÃ¼zeyde sorular\n"
+"  - 'dÃ¼ÅŸÃ¼k' bÃ¼tÃ¼n seÃ§enekleri gÃ¶rmek isteyen kontrol dÃ¼ÅŸkÃ¼nleri iÃ§in"
 
 #. Type: select
 #. Description
@@ -103,9 +103,9 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Unutmayın ki paketlerin dpkg-reconfigure komutu ile tekrar yapılandırılması "
-"sırasında burada seçtiğiniz öncelik seviyesi ne olursa olsun bütün soruları "
-"görebileceksiniz."
+"UnutmayÄ±n ki paketlerin dpkg-reconfigure komutu ile tekrar yapÄ±landÄ±rÄ±lmasÄ± "
+"sÄ±rasÄ±nda burada seÃ§tiÄŸiniz Ã¶ncelik seviyesi ne olursa olsun bÃ¼tÃ¼n sorularÄ± "
+"gÃ¶rebileceksiniz."
 
 #. Type: text
 #. Description
@@ -117,4 +117,4 @@ msgstr "Paketler kuruluyor"
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr "Lütfen bekleyin..."
+msgstr "LÃ¼tfen bekleyin..."
