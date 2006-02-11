@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-23 19:05+0000\n"
-"PO-Revision-Date: 2005-04-01 08:04-0300\n"
+"PO-Revision-Date: 2006-02-11 17:20-0200\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,13 +136,12 @@ msgid "Unable to save note."
 msgstr "Impossível salvar nota"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
-"você."
+"O Debconf não foi configurado para mostrar esta mensagem de erro, "
+"portanto o mesmoi a enviou para você."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
 msgid ""
@@ -334,9 +333,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates falhou : %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates falhou : %s"
+msgstr "Extraíndo templates de pacotes : %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
