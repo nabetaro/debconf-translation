@@ -38,7 +38,7 @@ The host name or IP address of an LDAP server to connect to.
 =item port
 
 The port on which to connect to the LDAP server.  If none is given, the
-default of 389 is used (or 686 if using SSL).
+default is used.
 
 =item basedn
 
