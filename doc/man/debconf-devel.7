@@ -654,7 +654,7 @@ And the postinst will look something like this:
  if [ ! -e $CONFIGFILE ]; then
  	echo "# Config file for my package" > $CONFIGFILE
  	echo "FOO=" >> $CONFIGFILE
- a	echo "BAR=" >> $CONFIGFILE
+	echo "BAR=" >> $CONFIGFILE
  fi
 
  # Substitute in the values from the debconf db.
