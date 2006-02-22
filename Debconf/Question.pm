@@ -416,9 +416,17 @@ sub AUTOLOAD {
 			return $Debconf::Db::config->setfield($this->{name}, $field, shift);
 		}
 		my $ret=$Debconf::Db::config->getfield($this->{name}, $field);
-		return $ret if defined $ret;
-		# Fall back to template values.
-		return $this->template->$field() if ref $this->template;
+		unless (defined $ret) {
+			# Fall back to template values.
+			$ret = $this->template->$field() if ref $this->template;
+		}
+		if (defined $ret) {
+			if ($field =~ /^(?:description|extended_description|choices)-/i) {
+				return $this->_expand_vars($ret);
+			} else {
+				return $ret;
+			}
+		}
 	};
 	goto &$AUTOLOAD;
 }
