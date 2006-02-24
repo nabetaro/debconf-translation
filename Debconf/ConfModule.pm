@@ -175,6 +175,54 @@ sub communicate {
 	return 1;
 }
 
+=item escape
+
+Escape backslashes and newlines for output via the debconf protocol.
+
+=cut
+
+sub escape {
+	my $text=shift;
+	my $out='';
+	for my $char (split //, $text) {
+		if ($char eq "\\") {
+			$out.="\\\\";
+		} elsif ($char eq "\n") {
+			$out.="\\n";
+		} else {
+			$out.=$char;
+		}
+	}
+	return $out;
+}
+
+=item unescape_split
+
+Unescape text received via the debconf protocol, and split by unescaped
+whitespace.
+
+=cut
+
+sub unescape_split {
+	my $text=shift;
+	my @words;
+	my $word='';
+	for my $chunk (split /(\\.|\s+)/, $text) {
+		if ($chunk eq '\n') {
+			$word.="\n";
+		} elsif ($chunk=~/^\\(.)$/) {
+			$word.=$1;
+		} elsif ($chunk=~/^\s+$/) {
+			push @words, $word;
+			$word='';
+		} else {
+			$word.=$chunk;
+		}
+	}
+	push @words, $word if $word ne '';
+	return @words;
+}
+
 =item process_command
 
 Pass in a raw command, and it will be processed and handled.
@@ -187,7 +235,12 @@ sub process_command {
 	debug developer => "<-- $_";
 	return 1 unless defined && ! /^\s*#/; # Skip blank lines, comments.
 	chomp;
-	my ($command, @params)=split(' ', $_);
+	my ($command, @params);
+	if (defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb}) {
+		($command, @params)=unescape_split($_);
+	} else {
+		($command, @params)=split(' ', $_);
+	}
 	$command=lc($command);
 	# This command could not be handled by a sub.
 	if (lc($command) eq "stop") {
@@ -201,6 +254,7 @@ sub process_command {
 	# Now call the subroutine for the command.
 	$command="command_$command";
 	my $ret=join(' ', $this->$command(@params));
+	$ret=escape($ret) if defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb};
 	debug developer => "--> $ret";
 	if ($ret=~/\n/) {
 		debug developer => 'Warning: return value is multiline, and would break the debconf protocol. Truncating to first line.';
@@ -379,7 +433,7 @@ sub command_capb {
 	$this->frontend->capb_backup(1) if grep { $_ eq 'backup' } @_;
 	# Multiselect is added as a capability to fix a backwards
 	# compatability problem.
-	my @capb=('multiselect');
+	my @capb=('multiselect', 'escape');
 	push @capb, $this->frontend->capb;
 	return $codes{success}, @capb;
 }

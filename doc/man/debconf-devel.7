@@ -249,10 +249,33 @@ the version of the protocol it speaks in the extended result code. If the
 version you specify is too low, debconf will reply with numeric code 30.
 .TP
 .B CAPB capabilities
+.RS
 You generally don't need to use this command. It exchanges with debconf a
 list of supported capabilities. Capabilities that both you and debconf
 support will be used, and debconf will reply with all the capabilities it
 supports.
+.P
+If 'escape' is found among your capabilities, debconf will expect commands
+you send it to have backslashes and newlines escaped (as \e\e and \en
+respectively) and will in turn escape backslashes and newlines in its
+replies. This can be used, for example, to substitute multi-line strings
+into templates, or to get multi-line extended descriptions reliably using
+METAGET.
+.P
+The following shell/Perl function will unescape replies sent by debconf in
+this mode:
+.P
+.ft CW
+.nf
+.ne 5  \" don't put a page break in the middle of this function
+unescape () {
+        echo "$1" | perl -ne \(aqfor (split /(\e\e.)/) {
+                s/\e\e(.)/$1 eq "n" ? "\en" : $1/eg; print
+        }\(aq
+}
+.fi
+.ft R
+.RE
 .TP
 .B TITLE string
 This sets the title debconf displays to the user. You rarely need to use

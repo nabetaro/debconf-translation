@@ -3,6 +3,14 @@ debconf (1.4.72) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Expand substitution variables when replying to localised METAGET
     requests for description, extended_description, or choices.
+  * Add support for an 'escape' capability. If a confmodule sets this using
+    CAPB, then commands it sends to debconf will be processed for backslash
+    escapes (\n is a newline, \ followed by any other character is just that
+    character) and debconf's replies will be backslash-escaped similarly.
+    This allows such things as embedding newlines in substitutions and
+    fetching extended descriptions using METAGET; the use of a capability is
+    required because otherwise this would break compatibility with old
+    confmodules. Closes: #126753
 
   [ Luk Claes ]
   * Translations:
