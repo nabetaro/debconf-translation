@@ -183,17 +183,9 @@ Escape backslashes and newlines for output via the debconf protocol.
 
 sub escape {
 	my $text=shift;
-	my $out='';
-	for my $char (split //, $text) {
-		if ($char eq "\\") {
-			$out.="\\\\";
-		} elsif ($char eq "\n") {
-			$out.="\\n";
-		} else {
-			$out.=$char;
-		}
-	}
-	return $out;
+	$text=~s/\\/\\\\/g;
+	$text=~s/\n/\\n/g;
+	return $text;
 }
 
 =item unescape_split
