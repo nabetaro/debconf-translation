@@ -103,6 +103,7 @@ class DebconfCommunicator(Debconf, object):
     def shutdown(self):
         if self.dccomm is not None:
             self.dccomm.tochild.close()
+            self.dccomm.fromchild.close()
             self.dccomm.wait()
             self.dccomm = None
 
