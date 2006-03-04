@@ -47,7 +47,20 @@ sub init {
 	$this->createdelements([]);
 	$this->dupelements([]);
 	$this->capb('backup');
-    
+
+	# Well I see that the Qt people are just as braindamaged about apps
+	# not being allowed to work as the GTK people. You all suck, FYI.    
+	if (fork) {
+		wait(); # for child
+		if ($? != 0) {
+			die "DISPLAY problem?\n";
+		}
+	}
+	else {
+		$this->qtapp(Qt::Application(\@ARGV_KDE));
+		exit(0); # success
+	}
+	
 	debug frontend => "QTF: initializing app";
 	$this->qtapp(Qt::Application(\@ARGV_KDE));
 	debug frontend => "QTF: initializing wizard";

@@ -17,7 +17,16 @@ debconf (1.4.72) UNRELEASED; urgency=low
   * Translations:
     - Hungarian new programs. Closes: #353933
 
- -- Luk Claes <luk@debian.org>  Wed, 22 Feb 2006 19:05:06 +0100
+  [ Joey Hess ]
+  * Add the same insane kind of fork check for Qt having a working display as
+    we already had for GTK, since both libraries are written by monkeys who
+    think that having a *library* exit(3) is a good idea if there's not a
+    usable display. Sheesh. (On the plus side, the same monkeys have taught
+    users to not care if it takes a 9 ghz machine to run a simple dialog, so
+    who cares if we have to use expensive forking to work around your brain
+    damage.) Closes: #354656, #244972, #246133
+
+ -- Joey Hess <joeyh@debian.org>  Sat,  4 Mar 2006 17:26:23 -0500
 
 debconf (1.4.71) unstable; urgency=low
 
