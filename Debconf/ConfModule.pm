@@ -250,7 +250,7 @@ sub process_command {
 	debug developer => "--> $ret";
 	if ($ret=~/\n/) {
 		debug developer => 'Warning: return value is multiline, and would break the debconf protocol. Truncating to first line.';
-		$ret=~s/\n.*//;
+		$ret=~s/\n.*//s;
 		debug developer => "--> $ret";
 	}
 	return $ret;

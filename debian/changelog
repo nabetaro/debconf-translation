@@ -12,6 +12,8 @@ debconf (1.4.72) UNRELEASED; urgency=low
     required because otherwise this would break compatibility with old
     confmodules. Closes: #126753
   * debconf.py: Avoid leaking a file descriptor from DebconfCommunicate.
+  * Fix truncation of multi-line return values to handle values over two
+    lines long correctly.
 
   [ Luk Claes ]
   * Translations:
