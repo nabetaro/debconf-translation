@@ -14,6 +14,10 @@ debconf (1.4.72) UNRELEASED; urgency=low
   * debconf.py: Avoid leaking a file descriptor from DebconfCommunicate.
   * Fix truncation of multi-line return values to handle values over two
     lines long correctly.
+  * Add a debconf-escape program and make the confmodules unescape text
+    automatically in escape mode. At present we don't escape text
+    automatically, but you can use 'debconf-escape -e' yourself if you want
+    an easy way to do that.
 
   [ Luk Claes ]
   * Translations:

@@ -87,6 +87,7 @@ An array reference. If set, it will hold a list of named of question that are
 # Here I define all the numeric result codes that are used.
 my %codes = (
 	success => 0,
+	escaped_data => 1,
 	badparams => 10,
 	syntaxerror => 20,
 	input_invisible => 30,
@@ -246,7 +247,6 @@ sub process_command {
 	# Now call the subroutine for the command.
 	$command="command_$command";
 	my $ret=join(' ', $this->$command(@params));
-	$ret=escape($ret) if defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb};
 	debug developer => "--> $ret";
 	if ($ret=~/\n/) {
 		debug developer => 'Warning: return value is multiline, and would break the debconf protocol. Truncating to first line.';
@@ -533,7 +533,11 @@ sub command_get {
 		return $codes{badparams}, "$question_name doesn't exist";
 
 	if (defined $question->value) {
-		return $codes{success}, $question->value;
+		if (defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb}) {
+			return $codes{escaped_data}, escape($question->value);
+		} else {
+			return $codes{success}, $question->value;
+		}
 	}
 	else {
 		return $codes{success}, '';
@@ -689,7 +693,11 @@ sub command_metaget {
 	unless (defined $fieldval) {
 		return $codes{badparams}, "$field does not exist";
 	}
-	return $codes{success}, $fieldval;
+	if (defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb}) {
+		return $codes{escaped_data}, escape($fieldval);
+	} else {
+		return $codes{success}, $fieldval;
+	}
 }
 
 =item command_fget

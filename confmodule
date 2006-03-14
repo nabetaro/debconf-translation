@@ -46,6 +46,12 @@ _db_cmd () {
 	# Disgusting, but it's the only good way to split the line,
 	# preserving all other whitespace.
 	RET="${_db_internal_line#[! 	][ 	]}"
+	case ${_db_internal_line%%[ 	]*} in
+		1)	# escaped data
+			RET="$(printf '%s' "$RET" | debconf-escape -u)"
+			return 0
+			;;
+	esac
 	return ${_db_internal_line%%[ 	]*}
 }
 

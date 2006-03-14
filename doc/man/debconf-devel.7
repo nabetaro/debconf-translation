@@ -260,21 +260,10 @@ you send it to have backslashes and newlines escaped (as \e\e and \en
 respectively) and will in turn escape backslashes and newlines in its
 replies. This can be used, for example, to substitute multi-line strings
 into templates, or to get multi-line extended descriptions reliably using
-METAGET.
-.P
-The following shell/Perl function will unescape replies sent by debconf in
-this mode:
-.P
-.ft CW
-.nf
-.ne 5  \" don't put a page break in the middle of this function
-unescape () {
-        echo "$1" | perl -ne \(aqfor (split /(\e\e.)/) {
-                s/\e\e(.)/$1 eq "n" ? "\en" : $1/eg; print
-        }\(aq
-}
-.fi
-.ft R
+METAGET. In this mode, you must escape input text yourself (you can use
+.BR debconf-escape (1)
+to help with this if you want), but the confmodule libraries will unescape
+replies for you.
 .RE
 .TP
 .B TITLE string

@@ -1,0 +1,71 @@
+#!/usr/bin/perl -w
+
+=head1 NAME
+
+debconf-escape - helper when working with debconf's escape capability
+
+=head1 SYNOPSIS
+
+ debconf-escape -e < unescaped-text
+ debconf-escape -u < escaped-text
+
+=head1 DESCRIPTION
+
+When debconf has the 'escape' capability set, it will expect commands
+you send it to have backslashes and newlines escaped (as C<\\> and C<\n>
+respectively) and will in turn escape backslashes and newlines in its
+replies. This can be used, for example, to substitute multi-line strings
+into templates, or to get multi-line extended descriptions reliably
+using C<METAGET>.
+
+This program unescapes replies sent by debconf in this mode.
+
+=head1 SEE ALSO
+
+L<debconf-devel(7)>
+(available in the debconf-doc package)
+
+=cut
+
+use strict;
+use Getopt::Long;
+
+use vars qw($escape $unescape);
+
+sub usage {
+	print STDERR <<EOF;
+Usage: debconf-unescape -e|-u < input-text
+  -e, --escape      escape text
+  -u, --unescape    unescape text
+
+Exactly one of -e or -u must be used.
+EOF
+	exit(1);
+}
+
+$escape=0;
+$unescape=0;
+
+GetOptions(
+	"escape|e" => \$escape,
+	"unescape|u" => \$unescape,
+) || usage();
+
+if ($escape == $unescape) {
+	usage();
+}
+
+if ($escape) {
+	while (<>) {
+		s/\\/\\\\/g;
+		s/\n/\\n/g;
+		print;
+	}
+} else {
+	while (<>) {
+		for (split /(\\.)/) {
+			s/\\(.)/$1 eq "n" ? "\n" : $1/eg;
+			print;
+		}
+	}
+}

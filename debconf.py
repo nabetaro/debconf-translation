@@ -24,6 +24,7 @@
 # SUCH DAMAGE.
 
 import sys, os
+import re
 import popen2
 
 class DebconfError(Exception):
@@ -68,6 +69,17 @@ class Debconf:
         status = int(status)
         if status == 0:
             return data
+        elif status == 1:   # unescaped data
+            unescaped = ''
+            for chunk in re.split(r'(\\.)', data):
+                if chunk.startswith('\\') and len(chunk) == 2:
+                    if chunk[1] == 'n':
+                        unescaped += '\n'
+                    else:
+                        unescaped += chunk[1]
+                else:
+                    unescaped += chunk
+            return unescaped
         else:
             raise DebconfError(status, data)
 

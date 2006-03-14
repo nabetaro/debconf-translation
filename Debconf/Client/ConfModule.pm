@@ -131,6 +131,17 @@ sub AUTOLOAD {
 		my $ret=<STDIN>;
 		chomp $ret;
 		my @ret=split(/\s/, $ret, 2);
+		if ($ret[0] eq '1') {
+			# escaped data
+			local $_;
+			my $unescaped='';
+			for (split /(\\.)/, $ret[1]) {
+				s/\\(.)/$1 eq "n" ? "\n" : $1/eg;
+				$unescaped.=$_;
+			}
+			$ret[0]='0';
+			$ret[1]=$unescaped;
+		}
 		return @ret if wantarray;
 		return $ret[1];
 	};
