@@ -1,20 +1,20 @@
 # translation of debconf_po.po to Arabic
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Ossama M. Khayat <okhayat@yahoo.com>, 2005.
 #
+# Ossama M. Khayat <okhayat@yahoo.com>, 2005, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
-"PO-Revision-Date: 2005-01-29 16:38+0300\n"
+"POT-Creation-Date: 2006-01-23 19:05+0000\n"
+"PO-Revision-Date: 2006-02-21 08:18+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.2\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -60,6 +60,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tتحديد واجهة debconf المطلوب استخدامها.\n"
+"  -p,  --priority\t\tتحديد أقل مستوى أولوية للأسئلة المطلوب إظهارها.\n"
+"       --terse\t\t\tتمكين وضع terse.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -93,8 +96,7 @@ msgstr "لا"
 
 # # CHECK
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
@@ -130,15 +132,13 @@ msgid "Unable to save note."
 msgstr "تعذر حفظ الملاحظة."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
-msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
+msgstr "لم تتم تهيئة debconf لعرض رسالة الخطأ هذه، فقام بإرسالها إليك بالبريد."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
@@ -190,8 +190,7 @@ msgstr "واجهة dialog ليست متوافقة مع مخازن صدفة emacs
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr ""
-"لن يعمل dialog على طرفيّة وهمية، أو مخزن صدفة emacs، أو بدون طرفيّة تحكّم."
+msgstr "لن يعمل dialog على طرفيّة وهمية، أو مخزن صدفة emacs، أو بدون طرفيّة تحكّم."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -202,8 +201,7 @@ msgstr ""
 "dialog."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "تتطلب واجهة dialog شاشة بطول 13 سطراً على الأقل وعرض 31 عموداً."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
@@ -233,8 +231,8 @@ msgstr ""
 "بتغيير أي عناصر كما يلزم، ثم احفظ الملف واخرج من البرنامج. عند هذا، سيقرأ "
 "debconf الملف، ويستخدم القيم التي أدخلتها لتهيئة نظامك."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf على %s"
@@ -319,9 +317,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "فشل apt-extracttemplates: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "فشل apt-extracttemplates: %s"
+msgstr "استخراج القوالب من الحزم: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -350,6 +348,11 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"الاستخدام: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tإعادة تهيئة جميع الحزم.\n"
+"  -u,  --unseen-only\t\tإظهار الأسئلة التي لم تظهر من قبل فقط.\n"
+"       --default-priority\tاستخدام الأولوية الافتراضية بدلاً من المنخفضة.\n"
+"       --force\t\t\tأإجبار إعادة تهيئة الحزم المعطوبة."
 
 #: ../dpkg-reconfigure:104
 #, perl-format
@@ -377,17 +380,19 @@ msgstr "لا يمكن قراءة ملف الحالة: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "الاستخدام: debconf-communicate [options] [package]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
+"debconf-mergetemplate: هذه الأداة ملغاة. عليك بالانتقال إلى"
+"برنامج po2debconf الخاص بـpo-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "الاستخدام: debconf-mergetemplate [options] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -395,6 +400,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tالدمج حتى مع الترجمات الغير محدثة.\n"
+"\t--drop-old-templates\tالإهمال التام للقوالب الغير محدثة."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -430,13 +438,13 @@ msgstr "%s انتهت صلاحيتها، إسقاط القالب بالكامل"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "الاستخدام: debconf [options] command [args]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
+"\n"
+"  -o,  --owner=package\t\tتحديد الحزمة التي تخص الأمر."
 
-#~ msgid "preconfiguring %s (%s)"
-#~ msgstr "تهيئة %s مسبقاً (%s)"
