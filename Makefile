@@ -16,7 +16,7 @@ Debconf/FrontEnd/Kde/WizardUi.pm: Debconf/FrontEnd/Kde/WizardUi.ui
 	LC_ALL=C puic $< |sed 's/package WizardUi/package Debconf::FrontEnd::Kde::WizardUi/' > $@
 
 clean:
-	find . -name \*~ | xargs rm -f
+	find . \( -name \*~ -o -name \*.pyc -o -name \*.pyo \) | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	rm -f Debconf/FrontEnd/Kde/WizardUi.pm
