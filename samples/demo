@@ -10,12 +10,6 @@ else
 	. /usr/share/debconf/confmodule                                         
 fi 
 
-unescape () {
-	echo "$1" | perl -ne 'for (split /(\\.)/) {
-		s/\\(.)/$1 eq "n" ? "\n" : $1/eg; print
-	}'
-}
-
 db_version 2.0
 #db_capb backup
 db_capb escape
@@ -66,7 +60,7 @@ while [ "$STATE" != 0 -a "$STATE" != 10 ]; do
 	7)
 		db_subst demo/subst user 'joeuser\nanotheruser'
 		db_metaget demo/subst extended_description
-		echo "demo/subst extended_description: $(unescape "$RET")" >&2
+		echo "demo/subst extended_description: $RET" >&2
 		db_input high demo/subst || true
 	;;
 	8)
