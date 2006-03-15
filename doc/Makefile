@@ -3,6 +3,7 @@ all: manpages
 
 pod2man=pod2man -c Debconf -r ''
 manpages:
+	cd man && po4a po4a/po4a.cfg
 	install -d man/gen
 	for num in 1 3 8; do \
 		find man -maxdepth 1 -type f -name "*.$$num.pod" -printf '%P\n' | \
@@ -16,5 +17,7 @@ manpages:
 		xargs -i sh -c "cd .. ; $(pod2man) --section=8 {} > doc/man/gen/{}.8"
 
 clean:
+	cd man && po4a --rm-translations po4a/po4a.cfg
+	rm -f man/po4a/po/*~
 	rm -f hierarchy.txt
 	rm -rf man/gen
