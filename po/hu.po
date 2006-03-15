@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-15 12:59+0000\n"
 "PO-Revision-Date: 2006-02-22 01:12+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
@@ -35,8 +36,12 @@ msgid "Template database not specified in config file."
 msgstr "A sablon adatbázis nincs megadva a konfig fájlban."
 
 #: ../Debconf/Config.pm:139
-msgid "The Sigils and Smileys options in the config file are no longer used. Please remove them."
-msgstr "A Pecsétek és Mosolyok lehetőségek nem használtak többé a konfig fájlban. Kérlek, távolítsd el őket."
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"A Pecsétek és Mosolyok lehetőségek nem használtak többé a konfig fájlban. "
+"Kérlek, távolítsd el őket."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -84,7 +89,8 @@ msgid "no"
 msgstr "nem"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(0 vagy több elem megadása szóközökkel követett vesszőkkel (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
@@ -120,12 +126,17 @@ msgid "Unable to save note."
 msgstr "Nem sikerült a feljegyzés mentése."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-msgid "Debconf was not configured to display this error message, so it mailed it to you."
-msgstr "A debconf nincs beállítva e hibaüzenet kiírására, így elküldte levélben."
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr ""
+"A debconf nincs beállítva e hibaüzenet kiírására, így elküldte levélben."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
-msgstr "A debconf nincs beállítva e feljegyzés kiírására, így elküldte levélben."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"A debconf nincs beállítva e feljegyzés kiírására, így elküldte levélben."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
 msgid "Debconf"
@@ -136,11 +147,14 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "A Debconf itt fut: %s"
 
-#: ../Debconf/Element/Select.pm:95
-#: ../Debconf/Element/Select.pm:110
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
-msgid "Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."
-msgstr "Az alábbi érték: \"%s\" nincs a C választások közt! Ennek nem szabadna megtörténnie. Lehet, hogy hiba van a sablonok fordításában."
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Az alábbi érték: \"%s\" nincs a C választások közt! Ennek nem szabadna "
+"megtörténnie. Lehet, hogy hiba van a sablonok fordításában."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -169,15 +183,24 @@ msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "A párbeszéd felület nem illik az emacs héj pufferekhez"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
-msgid "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal."
-msgstr "A párbeszéd felület nem megy buta terminálon, egy emacs héj pufferen vagy a terminál felügyelete nélkül."
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"A párbeszéd felület nem megy buta terminálon, egy emacs héj pufferen vagy a "
+"terminál felügyelete nélkül."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
-msgid "No usable dialog-like program is installed, so the dialog based frontend cannot be used."
-msgstr "Nincs használható párbeszéd-típusú program telepítve, ezért a párbeszéd felület nem működik."
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Nincs használható párbeszéd-típusú program telepítve, ezért a párbeszéd "
+"felület nem működik."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "A párbeszéd felület legalább 13 soros és 31 oszlopos képernyőt kíván."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
@@ -185,16 +208,25 @@ msgid "Debian Configuration"
 msgstr "Debian Konfiguráció"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
-msgid "You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."
-msgstr "A szerkesztő-alapú debconf felületet használod rendszered beállításához. Lásd e dokumentum végét részletes útmutatáshoz."
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"A szerkesztő-alapú debconf felületet használod rendszered beállításához. "
+"Lásd e dokumentum végét részletes útmutatáshoz."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
-msgid "The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
 msgstr ""
 
-#: ../Debconf/FrontEnd/Gnome.pm:96
-#: ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Kde.pm:85
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf itt: %s"
@@ -226,13 +258,21 @@ msgstr "Előre"
 
 #: ../Debconf/Template.pm:90
 #, perl-format
-msgid "warning: possible database corruption. Will attempt to repair by adding back missing question %s."
-msgstr "FIGYELEM!: lehetséges adatbázis hiba. Megpróbálom javítani az alábbi kérdés visszaadásával: %s."
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"FIGYELEM!: lehetséges adatbázis hiba. Megpróbálom javítani az alábbi kérdés "
+"visszaadásával: %s."
 
 #: ../Debconf/Template.pm:203
 #, perl-format
-msgid "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly separated by a lone newline.\n"
-msgstr "A #%s sablon itt: %s másodszor is tartalmazza ezt: \"%s\" új értékkel: \"%s\". Alighanem 2 sablon nincs elválasztva új sorral.\n"
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"A #%s sablon itt: %s másodszor is tartalmazza ezt: \"%s\" új értékkel: \"%s"
+"\". Alighanem 2 sablon nincs elválasztva új sorral.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -263,14 +303,12 @@ msgstr "debeket kell megadni az előkonfiguráláshoz"
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "csomag konfigurálás elhalasztása az apt-utils telepítéséig"
 
-#: ../dpkg-preconfigure:154
-#: ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "az apt-extracttemplates meghiúsult: %s"
 
-#: ../dpkg-preconfigure:158
-#: ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Sablonok kicsomagolása e csomagokból: %d%%"
@@ -305,7 +343,8 @@ msgstr ""
 "Használat: dpkg-reconfigure [lehetőségek] csomagok\n"
 "  -a,  --all\t\t\tMinden csomag újrakonfigurálása\n"
 "  -u,  --unseen-only\t\tCsak a még nem látott kérdések mutatása.\n"
-"       --default-priority\tAlap prioritási szint használata alacsony helyett.\n"
+"       --default-priority\tAlap prioritási szint használata alacsony "
+"helyett.\n"
 "       --force\t\t\tTörött csomagok kényszerített újrakonfigurálása."
 
 #: ../dpkg-reconfigure:104
@@ -337,8 +376,12 @@ msgid "Usage: debconf-communicate [options] [package]"
 msgstr "Használat: debconf-communicate [lehetőségek] [csomag]"
 
 #: ../debconf-mergetemplate:14
-msgid "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program."
-msgstr "debconf-mergetemplate: Ez az eszköz elavult. A po-debconf po2debconf programjára válthatsz."
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: Ez az eszköz elavult. A po-debconf po2debconf "
+"programjára válthatsz."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
@@ -393,4 +436,3 @@ msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
-
