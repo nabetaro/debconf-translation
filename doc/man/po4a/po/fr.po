@@ -506,7 +506,8 @@ msgstr "B<string>"
 msgid ""
 "Results in a free-form input field that the user can type any string into."
 msgstr ""
-"C'est un champ libre où l'utilisateur peut taper n'importe quelle chaîne."
+"C'est un champ libre où l'utilisateur peut taper n'importe quelle chaîne de "
+"caractères."
 
 # type: TP
 #: debconf-devel.7:119
@@ -669,8 +670,8 @@ msgstr ""
 "multiselect, elle peut être une liste de choix séparés par des virgules "
 "semblable au champ « Choices ». Pour select, elle devrait être l'un des "
 "choix possibles. Pour Boolean, c'est « true » ou « false », alors que cela "
-"peut être n'importe quoi pour une chaîne et est ignoré pour les mots de "
-"passe."
+"peut être n'importe quoi pour une chaîne de caractères et est ignoré pour "
+"les mots de passe."
 
 # type: Plain text
 #: debconf-devel.7:178
@@ -863,7 +864,7 @@ msgid ""
 msgstr ""
 "Maintenant, voici les commandes de ce protocole. Ce n'est pas une définition "
 "complète, veuillez consulter les spécifications debconf de la charte Debian "
-"pour plus d'informations"
+"pour plus d'informations."
 
 # type: TP
 #: debconf-devel.7:242
@@ -920,19 +921,19 @@ msgid ""
 "B<debconf-escape>(1)  to help with this if you want), but the confmodule "
 "libraries will unescape replies for you."
 msgstr ""
-"Si « escape » n'est pas trouvé dans vos fonctionnalités, debconf va attendre "
+"Si « escape » ne fait pas partie de vos fonctionnalités, debconf va attendre "
 "que les commandes que vous lui passez comportent des antislashes et des "
 "caractères de retour à la ligne échappés (comme \\e\\e et \\en "
 "respectivement) et va faire de même pour ses réponses. Ceci peut être "
-"utilisé par exemple pour changer des chaînes multilignes en modèles, ou pour "
-"récupérer des descriptions étendues multilignes de manière fiable en "
-"utilisant METAGET."
+"utilisé par exemple pour changer des chaînes de caractères multilignes en "
+"modèles, ou pour récupérer des descriptions étendues multilignes de manière "
+"fiable en utilisant METAGET."
 
 # type: TP
 #: debconf-devel.7:268
 #, no-wrap
 msgid "B<TITLE string>"
-msgstr "B<TITLE chaîne>"
+msgstr "B<TITLE chaîne de caractères>"
 
 # type: Plain text
 #: debconf-devel.7:273
@@ -1567,7 +1568,7 @@ msgid ""
 msgstr ""
 "si votre script postinst lance un démon, soyez sûr de dire à debconf de "
 "STOPper à la fin, car debconf peut avoir du mal à détecter la fin du script "
-"postinst  ;"
+"postinst ;"
 
 # type: Plain text
 #: debconf-devel.7:485
@@ -4217,7 +4218,7 @@ msgid ""
 "string; defaults to \".dat\""
 msgstr ""
 "Extension à ajouter aux noms de fichiers. Ce doit être une chaîne de "
-"caractère non vide ; par défaut, sa valeur est « .dat »"
+"caractères non vide ; par défaut, sa valeur est « .dat »"
 
 # type: Plain text
 #: debconf.conf.5:192
