@@ -68,6 +68,10 @@ to listen on it prior to invoking Debconf with the Passthrough module.
 The socket should be created with mode 0400, and owned by root:root
 It should be removed when the Frontend exits.
 
+All communication between the Passthrough module and the Frontend is defined
+to be encoded in UTF-8. Both sides are responsible for recoding between
+UTF-8 and whatever their internal character encoding may be.
+
 DATA/INPUT/GO/GET mechanism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Unlike existing Debconf frontends, the Frontend does not have access

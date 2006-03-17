@@ -16,6 +16,7 @@ use Debconf::Element;
 use Debconf::Element::Select;
 use Debconf::Element::Multiselect;
 use Debconf::Log qw(:all);
+use Debconf::Encoding;
 use base qw(Debconf::FrontEnd);
 
 my ($READFD, $WRITEFD, $SOCKET);
@@ -60,6 +61,9 @@ sub init {
                 $this->{writefh} = IO::Handle->new_from_fd(int($WRITEFD), "w") || croak "Failed to open fd $WRITEFD: $!";
         }
 
+	binmode $this->{readfh}, ":utf8";
+	binmode $this->{writefh}, ":utf8";
+
 	$this->{readfh}->autoflush(1);
 	$this->{writefh}->autoflush(1);
 	
@@ -76,7 +80,7 @@ command, sends it to the agent, and reads and processes its reply.
 
 sub talk {
 	my $this=shift;
-	my $command=join(' ', @_);
+	my $command=join(' ', map { Debconf::Encoding::to_Unicode($_) } @_);
 	my $reply;
 	
 	my $readfh = $this->{readfh} || croak "Broken pipe";
@@ -89,6 +93,8 @@ sub talk {
 	chomp($reply);
 	debug developer => "<---- $reply";
 	my ($tag, $val) = split(' ', $reply, 2);
+	$val = '' unless defined $val;
+	$val = Debconf::Encoding::convert("UTF-8", $val);
 
 	return ($tag, $val) if wantarray;
 	return $tag;

@@ -16,6 +16,7 @@ use Debconf::Question;
 use Debconf::Priority qw(priority_valid high_enough);
 use Debconf::FrontEnd::Noninteractive;
 use Debconf::Log ':all';
+use Debconf::Encoding;
 use base qw(Debconf::Base);
 
 =head1 DESCRIPTION
@@ -896,7 +897,7 @@ sub command_data {
 		if ($item eq 'type') {
 			return $codes{badparams}, "Template type already set";
 		}
-		$tempobj->$item($value);
+		$tempobj->$item(Debconf::Encoding::convert("UTF-8", $value));
 	}
 
 	return $codes{success};

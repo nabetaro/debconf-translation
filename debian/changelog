@@ -1,5 +1,16 @@
 debconf (1.4.73) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
+  * Define UTF-8 as the encoding for all passthrough communication (it was
+    previously undefined, causing installer breakage when using non-UTF-8
+    locales). Now the passthrough frontend recodes everything to UTF-8 when
+    talking to the UI agent, and we recode DATA parameters from UTF-8 to the
+    user's charmap. Closes: #355251
+  * Note that if you try to exchange non-ASCII text with debconf at the
+    moment using anything but the DATA command, you lose unless you know
+    that the other end is using the same character encoding as you.
+    Retrofitting encoding sanity is hard.
+
   * Translations:
     - Arabic updated programs (Closes: #357010).
   * Man pages translations:
