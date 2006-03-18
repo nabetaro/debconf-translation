@@ -11,8 +11,6 @@ debconf (1.4.73) UNRELEASED; urgency=low
     that the other end is using the same character encoding as you.
     Retrofitting encoding sanity is hard.
 
-  * Translations:
-    - Arabic updated programs (Closes: #357010).
   * Man pages translations:
     - French updated
     - Complete translator information in addenda
@@ -21,7 +19,12 @@ debconf (1.4.73) UNRELEASED; urgency=low
   * Rename the Punjabi translation file name from pa_IN to pa
     to fit a decision taken in -i18n
 
- -- Christian Perrier <bubulle@debian.org>  Sat, 18 Mar 2006 15:36:21 +0100
+  [ Luk Claes ]
+  * Translations:
+    - Arabic updated programs (Closes: #357010).
+    - Brazilian Portuguese updated debconf (Closes: #357653).
+
+ -- Luk Claes <luk@debian.org>  Sun, 19 Mar 2006 00:05:02 +0100
 
 debconf (1.4.72) unstable; urgency=low
 
