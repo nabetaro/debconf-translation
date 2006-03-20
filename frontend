@@ -30,6 +30,8 @@ debug developer => "frontend started";
 
 my $frontend=make_frontend();
 
+shift @ARGV if $ARGV[0] eq '--';
+
 # Set the default title.
 my $package;
 if ($ARGV[0]=~m!^.*/(.*?)\.(?:postinst|postrm|prerm)$!) {

@@ -10,6 +10,9 @@ debconf (1.4.73) UNRELEASED; urgency=low
     moment using anything but the DATA command, you lose unless you know
     that the other end is using the same character encoding as you.
     Retrofitting encoding sanity is hard.
+  * Accept -- as an end-of-options terminator in frontend, even though it
+    doesn't currently take any arguments. Simplifies a corner case in
+    cdebconf compatibility.
 
   * Man pages translations:
     - French updated
