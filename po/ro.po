@@ -1,24 +1,25 @@
-# translation of ro.po to 
+# translation of ro.po to
 # translation of ro.po to
 # translation of ro.po to Romanian
 # translation of debconf_ro.po to Romanian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Sorin Batariuc <sorin@bonbon.net>, 2004, 2005.
 #
+# Sorin Batariuc <sorin@bonbon.net>, 2004, 2005.
+# Eddy Petrişor <eddy.petrisor@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: ro\n"
+"Project-Id-Version: debconf_po_ro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-15 12:59+0000\n"
-"PO-Revision-Date: 2005-04-03 13:37+0300\n"
-"Last-Translator: \n"
-"Language-Team:  <ro@li.org>\n"
+"PO-Revision-Date: 2006-04-07 01:15+0300\n"
+"Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
+"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
-"Plural-Forms:  \n"
+"X-Generator: KBabel 1.11.2\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -37,8 +38,7 @@ msgstr "Nu pot porni interfaţa program: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr ""
-"Configurarea bazei de date n-a fost specificată în fişierul de configurare."
+msgstr "Configurarea bazei de date n-a fost specificată în fişierul de configurare."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
@@ -50,7 +50,7 @@ msgid ""
 "remove them."
 msgstr ""
 "Opţiunile Sigils şi Smileys din fişierul de configurare nu mai sunt "
-"folosite. Vă rog să le ştergeţi."
+"folosite. Sunteţi rugat(ă) să le ştergeţi."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -98,8 +98,7 @@ msgid "no"
 msgstr "nu"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Introduceţi zero sau mai multe articole separate de virgulă urmată de "
 "spaţiu (', ').)"
@@ -139,17 +138,13 @@ msgid "Unable to save note."
 msgstr "Nu pot salva nota."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
-msgstr ""
-"Debconf nu a fost configurat să afişeze această notă, astfel încât v-a fost "
-"expediată."
+msgstr "Debconf nu a fost configurat să afişeze aceast mesaje de eroare, astfel acesta v-a fost expediat."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
+msgid "Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a fost "
 "expediată."
@@ -178,8 +173,7 @@ msgstr "niciunul din cele de mai sus"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr ""
-"Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
+msgstr "Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -220,8 +214,7 @@ msgstr ""
 "interfeţei program nu poate fi folosit."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Dialogul interfeţei program are nevoie de un ecran de cel puţin 13 linii "
 "înălţime şi 31 coloane lăţime."
@@ -267,8 +260,7 @@ msgstr "Această interfaţă program are nevoie de un tty controlor."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"Term::ReadLine::GNU este incompatibil cu zone de memorie tampon shell emacs."
+msgstr "Term::ReadLine::GNU este incompatibil cu zone de memorie tampon shell emacs."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -297,12 +289,12 @@ msgstr ""
 "adăugând la loc întrebarea lipsă %s."
 
 #: ../Debconf/Template.pm:203
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Şablonul #%s din %s are un câmp duplicat \"%s\" cu o valoare nouă \"%s\". "
+"Şablonul #%s din %s are un câmp duplicat \"%s\" cu valoarea nouă \"%s\". "
 "Probabil două şabloane nu sunt separate corespunzător de o singură nouă "
 "linie.\n"
 
@@ -343,9 +335,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "eşuare extragere şabloane apt: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "eşuare extragere şabloane apt: %s"
+msgstr "Se extrag şabloanele din pachete: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -472,3 +464,4 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=pachet\t\tDetermină pachetul care deţine comanda."
+
