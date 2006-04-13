@@ -13,6 +13,8 @@ debconf (1.4.73) UNRELEASED; urgency=low
   * Accept -- as an end-of-options terminator in frontend, even though it
     doesn't currently take any arguments. Simplifies a corner case in
     cdebconf compatibility.
+  * Notice and error out on write errors (such as ENOSPC) when saving
+    databases. Should help with a lot of database corruption bugs.
 
   * Man pages translations:
     - French updated

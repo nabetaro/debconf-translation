@@ -147,14 +147,15 @@ sub save {
 		open($fh, ">$file-new") or $this->error("$file-new: $!");
 	}
 	$this->{format}->beginfile;
-	$this->{format}->write($fh, $data, $item);
+	$this->{format}->write($fh, $data, $item)
+		or $this->error("could not write $file-new: $!");
 	$this->{format}->endfile;
 	
 	# Ensure it is synced, to disk buffering doesn't result in
 	# inconsistencies.
-	$fh->flush;
-	$fh->sync;
-	close $fh;
+	$fh->flush or $this->error("could not flush $file-new: $!");
+	$fh->sync or $this->error("could not sync $file-new: $!");
+	close $fh or $this->error("could not close $file-new: $!");
 	
 	# Now rename the old file to -old (if doing backups),
 	# and put -new in its place.

@@ -90,29 +90,32 @@ sub write {
 	my %data=%{shift()};
 	my $name=shift;
 
-	print $fh "Name: $name\n";
+	print $fh "Name: $name\n" or return undef;
 	foreach my $field (sort keys %{$data{fields}}) {
 		my $val=$data{fields}->{$field};
 		$val=~s/\n/\\n/g;
-		print $fh ucfirst($field).": $val\n";
+		print $fh ucfirst($field).": $val\n" or return undef;
 	}
 	if (keys %{$data{owners}}) {
-		print $fh "Owners: ".join(", ", sort keys(%{$data{owners}}))."\n";
+		print $fh "Owners: ".join(", ", sort keys(%{$data{owners}}))."\n"
+			or return undef;
 	}
 	if (grep { $data{flags}->{$_} eq 'true' } keys %{$data{flags}}) {
 		print $fh "Flags: ".join(", ",
 			grep { $data{flags}->{$_} eq 'true' }
-				sort keys(%{$data{flags}}))."\n";
+				sort keys(%{$data{flags}}))."\n"
+			or return undef;
 	}
 	if (keys %{$data{variables}}) {
-		print $fh "Variables:\n";
+		print $fh "Variables:\n" or return undef;
 		foreach my $var (sort keys %{$data{variables}}) {
 			my $val=$data{variables}->{$var};
 			$val=~s/\n/\\n/g;
-			print $fh " $var = $val\n";
+			print $fh " $var = $val\n" or return undef;
 		}
 	}
-	print $fh "\n"; # end of record delimiter
+	print $fh "\n" or return undef; # end of record delimiter
+	return 1;
 }
 
 =head1 AUTHOR

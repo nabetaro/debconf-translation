@@ -38,6 +38,8 @@ function.
 
 data is the same structure read should return.
 
+Returns true on success and false on error.
+
 =head2 endfile(filehandle)
 
 Called at the end of each file that is written.

@@ -123,10 +123,11 @@ sub shutdown {
 		$this->{format}->beginfile;
 		foreach my $item (sort keys %{$this->{cache}}) {
 			next unless defined $this->{cache}->{$item}; # skip deleted
-			$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+			$this->{format}->write($fh, $this->{cache}->{$item}, $item)
+				or $this->error("could not write to pipe: $!");
 		}
 		$this->{format}->endfile;
-		close $fh;
+		close $fh or $this->error("could not close pipe: $!");
 	}
 
 	return 1;

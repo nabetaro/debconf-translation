@@ -234,15 +234,16 @@ sub shutdown {
 				$this->error("could not write $filename-new: $!");
 			$this->{format}->beginfile;
 			foreach my $item (@{$filecontents{$file}}) {
-				$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+				$this->{format}->write($fh, $this->{cache}->{$item}, $item)
+					or $this->error("could not write $filename-new: $!");
 			}
 			$this->{format}->endfile;
 
 			# Ensure -new is flushed.
-			$fh->autoflush(1);
+			$fh->flush or $this->error("could not flush $filename-new: $!");
 			# Ensure it is synced, because I've had problems with
 			# disk caching resulting in truncated files.
-			$fh->sync;
+			$fh->sync or $this->error("could not sync $filename-new: $!");
 
 			# Now rename the old file to -old (if doing backups),
 			# and put -new in its place.

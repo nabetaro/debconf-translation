@@ -151,15 +151,16 @@ sub shutdown {
 	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item}; # skip deleted
-		$this->{format}->write($fh, $this->{cache}->{$item}, $item);
+		$this->{format}->write($fh, $this->{cache}->{$item}, $item)
+			or $this->error("could not write $this->{filename}-new: $!");
 	}
 	$this->{format}->endfile;
 
 	# Ensure -new is flushed.
-	$fh->autoflush(1);
+	$fh->flush or $this->error("could not flush $this->{filename}-new: $!");
 	# Ensure it is synced, because I've had problems with disk caching
 	# resulting in truncated files.
-	$fh->sync;
+	$fh->sync or $this->error("could not sync $this->{filename}-new: $!");
 
 	# Now rename the old file to -old (if doing backups), and put -new 
 	# in its place.
