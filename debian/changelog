@@ -15,6 +15,7 @@ debconf (1.4.73) UNRELEASED; urgency=low
     cdebconf compatibility.
   * Notice and error out on write errors (such as ENOSPC) when saving
     databases. Should help with a lot of database corruption bugs.
+    Closes: #198297, #247849 (we hope)
 
   * Man pages translations:
     - French updated
