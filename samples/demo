@@ -5,10 +5,10 @@
 # debconf source tree, and is not needed in production code.
 PATH=$PATH:.
 if [ -e confmodule ]; then
-	. confmodule                                                     
-else                                                                            
-	. /usr/share/debconf/confmodule                                         
-fi 
+	. confmodule
+else
+	. /usr/share/debconf/confmodule
+fi
 
 db_version 2.0
 #db_capb backup

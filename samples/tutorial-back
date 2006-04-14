@@ -7,7 +7,7 @@ db_version 2.0
 # This conf script is capable of backing up
 db_capb backup
 
-STATE=1 
+STATE=1
 while [ "$STATE" != 0 -a "$STATE" != 3 ]; do
 	case "$STATE" in
 	1)
