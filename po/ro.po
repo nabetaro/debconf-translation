@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-04-20 17:56-0400\n"
 "PO-Revision-Date: 2006-04-07 01:15+0300\n"
 "Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1))\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -38,7 +39,8 @@ msgstr "Nu pot porni interfaţa program: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "Configurarea bazei de date n-a fost specificată în fişierul de configurare."
+msgstr ""
+"Configurarea bazei de date n-a fost specificată în fişierul de configurare."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
@@ -98,7 +100,8 @@ msgid "no"
 msgstr "nu"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
 "(Introduceţi zero sau mai multe articole separate de virgulă urmată de "
 "spaţiu (', ').)"
@@ -141,10 +144,13 @@ msgstr "Nu pot salva nota."
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
-msgstr "Debconf nu a fost configurat să afişeze aceast mesaje de eroare, astfel acesta v-a fost expediat."
+msgstr ""
+"Debconf nu a fost configurat să afişeze aceast mesaje de eroare, astfel "
+"acesta v-a fost expediat."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr ""
 "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a fost "
 "expediată."
@@ -173,7 +179,8 @@ msgstr "niciunul din cele de mai sus"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
+msgstr ""
+"Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
@@ -214,7 +221,8 @@ msgstr ""
 "interfeţei program nu poate fi folosit."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Dialogul interfeţei program are nevoie de un ecran de cel puţin 13 linii "
 "înălţime şi 31 coloane lăţime."
@@ -260,7 +268,8 @@ msgstr "Această interfaţă program are nevoie de un tty controlor."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU este incompatibil cu zone de memorie tampon shell emacs."
+msgstr ""
+"Term::ReadLine::GNU este incompatibil cu zone de memorie tampon shell emacs."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -464,4 +473,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=pachet\t\tDetermină pachetul care deţine comanda."
-

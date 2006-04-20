@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-23 19:05+0000\n"
+"POT-Creation-Date: 2006-04-20 17:56-0400\n"
 "PO-Revision-Date: 2006-02-21 08:18+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -96,7 +96,8 @@ msgstr "لا"
 
 # # CHECK
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
@@ -138,7 +139,8 @@ msgid ""
 msgstr "لم تتم تهيئة debconf لعرض رسالة الخطأ هذه، فقام بإرسالها إليك بالبريد."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid "Debconf was not configured to display this note, so it mailed it to you."
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
 msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
 
 #: ../Debconf/Element/Noninteractive/Note.pm:64
@@ -190,7 +192,8 @@ msgstr "واجهة dialog ليست متوافقة مع مخازن صدفة emacs
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
-msgstr "لن يعمل dialog على طرفيّة وهمية، أو مخزن صدفة emacs، أو بدون طرفيّة تحكّم."
+msgstr ""
+"لن يعمل dialog على طرفيّة وهمية، أو مخزن صدفة emacs، أو بدون طرفيّة تحكّم."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -201,7 +204,8 @@ msgstr ""
 "dialog."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "تتطلب واجهة dialog شاشة بطول 13 سطراً على الأقل وعرض 31 عموداً."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
@@ -231,8 +235,8 @@ msgstr ""
 "بتغيير أي عناصر كما يلزم، ثم احفظ الملف واخرج من البرنامج. عند هذا، سيقرأ "
 "debconf الملف، ويستخدم القيم التي أدخلتها لتهيئة نظامك."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
-#: ../Debconf/FrontEnd/Kde.pm:72
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Kde.pm:85
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf على %s"
@@ -387,12 +391,13 @@ msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: هذه الأداة ملغاة. عليك بالانتقال إلى"
-"برنامج po2debconf الخاص بـpo-debconf."
+"debconf-mergetemplate: هذه الأداة ملغاة. عليك بالانتقال إلىبرنامج po2debconf "
+"الخاص بـpo-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "الاستخدام: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr ""
+"الاستخدام: debconf-mergetemplate [options] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -447,4 +452,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tتحديد الحزمة التي تخص الأمر."
-
