@@ -35,7 +35,11 @@ debconf (1.4.73) UNRELEASED; urgency=low
   * Fixed typo in French debconf-devel manpage (Closes: #358525).
   * Small correction in German programs translation (Closes: #358804).
 
- -- Luk Claes <luk@debian.org>  Sun,  9 Apr 2006 17:55:35 +0200
+  [ Joey Hess ]
+  * Finally applied Danilo Piazzalunga's gnome multiselct usability patch,
+    which turns it into a list of checkboxes. Closes: #294116
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 20 Apr 2006 17:33:45 -0400
 
 debconf (1.4.72) unstable; urgency=low
 

@@ -13,6 +13,9 @@ use utf8;
 use Debconf::Encoding qw(to_Unicode);
 use base qw(Debconf::Element::Gnome Debconf::Element::Multiselect);
 
+use constant SELECTED_COLUMN => 0;
+use constant CHOICES_COLUMN  => 1;
+
 sub init {
 	my $this=shift;
 	my @choices = map { to_Unicode($_) } $this->question->choices_split;
@@ -27,29 +30,38 @@ sub init {
         $this->widget->show;
         $this->widget->set_policy('automatic', 'automatic');
 	
-	my $list_store = Gtk2::ListStore->new ('Glib::String');
+	my $list_store = Gtk2::ListStore->new('Glib::Boolean', 'Glib::String');
+	$this->list_view(Gtk2::TreeView->new($list_store));
+	$this->list_view->set_headers_visible(0);
 
-	my $column = Gtk2::TreeViewColumn->new_with_attributes ('Choices',
-								Gtk2::CellRendererText->new,
-								'text', 0); 
-	$this->list_view(Gtk2::TreeView->new ($list_store));
-	my $list_selection = $this->list_view->get_selection ();
-	$list_selection->set_mode ('multiple');
-	$this->list_view->set_headers_visible (0);
-	$this->list_view->append_column ($column);
+	my $renderer_toggle = Gtk2::CellRendererToggle->new;
+	$renderer_toggle->signal_connect(toggled => sub {
+		my $path_string = $_[1];
+		my $model = $_[2];
+		my $iter = $model->get_iter_from_string($path_string);
+		$model->set($iter, SELECTED_COLUMN,
+		            not $model->get($iter, SELECTED_COLUMN));
+	}, $list_store);
+
+	$this->list_view->append_column(
+		Gtk2::TreeViewColumn->new_with_attributes('Selected',
+			$renderer_toggle, 'active', SELECTED_COLUMN));
+	$this->list_view->append_column(
+		Gtk2::TreeViewColumn->new_with_attributes('Choices',
+			Gtk2::CellRendererText->new, 'text', CHOICES_COLUMN)); 
 	$this->list_view->show;
 
-	$this->widget->add ($this->list_view);
+	$this->widget->add($this->list_view);
 
-        for (my $i=0; $i <= $#choices; $i++) {
-	    my $iter = $list_store->append ();
-	    $list_store->set ($iter, 0, $choices[$i]);
-	    if ($default{$choices[$i]}) {
-		$list_selection->select_iter ($iter);
-	    }
+	for (my $i=0; $i <= $#choices; $i++) {
+		my $iter = $list_store->append();
+		$list_store->set($iter, CHOICES_COLUMN, $choices[$i]);
+		if ($default{$choices[$i]}) {
+			$list_store->set($iter, SELECTED_COLUMN, 1);
+		}
 	}
 	$this->addwidget($this->widget);
-	$this->tip( $this->list_view);
+	$this->tip($this->list_view);
 	$this->addhelp;
 
 	# we want to be both expanded and filled
@@ -69,7 +81,6 @@ sub value {
 	my $this=shift;
 	my $list_view = $this->list_view;
 	my $list_store = $list_view->get_model ();
-	my $list_selection = $list_view->get_selection ();
 	my ($ret, $val);
 	
 	my @vals;
@@ -78,12 +89,12 @@ sub value {
 	my @choices=$this->question->choices_split;
 	$this->question->template->i18n(1);
 	
-	my $iter = $list_store->get_iter_first ();
+	my $iter = $list_store->get_iter_first();
 	for (my $i=0; $i <= $#choices; $i++) {
-		if ($list_selection->iter_is_selected ($iter)) {
+		if ($list_store->get($iter, SELECTED_COLUMN)) {
 			push @vals, $choices[$i];
 		}
-		$iter = $list_store->iter_next ($iter);
+		$iter = $list_store->iter_next($iter);
 	}
 
 	return join(', ', $this->order_values(@vals));
