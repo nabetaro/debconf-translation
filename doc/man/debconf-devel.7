@@ -3,7 +3,7 @@
 debconf \- developers guide
 .SH DESCRIPTION
 This is a guide for developing packages that use debconf.
-.P 
+.P
 This manual assumes that you are familiar with debconf as a user, and are
 familiar with the basics of debian package construction.
 .P
@@ -49,7 +49,7 @@ chance to run. See HACKS for details.
 If a package is reconfigured, with dpkg-reconfigure, its config script
 it run, and is passed the parameters "reconfigure" and
 installed-version.
-.P  
+.P
 Note that since a typical package install or upgrade using apt runs steps 1
 and 2, the config script will typically be run twice. It should do nothing
 the second time (to ask questions twice in a row is annoying), and it should
