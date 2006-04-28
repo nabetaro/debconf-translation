@@ -61,7 +61,7 @@ class Debconf:
         command = command.upper()
         self.write.write("%s %s\n" % (command, ' '.join(map(str, params))))
         self.write.flush()
-        resp = self.read.readline().strip()
+        resp = self.read.readline().rstrip('\n')
         if ' ' in resp:
             status, data = resp.split(' ', 1)
         else:

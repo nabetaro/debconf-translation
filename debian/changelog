@@ -2,6 +2,8 @@ debconf (1.5.1) UNRELEASED; urgency=low
 
   * Remove trailing whitespace from some .P requests in man pages, to make
     po4a happier.
+  * Strip only trailing newlines from replies in the Python confmodule,
+    rather than all leading and trailing whitespace.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
 
