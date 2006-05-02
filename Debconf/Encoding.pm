@@ -6,7 +6,7 @@ Debconf::Encoding - Character encoding support for debconf
 
 =head1 DESCRIPTION
 
-This module profides facilities to convert between character encodings for
+This module provides facilities to convert between character encodings for
 debconf, as well as other functions to operate on characters.
 
 Debconf uses glibc's character encoding converter via Text::Iconv instead
@@ -20,9 +20,9 @@ Debconf::Encoding::convert()  takes a charmap and a string encoded in that
 charmap, and converts it to the user's charmap.
 
 Debconf::Encoding::wrap is a word-wrapping function, with the same interface
-as the one in Text::Wrap (except it doesn't gratuitously unexpend tabs).
+as the one in Text::Wrap (except it doesn't gratuitously unexpand tabs).
 If Text::WrapI18N is available, it will be used for proper wrapping of
-multibtye encodings, combining and fullwidth characters, and languages that
+multibyte encodings, combining and fullwidth characters, and languages that
 do not use whitespace between words.
 
 $Debconf::Encoding::columns is used to set the number of columns text is
