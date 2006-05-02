@@ -4,6 +4,8 @@ debconf (1.5.1) UNRELEASED; urgency=low
     po4a happier.
   * Strip only trailing newlines from replies in the Python confmodule,
     rather than all leading and trailing whitespace.
+  * Retry readline() in the Python confmodule if it's interrupted by a
+    signal.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
 

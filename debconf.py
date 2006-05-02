@@ -24,6 +24,7 @@
 # SUCH DAMAGE.
 
 import sys, os
+import errno
 import re
 import popen2
 
@@ -61,7 +62,17 @@ class Debconf:
         command = command.upper()
         self.write.write("%s %s\n" % (command, ' '.join(map(str, params))))
         self.write.flush()
-        resp = self.read.readline().rstrip('\n')
+
+        while True:
+            try:
+                resp = self.read.readline().rstrip('\n')
+                break
+            except IOError, e:
+                if e.errno == errno.EINTR:
+                    continue
+                else:
+                    raise
+
         if ' ' in resp:
             status, data = resp.split(' ', 1)
         else:
