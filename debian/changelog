@@ -7,6 +7,9 @@ debconf (1.5.1) UNRELEASED; urgency=low
   * Retry readline() in the Python confmodule if it's interrupted by a
     signal.
   * Typo fixes in Debconf::Encoding documentation.
+  * Add cloexec keyword argument to Python DebconfCommunicator class,
+    defaulting to False; if True, the file descriptors connected to
+    debconf-communicate will be marked close-on-exec.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
 

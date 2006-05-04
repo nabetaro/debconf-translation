@@ -27,6 +27,7 @@ import sys, os
 import errno
 import re
 import popen2
+import fcntl
 
 class DebconfError(Exception):
     pass
@@ -116,12 +117,15 @@ class Debconf:
 
 
 class DebconfCommunicator(Debconf, object):
-    def __init__(self, owner, title=None):
+    def __init__(self, owner, title=None, cloexec=False):
         self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
                                      owner])
         super(DebconfCommunicator, self).__init__(title=title,
                                                   read=self.dccomm.fromchild,
                                                   write=self.dccomm.tochild)
+        if cloexec:
+            fcntl.fcntl(self.read.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
+            fcntl.fcntl(self.write.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
 
     def shutdown(self):
         if self.dccomm is not None:
