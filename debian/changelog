@@ -10,6 +10,8 @@ debconf (1.5.1) UNRELEASED; urgency=low
   * Add cloexec keyword argument to Python DebconfCommunicator class,
     defaulting to False; if True, the file descriptors connected to
     debconf-communicate will be marked close-on-exec.
+  * Avoid needlessly marking cache db items dirty on addowner if the entry
+    already had that owner.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
 

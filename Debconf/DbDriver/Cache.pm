@@ -277,8 +277,10 @@ sub addowner {
 		}
 	}
 
-	$this->{dirty}->{$item}=1;
-	$this->{cache}->{$item}->{owners}->{$owner}=1;
+	if (! exists $this->{cache}->{$item}->{owners}->{$owner}) {
+		$this->{cache}->{$item}->{owners}->{$owner}=1;
+		$this->{dirty}->{$item}=1;
+	}
 	return $owner;
 }
 
