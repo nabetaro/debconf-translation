@@ -12,6 +12,10 @@ debconf (1.5.1) UNRELEASED; urgency=low
     debconf-communicate will be marked close-on-exec.
   * Avoid needlessly marking cache db items dirty on addowner if the entry
     already had that owner.
+  * Add a --no-reload option to dpkg-reconfigure, to allow you to prevent it
+    from reloading templates before running confmodules. This may be useful
+    for performance if you know that the templates database is already
+    correct.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
 

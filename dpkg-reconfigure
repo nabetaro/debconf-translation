@@ -57,6 +57,13 @@ been seen will be asked.
 Force dpkg-reconfigure to reconfigure a package even if the package is in an
 inconsistent or broken state. Use with caution.
 
+=item B<--no-reload>
+
+Prevent dpkg-reconfigure from reloading templates. Use with caution; this
+will prevent dpkg-reconfigure from repairing broken templates databases.
+However, it may be useful in constrained environments where rewriting the
+templates database is expensive.
+
 =item B<-h>, B<--help>
 
 Display usage help.
@@ -88,6 +95,7 @@ my $unseen_only=0;
 my $all=0;
 my $force=0;
 my $default_priority=0;
+my $reload=1;
 Debconf::Config->getopt(
 gettext(qq{Usage: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
@@ -98,6 +106,7 @@ gettext(qq{Usage: dpkg-reconfigure [options] packages
 	"unseen-only|u"		=> \$unseen_only,
 	"default-priority"	=> \$default_priority,
 	"force"			=> \$force,
+	"reload!"		=> \$reload,
 );
 
 if ($> != 0) {
@@ -164,9 +173,11 @@ foreach my $pkg (@packages) {
 		}
 	}
 	
-	# Load up templates just in case they arn't already.
-	Debconf::Template->load("$infodir/$pkg.templates", $pkg)
-		if -e "$infodir/$pkg.templates";
+	if ($reload) {
+		# Load up templates just in case they aren't already.
+		Debconf::Template->load("$infodir/$pkg.templates", $pkg)
+			if -e "$infodir/$pkg.templates";
+	}
 
 	# Simulation of reinstalling a package, without bothering with
 	# removing the files and putting them back. Just like in a regular
