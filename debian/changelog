@@ -1,5 +1,6 @@
 debconf (1.5.1) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove trailing whitespace from some .P requests in man pages, to make
     po4a happier.
   * Strip only trailing newlines from replies in the Python confmodule,
@@ -17,7 +18,11 @@ debconf (1.5.1) UNRELEASED; urgency=low
     for performance if you know that the templates database is already
     correct.
 
- -- Colin Watson <cjwatson@debian.org>  Fri, 28 Apr 2006 13:30:15 +0100
+  [ Joey Hess ]
+  * Stop mailing notes since something like 90% of the use of that data type
+    is abuse anyway. Error messages will still be mailed if necessary.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 10 May 2006 20:06:51 -0400
 
 debconf (1.5.0) unstable; urgency=low
 

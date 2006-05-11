@@ -17,8 +17,7 @@ use base qw(Debconf::Element::Gnome);
 
 =head1 DESCRIPTION
 
-This is a note to show to the user. Notes have an associated button widget
-that can be pressed to save the note.
+This is a note to show to the user.
 
 =cut
 
@@ -48,19 +47,6 @@ sub init {
 	$this->widget->pack_start($scrolled_window, 1, 1, 0);
 
 	$textbuffer->set_text($extended_description);
-
-	$this->addbutton(to_Unicode(gettext("Save (mail) Note")), sub {
-		if ($this->Debconf::Element::Noninteractive::Note::sendmail(gettext("Debconf was asked to save this note, so it mailed it to you."))) {
-			$this->create_message_dialog ("gtk-dialog-info",
-				gettext("Information"),
-				gettext("The note has been mailed."));
-		}
-		else {
-			$this->create_message_dialog ("gtk-dialog-error",
-				gettext("Error"),
-				gettext("Unable to save note."));
-		}
-	});
 
 	$this->widget->show;
 	$this->adddescription;

@@ -32,6 +32,7 @@ Protocol and spec revisions:
   database browser to be easily written.
 * Document the behavior of the seen flag when backing up in the same config
   script run. (Tausq?)
+* Get rid of notes, that data type is too prone to abuse; error is better.
 
 Database:
 * The division between Debconf::Config and Debconf::Db still needs thought.
@@ -62,8 +63,8 @@ Database:
 
 Noninteractive frontend:
 * Just because it's noninteractive doesn't mean it can't output to the
-  console. I think it should so so, at least for notes (in addition to
-  mailing them). That way if a note is displayed and the package install
+  console. I think it should so so, at least for errors (in addition to
+  mailing them). That way if an error is displayed and the package install
   fails you don't just see it dying, you immediatly see why.
 
 Readline frontend:
