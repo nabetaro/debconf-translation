@@ -17,6 +17,11 @@ debconf (1.5.1) UNRELEASED; urgency=low
     from reloading templates before running confmodules. This may be useful
     for performance if you know that the templates database is already
     correct.
+  * Handle escaped commas ("\,") and escaped spaces ("\ ") in Choices and
+    Value fields in questions, matching cdebconf. I've grepped the archive
+    for backslashes in Choices fields in templates and in db_set and
+    db_subst commands and found nothing that this change would break, while
+    it lets us use more code from d-i in the installed system.
 
   [ Joey Hess ]
   * Stop mailing notes since something like 90% of the use of that data type

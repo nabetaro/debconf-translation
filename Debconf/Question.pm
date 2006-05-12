@@ -202,7 +202,20 @@ individual choices and returns them as a list.
 sub choices_split {
 	my $this=shift;
 	
-	return split(/,\s+/, $this->choices);
+	my @items;
+	my $item='';
+	for my $chunk (split /(\\[, ]|,\s+)/, $this->choices) {
+		if ($chunk=~/^\\([, ])$/) {
+			$item.=$1;
+		} elsif ($chunk=~/^,\s+$/) {
+			push @items, $item;
+			$item='';
+		} else {
+			$item.=$chunk;
+		}
+	}
+	push @items, $item if $item ne '';
+	return @items;
 }
 
 =item variable
@@ -285,7 +298,20 @@ sub value_split {
 	
 	my $value=$this->value;
 	$value='' if ! defined $value;
-	return split(/,\s+/, $value);
+	my @items;
+	my $item='';
+	for my $chunk (split /(\\[, ]|,\s+)/, $value) {
+		if ($chunk=~/^\\([, ])$/) {
+			$item.=$1;
+		} elsif ($chunk=~/^,\s+$/) {
+			push @items, $item;
+			$item='';
+		} else {
+			$item.=$chunk;
+		}
+	}
+	push @items, $item if $item ne '';
+	return @items;
 }
 
 =item addowner
