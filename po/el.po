@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-28 01:01+0200\n"
 "Last-Translator: quad-nrg.net <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -114,32 +114,6 @@ msgstr "Βοήθεια"
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Αποθήκευση (αποστολή) Σημείωσης"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
-"έστειλε μέσω ηλ. ταχυδρομείου."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Πληροφορίες"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Η σημείωση έχει αποσταλεί."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Σφάλμα"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Αδύνατη η αποθήκευση της σημείωσης."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -148,18 +122,11 @@ msgstr ""
 "Το debconf δεν έχει ρυθμιστεί να εμφανίζει αυτό το μήνυμα σφάλματος, οπότε "
 "σας την απέστειλε μέσω ηλ. ταχυδρομείου."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
-"απέστειλε σε σας μέσω ηλ. ταχυδρομείου."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, τρέχει στο %s"
@@ -368,7 +335,7 @@ msgstr "debconf: αδύνατη η εκτέλεση της chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λάθους %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -384,26 +351,26 @@ msgstr ""
 "προτεραιότητας.\n"
 "       --force\t\t\tΑναγκαστική επαναρύθμιση των \"προβληματικών\" πακέτων."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "Το %s πρέπει να εκτελεστεί ως χρήστης root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "παρακαλώ προσδιορίστε το πακέτο προς επαναρύθμιση"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "το %s δεν είναι εγκατεστημένο"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "το %s είναι κατεστραμμένο ή όχι πλήρως εγκατεστημένο"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Αδύνατη η ανάγνωση του αρχείου κατάστασης: %s"
@@ -478,3 +445,29 @@ msgstr ""
 "\n"
 "  -o,  --owner=package\t\tΠροσδιορισμός του πακέτου στο οποίο ανήκει η "
 "εντολή."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Αποθήκευση (αποστολή) Σημείωσης"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
+#~ "έστειλε μέσω ηλ. ταχυδρομείου."
+
+#~ msgid "Information"
+#~ msgstr "Πληροφορίες"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Η σημείωση έχει αποσταλεί."
+
+#~ msgid "Error"
+#~ msgstr "Σφάλμα"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Αδύνατη η αποθήκευση της σημείωσης."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
+#~ "απέστειλε σε σας μέσω ηλ. ταχυδρομείου."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-02-11 17:20-0200\n"
 "Last-Translator: André Luís Lopes <andrelop@debian.org>\n"
 "Language-Team: Debian-BR Project <debian-l10n-portuguese@lists.debian.org>\n"
@@ -109,32 +109,6 @@ msgstr "Aj_uda"
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Salvar Nota (enviar por email)"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Foi pedido ao Debconf que essa nota fosse salva, então ela foi enviada por "
-"email para você."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informação"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "A nota foi enviada por email."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Erro"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Impossível salvar nota"
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -143,18 +117,11 @@ msgstr ""
 "O Debconf não foi configurado para mostrar esta mensagem de erro, portanto o "
 "mesmoi a enviou para você."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"O Debconf não foi configurado para mostrar essa nota, então a enviou para "
-"você."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, rodando em %s"
@@ -356,7 +323,7 @@ msgstr "debconf: impossível fazer chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou na preconfiguração com estado de saída %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -370,26 +337,26 @@ msgstr ""
 "      --default-priority\tUse a prioridade padrão ao invés de baixa.\n"
 "      --force\t\t\tForça reconfiguração de pacotes quebrados."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s deve ser rodado como root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "especifique um pacote para reconfigurar"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s não está instalado"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s está quebrado ou não completamente instalado"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Impossível ler o estado do arquivo: %s"
@@ -461,6 +428,32 @@ msgid ""
 msgstr ""
 "\n"
 "  -o   --owner=pacote\t\tDefine o pacote proprietário do comando."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Salvar Nota (enviar por email)"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Foi pedido ao Debconf que essa nota fosse salva, então ela foi enviada "
+#~ "por email para você."
+
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "A nota foi enviada por email."
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Impossível salvar nota"
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "O Debconf não foi configurado para mostrar essa nota, então a enviou para "
+#~ "você."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "pré-configurando %s (%s)"

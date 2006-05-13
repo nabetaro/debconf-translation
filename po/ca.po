@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-02-02 03:10+0200\n"
 "Last-Translator: Guillem Jover <guillem@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -113,32 +113,6 @@ msgstr "A_juda"
 msgid "Help"
 msgstr "Ajuda"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Desa (envia per correu) la nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Es va demanar a Debconf que desés aquesta nota, així que vos l'ha enviat per "
-"correu."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informació"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "La nota s'ha enviat per correu."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Error"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "No s'ha pogut desar la nota."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -147,18 +121,11 @@ msgstr ""
 "Debconf no estava configurat per a mostrar aquesta missatge d'error, així "
 "que vos l'ha enviat per correu."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf no estava configurat per a mostrar aquesta nota, així que vos l'ha "
-"enviat per correu."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, executant-se a %s"
@@ -368,7 +335,7 @@ msgstr "debconf: no es pot fer chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ha fallat al preconfigurar, amb estat de sortida %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -383,26 +350,26 @@ msgstr ""
 "baixa.\n"
 "       --force\t\t\tForça la reconfiguració de paquets trencats."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s s'ha d'executar com a root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "si us plau, especifiqueu un paquet a reconfigurar"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s no està instal·lat"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s està trencat o no està instal·lat completament"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "No es pot llegir el fitxer d'estat: %s"
@@ -475,6 +442,32 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paquet\t\tEstableix el paquet que poseeix l'ordre."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Desa (envia per correu) la nota"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Es va demanar a Debconf que desés aquesta nota, així que vos l'ha enviat "
+#~ "per correu."
+
+#~ msgid "Information"
+#~ msgstr "Informació"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "La nota s'ha enviat per correu."
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid "Unable to save note."
+#~ msgstr "No s'ha pogut desar la nota."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf no estava configurat per a mostrar aquesta nota, així que vos "
+#~ "l'ha enviat per correu."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "s'està preconfigurant %s (%s)"

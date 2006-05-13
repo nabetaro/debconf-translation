@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-20 17:56-0400\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-04-11 13:04+0700\n"
 "Last-Translator: Parlin Imanuel <parlin_i@yahoo.com>\n"
 "Language-Team: Debian Indonesia L10N Team <debid@yahoogroups.com>\n"
@@ -108,32 +108,6 @@ msgstr "_Panduan"
 msgid "Help"
 msgstr "Panduan"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Simpan (kirim) Catatan"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf telah diminta untuk menyimpan catatan ini, jadi akan dikirimkan "
-"kepada Anda."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informasi"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Catatan telah dikirimkan."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Ada Kesalahan"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Catatan tidak dapat disimpan"
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -142,18 +116,11 @@ msgstr ""
 "Debconf tidak dikonfigurasi untuk menampilkan pesan kesalahan ini, jadi akan "
 "dikirimkan kepada Anda."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf tidak dikonfigurasi untuk menampilkan catatan ini, jadi akan "
-"dikirimkan kepada Anda."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, berjalan pada %s"
@@ -354,7 +321,7 @@ msgstr "debconf: tidak dapat chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Prakonfigurasi %s gagal, dengan status %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -368,26 +335,26 @@ msgstr ""
 "       --default-priority\tGunakan prioritas bawaan, bukan yang rendah.\n"
 "       --force\t\t\tPaksakan konfigurasi kembali paket-paket yang rusak."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s harus dijalankan sebagai root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "Mohon tentukan sebuah paket untuk dikonfigurasi ulang"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s tidak dipasang"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s rusak atau tidak sepenuhnya terpasang"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Tidak dapat membaca berkas status: %s"
@@ -460,3 +427,29 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paket\t\tSet paket yang memiliki perintah."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Simpan (kirim) Catatan"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf telah diminta untuk menyimpan catatan ini, jadi akan dikirimkan "
+#~ "kepada Anda."
+
+#~ msgid "Information"
+#~ msgstr "Informasi"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Catatan telah dikirimkan."
+
+#~ msgid "Error"
+#~ msgstr "Ada Kesalahan"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Catatan tidak dapat disimpan"
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf tidak dikonfigurasi untuk menampilkan catatan ini, jadi akan "
+#~ "dikirimkan kepada Anda."

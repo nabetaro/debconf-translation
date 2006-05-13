@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-20 17:56-0400\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-04-07 01:15+0300\n"
 "Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -114,32 +114,6 @@ msgstr "_Ajutor"
 msgid "Help"
 msgstr "Ajutor"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Salvează (expediază) nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf a fost întrebat dacă să salveze această notă, astfel încât v-a fost "
-"expediată."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informaţie"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Această notă a fost expediată."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Eroare"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Nu pot salva nota."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -148,18 +122,11 @@ msgstr ""
 "Debconf nu a fost configurat să afişeze aceast mesaje de eroare, astfel "
 "acesta v-a fost expediat."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf nu a fost configurat să afişeze această notă, astfel încât v-a fost "
-"expediată."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, rulând la %s"
@@ -367,7 +334,7 @@ msgstr "debconf: nu pot schimba permisiunea de acces: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s eşuat la preconfigurare, cu starea de ieşire %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -382,26 +349,26 @@ msgstr ""
 "joase.\n"
 "       --force\t\t\tForţează reconfigurarea pachetelor deteriorate."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s trebuie pornit ca root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "vă rog specificaţi un pachet pentru reconfigurare"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s nu este instalat"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s este deteriorat sau instalat incomplet"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nu pot citi fişierul de stare: %s"
@@ -473,3 +440,29 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=pachet\t\tDetermină pachetul care deţine comanda."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Salvează (expediază) nota"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf a fost întrebat dacă să salveze această notă, astfel încât v-a "
+#~ "fost expediată."
+
+#~ msgid "Information"
+#~ msgstr "Informaţie"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Această notă a fost expediată."
+
+#~ msgid "Error"
+#~ msgstr "Eroare"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Nu pot salva nota."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a "
+#~ "fost expediată."

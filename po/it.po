@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-29 13:11+0100\n"
 "Last-Translator: Danilo Piazzalunga <danilopiazza@gmail.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -106,31 +106,6 @@ msgstr "A_iuto"
 msgid "Help"
 msgstr "Aiuto"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Salvare (spedire) la nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"È stato chiesto a debconf di salvare questa nota, così è stata spedita a voi."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informazioni"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "La nota è stata spedita."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Errore"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Impossibile salvare la nota."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -139,18 +114,11 @@ msgstr ""
 "Debconf non è stato configurato per mostrare questo messaggio d'errore, così "
 "ve l'ha spedito."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
-"spedita."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, in esecuzione su %s"
@@ -353,7 +321,7 @@ msgstr "debconf: impossibile eseguire chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ha fallito nel preconfigurare, con lo stato di uscita %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -368,26 +336,26 @@ msgstr ""
 "                                più bassa.\n"
 "       --force                  Riconfigura i pacchetti anche se rovinati."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s deve essere eseguito da root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "specificare un pacchetto da riconfigurare"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s non è installato"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s è rovinato o non completamente installato"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Impossibile leggere il file dello stato: %s"
@@ -460,3 +428,29 @@ msgstr ""
 "\n"
 "  -o,  --owner=package          Specifica il pacchetto a cui il comando\n"
 "                                apppartiene."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Salvare (spedire) la nota"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "È stato chiesto a debconf di salvare questa nota, così è stata spedita a "
+#~ "voi."
+
+#~ msgid "Information"
+#~ msgstr "Informazioni"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "La nota è stata spedita."
+
+#~ msgid "Error"
+#~ msgstr "Errore"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Impossibile salvare la nota."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf non è stato configurato per mostrare questa nota, così ve l'ha "
+#~ "spedita."

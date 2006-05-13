@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-27 17:01+0100\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -107,30 +107,6 @@ msgstr "_Nápoveda"
 msgid "Help"
 msgstr "Nápoveda"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Uložiť poznámku (poslať poštou)"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf bol nastavený na uloženie tejto poznámky, takže vám ju poslal."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Informácia"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Poznámka bola odoslaná."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Chyba"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Poznámka sa nedá uložiť."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -139,17 +115,11 @@ msgstr ""
 "Debconf nebol nastavený na zobrazenie tejto chybovej správy, takže vám ju "
 "poslal."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf nebol nastavený na zobrazenie tejto poznámky, takže vám ju poslal."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf spustený na %s"
@@ -350,7 +320,7 @@ msgstr "debconf: nedajú sa zmeniť práva: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s sa nedá pripraviť na nastavenie, výstupná chyba %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -365,26 +335,26 @@ msgstr ""
 "       --default-priority\tPoužije predvolenú prioritu namiesto nízkej.\n"
 "       --force\t\t\tVynúti rekonfiguráciu poškodených balíkov."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s sa musí spustiť s právami root-a"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "zadajte balík na rekonfiguráciu"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s nie je nainštalovaný"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s je poškodený alebo nie je úplne nainštalovaný"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nedá sa načítať stavový súbor: %s"
@@ -456,3 +426,27 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=balík\t\tNastaví balík, v ktorom sa nachádza daný príkaz."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Uložiť poznámku (poslať poštou)"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf bol nastavený na uloženie tejto poznámky, takže vám ju poslal."
+
+#~ msgid "Information"
+#~ msgstr "Informácia"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Poznámka bola odoslaná."
+
+#~ msgid "Error"
+#~ msgstr "Chyba"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Poznámka sa nedá uložiť."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf nebol nastavený na zobrazenie tejto poznámky, takže vám ju poslal."

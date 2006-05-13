@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-27 15:39+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
@@ -110,31 +110,6 @@ msgstr "_Laguntza"
 msgid "Help"
 msgstr "Laguntza"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Gorde oharra (epostaz)"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf ohar hau gordetzeko konfiguraturik zegoen, beraz postaz bidali zaizu."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Argibideak"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Oharra postaz bidalia izan da."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Errorea"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Ezin da oharra gorde."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -143,18 +118,11 @@ msgstr ""
 "Debconf ez dago errore mezu hau erakusteko konfiguraturik beraz postaz "
 "bidaliko dizu."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf ez dago ohar hau erakusteko konfiguraturik beraz postaz bidaliko "
-"dizu."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, %s-n abiarazirik"
@@ -356,7 +324,7 @@ msgstr "debconf: ezin da chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s huts aurrekonfiguratzerakoan, %s irteera kodeaz."
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -371,26 +339,26 @@ msgstr ""
 "ordez.\n"
 "       --force\t\t\tApurtutako paketeen birkonfiguraketa indartu."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s root bezala abiarazi behar da"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "Mesedez ezarri berkonfiguratu nahi duzun paketea"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ez dago instalaturik"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ondaturik edo erdi instalaturik dago"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Ezin da egoera fitxategia irakurri: %s"
@@ -462,3 +430,29 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tEzarri komandoaren jabe den paketea."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Gorde oharra (epostaz)"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf ohar hau gordetzeko konfiguraturik zegoen, beraz postaz bidali "
+#~ "zaizu."
+
+#~ msgid "Information"
+#~ msgstr "Argibideak"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Oharra postaz bidalia izan da."
+
+#~ msgid "Error"
+#~ msgstr "Errorea"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Ezin da oharra gorde."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf ez dago ohar hau erakusteko konfiguraturik beraz postaz bidaliko "
+#~ "dizu."

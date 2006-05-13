@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-20 17:56-0400\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-02-21 08:18+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -108,46 +108,17 @@ msgstr "_مساعدة"
 msgid "Help"
 msgstr "مساعدة"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "حفظ (البريد) الملاحظة"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "طُلب من debconf حفظ هذه الملاحظة، فقام بإرساله إليك بالبريد."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "معلومات"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "تم إرسال هذه الملاحظة بالبريد."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "خطأ"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "تعذر حفظ الملاحظة."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr "لم تتم تهيئة debconf لعرض رسالة الخطأ هذه، فقام بإرسالها إليك بالبريد."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf، يعمل على %s"
@@ -344,7 +315,7 @@ msgstr "debconf: لايمكن تنفيذ chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "فشلت تهيئة %s مسبقاً، مع حالة خروج %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -358,26 +329,26 @@ msgstr ""
 "       --default-priority\tاستخدام الأولوية الافتراضية بدلاً من المنخفضة.\n"
 "       --force\t\t\tأإجبار إعادة تهيئة الحزم المعطوبة."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "يجب تشغيل %s كمستخدم جذر"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "الرجاء تحديد حزمة لتهيئتها مسبقاً"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s غير مُثبّتة"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s معطوبة أو غير مُثبّتة بالكامل"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "لا يمكن قراءة ملف الحالة: %s"
@@ -452,3 +423,25 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tتحديد الحزمة التي تخص الأمر."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "حفظ (البريد) الملاحظة"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr "طُلب من debconf حفظ هذه الملاحظة، فقام بإرساله إليك بالبريد."
+
+#~ msgid "Information"
+#~ msgstr "معلومات"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "تم إرسال هذه الملاحظة بالبريد."
+
+#~ msgid "Error"
+#~ msgstr "خطأ"
+
+#~ msgid "Unable to save note."
+#~ msgstr "تعذر حفظ الملاحظة."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr "لم تتم تهيئة debconf لعرض هذه الملاحظة، فقام بإرسالها إليك بالبريد."

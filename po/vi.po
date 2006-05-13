@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-28 13:16+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -106,30 +106,6 @@ msgstr "Trợ _giúp"
 msgid "Help"
 msgstr "Trợ giúp"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Lưu (gởi thư) chú thích"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Đã báo Debconf lưu chú thích này, vậy nó đã gởi chú thích cho bạn rồi."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Thông tin"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Đã gởi chú thích ấy rồi."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Lỗi"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Không lưu được chú thích."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -138,18 +114,11 @@ msgstr ""
 "Chưa cấu hình Debconf để hiển thị thông điệp lỗi này, thì nó gởi thông điệp "
 "cho bạn."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Chưa cấu hình Debconf để hiển thị chú thích này, thì nó gởi chú thích cho "
-"bạn."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, đang chạy vào %s"
@@ -349,7 +318,7 @@ msgstr "debconf: không thể chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s không cấu hình được trước, có trang thái thoát là %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -366,26 +335,26 @@ msgstr ""
 "thấp.\n"
 "       --force\t\t\t_Buộc_ cấu hình lại các gói bị ngắt."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "phải chạy %s như là người chủ"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "hãy ghi rõ một gói cần cấu hình lại"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "chưa cài đặt %s"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s bị ngắt hay chưa được cài đặt hoàn thành"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Không đọc được tập tin trạng thái: %s"
@@ -462,3 +431,28 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tLập _gói sở hữu_ lệnh ấy."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Lưu (gởi thư) chú thích"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Đã báo Debconf lưu chú thích này, vậy nó đã gởi chú thích cho bạn rồi."
+
+#~ msgid "Information"
+#~ msgstr "Thông tin"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Đã gởi chú thích ấy rồi."
+
+#~ msgid "Error"
+#~ msgstr "Lỗi"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Không lưu được chú thích."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Chưa cấu hình Debconf để hiển thị chú thích này, thì nó gởi chú thích cho "
+#~ "bạn."

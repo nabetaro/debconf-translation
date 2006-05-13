@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.59\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-27 13:45+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -109,30 +109,6 @@ msgstr "_Hjälp"
 msgid "Help"
 msgstr "Hjälp"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Spara (e-post-)notis"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Debconf ombads bevara notisen, så den har sänts till dig per e-post."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Information"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Notisen har sänts per e-post."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Fel"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Kan inte spara notis."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -141,18 +117,11 @@ msgstr ""
 "Debconf blev inte inställt för att visa detta felmeddelande så det har sänts "
 "till dig via e-post."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf är inte inställt för att visa denna notis, så den har sänts till dig "
-"per e-post."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf på %s"
@@ -351,7 +320,7 @@ msgstr "debconf: kan inte byta ägare: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s misslyckades med förkonfigurering, med slutkod %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -365,26 +334,26 @@ msgstr ""
 "       --default-priority\tAnvänd standard prioritet istället för låg.\n"
 "       --force\t\t\tTvinga omkonfigurering av trasiga paket."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s måste köras som root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "ange ett paket att konfigurera om"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s är inte installerat"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s är trasigt eller inte helt installerat"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Kan inte läsa statusfil: %s"
@@ -456,6 +425,31 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paket\t\tSätt paketet som äger kommandot."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Spara (e-post-)notis"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf ombads bevara notisen, så den har sänts till dig per e-post."
+
+#~ msgid "Information"
+#~ msgstr "Information"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Notisen har sänts per e-post."
+
+#~ msgid "Error"
+#~ msgstr "Fel"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Kan inte spara notis."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf är inte inställt för att visa denna notis, så den har sänts till "
+#~ "dig per e-post."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Konfigurerar %s (%s)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-27 14:48+0100\n"
 "Last-Translator: Jacobo Tarrío <jtarrio@debian.org>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -111,30 +111,6 @@ msgstr "A_xuda"
 msgid "Help"
 msgstr "Axuda"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Gravar (enviar) Nota"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr "Pedíuselle a Debconf que gravara esta nota, así que lla enviou a Vd."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Información"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Enviouse a nota por correo."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Erro"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Non se puido gravar a nota."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -142,17 +118,11 @@ msgid ""
 msgstr ""
 "Non se configurou debconf para amosar este erro, así que lla enviou a Vd."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, executándose en %s"
@@ -353,7 +323,7 @@ msgstr "debconf: non se puido facer chmod: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Non se puido preconfigurar %s, co estado de saída %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -367,26 +337,26 @@ msgstr ""
 "       --default-priority\tEmprega a prioridade predeterminada.\n"
 "       --force\t\t\tForza a reconfiguración dos paquetes rotos."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "débese executar %s coma root"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "especifique un paquete a reconfigurar"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s non está instalado"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s está avariado ou non está completamente instalado"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Non se puido ler o ficheiro de estado: %s"
@@ -458,6 +428,30 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paquete\t\tFixa o paquete que contén a orde."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Gravar (enviar) Nota"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Pedíuselle a Debconf que gravara esta nota, así que lla enviou a Vd."
+
+#~ msgid "Information"
+#~ msgstr "Información"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Enviouse a nota por correo."
+
+#~ msgid "Error"
+#~ msgstr "Erro"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Non se puido gravar a nota."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Non se configurou debconf para amosar esta nota, así que lla enviou a Vd."
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "Preconfigurando %s (%s)"

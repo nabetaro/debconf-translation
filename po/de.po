@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-15 12:59+0000\n"
+"POT-Creation-Date: 2006-05-12 19:20-0500\n"
 "PO-Revision-Date: 2006-01-27 14:57+0100\n"
 "Last-Translator: Michael Piefel <piefel@debian.org>\n"
 "Language-Team: German, freelance\n"
@@ -106,32 +106,6 @@ msgstr "_Hilfe"
 msgid "Help"
 msgstr "Hilfe"
 
-#: ../Debconf/Element/Gnome/Note.pm:52
-msgid "Save (mail) Note"
-msgstr "Notiz aufbewahren (per E-Mail senden)"
-
-#: ../Debconf/Element/Gnome/Note.pm:53
-msgid "Debconf was asked to save this note, so it mailed it to you."
-msgstr ""
-"Debconf wurde gebeten diese Nachricht zu speichern, daher sendet es sie "
-"Ihnen."
-
-#: ../Debconf/Element/Gnome/Note.pm:55
-msgid "Information"
-msgstr "Information"
-
-#: ../Debconf/Element/Gnome/Note.pm:56
-msgid "The note has been mailed."
-msgstr "Die Notiz wurde verschickt."
-
-#: ../Debconf/Element/Gnome/Note.pm:60
-msgid "Error"
-msgstr "Fehler"
-
-#: ../Debconf/Element/Gnome/Note.pm:61
-msgid "Unable to save note."
-msgstr "Kann die Notiz nicht sichern."
-
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
@@ -140,18 +114,11 @@ msgstr ""
 "Debconf wurde nicht konfiguriert, diese Fehlernachricht anzuzeigen, daher "
 "sendet es sie Ihnen."
 
-#: ../Debconf/Element/Noninteractive/Note.pm:40
-msgid ""
-"Debconf was not configured to display this note, so it mailed it to you."
-msgstr ""
-"Debconf wurde nicht konfiguriert, diese Nachricht anzuzeigen, daher sendet "
-"es sie Ihnen."
-
-#: ../Debconf/Element/Noninteractive/Note.pm:64
+#: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
 msgstr "Debconf"
 
-#: ../Debconf/Element/Noninteractive/Note.pm:87
+#: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
 msgstr "Debconf, auf %s"
@@ -357,7 +324,7 @@ msgstr "debconf: kann kein chmod durchführen: %s"
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s konnte nicht vorkonfiguriert werden, Exit-Status %s"
 
-#: ../dpkg-reconfigure:92
+#: ../dpkg-reconfigure:100
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -372,26 +339,26 @@ msgstr ""
 "niedrig).\n"
 "       --force\t\t\tNeukonfiguration kaputter Pakete erzwingen."
 
-#: ../dpkg-reconfigure:104
+#: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s muss als Root ausgeführt werden"
 
-#: ../dpkg-reconfigure:137
+#: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
 msgstr "bitte geben Sie ein Paket an, das Sie neu konfigurieren wollen"
 
-#: ../dpkg-reconfigure:158
+#: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ist nicht installiert"
 
-#: ../dpkg-reconfigure:162
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ist kaputt oder nicht komplett installiert"
 
-#: ../dpkg-reconfigure:239
+#: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Kann die Status-Datei nicht lesen: %s"
@@ -463,6 +430,32 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tDas Paket setzen, dem der Befehl gehört."
+
+#~ msgid "Save (mail) Note"
+#~ msgstr "Notiz aufbewahren (per E-Mail senden)"
+
+#~ msgid "Debconf was asked to save this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf wurde gebeten diese Nachricht zu speichern, daher sendet es sie "
+#~ "Ihnen."
+
+#~ msgid "Information"
+#~ msgstr "Information"
+
+#~ msgid "The note has been mailed."
+#~ msgstr "Die Notiz wurde verschickt."
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
+
+#~ msgid "Unable to save note."
+#~ msgstr "Kann die Notiz nicht sichern."
+
+#~ msgid ""
+#~ "Debconf was not configured to display this note, so it mailed it to you."
+#~ msgstr ""
+#~ "Debconf wurde nicht konfiguriert, diese Nachricht anzuzeigen, daher "
+#~ "sendet es sie Ihnen."
 
 #, fuzzy
 #~ msgid "preconfiguring %s (%s)"
