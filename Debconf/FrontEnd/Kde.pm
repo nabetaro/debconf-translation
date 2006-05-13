@@ -143,8 +143,7 @@ sub go {
 	
 	debug frontend => "QTF: -- END --------------------";
 	if ($this->cancelled) {
-		$this->shutdown;
-		exit;
+		exit 1;
 	}
 	return '' if $this->goback;
 	return 1;
@@ -192,8 +191,7 @@ sub progress_stop {
 	$this->vbox->removeItem($this->space);
 
 	if ($this->cancelled) {
-		$this->shutdown;
-		exit;
+		exit 1;
 	}
 }
 

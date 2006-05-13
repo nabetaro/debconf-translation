@@ -53,7 +53,7 @@ sub create_druid_page {
 		Gtk2->main_quit;
 		return 1;
 	});
-	$this->druid_page->signal_connect("cancel", sub { exit });
+	$this->druid_page->signal_connect("cancel", sub { exit 1 });
 	$this->druid_page->show;
 	$this->druid->append_page($this->druid_page);
 	$this->druid->set_page($this->druid_page);
@@ -94,7 +94,7 @@ sub init {
 	my $hostname = `hostname`;
 	chomp $hostname;
 	$this->win->set_title(to_Unicode(sprintf(gettext("Debconf on %s"), $hostname)));
-	$this->win->signal_connect("delete_event", sub { exit });
+	$this->win->signal_connect("delete_event", sub { exit 1 });
 	
 	my $distribution='';
 	if (system('type lsb_release >/dev/null 2>&1') == 0) {
