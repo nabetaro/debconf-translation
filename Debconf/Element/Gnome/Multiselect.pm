@@ -100,6 +100,9 @@ sub value {
 	return join(', ', $this->order_values(@vals));
 }
 
+# Multiple inheritance means we get Debconf::Element::visible by default.
+*visible = \&Debconf::Element::Multiselect::visible;
+
 =head1 AUTHOR
 
 Eric Gillespie <epg@debian.org>

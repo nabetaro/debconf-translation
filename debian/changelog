@@ -1,3 +1,12 @@
+debconf (1.5.2) UNRELEASED; urgency=low
+
+  * Stop the Gnome and Kde frontends from displaying select questions with
+    zero or one choices, or multiselect questions with zero choices; this
+    was broken due to an error in multiple inheritance (thanks, Gary Coady;
+    closes: https://launchpad.net/bugs/42187).
+
+ -- Colin Watson <cjwatson@debian.org>  Mon, 15 May 2006 10:23:26 +0100
+
 debconf (1.5.1) unstable; urgency=low
 
   [ Colin Watson ]

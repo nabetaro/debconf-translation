@@ -60,6 +60,9 @@ sub value {
 	return $this->translate_to_C_uni($this->widget->currentText());
 }
 
+# Multiple inheritance means we get Debconf::Element::visible by default.
+*visible = \&Debconf::Element::Select::visible;
+
 =back
 
 =head1 AUTHOR

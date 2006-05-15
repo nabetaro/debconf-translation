@@ -78,6 +78,9 @@ sub value {
 	return join(', ', $this->order_values(@vals));
 }
 
+# Multiple inheritance means we get Debconf::Element::visible by default.
+*visible = \&Debconf::Element::Multiselect::visible;
+
 =back
 
 =head1 AUTHOR
