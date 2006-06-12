@@ -56,7 +56,7 @@ my $qi = Debconf::Question->iterator;
 
 while (my $q = $qi->iterate) {
 	my ($name, $type, $value) = ($q->name, $q->type, $q->value);
-	next if (! length $type || $type eq 'text' || $type eq 'note' || $type eq 'error' || $type eq 'title');
+	next if (! length $type || $type eq 'text' || $type eq 'title');
 	print "# ".$q->description."\n";
 	if ($q->type eq 'select' || $q->type eq 'multiselect') {
 		print "# Choices: ".join(", ", $q->choices)."\n";
