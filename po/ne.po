@@ -1,0 +1,393 @@
+# translation of debconf_po.po to Nepali
+# Mahesh Subedi <submanesh@hotmail.com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_po\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-05-15 03:45-0600\n"
+"PO-Revision-Date: 2006-05-17 18:03+0545\n"
+"Last-Translator: Mahesh Subedi <submanesh@hotmail.com>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=(n!=1)\n"
+"X-Generator: KBabel 1.10.2\n"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "फ्रोनटेन्डमा पछाडि फर्कनुहोस्: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "फ्रोनटेन्ड थालनि गर्न अक्षम: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "फ्रोनटेन्ड सुरू गर्न अक्षम: %s"
+
+#: ../Debconf/Config.pm:130
+msgid "Config database not specified in config file."
+msgstr "कन्फिगर गरेको डेटाबेस कन्फिगरेसन फाइलमा निर्दिष्ट गरेको छैन ।"
+
+#: ../Debconf/Config.pm:134
+msgid "Template database not specified in config file."
+msgstr "टेम्प्लेट डेटाबेस कन्फिगर फाइलमा निर्दिष्ट गरेको छैन ।"
+
+#: ../Debconf/Config.pm:139
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "सिजिलहरू र स्माइलिहरू विकल्पहरू कन्फिगर फाइममा सिलिजहरू र स्माइलिहरू धेरै समय प्रयोग गर्न सकिदैन । कृपया तिनिहरू हटाउनुहोस् ।"
+
+#: ../Debconf/Config.pm:153
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr " %s को %s स्ट्यान्जाद्धारा परिभाषित डेटावेस सेटिङ् गर्दा समस्या ।"
+
+#: ../Debconf/Config.pm:228
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tप्रयोग गर्नलाई डेबकोन्फ फ्रोनटेन्ड निर्दिष्ट गर्नुहोस् ।\n"
+"  -p,  --priority\t\tहर्नलाई न्युनतम प्राथमिकता प्रश्न निर्दिष्ट गर्नुहोस् ।\n"
+"       --terse\t\t\tट्रेस् मोड सक्षम पार्नुहोस् ।\n"
+
+#: ../Debconf/Config.pm:308
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "अवैध प्राथमिकताहरू उपेक्षा गर्दैछ \"%s\""
+
+#: ../Debconf/Config.pm:309
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "वैध प्राथमिकताहरू हुन्: %s"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "छनौटहरू"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "हो"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "होइन"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(खालि ठाँउले पछ्याएको अल्पविरामले विभाजन गरेको शुन्य वा बढी वस्तुहरू प्रविष्ट गर्नुहोस् (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "मद्दत"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "मद्दत"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr "यो त्रुटि सन्देश प्रर्दशन गर्न डेबकोन्फ कन्फीगर गरेको थिएन, त्यसैले तपाईँलाई पत्राचार गरेको हो ।"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:63
+msgid "Debconf"
+msgstr "डेबकोन्फ"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:86
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "डेबकोन्फ, %sमा चलिरहेको छ"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr "आगत मान, \"%s\" C छनौटहरुमा फेला परेन ! यो कहिले पनि हुदैन । सायद टम्प्लेटहरू गलत तरिकाले स्थानियकरण गरिएको थियो ।"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "माथिको कुनै पनि होइन"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "तपाईँले चयन गर्न चाहुनु भएको वस्तु प्रविष्ट गर्नुहोस्, खालि ठाँउले छुट्टाइको ।"
+
+#: ../Debconf/FrontEnd.pm:131
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "डेबकोन्फ लोड गर्न अक्षम::तत्व::%s । असफल भयो किनभने: %s"
+
+#: ../Debconf/FrontEnd.pm:312
+#, perl-format
+msgid "Configuring %s"
+msgstr " %s कन्फिगर गर्दै"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM सेट छैन, त्यसैले सम्वाद फोर्नटेन्ड प्रयोग योग्य छैन ।"
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "सम्वाद फर्नटेन्ड इमास् कक्ष बफर संग मिल्दो छ ।"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr "सम्वाद फर्नटेन्ड डम्ब टर्मिनलमा कार्य गर्ने छैन, एउटा इमास् कक्ष बफर, वा नियन्त्रण बिनाको टर्मिनल ।"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr "कुनै उपयोगि सम्बाद जस्तो कार्यक्रम स्थापना गरेको छैन, त्यसैले सम्बामा आधारित फ्रोनटेन्ड प्रयोग गर्न सकिदैन ।"
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "सम्बाद फोर्नटेन्डलाई कम्तिमा पनि १३ लाइन अग्लो र ३१ स्तम्भ चौडाइ हुनुपर्दछ ।"
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Debian Configuration"
+msgstr "डेबियन कन्फिगरेसन"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr "तपाईँले तपाईँको प्रणली कन्फिगर गर्न सम्पादक-आधारित डेबकोन्फ फोर्नटेन्ड प्रयोग गर्दै हुनुहुन्छ । यो कागजातको धेरै निर्देशनहरुको लागि अन्ततिर हर्नुहोस् ।"
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr "सम्पादक-आधारित डेबकोन्फ फोर्नटेन्डले तपाईँलाई एक वा बढि पाठ फाइलहरू सम्पादन गर्न प्रस्तुत गर्दछ । यदि तपाईँ मानक युनिक्स कन्फिगरेसन फाइलहरू संग परिचित हुनुहुन्छ भने, यो फाइल पनि तपाईँलाई परिचित लाग्दछ-- यसले टिप्पणिसंग कन्फिगरेसन वस्तुहरू मिश्रण समावेश गर्दछ । फाइल सम्पादन गर्नुहोस्, आवश्यक रुपमा कुनै वस्तुहरू परिवर्तन गर्नुहोस्, र यसलाई बचत गर्नुहोस् र निस्कनुहोस् । यो बिन्दुमा, डेबकोन्फले फाइल पढ्ने छ सम्पादन गर्नेछ, र प्रणाली कन्फिगरेसन गर्न प्रविष्ट गर्नु भएको मानहरू प्रयोग गर्नुहोस् ।"
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Kde.pm:85
+#, perl-format
+msgid "Debconf on %s"
+msgstr "डेबककोन्फ मा %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "यो फ्रोनटेन्डलाई नियन्त्रित tty आवश्यक पर्दछ ।"
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "टर्म::रिडलाइन:: GNU इमास् कक्ष बफर संग मिल्दो छैन ।"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "बढि"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "द्रष्टब्य: डेबकोन्फ वेब मोडमा चलिरहेको छ । http://localhost:%i/ मा जानुहोस्"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "पछाडि"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "अर्को"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr "चेतावनि: सम्भाव्य डेटावेश दुषित । पछाडि हराईरहेको प्रश्न %s द्धारा मर्मत गर्न प्रयास गर्नुहुन्छ ।"
+
+#: ../Debconf/Template.pm:203
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr "टेम्प्लेट #%s मा %s नक्कली फाइल \"%s\" संग नयाँ मान \"%s\" छ । सम्वभत दुई टेम्प्लेटहरू नयाँ लामो लाइनद्धारा राम्रोसंग विभाजित छैन ।\n"
+
+#: ../Debconf/Template.pm:228
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "अज्ञात टेम्प्लेट फाँट '%s', मा स्ट्यान्जा #%s of %s\n"
+
+#: ../Debconf/Template.pm:254
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "टम्प्लेट पद वर्णन त्रुटि `%s', मा स्ट्यान्जा नजिक #%s of %s\n"
+
+#: ../Debconf/Template.pm:260
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "टेम्प्लेट #%s मा %s टेम्प्लेट समावेश गर्दैन:' लाइन\n"
+
+#: ../dpkg-preconfigure:113
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "स्ट्डिन फरि खोल्न असक्षम: %s"
+
+#: ../dpkg-preconfigure:116
+#, perl-format
+msgid "must specify some debs to preconfigure"
+msgstr "प्रिकन्फिगरमा केहि डेम्बहरू निर्दिष्ट गर्नु पर्दछ"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "प्याकेज कन्फिगरेसनमा ढिलाई हुदैछ, apt-utils स्थापना नगरे देखि"
+
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "apt-अरिरिक्त फाइल संलग्र असफल: %s"
+
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "बाट प्याकजहरू टेम्प्लेटहरू झिक्दैछ: %d%%"
+
+#: ../dpkg-preconfigure:180
+msgid "Preconfiguring packages ...\n"
+msgstr "प्याकेजहरू प्रिकन्फिगर गर्दै...\n"
+
+#: ../dpkg-preconfigure:192
+#, perl-format
+msgid "template parse error: %s"
+msgstr "टेम्प्लेट पद वर्णनमा त्रुटि: %s"
+
+#: ../dpkg-preconfigure:206
+#, perl-format
+msgid "debconf: can't chmod: %s"
+msgstr "डेबकोन्फ: chmod गर्न सकिदैन: %s"
+
+#: ../dpkg-preconfigure:217
+#, perl-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s प्रिकन्फिगर गर्न असफल, संग निस्कनुहोस् वस्तुस्थितिमा %s"
+
+#: ../dpkg-reconfigure:100
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+"प्रयोग: dpkg-पुनकन्फिगरे [विकल्पहरू] प्याकेजहरू\n"
+"  -एउटा,  --सबैl\t\t\tसबै प्याकेजहरू पुन कन्फिगर गर्नुहोस्\n"
+"  -यु,  --नदेखिने मात्र\t\tअहिले सम्म नदेखिएको प्रश्नहरू मात्र देखाउनुहोस्\n"
+"       --पुर्व निर्धारित प्राथमिकता\tन्यनको सट्टामा पुर्ननिर्धारित प्राथमिकता प्रयोग गर्नुहोस् \n"
+"       --बल\t\t\t बिग्रिएका प्याकेजहरू बलपुर्वक पुन कन्फिगरेसन गर्नुहोस् ।"
+
+#: ../dpkg-reconfigure:113
+#, perl-format
+msgid "%s must be run as root"
+msgstr "%s मूलको रुपमा चलाउनु पर्छ"
+
+#: ../dpkg-reconfigure:146
+msgid "please specify a package to reconfigure"
+msgstr "कृपया पुन कन्फिगर गर्न प्याकेजहरू निर्दिष्ट गर्नुहोस्"
+
+#: ../dpkg-reconfigure:167
+#, perl-format
+msgid "%s is not installed"
+msgstr "%s स्थापना भएको छैन"
+
+#: ../dpkg-reconfigure:171
+#, perl-format
+msgid "%s is broken or not fully installed"
+msgstr "%s बिग्रिएको छ वा पुर्णरुपमा स्थापना गरिएको छैन"
+
+#: ../dpkg-reconfigure:250
+#, perl-format
+msgid "Cannot read status file: %s"
+msgstr "वस्तुस्थिति फाइल पढ्न सकिदैन: %s"
+
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr "प्रयोग: डेबकन्फ-सम्पर्क गर्छ [विकल्पहरु] [प्याकेजहरू]"
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr "डेबकोन्फ-गाभ्ने टेम्प्लेट: यो उपयोगिता ह्यास गरिएको छ । तपाईँले पो-डेबकोन्फको पो२डेवकोन्फ कार्यक्रम प्रयोग गर्दै स्विच गर्नुहोस् ।"
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr "प्रयोग: डेवकोन्फ-गाभ्ने टेम्प्लेट [विकल्पहरू] [templates.ll ...] टेम्प्लेटहरू"
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+"\n"
+"        --मिति बाहिर भएको\t\tसमय बाहिर अनुवादहरू गाभ्नुहोस् ।\n"
+"\t--पुरानो टेम्प्लेट छाड्नुहोस्\tसम्पुर्ण पुराना टेम्प्लेटहरू छाड्नुहोस् ।"
+
+#: ../debconf-mergetemplate:119
+#, perl-format
+msgid "%s is missing"
+msgstr "%s हराइरेहेको छ"
+
+#: ../debconf-mergetemplate:123
+#, perl-format
+msgid "%s is missing; dropping %s"
+msgstr "%s हराईरहेको छ; %s छाड्दै"
+
+#: ../debconf-mergetemplate:146
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s फज्जी हो %s बाइटमा: %s"
+
+#: ../debconf-mergetemplate:151
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s फज्जी हो %s बाइटमा: %s; यसलाई छोड्दैछ"
+
+#: ../debconf-mergetemplate:168
+#, perl-format
+msgid "%s is outdated"
+msgstr "%s समय बाहिर भएको छ"
+
+#: ../debconf-mergetemplate:173
+#, perl-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s समय बाहिर भएको छ; सम्पुर्ण टेम्प्लेट छोड्दै !"
+
+#: ../debconf:88
+msgid "Usage: debconf [options] command [args]"
+msgstr "प्रयोग: डेबकोन्फ [विकल्पहरू] आदेश [आग्रहरू]"
+
+#: ../debconf:90
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
+"\n"
+"  -वो,  --मालिक=प्याकेज\t\tप्याकेज सेट गर्नुहोस् जसले आदेशको स्वामित्व गर्छ ।"
+
