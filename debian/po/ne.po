@@ -1,0 +1,99 @@
+# translation of debconf_debian_po.po to Nepali
+# Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_debian_po\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-05-05 09:55-0600\n"
+"PO-Revision-Date: 2006-05-22 23:53+0545\n"
+"Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=(n!=1)\n"
+"X-Generator: KBabel 1.10.2\n"
+
+#. Type: select
+#. Choices
+#: ../templates:3
+msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
+msgstr "संवाद, पढ्नेपंक्ति, जिनोम,kde, सम्पादक, पारस्पारिक क्रियात्मक"
+
+#. Type: select
+#. Description
+#: ../templates:5
+msgid "What interface should be used for configuring packages?"
+msgstr "प्याकेज कनफिगर गर्नको लागि के इनटरफेस प्रयोग हुनेछ ?"
+
+#. Type: select
+#. Description
+#: ../templates:5
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr "कनफिगरेसनको लागि debconf प्रयोग गर्ने प्याकेजहरुले साझा हेराई र अनुभव बाँड्छ । तपाईँ तिनीहरुले प्रयोग गर्ने प्रयोगकर्ता इन्टरफेसको प्रकार चयन गर्न सक्नुहुन्छ ।"
+
+#. Type: select
+#. Description
+#: ../templates:5
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr "संवाद सामने भएको पूरा पर्दामा आधारित क्यारेक्टर इन्टरफेस हो, जब सामने भएको पढ्ने पंक्तिले धेरै पुरानो खाली पाठ इन्टरफेस प्रयोग गर्छ, सम्बन्धित डेस्कटपहरू फिट गर्दा ( तर कुनै X परिवेशमा प्रयोग हुन सक्ने) दुवै जिनोम र kde सामनेहरू आधुनिक X इन्टरफेसहरू हुन्छन् । सामुने भएको सम्पादकले तपाईँलाई मन परेको पाठ सम्पादक प्रयोग गरेर चीजहरू कनफिगर गर्नु दिन्छ । सामुने पारस्पारिक क्रियात्मक नभएकाहरुले तपाईँलाई कुनै प्रश्नहरू सोधदैन ।ुने दन "
+
+#. Type: select
+#. Choices
+#: ../templates:18
+msgid "critical, high, medium, low"
+msgstr "नाजुक, उच्च, मध्यम, कम"
+
+#. Type: select
+#. Description
+#: ../templates:20
+msgid "Ignore questions with a priority less than..."
+msgstr "कम प्राथमिकता भएको प्रश्नहरू उपेक्षा गर्नुहोस्..."
+
+#. Type: select
+#. Description
+#: ../templates:20
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"यसले तपाईँलाई सोधिएका प्रश्नहरुलाई Debconf ले प्राथमिकता दिन्छ । तपाईँले हेर्न चाहनु भएको कम प्राथमिकताको प्रश्न झिक्नुहोस्:\n"
+"  - यदि प्रणाली विच्छेदन भएमा 'critical' ले मात्र तपाईँलाई प्रोम्प्ट गर्दछ ।\n"
+"    यदि तपाईँ newbie, वा हतारमा हुनुहुन्छ भने, यसलाई झिक्नुहोस् ।\n "
+"  - 'high' खास गरेर महत्वपूर्ण प्रश्नहरुको लागि हो\n "
+"  - 'medium' सामन्य प्रश्नहरुको लागि हो\n "
+"  - 'low' नियन्त्रण लहरहरुको लागि हो जसले सबै चीज हेर्न चाहन्छ"
+
+#. Type: select
+#. Description
+#: ../templates:20
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr "याद गर्नुहोस् तपाईँले यहाँ कुन स्तर झिक्नु भएको थियो त्यसले केही फरक पार्दैन, यदि तपाईँले dpkg-reconfigure संगै प्याकेज पुन: कनफिगर गर्नु भयो भने तपाईँ प्रत्येक प्रश्न हेर्न सक्नुहुनेछ ।"
+
+#. Type: text
+#. Description
+#: ../templates:34
+msgid "Installing packages"
+msgstr "प्याकेजहरू स्थापना गरिदैछ "
+
+#. Type: text
+#. Description
+#: ../templates:38
+msgid "Please wait..."
+msgstr "कृपया पर्खनुहोस्..."
+
