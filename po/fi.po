@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-12 19:20-0500\n"
-"PO-Revision-Date: 2005-01-23 18:48+0200\n"
+"PO-Revision-Date: 2006-06-22 09:19+0300\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,10 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
+"  -f,  --frontend\t\tMääritä käytettävä debconf-edusta.\n"
+"  -p,  --priority\t\tMääritä näytettävien kysymysten\n"
+"\t\t\t\tminimiprioriteetti.\n"
+"       --terse\t\t\tOta lyhytsanainen tila käyttöön.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -105,7 +109,6 @@ msgid "Help"
 msgstr "Ohje"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-#, fuzzy
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
@@ -296,9 +299,9 @@ msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates epäonnistui: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
-#, fuzzy, perl-format
+#, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "apt-extracttemplates epäonnistui: %s"
+msgstr "Puretaan malleja paketeteista: %d %%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -327,6 +330,13 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
+"Käyttö: dpkg-reconfigure [VALITSIMET] paketit\n"
+"  -a,  --all\t\t\tUudelleenkonfiguroi kaikki paketit.\n"
+"  -u,  --unseen-only\t\tNäytä vain kysymykset, joita ei ole\n"
+"\t\t\t\tvielä näytetty.\n"
+"       --default-priority\tKäytä oletusprioriteettia matalan sijaan.\n"
+"       --force\t\t\tPakota rikkinäisten pakettien\n"
+"\t\t\t\tuudelleenkonfigurointi."
 
 #: ../dpkg-reconfigure:113
 #, perl-format
@@ -354,17 +364,17 @@ msgstr "Tilatiedoston luku epäonnistui: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr ""
+msgstr "Käyttö: debconf-communicate [VALITSIMET] [paketti]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
-msgstr ""
+msgstr "debconf-mergetemplate: Tämä sovellus on vanhentunut. Kannattaa siirtyä käyttämään po-debconf:n po2debconf-ohjelmaa."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
+msgstr "Käyttö: debconf-mergetemplate [VALITSIMET] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -372,6 +382,9 @@ msgid ""
 "        --outdated\t\tMerge in even outdated translations.\n"
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
+"\n"
+"        --outdated\t\tLiitä myös vanhentuneet käännökset.\n"
+"\t--drop-old-templates\tPudota kokonaan vanhentuneet mallit."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -405,13 +418,13 @@ msgstr "%s on päivittämättä; jätetään koko malli!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr ""
+msgstr "Käyttö: debconf [VALITSIMET] komento [argumentit]"
 
 #: ../debconf:90
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
-msgstr ""
+msgstr "\n  -o,  --owner=paketti\t\tAseta paketti, joka omistaa komennon."
 
 #~ msgid "Save (mail) Note"
 #~ msgstr "Tallenna (postita) ilmoitus"
