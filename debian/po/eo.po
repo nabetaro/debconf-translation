@@ -5,14 +5,14 @@
 # Debian Installer translators, please read the D-I i18n documentation
 # in doc/i18n/i18n.txt
 # Samuel Gimeno <sgimeno@gmail.com>, 2005.
-# Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005.
+# Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005-2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: eo\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-18 21:00+0200\n"
+"PO-Revision-Date: 2006-06-23 21:58+0200\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,13 +23,13 @@ msgstr ""
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr ""
+msgstr "'Dialog', 'Readline', 'Gnome', 'Kde', 'Editor', 'Noninteractive'"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr ""
+msgstr "Kia dialoginterfaco devos esti uzita por akomodi pakojn?"
 
 #. Type: select
 #. Description
@@ -38,6 +38,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Pakoj, kiu uzas 'debconf'-programon por agordiĝi, komune aspektas. "
+"Vi povas elekti la tipon de uzota dialoginterfaco."
 
 #. Type: select
 #. Description
@@ -50,6 +52,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"La 'Dialog'-fasado estas tutekrane signbazata interfaco, kiam 'Readline'-"
+"fasado pli tradicie uzas tekstan interfacon. Ambaŭ 'Gnome' kaj 'Kde'-"
+"fasadoj estas modernaj 'X'-interfacoj, respektive konformiĝas kun iliaj "
+"labortabloj (sed ili eble estas uzataj de ajn 'X'-medio). La 'Editor'-"
+"fasado permesas akomodi aĵojn per via favorata tekstprilaborilo. La "
+"'noninteractive'-fasado neniam petos al vi demandojn."
 
 #. Type: select
 #. Choices
@@ -61,7 +69,7 @@ msgstr "kriza, alta, meza, malalta"
 #. Description
 #: ../templates:20
 msgid "Ignore questions with a priority less than..."
-msgstr "Malatenti demandojn kun prioritato pli malgranda kiu ..."
+msgstr "Ignori demandojn kun prioritato pli malgranda ol..."
 
 #. Type: select
 #. Description
@@ -75,6 +83,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"'Debconf'-programo ordometas petotajn demandojn. Elektu plej malalta "
+"prioritato ol demandoj, kiujn vi volos vidi:\n"
+"  - 'kriza' petos nur demandojn se via sistemo fiaskus.\n"
+"    Elektu ĝin se vi estas novuzanto aŭ hastuzanto.\n"
+"  - 'alta' petos nur gravajn demandojn.\n"
+"  - 'meza' petos nur normajn demandojn.\n"
+"  - 'malalta' petos ĉiujn demandojn, por tute regi la respondojn.\n"
 
 #. Type: select
 #. Description
@@ -83,48 +98,17 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Notu: kia ajn estas via elekto, ĉiuokaze vi povas vidi ĉiujn demandojn se vi "
+"denove akomodi pakon per 'dpkg-reconfigure'-programo."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Instalado de pakoj"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Pakoj, kiu uzas debconf por agordiĝi, ordometas petotajn demandojn. Nur "
-#~ "demandoj kun prioritato pli alta ol tiu de la demando, kiun nun vi vidas, "
-#~ "estos montritaj al vi. Malaltaj demandoj estos kaŝitaj."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Elektu vidontajn demandojn:\n"
-#~ " - 'kriza' vidu demandojn kiuj verŝajne, sen interveno de la uzanto,\n"
-#~ "    rompus la instalaĵon.\n"
-#~ " - 'alta' vidu moderajn misaĵajn demandojn.\n"
-#~ " - 'meza' vidu mezajn misaĵajn demandojn.\n"
-#~ " - 'malalta' vidu banalecajn misaĵajn demandojn. Ĝenerale ĝia implicita \n"
-#~ "    reago funkcios."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Ekzemple, ĉi demando kiun vi reagas estas meze prioritata, kaj se via "
-#~ "prioritato estas jam 'alta' aŭ 'kriza', vi ne vidos ĉi demandon."
+msgstr "Bonvolu atendi..."
