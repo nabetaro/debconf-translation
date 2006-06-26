@@ -1,32 +1,31 @@
-# translation of mk.po to Macedonian
+# translation of mk.po to
 # Macedonian strings from the debian-installer.
-# Georgi Stanojevski, <glisha@gmail.com>, 2004, 2005.
-# Georgi Stanojevski <gogo@stavre>, 2005.
 #
+# Georgi Stanojevski, <glisha@gmail.com>, 2004, 2005, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: mk\n"
 "Report-Msgid-Bugs-To: joeyh@debian.org\n"
 "POT-Creation-Date: 2005-12-04 12:53-0500\n"
-"PO-Revision-Date: 2005-07-20 20:56+0200\n"
-"Last-Translator: Georgi Stanojevski <gogo@stavre.mk>\n"
-"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
+"PO-Revision-Date: 2006-06-26 22:43+0200\n"
+"Last-Translator: Georgi Stanojevski <glisha@gmail.com>\n"
+"Language-Team:  <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.2\n"
 
 #. Type: select
 #. Choices
 #: ../templates:3
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-msgstr ""
+msgstr "Dialog, Readline, Гном, Кде, Editor, Неинтерактивно"
 
 #. Type: select
 #. Description
 #: ../templates:5
 msgid "What interface should be used for configuring packages?"
-msgstr ""
+msgstr "Кој интерфејс да се користи за конфигурирање на пакети?"
 
 #. Type: select
 #. Description
@@ -34,7 +33,7 @@ msgstr ""
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr ""
+msgstr "Пакетите кои го користат debconf за конфигурација делат заеднички изглед. Може да го избереш типот на кориснички интерфејс кои ќе го користат."
 
 #. Type: select
 #. Description
@@ -46,7 +45,7 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr ""
+msgstr "Интерфејсот dialog  е интерфејс на цел екран со текст и графика, додека readline интерфејсот е потрадиционален текстуален интерфејс,a гном и кде интерфејсите се модерни Х графички интерфејси. Editor интерфејсот ти овоможува да ги конфигурираш работите со твојот омилен тексутален уредувач. Неинтерактивниот интерфејст никогаш не те прашува никакви прашања."
 
 #. Type: select
 #. Choices
@@ -72,6 +71,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf ги приоритизира прашањата кои те прашува. Избери го најниското ниво на приоритет на прашањата што сакаш да ги видиш: \n"
+"- „критично“ е за делови кои најверојатно ќе го расипат системот "
+"\n"
+"Избери го ова ако си нов корисник, или се брзаш\n"
+"- „висок“ е поприлично важни прашања\n"
+"- „среден“ е за нормални прашањ\n"
+"- „низок“ е за оние кои сакаат да ги видат баш сите прашања "
 
 #. Type: select
 #. Description
@@ -79,51 +85,17 @@ msgstr ""
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
+msgstr "Имај на ум дека било кое ниво што ќе го одбереш тука, ќе бидеш во можност да ги гледаш сите прашања ако гопреконфигурираш пакетот со dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:34
 msgid "Installing packages"
-msgstr ""
+msgstr "Инсталирање пакети"
 
 #. Type: text
 #. Description
 #: ../templates:38
 msgid "Please wait..."
-msgstr ""
+msgstr "Те молам почекај..."
 
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Пакетите кои користат debconf за конфигурација ги подредуваат по "
-#~ "приоритет прашањата кои те прашуваат. Само прашањата со одреден или "
-#~ "повисок приоритет всушност ќе ти бидат прикажани; сите помалку важни "
-#~ "прашања ќе бидат скокнати."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Можеш да одбереш најнискиот приоритет на прашања кои сакаш да ги видиш:\n"
-#~ "- „критично“ е за делови кои најверојатно ќе го расипат\n"
-#~ " системот без интервенција на корисникот.\n"
-#~ "- „висок“ е за делови кои немаат разумни предефинирани вредности\n"
-#~ "- „среден“ е за нормални делови кои имаат разумни предефинирани "
-#~ "вредности.\n"
-#~ "- „низок“ е за тривијални делови кои имаат предефинирани\n"
-#~ "вредности кои ќе работат во мнозинството случаи."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "На пример, ова прашање е со среден приоритет и ако твојот приоритет беше "
-#~ "веќе „висок“ или „критичен“ немаше да го видиш ова прашање."
