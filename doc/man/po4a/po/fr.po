@@ -1,13 +1,16 @@
+# Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>, 2006
+# Florentin Duneau <f.baced@wanadoo.fr>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "POT-Creation-Date: 2006-06-12 16:29-0400\n"
-"PO-Revision-Date: 2006-03-04 21:55+0100\n"
-"Last-Translator: Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>\n"
+"PO-Revision-Date: 2006-06-25 14:55+0200\n"
+"Last-Translator: Florentin Duneau <f.baced@wanadoo.fr>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
 
 # type: SH
 #: ../../debconf-communicate:3 debconf-devel.7:2 ../../dpkg-preconfigure:3
@@ -1894,10 +1897,10 @@ msgid ""
 "see what a fresh installation of your package looks like, with a clean "
 "debconf database."
 msgstr ""
-"Pour éviter le cycle ennuyeux contruction/installation/débogage, il peut "
+"Pour éviter le cycle ennuyeux construction/installation/débogage, il peut "
 "être utile de charger vos questionnaires avec B<debconf-loadtemplate>(1) et "
 "de lancer votre script config à la main avec la commande B<debconf>(1).  "
-"Néanmoins, vous devez toujours le faire en tant que super-utilisateur, "
+"Néanmoins, vous devez toujours le faire en tant que superutilisateur, "
 "d'accord ? Pas terrible ! Et idéalement vous souhaiteriez être en mesure de "
 "voir à quoi ressemble une installation toute fraîche de votre paquet avec "
 "une base de données debconf propre."
@@ -3089,7 +3092,7 @@ msgstr ""
 "utilisées pour créer une barre d'avancement comportant de multiples segments "
 "correspondant à différentes étapes de l'installation, pourvu que l'appelant "
 "soit un module de configuration debconf. L'appelant peut aussi interagir "
-"avec la barre d'evancement en utilisant le protocole debconf."
+"avec la barre d'avancement en utilisant le protocole debconf."
 
 # type: textblock
 #: ../../debconf-apt-progress:36
@@ -3856,7 +3859,6 @@ msgstr "B<Admin-Email>"
 
 # type: Plain text
 #: debconf.conf.5:59
-#, fuzzy
 msgid ""
 "The email address Debconf should send mail to if it needs to make sure that "
 "the admin has seen an important message. Defaults to \"root\", but can be "
@@ -3924,7 +3926,7 @@ msgid ""
 "it is set to controls that is logged. See Debug, above for an explanation of "
 "the values that can be set to control what is logged."
 msgstr ""
-"Debconf enregistre des informations de débogage lors de son focntionnement, "
+"Debconf enregistre des informations de débogage lors de son fonctionnement, "
 "dans le fichier syslog. La valeur donnée sert à contrôler ce qui est "
 "enregistré dans le journal. Voir plus haut Debug pour une explication des "
 "valeurs qui peuvent être choisies pour contrôler ce qui est enregistré dans "
@@ -5437,7 +5439,6 @@ msgstr "B<non-interactive>"
 
 # type: Plain text
 #: debconf.7:89
-#, fuzzy
 msgid ""
 "This is the anti-frontend. It never interacts with you at all, and makes the "
 "default answers be used for all questions. It might mail error messages to "
@@ -5454,8 +5455,8 @@ msgstr ""
 "parfaite pour des installations automatiques. Si vous utilisez cette "
 "interface et si vous voulez que les réponses aux questions ne soient pas "
 "celles par défaut, vous aurez besoin de renseigner d'abord la base de "
-"données de debconf ; pour plus de détails, voir la section ci-dessous sur "
-"l'installation de paquets sans surveillance."
+"données de debconf ; pour plus de détails, consultez la section ci-dessous "
+"sur l'installation de paquets sans surveillance."
 
 # type: TP
 #: debconf.7:89
@@ -6701,9 +6702,8 @@ msgstr ""
 
 # type: =item
 #: ../../dpkg-reconfigure:60
-#, fuzzy
 msgid "B<--no-reload>"
-msgstr "B<--force>"
+msgstr "B<--no-reload>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:62
@@ -6713,6 +6713,11 @@ msgid ""
 "However, it may be useful in constrained environments where rewriting the "
 "templates database is expensive."
 msgstr ""
+"Empêcher dpkg-reconfigure de recharger les modèles. Utilisez cette option "
+"avec prudence ; elle empêche dpkg-reconfigure de réparer les bases de "
+"données des modèles cassés. Cependant cette option est utile pour des "
+"systèmes où la mise à jour des bases de données des modèles est coûteuse en "
+"ressources."
 
 # type: textblock
 #: ../../debconf-get-selections:5
@@ -6798,7 +6803,7 @@ msgstr ""
 "Utilisez cette commande uniquement pour positionner les valeurs debconf par "
 "défaut pour des paquets qui seront installés ou qui le sont déjà. Autrement "
 "vous pouvez finir par avoir des valeurs restant dans la base de données pour "
-"des paquets non installés, ou des problèmes plus importants concernants des "
+"des paquets non installés, ou des problèmes plus importants concernant des "
 "valeurs partagées. Il est recommandé d'utiliser cela uniquement pour "
 "renseigner les bases de données de machines ayant exactement la même "
 "installation."
