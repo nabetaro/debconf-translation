@@ -23,6 +23,10 @@ debconf (1.5.3) UNRELEASED; urgency=low
     - Updated French manpage translation (Closes: #376186).
     - New Russian manpage translation (Closes: #376748).
 
+  [ Colin Watson ]
+  * Use printf rather than echo to send commands to debconf, to avoid
+    breaking escaped commands if /bin/sh is dash (closes: #306134).
+
  -- Luk Claes <luk@debian.org>  Wed,  5 Jul 2006 15:09:08 +0200
 
 debconf (1.5.2) unstable; urgency=low
