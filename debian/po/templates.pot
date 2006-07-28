@@ -1,14 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2006-07-28 16:27-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-07-28 23:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +27,37 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:1001
-msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
+msgid "Dialog"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Gnome"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Kde"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
 msgstr ""
 
 #. Type: select
@@ -51,7 +89,25 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:2001
-msgid "critical, high, medium, low"
+msgid "critical"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
 msgstr ""
 
 #. Type: select
