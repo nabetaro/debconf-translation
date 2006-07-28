@@ -62,11 +62,8 @@ binary-indep: build
 	# Changelog reduction hack for debconf. Only include top 100 entries.
 	perl -ne '$$c++ if /^debconf /; last if $$c > 100 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
-	echo "Install debconf-doc and see /usr/share/doc/debconf-doc/changelog.gz" >> debian/debconf.changelog
-	echo "for the remainder of this changelog." >> debian/debconf.changelog
 
-	dh_python -V2.3
-	dh_python -V2.4
+	dh_python
 	dh_installchangelogs
 	dh_compress -X demo.templates -X tutorial.templates
 	dh_fixperms
