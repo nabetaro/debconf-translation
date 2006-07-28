@@ -1,12 +1,12 @@
 # Korean messages for debconf
 # Copyright (C) 2003,2004,2005,2006 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-06-17 23:04+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <cwryu@debian.org>\n"
@@ -16,27 +16,29 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "dialog, readline, 그놈, KDE, 편집기, 물어보지 않기"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "꾸러미 설정에 어떤 인터페이스를 사용하시겠습니까?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr "설정할 때 debconf를 사용하는 꾸러미는 비슷한 모양의 인터페이스를 사용합니다. 여기서 어떤 종류의 인터페이스를 사용할 지 선택할 수 있습니다."
+msgstr ""
+"설정할 때 debconf를 사용하는 꾸러미는 비슷한 모양의 인터페이스를 사용합니다. "
+"여기서 어떤 종류의 인터페이스를 사용할 지 선택할 수 있습니다."
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -44,23 +46,29 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr "dialog 프론트엔드는 문자 기반의 전체 화면 인터페이스이고, readline 프론트엔드는 더 전통적인 일반 텍스트 인터페이스를 사용하고, 그놈과 KDE는 현대적인 X 인터페이스로 해당 데스크탑에 적합합니다 (하지만 X 환경에서만 사용할 수 있습니다). 편집기 프론트엔드는 본인이 자주 사용하는 텍스트 편집기를 이용해서 설정합니다. 물어보지 않음 프론트엔드의 경우 어떤 설정도 물어보지 않습니다."
+msgstr ""
+"dialog 프론트엔드는 문자 기반의 전체 화면 인터페이스이고, readline 프론트엔드"
+"는 더 전통적인 일반 텍스트 인터페이스를 사용하고, 그놈과 KDE는 현대적인 X 인"
+"터페이스로 해당 데스크탑에 적합합니다 (하지만 X 환경에서만 사용할 수 있습니"
+"다). 편집기 프론트엔드는 본인이 자주 사용하는 텍스트 편집기를 이용해서 설정합"
+"니다. 물어보지 않음 프론트엔드의 경우 어떤 설정도 물어보지 않습니다."
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "중요, 높음, 중간, 낮음"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
 msgstr "이보다 우선순위가 낮은 질문은 무시..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -70,7 +78,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"debconf의 질문은 우선 순위가 있습니다. 질문을 보고 싶은 최저 우선 순위를 고르십시오:\n"
+"debconf의 질문은 우선 순위가 있습니다. 질문을 보고 싶은 최저 우선 순위를 고르"
+"십시오:\n"
 " - '중요'는 설정하지 않으면 시스템이 제대로 동작하지 않는 경우입니다.\n"
 "  초보자이거나, 긴급한 경우에 사용하십시오.\n"
 " - '높음'은 상당히 중요한 질문인 경우\n"
@@ -79,23 +88,28 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr "기억해 두십시오.  여기에서 어떤 우선 순위를 선택하든지 간에, dpkg-reconfigure로 꾸러미를 설정하면 모든 질문을 볼 수 있습니다."
+msgstr ""
+"기억해 두십시오.  여기에서 어떤 우선 순위를 선택하든지 간에, dpkg-reconfigure"
+"로 꾸러미를 설정하면 모든 질문을 볼 수 있습니다."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "꾸러미를 설치하는 중입니다"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "잠시 기다리십시오..."
+
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "꾸러미 설정에 어떤 인터페이스를 사용하시겠습니까?"
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "

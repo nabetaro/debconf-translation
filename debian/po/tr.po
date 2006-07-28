@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-01-30 19:50+0200\n"
 "Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -24,30 +24,29 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "Diyalog, Readline, Gnome, Kde, Düzenleyici, Etkileşimsiz"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Paketleri yapılandırmak için hangi arayüz kullanılacak?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Yapılandırma için debconf kullanan paketler ortak bir görüntü ve "
-"izlenim verirler. Yapılandırmada kullanılacak arayüz tipini "
-"seçebilirsiniz."
+"Yapılandırma için debconf kullanan paketler ortak bir görüntü ve izlenim "
+"verirler. Yapılandırmada kullanılacak arayüz tipini seçebilirsiniz."
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -57,28 +56,28 @@ msgid ""
 "frontend never asks you any questions."
 msgstr ""
 "Diyalog arayüzü tam ekran, metin tabanlı bir arayüz sunarken; Readline daha "
-"geleneksel bir salt metin arayüzü, gnome ve kde ise kendi masaüstü ortamlarına "
-"uygun şekilde (fakat herhangi bir X ortamı içinde de kullanılabilecek) daha çağdaş "
-"X arayüzleri sunmaktadır. Düzenleyici arayüzü, kullanmayı tercih ettiğiniz metin "
-"düzenleyici ile elle yapılandırmaya olanak sağlar. Etkileşimsiz arayüz herhangi "
-"bir soru sormaz."
+"geleneksel bir salt metin arayüzü, gnome ve kde ise kendi masaüstü "
+"ortamlarına uygun şekilde (fakat herhangi bir X ortamı içinde de "
+"kullanılabilecek) daha çağdaş X arayüzleri sunmaktadır. Düzenleyici arayüzü, "
+"kullanmayı tercih ettiğiniz metin düzenleyici ile elle yapılandırmaya olanak "
+"sağlar. Etkileşimsiz arayüz herhangi bir soru sormaz."
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "kritik, yüksek, orta, düşük"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
-msgstr ""
-"Göz ardı edilecek sorular aşağıdakinden düşük önceliğe sahip olacak..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
+msgstr "Göz ardı edilecek sorular aşağıdakinden düşük önceliğe sahip olacak..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -88,8 +87,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf görüntülediği sorulara öncelikler verir. Görmek istediğiniz "
-"sorular için en düşük önceliği seçin:\n"
+"Debconf görüntülediği sorulara öncelikler verir. Görmek istediğiniz sorular "
+"için en düşük önceliği seçin:\n"
 "  - 'kritik' size sadece sistemi bozabilecek durumlarda soru sorar.\n"
 "     Yeni başlayan birisi ya da aceleci birisiyseniz bunu seçin.\n"
 "  - 'yüksek' önemi daha yüksek sorular\n"
@@ -98,7 +97,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
@@ -109,12 +108,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "Paketler kuruluyor"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "Lütfen bekleyin..."
+
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "Paketleri yapılandırmak için hangi arayüz kullanılacak?"

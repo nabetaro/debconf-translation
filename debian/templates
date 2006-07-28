@@ -2,7 +2,7 @@ Template: debconf/frontend
 Type: select
 _Choices: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
 Default: Dialog
-_Description: What interface should be used for configuring packages?
+_Description: Interface to use:
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
  .
@@ -17,7 +17,7 @@ Template: debconf/priority
 Type: select
 _Choices: critical, high, medium, low
 Default: high
-_Description: Ignore questions with a priority less than...
+_Description: Ignore questions with a priority less than:
  Debconf prioritizes the questions it asks you. Pick the lowest priority of
  question you want to see:
    - 'critical' only prompts you if the system might break.

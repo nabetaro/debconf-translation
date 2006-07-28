@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-02-02 15:48+0200\n"
 "Last-Translator:  Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -18,27 +18,30 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "Dialog, Readline, Gnome, Kde, Редактор, Неинтерактивен"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Какъв интерфейс да бъде използван за настройване на пакети?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr "Пакетите, които използват debconf за настройване, споделят един и същи изглед и усещане. Можете да изберете вида на потребителския интерфейс, който да се използва при настройване."
+msgstr ""
+"Пакетите, които използват debconf за настройване, споделят един и същи "
+"изглед и усещане. Можете да изберете вида на потребителския интерфейс, който "
+"да се използва при настройване."
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -46,23 +49,30 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr "Интерфейсът dialog е пълноекранен знаковоориентиран интерфейс, докато интерфейсът readline използва традиционния обикновен текстов интерфейс, а gnome и kde използват съвременни графични интерфейси, подходящи за съответните работни плотове, но могат да се използват и в други графични среди. Интерфейсът редактор позволява настройване чрез редактиране с любимия текстов редактор. Неинтерактивният интерфейс никога не задава въпроси."
+msgstr ""
+"Интерфейсът dialog е пълноекранен знаковоориентиран интерфейс, докато "
+"интерфейсът readline използва традиционния обикновен текстов интерфейс, а "
+"gnome и kde използват съвременни графични интерфейси, подходящи за "
+"съответните работни плотове, но могат да се използват и в други графични "
+"среди. Интерфейсът редактор позволява настройване чрез редактиране с любимия "
+"текстов редактор. Неинтерактивният интерфейс никога не задава въпроси."
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "критичен, висок, среден, нисък"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
 msgstr "Игнориране на въпроси с приоритет, по-нисък от..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -72,7 +82,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf подрежда по приоритет въпросите, които задава. Изберете най-ниския приоритет на въпросите, които искате да виждате:\n"
+"Debconf подрежда по приоритет въпросите, които задава. Изберете най-ниския "
+"приоритет на въпросите, които искате да виждате:\n"
 "- 'критичен' се показва само ако има опасност системата може да се повреди.\n"
 "  Изберете ако сте новак или много бързате.\n"
 "- 'висок' е за доста важни въпроси.\n"
@@ -81,23 +92,28 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr "Забележете, че каквото и да изберете тук, ще можете да видите всеки въпрос при пренастройване чрез dpkg-reconfigure."
+msgstr ""
+"Забележете, че каквото и да изберете тук, ще можете да видите всеки въпрос "
+"при пренастройване чрез dpkg-reconfigure."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "Инсталиране на пакет"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
+
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "Какъв интерфейс да бъде използван за настройване на пакети?"
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "

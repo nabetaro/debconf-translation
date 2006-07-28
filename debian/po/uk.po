@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf-debian-uk\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-01-31 01:43+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
@@ -15,23 +15,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "діалог, рядок вводу, Gnome, Kde, редактор, неінтерактивний"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Який інтерфейс потрібно використовувати для налаштування пакунків?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
@@ -41,7 +42,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -58,19 +59,20 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "критичний, високий, середній, низький"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
 msgstr "Пропускати питання з пріоритетом меншим ніж..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -91,7 +93,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
@@ -101,13 +103,15 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "Встановлення пакунків"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "Зачекайте, будь ласка..."
 
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "Який інтерфейс потрібно використовувати для налаштування пакунків?"

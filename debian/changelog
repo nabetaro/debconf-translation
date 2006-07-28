@@ -13,7 +13,6 @@ debconf (1.5.3) UNRELEASED; urgency=low
     - Updated Italian debconf translation (Closes: #374728).
     - Updated Finnish programs translation.
     - Updated Hungarian programs translation.
-    - New Nepali debconf translation (Closes: #374950).
     - Updated Hindi debconf translation.
     - New Khmer debconf translation (Closes: #375064).
     - New Khmer programs translation (Closes: #375066).
@@ -27,7 +26,21 @@ debconf (1.5.3) UNRELEASED; urgency=low
   * Use printf rather than echo to send commands to debconf, to avoid
     breaking escaped commands if /bin/sh is dash (closes: #306134).
 
- -- Luk Claes <luk@debian.org>  Wed,  5 Jul 2006 15:09:08 +0200
+  [ Joey Hess ]
+  * Fix amusing lintian warnings about debconf's own templates not meeting
+    best practices for debconf templates.
+  * Removed the following template translations which all had broken
+    translated choices lists, which triggered lintian warnings and broke
+    debhelper: dz ne km
+    I can't fix those languages; feel free to re-add your translation
+    when it's actually fixed. Removed bug closure numbers above for these
+    and contacted translators.
+  * Current version of policy.
+  * Since lintian is being insanely strict about changelog formats now,
+    I had to remove the comment at the end of the stripped down changelog
+    that tells where to get the full changelog.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 28 Jul 2006 16:31:13 -0400
 
 debconf (1.5.2) unstable; urgency=low
 

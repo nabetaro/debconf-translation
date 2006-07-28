@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-06-23 10:29+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
@@ -17,52 +17,70 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "संवाद, रीडलाइन, गनोम, केडीई, संपादक, नॉनइंटरेक्टिव"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "पैकेजों को कॉन्फ़िगर करने के लिए किस तरह का इंटरफ़ेस इस्तेमाल में लिया जाए?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
-msgstr "वे पैकेज जो कॉन्फ़िगरेशन के लिए डीबीकॉन्फ का इस्तेमाल करते हैं उनमें एक सामान्य रूप होता है. उनके द्वारा इस्तेमाल में लिए जाने वाले उपयोक्ता इंटरफ़ेस को आप चुन सकते हैं."
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"वे पैकेज जो कॉन्फ़िगरेशन के लिए डीबीकॉन्फ का इस्तेमाल करते हैं उनमें एक सामान्य रूप होता है. "
+"उनके द्वारा इस्तेमाल में लिए जाने वाले उपयोक्ता इंटरफ़ेस को आप चुन सकते हैं."
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
-msgstr "संवाद फ्रन्टएण्ड पूरे स्क्रीन पर अक्षर आधारित इंटरफेस है, जबकि रीडलाइन फ्रन्टएण्ड में पारंपरिक पाठ इंटरफेस इस्तेमाल होता है तथा गनोम व केडीई के फ्रन्टएण्ड में आधुनिक X इंटरफेस हैं जो संबंधित डेस्कटॉप में फिट होते हैं (परंतु किसी भी X वातावरण में इस्तेमाल में लिए जा सकते हैं). संपादन फ्रन्टएण्ड आपको पाठ संपादक के जरिए बहुत सी चीज़ों को कॉन्फ़िगर करने का अवसर प्रदान करता है. नॉनइंटरेक्टिव इंटरफ़ेस आपको कभी भी कोई प्रश्न नहीं पूछता है."
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"संवाद फ्रन्टएण्ड पूरे स्क्रीन पर अक्षर आधारित इंटरफेस है, जबकि रीडलाइन फ्रन्टएण्ड में पारंपरिक "
+"पाठ इंटरफेस इस्तेमाल होता है तथा गनोम व केडीई के फ्रन्टएण्ड में आधुनिक X इंटरफेस हैं जो संबंधित "
+"डेस्कटॉप में फिट होते हैं (परंतु किसी भी X वातावरण में इस्तेमाल में लिए जा सकते हैं). संपादन "
+"फ्रन्टएण्ड आपको पाठ संपादक के जरिए बहुत सी चीज़ों को कॉन्फ़िगर करने का अवसर प्रदान करता "
+"है. नॉनइंटरेक्टिव इंटरफ़ेस आपको कभी भी कोई प्रश्न नहीं पूछता है."
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "नाजुक, उच्च, मध्यम, निम्न"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
 msgstr "उन प्रश्नों की उपेक्षा करें जिसमें प्राथमिकता इससे कम है ..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"आपको पूछे जाने प्रश्नों को डीबीकॉन्फ प्राथमिकता में रखता है. निम्नतम प्राथमिकता वाला प्रश्न जो आप देखना चाहते हैं उसे चुनें:\n"
+"आपको पूछे जाने प्रश्नों को डीबीकॉन्फ प्राथमिकता में रखता है. निम्नतम प्राथमिकता वाला प्रश्न "
+"जो आप देखना चाहते हैं उसे चुनें:\n"
 "  - 'नाजुक' तभी पूछेगा जब तंत्र खराब होने को होगा.\n"
 "   इसे तभी चुनें यदि आप नौसिखिए हैं, या जल्दी में हैं.\n"
 "  - 'उच्च' महत्वपूर्ण प्रश्नों के लिए है\n"
@@ -71,19 +89,26 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
-msgstr "यदि आप किसी पैकेज को डीपीकेजी-रीकॉन्फ़िगर से फिर से कॉन्फ़िगर करते हैं तो टीप लें कि इससे कोई फ़र्क़ नहीं पड़ता कि आप कौन सा स्तर यहाँ चुनते हैं, आपको हमेशा ही प्रत्येक प्रश्न दिखाई देगा."
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"यदि आप किसी पैकेज को डीपीकेजी-रीकॉन्फ़िगर से फिर से कॉन्फ़िगर करते हैं तो टीप लें कि इससे "
+"कोई फ़र्क़ नहीं पड़ता कि आप कौन सा स्तर यहाँ चुनते हैं, आपको हमेशा ही प्रत्येक प्रश्न दिखाई "
+"देगा."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "पैकेजों की संस्थापना की जा रही है"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "कृपया इंतजार करें..."
 
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "पैकेजों को कॉन्फ़िगर करने के लिए किस तरह का इंटरफ़ेस इस्तेमाल में लिया जाए?"

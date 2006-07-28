@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: joeyh@debian.org\n"
-"POT-Creation-Date: 2005-12-04 12:53-0500\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-07-28 16:27-0400\n"
 "PO-Revision-Date: 2006-01-28 01:28+0100\n"
 "Last-Translator: Bartosz Fenski <fenio@debian.org>\n"
 "Language-Team: Polish <pddp@debian.linux.org.pl>\n"
@@ -17,30 +17,29 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:3
+#: ../templates:1001
 msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 msgstr "Dialog, readline, Gnome, Kde, edytor, nieinteraktywnie"
 
 #. Type: select
 #. Description
-#: ../templates:5
-msgid "What interface should be used for configuring packages?"
-msgstr "Którego interfejsu u¿yæ do konfiguracji pakietów?"
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr 
-"Pakiety korzystaj±ce do konfiguracji z debconfa wspó³dziel± jeden "
-"wygl±d i sposób u¿ycia. Mo¿esz wybraæ rodzaj interfejsu wykorzystywanego "
-"do tego."
+msgstr ""
+"Pakiety korzystaj±ce do konfiguracji z debconfa wspó³dziel± jeden wygl±d i "
+"sposób u¿ycia. Mo¿esz wybraæ rodzaj interfejsu wykorzystywanego do tego."
 
 #. Type: select
 #. Description
-#: ../templates:5
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -52,26 +51,27 @@ msgstr ""
 "Nak³adka dialog jest pe³noekranowa i wy¶wietla menu w trybie tekstowym "
 "podczas gdy nak³adka readline jest bardziej tradycyjnym interfejsem i "
 "korzysta ze zwyk³ego tekstu. Zarówno nak³adka Gnome jak i Kde s± "
-"nowoczesnymi interfejsami dostosowanymi do poszczególnych ¶rodowisk "
-"(ale mog± zostaæ u¿yte w jakimkolwiek ¶rodowisku X). Nak³adka edytor "
-"pozwala konfigurowaæ z wykorzystaniem ulubionego edytora tekstowego. "
-"Nak³adka nieinteraktywna nigdy nie zadaje ¿adnych pytañ."
+"nowoczesnymi interfejsami dostosowanymi do poszczególnych ¶rodowisk (ale "
+"mog± zostaæ u¿yte w jakimkolwiek ¶rodowisku X). Nak³adka edytor pozwala "
+"konfigurowaæ z wykorzystaniem ulubionego edytora tekstowego. Nak³adka "
+"nieinteraktywna nigdy nie zadaje ¿adnych pytañ."
 
 #. Type: select
 #. Choices
-#: ../templates:18
+#: ../templates:2001
 msgid "critical, high, medium, low"
 msgstr "krytyczny, wysoki, ¶redni, niski"
 
 #. Type: select
 #. Description
-#: ../templates:20
-msgid "Ignore questions with a priority less than..."
+#: ../templates:2002
+#, fuzzy
+msgid "Ignore questions with a priority less than:"
 msgstr "Ignoruj pytania z priorytetem ni¿szym ni¿..."
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -84,33 +84,36 @@ msgstr ""
 "Debconf u¿ywa priorytetów dla zadawanych pytañ. Wybierz najni¿szy priorytet "
 "pytañ jakie chcesz zobaczyæ:\n"
 "  - 'krytyczny' zadaje pytania tylko je¶li istnieje niebezpieczeñstwo \n"
-    "uszkodzenia systemu. Zalecane dla pocz±tkuj±cych\n"
+"uszkodzenia systemu. Zalecane dla pocz±tkuj±cych\n"
 "  - 'wysoki' dla raczej istotnych pytañ\n"
 "  - '¶redni' dla zwyczajnych pytañ\n"
 "  - 'niski' dla tych, którzy chc± kontrolowaæ ka¿dy szczegó³"
 
 #. Type: select
 #. Description
-#: ../templates:20
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
 "Pamiêtaj, ¿e bez wzglêdu na to jaki poziom wybierzesz, istnieje mo¿liwo¶æ "
-"ujrzenia wszystkich pytañ po przekonfigurowaniu pakietu z u¿yciem "
-"dpkg-reconfigure."
+"ujrzenia wszystkich pytañ po przekonfigurowaniu pakietu z u¿yciem dpkg-"
+"reconfigure."
 
 #. Type: text
 #. Description
-#: ../templates:34
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "Instalowanie pakietów"
 
 #. Type: text
 #. Description
-#: ../templates:38
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "Proszê czekaæ..."
+
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "Którego interfejsu u¿yæ do konfiguracji pakietów?"
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
