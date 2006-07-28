@@ -1,4 +1,4 @@
-debconf (1.5.3) UNRELEASED; urgency=low
+debconf (1.5.3) unstable; urgency=low
 
   [ Christian Perrier ]
   * Translations:
@@ -41,8 +41,9 @@ debconf (1.5.3) UNRELEASED; urgency=low
     that tells where to get the full changelog.
   * No longer a need to call dh_python twice, the new version apparently
     sets things up for both 2.3 and 2.4 with one call.
+  * debhelper v5.
 
- -- Joey Hess <joeyh@debian.org>  Fri, 28 Jul 2006 16:41:33 -0400
+ -- Joey Hess <joeyh@debian.org>  Fri, 28 Jul 2006 16:45:25 -0400
 
 debconf (1.5.2) unstable; urgency=low
 
