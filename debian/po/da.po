@@ -2,7 +2,7 @@
 # packages/po/da.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # Danish messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
@@ -14,11 +14,11 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-05-08 22:56+0200\n"
+"PO-Revision-Date: 2006-07-29 17:35+0200\n"
 "Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
@@ -27,43 +27,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogboks"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Overskrift"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Ikke-interaktiv"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Brugerflade at benytte:"
 
 #
 #. Type: select
@@ -73,8 +73,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Pakker der bruger debconf til opsÃ¦tning, fremtrÃ¦der pÃ¥ samme mÃ¥de. Du kan "
-"vÃ¦lge hvilken brugerflade de skal bruge."
+"Pakker der bruger debconf til opsætning, fremtræder på samme måde. Du kan "
+"vælge hvilken brugerflade de skal bruge."
 
 #
 #. Type: select
@@ -88,10 +88,10 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Dialog er en fuldskÃ¦rms, tekstbaseret brugerflade, mens readline er en mere "
-"traditionel tekst-brugerflade. BÃ¥de gnome og kde er moderne X-brugerflader. "
-"Editor lader dig svare pÃ¥ spÃ¸rgsmÃ¥lene via din foretrukne editor. Ikke-"
-"interaktivt vil aldrig stille dig spÃ¸rgsmÃ¥l."
+"Dialog er en fuldskærms, tekstbaseret brugerflade, mens readline er en mere "
+"traditionel tekst-brugerflade. Både gnome og kde er moderne X-brugerflader. "
+"Editor lader dig svare på spørgsmålene via din foretrukne editor. Ikke-"
+"interaktivt vil aldrig stille dig spørgsmål."
 
 #. Type: select
 #. Choices
@@ -103,7 +103,7 @@ msgstr "kritisk"
 #. Choices
 #: ../templates:2001
 msgid "high"
-msgstr "hÃ¸j"
+msgstr "høj"
 
 #. Type: select
 #. Choices
@@ -120,9 +120,8 @@ msgstr "lav"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "IgnorÃ©r spÃ¸rgsmÃ¥l med en prioritet lavere end..."
+msgstr "Ignorér spørgsmål med en prioritet lavere end:"
 
 #
 #. Type: select
@@ -137,12 +136,12 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf prioriterer de spÃ¸rgsmÃ¥l, den stiller dig. VÃ¦lg den laveste "
-"spÃ¸rgsmÃ¥ls-prioritet, du Ã¸nsker at se:\n"
-" - 'kritisk' spÃ¸rger dig kun hvis systemet potentielt kommer i uorden.\n"
-"    VÃ¦lg dette, hvis du er nybegynder eller har travlt. \n"
-"  - 'hÃ¸j' for ret vigtige spÃ¸rgsmÃ¥l \n"
-"  - 'mellem' for almindelige spÃ¸rgmÃ¥l \n"
+"Debconf prioriterer de spørgsmål, den stiller dig. Vælg den laveste "
+"spørgsmåls-prioritet, du ønsker at se:\n"
+" - 'kritisk' spørger dig kun hvis systemet potentielt kommer i uorden.\n"
+"    Vælg dette, hvis du er nybegynder eller har travlt. \n"
+"  - 'høj' for ret vigtige spørgsmål \n"
+"  - 'mellem' for almindelige spørgmål \n"
 "  - 'lav' for kontrolnarkomaner, der vil have alt at se"
 
 #
@@ -153,8 +152,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"BemÃ¦rk at uanset hvilket niveau du vÃ¦lger her, vil du kunne se samtlige "
-"spÃ¸rgsmÃ¥l, hvis du genopsÃ¦tter pakken med kommandoen dpkg-reconfigure."
+"Bemærk at uanset hvilket niveau du vælger her, vil du kunne se samtlige "
+"spørgsmål, hvis du genopsætter pakken med kommandoen dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -169,16 +168,16 @@ msgid "Please wait..."
 msgstr "Vent venligst..."
 
 #~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "IgnorÃ©r spÃ¸rgsmÃ¥l med en prioritet lavere end..."
+#~ msgstr "Ignorér spørgsmål med en prioritet lavere end..."
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
 #~ "actually shown to you; all less important questions are skipped."
 #~ msgstr ""
-#~ "Pakker, der bruger debconf til opsÃ¦tning, prioriterer spÃ¸rgsmÃ¥lene, som "
-#~ "de vil stille dig. Kun spÃ¸rgsmÃ¥l med en hvis prioritet eller hÃ¸jere vil "
-#~ "rent faktisk blive vist til dig. Alle mindre vigtige spÃ¸rgsmÃ¥l bliver "
+#~ "Pakker, der bruger debconf til opsætning, prioriterer spørgsmålene, som "
+#~ "de vil stille dig. Kun spørgsmål med en hvis prioritet eller højere vil "
+#~ "rent faktisk blive vist til dig. Alle mindre vigtige spørgsmål bliver "
 #~ "sprunget over."
 
 #~ msgid ""
@@ -190,29 +189,29 @@ msgstr "Vent venligst..."
 #~ " - 'low' is for trivial items that have defaults that will work in\n"
 #~ "   the vast majority of cases."
 #~ msgstr ""
-#~ "Du kan vÃ¦lge den laveste prioritet af spÃ¸rgsmÃ¥l, som du vil se:\n"
+#~ "Du kan vælge den laveste prioritet af spørgsmål, som du vil se:\n"
 #~ " - 'kritisk' er for ting, der potentielt kan bringe systemet i uorden,\n"
-#~ "    medmindre du bliver spurgt fÃ¸rst.\n"
-#~ " - 'hÃ¸j' er for ting, der ikke har et fornuftigt standardforvalg.\n"
+#~ "    medmindre du bliver spurgt først.\n"
+#~ " - 'høj' er for ting, der ikke har et fornuftigt standardforvalg.\n"
 #~ " - 'mellem' er for normale ting, der har fornuftige standardforvalg.\n"
 #~ " - 'lav' er for trivielle ting, der har standardforvalg, der vil\n"
-#~ "    fungere i de fleste tilfÃ¦lde."
+#~ "    fungere i de fleste tilfælde."
 
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
-#~ "For eksempel er dette spÃ¸rgsmÃ¥l af mellemprioritet, og hvis din prioritet "
-#~ "allerede var 'hÃ¸j' eller 'kritisk', ville du ikke se dette spÃ¸rgsmÃ¥l."
+#~ "For eksempel er dette spørgsmål af mellemprioritet, og hvis din prioritet "
+#~ "allerede var 'høj' eller 'kritisk', ville du ikke se dette spørgsmål."
 
 #~ msgid "Change debconf priority"
 #~ msgstr "Skift debconf-prioritet"
 
 #~ msgid "Continue"
-#~ msgstr "FortsÃ¦t"
+#~ msgstr "Fortsæt"
 
 #~ msgid "Go Back"
-#~ msgstr "GÃ¥ tilbage"
+#~ msgstr "Gå tilbage"
 
 #~ msgid "Yes"
 #~ msgstr "Ja"
@@ -226,17 +225,17 @@ msgstr "Vent venligst..."
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
-#~ "<Tab> bevÃ¦ger mellem punkterne; <Mellemrum> vÃ¦lger; <Retur> aktiverer "
+#~ "<Tab> bevæger mellem punkterne; <Mellemrum> vælger; <Retur> aktiverer "
 #~ "knapper"
 
 #~ msgid "LTR"
 #~ msgstr "LTR"
 
 #~ msgid "Screenshot"
-#~ msgstr "SkÃ¦rmbillede"
+#~ msgstr "Skærmbillede"
 
 #~ msgid "Screenshot saved as %s"
-#~ msgstr "SkÃ¦rmbillede gemt som %s"
+#~ msgstr "Skærmbillede gemt som %s"
 
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! FEJL: %s"
@@ -245,34 +244,35 @@ msgstr "Vent venligst..."
 #~ msgstr "TASTEANSLAG:"
 
 #~ msgid "Display this help message"
-#~ msgstr "Vis denne hjÃ¦lpebesked"
+#~ msgstr "Vis denne hjælpebesked"
 
 #~ msgid "Go back to previous question"
-#~ msgstr "GÃ¥ tilbage til forrige spÃ¸rgsmÃ¥l"
+#~ msgstr "Gå tilbage til forrige spørgsmål"
 
 #~ msgid "Select an empty entry"
-#~ msgstr "VÃ¦lg en tom post"
+#~ msgstr "Vælg en tom post"
 
 #~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Prompt: '%c' for hjÃ¦lp, standard=%d> "
+#~ msgstr "Prompt: '%c' for hjælp, standard=%d> "
 
 #~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Prompt: '%c' for hjÃ¦lp> "
+#~ msgstr "Prompt: '%c' for hjælp> "
 
 #~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Prompt: '%c' for hjÃ¦lp, standard=%s> "
+#~ msgstr "Prompt: '%c' for hjælp, standard=%s> "
 
 #~ msgid "[Press enter to continue]"
-#~ msgstr "[Tryk retur for at fortsÃ¦tte]"
+#~ msgstr "[Tryk retur for at fortsætte]"
 
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialog, Readline, Gnome, Kde, Tekstbehandler, Ikke-interaktivt"
 
 #~ msgid "critical, high, medium, low"
-#~ msgstr "kritisk, hÃ¸j, mellem, lav"
+#~ msgstr "kritisk, høj, mellem, lav"
 
 #  Template: debconf/frontend
 #  ddtp-prioritize: 54
 #
 #~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Hvilken brugerflade skal bruges til opsÃ¦tning af pakker?"
+#~ msgstr "Hvilken brugerflade skal bruges til opsætning af pakker?"
+
