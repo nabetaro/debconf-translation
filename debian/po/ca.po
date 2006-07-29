@@ -11,10 +11,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer 1.1\n"
+"Project-Id-Version: debconf 1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-05-20 23:39+0200\n"
+"PO-Revision-Date: 2006-07-29 14:00+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,43 +25,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "GNOME"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "KDE"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "No interactiva"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Interfície a utilitzar:"
 
 #. Type: select
 #. Description
@@ -119,9 +119,8 @@ msgstr "baixa"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignora les preguntes amb una prioritat menor que..."
+msgstr "Ignora les preguntes amb una prioritat menor que:"
 
 #. Type: select
 #. Description
@@ -135,10 +134,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf priorititza les preguntes que vos pregunta. Escolliu la prioritat "
-"més baixa per a les preguntes que voleu veure:\n"
-" - «crítica» només pregunta si es pot trencar el sistema. Escolliu-la si sou "
-"novells, o teniu pressa.\n"
+"Debconf priorititza les preguntes que vos pregunta. Escolliu la prioritat més baixa per a les preguntes que voleu veure:\n"
+" - «crítica» només pregunta si es pot trencar el sistema. Escolliu-la si sou novells, o teniu pressa.\n"
 " - «alta» és per a preguntes prou importants.\n"
 " - «mitjana» és per a preguntes normals.\n"
 " - «baixa» és per als bojos pel control que ho volen veure tot."

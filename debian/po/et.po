@@ -2,13 +2,13 @@
 # packages/po/et.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-07-12 14:54+0300\n"
+"PO-Revision-Date: 2006-07-29 15:22+0300\n"
 "Last-Translator: Siim Põder <windo@windowlicker.dyn.ee>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "MIME-Version: 1.0\n"
@@ -19,70 +19,55 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialoogiaknad"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Reapõhine"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Redaktor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Mitte-interaktiivne"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Kasutatav liides:"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
-"Seadistamiseks debconf'i kasutavatel pakkidel on ühtne välimus ja tunnetus. "
-"Võid valida nende poolt kasutatava kasutajaliidese."
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Seadistamiseks debconf'i kasutavatel pakkidel on ühtne välimus ja tunnetus. Võid valida nende poolt kasutatava kasutajaliidese."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
-"Dialoog on täis-ekraani, tähepõhine liides, samas kui readline on "
-"traditsioonilisem vaba tekstiga liides. Nii kde kui ka gnome on moodsad X-"
-"liidesed, sobides vastavate töölaudadega (kuigi neid võib kasutad igas X "
-"keskkonnas). Redaktoriliides võimaldab seadistust oma lemmik tekstiredaktori "
-"aknast. Mitteinteraktiivne liides ei küsi iial küsimusi."
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "Dialoog on täis-ekraani, tähepõhine liides, samas kui readline on traditsioonilisem vaba tekstiga liides. Nii kde kui ka gnome on moodsad X-liidesed, sobides vastavate töölaudadega (kuigi neid võib kasutad igas X keskkonnas). Redaktoriliides võimaldab seadistust oma lemmik tekstiredaktori aknast. Mitteinteraktiivne liides ei küsi iial küsimusi."
 
 #. Type: select
 #. Choices
@@ -111,24 +96,21 @@ msgstr "madal"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignoreeri küsimusi, mille prioriteet on madalam, kui..."
+msgstr "Ignoreeri küsimusi, mille prioriteet on madalam, kui:"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconfi küsimused on prioritiseeritud. Vali küsimuste madalaim prioriteet, "
-"millele veel vastata soovid:\n"
+"Debconfi küsimused on prioritiseeritud. Vali küsimuste madalaim prioriteet, millele veel vastata soovid:\n"
 " - 'kriitiline' tülitab sind ainult süsteemi rikkuda võivate küsimustega.\n"
 "   Vali, kui oled algaja või kui sul on kiire.\n"
 " - 'kõrge' prioriteet on küllalt tähtsatel küsimustel\n"
@@ -138,12 +120,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Võid arvestada, et sõltumata siinkohal valitud tasemest võid dpkg-"
-"reconfigure abil pakki ümber seadistades vastata kõigile küsimustele."
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Võid arvestada, et sõltumata siinkohal valitud tasemest võid dpkg-reconfigure abil pakki ümber seadistades vastata kõigile küsimustele."
 
 #. Type: text
 #. Description
@@ -159,7 +137,6 @@ msgstr "Palun oota..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ignoreeri küsimusi, mille prioriteet on madalam, kui..."
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -168,7 +145,6 @@ msgstr "Palun oota..."
 #~ "Paketid, mis kasutavad konfigureerimiseks debconf'i, prioritiseerivad oma "
 #~ "küsimusi. Sulle näidatakse vaid kindlaksmääratud või sellest kõrgema "
 #~ "prioriteediga küsimusi ning vähem tähtsad jäetakse vahele."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -186,77 +162,55 @@ msgstr "Palun oota..."
 #~ "    vaikeväärtused.\n"
 #~ " - 'madal' märgib triviaalseid küsimusi, mille vaikeväärtused\n"
 #~ "    sobivad valdavale enamusele juhtudest."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
 #~ "Näiteks see küsimus on keskmise prioriteediga. Kui su prioriteet oleks "
 #~ "'kõrge' või 'kriitiline', siis seda küsimust üldse ei küsitaks."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Muuda debconf'i prioriteeti"
-
 #~ msgid "Continue"
 #~ msgstr "Jätka"
-
 #~ msgid "Go Back"
 #~ msgstr "Mine tagasi"
-
 #~ msgid "Yes"
 #~ msgstr "Jah"
-
 #~ msgid "No"
 #~ msgstr "Ei"
-
 #~ msgid "Cancel"
 #~ msgstr "Loobu"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr "<Tab> liigub väljade vahel; <Space> valib; <Enter> aktiveerib nuppe"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Pildista"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Ekraanikuva salvestatud kui %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! VIGA: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "KLAHVIVAJUTUSED:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Näita seda abistavat teadet"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Mine tagasi eelmise küsimuse juurde"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Vali tühi kirje"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Küsimus: '%c' abi saamiseks, vaikimisi=%d>"
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Küsimus: '%c' abi saamiseks>"
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Küsimus: '%c' abi saamiseks, vaikimisi=%s>"
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Jätkamiseks vajuta enterit]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialoog, Readline, Gnome, Kde, Redaktor, Mitteinteraktiivne"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "kriitiline, kõrge, keskmine, madal"
-
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr "Millist kasutajaliidest tuleks kasutada pakkide seadistamisel?"
+
