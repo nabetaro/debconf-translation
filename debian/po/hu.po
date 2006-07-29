@@ -2,7 +2,7 @@
 # packages/po/hu.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # Hungarian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-05-05 01:44+0100\n"
-"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
-"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
+"PO-Revision-Date: 2006-07-29 14:12+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,70 +26,55 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Párbeszédes"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Egysoros"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Szerkesztő"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Néma"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Használandó felület:"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
-"A debconf-ot használó csomagok egységes felületet használnak. Itt lehet "
-"kiválasztani, melyik legyen az."
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "A debconf-ot használó csomagok egységes felületet használnak. Itt lehet kiválasztani, melyik legyen az."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
-"A párbeszéd felület egy teljes-képernyős, karakteres felület, az egysoros "
-"viszont a sokkal hagyományosabb egyszerű szöveges felület, a gnome és kde "
-"felületek pedig korszerű X felületek, melyek e 2 munkakörnyezetbe illenek "
-"(de bármilyen X környezetben használhatók). A szerkesztő felülettel a "
-"kedvenc szövegszerkesztővel lehet dolgozni. A néma felület soha nem kérdez."
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "A párbeszéd felület egy teljes-képernyős, karakteres felület, az egysoros viszont a sokkal hagyományosabb egyszerű szöveges felület, a gnome és kde felületek pedig korszerű X felületek, melyek e 2 munkakörnyezetbe illenek (de bármilyen X környezetben használhatók). A szerkesztő felülettel a kedvenc szövegszerkesztővel lehet dolgozni. A néma felület soha nem kérdez."
 
 #. Type: select
 #. Choices
@@ -118,24 +103,21 @@ msgstr "alacsony"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Azon kérdések kihagyása, melyek kevésbé fontosak, mint:"
+msgstr "A kevésbé fontos kérdések átugrása, mint:"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"A Debconf eltérően fontos kérdéseket kezel. Melyik legyen a legalacsonyabb "
-"szintű kérdés?\n"
+"A Debconf eltérően fontos kérdéseket kezel. Melyik legyen a legalacsonyabb szintű kérdés?\n"
 " - A 'kritikus' csak a rendszerveszélyek esetén kérdez.\n"
 "    Csak kezdők vagy sietők válasszák.\n"
 "  - A 'magas' a fontos kérdésektől kérdez.\n"
@@ -145,12 +127,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Függetlenül az itt beállított szinttől minden kérdés megjelenik a csomagok "
-"dpkg-reconfigure eszközzel való újrakonfigurálásakor."
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Függetlenül az itt beállított szinttől minden kérdés megjelenik a csomagok dpkg-reconfigure eszközzel való újrakonfigurálásakor."
 
 #. Type: text
 #. Description
@@ -166,7 +144,6 @@ msgstr "Türelem..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Az alábbinál kevésbé fontos kérdések kihagyása..."
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -175,7 +152,6 @@ msgstr "Türelem..."
 #~ "A debconf-os csomagok kérdéseiket osztályozzák. Csak egy adottnál "
 #~ "magasabb fontossági szintű kérdéseket teszik fel; a kevésbé fontosakat "
 #~ "kihagyják."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -190,79 +166,57 @@ msgstr "Türelem..."
 #~ " - a 'magas'-aknak nincs jó általános alapértéke\n"
 #~ " - a 'közepes'-ekre van jó alapérték.\n"
 #~ " - az 'alacsony'-ak alapértékei szinte mindig tökéletesek."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
 #~ "E kérdés például közepes fontosságú, ha a fontossági szint most 'magas' "
 #~ "vagy 'kritikus' lenne, nem látszódna."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Debconf-kérdések fontosságának megváltoztatása"
-
 #~ msgid "Continue"
 #~ msgstr "Tovább"
-
 #~ msgid "Go Back"
 #~ msgstr "Vissza"
-
 #~ msgid "Yes"
 #~ msgstr "Igen"
-
 #~ msgid "No"
 #~ msgstr "Nem"
-
 #~ msgid "Cancel"
 #~ msgstr "Mégsem"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
 #~ "A <Tab> elemek közt mozog; a <Space> jelöl; az <Enter> működteti a "
 #~ "gombokat"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Képernyőkép"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Képernyőkép mentése így: %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! HIBA: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "GOMBNYOMÁSOK:"
-
 #~ msgid "Display this help message"
 #~ msgstr "E súgóüzenet megjelenítése"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Vissza az előző kérdéshez"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Üres elem kiválasztása"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Kérdés: '%c' a súgóhoz, alapérték=%d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Kérdés: '%c' a súgóhoz> "
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Kérdés: '%c' a súgóhoz, alapérték=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Üss entert a folytatáshoz]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Párbeszéd, Egysoros, Gnome, Kde, Szerkesztő, Néma"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "kritikus, magas, közepes, alacsony"
-
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr "Milyen legyen a csomagbeállító alapfelület?"
+

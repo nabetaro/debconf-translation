@@ -2,7 +2,7 @@
 # packages/po/mg.po
 #
 # DO NOT MODIFY IT DIRECTLY : SUCH CHANGES WILL BE LOST
-# 
+#
 # translation of mg.po to Malagasy
 # Malagasy messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interst, Inc.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: mg\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-01-20 10:37+0100\n"
+"PO-Revision-Date: 2006-07-29 17:51+0100\n"
 "Last-Translator: Jaonary Rabarisoa <jaonary@free.fr>\n"
 "Language-Team: Malagasy <jaonary@free.fr>\n"
 "MIME-Version: 1.0\n"
@@ -29,131 +29,124 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Noninteractive"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Interface ampiasaina :"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Ny fonosana izay tefeny amin'ny alalan'ny debconf dia mitovy tarehy sy fihetsika. Afaka mifidy izany tarehy sy fihetsika izany ianao."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "critical"
-msgstr "mahana"
+msgstr "critical"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "high"
-msgstr "avo"
+msgstr "high"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "medium"
-msgstr "afovoany"
+msgstr "medium"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "low"
-msgstr "iva"
+msgstr "low"
 
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Adinoy ny fanontaniana manana fialohana ambanin'ny :"
+msgstr "Adinoy ny fanontaniana manana laharana ambanin'ny :"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf dia manome laharana ny fanontaniana izay hapetrany aminao. Fidio eto ny laharan'ny fanontaniana ambany indrindra izay tianao hiseo:\n"
+"-'critical' tsy manontany raha tsy misy zavatra mety hanimba ny system.\n"
+" Io fidina raha toa ka tsy mbola zatra ianao na somary maika.\n"
+"-'high' raha ireo fanontaniana important ihany no apetraka.\n"
+"-'medium' ho an'ireo fanontaniana mahazatra.\n"
+"-'low' raha tianao jerena daholo ny zavatra rehetra"
 
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Tadidio fa na inona na inona ny laharana fidinao eto dia ho hitanao daholo ny fanontaniana rehetra rehefa mametraka ny fonosana miaraka amin'ny dpkg-reconfigure ianao."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "Mametraka fonosana"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "Miandrasa kely azafady ..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Adinoy ny fanontaniana manana fialohana ambanin'ny :"
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -163,7 +156,6 @@ msgstr ""
 #~ "pialohana ny fanontaniana izay apetrany ho anao. Ireo fanontaniana izay "
 #~ "manana fialohana voafidy na fialohana lehibe nohon'izay nofidianao ihany "
 #~ "no hiseo, ireo fanontaniana tsy dia ilainadia ho dinganina."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -186,7 +178,6 @@ msgstr ""
 #~ "'-' 'iva' ho an'ireo fanontaniana tsotra izay azo valina soa aman-tsara "
 #~ "amin'ny \n"
 #~ "... alalan'ny valin-teny voafidy mialoha."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
@@ -194,22 +185,16 @@ msgstr ""
 #~ "Ohatra, ity fanontaniana ity dia manana fialohana \"afovoany\", raha toa "
 #~ "ka fialohana \"avo\" na \"mahana\" no nofidinao dia tsy nahita an'io "
 #~ "fanontaniana io ianao."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Manova ny fialohan'ny debconf"
-
 #~ msgid "Continue"
 #~ msgstr "Tohizo"
-
 #~ msgid "Go Back"
 #~ msgstr "Miverina any ariana"
-
 #~ msgid "Yes"
 #~ msgstr "Eny"
-
 #~ msgid "No"
 #~ msgstr "Tsy"
-
 #~ msgid "Cancel"
 #~ msgstr "Ajanony"
 
@@ -218,44 +203,34 @@ msgstr ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Screenshot"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Screenshot raketina ho %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! FAHADISOANA: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "KEYSTROKES:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Ampisehoy ity hafatra mpanampy ity"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Miverena amin'ilay fanontaniana teo aloha"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Misafidiana fidirana banga"
 
 #, fuzzy
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Prompt: '%c' ho an'ny fanampiana, raha tsy misy = %d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Prompt: '%c' ho an'ny fanampiana> "
 
 #, fuzzy
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Prompt:'%c' ho an'ny fanampiana, raha tsy misy=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Tsindrio Entrée raha hanohy]"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "mahana, avo, afovoany, iva"
+
