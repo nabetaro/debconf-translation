@@ -27,7 +27,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
 "PO-Revision-Date: 2006-05-15 13:09+0200\n"
-"Last-Translator: Giuseppe Sacco <eppesuig@debian.org>\n"
+"Last-Translator: Davide Viti <zinosat@tiscali.it>\n"
 "Language-Team:   Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,43 +37,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Non-interattiva"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Interfaccia da utilizzare:"
 
 #. Type: select
 #. Description
@@ -83,7 +83,7 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "I pacchetti che usano debconf per la configurazione condividono un aspetto "
-"comune. È possibile selezionare il tipo di interfaccia utente da usare."
+"comune. � possibile selezionare il tipo di interfaccia utente da usare."
 
 #. Type: select
 #. Description
@@ -96,8 +96,8 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Il fronted dialog è un'interfaccia a schermo pieno a caratteri mentre il "
-"frontendreadline usa un'interfaccia più tradizionale in puro testo e "
+"Il fronted dialog � un'interfaccia a schermo pieno a caratteri mentre il "
+"frontendreadline usa un'interfaccia pi� tradizionale in puro testo e "
 "entrambi i frontend gnome e kde sono interfacce moderne basate su X, che si "
 "adattano ai rispettivi desktop (ma possono essere usati in ogni ambiente X). "
 "Il frontend editor permette di configurare le cose usando il proprio editor "
@@ -130,9 +130,8 @@ msgstr "bassa"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignorare domande con priorità inferiore a..."
+msgstr "Ignorare domande con priorit� inferiore a:"
 
 #. Type: select
 #. Description
@@ -146,13 +145,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf assegna priorità alle domande da chiedere. Scegliere la più bassa "
-"priorità delle domande che si vogliono vedere:\n"
+"Debconf assegna priorit� alle domande da chiedere. Scegliere la pi� bassa "
+"priorit� delle domande che si vogliono vedere:\n"
 "  - 'critical' chiede solo se il sistema potrebbe rovinarsi.\n"
-"     Scegliere questo se si è nuovi o di fretta.\n"
-"  - 'high' è solo per le domande abbastanza importanti\n"
-"  - 'medium' è per le domande normali\n"
-"  - 'low' è per i fanatici del controllo che vogliono vedere tutto"
+"     Scegliere questo se si � nuovi o di fretta.\n"
+"  - 'high' � solo per le domande abbastanza importanti\n"
+"  - 'medium' � per le domande normali\n"
+"  - 'low' � per i fanatici del controllo che vogliono vedere tutto"
 
 #. Type: select
 #. Description
@@ -161,7 +160,7 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Si noti che qualunque livelli si selezioni qui, si sarà in grado di vedere "
+"Si noti che qualunque livelli si selezioni qui, si sar� in grado di vedere "
 "tutte le domande se si riconfigura il pacchetto con dpkg-reconfigure."
 
 #. Type: text
@@ -175,110 +174,3 @@ msgstr "Installazione dei pacchetti in corso"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Attendere prego"
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Ignorare domande con priorità inferiore a..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "I pacchetti che utilizzano debconf per la configurazione assegnano un "
-#~ "livello di priorità alle domande che potrebbero porre. Verranno poste "
-#~ "solo domande con priorità superiore o uguale a un certo livello e saranno "
-#~ "evitate tutte le domande con importanza inferiore."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "È possibile selezionare la priorità più bassa della domanda che verrà "
-#~ "visualizzata:\n"
-#~ "- «critica» è assegnata a item che probabilmente bloccherebbero il "
-#~ "sistema senza l'intervento dell'utente\n"
-#~ "- «alta» è assegnata a item senza ragionevoli valori predefiniti.\n"
-#~ "- «media» è assegnata a item che hanno valori predefiniti ragionevoli.\n"
-#~ "- «bassa» è assegnata a item i cui valori predefiniti funzionano nella "
-#~ "maggioranza dei casi."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Per esempio, questa domanda ha priorità media; se la priorità scelta "
-#~ "fosse stata «alta» oppure «critica», questa domanda non sarebbe stata "
-#~ "visualizzata."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Cambiare il livello di priorità in debconf"
-
-#~ msgid "Continue"
-#~ msgstr "Continuare"
-
-#~ msgid "Go Back"
-#~ msgstr "Indietro"
-
-#~ msgid "Yes"
-#~ msgstr "Sì"
-
-#~ msgid "No"
-#~ msgstr "No"
-
-#~ msgid "Cancel"
-#~ msgstr "Annulla"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<TAB> sposta tra elementi; <Spazio> seleziona; <Invio> attiva i bottoni"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Copia schermo"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Una copia dello schermo è stata salvata come %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! ERRORE: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "Tasti premuti:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Mostra questo messaggio d'aiuto"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Ritorna alla domanda precedente"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Seleziona una stringa vuota"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Selezionare: '%c' per aiuto, default=%d>"
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Selezionare: '%c' per aiuto> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Selezionare: '%c' per aiuto, default=%s>"
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Premere invio per continuare]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "critica, alta, media, bassa"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Che interfaccia bisogna usare per configurare i pacchetti?"
