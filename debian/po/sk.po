@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-04-30 10:52+0200\n"
+"PO-Revision-Date: 2006-07-30 09:10+0200\n"
 "Last-Translator: Peter Mann <Peter.Mann@tuke.sk>\n"
 "Language-Team:  Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -23,43 +23,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialóg"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "Kde"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Neinteraktívne"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Použité rozhranie:"
 
 #. Type: select
 #. Description
@@ -116,9 +116,8 @@ msgstr "nízka"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignorovať otázky s prioritou menšou ako..."
+msgstr "Ignorovať otázky s prioritou menšou ako:"
 
 #. Type: select
 #. Description
@@ -147,7 +146,7 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Všimnite si, že pri znovunastavovaní balíka programom dpkg-reconfigure "
+"Všimnite si, že pri opätovnom nastavovaní balíka programom dpkg-reconfigure "
 "uvidíte všetky otázky bez ohľadu na to, akú prioritu si tu zvolíte."
 
 #. Type: text
@@ -162,106 +161,3 @@ msgstr "Inštalujú sa balíky"
 msgid "Please wait..."
 msgstr "Počkajte, prosím..."
 
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Ignorovať otázky s prioritou menšou ako..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Balíky používajúce debconf pre konfiguráciu majú rôzne priority otázok, "
-#~ "na ktoré sa vás pýtajú. Zobrazia sa iba otázky s prioritou rovnou alebo "
-#~ "vyššou, než je zadaná priorita; všetky menej dôležité otázky sa preskočia."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Môžete si vybrať najnižšiu prioritu otázok, ktoré chcete vidieť:\n"
-#~ " - 'kritická' je pre položky, ktoré by bez zásahu používateľa\n"
-#~ "    pravdepodobne poškodili systém.\n"
-#~ " - 'vysoká' je pre položky, ktoré nemajú rozumné štandartné hodnoty.\n"
-#~ " - 'stredná' je pre obyčajné otázky s rozumnými predvolenými hodnotami\n"
-#~ " - 'nízka' je pre triviálne záležitosti, ktoré budú vo veľkej väčšine\n"
-#~ "    prípadov fungovať samy od seba."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Napríklad táto otázka má strednú prioritu. Keby ste už skôr nastavili "
-#~ "prioritu na vysokú alebo kritickú, túto otázku by ste teraz nevideli."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Zmena priority otázok"
-
-#~ msgid "Continue"
-#~ msgstr "Pokračovať"
-
-#~ msgid "Go Back"
-#~ msgstr "Naspäť"
-
-#~ msgid "Yes"
-#~ msgstr "Áno"
-
-#~ msgid "No"
-#~ msgstr "Nie"
-
-#~ msgid "Cancel"
-#~ msgstr "Zrušiť"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<Tab> prepína medzi položkami; <Space> vyberá; <Enter> aktivuje tlačidlá"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Zachytenie obrazovky"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Zachytená obrazovka uložená do %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! CHYBA: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "KLÁVESOVÉ SKRATKY:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Zobraziť túto nápovedu"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Vrátiť sa k predchádzajúcej otázke"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Zvoliť prázdny vstup"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Prompt: '%c' pre nápovedu, predvolené=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Prompt: '%c' pre nápovedu> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Prompt: '%c' pre nápovedu, predvolené=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Pre pokračovanie stlačte enter]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Dialóg, Readline, Gnome, Kde, Editor, Neinteraktívne"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kritická, vysoká, stredná, nízka"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Ktoré rozhranie sa má použiť pre nastavovanie balíkov?"

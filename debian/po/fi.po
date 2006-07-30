@@ -7,8 +7,8 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 # Tommi Vainikainen <thv+debian@iki.fi>, 2003 - 2004
-# Tapio Lehtonen <tale@debian.org>, 2004 - 2005
-# Thanks to lokalisointi-laatu@linux-aktivaattori.org.
+# Tapio Lehtonen <tale@debian.org>, 2004 - 2006
+# Thanks to laatu@lokalisointi.org
 # 
 # 
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-01-31 14:39+0200\n"
+"PO-Revision-Date: 2006-07-30 13:45+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,43 +27,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Valintaikkuna"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Gnome"
-msgstr ""
+msgstr "Gnome"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Kde"
-msgstr ""
+msgstr "KDE"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Teksturi"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "ei vuorovaikutteinen"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Käytettävä liittymä:"
 
 #. Type: select
 #. Description
@@ -85,12 +85,7 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr ""
-"Dialog on ruudun tÃ€yttÃ€vÃ€ merkkipohjainen liittymÃ€, kun taas readline on "
-"perinteisempi pelkkÃ€Ã€ tekstiÃ€ kÃ€yttÃ€vÃ€ liittymÃ€. SekÃ€ gnome ettÃ€ "
-"kde ovat nykyaikaisia X-pohjaisia liittymiÃ€. Editori kÃ€yttÃ€Ã€ asetusten sÃ"
-"€Ã€tÃ¶Ã¶n lempitekstieditoriasi. Ei-vuorovaikutteinen liittymÃ€ ei koskaan "
-"kysy kysymyksiÃ€."
+msgstr "Valintaikkuna on ruudun tÃ€yttÃ€vÃ€ merkkipohjainen liittymÃ€, kun taas readline on perinteisempi pelkkÃ€Ã€ tekstiÃ€ kÃ€yttÃ€vÃ€ liittymÃ€. SekÃ€ Gnome ettÃ€ KDE ovat nykyaikaisia X-pohjaisia liittymiÃ€. Teksturi kÃ€yttÃ€Ã€ asetusten sÃ€Ã€tÃ¶Ã¶n lempiteksturiasi. Ei-vuorovaikutteinen liittymÃ€ ei koskaan kysy kysymyksiÃ€."
 
 #. Type: select
 #. Choices
@@ -119,9 +114,8 @@ msgstr "matala"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ohita kysymykset, joiden prioriteetti on pienempi kuin..."
+msgstr "Ohita kysymykset, joiden prioriteetti on pienempi kuin:"
 
 #. Type: select
 #. Description
