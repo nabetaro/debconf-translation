@@ -3,8 +3,8 @@
 # Clytie Siddall <clytie@riverland.net.au>, 2006.
 # 
 msgid ""
-""
-msgstr "Project-Id-Version: debconf_debian\n"
+msgstr ""
+"Project-Id-Version: debconf_debian\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
 "PO-Revision-Date: 2006-08-10 20:34+0930\n"
@@ -16,58 +16,60 @@ msgstr "Project-Id-Version: debconf_debian\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: LocFactoryEditor 1.6fc1\n"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Dialog"
 msgstr "Hộp thoại"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Readline"
 msgstr "Readline"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Gnome"
 msgstr "GNOME"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Kde"
 msgstr "KDE"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Editor"
 msgstr "Trình hiệu chỉnh"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:1001
 msgid "Noninteractive"
 msgstr "Khác tương thích"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:1002
 msgid "Interface to use:"
 msgstr "Giao diện cần dùng:"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
-msgstr "Các gói được cấu hình bằng debconf thì có giao diện và cảm nhận rất tương tự. Bạn có khả năng chọn kiểu giao diện người dùng đó."
+msgstr ""
+"Các gói được cấu hình bằng debconf thì có giao diện và cảm nhận rất tương "
+"tự. Bạn có khả năng chọn kiểu giao diện người dùng đó."
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
@@ -76,40 +78,46 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-msgstr "Tiền tiêu hộp thoại là giao diện dựa vào ký tự trên toàn màn hình, còn tiền tiêu readline dùng giao diện chữ thô truyền thống hơn, và cả hai giao diện GNOME và KDE đều là giao diện X hiện đại, thích hợp với từng môi trường làm việc (nhưng mà có thể được sử dụng trong bất cứ môi trường X nào). Tiền tiêu trình hiệu chỉnh cho bạn có khả năng cấu hình tùy chọn bằng trình hiệu chỉnh văn bản ưa thích. Tiền tiêu khác tương tác không bao giờ hỏi câu nào."
+msgstr ""
+"Tiền tiêu hộp thoại là giao diện dựa vào ký tự trên toàn màn hình, còn tiền "
+"tiêu readline dùng giao diện chữ thô truyền thống hơn, và cả hai giao diện "
+"GNOME và KDE đều là giao diện X hiện đại, thích hợp với từng môi trường làm "
+"việc (nhưng mà có thể được sử dụng trong bất cứ môi trường X nào). Tiền tiêu "
+"trình hiệu chỉnh cho bạn có khả năng cấu hình tùy chọn bằng trình hiệu chỉnh "
+"văn bản ưa thích. Tiền tiêu khác tương tác không bao giờ hỏi câu nào."
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:2001
 msgid "critical"
 msgstr "tới hạn"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:2001
 msgid "high"
 msgstr "cao"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:2001
 msgid "medium"
 msgstr "vừa"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:2001
 msgid "low"
 msgstr "thấp"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:2002
 msgid "Ignore questions with a priority less than:"
 msgstr "Bỏ qua các câu hỏi có ưu tiên dưới:"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
@@ -119,29 +127,33 @@ msgid ""
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
-msgstr "Trình debconf định quyền ưu tiên cho mỗi câu hỏi cấu hình. Bạn có muốn xem câu hỏi có ưu tiên nào?\n"
+msgstr ""
+"Trình debconf định quyền ưu tiên cho mỗi câu hỏi cấu hình. Bạn có muốn xem "
+"câu hỏi có ưu tiên nào?\n"
 " • tới hạn\tnhắc bạn chỉ khi hệ thống sắp bị hỏng\n"
 "\t\t\t\t\tHãy chọn điều này nếu bạn là người dùng mới, hoặc nếu bạn vội\n"
 " • cao\t\t\tcho câu hỏi hơi quan trọng\n"
 " • vừa\t\t\tcho câu hỏi bình thường\n"
 " • thấp\t\t\tcho người dùng muốn xem hết."
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
-msgstr "Ghi chú rằng bất chấp cấp được chọn ở đây, bạn vẫn có khả năng xem mọi câu hỏi bằng cách cấu hình lại gói nào bằng lệnh « dpkg-reconfigure ten_gói »."
+msgstr ""
+"Ghi chú rằng bất chấp cấp được chọn ở đây, bạn vẫn có khả năng xem mọi câu "
+"hỏi bằng cách cấu hình lại gói nào bằng lệnh « dpkg-reconfigure ten_gói »."
 
-#.Type: text
-#.Description
+#. Type: text
+#. Description
 #: ../templates:3001
 msgid "Installing packages"
 msgstr "Đang cài đặt gói"
 
-#.Type: text
-#.Description
+#. Type: text
+#. Description
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Hãy đợi..."
@@ -153,13 +165,15 @@ msgstr "Hãy đợi..."
 #~ msgstr "Cấu hình schroot do %1% %2% tạo ra trên %3%"
 
 #~ msgid "To allow users access to the chroots, use the users or groups keys."
-#~ msgstr "Để cho phép người dùng truy cập chroot, hãy dùng khóa của người dùng hay "
+#~ msgstr ""
+#~ "Để cho phép người dùng truy cập chroot, hãy dùng khóa của người dùng hay "
 #~ "nhóm."
 
 #~ msgid ""
 #~ "To allow password-less root access, use the root-users or root-groups "
 #~ "keys."
-#~ msgstr "Để cho phép việc truy cập kiểu người chủ mà không cần mật khẩu, hãy dùng "
+#~ msgstr ""
+#~ "Để cho phép việc truy cập kiểu người chủ mà không cần mật khẩu, hãy dùng "
 #~ "khoá của người dùng chủ (root-users) hay nhóm chủ (root-groups)."
 
 #~ msgid "Remove '%1%' to use the new configuration."
@@ -181,7 +195,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "để nâng cấp lên một cấu hình schroot."
 
 #~ msgid "Edit '%1%' to add appropriate user and/or group access."
-#~ msgstr "Hiệu chỉnh « %1% » để thêm cách truy cập kiểu người dùng và/hay nhóm "
+#~ msgstr ""
+#~ "Hiệu chỉnh « %1% » để thêm cách truy cập kiểu người dùng và/hay nhóm "
 #~ "thích hợp."
 
 #~ msgid "[OPTION...] [COMMAND] - run command or shell in a chroot"
@@ -197,14 +212,16 @@ msgstr "Hãy đợi..."
 #~ msgstr "Bảo tồn môi trường người dùng"
 
 #~ msgid "--quiet and --verbose may not be used at the same time"
-#~ msgstr "Không cho phép cả hai tùy chọn « --quiet » (im) và « --verbose » (xuất "
+#~ msgstr ""
+#~ "Không cho phép cả hai tùy chọn « --quiet » (im) và « --verbose » (xuất "
 #~ "chi tiết) đồng thời."
 
 #~ msgid "Using verbose output"
 #~ msgstr "Đang xuất chi tiết"
 
 #~ msgid "--chroot and --all may not be used at the same time"
-#~ msgstr "Không cho phép sử dụng cả hai tùy chọn « --chroot » và « --all » (tất cả) "
+#~ msgstr ""
+#~ "Không cho phép sử dụng cả hai tùy chọn « --chroot » và « --all » (tất cả) "
 #~ "đồng thời."
 
 #~ msgid "Using --chroots only"
@@ -220,7 +237,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "%1% chroot (khả năng tương thích với dchroot-dsa)"
 
 #~ msgid "[OPTION...] chroot [COMMAND] - run command or shell in a chroot"
-#~ msgstr "[TÙY_CHỌN...] chroot [LỆNH] — chạy lệnh hay trình bao trong một chroot"
+#~ msgstr ""
+#~ "[TÙY_CHỌN...] chroot [LỆNH] — chạy lệnh hay trình bao trong một chroot"
 
 #~ msgid "Print paths to available chroots"
 #~ msgstr "In ra đường dẫn đến mỗi chroot sẵn sàng"
@@ -549,7 +567,8 @@ msgstr "Hãy đợi..."
 
 #~ msgid ""
 #~ "Failed to lock device (timed out after %4% seconds; lock held by PID %5%)"
-#~ msgstr "Lỗi khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
+#~ msgstr ""
+#~ "Lỗi khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
 
 #~ msgid "Failed to test device lock"
 #~ msgstr "Lỗi kiểm tra khoá thiết bị"
@@ -557,7 +576,8 @@ msgstr "Hãy đợi..."
 #~ msgid ""
 #~ "Failed to unlock device (timed out after %4% seconds; lock held by PID %"
 #~ "5%)"
-#~ msgstr "Lỗi bỏ khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
+#~ msgstr ""
+#~ "Lỗi bỏ khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
 
 #~ msgid "I: "
 #~ msgstr "T: "
@@ -608,7 +628,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "Tiến trình con đã đổ lõi"
 
 #~ msgid "Child exited abnormally (reason unknown; not a signal or core dump)"
-#~ msgstr "Tiến trình con đã thoát bất thường (chưa biết sao ; không phải là tín "
+#~ msgstr ""
+#~ "Tiến trình con đã thoát bất thường (chưa biết sao ; không phải là tín "
 #~ "hiệu hay việc đổ lõi)"
 
 #~ msgid "Child terminated by signal '%4%'"
@@ -721,7 +742,8 @@ msgstr "Hãy đợi..."
 #~ "NO\n"
 #~ "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR "
 #~ "PURPOSE.\n"
-#~ msgstr "Đây là phần mềm tự do; xem mã nguồn để tìm điều kiện sao chép.\n"
+#~ msgstr ""
+#~ "Đây là phần mềm tự do; xem mã nguồn để tìm điều kiện sao chép.\n"
 #~ "KHÔNG CÓ BẢO HÀNH GÌ CẢ, THẬM CHÍ KHÔNG CÓ BẢO ĐẢM ĐƯỢC NGỤ Ý\n"
 #~ "KHẢ NĂNG BÁN HAY KHẢ NĂNG LÀM ĐƯỢC VIỆC DỨT KHOÁT.\n"
 
@@ -729,7 +751,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "Cách sử dụng:"
 
 #~ msgid "Run \"%1% --help\" to list usage example and all available options"
-#~ msgstr "Hãy chạy lệnh « %1% --help » để liệt kê mẫu cách sử dụng và các tùy chọn "
+#~ msgstr ""
+#~ "Hãy chạy lệnh « %1% --help » để liệt kê mẫu cách sử dụng và các tùy chọn "
 #~ "sẵn sàng"
 
 #~ msgid "General options"
@@ -820,7 +843,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "Cần phải ghi rõ chỉ một chroot khi khởi chạy phiên"
 
 #~ msgid "--chroot may not be used with --list"
-#~ msgstr "Không cho phép sử dụng tùy chọn « --chroot » cùng với « --list » (liệt kê)"
+#~ msgstr ""
+#~ "Không cho phép sử dụng tùy chọn « --chroot » cùng với « --list » (liệt kê)"
 
 #~ msgid "Unknown action specified"
 #~ msgstr "Hành động không rõ được xác định"
@@ -877,7 +901,8 @@ msgstr "Hãy đợi..."
 #~ msgstr "Chưa xác định thiết bị"
 
 #~ msgid "(%1%->%2%): dchroot sessions do not support user switching"
-#~ msgstr "(%1% → %2%): phiên chạy dchroot không hỗ trợ khả năng chuyển đổi người "
+#~ msgstr ""
+#~ "(%1% → %2%): phiên chạy dchroot không hỗ trợ khả năng chuyển đổi người "
 #~ "dùng."
 
 #~ msgid "%1% chroot: Alias '%2%' already associated with another chroot"
@@ -898,7 +923,8 @@ msgstr "Hãy đợi..."
 #~ msgid ""
 #~ "Failed to release device lock (timed out after %4% seconds; lock held by "
 #~ "PID %5%)"
-#~ msgstr "Lỗi nhả khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
+#~ msgstr ""
+#~ "Lỗi nhả khoá thiết bị (quá thời sau %4% giây; khoá được giữ bởi PID %5%)"
 
 #~ msgid "%1%: No such chroot"
 #~ msgstr "%1%: Không có chroot như vậy"
@@ -906,7 +932,8 @@ msgstr "Hãy đợi..."
 #~ msgid ""
 #~ "Only one chroot may be specified when recovering, running or ending a "
 #~ "session"
-#~ msgstr "Có thể ghi rõ chỉ một chroot khi phục hồi, chạy hoặc kết thúc một phiên "
+#~ msgstr ""
+#~ "Có thể ghi rõ chỉ một chroot khi phục hồi, chạy hoặc kết thúc một phiên "
 #~ "chạy"
 
 #~ msgid "Failed to stat device '%1%': %2%"

@@ -1,4 +1,3 @@
-# 
 # translation of uk.po to Ukrainian
 # Ukrainian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
@@ -10,7 +9,7 @@ msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-03-31 19:11+0300\n"
+"PO-Revision-Date: 2006-08-11 16:36+0200\n"
 "Last-Translator: Eugeniy Meshcheryakov <eugen@univ.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +59,7 @@ msgstr ""
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Використовувати інтерфейс:"
 
 #. Type: select
 #. Description
@@ -93,32 +92,31 @@ msgstr ""
 #. Choices
 #: ../templates:2001
 msgid "critical"
-msgstr "критичний"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "high"
-msgstr "високий"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "medium"
-msgstr "середній"
+msgstr ""
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "low"
-msgstr "низький"
+msgstr ""
 
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Пропускати питання з пріоритетом меншим ніж..."
+msgstr "Ігнорувати питання з пріоритетом меншим ніж:"
 
 #. Type: select
 #. Description
@@ -163,107 +161,8 @@ msgstr "Встановлення пакунків"
 msgid "Please wait..."
 msgstr "Зачекайте, будь ласка..."
 
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Пропускати питання з пріоритетом меншим ніж..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Пакунки, що використовують debconf для налаштування розділяють по "
-#~ "пріоритетам питання, які вони можуть задавати. Будуть відображатися лише "
-#~ "питання з пріоритетом, що більший або рівний, ніж вказаний вами; всі менш "
-#~ "важливі питання буде пропущено."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Ви можете вибрати найнижчий пріоритет питань, які бажаєте бачити:\n"
-#~ "- „критичний“ - питання про речі, які можуть призвести до "
-#~ "непрацездатності системи, якщо не втрутитися\n"
-#~ "- „високий“ - питання без придатної відповіді за замовчанням\n"
-#~ "- „середній“ - питання з розумними відповідями за замовчанням\n"
-#~ "- „низький“ - найпростіші питання, для яких є відповіді за замовчанням, "
-#~ "що працюють в більшості випадків."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Наприклад, це питання має середній пріоритет, і якщо пріоритет був би "
-#~ "встановлений в „високий“ або „критичний“, то ви цього питання не побачили "
-#~ "б."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Змінити пріоритет Debconf"
-
-#~ msgid "Continue"
-#~ msgstr "Продовжити"
-
-#~ msgid "Go Back"
-#~ msgstr "Повернутися"
-
-#~ msgid "Yes"
-#~ msgstr "Так"
-
-#~ msgid "No"
-#~ msgstr "Ні"
-
-#~ msgid "Cancel"
-#~ msgstr "Скасувати"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr "<Tab> - переміщення; <Space> - вибір; <Enter> - натискання кнопок"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Знімок"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Знімок екрану збережено як %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! ПОМИЛКА: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "СКОРОЧЕННЯ:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Показати це повідомлення"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Повернутися до попереднього питання"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Вибрати порожній рядок"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Ввід: 1 - „%c“ - допомога, за замовчанням=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Ввід: „%c“ - допомога> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Ввід: 1 - „%c“ - допомога, за замовчанням=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Натисніть <Enter> для продовження]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "діалог, рядок вводу, Gnome, Kde, редактор, неінтерактивний"
 
 #~ msgid "critical, high, medium, low"
 #~ msgstr "критичний, високий, середній, низький"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Який інтерфейс потрібно використовувати для налаштування пакунків?"
