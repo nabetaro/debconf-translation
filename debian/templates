@@ -1,6 +1,7 @@
 Template: debconf/frontend
 Type: select
-__Choices: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
+#flag:translate!:3,4
+__Choices: Dialog, Readline, GNOME, KDE, Editor, Noninteractive
 Default: Dialog
 _Description: Interface to use:
  Packages that use debconf for configuration share a common look and feel.
