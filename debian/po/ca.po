@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-28 23:09+0200\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
 "PO-Revision-Date: 2006-07-29 14:00+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -24,18 +24,6 @@ msgstr "Dialog"
 #: ../templates:1001
 msgid "Readline"
 msgstr "Readline"
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Gnome"
-msgstr "GNOME"
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Kde"
-msgstr "KDE"
 
 #. Type: select
 #. Choices
@@ -126,8 +114,10 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf priorititza les preguntes que vos pregunta. Escolliu la prioritat més baixa per a les preguntes que voleu veure:\n"
-" - «crítica» només pregunta si es pot trencar el sistema. Escolliu-la si sou novells, o teniu pressa.\n"
+"Debconf priorititza les preguntes que vos pregunta. Escolliu la prioritat "
+"més baixa per a les preguntes que voleu veure:\n"
+" - «crítica» només pregunta si es pot trencar el sistema. Escolliu-la si sou "
+"novells, o teniu pressa.\n"
 " - «alta» és per a preguntes prou importants.\n"
 " - «mitjana» és per a preguntes normals.\n"
 " - «baixa» és per als bojos pel control que ho volen veure tot."
@@ -153,6 +143,12 @@ msgstr "S'estan instal·lant els paquets"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Si us plau, espereu..."
+
+#~ msgid "Gnome"
+#~ msgstr "GNOME"
+
+#~ msgid "Kde"
+#~ msgstr "KDE"
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ignora les preguntes amb una prioritat menor que..."

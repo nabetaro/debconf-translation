@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-28 23:09+0200\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
 "PO-Revision-Date: 2006-07-30 01:32+1200\n"
 "Last-Translator: Carlos Z.F. Liu <carlosliu@users.sourceforge.net>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -25,18 +25,6 @@ msgstr "Dialog"
 #: ../templates:1001
 msgid "Readline"
 msgstr "Readline"
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Gnome"
-msgstr "Gnome"
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Kde"
-msgstr "Kde"
 
 #. Type: select
 #. Choices
@@ -152,6 +140,12 @@ msgstr "正在安装软件包"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "请稍候..."
+
+#~ msgid "Gnome"
+#~ msgstr "Gnome"
+
+#~ msgid "Kde"
+#~ msgstr "Kde"
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "忽略问题，如果它的优先级低于..."

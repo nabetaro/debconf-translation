@@ -1,5 +1,8 @@
+# German messages for debian-installer.
+# Copyright (C) 2003 Software in the Public Interest, Inc.
+# This file is distributed under the same license as debian-installer.
 #
-# Jens Seidel <jensseidel@users.sf.net>, 2005, 2006.
+# Holger Wansing <linux@wansing-online.de>, 2006.
 # Dennis Stampfer <seppy@debian.org>, 2003, 2004, 2005.
 # Alwin Meschede <ameschede@gmx.de>, 2003, 2004.
 # Bastian Blank <waldi@debian.org>, 2003.
@@ -11,57 +14,44 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-28 23:09+0200\n"
-"PO-Revision-Date: 2006-05-03 18:53+0200\n"
-"Last-Translator: Jens Seidel <jensseidel@users.sf.net>\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
+"PO-Revision-Date: 2006-08-26 06:09+0100\n"
+"Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: vim\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Gnome"
-msgstr ""
-
-#. Type: select
-#. Choices
-#: ../templates:1001
-msgid "Kde"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Nicht-interaktiv"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Zu benutzende Schnittstelle:"
 
 #
 #. Type: select
@@ -72,8 +62,7 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "Pakete, die Debconf für die Konfiguration verwenden, haben ein gemeinsames "
-"»look and feel«. Sie können wählen, welche Benutzerschnittstelle sie "
-"benutzen."
+"»look and feel«. Sie können wählen, welche Benutzerschnittstelle sie nutzen."
 
 #
 #. Type: select
@@ -87,13 +76,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Das Dialog-Frontend nutzt eine zeichenbasierte Vollbildschirmdarstellung, "
+"Das Dialog-Frontend nutzt eine zeichen-basierte Vollbildschirmdarstellung, "
 "während das Readline-Frontend eine eher traditionelle einfache "
 "Textschnittstelle verwendet, und sowohl das GNOME- als auch das KDE-Frontend "
 "sind moderne X-Schnittstellen, die in den jeweiligen Desktop eingepasst sind "
 "(aber in beliebigen X-Umgebungen verwendet werden können). Das Editor-"
 "Frontend läßt Sie die Dinge mit Ihrem Lieblingseditor konfigurieren. Das "
-"nicht-interaktive Frontend stellt Ihnen nie irgendeine Frage."
+"nicht-interaktive Frontend stellt Ihnen niemals Fragen."
 
 #. Type: select
 #. Choices
@@ -122,9 +111,8 @@ msgstr "niedrig"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignoriere Fragen mit einer Priorität niedriger als ..."
+msgstr "Ignoriere Fragen mit einer Priorität niedriger als:"
 
 #. Type: select
 #. Description
@@ -145,7 +133,7 @@ msgstr ""
 "    Wählen Sie dies, wenn Sie Linux-Neuling sind oder es eilig haben.\n"
 "  - »hoch« ist für ziemlich wichtige Fragen.\n"
 "  - »mittel« ist für normale Fragen.\n"
-"  - »niedrig« ist für Kontrollfreaks, die alles sehen möchten."
+"  - »niedrig« ist für Kontroll-Freaks, die alles sehen möchten."
 
 #
 #. Type: select
@@ -170,8 +158,24 @@ msgstr "Installiere Pakete"
 msgid "Please wait..."
 msgstr "Bitte warten ..."
 
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Ignoriere Fragen mit einer Priorität niedriger als ..."
+#~ msgid "Gnome"
+#~ msgstr "GNOME"
+
+#~ msgid "Kde"
+#~ msgstr "KDE"
+
+#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
+#~ msgstr "Dialog, Readline, GNOME, KDE, Editor, nicht-interaktiv"
+
+#~ msgid "critical, high, medium, low"
+#~ msgstr "kritisch, hoch, mittel, niedrig"
+
+#  Template: debconf/frontend
+#  ddtp-prioritize: 54
+#
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr ""
+#~ "Welche Schnittstelle soll zum Konfigurieren der Pakete verwendet werden?"
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
@@ -208,75 +212,3 @@ msgstr "Bitte warten ..."
 #~ "Diese Frage ist zum Beispiel Priorität Mittel, und falls Ihre Priorität "
 #~ "bereits auf hoch oder kritisch gesetzt wäre, würden Sie die Frage nicht "
 #~ "sehen."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Debconf-Priorität ändern"
-
-#~ msgid "Continue"
-#~ msgstr "Weiter"
-
-#~ msgid "Go Back"
-#~ msgstr "Zurück"
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid "No"
-#~ msgstr "Nein"
-
-#~ msgid "Cancel"
-#~ msgstr "Abbrechen"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<Tab> wechselt zwischen Optionen; <Leertaste> wählt aus; <Enter> aktiviert"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Bildschirmfoto"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Der Schnappschuss wurde unter %s gespeichert"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! FEHLER: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "TASTENDRÜCKE:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Diese Nachricht anzeigen"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Zur vorherigen Frage zurückgehen"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Leeren Eintrag wählen"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Eingabe: »%c« für Hilfe, Standard=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Eingabe: »%c« für Hilfe> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Eingabe: »%c« für Hilfe, Standard=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Drücken Sie die Eingabetaste, um fortzufahren]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Dialog, Readline, GNOME, KDE, Editor, nicht-interaktiv"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kritisch, hoch, mittel, niedrig"
-
-#  Template: debconf/frontend
-#  ddtp-prioritize: 54
-#
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr ""
-#~ "Welche Schnittstelle soll zum Konfigurieren der Pakete verwendet werden?"
