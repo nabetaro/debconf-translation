@@ -42,3 +42,8 @@ Template: debconf-apt-progress/info
 Type: text
 # Not translated; apt emits translated descriptions for us already.
 Description: ${DESCRIPTION}
+
+Template: debconf-apt-progress/media-change
+Type: text
+Description: Media change
+ ${MESSAGE}

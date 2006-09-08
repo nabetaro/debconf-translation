@@ -214,8 +214,8 @@ sub passthrough (@) {
 	defined(my $pid = fork) or die "$0: can't fork: $!\n";
 	if (!$pid) {
 		close STATUS_READ;
+		close COMMAND_WRITE;
 		$^F = 6; # avoid close-on-exec
-		my $null = checkopen('/dev/null');
 		checkdup2(0, 5);
 		# If the shell confmodule was previously loaded, we need to
 		# use fd 3 rather than stdout.
@@ -225,9 +225,9 @@ sub passthrough (@) {
 		} else {
 			checkdup2(1, 6);
 		}
-		if ($null != 0) {
-			checkdup2($null, 0);
-			checkclose($null);
+		if (fileno(COMMAND_READ) != 0) {
+			checkdup2(fileno(COMMAND_READ), 0);
+			close COMMAND_READ;
 		}
 		if (fileno(APT_LOG) != 1) {
 			checkclose(1);
@@ -251,6 +251,7 @@ sub passthrough (@) {
 	}
 
 	close STATUS_WRITE;
+	close COMMAND_READ;
 	return $pid;
 }
 
@@ -259,6 +260,7 @@ sub run_progress ($$@) {
 	my $to = shift;
 	my $command = shift;
 	local (*STATUS_READ, *STATUS_WRITE);
+	local (*COMMAND_READ, *COMMAND_WRITE);
 	local *APT_LOG;
 
 	Debconf::Client::ConfModule::progress(
@@ -266,11 +268,15 @@ sub run_progress ($$@) {
 
 	reservefds(4, 5, 6);
 
-	pipe STATUS_READ, STATUS_WRITE or die "$0: can't create pipe: $!";
+	pipe STATUS_READ, STATUS_WRITE or die "$0: can't create status pipe: $!";
 	checkdup2(fileno(STATUS_WRITE), 4);
 	open STATUS_WRITE, '>&=4'
 		or die "$0: can't reopen STATUS_WRITE as fd 4: $!";
 	nocloexec(\*STATUS_WRITE);
+	pipe COMMAND_READ, COMMAND_WRITE or die "$0: can't create command pipe: $!";
+	nocloexec(\*COMMAND_READ);
+	use IO::Handle;
+	COMMAND_WRITE->autoflush(1);
 
 	if (defined $logfile) {
 		open APT_LOG, '>>', $logfile
@@ -304,6 +310,14 @@ sub run_progress ($$@) {
 		} elsif ($status eq 'pmstatus') {
 			$min = 15;
 			$len = 85;
+		} elsif ($status eq 'media-change') {
+			Debconf::Client::ConfModule::subst(
+				'debconf-apt-progress/media-change', 'MESSAGE',
+				$description);
+			Debconf::Client::ConfModule::input(
+				'critical', 'debconf-apt-progress/media-change');
+			Debconf::Client::ConfModule::go();
+			print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
 		} else {
 			next;
 		}
