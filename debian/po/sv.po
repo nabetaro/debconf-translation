@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-30 23:39+0100\n"
+"PO-Revision-Date: 2006-09-07 23:38+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-boot@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,59 +18,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Redigerare"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Icke-interaktivt"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Gränssnitt att använda:"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
-"Paket som använder debconf för konfigurering delar ett gemensamt utseende. "
-"Du kan välja vilken sorts användargränssnitt de skall använda."
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Paket som använder debconf för konfigurering delar ett gemensamt utseende. Du kan välja vilken sorts användargränssnitt de skall använda."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
-"Dialogskalet är ett textbaserat fullskärmsgränssnitt medan readline-skalet "
-"använder ett mer traditionellt ren text-gränssnitt, och både Gnome- och KDE-"
-"skalen är moderna X-gränssnitt passande respektive skrivbordsmiljöer (men "
-"kan användas i vilken X-miljö som helst). Textredigeringsskalet låter dig "
-"konfigurera saker med ditt favorittextredigeringsprogram. Det icke-"
-"interaktiva skalet ställer aldrig några frågor till dig."
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "Dialogskalet är ett textbaserat fullskärmsgränssnitt medan readline-skalet använder ett mer traditionellt ren text-gränssnitt, och både Gnome- och KDE-skalen är moderna X-gränssnitt passande respektive skrivbordsmiljöer (men kan användas i vilken X-miljö som helst). Textredigeringsskalet låter dig konfigurera saker med ditt favorittextredigeringsprogram. Det icke-interaktiva skalet ställer aldrig några frågor till dig."
 
 #. Type: select
 #. Choices
@@ -99,24 +83,21 @@ msgstr "låg"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignorera frågor med lägre prioritet än..."
+msgstr "Ignorera frågor med lägre prioritet än:"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf prioriterar frågor den ställer till dig. Välj den lägsta "
-"prioritetsnivån för frågor du vill se:\n"
+"Debconf prioriterar frågor den ställer till dig. Välj den lägsta prioritetsnivån för frågor du vill se:\n"
 "  - \"kritisk\" frågar dig endast om systemet kan skadas.\n"
 "    Välj den om du är nybörjare eller har bråttom..\n"
 "  - \"hög\" är för ganska viktiga frågor\n"
@@ -126,12 +107,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Notera att oavsett vilken nivå du väljer här är det möjligt att se varje "
-"fråga om du konfigurerar om ett paket med dpkg-reconfigure."
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Notera att oavsett vilken nivå du väljer här är det möjligt att se varje fråga om du konfigurerar om ett paket med dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -147,7 +124,6 @@ msgstr "Var god vänta..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ignorera frågor med lägre prioritet än..."
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -156,7 +132,6 @@ msgstr "Var god vänta..."
 #~ "Paket som använder debconf för konfigurering prioriterar de frågor som de "
 #~ "kan komma att ställa till dig. Endast frågor med en viss prioritet eller "
 #~ "högre visas för dig; alla mindre viktiga frågor hoppas över."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -173,79 +148,57 @@ msgstr "Var god vänta..."
 #~ " - \"medel\" är för vanliga saker som har rimliga standardvärden\n"
 #~ " - \"låg\" är för triviala saker som har standardvärden som fungerar\n"
 #~ "   i de allra flesta fallen."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
 #~ "Som exempel är den här frågan av medelprioritet och om din prioritet "
 #~ "redan hade varit \"hög\" eller \"kritisk\" hade du inte sett den."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Ändra prioritet för debconf"
-
 #~ msgid "Continue"
 #~ msgstr "Fortsätt"
-
 #~ msgid "Go Back"
 #~ msgstr "Gå tillbaka"
-
 #~ msgid "Yes"
 #~ msgstr "Ja"
-
 #~ msgid "No"
 #~ msgstr "Nej"
-
 #~ msgid "Cancel"
 #~ msgstr "Avbryt"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
 #~ "<Tab> flyttar mellan objekt, <Mellanslag> väljer, <Enter> aktiverar "
 #~ "knappar"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Skärmdump"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Skärmdump sparad som %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! FEL: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "NEDSLAG:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Visa det här hjälpmeddelandet"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Gå tillbaka till föregående fråga"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Välj en tom post"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Val: \"%c\" för hjälp, standardvärde=%d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Val: \"%c\" för hjälp> "
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Val: \"%c\" för hjälp, standardvärde=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Tryck enter för att fortsätta]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialog, Readline, Gnome, KDE, Textredigerare, Icke-interaktiv"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "kritisk, hög, medel, låg"
-
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr "Vilket skal skall användas för att konfigurera paket?"
+
