@@ -314,8 +314,10 @@ sub run_progress ($$@) {
 			Debconf::Client::ConfModule::subst(
 				'debconf-apt-progress/media-change', 'MESSAGE',
 				$description);
-			Debconf::Client::ConfModule::input(
+			my @ret = Debconf::Client::ConfModule::input(
 				'critical', 'debconf-apt-progress/media-change');
+			$ret[0] == 0 or
+				die "Can't display media change request!\n";
 			Debconf::Client::ConfModule::go();
 			print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
 		} else {
