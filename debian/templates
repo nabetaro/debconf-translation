@@ -45,5 +45,6 @@ Description: ${DESCRIPTION}
 
 Template: debconf-apt-progress/media-change
 Type: text
+# Not translated; apt emits translated descriptions for us already.
 Description: Media change
  ${MESSAGE}
