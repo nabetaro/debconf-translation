@@ -320,6 +320,7 @@ sub run_progress ($$@) {
 				die "Can't display media change request!\n";
 			Debconf::Client::ConfModule::go();
 			print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
+			next;
 		} else {
 			next;
 		}
