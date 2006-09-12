@@ -432,18 +432,10 @@ sub AUTOLOAD {
 		
 		my $ret;
 
-		# Asking for *-C overrides i18n.
-		if ($field =~ /-c$/i) {
-			(my $plainfield = $field) =~ s/-c$//i;
-			$ret=$Debconf::Db::templates->getfield($this->{template}, $plainfield);
-			return $ret if defined $ret;
-			return '';
-		}
-
 		# Check to see if i18n and/or charset encoding should
 		# be used.
 		if ($Debconf::Template::i18n && @langs) {
-			my @fields = grep /^\Q$field\E/, $Debconf::Db::templates->fields($this->{template});
+			my @fields = grep /^\Q$field\E(?:[_.@]|$)/, $Debconf::Db::templates->fields($this->{template});
 			foreach my $lang (@langs) {
 				# First check for a field that matches the
 				# language and the encoding. No charset
@@ -465,9 +457,25 @@ sub AUTOLOAD {
 					}
 				}
 			}
+		} elsif (not $Debconf::Template::i18n && $field !~ /-c$/i) {
+			# If i18n is turned off, try *-C first.
+			$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-c');
+			return $ret if defined $ret;
 		}
+
 		$ret=$Debconf::Db::templates->getfield($this->{template}, $field);
 		return $ret if defined $ret;
+
+		# If the user asked for *-C, fall back to the unadorned
+		# field. This allows *-C to be used to get untranslated
+		# data.
+		if ($field =~ /-c$/i) {
+			(my $plainfield = $field) =~ s/-c$//i;
+			$ret=$Debconf::Db::templates->getfield($this->{template}, $plainfield);
+			return $ret if defined $ret;
+			return '';
+		}
+
 		return '';
 	};
 	goto &$AUTOLOAD;

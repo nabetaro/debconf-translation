@@ -9,6 +9,16 @@ debconf (1.5.5) UNRELEASED; urgency=low
     displayed.
   * debconf-apt-progress: Avoid falling through to generic progress updating
     code from media-change handling.
+  * When asking for a Choices-C field in a template, fall back to Choices
+    (etc.); if i18n is disabled then asking for Choices tries Choices-C
+    first. This lets you say "Choices: ${CHOICES-TRANS}" and "Choices-C:
+    ${CHOICES}" to substitute reliably into translated and untranslated
+    templates without having to ensure that ${CHOICES-TRANS} is translated
+    to the same thing in every language.
+  * Make sure that languages whose codes are prefixes of other language
+    codes don't accidentally match those languages. This is mostly
+    significant for C, but could also be a problem once translations for
+    languages with three-letter codes start being widely deployed.
 
  -- Christian Perrier <bubulle@debian.org>  Sun, 10 Sep 2006 14:25:10 +0200
 
