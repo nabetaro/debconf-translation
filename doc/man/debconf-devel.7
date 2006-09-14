@@ -141,16 +141,9 @@ from the choices list (or choose none of them).
 Rather than being a question per se, this datatype indicates a note that
 can be displayed to the user. It should be used only for important notes
 that the user really should see, since debconf will go to great pains to
-make sure the user sees it; halting the install for them to press a key,
-and even mailing the note to them in some cases. It's best to use these
-only for warning about very serious problems.
-.TP
-.B text
-This datatype can be used for fragments of text, such as labels, that can
-be used for cosmetic reasons in the displays of some frontends. Other
-frontends will not use it at all. There is no point in using this datatype
-yet, since no frontends support it well. It may even be removed in the
-future.
+make sure the user sees it; halting the install for them to press a key.
+It's best to use these only for warning about very serious problems, and
+the error datatype is often more suitable.
 .TP
 .B error
 This datatype is used for error messages, such as input validation errors.
@@ -159,6 +152,13 @@ or the user has already seen it.
 .TP
 .B title
 This datatype is used for titles, to be set with the SETTITLE command.
+.TP
+.B text
+This datatype can be used for fragments of text, such as labels, that can
+be used for cosmetic reasons in the displays of some frontends. Other
+frontends will not use it at all. There is no point in using this datatype
+yet, since no frontends support it well. It may even be removed in the
+future.
 .RE
 .TP
 .B Default
