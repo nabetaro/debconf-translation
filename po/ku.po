@@ -1,0 +1,455 @@
+# Kurdish translation for debconf
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the debconf package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-05-01 19:48+0200\n"
+"PO-Revision-Date: 2006-09-16 21:21+0100\n"
+"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
+"Language-Team: Kurdish <ku@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Tu niha dirûvê pêş yê ji alî edîtor ve amadekirî dixebitînî ji bo "
+"mîhengkirina pergala xwe. ji bo agahiyên berfirehtir li dawiya pelgeyê "
+"bibîne."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Dirûvên pêş yên ji alî edîtor ve amadekirî dosyayek nivîsê an bêtir ji te "
+"pêşkêş dike. heke berê haya te ji mîhengkirinên dosyayên unix hebe dê ev "
+"dosya ji tere naskirî were-- şîroveyan tevî amûrên mîhengkirinê dihewîne. "
+"Dosya sererast bike, heke pêwist be amûran biguherîne û biştre tomar bike û "
+"ji bernameyê derkeve. Wê demê dê debconf li gor nirx û mîhengkirinên te "
+"bixebite."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:61
+#: ../Debconf/FrontEnd/Kde.pm:72
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf di %s de"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Nîşe: Debconf di rewşa web de dixebite. here http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Vegere"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Piştre"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Zêdetir"
+
+#: ../Debconf/FrontEnd/Dialog.pm:50
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM ne çalake loma goftugoya dirûvê pêş nayê bikaranîn"
+
+#: ../Debconf/FrontEnd/Dialog.pm:53
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dirûvê pêş yê guftûgoyê ne li gor embarê tamponên tenikin"
+
+#: ../Debconf/FrontEnd/Dialog.pm:56
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Guftûgo li ser termînala xeyalî, bê kontrolkirina termînalê an jî embarên "
+"xiyalî naxebite."
+
+#: ../Debconf/FrontEnd/Dialog.pm:102
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"bernameyek mîna ya guftûgoyê nehatiye sepandin ji ber wê yekê dirûvê pêş "
+"nikare were bikaranîn."
+
+#: ../Debconf/FrontEnd/Dialog.pm:109
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Dirûvê pêş bi kêmanî dîmendereke 13 rêzikên li ser firehiyê û 31 stûnan "
+"dixwaze."
+
+#: ../Debconf/FrontEnd/Dialog.pm:282
+#, fuzzy
+msgid "Debian Configuration"
+msgstr "Avakerê Ubuntu"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Pêwistiya dirûvê pêş bi kontrola tty yê heye."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::Rêzika xwendinê::GNU ne li gor embarên tamponê hûre."
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "dirûvê pêş yê heyî: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "dirûvê pêş ne çalake: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "dirûvê pêş nikare destpêbike: %s"
+
+#: ../Debconf/Config.pm:128
+msgid "Config database not specified in config file."
+msgstr "dosya danegirê ne diyare"
+
+#: ../Debconf/Config.pm:132
+msgid "Template database not specified in config file."
+msgstr "Temaya danegirê ne diyare"
+
+#: ../Debconf/Config.pm:137
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Vebijarkên Mohr û bişişandinan di dosya avakirî de êdî nema tê bikaranîn. ji "
+"kerema wxe re wan jê bibe."
+
+#: ../Debconf/Config.pm:148
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Teşqeleyek bi danegir re qewimî ji alî perçeyê %s ji %s tê naskirin."
+
+#: ../Debconf/Config.pm:197
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f, --frontend \t\tpêş bi tayebetî dirûvê debconf yê bikaranînê.\n"
+"  -p, --priority \t\tbi taybetî pirsên herî kêm yên ku tên xwestin nîşan "
+"dide.\n"
+"       --terse\t\t\t awayî kurtasiyan çalak dike\n"
+
+#: ../Debconf/Config.pm:277
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Guh nade pêştirînên çewt \"%s\""
+
+#: ../Debconf/Config.pm:278
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Pêştirînên derbasbar ev in: %s"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"Hişyarî: bêbandorkirina danegira pêkan. Dê bi lêzêdekirina pirsa windayî "
+"xuya bike %s."
+
+#: ../Debconf/Template.pm:201
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"Şablona #%s di %s xwedî dosya hevsere \"%s\" bi nirxeke nû \"%s\". bi piranî "
+"herdû dirbên nû ne bi rengekî rast bi rêzikeke nû ji hev hatine cudakirin.\n"
+
+#: ../Debconf/Template.pm:226
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Dosya temayek ne nas '%s', in stanza #%s of %s\n"
+
+#: ../Debconf/Template.pm:252
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Çewtiya veqetandina şablonê nêzîkê  `%s', di qaliba #%s ji %s\n"
+
+#: ../Debconf/Template.pm:258
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Di şablona #%s ya %s de rêzika 'Template:'  tune\n"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Alîkarî"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Alîkarî"
+
+#: ../Debconf/Element/Gnome/Note.pm:52
+msgid "Save (mail) Note"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:53
+#, fuzzy
+msgid "Debconf was asked to save this note, so it mailed it to you."
+msgstr ""
+"Debconf nehatiye mîhengkirin ku vê peyama çewtiyê bixebitîne, lewra ji te re "
+"şandiye."
+
+#: ../Debconf/Element/Gnome/Note.pm:55
+msgid "Information"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:56
+msgid "The note has been mailed."
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:60
+msgid "Error"
+msgstr ""
+
+#: ../Debconf/Element/Gnome/Note.pm:61
+#, fuzzy
+msgid "Unable to save note."
+msgstr "dirûvê pêş nikare destpêbike: %s"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+#: ../Debconf/Element/Editor/Boolean.pm:30
+msgid "Choices"
+msgstr "Bijarte"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"Sifir, hejmara yek û bi jor de, bêhnok û valahiyan  (', ') di t3eketinê de "
+"ji hev veqetîne."
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "erê"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "na"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:40
+#, fuzzy
+msgid ""
+"Debconf was not configured to display this note, so it mailed it to you."
+msgstr ""
+"Debconf nehatiye mîhengkirin ku vê peyama çewtiyê bixebitîne, lewra ji te re "
+"şandiye."
+
+#: ../Debconf/Element/Noninteractive/Note.pm:64
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Note.pm:87
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, bi %s dixebite"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "Ne yek jî ji yên jor"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr ""
+"Endamên ku dixwazî hilbijêrî destnîşan bike, valehiyan di navbera wan de "
+"bihêle."
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Nirxa têketanê nehate dîtin, \"%s\" di nava bijarekên C de nehate dîtin! "
+"p3ewiste ev tişt nebe."
+
+#: ../Debconf/FrontEnd.pm:131
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Nikare Debconf daxe ::Endam::%s. bi serneket ji ber: %s"
+
+#: ../Debconf/FrontEnd.pm:203
+#, perl-format
+msgid "Configuring %s"
+msgstr "Mîheng dike %s"
+
+#: ../dpkg-preconfigure:113
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "nikare (stdin) ji nû ve veke: %s"
+
+#: ../dpkg-preconfigure:116
+#, perl-format
+msgid "must specify some debs to preconfigure"
+msgstr "pêwiste hin desteyên deb bên destnîşankirin ji bo pakêtkirinê"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "Paşvexistina pakêtkirinê ji ber ku apt-utils nesepandîne"
+
+#: ../dpkg-preconfigure:151 ../dpkg-preconfigure:159
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "dirba parzûnkirî: %s biserneket"
+
+#: ../dpkg-preconfigure:167
+msgid "Preconfiguring packages ...\n"
+msgstr "pêşamadekira pakêtan...\n"
+
+#: ../dpkg-preconfigure:179
+#, perl-format
+msgid "template parse error: %s"
+msgstr "çewtî di şîroveya qalibê de:%s"
+
+#: ../dpkg-preconfigure:193
+#, perl-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf bi ser neket: %s"
+
+#: ../dpkg-preconfigure:203
+#, perl-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s ji bo amadekirinê bi serneket, bi rewşa derketinê re %s"
+
+#: ../dpkg-reconfigure:92
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+"Bikaranîn: dpkg-ji nû mîhengkirin [bijarte] pakêt\n"
+"-a--all hemû pakêtan ji nû mîheng dike\n"
+"-u,-- bi tenê-yên veşartî bi tenê pirsên ku nehatine dîtin nîşan bide\n"
+"--pêştirîn-texmîn bikaranîna pêştirîna texmînî li şûna ya nizim\n"
+"--zordan zorê dide mîhengkirina pakêtên xirabûyî"
+
+#: ../dpkg-reconfigure:104
+#, perl-format
+msgid "%s must be run as root"
+msgstr "%s pêwiste wekî bingeh bixebite"
+
+#: ../dpkg-reconfigure:136
+msgid "please specify a package to reconfigure"
+msgstr "Ji kerema xwe re ji bo dîsa avakirinê pakêtekê destnîşan bike"
+
+#: ../dpkg-reconfigure:156
+#, perl-format
+msgid "%s is not installed"
+msgstr "%s ne hate sazkirin"
+
+#: ../dpkg-reconfigure:160
+#, perl-format
+msgid "%s is broken or not fully installed"
+msgstr "%s çewtiyek heye an jî ne hate sazkirin"
+
+#: ../dpkg-reconfigure:237
+#, perl-format
+msgid "Cannot read status file: %s"
+msgstr "Nikare dosya bixwîne: %s"
+
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr "Bikaranîn: debconf-communicate [bijarte] [pakêt]"
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: Ev amûr betalkirî ye. Pêwist e tu bernameya "
+"po2debconf ya po-debconf bixebitînî."
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr "Bikaranîn: debconf-mergetemplate [bijare] [şablon.ll ...] şablon"
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+"\n"
+"        --derveyî demê tevlêkirin bi hemû wergeran re ta bi yê ne nûkirî re "
+"jî.\n"
+"--dilopa- dirbên-kevin piştguhkirina hemû qalibên ne nûkirî"
+
+#: ../debconf-mergetemplate:119
+#, perl-format
+msgid "%s is missing"
+msgstr "%s kême"
+
+#: ../debconf-mergetemplate:123
+#, perl-format
+msgid "%s is missing; dropping %s"
+msgstr "%s kême; nayê bikaranîn %s"
+
+#: ../debconf-mergetemplate:146
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s fuzî ye di bayt %s de: %s"
+
+#: ../debconf-mergetemplate:151
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s fuzî ye di bayt %s de; %s nayê bikaranîn"
+
+#: ../debconf-mergetemplate:168
+#, perl-format
+msgid "%s is outdated"
+msgstr "%s kevn e"
+
+#: ../debconf-mergetemplate:173
+#, perl-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s kevn e, şablon nayê bikaranîn!"
+
+#: ../debconf:84
+msgid "Usage: debconf [options] command [args]"
+msgstr "Bikaranîn: debconf [bijare] ferman [guhêr]"
+
+#: ../debconf:86
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
+"\n"
+"  -o, --xwediyê=pakêtê\t\tPakêta ku bi ferman be bixebitîne."
+
+#~ msgid "Extracting templates from packages: %d%%"
+#~ msgstr "Vebijartina dirban ji pakêta : %d%%"
