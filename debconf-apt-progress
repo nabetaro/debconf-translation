@@ -307,10 +307,12 @@ sub run_progress ($$@) {
 		if ($status eq 'dlstatus') {
 			$min = 0;
 			$len = 15;
-		} elsif ($status eq 'pmstatus') {
+		}
+		elsif ($status eq 'pmstatus') {
 			$min = 15;
 			$len = 85;
-		} elsif ($status eq 'media-change') {
+		}
+		elsif ($status eq 'media-change') {
 			Debconf::Client::ConfModule::subst(
 				'debconf-apt-progress/media-change', 'MESSAGE',
 				$description);
@@ -321,7 +323,8 @@ sub run_progress ($$@) {
 			Debconf::Client::ConfModule::go();
 			print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
 			next;
-		} else {
+		}
+		else {
 			next;
 		}
 
