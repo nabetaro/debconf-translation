@@ -8,8 +8,9 @@ debconf (1.5.6) UNRELEASED; urgency=low
     Closes: #389939, #388679
   * Set IFS to a sane value before calling printf, in case the maintainer
     script does something nasty to it. Closes: #381619
+  * Dialog backtitle unbranding. Closes: #376116
 
- -- Joey Hess <joeyh@debian.org>  Wed,  4 Oct 2006 17:43:14 -0400
+ -- Joey Hess <joeyh@debian.org>  Wed,  4 Oct 2006 18:03:06 -0400
 
 debconf (1.5.5) unstable; urgency=low
 

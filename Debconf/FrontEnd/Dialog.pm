@@ -277,7 +277,7 @@ sub startdialog {
 	if (defined $this->info) {
 		$backtitle = $this->info->description;
 	} else {
-		$backtitle = gettext("Debian Configuration");
+		$backtitle = gettext("Package configuration");
 	}
 
 	use vars qw{*INPUT_RDR *INPUT_WTR};
