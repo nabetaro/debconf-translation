@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf_po.pot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-05-26 21:03+0530\n"
+"PO-Revision-Date: 2006-10-06 10:46+0530\n"
 "Last-Translator: Jurmey Rabgay <jur_gay@yahoo.com>\n"
 "Language-Team: dzongkha <pgeyleg@dit.gov.bt>\n"
 "MIME-Version: 1.0\n"
@@ -44,12 +44,8 @@ msgid "Template database not specified in config file."
 msgstr "ཊེམ་པིལེཊི་གནད་སྡུད་གཞི་རྟེན་འདི་ རིམ་སྒྲིག་ཡིག་སྣོད་ནང་གསལ་བཀོད་མ་འབད་བས།"
 
 #: ../Debconf/Config.pm:139
-msgid ""
-"The Sigils and Smileys options in the config file are no longer used. Please "
-"remove them."
-msgstr ""
-"ད་ལས་ཕར་རིམ་སྒྲིག་ཡིག་སྣོད་ནང་ སི་གིལསི་དང་སི་མའི་ལིསི་གདམ་ཁ་ཚུ་ ལག་ལེན་མི་འཐབ། དེ་ཚུ་རྩ་བསྐྲད་གཏང་"
-"གནང་།"
+msgid "The Sigils and Smileys options in the config file are no longer used. Please remove them."
+msgstr "ད་ལས་ཕར་རིམ་སྒྲིག་ཡིག་སྣོད་ནང་ སི་གིལསི་དང་སི་མའི་ལིསི་གདམ་ཁ་ཚུ་ ལག་ལེན་མི་འཐབ། དེ་ཚུ་རྩ་བསྐྲད་གཏང་གནང་།"
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -97,11 +93,8 @@ msgid "no"
 msgstr "མེན།"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(ཀླད་ཀོར་ ཡང་ཅིན་ བར་སྟོང་ཅིག་གིས་རྗེས་སུ་འབྲང་ཡོདཔ་དང་ ལྷད་རྟགས་ཅིག་གིས་སོ་སོ་འཕྱལ་ཡོད་པའི་ རྣམ་"
-"གྲངས་ལེ་ཤ་རང་བཙུགས་(', ')།)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(ཀླད་ཀོར་ ཡང་ཅིན་ བར་སྟོང་ཅིག་གིས་རྗེས་སུ་འབྲང་ཡོདཔ་དང་ ལྷད་རྟགས་ཅིག་གིས་སོ་སོ་འཕྱལ་ཡོད་པའི་ རྣམ་གྲངས་ལེ་ཤ་རང་བཙུགས་(', ')།)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -112,12 +105,8 @@ msgid "Help"
 msgstr "གྲོགས་རམ།"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-msgid ""
-"Debconf was not configured to display this error message, so it mailed it to "
-"you."
-msgstr ""
-"Debconfའདི་ འཛོལ་བའི་འཕྲིན་དོན་བཀྲམ་སྟོན་འབད་ནིའི་དོན་ལུ་ རིམ་སྒྲིག་མ་འབདཝ་ལས་ ཁྱོད་ལུ་ཡིག་འཕྲིན་"
-"བཏང་ཡོདཔ།"
+msgid "Debconf was not configured to display this error message, so it mailed it to you."
+msgstr "Debconfའདི་ འཛོལ་བའི་འཕྲིན་དོན་བཀྲམ་སྟོན་འབད་ནིའི་དོན་ལུ་ རིམ་སྒྲིག་མ་འབདཝ་ལས་ ཁྱོད་ལུ་ཡིག་འཕྲིན་བཏང་ཡོདཔ།"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -128,11 +117,10 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf %sལུ་ གཡོག་བཀོལ་དོ།"
 
-#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#: ../Debconf/Element/Select.pm:95
+#: ../Debconf/Element/Select.pm:110
 #, perl-format
-msgid ""
-"Input value, \"%s\" not found in C choices! This should never happen. "
-"Perhaps the templates were incorrectly localized."
+msgid "Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."
 msgstr "ཨིན་པུཊི་བེ་ལུ་ \"%s\" སི་ གདམ་ཁ་ཚུ་ནང་མ་ཐོབ་! འདི་ནམ་ཡང་འབྱུང་བཅུག་ནི་མེད་འོང་། "
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
@@ -146,8 +134,7 @@ msgstr "ཁྱོད་ཀྱིས་སེལ་འཐུ་འབད་དག
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr ""
-"མངོན་གསལ་འབད་མ་ཚུགས་ Debconf::Element::%s། འཐུས་ཤོར་བྱུང་ཡི་ ག་ཅི་སྦེ་ཟེར་བ་ཅིན་:%s"
+msgstr "མངོན་གསལ་འབད་མ་ཚུགས་ Debconf::Element::%s། འཐུས་ཤོར་བྱུང་ཡི་ ག་ཅི་སྦེ་ཟེར་བ་ཅིན་:%s"
 
 #: ../Debconf/FrontEnd.pm:312
 #, perl-format
@@ -163,59 +150,31 @@ msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "ཌའི་ལོག་གདོང་མཐའ་འདི་ ཨི་མེཀསི་ཤལ་གནས་ཁོངས་དང་བཅས་ མཐུན་འགྱུར་ཅན་མེན།"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
-msgid ""
-"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
-"without a controlling terminal."
-msgstr ""
-"ཌའི་ལོག་གདོང་མཐའ་འདི་གིས་ ཌམཔ་ཊར་མི་་ནཱལ་གུ་དང་ ཨི་མེཀསི་ཤལ་གནས་ཁོངས་ ཡང་ན་ ཊར་མི་ནཱལ་ཚད་"
-"བཟུང་མ་འབད་བའི་གུ་ལུ་ ལཱ་འབད་མི་བཏུབ།"
+msgid "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal."
+msgstr "ཌའི་ལོག་གདོང་མཐའ་འདི་གིས་ ཌམཔ་ཊར་མི་་ནཱལ་གུ་དང་ ཨི་མེཀསི་ཤལ་གནས་ཁོངས་ ཡང་ན་ ཊར་མི་ནཱལ་ཚད་བཟུང་མ་འབད་བའི་གུ་ལུ་ ལཱ་འབད་མི་བཏུབ།"
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
-msgid ""
-"No usable dialog-like program is installed, so the dialog based frontend "
-"cannot be used."
-msgstr ""
-"ལས་རིམ་བཟུམ་གྱི་ཌའི་ལོག་ལག་ལེན་འཐབ་བཏུབ་ གཞི་བཙུགས་མ་འབདཝ་ལས་ ཌའི་ལོག་ལུ་གཞི་བཞག་ཡོད་པའི་གདོང་"
-"མཐའ་ ལག་ལེན་འཐབ་མི་བཏུབ།"
+msgid "No usable dialog-like program is installed, so the dialog based frontend cannot be used."
+msgstr "ལས་རིམ་བཟུམ་གྱི་ཌའི་ལོག་ལག་ལེན་འཐབ་བཏུབ་ གཞི་བཙུགས་མ་འབདཝ་ལས་ ཌའི་ལོག་ལུ་གཞི་བཞག་ཡོད་པའི་གདོང་མཐའ་ ལག་ལེན་འཐབ་མི་བཏུབ།"
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"ཌའི་ལོག་གདོང་མཐའ་ལུ་ གསལ་གཞིའི་གྲལ་ཐིག་མཐོ་ཚད་ཉུང་མཐའ་བཅུ་གསུམ་དང་ ཀེར་ཐིག་རྒྱ་ཚད་ཉུང་མཐའ་སོ་"
-"གཅིག་ དགོཔ་ཨིན།"
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "ཌའི་ལོག་གདོང་མཐའ་ལུ་ གསལ་གཞིའི་གྲལ་ཐིག་མཐོ་ཚད་ཉུང་མཐའ་བཅུ་གསུམ་དང་ ཀེར་ཐིག་རྒྱ་ཚད་ཉུང་མཐའ་སོ་གཅིག་ དགོཔ་ཨིན།"
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "ཌི་བི་ཡཱན་རིམ་སྒྲིག"
+msgstr "ཐུམ་སྒྲིལ་རིམ་སྒྲིག"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
-msgid ""
-"You are using the editor-based debconf frontend to configure your system. "
-"See the end of this document for detailed instructions."
-msgstr ""
-"ཁྱོད་ཀྱིས་ ཁྱོད་རའི་རིམ་ལུགས་རིམ་སྒྲིག་འབད་ནིའི་དོན་ལུ་ ཞུན་དགཔ་ལུ་གཞི་བརྟེན་པའི་debconfགདོང་མཐའ་ ལག་"
-"ལེན་འཐབ་ཨིན་པས། བསླབ་སྟོན་རྒྱས་བཤད་ཀྱི་དོན་ལུ་ ཡིག་ཆ་འདི་གི་མཇུག་ལུ་བལྟ།"
+msgid "You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."
+msgstr "ཁྱོད་ཀྱིས་ ཁྱོད་རའི་རིམ་ལུགས་རིམ་སྒྲིག་འབད་ནིའི་དོན་ལུ་ ཞུན་དགཔ་ལུ་གཞི་བརྟེན་པའི་debconfགདོང་མཐའ་ ལག་ལེན་འཐབ་ཨིན་པས། བསླབ་སྟོན་རྒྱས་བཤད་ཀྱི་དོན་ལུ་ ཡིག་ཆ་འདི་གི་མཇུག་ལུ་བལྟ།"
 
 #: ../Debconf/FrontEnd/Editor.pm:111
-msgid ""
-"The editor-based debconf frontend presents you with one or more text files "
-"to edit. This is one such text file. If you are familiar with standard unix "
-"configuration files, this file will look familiar to you -- it contains "
-"comments interspersed with configuration items. Edit the file, changing any "
-"items as necessary, and then save it and exit. At that point, debconf will "
-"read the edited file, and use the values you entered to configure the system."
-msgstr ""
-"ཞུན་དགཔ་ལུ་གཞི་བརྟེན་པའི་ debconf གདོང་མཐའ་གིས་ ཁྱོད་ལུ་ ཞུན་དག་འབད་ནིའི་དོན་ལས་ ཚིག་ཡིག་ཡིག་"
-"སྣོད་གཅིག་ ཡངན་ ལེ་ཤ་དང་བཅས་ཕུལཝ་ཨིན། འདི་བཟུམ་གྱི་ཚིག་ཡིག་གཅིག་འདི་ཨིན། ཁྱོད་ ཚད་ལྡན་ཡུ་ནིཀསི་རིམ་"
-"སྒྲིག་ཡིག་སྣོད་ཚུ་དང་འབྲེལ་བ་ཡོད་པ་ཅིན་ ཡིག་སྣོད་འདི་ཁྱོད་དང་འབྲེལ་བ་ཡོདཔ་སྦེ་མཐོང་འོང་ --འདི་ནང་ལུ་ "
-"རིམ་སྒྲིག་རྣམ་གྲངས་ཚུ་དང་བཅས་ ཁ་གཏོར་ཡོད་པའི་བསམ་བཀོད་ཚུ་ཡོད། རྣམ་གྲངས་དང་རུང་སྦེ་ངེས་པར་དུ་ བསྒྱུར་"
-"བཅོས་འབད་དེ་ ཡིག་སྣོད་ཞུན་དག་འབད་ཞིནམ་ལས་ སྲུངས་དེ་ལས་ཕྱིར་འཐོན་འབད། དེ་ཁ་ལུ་ debconf གིས་ "
-"ཞུན་དག་འབད་ཡོད་པའི་ཡིག་སྣོད་འདི་ ལྷག་ཞིནམ་ལས་ ཁྱོད་ཀྱིས་རིམ་ལུགས་རིམ་སྒྲིག་གི་དོན་ལུ་ བཙུགས་ཡོའ་པའི་བེ་"
-"ལུ་ཚུ་ ལག་ལེན་འདབ་འོང་།"
+msgid "The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."
+msgstr "ཞུན་དགཔ་ལུ་གཞི་བརྟེན་པའི་ debconf གདོང་མཐའ་གིས་ ཁྱོད་ལུ་ ཞུན་དག་འབད་ནིའི་དོན་ལས་ ཚིག་ཡིག་ཡིག་སྣོད་གཅིག་ ཡངན་ ལེ་ཤ་དང་བཅས་ཕུལཝ་ཨིན། འདི་བཟུམ་གྱི་ཚིག་ཡིག་གཅིག་འདི་ཨིན། ཁྱོད་ ཚད་ལྡན་ཡུ་ནིཀསི་རིམ་སྒྲིག་ཡིག་སྣོད་ཚུ་དང་འབྲེལ་བ་ཡོད་པ་ཅིན་ ཡིག་སྣོད་འདི་ཁྱོད་དང་འབྲེལ་བ་ཡོདཔ་སྦེ་མཐོང་འོང་ --འདི་ནང་ལུ་ རིམ་སྒྲིག་རྣམ་གྲངས་ཚུ་དང་བཅས་ ཁ་གཏོར་ཡོད་པའི་བསམ་བཀོད་ཚུ་ཡོད། རྣམ་གྲངས་དང་རུང་སྦེ་ངེས་པར་དུ་ བསྒྱུར་བཅོས་འབད་དེ་ ཡིག་སྣོད་ཞུན་དག་འབད་ཞིནམ་ལས་ སྲུངས་དེ་ལས་ཕྱིར་འཐོན་འབད། དེ་ཁ་ལུ་ debconf གིས་ ཞུན་དག་འབད་ཡོད་པའི་ཡིག་སྣོད་འདི་ ལྷག་ཞིནམ་ལས་ ཁྱོད་ཀྱིས་རིམ་ལུགས་རིམ་སྒྲིག་གི་དོན་ལུ་ བཙུགས་ཡོའ་པའི་བེ་ལུ་ཚུ་ ལག་ལེན་འདབ་འོང་།"
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Gnome.pm:96
+#: ../Debconf/FrontEnd/Kde.pm:74
 #: ../Debconf/FrontEnd/Kde.pm:85
 #, perl-format
 msgid "Debconf on %s"
@@ -236,8 +195,7 @@ msgstr "ཧེང་བཀལ།"
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"དྲན་འཛིན་:Debconf འདི་ ཝེབ་ཐབས་ལམ་ནང་ལུ་གཡོག་བཀོལ་དོ། http://localhost:%i/ ལུ་འགྱོ།"
+msgstr "དྲན་འཛིན་:Debconf འདི་ ཝེབ་ཐབས་ལམ་ནང་ལུ་གཡོག་བཀོལ་དོ། http://localhost:%i/ ལུ་འགྱོ།"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -249,21 +207,13 @@ msgstr "གཞན་མི།"
 
 #: ../Debconf/Template.pm:90
 #, perl-format
-msgid ""
-"warning: possible database corruption. Will attempt to repair by adding back "
-"missing question %s."
-msgstr ""
-"ཉེན་བརྡ་:གནད་སྡུད་གཞི་རྟེན་འདི་ངན་ཅན་འབྱུང་སྲིད། འདི་གིས་ རྒྱབ་ཁར་མ་ཚང་པའི་འདྲི་བ་%s གི་ཐོག་ལས་ "
-"ཉམས་བཅོས་འབད་ནིའི་དཔའ་བཅམ་འོང་།"
+msgid "warning: possible database corruption. Will attempt to repair by adding back missing question %s."
+msgstr "ཉེན་བརྡ་:གནད་སྡུད་གཞི་རྟེན་འདི་ངན་ཅན་འབྱུང་སྲིད། འདི་གིས་ རྒྱབ་ཁར་མ་ཚང་པའི་འདྲི་བ་%s གི་ཐོག་ལས་ ཉམས་བཅོས་འབད་ནིའི་དཔའ་བཅམ་འོང་།"
 
 #: ../Debconf/Template.pm:203
 #, perl-format
-msgid ""
-"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
-"Probably two templates are not properly separated by a lone newline.\n"
-msgstr ""
-" %s ནང་ ཊེམ་པེལེཊི་#%s ལུ་ \"%s\"བེ་ལུ་གསརཔ་དང་བཅས་ \"%s\"ས་སྒོ་རྫུན་མ་འདུག ཊེམཔེལེཊི་གཉིས་ཆ་"
-"རང་ གྲལ་ཐིག་གསརཔ་རྐྱང་པ་གིས་ ལེགས་ཤོམ་སྦེ་སོ་སོ་མ་འཕྱལ་བས།\n"
+msgid "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly separated by a lone newline.\n"
+msgstr " %s ནང་ ཊེམ་པེལེཊི་#%s ལུ་ \"%s\"བེ་ལུ་གསརཔ་དང་བཅས་ \"%s\"ས་སྒོ་རྫུན་མ་འདུག ཊེམཔེལེཊི་གཉིས་ཆ་རང་ གྲལ་ཐིག་གསརཔ་རྐྱང་པ་གིས་ ལེགས་ཤོམ་སྦེ་སོ་སོ་མ་འཕྱལ་བས།\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -294,12 +244,14 @@ msgstr "སྔ་གོང་སྔོན་སྒྲིག་འབད་ནི
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "apt-util འདི་གཞི་བཙུགས་མ་འབད་ཞིནམ་ལས་ཚུར་ ཐུམ་སྒྲིལ་རིམ་སྒྲིག་ཕྱིར་འགྱངས་ནི།"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:154
+#: ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplatesའདི་འཐུས་ཤོར་བྱུང་ཡོདཔ་:%s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:158
+#: ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "ཐུམ་སྒྲིལ་ཚུ་ནང་ལས་ ཊེམ་པེལེཊིསི་ཕྱིར་འདོན་འབད་དོ་:%d%%"
@@ -366,12 +318,8 @@ msgid "Usage: debconf-communicate [options] [package]"
 msgstr "ལག་ལེན་: debconf-communicate [གདམ་ཁ་ཚུ་][ཐུམ་སྒྲིལ་]།"
 
 #: ../debconf-mergetemplate:14
-msgid ""
-"debconf-mergetemplate: This utility is deprecated. You should switch to "
-"using po-debconf's po2debconf program."
-msgstr ""
-"debconf-mergetemplate:སྤྱོད་ཆས་འདི་ངོས་ལེན་མེདཔ། ཁྱོད་ཀྱིས་ po-debconf's po2debconf ལས་"
-"རིམ་གྱི་ཐོག་ལས་ སོར་བསྒྱུར་འབད་དགོ"
+msgid "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program."
+msgstr "debconf-mergetemplate:སྤྱོད་ཆས་འདི་ངོས་ལེན་མེདཔ། ཁྱོད་ཀྱིས་ po-debconf's po2debconf ལས་རིམ་གྱི་ཐོག་ལས་ སོར་བསྒྱུར་འབད་དགོ"
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
@@ -428,3 +376,4 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\t བརྡ་བཀོད་བདག་དབང་བཟུང་མི་ཐུམ་སྒྲིལ་འདི་ གཞི་སྒྲིག་འབད།"
+
