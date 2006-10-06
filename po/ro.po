@@ -1,19 +1,16 @@
-# translation of ro.po to
-# translation of ro.po to
-# translation of ro.po to Romanian
-# translation of debconf_ro.po to Romanian
-# This file is distributed under the same license as the PACKAGE package.
+# translation of debconf into Romanian
+# This file is distributed under the same license as the debconf package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Sorin Batariuc <sorin@bonbon.net>, 2004, 2005.
-# Eddy Petrişor <eddy.petrisor@gmail.com>, 2006.
+# Eddy Petrișor <eddy.petrisor@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_po_ro\n"
+"Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-04-07 01:15+0300\n"
-"Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
+"PO-Revision-Date: 2006-10-06 02:22+0300\n"
+"Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,16 +192,15 @@ msgstr ""
 "înălţime şi 31 coloane lăţime."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Configurare Debian"
+msgstr "Configuraţia pachetului"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Utilizaţi interfaţa program de editare debconf pentru a configura sistemul. "
+"Utilizaţi interfaţa debconf de tipul program de editare pentru a configura sistemul. "
 "Vedeţi sfârşitul acestui document pentru instrucţiuni detaliate."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -408,27 +404,27 @@ msgstr "%s lipseşte"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "%s lipseşte; renunţare %s"
+msgstr "%s lipseşte; se renunţă la %s"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s este neclar la byte %s: %s"
+msgstr "%s este neclar la octetul %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s este neclar la byte %s: %s; renunţ"
+msgstr "%s este neclar la octetul %s: %s; renunţ"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
 msgid "%s is outdated"
-msgstr "%s este depăşit"
+msgstr "%s este învechit"
 
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s este depăşit, renunţ la întregul şablon!"
+msgstr "%s este învechit, se renunţă la întregul şablon!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
@@ -467,3 +463,4 @@ msgstr ""
 #~ msgstr ""
 #~ "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a "
 #~ "fost expediată."
+

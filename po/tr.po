@@ -1,55 +1,55 @@
 # Turkish translation of debconf.
 # This file is distributed under the same license as the debconf package.
-# Recai Oktaş <roktas@omu.edu.tr>, 2004.
+# Recai OktaÅŸ <roktas@omu.edu.tr>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-01-30 19:42+0200\n"
-"Last-Translator: Recai Oktaş <roktas@omu.edu.tr>\n"
+"PO-Revision-Date: 2006-10-06 17:55+0300\n"
+"Last-Translator: Recai OktaÅŸ <roktas@debian.org>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-9\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=1; plural=0;\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "varsayılan önyüz: %s"
+msgstr "varsayÄ±lan Ã¶nyÃ¼z: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "ilklendirilemeyen önyüz: %s"
+msgstr "ilklendirilemeyen Ã¶nyÃ¼z: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "başlatılamayan önyüz: %s"
+msgstr "baÅŸlatÄ±lamayan Ã¶nyÃ¼z: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "Yapılandırma veritabanı yapılandırma dosyasında belirtilmemiş."
+msgstr "YapÄ±landÄ±rma veritabanÄ± yapÄ±landÄ±rma dosyasÄ±nda belirtilmemiÅŸ."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Şablon veritabanı yapılandırma dosyasında belirtilmemiş."
+msgstr "Åablon veritabanÄ± yapÄ±landÄ±rma dosyasÄ±nda belirtilmemiÅŸ."
 
 #: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Yapılandırma dosyasında İşaretler ve Gülen yüzler (smiley) seçenekleri artık "
-"kullanılmıyor.  Lütfen bunları kaldırın."
+"YapÄ±landÄ±rma dosyasÄ±nda Ä°ÅŸaretler ve GÃ¼len yÃ¼zler (smiley) seÃ§enekleri artÄ±k "
+"kullanÄ±lmÄ±yor.  LÃ¼tfen bunlarÄ± kaldÄ±rÄ±n."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "%2$s %1$s tarafından tanımlanmış veritabanı ayarında sorun."
+msgstr "%2$s %1$s tarafÄ±ndan tanÄ±mlanmÄ±ÅŸ veritabanÄ± ayarÄ±nda sorun."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -57,25 +57,25 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tKullanılacak debconf önyüzünü belirt.\n"
-"  -p,  --priority\t\tGösterilecek soruların asgari önceliklerini belirt.\n"
-"       --terse\t\t\tÖzet kipi etkinleştir.\n"
+"  -f,  --frontend\t\tKullanÄ±lacak debconf Ã¶nyÃ¼zÃ¼nÃ¼ belirt.\n"
+"  -p,  --priority\t\tGÃ¶sterilecek sorularÄ±n asgari Ã¶nceliklerini belirt.\n"
+"       --terse\t\t\tÃ–zet kipi etkinleÅŸtir.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Geçersiz \"%s\" önceliği göz ardı ediliyor"
+msgstr "GeÃ§ersiz \"%s\" Ã¶nceliÄŸi gÃ¶z ardÄ± ediliyor"
 
 #: ../Debconf/Config.pm:309
 #, perl-format
 msgid "Valid priorities are: %s"
-msgstr "Geçerli öncelikler şunlardır: %s"
+msgstr "GeÃ§erli Ã¶ncelikler ÅŸunlardÄ±r: %s"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
-msgstr "Seçimler"
+msgstr "SeÃ§imler"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -89,30 +89,30 @@ msgstr "evet"
 #: ../Debconf/Element/Editor/Boolean.pm:62
 #: ../Debconf/Element/Teletype/Boolean.pm:29
 msgid "no"
-msgstr "hayır"
+msgstr "hayÄ±r"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Sıfır, bir veya daha fazla sayıda öğeyi virgül ve boşluk (', ') ile "
-"ayırarak girin.)"
+"(SÄ±fÄ±r, bir veya daha fazla sayÄ±da Ã¶ÄŸeyi virgÃ¼l ve boÅŸluk (', ') ile "
+"ayÄ±rarak girin.)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
-msgstr "_Yardım"
+msgstr "_YardÄ±m"
 
 #: ../Debconf/Element/Gnome.pm:185
 msgid "Help"
-msgstr "Yardım"
+msgstr "YardÄ±m"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf bu hata iletisini gösterecek şekilde yapılandırılmadığından, ileti e-"
-"posta olarak size gönderildi."
+"Debconf bu hata iletisini gÃ¶sterecek ÅŸekilde yapÄ±landÄ±rÄ±lmadÄ±ÄŸÄ±ndan, ileti e-"
+"posta olarak size gÃ¶nderildi."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -121,7 +121,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
-msgstr "Debconf %s ile çalışıyor"
+msgstr "Debconf %s ile Ã§alÄ±ÅŸÄ±yor"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
@@ -129,71 +129,70 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Giriş değeri \"%s\", C seçenekleri arasında bulunamadı!  Böyle bir hata asla "
-"olmamalıydı.  Şablonların yerelleştirilmesinde hata yapılmış olabilir."
+"GiriÅŸ deÄŸeri \"%s\", C seÃ§enekleri arasÄ±nda bulunamadÄ±!  BÃ¶yle bir hata asla "
+"olmamalÄ±ydÄ±.  ÅablonlarÄ±n yerelleÅŸtirilmesinde hata yapÄ±lmÄ±ÅŸ olabilir."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "yukarıdakilerden hiçbiri"
+msgstr "yukarÄ±dakilerden hiÃ§biri"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Seçmek istediğiniz öğeleri boşluklarla ayırarak girin."
+msgstr "SeÃ§mek istediÄŸiniz Ã¶ÄŸeleri boÅŸluklarla ayÄ±rarak girin."
 
 #: ../Debconf/FrontEnd.pm:131
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Debconf::Element:%s yüklenemedi.  Hatanın nedeni: %s"
+msgstr "Debconf::Element:%s yÃ¼klenemedi.  HatanÄ±n nedeni: %s"
 
 #: ../Debconf/FrontEnd.pm:312
 #, perl-format
 msgid "Configuring %s"
-msgstr "%s yapılandırılıyor"
+msgstr "%s yapÄ±landÄ±rÄ±lÄ±yor"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM ayarlanmadığından 'dialog' önyüzü kullanılamaz."
+msgstr "TERM ayarlanmadÄ±ÄŸÄ±ndan 'dialog' Ã¶nyÃ¼zÃ¼ kullanÄ±lamaz."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Dialog önyüzü emacs kabuk tamponlarıyla uyumsuzdur"
+msgstr "Dialog Ã¶nyÃ¼zÃ¼ emacs kabuk tamponlarÄ±yla uyumsuzdur"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Dialog önyüzü bir akılsız (dumb) terminalde, emacs kabuk tamponunda veya "
-"ayarlanmış bir terminal mevcut olmadığında çalışmayacaktır."
+"Dialog Ã¶nyÃ¼zÃ¼ bir akÄ±lsÄ±z (dumb) terminalde, emacs kabuk tamponunda veya "
+"ayarlanmÄ±ÅŸ bir terminal mevcut olmadÄ±ÄŸÄ±nda Ã§alÄ±ÅŸmayacaktÄ±r."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Kullanılabilir nitelikte dialog benzeri bir program kurulu olmadığından "
-"dialog tabanlı önyüz kullanılamaz."
+"KullanÄ±labilir nitelikte dialog benzeri bir program kurulu olmadÄ±ÄŸÄ±ndan "
+"dialog tabanlÄ± Ã¶nyÃ¼z kullanÄ±lamaz."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Dialog önyüzü en az 13 satır boyunda ve 31 sütun genişliğinde bir ekran "
+"Dialog Ã¶nyÃ¼zÃ¼ en az 13 satÄ±r boyunda ve 31 sÃ¼tun geniÅŸliÄŸinde bir ekran "
 "gerektirir."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Debian Yapılandırması"
+msgstr "Paket yapÄ±landÄ±rmasÄ±"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Sisteminizi yapılandırmak için hâlihazırda metin düzenleyicisi tabanlı bir "
-"debconf önyüzü kullanıyorsunuz.  Ayrıntılı talimatlar için lütfen bu "
-"belgenin son kısmına bakın."
+"Sisteminizi yapÄ±landÄ±rmak iÃ§in hÃ¢lihazÄ±rda metin dÃ¼zenleyicisi tabanlÄ± bir "
+"debconf Ã¶nyÃ¼zÃ¼ kullanÄ±yorsunuz.  AyrÄ±ntÄ±lÄ± talimatlar iÃ§in lÃ¼tfen bu "
+"belgenin son kÄ±smÄ±na bakÄ±n."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -204,13 +203,13 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Metin düzenleyicisi tabanlı debconf önyüzü, düzenlenmeniz için size bir veya "
-"daha fazla sayıda metin dosyası sunar.  Bu da böyle bir metin dosyası.  "
-"Standart unix yapılandırma dosyalarına aşina iseniz bu dosya size tanıdık "
-"gelecektir.  Dosya, açıklama satırlarıyla karıştırılmış yapılandırma öğeleri "
-"içermektedir.  Gerekli öğeleri değiştirerek dosyayı düzenleyin ve daha sonra "
-"dosyayı kaydederek çıkın.  Bu yapıldığında, debconf düzenlenmiş dosyayı "
-"okuyacak ve sistemi yapılandırmak için girdiğiniz değerleri kullanacaktır."
+"Metin dÃ¼zenleyicisi tabanlÄ± debconf Ã¶nyÃ¼zÃ¼, dÃ¼zenlenmeniz iÃ§in size bir veya "
+"daha fazla sayÄ±da metin dosyasÄ± sunar.  Bu da bÃ¶yle bir metin dosyasÄ±.  "
+"Standart unix yapÄ±landÄ±rma dosyalarÄ±na aÅŸina iseniz bu dosya size tanÄ±dÄ±k "
+"gelecektir.  Dosya, aÃ§Ä±klama satÄ±rlarÄ±yla karÄ±ÅŸtÄ±rÄ±lmÄ±ÅŸ yapÄ±landÄ±rma Ã¶ÄŸeleri "
+"iÃ§ermektedir.  Gerekli Ã¶ÄŸeleri deÄŸiÅŸtirerek dosyayÄ± dÃ¼zenleyin ve daha sonra "
+"dosyayÄ± kaydederek Ã§Ä±kÄ±n.  Bu yapÄ±ldÄ±ÄŸÄ±nda, debconf dÃ¼zenlenmiÅŸ dosyayÄ± "
+"okuyacak ve sistemi yapÄ±landÄ±rmak iÃ§in girdiÄŸiniz deÄŸerleri kullanacaktÄ±r."
 
 #: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
 #: ../Debconf/FrontEnd/Kde.pm:85
@@ -220,11 +219,11 @@ msgstr "Debconf %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Bu önyüz, denetleyici bir tty gerektirir."
+msgstr "Bu Ã¶nyÃ¼z, denetleyici bir tty gerektirir."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU emacs kabuk tamponlarıyla uyumsuzdur."
+msgstr "Term::ReadLine::GNU emacs kabuk tamponlarÄ±yla uyumsuzdur."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -234,7 +233,7 @@ msgstr "Daha"
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Not: Debconf şu an web kipinde çalışıyor.  http://localhost:%i/ bağına girin."
+"Not: Debconf ÅŸu an web kipinde Ã§alÄ±ÅŸÄ±yor.  http://localhost:%i/ baÄŸÄ±na girin."
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
@@ -250,8 +249,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"uyarı: muhtemel veritabanı hasarı.  Eksik %s sorusu geriye eklenerek hasar "
-"giderilmeye çalışılacak."
+"uyarÄ±: muhtemel veritabanÄ± hasarÄ±.  Eksik %s sorusu geriye eklenerek hasar "
+"giderilmeye Ã§alÄ±ÅŸÄ±lacak."
 
 #: ../Debconf/Template.pm:203
 #, perl-format
@@ -259,67 +258,67 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"%2$s içindeki #%1$s şablonu, yeni değeri \"%4$s\" olan mükerrer bir \"%3$s\" "
-"alanı içeriyor.  Muhtemelen iki şablon boş bir satırla uygun şekilde "
-"ayrılmamış.\n"
+"%2$s iÃ§indeki #%1$s ÅŸablonu, yeni deÄŸeri \"%4$s\" olan mÃ¼kerrer bir \"%3$s\" "
+"alanÄ± iÃ§eriyor.  Muhtemelen iki ÅŸablon boÅŸ bir satÄ±rla uygun ÅŸekilde "
+"ayrÄ±lmamÄ±ÅŸ.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Bilinmeyen şablon alanı '%1$s' (%3$s #%2$s)\n"
+msgstr "Bilinmeyen ÅŸablon alanÄ± '%1$s' (%3$s #%2$s)\n"
 
 #: ../Debconf/Template.pm:254
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Şablon ayrıştırma hatası; '%1$s' civarında (%3$s #%2$s)\n"
+msgstr "Åablon ayrÄ±ÅŸtÄ±rma hatasÄ±; '%1$s' civarÄ±nda (%3$s #%2$s)\n"
 
 #: ../Debconf/Template.pm:260
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "%2$s #%1$s şablonu 'Template:' satırı içermiyor\n"
+msgstr "%2$s #%1$s ÅŸablonu 'Template:' satÄ±rÄ± iÃ§ermiyor\n"
 
 #: ../dpkg-preconfigure:113
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "stdin tekrar açılamıyor: %s"
+msgstr "stdin tekrar aÃ§Ä±lamÄ±yor: %s"
 
 #: ../dpkg-preconfigure:116
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "ön yapılandırma için bazı deb'ler verilmeli"
+msgstr "Ã¶n yapÄ±landÄ±rma iÃ§in bazÄ± deb'ler verilmeli"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "apt-utils kurulu olmadığından paket yapılandırması erteleniyor"
+msgstr "apt-utils kurulu olmadÄ±ÄŸÄ±ndan paket yapÄ±landÄ±rmasÄ± erteleniyor"
 
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr "apt-extracttemplates başarısız: %s"
+msgstr "apt-extracttemplates baÅŸarÄ±sÄ±z: %s"
 
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Paketlerdeki ileti şablonları çıkarılıyor: %d%%"
+msgstr "Paketlerdeki ileti ÅŸablonlarÄ± Ã§Ä±karÄ±lÄ±yor: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
-msgstr "Paketler önyapılandırılıyor ...\n"
+msgstr "Paketler Ã¶nyapÄ±landÄ±rÄ±lÄ±yor ...\n"
 
 #: ../dpkg-preconfigure:192
 #, perl-format
 msgid "template parse error: %s"
-msgstr "şablon ayrıştırma hatası: %s"
+msgstr "ÅŸablon ayrÄ±ÅŸtÄ±rma hatasÄ±: %s"
 
 #: ../dpkg-preconfigure:206
 #, perl-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: chmod başarısız: %s"
+msgstr "debconf: chmod baÅŸarÄ±sÄ±z: %s"
 
 #: ../dpkg-preconfigure:217
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s ön yapılandırması başarısız, çıkış kodu %s"
+msgstr "%s Ã¶n yapÄ±landÄ±rmasÄ± baÅŸarÄ±sÄ±z, Ã§Ä±kÄ±ÅŸ kodu %s"
 
 #: ../dpkg-reconfigure:100
 msgid ""
@@ -329,52 +328,52 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
-"Kullanım: dpkg-reconfigure [seçenekler] paketler\n"
-"  -a,  --all\t\t\tBütün paketleri tekrar yapılandır.\n"
-"  -u,  --unseen-only\t\tSadece henüz gösterilmemiş soruları göster.\n"
-"       --default-priority\tDüşük öncelik yerine öntanımlı önceliği kullan.\n"
-"       --force\t\t\tBozuk durumdaki paketleri tekrar yapılandırmaya zorla."
+"KullanÄ±m: dpkg-reconfigure [seÃ§enekler] paketler\n"
+"  -a,  --all\t\t\tBÃ¼tÃ¼n paketleri tekrar yapÄ±landÄ±r.\n"
+"  -u,  --unseen-only\t\tSadece henÃ¼z gÃ¶sterilmemiÅŸ sorularÄ± gÃ¶ster.\n"
+"       --default-priority\tDÃ¼ÅŸÃ¼k Ã¶ncelik yerine Ã¶ntanÄ±mlÄ± Ã¶nceliÄŸi kullan.\n"
+"       --force\t\t\tBozuk durumdaki paketleri tekrar yapÄ±landÄ±rmaya zorla."
 
 #: ../dpkg-reconfigure:113
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s root olarak çalıştırılmalı"
+msgstr "%s root olarak Ã§alÄ±ÅŸtÄ±rÄ±lmalÄ±"
 
 #: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
-msgstr "lütfen tekrar yapılandırılacak bir paket belirtin"
+msgstr "lÃ¼tfen tekrar yapÄ±landÄ±rÄ±lacak bir paket belirtin"
 
 #: ../dpkg-reconfigure:167
 #, perl-format
 msgid "%s is not installed"
-msgstr "%s kurulu değil"
+msgstr "%s kurulu deÄŸil"
 
 #: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s bozuk veya tam olarak kurulu değil"
+msgstr "%s bozuk veya tam olarak kurulu deÄŸil"
 
 #: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Durum dosyası okunamıyor: %s"
+msgstr "Durum dosyasÄ± okunamÄ±yor: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr "Kullanım: debconf-communicate [seçenekler] [paket]"
+msgstr "KullanÄ±m: debconf-communicate [seÃ§enekler] [paket]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Bu araç tavsiye edilmez. Bunun yerine po2debconf'a "
-"ait po-debconf programını kullanmalısınız."
+"debconf-mergetemplate: Bu araÃ§ tavsiye edilmez. Bunun yerine po2debconf'a "
+"ait po-debconf programÄ±nÄ± kullanmalÄ±sÄ±nÄ±z."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
 msgstr ""
-"Kullanım: debconf-mergetemplate [seçenekler] [templates.ll ...] şablonlar"
+"KullanÄ±m: debconf-mergetemplate [seÃ§enekler] [templates.ll ...] ÅŸablonlar"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -383,8 +382,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tÇeviriler güncelliğini yitirmiş olsa bile birleştir.\n"
-"\t--drop-old-templates\tGüncelliğini yitirmiş şablonların hepsini kaldır."
+"        --outdated\t\tÃ‡eviriler gÃ¼ncelliÄŸini yitirmiÅŸ olsa bile birleÅŸtir.\n"
+"\t--drop-old-templates\tGÃ¼ncelliÄŸini yitirmiÅŸ ÅŸablonlarÄ±n hepsini kaldÄ±r."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -394,31 +393,31 @@ msgstr "%s eksik"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "%s eksik; %s kullanılmayacak"
+msgstr "%s eksik; %s kullanÄ±lmayacak"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s, %s bayt'ında bulanık: %s"
+msgstr "%s, %s bayt'Ä±nda bulanÄ±k: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s, %s bayt'ında bulanık: %s, kullanılmayacak"
+msgstr "%s, %s bayt'Ä±nda bulanÄ±k: %s, kullanÄ±lmayacak"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
 msgid "%s is outdated"
-msgstr "%s güncelliğini yitirmiş"
+msgstr "%s gÃ¼ncelliÄŸini yitirmiÅŸ"
 
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s güncelliğini yitirmiş; şablon kullanılmayacak!"
+msgstr "%s gÃ¼ncelliÄŸini yitirmiÅŸ; ÅŸablon kullanÄ±lmayacak!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr "Kullanım: debconf [seçenekler] komut [değişkenler]"
+msgstr "KullanÄ±m: debconf [seÃ§enekler] komut [deÄŸiÅŸkenler]"
 
 #: ../debconf:90
 msgid ""
@@ -432,13 +431,13 @@ msgstr ""
 #~ msgstr "Notu (eposta) Kaydet"
 
 #~ msgid "Debconf was asked to save this note, so it mailed it to you."
-#~ msgstr "Debconf'un kaydetmesi istendiğinden bu not size postalandı."
+#~ msgstr "Debconf'un kaydetmesi istendiÄŸinden bu not size postalandÄ±."
 
 #~ msgid "Information"
 #~ msgstr "Bilgi"
 
 #~ msgid "The note has been mailed."
-#~ msgstr "Not postalandı."
+#~ msgstr "Not postalandÄ±."
 
 #~ msgid "Error"
 #~ msgstr "Hata"
@@ -449,5 +448,5 @@ msgstr ""
 #~ msgid ""
 #~ "Debconf was not configured to display this note, so it mailed it to you."
 #~ msgstr ""
-#~ "Debconf bu notu gösterecek şekilde yapılandırılmadığından, not e-posta "
-#~ "olarak size gönderildi."
+#~ "Debconf bu notu gÃ¶sterecek ÅŸekilde yapÄ±landÄ±rÄ±lmadÄ±ÄŸÄ±ndan, not e-posta "
+#~ "olarak size gÃ¶nderildi."
