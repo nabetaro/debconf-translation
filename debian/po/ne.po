@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: template\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 09:40+0200\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
 "PO-Revision-Date: 2006-06-06 14:34+0545\n"
 "Last-Translator: Shiva Pokharel <pokharelshiva@hotmail.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -22,50 +22,37 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#. flag:translate!:3,4
-#: ../templates:4
+#: ../templates:1001
 msgid "Dialog"
 msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:4
+#: ../templates:1001
 msgid "Readline"
 msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:4
-msgid "Gnome"
-msgstr ""
-
-#. Type: select
-#. Choices
-#: ../templates:4
-msgid "Kde"
-msgstr ""
-
-#. Type: select
-#. Choices
-#: ../templates:4
+#: ../templates:1001
 msgid "Editor"
 msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:4
+#: ../templates:1001
 msgid "Noninteractive"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:6
+#: ../templates:1002
 msgid "Interface to use:"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:6
+#: ../templates:1002
 msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
@@ -75,7 +62,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:6
+#: ../templates:1002
 msgid ""
 "The dialog frontend is a full-screen, character based interface, while the "
 "readline frontend uses a more traditional plain text interface, and both the "
@@ -92,38 +79,38 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:19
+#: ../templates:2001
 msgid "critical"
 msgstr "असामान्य "
 
 #. Type: select
 #. Choices
-#: ../templates:19
+#: ../templates:2001
 msgid "high"
 msgstr "उच्च"
 
 #. Type: select
 #. Choices
-#: ../templates:19
+#: ../templates:2001
 msgid "medium"
 msgstr "मध्यम"
 
 #. Type: select
 #. Choices
-#: ../templates:19
+#: ../templates:2001
 msgid "low"
 msgstr "कम"
 
 #. Type: select
 #. Description
-#: ../templates:21
+#: ../templates:2002
 #, fuzzy
 msgid "Ignore questions with a priority less than:"
 msgstr "प्राथमिकता कम भएको प्रश्नहरू उपेक्षा गर्नुहोस्..."
 
 #. Type: select
 #. Description
-#: ../templates:21
+#: ../templates:2002
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -143,7 +130,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:21
+#: ../templates:2002
 msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
@@ -153,13 +140,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../templates:35
+#: ../templates:3001
 msgid "Installing packages"
 msgstr "प्याकेजहरू स्थापना गरिदैछ "
 
 #. Type: text
 #. Description
-#: ../templates:39
+#: ../templates:4001
 msgid "Please wait..."
 msgstr "कृपया पर्खनुहोस्..."
 
