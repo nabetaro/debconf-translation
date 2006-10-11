@@ -1,17 +1,19 @@
-# Copyright (C) 2001 Free Software Foundation, Inc.
+# Copyright (C) 2001, 2006 Free Software Foundation, Inc.
 # Morten Brix Pedersen <morten@wtf.dk>, 2001-2002.
-# Morten Bo Johansen <mbj@spamcop.net>, 2002-
+# Morten Bo Johansen <mbj@spamcop.net>, 2002-.
+# Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-02-10 16:45+0100\n"
-"Last-Translator: Morten Bo Johansen <mojo@mbjnet.dk>\n"
-"Language-Team: Danish <dansk@klid.dk>\n"
+"PO-Revision-Date: 2006-10-10 20:27+0200\n"
+"Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
+"Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -47,8 +49,7 @@ msgstr ""
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr ""
-"Opsætning af database, defineret ved kombination %s af %s, gav problemer."
+msgstr "Opsætning af database, defineret ved kombination %s af %s, gav problemer."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -92,10 +93,8 @@ msgid "no"
 msgstr "nej"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Vælg nul eller flere punkter, adskilt af komma fulgt af mellemrum (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Vælg nul eller flere punkter, adskilt af komma fulgt af mellemrum (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -174,15 +173,12 @@ msgstr ""
 "dialogbaserede brugerflade kan ikke bruges."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr ""
-"Dialog-brugerfladen behøver en skærm, min. 13 linjer høj og 31 kolonner bred."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Dialog-brugerfladen behøver en skærm, min. 13 linjer høj og 31 kolonner bred."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Debian-opsætning"
+msgstr "Pakkeopsætning"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -446,3 +442,4 @@ msgstr ""
 #~ msgstr ""
 #~ "Debconf var ikke sat op til at vise denne notits, så den sendte den til "
 #~ "dig."
+
