@@ -1,3 +1,4 @@
+# translation of el.po to Greek
 #
 # George Papamichelakis <george@step.gr>, 2004.
 # Emmanuel Galatoulas <galas@tee.gr>, 2004.
@@ -5,49 +6,50 @@
 # Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
 # quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006.
 # quad-nrg.net <yodesy@quad-nrg.net>, 2006.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: d-i_level1_el\n"
+"Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-07-10 00:04+0300\n"
-"Last-Translator: quad-nrg.net \n"
-"Language-Team: el <debian-l10n-greek@lists.debian.org>\n"
+"PO-Revision-Date: 2006-10-12 13:31+0300\n"
+"Last-Translator: QUAD-nrg.net <yodesy@quad-nrg.net>\n"
+"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Μη-διαδραστικά"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Διεπαφή που θα χρησιμοποιηθεί:"
 
 #. Type: select
 #. Description
@@ -106,9 +108,8 @@ msgstr "χαμηλή"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Να αγνοηθούν οι ερωτήσεις με προτεραιότητα μικρότερη από..."
+msgstr "Να αγνοηθούν οι ερωτήσεις με προτεραιότητα μικρότερη από:"
 
 #. Type: select
 #. Description
@@ -155,115 +156,3 @@ msgstr "Εγκατάσταση πακέτων"
 msgid "Please wait..."
 msgstr "Παρακαλώ περιμένετε..."
 
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Να αγνοηθούν οι ερωτήσεις με προτεραιότητα μικρότερη από..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Τα πακέτα που χρησιμοποιούν το debconf για τη ρύθμισή τους, ορίζουν "
-#~ "προτεραιότητες για τις ερωτήσεις που πιθανόν να κάνουν στο χρήστη. Μόνο "
-#~ "ερωτήσεις με συγκεκριμένη ή υψηλότερη προτεραιότητα εμφανίζονται, όλες οι "
-#~ "υπόλοιπες αγνοούνται."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Μπορείτε να επιλέξετε την επιθυμητή ελάχιστη προτεραιότητα των "
-#~ "ερωτήσεων:\n"
-#~ " - 'κρίσιμη' για θέματα για τα οποία είναι απολύτως απαραίτητη η\n"
-#~ "    παρέμβαση του χρήστη.\n"
-#~ " - 'υψηλή' για θέματα που δεν έχουν κάποια λογική προκαθορισμένη\n"
-#~ "    απάντηση.\n"
-#~ " - 'μεσαία' για τυπικά ερωτήματα που έχουν προκαθορισμένες απαντήσεις.\n"
-#~ " - 'χαμηλή' για όχι και τόσο σημαντικές ερωτήσεις που έχουν "
-#~ "προκαθορισμένες\n"
-#~ "    απαντήσεις που ισχύουν στην πλειονότητα των περιπτώσεων."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Για παράδειγμα, αυτή η ερώτηση είναι μεσαίας προτεραιότητας, και αν "
-#~ "είχατε ορίσει 'υψηλή' ή 'κρίσιμη' προτεραιότητα δε θα βλέπατε αυτήν την "
-#~ "ερώτηση."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Αλλαγή της προτεραιότητας του debconf"
-
-#~ msgid "Continue"
-#~ msgstr "Συνέχεια"
-
-#~ msgid "Go Back"
-#~ msgstr "Επιστροφή"
-
-#~ msgid "Yes"
-#~ msgstr "Ναι"
-
-#~ msgid "No"
-#~ msgstr "Όχι"
-
-#~ msgid "Cancel"
-#~ msgstr "Ακύρωση"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "Το <Tab> μετακινεί τον δρομέα; το <Space> επιλέγει; το <Enter> ενεργοποιεί"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Στιγμιότυπο οθόνης"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Το στιγμιότυπο οθόνης σώθηκε σαν %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! ΣΦΑΛΜΑ: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "ΠΛΗΚΤΡΑ:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Εμφάνιση αυτού του βοηθητικού μηνύματος"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Επιστροφή στην προηγούμενη ερώτηση"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Επιλογή του κενής καταχώρησης"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Προτροπή: '%c' για βοήθεια, προεπιλογή=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Προτροπή: '%c' για βοήθεια> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Προτροπή: '%c' για βοήθεια, προεπιλογή=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Πατήστε enter για συνέχεια]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr ""
-#~ "Διαλογικό, Γραμμής εντολών (readline), Gnome, Kde, Κειμενογράφο, Μη "
-#~ "διαλογικό"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "κρίσιμη, υψηλή, μεσαία, χαμηλή"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr ""
-#~ "Ποιον τρόπο αλληλεπίδρασης θα θέλατε να χρησιμοποιείτε για τη ρύθμιση των "
-#~ "πακέτων;"
