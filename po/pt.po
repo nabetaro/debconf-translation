@@ -1,18 +1,14 @@
 # Portuguese translation of Debconf for the Debian Installer
 # Copyright (C) 2004 Miguel Figueiredo <elmig@debianpt.org>
 # This file is distributed under the same license as the debconf package.
-# Miguel Figueiredo <elmig@debianpt.org>, 2004.
-#
-# 2005-01-23 - Miguel Figueiredo <elmig@debianpt.org> - 1f2u fixed.
-# 2005-04-02 - Miguel Figueiredo <elmig@debianpt.org> - 8u new strings.
-# 2006-01-29 - Miguel Figueiredo <elmig@debianpt.org> - 2f
+# Miguel Figueiredo <elmig@debianpt.org>, 2004-2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-01-29 23:07+0000\n"
+"PO-Revision-Date: 2006-10-10 23:19+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +18,7 @@ msgstr ""
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "caíndo para o frontend; %s"
+msgstr "caindo para o frontend; %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
@@ -36,8 +32,7 @@ msgstr "Não foi possível iniciar o frontend: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr ""
-"Base de dados de configuração não especificada no ficheiro de configuração."
+msgstr "Base de dados de configuração não especificada no ficheiro de configuração."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
@@ -54,7 +49,7 @@ msgstr ""
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problema ao definir a base de dados definida por stanza %s de %s."
+msgstr "Problema ao configurar a base de dados definida pela estrofe %s de %s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -63,7 +58,7 @@ msgid ""
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
 "  -f,  --frontend\t\tEspecificar o frontend do debconf a utilizar.\n"
-"  -p,  --prority\t\tEspecíficar a prioridade mínima das perguntas a "
+"  -p,  --prority\t\tEspecificar a prioridade mínima das perguntas a "
 "mostrar.\n"
 "       --terse\t\t\tHabilitar o modo abreviado.\n"
 
@@ -101,7 +96,7 @@ msgstr "não"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Introduza zero ou mais items sepatados por uma vírgula seguida de um espaço "
+"(Introduza zero ou mais items separados por uma vírgula seguida de um espaço "
 "(', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
@@ -127,7 +122,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, correndo em %s"
+msgstr "Debconf, a correr em %s"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
@@ -158,7 +153,7 @@ msgstr "A configurar %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM não está definida, logo o frontend dialog não está utilizável."
+msgstr "TERM não está definida, logo o frontend dialog não é utilizável."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -169,16 +164,16 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"O frontend Dialog não funciona num terminal estúpido, num emacs shell "
-"buffer, ou sem um terminal controlador."
+"O frontend Dialog não irá funcionar num terminal 'estúpido', num buffer de "
+"shell emacs, ou sem um terminal controlador."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Não estão instalados programas do tipo dialog, logo o frontend baseado em "
-"dialog não pode ser utilizado."
+"Não está instalado nenhum programa utilizável do tipo dialog, por isso o "
+"o frontend baseado em dialog não pode ser utilizado."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
@@ -188,9 +183,8 @@ msgstr ""
 "colunas de largura."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Configuração de Debian"
+msgstr "Configuração de pacotes"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -238,11 +232,11 @@ msgstr "Mais"
 #: ../Debconf/FrontEnd/Web.pm:65
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Nota: o Debconf está a correr em modo web. Vá até http://localhost:%i/"
+msgstr "Nota: o Debconf está a correr em modo web. Vá para http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:165
 msgid "Back"
-msgstr "Anterior"
+msgstr "Atrás"
 
 #: ../Debconf/FrontEnd/Web.pm:167
 msgid "Next"
@@ -264,18 +258,18 @@ msgid ""
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
 "Template #%s em %s tem um campo duplicado \"%s\" com o novo valor \"%s\". "
-"Provavelmente os dois templates não estão devidamente separados por um único "
-"newline.\n"
+"Provavelmente os dois templates não estão devidamente separados por uma "
+"única newline.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Campo template desconhecido '%s' em stanza #%s de %s\n"
+msgstr "Campo template desconhecido '%s' na estrofe #%s de %s\n"
 
 #: ../Debconf/Template.pm:254
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Erro de parse no template perto de `%s', em stanza #%s de %s\n"
+msgstr "Erro de parse do template perto de `%s', na estrofe #%s de %s\n"
 
 #: ../Debconf/Template.pm:260
 #, perl-format
@@ -294,8 +288,7 @@ msgstr "tem de especificar alguns debs para pré-configurar"
 
 #: ../dpkg-preconfigure:121
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"a atrasar a configuração do pacote, já que o apt-utils não está instalado"
+msgstr "a atrasar a configuração do pacote, já que o apt-utils não está instalado"
 
 #: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
 #, perl-format
@@ -305,7 +298,7 @@ msgstr "apt-extracttemplates falhou: %s"
 #: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "A extraír templates a partir dos pacotes: %d%%"
+msgstr "A extrair templates a partir dos pacotes: %d%%"
 
 #: ../dpkg-preconfigure:180
 msgid "Preconfiguring packages ...\n"
@@ -336,7 +329,7 @@ msgid ""
 msgstr ""
 "Utilização: dpkg-reconfigure [opções] pacotes\n"
 "  -a,  --all\t\t\tReconfigurar todos os pacotes.\n"
-"  -u,  --unseen-only\t\tMostrar apenas questões ainda não mostradas.\n"
+"  -u,  --unseen-only\t\tMostrar apenas questões ainda não vistas.\n"
 "       --default-priority\tUtilizar a prioridade por omissão em vez de "
 "baixa.\n"
 "       --force\t\t\tForçar a reconfiguração de pacotes com problemas."
@@ -348,7 +341,7 @@ msgstr "%s tem de ser corrido como root"
 
 #: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
-msgstr "por favor especifique o pacote a reconfigurar"
+msgstr "por favor especifique um pacote para reconfigurar"
 
 #: ../dpkg-reconfigure:167
 #, perl-format
@@ -379,8 +372,7 @@ msgstr ""
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr ""
-"Utilização: debconf-mergetemplate [opções] [templates.ll ...] templates"
+msgstr "Utilização: debconf-mergetemplate [opções] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -389,7 +381,7 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tJuntar até traduções não actualizadas.\n"
+"        --outdated\t\tJuntar até em traduções não actualizadas.\n"
 "\t--drop-old-templates\tNão utilizar nenhum modelo desactualizado."
 
 #: ../debconf-mergetemplate:119
@@ -424,7 +416,7 @@ msgstr "%s está ultrapassado; deixando todo o template!"
 
 #: ../debconf:88
 msgid "Usage: debconf [options] command [args]"
-msgstr "Utilizador: debconf [opções] comando [args]"
+msgstr "Utilização: debconf [opções] comando [args]"
 
 #: ../debconf:90
 msgid ""
