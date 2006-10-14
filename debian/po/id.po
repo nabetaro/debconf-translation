@@ -10,10 +10,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-07 11:15+0700\n"
-"Last-Translator: Parlin Imanuel Toh <parlin@ui.edu>\n"
-"Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac."
-"id>\n"
+"PO-Revision-Date: 2006-10-14 15:33+0700\n"
+"Last-Translator: Arief S Fitrianto <arief@gurame.fisika.ui.ac.id>\n"
+"Language-Team: Debian Indonesia Team <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,59 +21,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Bacabaris (Readline)"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Penyunting"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Tak-Interaktif"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Antarmuka yang digunakan: "
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
-"Paket-paket yang menggnakan debconf untuk configurasi menggunakan antar muka "
-"yang seragam. Anda dapat memilih jenis antarmuka pengguna yang dipakai."
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Paket-paket yang memakai debconf untuk konfigurasi menggunakan antar muka yang seragam. Anda dapat memilih jenis antarmuka pengguna yang dipakai."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
-"Antar muka dialog menggunakan antarmuka berbasis karakter layar penuh, "
-"sementar readline menggunakan antar muka teks yang lebih tradisional, baik "
-"gnome dan kde menggunakan antar muka grafis (X). Antarmuka editor "
-"memungkinkan anda mengkonfigurasikan hal-hal menggunakan teks editor "
-"kesayangan anda. Antarmuka noniteraktif tak pernah menanyakan pertanyaan "
-"apapun."
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "Antar muka dialog menggunakan antarmuka berbasis karakter layar penuh, sementara bacabaris menggunakan antar muka teks yang lebih tradisional, baik gnome dan kde menggunakan antar muka grafis (X). Antarmuka penyunting memungkinkan anda mengkonfigurasi sesuatu dengan penyunting naskah kesayangan anda. Antarmuka tak-iteraktif tak pernah menanyakan apapun."
 
 #. Type: select
 #. Choices
@@ -103,24 +86,21 @@ msgstr "rendah"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Abaikan pertanyaan dengan prioritas kurang dari..."
+msgstr "Abaikan pertanyaan dengan prioritas kurang dari: "
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf memprioritaskan pertanyaan yang ditanyakan pada anda. Pilih "
-"prioritas pertanyaan terendah yang ingin anda lihat:\n"
+"Debconf memprioritaskan pertanyaan yang ditanyakan pada anda. Pilih prioritas pertanyaan terendah yang ingin anda lihat:\n"
 "  - 'kritis' hanya akan menampilkan prompt bila sistem akan rusak.\n"
 "    Pilih ini bila anda pengguna baru, atau sedang terburu-buru.\n"
 "  - 'tinggi' untuk pertanyaan yang cukup penting.\n"
@@ -130,13 +110,8 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Perhatikan bahwa apapun level yang anda pilih saat ini, anda akan dapat "
-"melihat semua pertanyaan bila anda mengkonfigurasi ulang sebuah paket dengan "
-"dpkg-reconfigure."
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Perhatikan bahwa apapun tingkatan yang anda pilih saat ini, anda akan dapat melihat semua pertanyaan bila anda mengkonfigurasi ulang sebuah paket dengan dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -152,7 +127,6 @@ msgstr "Mohon menunggu..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Abaikan pertanyaan dengan prioritas kurang dari..."
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -162,7 +136,6 @@ msgstr "Mohon menunggu..."
 #~ "pada pertanyaan yang mungkin ditanyakan pada Anda. Hanya pertanyaan "
 #~ "dengan prioritas tertentu atau lebih tinggi yang akan ditanyakan pada "
 #~ "Anda; semua pertanyaan yang kurang penting tidak akan ditanyakan."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -181,7 +154,6 @@ msgstr "Mohon menunggu..."
 #~ "    yang bisa ditentukan. \n"
 #~ " - 'rendah' untuk hal-hal biasa yang memiliki nilai bawaan\n"
 #~ "     yang pada umumnya dapat membuat sistem berfungsi normal."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
@@ -189,70 +161,48 @@ msgstr "Mohon menunggu..."
 #~ "Sebagai contoh, pertanyaan ini berprioritas sedang, dan bila prioritas "
 #~ "yang Anda pilih 'tinggi' atau 'kritis', Anda tidak akan melihat "
 #~ "pertanyaan ini."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Ganti prioritas debconf"
-
 #~ msgid "Continue"
 #~ msgstr "Teruskan"
-
 #~ msgid "Go Back"
 #~ msgstr "Kembali"
-
 #~ msgid "Yes"
 #~ msgstr "Ya"
-
 #~ msgid "No"
 #~ msgstr "Tidak"
-
 #~ msgid "Cancel"
 #~ msgstr "Batal"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr "<Tab> untuk berpindah; <Spasi> memilih; <Enter> mengaktifkan tombol"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Cuplikan layar"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Cuplikan layar disimpan sebagai %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! KESALAHAN: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "KEYSTROKES:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Tampilkan bantuan ini."
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Kembali ke pertanyaan sebelumnya"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Pilih sebuah entri kosong"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Prompt: '%c' untuk bantuan, bawaan=%d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Prompt: '%c' untuk bantuan> "
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Prompt: '%c' untuk bantuan, bawaan=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Tekan ENTER untuk meneruskan]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialog, Readline, Gnome, Kde, Editor, Non-interaktif"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "kritis, tinggi, sedang, rendah"
-
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr "Antarmuka apa yang akan digunakan untuk mengonfigurasi paket?"
