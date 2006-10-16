@@ -1,13 +1,12 @@
 # 
-# 
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-22 13:15+0200\n"
+"PO-Revision-Date: 2006-10-14 13:43+0200\n"
 "Last-Translator:  Elian Myftiu <elian.myftiu@gmail.com>\n"
-"Language-Team: Debian L10n Albanian\n"
+"Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,31 +16,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Linjë leximi"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editues"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Jo ndërveprues"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Ndërfaqja e përdorimit:"
 
 #. Type: select
 #. Description
@@ -50,6 +49,9 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Paketa që përdorin debconf për konfigurimin ndajnë një pamje dhe ndjesi të "
+"përbashkët. Mund të zgjedhësh llojin e ndërfaqes së përdoruesit që ato "
+"përdorin."
 
 #. Type: select
 #. Description
@@ -62,6 +64,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"Faqja e dialogut është e bazuar në gërma, në ekran të plotë, ndërsa ajo me "
+"linja leximi përdor një ndërfaqe tekstuale më tradicionale, dhe të dyja "
+"ndërfaqet Gnome dhe KDE janë ndërfaqe moderne, që i përshtaten hapësirave të "
+"punës përkatës (por mund të përdoren në çfarëdo mjedisi X). Faqja edituese "
+"të lejon konfigurimin e paketave duke përdorur edituesin tënd të preferuar "
+"të tekstit. Faqja jondërvepruese nuk të bën asnjëherë pyetje."
 
 #. Type: select
 #. Choices
@@ -90,9 +98,8 @@ msgstr "e ulët"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Shpërfill pyetjet me një përparësi më të vogël se..."
+msgstr "Shpërfill pyetjet me një përparësi më të vogël se:"
 
 #. Type: select
 #. Description
@@ -106,6 +113,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf i jep përparësi pyetjeve që të bën. Zgjidh përparësinë më të ulët të "
+"pyetjes që dëshiron të shohësh:\n"
+"  - 'kritike' vetëm kur sistemi mund të prishet.\n"
+"    Zgjidhe vetëm kur je fillestar, ose kur ke ngut.\n"
+"  - 'e lartë' për pyetje pak a shumë të rëndësishme\n"
+"  - 'mesatare' është për pyetje normale\n"
+"  - 'e ulët' për personat që duan të shohin gjithçka"
 
 #. Type: select
 #. Description
@@ -114,18 +128,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Vër re që çfarëdo niveli të zgjedhësh, do të kesh mundësinë të shohësh çdo "
+"pyetje nëse rikonfiguron një paketë me dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "Duke instaluar paketat"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "Të lutem prit..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Shpërfill pyetjet me një përparësi më të vogël se..."
