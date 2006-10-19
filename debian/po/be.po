@@ -19,31 +19,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Дыялог"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Чытанне радкоў"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Рэдактар"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Неінтэрактыўна"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Ужываць інтэрфейс:"
 
 #. Type: select
 #. Description
@@ -52,6 +52,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Пакеты, што выкарыстоўваюць debconf для наладак, маюць агульны выгляд. "
+"Вы можаце вылучыць тып карыстальніцкага інтэрфейсу, з якім будзеце працаваць."
 
 #. Type: select
 #. Description
@@ -63,7 +65,14 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
+
 msgstr ""
+"Дыялогавае кіраванне ёсць поўнаэкранным сімвальным інтэрфейсам, а кіраванне чытаннем "
+"радкоў выкарыстоўвае больш традыцыйную схему інтэрфейсу простага тэксту, і "
+"gnome- і kde-кіраванні ёсць навейшымі X-інтэрфейсамі, што запускаюцца ў адпаведнай графічнай "
+"сістэме (але могуць быць выкарыставаны ў любым асяроддзі X). Кіраванне рэдактарам дазваляе "
+"вам наладжваць рэчы, выкарыстоўвая ваш улюбёны тэкставы рэдактар. Неінтэрактыўнае кіраванне "
+"ніколі не задае вам ніякіх пытанняў."
 
 #. Type: select
 #. Choices
@@ -92,9 +101,8 @@ msgstr "нізкі"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ігнараваць пытанні з прыярытэтам меньш, чым ..."
+msgstr "Ігнараваць пытанні з прыярытэтам менш за:"
 
 #. Type: select
 #. Description
@@ -108,6 +116,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf надае прыярытэт пытанням, што пытае ў вас. Выберыце найніжэйшы прыярытэт "
+"пытанняў, што хочаце бачыць:\n"
+"  - 'крытычны' чакае вашай рэакцыі, толькі калі сістэма можа пашкодзіцца.\n"
+"    Выберыце яго, калі вы навічок, або маеце няшмат вольнага часу.\n"
+"  - 'высокі' для пераважна ўплывовых пытанняў\n"
+"  - 'medium' для звычайных пытанняў\n"
+"  - 'low' для тых, хто хоча кантраляваць усё"
 
 #. Type: select
 #. Description
@@ -116,18 +131,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Заўважце, што няма розніцы, які ўзровень вы выбралі, вы зможаце бачыць любое пытанне, "
+"калі зробіце пераналадку пакета з дапамогай dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "Усталяванне пакетаў"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "Калі ласка, чакайце..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ігнараваць пытанні з прыярытэтам меньш, чым ..."
