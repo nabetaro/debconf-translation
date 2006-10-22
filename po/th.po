@@ -1,0 +1,413 @@
+# Thai translation of debconf.
+# Copyright (C) 2006 Software in the Public Interest, Inc.
+# This file is distributed under the same license as the debconf package.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-05 19:44+0200\n"
+"PO-Revision-Date: 2006-10-22 17:19+0700\n"
+"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+"Language-Team: Thai <l10n@opentle.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "กำลังย้อนกลับไปใช้การติดต่อแบบ: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "ไม่สามารถตั้งต้นการติดต่อแบบ: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "ไม่สามารถเรียกการติดต่อผู้ใช้: %s"
+
+#: ../Debconf/Config.pm:130
+msgid "Config database not specified in config file."
+msgstr "ไม่ได้ระบุฐานข้อมูลค่าตั้งไว้ในแฟ้มค่าตั้ง"
+
+#: ../Debconf/Config.pm:134
+msgid "Template database not specified in config file."
+msgstr "ไม่ได้ระบุฐานข้อมูลต้นแบบคำถามไว้ในแฟ้มค่าตั้ง"
+
+#: ../Debconf/Config.pm:139
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr "เลิกใช้ตัวเลือก Sigils และ Smileys ในแฟ้มค่าตั้งแล้ว กรุณาลบออกด้วย"
+
+#: ../Debconf/Config.pm:153
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "เกิดปัญหาขณะตั้งค่าฐานข้อมูลที่กำหนดโดยรายการ %s ใน %s"
+
+#: ../Debconf/Config.pm:228
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tระบุรูปแบบการติดต่อของ debconf ที่จะใช้\n"
+"  -p,  --priority\t\tระบุระดับคำถามต่ำสุดที่จะแสดง\n"
+"       --terse\t\t\tเปิดใช้โหมดประหยัดคำพูด\n"
+
+#: ../Debconf/Config.pm:308
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "จะละเลยค่าระดับความสำคัญ \"%s\" ซึ่งไม่ถูกต้อง"
+
+#: ../Debconf/Config.pm:309
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "ค่าระดับความสำคัญที่ใช้ได้คือ: %s"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "ตัวเลือก"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "ใช่"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "ไม่ใช่"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(ป้อนรายการตั้งแต่ศูนย์รายการขึ้นไป คั่นด้วยจุลภาคตามด้วยเว้นวรรค (', '))"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_วิธีใช้"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "วิธีใช้"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr "debconf ไม่ได้ตั้งค่าไว้ให้แสดงข้อผิดพลาด ดังนั้นจะส่งเมลแจ้งถึงคุณแทน"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:63
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:86
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, ทำงานที่ %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"ค่าที่ป้อนเข้า \"%s\" ไม่มีในตัวเลือกของ C! เหตุการณ์นี้ไม่ควรเกิดขึ้น "
+"เป็นไปได้ว่าต้นแบบคำถามอาจถูกแปลไม่ถูกต้อง"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "ไม่ใช่ข้างบนนี้"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "ป้อนรายการที่คุณต้องการเลือก คั่นด้วยช่องว่าง"
+
+#: ../Debconf/FrontEnd.pm:131
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "ไม่สามารถโหลด Debconf::Element::%s ได้ เพราะ: %s"
+
+#: ../Debconf/FrontEnd.pm:312
+#, perl-format
+msgid "Configuring %s"
+msgstr "กำลังตั้งค่า %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "ไม่ได้ตั้งค่าตัวแปร TERM ไว้ การติดต่อแบบกล่องโต้ตอบจึงไม่สามารถใช้การได้"
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "การติดต่อแบบกล่องโต้ตอบ ไม่สามารถใช้ร่วมกับบัฟเฟอร์ของเชลล์ของ emacs ได้"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"การติดต่อแบบกล่องโต้ตอบจะไม่ทำงานกับเทอร์มินัลแบบ dumb, กับบัฟเฟอร์ของเชลล์ของ emacs, "
+"หรือโดยไม่มีเทอร์มินัลที่ใช้ควบคุม"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"ไม่มีโปรแกรมที่คล้ายกับ 'dialog' ที่ใช้การได้ติดตั้งไว้ ดังนั้น การติดต่อแบบกล่องโต้ตอบจึงใช้การไม่ได้"
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"การติดต่อแบบกล่องโต้ตอบ ต้องใช้หน้าจอสูงอย่างน้อย 13 บรรทัด และกว้างอย่างน้อย 31 คอลัมน์"
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Package configuration"
+msgstr "การตั้งค่าแพกเกจ"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"คุณกำลังใช้การติดต่อแบบแก้ไขข้อความของ debconf เพื่อตั้งค่าระบบของคุณ กรุณาอ่านที่ท้ายเอกสารนี้ "
+"เพื่อดูรายละเอียดวิธีใช้"
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"การติดต่อแบบแก้ไขข้อความของ debconf จะเปิดแฟ้มข้อความตั้งแต่หนึ่งแฟ้มขึ้นไปให้คุณแก้ไข "
+"นี่คือหนึ่งในแฟ้มดังกล่าว ถ้าคุณคุ้นเคยกับแฟ้มค่าตั้งมาตรฐานของยูนิกซ์ แฟ้มนี้อาจดูคุ้นเคยสำหรับคุณ "
+"กล่าวคือ ในแฟ้มจะมีหมายเหตุอธิบาย สลับกับรายการค่าตั้ง กรุณาแก้ไขแฟ้มนี้ "
+"โดยเปลี่ยนแปลงรายการตามต้องการ แล้วบันทึกและออกจากเครื่องมือแก้ไขข้อความ จากนั้น debconf "
+"จะอ่านแฟ้มที่แก้ไข แล้วใช้ค่าต่างๆ ที่คุณป้อนเพื่อตั้งค่าระบบ"
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Kde.pm:85
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf ที่เครื่อง %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "การติดต่อแบบนี้ จำเป็นต้องใช้ tty สำหรับควบคุม"
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU ทำงานร่วมกับบัฟเฟอร์ของเชลล์ของ emacs ไม่ได้"
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "มีต่อ"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "สังเกต: debconf กำลังทำงานในโหมดเว็บ ไปที่ http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "ย้อนกลับ"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "ต่อไป"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"คำเตือน: ฐานข้อมูลอาจเสียหาย จะพยายามซ่อมแซมโดยเพิ่มคำถาม \"%s\" ที่ขาดหายกลับเข้าไป"
+
+#: ../Debconf/Template.pm:203
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"ต้นแบบคำถาม #%s ใน %s มีเขตข้อมูล \"%s\" ซ้ำกัน โดยค่าใหม่คือ \"%s\"  "
+"เป็นไปได้ว่ามีต้นแบบคำถามสองรายการที่ไม่ได้คั่นจากกันด้วยบรรทัดเปล่าให้เรียบร้อย\n"
+
+#: ../Debconf/Template.pm:228
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "ไม่รู้จักเขตข้อมูล '%s' ในรายการ #%s ใน %s\n"
+
+#: ../Debconf/Template.pm:254
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "เกิดข้อผิดพลาดขณะแจงต้นแบบคำถามใกล้กับ `%s' ในรายการ #%s ใน %s\n"
+
+#: ../Debconf/Template.pm:260
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "ต้นแบบคำถาม #%s ใน %s ไม่มีบรรทัด 'Template:'\n"
+
+#: ../dpkg-preconfigure:113
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "ไม่สามารถเปิด stdin ใหม่ได้: %s"
+
+#: ../dpkg-preconfigure:116
+#, perl-format
+msgid "must specify some debs to preconfigure"
+msgstr "ต้องระบุแพกเกจ deb ที่จะตั้งค่าขั้นต้น"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "จะชะลอการตั้งค่าแพกเกจไว้ก่อน เนื่องจากไม่ได้ติดตั้ง apt-utils ไว้"
+
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "apt-extracttemplates ไม่สำเร็จ: %s"
+
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "กำลังดึงต้นแบบคำถามจากแพกเกจ: %d%%"
+
+#: ../dpkg-preconfigure:180
+msgid "Preconfiguring packages ...\n"
+msgstr "กำลังตั้งค่าขั้นต้นให้กับแพกเกจ ...\n"
+
+#: ../dpkg-preconfigure:192
+#, perl-format
+msgid "template parse error: %s"
+msgstr "แจงต้นแบบคำถามไม่สำเร็จ: %s"
+
+#: ../dpkg-preconfigure:206
+#, perl-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: ไม่สามารถ chmod: %s"
+
+#: ../dpkg-preconfigure:217
+#, perl-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "ตั้งค่าขั้นต้นให้กับ %s ไม่สำเร็จ โดยจบด้วยสถานะ %s"
+
+#: ../dpkg-reconfigure:100
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+"วิธีใช้: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tตั้งค่าทุกแพกเกจใหม่\n"
+"  -u,  --unseen-only\t\tแสดงเฉพาะคำถามที่ยังไม่เคยผ่านมาก่อน\n"
+"       --default-priority\tใช้ระดับคำถามปริยายแทนการใช้ระดับต่ำ\n"
+"       --force\t\t\tบังคับตั้งค่าแพกเกจที่เสียหายใหม่"
+
+#: ../dpkg-reconfigure:113
+#, perl-format
+msgid "%s must be run as root"
+msgstr "%s ต้องเรียกโดย root"
+
+#: ../dpkg-reconfigure:146
+msgid "please specify a package to reconfigure"
+msgstr "กรุณาเลือกแพกเกจที่จะตั้งค่าใหม่"
+
+#: ../dpkg-reconfigure:167
+#, perl-format
+msgid "%s is not installed"
+msgstr "%s ไม่ได้ติดตั้งไว้"
+
+#: ../dpkg-reconfigure:171
+#, perl-format
+msgid "%s is broken or not fully installed"
+msgstr "%s เสียหาย หรือติดตั้งไม่สมบูรณ์"
+
+#: ../dpkg-reconfigure:250
+#, perl-format
+msgid "Cannot read status file: %s"
+msgstr "ไม่สามารถอ่านแฟ้มสถานะ: %s"
+
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr "วิธีใช้: debconf-communicate [options] [package]"
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: เครื่องมือนี้เลิกใช้แล้ว คุณควรเปลี่ยนไปใช้ po2debconf ในแพกเกจ "
+"po-debconf แทน"
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr "วิธีใช้: debconf-mergetemplate [options] [templates.ll ...] templates"
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+"\n"
+"        --outdated\t\tผสานแม้คำแปลที่ไม่ใช้แล้ว\n"
+"\t--drop-old-templates\tทิ้งต้นแบบคำถามเก่าทั้งหมด"
+
+#: ../debconf-mergetemplate:119
+#, perl-format
+msgid "%s is missing"
+msgstr "ไม่มี %s"
+
+#: ../debconf-mergetemplate:123
+#, perl-format
+msgid "%s is missing; dropping %s"
+msgstr "ไม่มี %s; จะทิ้ง %s"
+
+#: ../debconf-mergetemplate:146
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s คลุมเครือที่ไบต์ %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s คลุมเครือที่ไบต์ %s: %s; จะทิ้งเขตข้อมูลนี้"
+
+#: ../debconf-mergetemplate:168
+#, perl-format
+msgid "%s is outdated"
+msgstr "%s ไม่ใช้แล้ว"
+
+#: ../debconf-mergetemplate:173
+#, perl-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s ไม่ใช้แล้ว; จะทิ้งต้นแบบคำถามนี้ทั้งหมด!"
+
+#: ../debconf:88
+msgid "Usage: debconf [options] command [args]"
+msgstr "วิธีใช้: debconf [options] command [args]"
+
+#: ../debconf:90
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
+"\n"
+"  -o,  --owner=package\t\tกำหนดแพกเกจที่เป็นเจ้าของคำสั่ง"
