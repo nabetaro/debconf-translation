@@ -1,3 +1,11 @@
+debconf (1.5.8) unstable; urgency=low
+
+  * Fix passthrough frontend's handling of noninteractive elements.
+    Instead of duplicating the code in their show method, which varies for
+    some types (select), just call the show method. Closes: #396147
+
+ -- Joey Hess <joeyh@debian.org>  Sun, 29 Oct 2006 23:57:34 -0500
+
 debconf (1.5.7) unstable; urgency=low
 
   [ Programs Translations ]

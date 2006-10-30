@@ -286,9 +286,9 @@ sub go {
 				debug developer => "Got \"$val\" for $tag";
 			}
 		} else {
-			my $default='';
-			$default=$element->question->value if defined $element->question->value;
-			$element->value($default);
+			# "show" noninteractive elements, which don't need
+			# to pass through, but may do something when shown.
+			$element->show;
 		}
 	}
 
