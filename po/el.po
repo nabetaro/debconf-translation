@@ -1,23 +1,24 @@
-# translation of debconf_el.po to Greek
+# translation of debconf_po_el.po to Greek
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# 
+#
 # Konstantinos Margaritis <markos@debian.org>, 2004.
 # Greek Translation Team <debian-l10n-greek@lists.debian.org>, 2004, 2005.
 # quad-nrg.net <galaxico@quad-nrg.net>, 2005, 2006.
+# QUAD-nrg.net <yodesy@quad-nrg.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_el\n"
+"Project-Id-Version: debconf_po_el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-04 18:03-0400\n"
-"PO-Revision-Date: 2006-01-28 01:01+0200\n"
-"Last-Translator: quad-nrg.net <galaxico@quad-nrg.net>\n"
+"PO-Revision-Date: 2006-10-31 15:12+0200\n"
+"Last-Translator: QUAD-nrg.net <yodesy@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "org>\n"
-"X-Generator: KBabel 1.11.1\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../Debconf/AutoSelect.pm:76
@@ -101,10 +102,8 @@ msgid "no"
 msgstr "όχι"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid ""
-"(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr ""
-"(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Εισάγετε καμία ή περισσότερες επιλογές χωρισμένες με κόμμα και κενό (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -187,16 +186,14 @@ msgstr ""
 "να χρησιμοποιηθεί το διαλογικό περιβάλλον."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid ""
-"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Το διαλογικό περιβάλλον απαιτεί οθόνη ύψους 13 γραμμών και 31 στηλών "
 "τουλάχιστον."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Ρύθμιση του Debian"
+msgstr "Ρύθμιση του πακέτου"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -236,8 +233,7 @@ msgstr "Το περιβάλλον αυτό απαιτεί ένα τυλέτυπ�
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
+msgstr "Το Term::ReadLine::GNU δεν είναι συμβατό με το περιβάλλον κελύφους του emacs."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -447,28 +443,3 @@ msgstr ""
 "  -o,  --owner=package\t\tΠροσδιορισμός του πακέτου στο οποίο ανήκει η "
 "εντολή."
 
-#~ msgid "Save (mail) Note"
-#~ msgstr "Αποθήκευση (αποστολή) Σημείωσης"
-
-#~ msgid "Debconf was asked to save this note, so it mailed it to you."
-#~ msgstr ""
-#~ "Ζητήθηκε από το debconf να αποθηκεύσει τη σημείωση αυτή, και έτσι σας την "
-#~ "έστειλε μέσω ηλ. ταχυδρομείου."
-
-#~ msgid "Information"
-#~ msgstr "Πληροφορίες"
-
-#~ msgid "The note has been mailed."
-#~ msgstr "Η σημείωση έχει αποσταλεί."
-
-#~ msgid "Error"
-#~ msgstr "Σφάλμα"
-
-#~ msgid "Unable to save note."
-#~ msgstr "Αδύνατη η αποθήκευση της σημείωσης."
-
-#~ msgid ""
-#~ "Debconf was not configured to display this note, so it mailed it to you."
-#~ msgstr ""
-#~ "Το debconf δεν έχει ρυθμιστεί να εμφανίζει τη σημείωση αυτή, έτσι την "
-#~ "απέστειλε σε σας μέσω ηλ. ταχυδρομείου."
