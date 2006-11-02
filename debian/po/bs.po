@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bs\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-11 11:42+0100\n"
+"PO-Revision-Date: 2006-11-02 01:12+0100\n"
 "Last-Translator: Safir Secerovic <sapphire@linux.org.ba>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 "Plural-Forms: 3\n"
-"X-Poedit-Language: Bosnian\n"
 "X-Poedit-Country: BOSNIA AND HERZEGOVINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -23,51 +22,43 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dijaloški"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Uređivač"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Neinteraktivni"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Interfejs koji će se koristiti:"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Paketi koji koriste debconf za konfiguraciju dijele zajednički izgled i način podešavanja. Možete odabrati tip korisničkog interfejsa koji će koristiti."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "Dijaloški frontend je cijeloekranski, znakovno bazirani interfejs, dok readline frontend koristi tradicionalniji čisti tekstualni interfejs, dok su gnome i kde frontends moderni X interfejsi, koji nadopunjavaju respektivne desktope (ali se mogu koristiti u bilo kojem X okruženju). Uređivački frontend vam omogućuje da podesite stvari koristeći vaš omiljeni uređivač teksta. Neinteraktivni frontend nikad ne postavlja pitanja."
 
 #. Type: select
 #. Choices
@@ -96,46 +87,47 @@ msgstr "niski"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignoriši pitanja nivoa prioriteta manjeg od"
+msgstr "Ignoriši pitanja prioriteta manjeg od:"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf prioritizuje pitanja koja vam postavlja. Izaberite najniži prioritet pitanja koja želite vidjeti:\n"
+"  - 'kritični' samo pita ako se sistem može pokvariti.\n"
+"    Odaberite ako ste početnik, ili ako vam se žuri.\n"
+"  - 'visoki' je za važnija pitanja\n"
+"  - 'srednji' je za normalna pitanja\n"
+"  - 'niski' je za one koji žele sve da kontrolišu"
 
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Bez obzira koji nivo izaberete ovdje, moći ćete vidjeti svako pitanje ako rekonfigurišete paket naredbom dpkg-reconfigure <ime paketa>."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "Instaliram pakete"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "Molim čekajte..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ignoriši pitanja nivoa prioriteta manjeg od"
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -145,7 +137,6 @@ msgstr ""
 #~ "prioriteta pitanjima koje vam mogu postaviti. Samo ona pitanja s "
 #~ "određenim nivoom prioriteta ili većim se zapravo postavljaju vama; sva "
 #~ "pitanja manjeg nivoa prioriteta se izostavljaju."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -166,7 +157,6 @@ msgstr ""
 #~ "- 'niski' se koristi za obične programske pakete koji imaju standardne "
 #~ "postavke s kojima će\n"
 #~ "  ispravno funkcionisati u velikoj većini slučajeva."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
@@ -174,65 +164,46 @@ msgstr ""
 #~ "Naprimjer, ovo pitanje je srednjeg nivoa prioriteta i da je vaš nivo "
 #~ "prioriteta već bio podešen na 'visoki' ili 'kritični', ne biste vidjeli "
 #~ "ovo pitanje."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Promjeni debconf nivo prioritera "
-
 #~ msgid "Continue"
 #~ msgstr "Nastavi"
-
 #~ msgid "Go Back"
 #~ msgstr "Vrati se"
-
 #~ msgid "Yes"
 #~ msgstr "Da"
-
 #~ msgid "No"
 #~ msgstr "Ne"
-
 #~ msgid "Cancel"
 #~ msgstr "Prekini"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
 #~ "<Tab> kretanje između stavki; <Space> odabir; <Enter> aktiviranje dugmadi"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Slika zaslona"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Slika spremljena kao %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! ERROR: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "KEYSTROKES:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Prikaži ovu poruku pomoći"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Vrati se na prethodno pitanje"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Izaberite prazan unos"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Prompt: '%c' za pomoć, podrazumijevano=%d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Prompt: '%c' za pomoć> "
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Prompt: '%c' za pomoć, podrazumijevano=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Pritisnite enter za nastavak]"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "kritični, visoki, srednji, niski"
+
