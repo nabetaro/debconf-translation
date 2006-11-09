@@ -1,13 +1,15 @@
+# translation of bg.po to Bulgarian
+#
 # Ognyan Kulev <ogi@fmi.uni-sofia.bg>, 2004, 2005, 2006.
 # Nikola Antonov <nikola@linux-bg.org>, 2004.
-#
+# Damyan Ivanov <dam@modsoftsys.com>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-08 10:14+0300\n"
-"Last-Translator:  Ognyan Kulev <ogi@fmi.uni-sofia.bg>\n"
+"PO-Revision-Date: 2006-11-09 14:28+0200\n"
+"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,31 +19,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Редактор"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Без намеса"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Интерфейс за настройка на пакетите:"
 
 #. Type: select
 #. Description
@@ -51,8 +53,8 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "Пакетите, които използват debconf за настройване, споделят един и същи "
-"изглед и усещане. Можете да изберете вида на потребителския интерфейс, който "
-"да се използва при настройване."
+"изглед и начин на работа. Можете да изберете вида на потребителския "
+"интерфейс, който да се използва при настройване."
 
 #. Type: select
 #. Description
@@ -65,12 +67,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Интерфейсът dialog е пълноекранен знаковоориентиран интерфейс, докато "
-"интерфейсът readline използва традиционния обикновен текстов интерфейс, а "
-"gnome и kde използват съвременни графични интерфейси, подходящи за "
-"съответните работни плотове, но могат да се използват и в други графични "
-"среди. Интерфейсът редактор позволява настройване чрез редактиране с любимия "
-"текстов редактор. Неинтерактивният интерфейс никога не задава въпроси."
+"Интерфейсът „dialog“ е пълноекранен знаково-ориентиран интерфейс, докато "
+"интерфейсът „readline“ използва традиционния текстов интерфейс, а „gnome“ и "
+"„kde“ използват съвременни графични интерфейси, подходящи за съответните "
+"работни плотове, но могат да се използват и в други графични среди. "
+"Интерфейсът „редактор“ позволява настройване чрез редактиране с текстов "
+"редактор. Интерфейсът „без намеса“ никога не задава въпроси."
 
 #. Type: select
 #. Choices
@@ -99,9 +101,8 @@ msgstr "нисък"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Игнориране на въпроси с приоритет, по-нисък от..."
+msgstr "Игнориране на въпросите с приоритет, по-нисък от:"
 
 #. Type: select
 #. Description
@@ -115,13 +116,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf подрежда по приоритет въпросите, които задава. Изберете най-ниския "
+"Debconf подрежда въпросите, които задава по приоритет. Изберете най-ниския "
 "приоритет на въпросите, които искате да виждате:\n"
-"- 'критичен' се показва само ако има опасност системата може да се повреди.\n"
+"- „критичен“ се показва само ако има опасност системата може да се повреди.\n"
 "  Изберете ако сте новак или много бързате.\n"
-"- 'висок' е за доста важни въпроси.\n"
-"- 'среден' е за нормални въпроси.\n"
-"- 'нисък' е за техничари, които искат да виждат всичко."
+"- „висок“ е за доста важни въпроси.\n"
+"- „среден“ е за нормални въпроси.\n"
+"- „нисък“ е за техничари, които искат да виждат всичко"
 
 #. Type: select
 #. Description
@@ -130,14 +131,14 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Забележете, че каквото и да изберете тук, ще можете да видите всеки въпрос "
-"при пренастройване чрез dpkg-reconfigure."
+"Каквото и да изберете тук, ще можете да видите всеки въпрос при "
+"пренастройване на пакети чрез dpkg-reconfigure."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr "Инсталиране на пакет"
+msgstr "Инсталиране на пакети"
 
 #. Type: text
 #. Description
