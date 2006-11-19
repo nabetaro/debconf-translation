@@ -321,7 +321,7 @@ sub waitdialog {
 			$error++;
 		}
 		if ($error) {
-			die sprintf("debconf: %s output to the above errors, giving up!", $this->program)."\n";
+			die sprintf("debconf: %s output the above errors, giving up!", $this->program)."\n";
 		}
 	}
 	else {
