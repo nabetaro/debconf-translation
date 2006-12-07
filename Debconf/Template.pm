@@ -448,7 +448,7 @@ sub AUTOLOAD {
 				# Failing that, look for a field that matches
 				# the language, and do charset conversion.
 				if ($Debconf::Encoding::charmap) {
-					foreach my $f (@fields) {
+					foreach my $f ($Debconf::Db::templates->fields($this->{template})) {
 						if ($f =~ /^\Q$field-$lang\E\.(.+)/) {
 							my $encoding = $1;
 							$ret = Debconf::Encoding::convert($encoding, $Debconf::Db::templates->getfield($this->{template}, lc($f)));
