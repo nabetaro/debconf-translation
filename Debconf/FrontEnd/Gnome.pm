@@ -87,6 +87,7 @@ sub init {
 	$this->SUPER::init(@_);
 	$this->interactive(1);
 	$this->capb('backup');
+	$this->need_tty(0);
 	
 	$this->win(Gtk2::Window->new("toplevel"));
 	$this->win->set_position("center");

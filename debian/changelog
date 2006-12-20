@@ -4,7 +4,13 @@ debconf (1.5.11) UNRELEASED; urgency=low
     - Updated Dutch. Closes: #391311
     - Updated Portuguese. Closes: #392703
 
- -- Christian Perrier <bubulle@debian.org>  Tue, 19 Dec 2006 05:56:33 +0100
+  [ Joey Hess ]
+  * Add need_tty field to frontend objects. dpkg-preconfigure can test
+    this if it fails to reopen /dev/tty, and avoid dying if the frontend
+    doesn't care about the tty, as happens in g-i when preconfiguring using
+    the passthrough frontend. Closes: #401876
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 20 Dec 2006 13:30:50 -0500
 
 debconf (1.5.10) unstable; urgency=low
 

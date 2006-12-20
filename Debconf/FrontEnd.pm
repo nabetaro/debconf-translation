@@ -65,6 +65,14 @@ This will be set if the confmodule states it has the backup capability.
 
 The element used for the currently running progress bar, if any.
 
+=item need_tty
+
+Set to true if the frontend needs a tty. Defaults to true.
+
+Note that setting this to true does not ensure that the frontend actually
+gets a tty. It does let debconf abort in cases where the selected frontend
+cannot work due to it being impossible to get a tty for it.
+
 =back
 
 =head1 METHODS
@@ -86,6 +94,7 @@ sub init {
 	$this->title('');
 	$this->requested_title('');
 	$this->info(undef);
+	$this->need_tty(1);
 }
 
 =item elementtype

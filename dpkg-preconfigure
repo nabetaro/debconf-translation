@@ -98,6 +98,8 @@ $|=1;
 my @debs=@ARGV;
 @ARGV=();
 
+my $have_tty=1;
+
 # If running from apt, read package filenames on stdin.
 if ($apt) {
 	while (<>) {
@@ -109,8 +111,7 @@ if ($apt) {
 	
 	# We have now reached the end of the first file on stdin.
 	# Future reads from stdin should get input from the user, so re-open.
-	open (STDIN, "/dev/tty") ||
-		(print STDERR sprintf("dpkg-preconfigure: ".gettext("unable to re-open stdin: %s"), $!)."\n", exit 0);
+	$have_tty=0 unless open (STDIN, "/dev/tty");
 }
 elsif (! @debs) {
 	print STDERR sprintf("dpkg-preconfigure: ".gettext("must specify some debs to preconfigure")), "\n";
@@ -123,6 +124,11 @@ if (! -x "/usr/bin/apt-extracttemplates") {
 }
 
 my $frontend=make_frontend();
+
+if (! $have_tty && $frontend->need_tty) {
+	print STDERR sprintf("dpkg-preconfigure: ".gettext("unable to re-open stdin: %s"), $!)."\n";
+	exit 0;
+}
 
 # Use the external package scanner for speed. It takes a list of debs
 # and outputs to stdout a table with these fields separated by spaces:

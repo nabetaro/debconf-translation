@@ -69,6 +69,7 @@ sub init {
 	
 	$this->SUPER::init(@_);
 	$this->interactive(1);
+	$this->need_tty(0);
 }
 
 =head2 talk

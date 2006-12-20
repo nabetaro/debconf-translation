@@ -52,6 +52,7 @@ sub init {
 	$this->formid(0);
 	$this->interactive(1);
 	$this->capb('backup');
+	$this->need_tty(0);
 
 	# Bind to the port.
 	$this->server(IO::Socket::INET->new(

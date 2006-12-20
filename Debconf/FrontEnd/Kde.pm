@@ -47,6 +47,7 @@ sub init {
 	$this->createdelements([]);
 	$this->dupelements([]);
 	$this->capb('backup');
+	$this->need_tty(0);
 
 	# Well I see that the Qt people are just as braindamaged about apps
 	# not being allowed to work as the GTK people. You all suck, FYI.    
