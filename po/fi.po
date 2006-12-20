@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 18:03-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-06 12:49+0300\n"
 "Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -142,12 +142,12 @@ msgstr "ei mikään edellisistä"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Syötä haluamasi vaihtoehdot välilyönneillä erotettuina."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Debconf::Element::%s:n lataus epäonnistui: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s:n asetusten säätö"
@@ -211,8 +211,8 @@ msgstr ""
 "poistu, minkä jälkeen debconf lukee editoidun tiedoston ja säätää asetukset "
 "syöttämiesi tietojen perusteella."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf @ %s"
@@ -230,17 +230,17 @@ msgstr ""
 msgid "More"
 msgstr "Lisää"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Tiedotus: Debconf on seittiajossa. Mene osoitteeseen http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Takaisin"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Seuraava"
 
@@ -279,45 +279,45 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "\"Template:\"-rivi puuttuu kyselypohjasta #%s tiedostossa %s\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "vakiosyötteen uudelleenavaus epäonnistui: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "esiasetukseen on määritettävä paketteja"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "pakettien esiasetusta ei tehdä, koska apt-utils:ia ei ole asennettu"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "vakiosyötteen uudelleenavaus epäonnistui: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates epäonnistui: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Puretaan malleja paketeteista: %d %%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Esiräätälöidään paketteja...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "kyselypohjan jäsennysvirhe: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: en voi muuttaa oikeuksia: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"

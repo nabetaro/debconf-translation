@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-08 14:10-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-05 14:09+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -139,12 +139,12 @@ msgstr "មិនមាន​ក្នុងចំណោម​ខាងលើទ
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "បញ្ចូល​ធាតុ​ដែល​អ្នក​ចង់​ជ្រើស ដែល​ចែក​ដោយ​ចន្លោះ ។"
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "មិន​អាច​ផ្ទុក Debconf::Element::%s បានទេ ។ ​បរាជ័យ​ពី​ព្រោះ ៖ %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "កំពុង​កំណត់​រចនា​សម្ព័ន្ធ %s"
@@ -207,8 +207,8 @@ msgstr ""
 "ហើយ​ ចេញ​ ។ ក្នុង​ចំណុច​នោះដែរ debcon នឹង​អាន​ឯកសារ​ដែល​បាន​កែសម្រួល ហើយ​ប្រើ​តម្លៃ​ដែល​អ្នក​បាន​បញ្ចូល​ "
 "ដើម្បីកំណត់រចនាសម្ព័ន្ធ​របស់ប្រព័ន្ធ  ។"
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf លើ %s"
@@ -225,16 +225,16 @@ msgstr "ពាក្យ::ReadLine::GNU មិន​ស៊ី​គ្នា​�
 msgid "More"
 msgstr "បន្ថែម​ទៀត"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "ចំណាំ ៖ Debconf កំពុង​រត់​លើ​របៀបជា​បណ្ដាញ ។ ទៅ​កាន់ http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "ថយ​ក្រោយ​"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "បន្ទាប់"
 
@@ -270,45 +270,45 @@ msgstr "កំហុសក្នុងការ​​ញែក​ពុម្ព
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "ពុម្ព #%s នៅ​ក្នុង %s មិន​មានបន្ទាត់ 'ពុម្ព ៖' ឡើយ\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "មិន​អាច​បើក stdin ឡើងវិញបានទេ ៖ %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "ត្រូវ​តែ​បញ្ជាក់ debs មួយចំនួន​ដែលត្រូវ​កំណត់​រចនា​សម្ព័ន្ធ​ជាមុន"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "កំពុង​ពន្យា​ការ​កំណត់​រចនា​សម្ព័ន្ធ​កញ្ចប់ គឺចាប់​តាំងពីមិនបានដំឡើង​ apt-utils មកម្លេះ"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "មិន​អាច​បើក stdin ឡើងវិញបានទេ ៖ %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates បានបរាជ័យ​ ៖ %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "កំពុង​ស្រង់​ចេញ​ពុម្ព​ពី​កញ្ចប់ ៖ %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "កំពុង​កំណត់​រចនា​សម្ព័ន្ធ​កញ្ចប់​ជាមុន ...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "កំហុស​ក្នុង​ការ​ញែក​ពុម្ព ៖ %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf ៖ មិន​អាច chmod ៖ %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s បរាជ័យ​ក្នុង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​ជាមុន ជាមួយ​ស្ថានភាព​ចេញ %s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.69\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 18:03-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-01-26 19:22+0100\n"
 "Last-Translator: Steve Petruzzello <dlist@bluewin.ch>\n"
 "Language-Team: French Translators <debian-l10n-french@lists.debian.org>\n"
@@ -150,12 +150,12 @@ msgstr "aucun des éléments mentionnés"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Entrez les éléments que vous voulez choisir, séparés par des espaces."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossible de charger Debconf::Element::%s. Cause de l'échec : %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
@@ -221,8 +221,8 @@ msgstr ""
 "quittez. Debconf se servira alors des valeurs qui y sont indiquées pour "
 "configurer le système."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf sur %s"
@@ -239,16 +239,16 @@ msgstr "Term::ReadLine::GNU est incompatible avec les tampons shell d'Emacs."
 msgid "More"
 msgstr "Suite"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Note : debconf fonctionne en mode Web. Allez sur http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Retour"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Suivant"
 
@@ -286,46 +286,46 @@ msgstr "Erreur d'analyse de message vers « %s », dans la partie #%s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Le message n° %s de %s ne contient pas de ligne « Template: »\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "impossible de réouvrir stdin : %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "Vous devez indiquer des paquets à préconfigurer"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "la configuration des paquets est différée, car apt-utils n'est pas installé"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "impossible de réouvrir stdin : %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "Échec d'apt-extracttemplates : %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Extraction des modèles depuis les paquets : %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Préconfiguration des paquets...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erreur d'analyse de message : %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf : impossible de changer le mode : %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Échec de la préconfiguration de %s, avec le code d'erreur %s"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 18:03-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-04-11 13:04+0700\n"
 "Last-Translator: Parlin Imanuel <parlin_i@yahoo.com>\n"
 "Language-Team: Debian Indonesia L10N Team <debid@yahoogroups.com>\n"
@@ -142,12 +142,12 @@ msgstr "tak satupun di atas"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Masukkan item yang ingin Anda pilih, dipisahkan dengan koma."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Tidak dapat memuat Debconf::Element::%s. Gagal karena: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "Sedang mengonfigurasi %s"
@@ -213,8 +213,8 @@ msgstr ""
 "simpanlah lalu keluar. Pada titik ini debconf akan membaca berkas yang telah "
 "diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf pada %s"
@@ -231,17 +231,17 @@ msgstr "Term::ReadLine::GNU tidak sesuai dengan penyangga shell emacs."
 msgid "More"
 msgstr "Lagi"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Catatan: Debconf berjalan dalam modus web. Cobalah ke http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Kembali"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Lanjut"
 
@@ -279,45 +279,45 @@ msgstr ""
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s dalam %s tidak berisi sebuah baris 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "Tidak dapat membuka stdin: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "harus menentukan beberapa deb untuk prakonfigurasi"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "menunda konfigurasi paket karena apt-utils tidak terpasang"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "Tidak dapat membuka stdin: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates gagal: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Extract template dari paket: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Prakonfigurasi paket ... \n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Kesalahan penguraian template: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: tidak dapat chmod: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Prakonfigurasi %s gagal, dengan status %s"

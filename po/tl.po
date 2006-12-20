@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 18:03-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-01-28 03:04+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -144,12 +144,12 @@ msgstr "wala sa itaas"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Ibigay ang mga aytem na nais niyong piliin, nakahiwalay ng mga puwang."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Hindi maipasok ang Debconf::Element::%s. Bigo dahil sa: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "Isinasaayos ang %s"
@@ -216,8 +216,8 @@ msgstr ""
 "debconf ang na-edit na taklasan, at gagamitin ang mga halagang inyong "
 "pinasok upang masaayos ang sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf sa %s"
@@ -234,18 +234,18 @@ msgstr "Term::ReadLine::GNU ay hindi kabagay sa emacs shell buffer."
 msgid "More"
 msgstr "Meron pa"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Paunawa: Ang debconf ay tumatakbo sa modang web. Tignan sa http://localhost:%"
 "i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Bumalik"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Susunod"
 
@@ -283,47 +283,47 @@ msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "hindi mabuksan muli ang stdin: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "kailangan magtakda ng ilang mga deb na isasaayos bago ng pagluklok"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi "
 "nakaluklok"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "hindi mabuksan muli ang stdin: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "bigo ang apt-extracttemplates: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Binubuklat ang mga template mula sa mga pakete: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Isinasaayos ang mga pakete bago luklokin ...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "error sa pag-parse ng template: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: hindi ma-chmod: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "bigo ang pagsasaayos ng %s, may exit status na %s"

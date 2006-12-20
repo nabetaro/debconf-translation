@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-04 18:03-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-10 23:19+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -32,7 +32,8 @@ msgstr "Não foi possível iniciar o frontend: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "Base de dados de configuração não especificada no ficheiro de configuração."
+msgstr ""
+"Base de dados de configuração não especificada no ficheiro de configuração."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
@@ -141,12 +142,12 @@ msgstr "nenhum dos acima"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Introduza os items que deseja escolher, separados por espaços."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Não conseguiu carregar Debconf::Element::%s. Falhou devido a: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "A configurar %s"
@@ -172,8 +173,8 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Não está instalado nenhum programa utilizável do tipo dialog, por isso o "
-"o frontend baseado em dialog não pode ser utilizado."
+"Não está instalado nenhum programa utilizável do tipo dialog, por isso o o "
+"frontend baseado em dialog não pode ser utilizado."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
@@ -211,8 +212,8 @@ msgstr ""
 "necessário, depois grave-o e saia. Nesse ponto, o debconf irá ler o ficheiro "
 "editado, e utilizar os valores que introduziu para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
@@ -229,16 +230,17 @@ msgstr "Term::ReadLine::GNU é incompatível com buffers de shell emacs."
 msgid "More"
 msgstr "Mais"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Nota: o Debconf está a correr em modo web. Vá para http://localhost:%i/"
+msgstr ""
+"Nota: o Debconf está a correr em modo web. Vá para http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Atrás"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Próximo"
 
@@ -276,45 +278,46 @@ msgstr "Erro de parse do template perto de `%s', na estrofe #%s de %s\n"
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "não conseguiu re-abrir stdin: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "tem de especificar alguns debs para pré-configurar"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "a atrasar a configuração do pacote, já que o apt-utils não está instalado"
+msgstr ""
+"a atrasar a configuração do pacote, já que o apt-utils não está instalado"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "não conseguiu re-abrir stdin: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates falhou: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "A extrair templates a partir dos pacotes: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "A pré-configurar os pacotes...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erro de parse do template: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: não pode fazer chmod: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou a pré-configuração, com estado de saída %s"
@@ -372,7 +375,8 @@ msgstr ""
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Utilização: debconf-mergetemplate [opções] [templates.ll ...] templates"
+msgstr ""
+"Utilização: debconf-mergetemplate [opções] [templates.ll ...] templates"
 
 #: ../debconf-mergetemplate:71
 msgid ""

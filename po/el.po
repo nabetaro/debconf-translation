@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-15 18:35-0500\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-31 15:12+0200\n"
 "Last-Translator: QUAD-nrg.net <yodesy@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -149,12 +149,12 @@ msgstr "καμία από τις παραπάνω"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Εισάγετε τις επιλογές σας, χωρισμένες με κενό."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "Ρύθμιση του %s"
@@ -224,8 +224,8 @@ msgstr ""
 "εξέλθετε από το πρόγραμμα. Στο σημείο αυτό, το debconf θα διαβάσει το "
 "επεξεργασμένο αρχείο και θα χρησιμοποιήσει τις ρυθμίσεις που δώσατε."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf στο %s"
@@ -243,18 +243,18 @@ msgstr ""
 msgid "More"
 msgstr "Περισσότερα"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Σημείωση: Το debconf τρέχει σε κατάσταση δικτυακού τόπου. Δείτε τη http://"
 "localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Προηγούμενο"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Επόμενο"
 
@@ -291,47 +291,47 @@ msgstr "Σφάλμα ανάλυσης προτύπου κοντά στο `%s', �
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Το πρότυπο #%s στο %s δεν περιέχει μια γραμμή 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "αδύνατο το άνοιγμα της stdin: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "πρέπει να δηλώσετε κάποια πακέτα deb για προρύθμιση"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "καθυστέρηση της ρύθμισης του πακέτου, εφόσον το apt-utils δεν είναι "
 "εγκατεστημένο"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "αδύνατο το άνοιγμα της stdin: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "η apt-extracttemplates απέτυχε: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Εξαγωγή προτύπων (templates) από τα πακέτα:%d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Προρύθμιση πακέτων ... \n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "σφάλμα ανάλυσης προτύπου: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: αδύνατη η εκτέλεση της chmod: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Αδύνατη η προρύθμιση του %s, με κωδικό λάθους %s"

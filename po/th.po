@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 19:44+0200\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-22 17:19+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -134,12 +134,12 @@ msgstr "ไม่ใช่ข้างบนนี้"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "ป้อนรายการที่คุณต้องการเลือก คั่นด้วยช่องว่าง"
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "ไม่สามารถโหลด Debconf::Element::%s ได้ เพราะ: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "กำลังตั้งค่า %s"
@@ -200,8 +200,8 @@ msgstr ""
 "โดยเปลี่ยนแปลงรายการตามต้องการ แล้วบันทึกและออกจากเครื่องมือแก้ไขข้อความ จากนั้น debconf "
 "จะอ่านแฟ้มที่แก้ไข แล้วใช้ค่าต่างๆ ที่คุณป้อนเพื่อตั้งค่าระบบ"
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf ที่เครื่อง %s"
@@ -218,16 +218,16 @@ msgstr "Term::ReadLine::GNU ทำงานร่วมกับบัฟเฟ�
 msgid "More"
 msgstr "มีต่อ"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "สังเกต: debconf กำลังทำงานในโหมดเว็บ ไปที่ http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "ย้อนกลับ"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "ต่อไป"
 
@@ -263,45 +263,45 @@ msgstr "เกิดข้อผิดพลาดขณะแจงต้นแ
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "ต้นแบบคำถาม #%s ใน %s ไม่มีบรรทัด 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "ไม่สามารถเปิด stdin ใหม่ได้: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "ต้องระบุแพกเกจ deb ที่จะตั้งค่าขั้นต้น"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "จะชะลอการตั้งค่าแพกเกจไว้ก่อน เนื่องจากไม่ได้ติดตั้ง apt-utils ไว้"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "ไม่สามารถเปิด stdin ใหม่ได้: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates ไม่สำเร็จ: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "กำลังดึงต้นแบบคำถามจากแพกเกจ: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "กำลังตั้งค่าขั้นต้นให้กับแพกเกจ ...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "แจงต้นแบบคำถามไม่สำเร็จ: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: ไม่สามารถ chmod: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "ตั้งค่าขั้นต้นให้กับ %s ไม่สำเร็จ โดยจบด้วยสถานะ %s"

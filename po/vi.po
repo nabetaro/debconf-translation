@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-24 20:32-0400\n"
+"POT-Creation-Date: 2006-12-20 14:31-0500\n"
 "PO-Revision-Date: 2006-10-12 21:20+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -140,12 +140,12 @@ msgstr "không có gì ở trên"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Hãy nhận những mục bạn muốn chọn, định giới bằng dấu cách."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Không thể tải « Debconf::Element::%s ». Thất bại vì: %s."
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:321
 #, perl-format
 msgid "Configuring %s"
 msgstr "Đang cấu hình %s"
@@ -210,8 +210,8 @@ msgstr ""
 "cứ mục nào như cần thiết, rồi lưu nó và thoát. Sau đó, debconf sẽ đọc tập "
 "tin mới chỉnh sửa, và dùng nhưng giá trị mới nhập để cấu hình hệ thống."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
+#: ../Debconf/FrontEnd/Kde.pm:86
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf trên %s"
@@ -229,18 +229,18 @@ msgstr ""
 msgid "More"
 msgstr "Thêm nữa"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
 "Ghi chú : Debconf đang chạy trong chế độ Mạng. Hãy đi tới « http://localhost:"
 "%i/ »."
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Lùi"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Kế"
 
@@ -277,47 +277,47 @@ msgstr "Gặp lỗi phân tách mẫu gần « %s », trong đoạn dòng #%s c�
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mẫu #%s trong %s không chứa một dòng « Template: » (Mẫu)\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "không thể mở lại thiết bị nhập chuẩn: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "phải ghi rõ một số deb (tập tin gói Debian) để cấu hình sẵn"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "đang tri hoãn việc cấu hình gói vì chưa cài đặt « apt-utils » (các tiện ích "
 "apt)"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "không thể mở lại thiết bị nhập chuẩn: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates (giải nén các mẫu) bị lỗi: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Đang giải nén các mẫu từ gói: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Đang cấu hình sẵn các gói ...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "lỗi phân tách mẫu : %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: không thể chmod (thay đổi chế độ): %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s lỗi cấu hình sẵn, có trang thái thoát %s"
