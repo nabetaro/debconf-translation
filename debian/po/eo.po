@@ -1,16 +1,16 @@
-# 
-# translation of eo.po to Esperanto 
-# Don't forget to properly fill-in the header of PO files
+# Translation to Esperanto.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as debian-installer.
 # Samuel Gimeno <sgimeno@gmail.com>, 2005.
 # Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005-2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: eo\n"
+"Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-18 14:46+0200\n"
-"Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
+"PO-Revision-Date: 2006-12-26 17:44+0100\n"
+"Last-Translator:  Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,31 +20,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialoga"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Komandlinia"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Redaktila"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Seninteraga"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Uzota dialoginterfaco:"
 
 #. Type: select
 #. Description
@@ -67,11 +67,11 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"La 'Dialog'-fasado estas tutekrane signbazata interfaco, kiam 'Readline'-"
+"La 'Dialoga'-fasado estas tutekrane signbazata interfaco, kiam 'Komandlinia'-"
 "fasado pli tradicie uzas tekstan interfacon. Ambaŭ 'Gnome' kaj 'Kde'-fasadoj "
 "estas modernaj 'X'-interfacoj, respektive konformiĝas kun iliaj labortabloj "
-"(sed ili eble estas uzataj de ajn 'X'-medio). La 'Editor'-fasado permesas "
-"akomodi aĵojn per via favorata tekstprilaborilo. La 'noninteractive'-fasado "
+"(sed ili eble estas uzataj de ajn 'X'-medio). La 'Redaktila'-fasado permesas "
+"akomodi aĵojn per via favorata tekstprilaborilo. La 'Seninteraga'-fasado "
 "neniam petos al vi demandojn."
 
 #. Type: select
@@ -101,9 +101,8 @@ msgstr "malalta"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignori demandojn kun prioritato pli malgranda ol..."
+msgstr "Ignori demandojn kun prioritato malpli granda ol:"
 
 #. Type: select
 #. Description
@@ -119,11 +118,11 @@ msgid ""
 msgstr ""
 "'Debconf'-programo ordometas petotajn demandojn. Elektu plej malalta "
 "prioritato ol demandoj, kiujn vi volos vidi:\n"
-"  - 'kriza' petos nur demandojn se via sistemo fiaskus.\n"
+"  - 'kriza', petos nur demandojn se via sistemo fiaskus.\n"
 "    Elektu ĝin se vi estas novuzanto aŭ hastuzanto.\n"
-"  - 'alta' petos nur gravajn demandojn.\n"
-"  - 'meza' petos nur normajn demandojn.\n"
-"  - 'malalta' petos ĉiujn demandojn, por tute regi la respondojn."
+"  - 'alta', petos nur gravajn demandojn.\n"
+"  - 'meza', petos nur normajn demandojn.\n"
+"  - 'malalta', petos ĉiujn demandojn, por tute regi la respondojn."
 
 #. Type: select
 #. Description
@@ -133,7 +132,7 @@ msgid ""
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
 "Notu: kia ajn estas via elekto, ĉiuokaze vi povas vidi ĉiujn demandojn se vi "
-"denove akomodi pakon per 'dpkg-reconfigure'-programo."
+"denove akomodi pakon per 'dpkg-reconfigure'-komando."
 
 #. Type: text
 #. Description
@@ -146,107 +145,3 @@ msgstr "Instalado de pakoj"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Bonvolu atendi..."
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Malatenti demandojn kun prioritato pli malgranda kiu..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Pakoj, kiu uzas debconf por agordiĝi, ordometas petotajn demandojn. Nur "
-#~ "demandoj kun prioritato pli alta ol tiu de la demando, kiun nun vi vidas, "
-#~ "estos montritaj al vi. Malaltaj demandoj estos kaŝitaj."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Elektu vidontajn demandojn:\n"
-#~ " - 'kriza' vidu demandojn kiuj verŝajne, sen interveno de la uzanto,\n"
-#~ "    rompus la instalaĵon.\n"
-#~ " - 'alta' vidu moderajn misaĵajn demandojn.\n"
-#~ " - 'meza' vidu mezajn misaĵajn demandojn.\n"
-#~ " - 'malalta' vidu banalecajn misaĵajn demandojn. Ĝenerale ĝia implicita \n"
-#~ "    reago funkcios."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Ekzemple, ĉi demando kiun vi reagas estas meze prioritata, kaj se via "
-#~ "prioritato estas jam 'alta' aŭ 'kriza', vi ne vidos ĉi demandon."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Ŝanĝu Debianan prioritatan agordon"
-
-#~ msgid "Continue"
-#~ msgstr "Daŭrigu"
-
-#~ msgid "Go Back"
-#~ msgstr "Retroiru"
-
-#~ msgid "Yes"
-#~ msgstr "Jes"
-
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#~ msgid "Cancel"
-#~ msgstr "Nuligu"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<Tab> transloku inter eroj; <Space> elektu eron; <Enter> aktivigu butonojn"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Ekrankopio"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Ekrankopio konservas en %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! ERARO: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "PULSOBATOJ:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Montru ĉi tiu helpa mesaĝo"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Retroiru al antaŭa demando"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Elektu malplenan registrokampon"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Tajpu: '%c' por helpo, implicita valoro=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Tajpu: '%c' por helpo> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Tajpu: '%c' por helpo, implicita valoro=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Tajpu la klavon 'Eniri' por pluigi]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "'Dialog', 'Readline', 'Gnome', 'Kde', 'Editor', 'Noninteractive'"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kriza, alta, meza, malalta"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Kia dialoginterfaco devos esti uzita por akomodi pakojn?"
