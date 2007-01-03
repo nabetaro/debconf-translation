@@ -7,74 +7,57 @@ msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-26 00:10+0100\n"
-"Last-Translator: Jure Čuhalev <gandalf@owca.info>\n"
+"PO-Revision-Date: 2007-01-03 14:03+0100\n"
+"Last-Translator: Matej Kovačič <matej.kovacic@owca.info>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Poedit-Bookmarks: -1,-1,-1,0,-1,-1,-1,-1,-1,-1\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "bralnovrstični (readline) vmesnik"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "urejevalni vmesnik"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "neinteraktiven vmesnik"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Vmesnik, ki ga želite uporabiti:"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"Packages that use debconf for configuration share a common look and feel. "
-"You can select the type of user interface they use."
-msgstr ""
-"Paketi, ki uporabljajo debconf za nastavitve si delijo vmesnik in izgled . "
-"Nastavitev lahko tip uporabniškega vmesnika, ki ga uporabljajo."
+msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
+msgstr "Paketi, ki uporabljajo debconf za nastavitve si delijo enak uporabniški vmesnik in izgled. Nastavite lahko tip uporabniškega vmesnika, ki ga uporabljajo."
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid ""
-"The dialog frontend is a full-screen, character based interface, while the "
-"readline frontend uses a more traditional plain text interface, and both the "
-"gnome and kde frontends are modern X interfaces, fitting the respective "
-"desktops (but may be used in any X environment). The editor frontend lets "
-"you configure things using your favorite text editor. The noninteractive "
-"frontend never asks you any questions."
-msgstr ""
-"Dialog vmesnik je celozaslonski vmesnik, ki deluje v znakovnem načinu. "
-"Readline vmesnik uporablja bolj tradicionalen tekstovni vmesnik. Tako gnome "
-"kot kde vmesnika sta moderna X vmesnika, ki ustrezata vsak svojemu namizju "
-"(vendar ju je mogoče uporabljati v vsakem X okolju). Urejevalni vmesnik vam "
-"omogoča nastavljanje stvari s pomočjo vašega priljubljenega tekstovnega "
-"urejevalnika. Neinteraktiven vmesnik vas nikoli ne sprašuje."
+msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
+msgstr "Vmesnik dialog je celozaslonski vmesnik, ki deluje v znakovnem načinu. Bralnovrstični (readline) vmesnik uporablja bolj tradicionalen tekstovni vmesnik. Tako Gnome kot KDE vmesnika sta sodobna X vmesnika, ki ustrezata vsak svojemu namizju (vendar ju je mogoče uporabljati v vsakem X okolju). Urejevalni vmesnik vam omogoča nastavljanje stvari s pomočjo vašega priljubljenega tekstovnega urejevalnika. Neinteraktiven vmesnik vas nikoli ne sprašuje."
 
 #. Type: select
 #. Choices
@@ -103,39 +86,32 @@ msgstr "nizka"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Spreglej vprašanja s prioriteto nižjo od..."
+msgstr "Spreglej vprašanja s prioriteto nižjo od:"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
-"question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debian ločuje postavljena vprašanja glede na pomembnost. Izberite najnižjo "
-"pomembnost vprašanj, ki jih želite videt:\n"
-"  - 'kritična' so tista vprašanja, ki lahko pokvarijo vaš sistem.\n"
+"Debconf ločuje postavljena vprašanja glede na pomembnost. Izberite najnižjo stopnjo pomembnosti vprašanj, ki jih želite videti:\n"
+"  - 'kritična' za tista vprašanja, ki se nanašajo na stvari, ki lahko pokvarijo vaš sistem.\n"
 "    Izberite če ste začetnik ali pa se vam mudi.\n"
-"  - 'visoko' pomembna so zelo pomembna vprašanja\n"
-"  - 'srednje' pomembna so navadna vprašanja\n"
-"  - 'nizko' pomembna so za ljudi, ki želijo videti vse"
+"  - 'visoka' je za zelo pomembna vprašanja\n"
+"  - 'srednja' je za navadna vprašanja\n"
+"  - 'nizka' je za uporabnike, ki želijo videti vse"
 
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid ""
-"Note that no matter what level you pick here, you will be able to see every "
-"question if you reconfigure a package with dpkg-reconfigure."
-msgstr ""
-"Ne glede na to kateri nivo izberete boste lahko videli vsa vprašanja, če "
-"ponovno nastavitev paket z dpkg-reconfigure."
+msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
+msgstr "Ne glede na to kateri nivo izberete boste lahko videli vsa vprašanja, če ponovno nastavite paket z dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -151,7 +127,6 @@ msgstr "Prosim počakajte..."
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Spreglej vprašanja s prioriteto nižjo od..."
-
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
@@ -161,7 +136,6 @@ msgstr "Prosim počakajte..."
 #~ "vprašanjem, ki vam jih bodo morda zastavili. Samo vprašanja z določeno "
 #~ "prednostjo ali višjo vam bodo prikazana; vsa ostala, manj pomembna "
 #~ "vprašanja, bodo preskočena."
-
 #~ msgid ""
 #~ "You can select the lowest priority of question you want to see:\n"
 #~ " - 'critical' is for items that will probably break the system\n"
@@ -178,78 +152,56 @@ msgstr "Prosim počakajte..."
 #~ "- 'srednja' je za normalne stvari, ki imajo razumne privzete  vrednosti.\n"
 #~ "- 'nizka' je za trivialne stvari, ki imajo privzete vrednosti, ki bodo\n"
 #~ "  delovale v večini primerov."
-
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
 #~ "Na primer, to vprašanje je srednje prioritete. Če bi vaša prioriteta že "
 #~ "bila 'visoka' ali 'kritična', tega vprašanje ne bi videli."
-
 #~ msgid "Change debconf priority"
 #~ msgstr "Spremeni prioriteto debconfa"
-
 #~ msgid "Continue"
 #~ msgstr "Nadaljuj"
-
 #~ msgid "Go Back"
 #~ msgstr "Pojdi nazaj"
-
 #~ msgid "Yes"
 #~ msgstr "Da"
-
 #~ msgid "No"
 #~ msgstr "Ne"
-
 #~ msgid "Cancel"
 #~ msgstr "Prekliči"
-
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
 #~ "<Tab> premika med izbirami; <Presledek> izbere; <Enter> aktivira gumbe"
-
 #~ msgid "LTR"
 #~ msgstr "LTR"
-
 #~ msgid "Screenshot"
 #~ msgstr "Zaslonska slika"
-
 #~ msgid "Screenshot saved as %s"
 #~ msgstr "Zaslonska slika shranjena kot %s"
-
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! NAPAKA: %s"
-
 #~ msgid "KEYSTROKES:"
 #~ msgstr "PRITISKI TIPK:"
-
 #~ msgid "Display this help message"
 #~ msgstr "Prikaži to besedilo"
-
 #~ msgid "Go back to previous question"
 #~ msgstr "Pojdi nazaj na prejšnje vprašanje"
-
 #~ msgid "Select an empty entry"
 #~ msgstr "Izberi prazen niz"
-
 #~ msgid "Prompt: '%c' for help, default=%d> "
 #~ msgstr "Poziv: '%c' za pomoč, privzeto=%d> "
-
 #~ msgid "Prompt: '%c' for help> "
 #~ msgstr "Poziv: '%c' za pomoč> "
-
 #~ msgid "Prompt: '%c' for help, default=%s> "
 #~ msgstr "Poziv: '%c' za pomoč, privzeto=%s> "
-
 #~ msgid "[Press enter to continue]"
 #~ msgstr "[Pritisnite enter za nadaljevanje]"
-
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialog, Readline, Gnome, Kde, Urejevalnik, Neinteraktiven"
-
 #~ msgid "critical, high, medium, low"
 #~ msgstr "krtična, visoka, srednja, nizka"
-
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr "Kateri vmesnik naj bo uporabljen za nastavitev paketov?"
+
