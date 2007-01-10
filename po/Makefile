@@ -19,7 +19,7 @@ debconf.pot: $(POTFILES)
 	xgettext $(POTFILES) -o debconf.pot -Lperl
 
 clean:
-	rm -f debconf.pot $(MOFILES) messages messages.mo
+	rm -f $(MOFILES) messages messages.mo
 
 %.mo: %.po
 	msgfmt -o $@ $<
