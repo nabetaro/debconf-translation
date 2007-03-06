@@ -62,6 +62,16 @@ sub init {
 		exit(0); # success
 	}
 	
+	# Kde will be initted only if really needed, to avoid being slow,
+	# plus avoid nastiness as described in #413509.
+	$this->kde_initted(0);
+}
+
+sub init_kde {
+	my $this=shift;
+
+	return if $this->kde_initted;
+
 	debug frontend => "QTF: initializing app";
 	$this->qtapp(Qt::Application(\@ARGV_KDE));
 	debug frontend => "QTF: initializing wizard";
@@ -84,6 +94,8 @@ sub init {
 	$this->vbox(Qt::VBoxLayout($this->frame, 0, 6, "wizard-main-vbox"));
 	$this->space(Qt::SpacerItem(1, 1, 1, 5));
 	$this->win->setTitle(to_Unicode(sprintf(gettext("Debconf on %s"), $this->hostname)));
+
+	$this->kde_initted(1);
 }
 
 =item go
@@ -100,12 +112,12 @@ sub go {
 	my $interactive='';
 	debug frontend => "QTF: -- START ------------------";
 	foreach my $element (@elements) {
+		next unless $element->can("create");
+		$this->init_kde();
 		$element->create($this->frame);
-		# Noninteractive elemements have no tops.
-		next unless $element->top;
 		$interactive=1;
 		debug frontend => "QTF: ADD: " . $element->question->description;
-		$this->vbox->addWidget ($element->top);
+		$this->vbox->addWidget($element->top);
 	}
 	
 	if ($interactive) {
@@ -211,13 +223,15 @@ Called to terminate the UI.
 
 sub shutdown {
 	my $this = shift;
-	$this->win->hide;
-	$this->frame->reparent(undef, 0, Qt::Point(0, 0), 0);
-	$this->frame(undef);
-	$this->win->mainFrame->reparent(undef, 0, Qt::Point(0, 0), 0);
-	$this->win->mainFrame(undef);
-	$this->win(undef);
-	$this->space(undef);
+	if ($this->kde_initted) {
+		$this->win->hide;
+		$this->frame->reparent(undef, 0, Qt::Point(0, 0), 0);
+		$this->frame(undef);
+		$this->win->mainFrame->reparent(undef, 0, Qt::Point(0, 0), 0);
+		$this->win->mainFrame(undef);
+		$this->win(undef);
+		$this->space(undef);
+	}
 }
 
 =back

@@ -6,8 +6,11 @@ debconf (1.5.13) UNRELEASED; urgency=low
   [ Joey Hess ]
   * Fix kde frontend to "show" noninteractive elements so they can handle
     setting their values appropriately. Closes: #413509
+  * Avoid initialising kde until the first question is found that needs to be
+    displayed using it. The Qt module could fail in some ugly ways during
+    destruction if kde stuff was initialised but never used. (See #413509)
 
- -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2007 04:11:47 -0500
+ -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2007 04:32:21 -0500
 
 debconf (1.5.12) unstable; urgency=low
 
