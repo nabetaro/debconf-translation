@@ -3,7 +3,11 @@ debconf (1.5.13) UNRELEASED; urgency=low
   [ Man pages translations ]
     - French updated
 
- -- Christian Perrier <bubulle@debian.org>  Mon,  5 Mar 2007 20:50:29 +0100
+  [ Joey Hess ]
+  * Fix kde frontend to "show" noninteractive elements so they can handle
+    setting their values appropriately. Closes: #413509
+
+ -- Joey Hess <joeyh@debian.org>  Tue,  6 Mar 2007 04:11:47 -0500
 
 debconf (1.5.12) unstable; urgency=low
 

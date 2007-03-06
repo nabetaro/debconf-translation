@@ -142,6 +142,13 @@ sub go {
 		$this->vbox->removeItem($this->space);
 	}
 	
+	# Display all elements. This does nothing for gnome
+	# elements, but it causes noninteractive elements to do
+	# their thing.	
+	foreach my $element (@elements) {
+		$element->show;
+	}
+
 	debug frontend => "QTF: -- END --------------------";
 	if ($this->cancelled) {
 		exit 1;
