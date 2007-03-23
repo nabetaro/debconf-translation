@@ -9,6 +9,7 @@ Debconf::DbDriver::File - store database in flat file
 package Debconf::DbDriver::File;
 use strict;
 use Debconf::Log qw(:all);
+use POSIX;
 use Fcntl qw(:DEFAULT :flock);
 use IO::Handle;
 use base 'Debconf::DbDriver::Cache';
@@ -100,8 +101,11 @@ sub init {
 		# Now lock the file with flock locking. I don't wait on
 		# locks, just error out. Since I open a lexical filehandle,
 		# the lock is dropped when this object is destroyed.
-		flock($this->{_fh}, LOCK_EX | LOCK_NB) or
-			$this->error("$this->{filename} is locked by another process");
+		while (! flock($this->{_fh}, LOCK_EX | LOCK_NB)) {
+			next if $! == &POSIX::EINTR;
+			$this->error("$this->{filename} is locked by another process: $!");
+			last;
+		}
 	}
 
 	$this->SUPER::init(@_);
@@ -146,8 +150,11 @@ sub shutdown {
 	sysopen(my $fh, $this->{filename}."-new",
 			O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or
 		$this->error("could not write $this->{filename}-new: $!");
-	flock($fh, LOCK_EX | LOCK_NB) or
-		$this->error("$this->{filename}-new is locked by another process");
+	while (! flock($fh, LOCK_EX | LOCK_NB)) {
+		next if $! == &POSIX::EINTR;
+		$this->error("$this->{filename}-new is locked by another process: $!");
+		last;
+	}
 	$this->{format}->beginfile;
 	foreach my $item (sort keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item}; # skip deleted

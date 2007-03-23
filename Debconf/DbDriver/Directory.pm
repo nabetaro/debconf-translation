@@ -10,6 +10,7 @@ package Debconf::DbDriver::Directory;
 use strict;
 use Debconf::Log qw(:all);
 use IO::File;
+use POSIX;
 use Fcntl qw(:DEFAULT :flock);
 use Debconf::Iterator;
 use base 'Debconf::DbDriver::Cache';
@@ -92,8 +93,11 @@ sub init {
 		# dropped when this object is destroyed.
 		open ($this->{lock}, ">".$this->{directory}."/.lock") or
 			$this->error("could not lock $this->{directory}: $!");
-		flock($this->{lock}, LOCK_EX | LOCK_NB) or
-			$this->error("$this->{directory} is locked by another process");
+		while (! flock($this->{lock}, LOCK_EX | LOCK_NB)) {
+			next if $! == &POSIX::EINTR;
+			$this->error("$this->{directory} is locked by another process: $!");
+			last;
+		}
 	}
 }
 
