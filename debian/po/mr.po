@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_debian\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
+"PO-Revision-Date: 2006-08-26 11:15+0200\n"
+"Last-Translator: Priti Patil <prithisd@gmail.com>\n"
+"Language-Team:  Marathi, janabhaaratii, C-DAC, Mumbai, India "
+"<janabhaaratii@cdacmumbai.in>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "संवाद"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "वाचण्याची ओळ"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "मजकूर लेखक"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "सुसंवादप्रक्रियाहीन"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "वापरण्यासाठी आंतराफलक"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"संरचनेसाठी डेबकॉन्फ एकत्रितरित्या वापरणारी पॅकेजेस दिसावयास व वापरण्यास सारखी "
+"आहेतवापरकर्ता त्यामध्ये उपलब्ध असणारा कोणताही आंतराफलक वापरण्यासाठी निवडु शकतो"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"सामोरा येणारा संवादफलक संपूर्ण स्क्रीन व्यापणारा व अक्षराधारित असून वाचन ओळीचा आंतराफलक "
+"मात्र साध्या मजकूरावर आधारित आहे तर जीनोम आणि केडीईचे संवादफलक आधुनिक X पध्दतीवर "
+"आधारलेले आंतराफलक आहेत जे संपूर्ण डेस्कटॉप व्यापतात (परंतू त्यांचा वापर तुम्ही फक्त X वरील "
+"आधारित परिवेशांमध्येच करू शकता)। सामो-या येणा-या मजकूर लेखन संवादफलकामध्ये तुम्हाला तुमच्या "
+"आवडत्या संवाद लेखन साधनातील सुविधांनुसार संरचना करण्याचे स्वातंत्र्य देतो तर सामोरा येणारा "
+"संवादप्रक्रियाहीन संवादफलक तुम्हाला कोणतेही प्रश्न विचारीत नाही"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "गंभीर"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "अधिक"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "मध्यम"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "निम्न"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "प्राधान्यक्रमानुसार कमी महत्वाचे प्रश्नांकडे दुर्लक्ष करा"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"डेबकॉन्फ प्रश्नांचा प्राधान्यक्रम ठरवितो। तुमच्या प्राधान्यक्रमातील सर्वात कमी महत्वाचा "
+"प्रश्न निवडा\n"
+" - गंभीर हा शब्द एवढेच दर्शवितो की संगणकामध्ये कदाचित बिघाड संभवतो। \n"
+" तुम्ही नवखे असाल वा घाईत असाल तरच याची निवड करा। \n"
+"  'अधिक' हा शब्द जास्त महत्वाचे प्रश्नांसाठी आहे \n"
+"  'मध्यम' हा शब्द साधारण प्रश्नांसाठी आहे \n"
+"  'निम्न' हा शब्द अधिक अधिकार गाजवू पहाणा-यांसाठी आहे ज्यांना प्रत्येक गोष्ट पहावयाची "
+"असते"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"जर तुम्ही पॅकेजची संरचना डिपीकेजी वापरून पुन्हा करणार असाल तर कृपया ध्यानात घ्या की "
+"तुम्हीकोणतीही पातळी निवडलीत तरी तुम्ही प्रत्येक प्रश्न पाहु शकाल"
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "पॅकेजची स्थापना चालू आहे"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "कृपया वाट पहा"

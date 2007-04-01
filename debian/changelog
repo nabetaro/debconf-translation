@@ -1,9 +1,16 @@
 debconf (1.5.14) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Retry flock() on EINTR. Failing that, print the errno if flock() fails
     so that we have a better chance of working out why.
 
- -- Colin Watson <cjwatson@debian.org>  Fri, 23 Mar 2007 09:04:58 +0000
+  [ Debconf Translations ]
+  * Marathi added. Closes: #416805
+
+  [ Programs Translations ]
+  * Marathi added. Closes: #416805
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 01 Apr 2007 16:52:33 +0200
 
 debconf (1.5.13) unstable; urgency=low
 
