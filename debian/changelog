@@ -3,6 +3,7 @@ debconf (1.5.14) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Retry flock() on EINTR. Failing that, print the errno if flock() fails
     so that we have a better chance of working out why.
+  * Install Python confmodule for python2.5 as well.
 
   [ Debconf Translations ]
   * Marathi added. Closes: #416805
