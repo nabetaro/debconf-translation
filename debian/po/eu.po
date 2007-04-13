@@ -1,45 +1,46 @@
-# 
+#
 # translation of eu.po to librezale
 # Inaki Larranaga Murgoitio 2005
 #
-# Piarres Beobide <pi@beobide.net>, 2004, 2005, 2006.
+# Piarres Beobide <pi@beobide.net>, 2004, 2005, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-04-24 22:48+0200\n"
+"PO-Revision-Date: 2007-04-12 17:56+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Content-Transfer-Encoding=UTF-8Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr "Elakarrizketa"
+msgstr "Elkarrizketa"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr "Irakurketalerroa"
+msgstr "Irakurketa lerroa"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr "Editora"
+msgstr "Editorea"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr "Ezinteraktiboa"
+msgstr "Ez interaktiboa"
 
 #. Type: select
 #. Description
@@ -69,7 +70,7 @@ msgid ""
 "frontend never asks you any questions."
 msgstr ""
 "Elkarrizketa pantaila osoko karakteretan oinarritutako interfaze bat da, "
-"Komando-lerroa berriz testu laueko ohizko interfaze bat da. bai gnome eta "
+"Komando lerroa berriz testu laueko ohizko interfaze bat da. bai gnome eta "
 "bai kde interfazeak X-etan oinarritutako eta mahaigain horretarako "
 "prestaturik daude (naiz edozein X ingurunetan erabil daitezke). Editoreak "
 "konfiguraketak zure lehenetsitako testu editorea erabiliaz egingo ditu. Ez-"
@@ -119,11 +120,11 @@ msgid ""
 msgstr ""
 "Debconf-ek egingo dizkizun galderak lehentasun mailetan sailkatzen ditu. "
 "Aukeratu ikusi nahi dituzun galderen lehentasun baxuena:\n"
-"  - 'kritkoa'-k sistema hondatu dezaketen galderak egingo ditu .\n"
+"  - 'kritikoa'-k sistema hondatu dezaketen galderak egingo ditu .\n"
 "    Erabiltzaile berria edo presa baduzu hau aukeratu.\n"
-"  - 'altua'-k galdera garrantzitsuak egingo ditu.\n"
+"  - 'handia'-k galdera garrantzitsuak egingo ditu.\n"
 "  - 'ertaina'-k galdera arruntak egingo ditu. \n"
-"  - 'baxua' dana ikusi nahi baduzu"
+"  - 'txikia' dena ikusi nahi baduzu"
 
 #. Type: select
 #. Description
@@ -147,116 +148,3 @@ msgstr "Paketeak instalatzen"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Itxoin mesedez..."
-
-#~ msgid "Gnome"
-#~ msgstr "Gnome"
-
-#~ msgid "Kde"
-#~ msgstr "Kde"
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Ez ikusi egin hau baino lehentasun txikiagoa duten galderei..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Konfiguratzeko debconf erabiltzen duten paketeek zuri egiteko galderen "
-#~ "lehentasun-maila erabakitzen dute. Lehentasun jakin bateko edo handiagoko "
-#~ "galderak bakarrik erakusten zaizkizu; garrantzi txikiagokoak saltatu "
-#~ "egiten dira."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Ikusi nahi duzun galderaren gutxieneko lehentasuna hauta dezakezu:\n"
-#~ " - 'kritikoa' erabiltzaileak parte hartu ezean ziurrenik sistema\n"
-#~ "    hondatuko  duten elementuetarako da.\n"
-#~ "   - 'handia' zentzuzko ezarpen lehenetsirik ez duten elementuetarako "
-#~ "da.\n"
-#~ " - 'ertaina' zentzuzko ezarpen lehenetsiak dituzten elementu "
-#~ "normaletarako da.\n"
-#~ " - 'txikia' kasu gehienetan funtzionatzen duten ezarpen lehenetsiak\n"
-#~ "   dituzten elementu arruntetarako da."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Adibidez, galdera hau lehentasun ertainekoa da, eta zure lehentasuna "
-#~ "'handia' edo 'kritikoa' bada, ez duzu galdera hau ikusiko."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Aldatu debconf-en lehentasuna"
-
-#~ msgid "Continue"
-#~ msgstr "Jarraitu"
-
-#~ msgid "Go Back"
-#~ msgstr "Joan atzera"
-
-#~ msgid "Yes"
-#~ msgstr "Bai"
-
-#~ msgid "No"
-#~ msgstr "Ez"
-
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<Tab> elementuetan mugitzeko; <Zuriunea> hautatzeko; <Sartu> aktibatzeko"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Pantaila argazkia"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Pantaila argazia %s bezala gorderik"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! ERROREA: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "TEKLA-SAKATZEAK:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Bistaratu laguntza-mezu hau"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Joan aurreko galderara"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Hautatu sarrera huts bat"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Gonbita: '%c' laguntzarako, lehenetsia=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Gonbita: '%c' laguntzarako> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Gonbita: '%c' laguntzarako, lehenetsia=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "(Jarraitzeko, sakatu Sartu)"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Elkarrizketa, Komando-lerroa, Gnome, Kde, Editorea, Ez-interaktiboa"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kritikoa, handia, ertaina, txikia"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Zein interfaze erabili behar da paketeak konfiguratzeko?"
