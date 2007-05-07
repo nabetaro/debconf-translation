@@ -72,7 +72,7 @@ sub init {
 		$this->spacer(1);
 		$this->titlespacer(10);
 		$this->columnspacer(3);
-		$this->selectspacer(9);
+		$this->selectspacer(13);
 		$this->hasoutputfd(1);
 	}
 	elsif (-x "/usr/bin/dialog" &&
