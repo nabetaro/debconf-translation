@@ -93,7 +93,7 @@ sub filename {
 =head2 iterator
 
 Iterating over the whole directory hierarchy is the one annoying part of
-his driver.
+this driver.
 
 =cut
 
