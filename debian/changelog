@@ -1,4 +1,4 @@
-debconf (1.5.14) UNRELEASED; urgency=low
+debconf (1.5.14) unstable; urgency=low
 
   [ Colin Watson ]
   * Retry flock() on EINTR. Failing that, print the errno if flock() fails
@@ -28,7 +28,7 @@ debconf (1.5.14) UNRELEASED; urgency=low
   [ Trent Buck ]
   * Fix bash_completion syntax. Closes: #425676
 
- -- Joey Hess <joeyh@debian.org>  Thu, 17 May 2007 00:15:47 -0400
+ -- Colin Watson <cjwatson@debian.org>  Wed, 25 Jul 2007 14:58:39 +0100
 
 debconf (1.5.13) unstable; urgency=low
 
