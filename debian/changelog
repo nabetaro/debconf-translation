@@ -7,6 +7,8 @@ debconf (1.5.14) UNRELEASED; urgency=low
   * Add confmodule bindings for the DATA command.
   * Somebody looking at confmodule(3) probably actually wants
     debconf-devel(7). Add a reference in SEE ALSO.
+  * Make sure that apt status commands and debconf protocol commands under
+    debconf-apt-progress are properly interleaved. Closes: #425397
 
   [ Debconf Translations ]
   * Marathi added. Closes: #416805

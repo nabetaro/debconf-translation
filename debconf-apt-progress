@@ -158,6 +158,12 @@ sub nocloexec (*) {
 	fcntl($fh, F_SETFD, $flags & ~FD_CLOEXEC);
 }
 
+sub nonblock (*) {
+	my $fh = shift;
+	my $flags = fcntl($fh, F_GETFL, 0);
+	fcntl($fh, F_SETFL, $flags | O_NONBLOCK);
+}
+
 # Open the given file descriptors to make sure they won't accidentally be
 # used by Perl, leading to confusion.
 sub reservefds (@) {
@@ -215,16 +221,9 @@ sub passthrough (@) {
 	if (!$pid) {
 		close STATUS_READ;
 		close COMMAND_WRITE;
+		close DEBCONF_COMMAND_READ;
+		close DEBCONF_REPLY_WRITE;
 		$^F = 6; # avoid close-on-exec
-		checkdup2(0, 5);
-		# If the shell confmodule was previously loaded, we need to
-		# use fd 3 rather than stdout.
-		if (exists $ENV{DEBCONF_REDIR} and $ENV{DEBCONF_REDIR}) {
-			checkdup2(3, 6);
-			checkclose(3);
-		} else {
-			checkdup2(1, 6);
-		}
 		if (fileno(COMMAND_READ) != 0) {
 			checkdup2(fileno(COMMAND_READ), 0);
 			close COMMAND_READ;
@@ -252,7 +251,62 @@ sub passthrough (@) {
 
 	close STATUS_WRITE;
 	close COMMAND_READ;
+	close DEBCONF_COMMAND_WRITE;
+	close DEBCONF_REPLY_READ;
 	return $pid;
+}
+
+sub handle_status ($$$) {
+	my ($from, $to, $line) = @_;
+	my ($status, $pkg, $percent, $description) = split ':', $line, 4;
+
+	# Crude waypointing. 15% was chosen to match base-installer,
+	# but could benefit from timing tests under various
+	# bandwidth conditions.
+	my ($min, $len);
+	if ($status eq 'dlstatus') {
+		$min = 0;
+		$len = 15;
+	}
+	elsif ($status eq 'pmstatus') {
+		$min = 15;
+		$len = 85;
+	}
+	elsif ($status eq 'media-change') {
+		Debconf::Client::ConfModule::subst(
+			'debconf-apt-progress/media-change', 'MESSAGE',
+			$description);
+		my @ret = Debconf::Client::ConfModule::input(
+			'critical', 'debconf-apt-progress/media-change');
+		$ret[0] == 0 or die "Can't display media change request!\n";
+		Debconf::Client::ConfModule::go();
+		print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
+		next;
+	}
+	else {
+		next;
+	}
+
+	$percent = ($percent * $len / 100 + $min);
+	$percent = ($percent * ($to - $from) / 100 + $from);
+	$percent =~ s/\..*//;
+	Debconf::Client::ConfModule::progress('SET', $percent);
+	Debconf::Client::ConfModule::subst(
+		'debconf-apt-progress/info', 'DESCRIPTION', $description);
+	Debconf::Client::ConfModule::progress(
+		'INFO', 'debconf-apt-progress/info');
+}
+
+sub handle_debconf_command ($) {
+	my $line = shift;
+
+	# Debconf::Client::ConfModule has already dealt with checking
+	# DEBCONF_REDIR.
+	print "$line\n" || die "can't write to stdout: $!";
+	my $ret = <STDIN>;
+	chomp $ret;
+	print DEBCONF_REPLY_WRITE "$ret\n" ||
+		die "can't write to DEBCONF_REPLY_WRITE: $!";
 }
 
 sub run_progress ($$@) {
@@ -261,22 +315,44 @@ sub run_progress ($$@) {
 	my $command = shift;
 	local (*STATUS_READ, *STATUS_WRITE);
 	local (*COMMAND_READ, *COMMAND_WRITE);
+	local (*DEBCONF_COMMAND_READ, *DEBCONF_COMMAND_WRITE);
+	local (*DEBCONF_REPLY_READ, *DEBCONF_REPLY_WRITE);
 	local *APT_LOG;
+	use IO::Handle;
 
 	Debconf::Client::ConfModule::progress(
 		'INFO', 'debconf-apt-progress/preparing');
 
 	reservefds(4, 5, 6);
 
-	pipe STATUS_READ, STATUS_WRITE or die "$0: can't create status pipe: $!";
+	pipe STATUS_READ, STATUS_WRITE
+		or die "$0: can't create status pipe: $!";
+	nonblock(\*STATUS_READ);
 	checkdup2(fileno(STATUS_WRITE), 4);
 	open STATUS_WRITE, '>&=4'
 		or die "$0: can't reopen STATUS_WRITE as fd 4: $!";
 	nocloexec(\*STATUS_WRITE);
-	pipe COMMAND_READ, COMMAND_WRITE or die "$0: can't create command pipe: $!";
+
+	pipe COMMAND_READ, COMMAND_WRITE
+		or die "$0: can't create command pipe: $!";
 	nocloexec(\*COMMAND_READ);
-	use IO::Handle;
 	COMMAND_WRITE->autoflush(1);
+
+	pipe DEBCONF_COMMAND_READ, DEBCONF_COMMAND_WRITE
+		or die "$0: can't create debconf command pipe: $!";
+	nonblock(\*DEBCONF_COMMAND_READ);
+	checkdup2(fileno(DEBCONF_COMMAND_WRITE), 6);
+	open DEBCONF_COMMAND_WRITE, '>&=6'
+		or die "$0: can't reopen DEBCONF_COMMAND_WRITE as fd 6: $!";
+	nocloexec(\*DEBCONF_COMMAND_WRITE);
+
+	pipe DEBCONF_REPLY_READ, DEBCONF_REPLY_WRITE
+		or die "$0: can't create debconf reply pipe: $!";
+	checkdup2(fileno(DEBCONF_REPLY_READ), 5);
+	open DEBCONF_REPLY_READ, '<&=5'
+		or die "$0: can't reopen DEBCONF_REPLY_READ as fd 5: $!";
+	nocloexec(\*DEBCONF_REPLY_READ);
+	DEBCONF_REPLY_WRITE->autoflush(1);
 
 	if (defined $logfile) {
 		open APT_LOG, '>>', $logfile
@@ -296,47 +372,86 @@ sub run_progress ($$@) {
 		'-o', 'APT::Keep-Fds::=6',
 		@_;
 
-	while (<STATUS_READ>) {
-		chomp;
-		my ($status, $pkg, $percent, $description) = split ':', $_, 4;
+	my $status_eof = 0;
+	my $debconf_command_eof = 0;
+	my $status_buf = '';
+	my $debconf_command_buf = '';
 
-		# Crude waypointing. 15% was chosen to match base-installer,
-		# but could benefit from timing tests under various
-		# bandwidth conditions.
-		my ($min, $len);
-		if ($status eq 'dlstatus') {
-			$min = 0;
-			$len = 15;
-		}
-		elsif ($status eq 'pmstatus') {
-			$min = 15;
-			$len = 85;
-		}
-		elsif ($status eq 'media-change') {
-			Debconf::Client::ConfModule::subst(
-				'debconf-apt-progress/media-change', 'MESSAGE',
-				$description);
-			my @ret = Debconf::Client::ConfModule::input(
-				'critical', 'debconf-apt-progress/media-change');
-			$ret[0] == 0 or
-				die "Can't display media change request!\n";
-			Debconf::Client::ConfModule::go();
-			print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
-			next;
-		}
-		else {
-			next;
+	while (not $status_eof or not $debconf_command_eof) {
+		my $rin = '';
+		my $rout;
+		vec($rin, fileno(STATUS_READ), 1) = 1
+			unless $status_eof;
+		vec($rin, fileno(DEBCONF_COMMAND_READ), 1) = 1
+			unless $debconf_command_eof;
+		my $sel = select($rout = $rin, undef, undef, undef);
+		if ($sel < 0) {
+			next if $! == &POSIX::EINTR;
+			die "$0: select failed: $!";
 		}
 
-		$percent = ($percent * $len / 100 + $min);
-		$percent = ($percent * ($to - $from) / 100 + $from);
-		$percent =~ s/\..*//;
-		Debconf::Client::ConfModule::progress('SET', $percent);
-		Debconf::Client::ConfModule::subst(
-			'debconf-apt-progress/info', 'DESCRIPTION',
-			$description);
-		Debconf::Client::ConfModule::progress(
-			'INFO', 'debconf-apt-progress/info');
+		if (vec($rout, fileno(STATUS_READ), 1) == 1) {
+			# Status message from apt. Transform into debconf
+			# messages.
+			while (1) {
+				my $r = sysread(STATUS_READ, $status_buf, 4096,
+						length $status_buf);
+				if (not defined $r) {
+					next if $! == &POSIX::EINTR;
+					last if $! == &POSIX::EAGAIN or
+						$! == &POSIX::EWOULDBLOCK;
+					die "$0: read STATUS_READ failed: $!";
+				}
+				elsif ($r == 0) {
+					if ($status_buf ne '' and
+					    $status_buf !~ /\n$/) {
+						$status_buf .= "\n";
+					}
+					$status_eof = 1;
+					last;
+				}
+				last if $status_buf =~ /\n/;
+			}
+
+			while ($status_buf =~ /\n/) {
+				my $status_line;
+				($status_line, $status_buf) =
+					split /\n/, $status_buf, 2;
+				handle_status $from, $to, $status_line;
+			}
+		}
+
+		if (vec($rout, fileno(DEBCONF_COMMAND_READ), 1) == 1) {
+			# Debconf command. Pass straight through.
+			while (1) {
+				my $r = sysread(DEBCONF_COMMAND_READ,
+						$debconf_command_buf, 4096,
+						length $debconf_command_buf);
+				if (not defined $r) {
+					next if $! == &POSIX::EINTR;
+					last if $! == &POSIX::EAGAIN or
+						$! == &POSIX::EWOULDBLOCK;
+					die "$0: read DEBCONF_COMMAND_READ " .
+					    "failed: $!";
+				}
+				elsif ($r == 0) {
+					if ($debconf_command_buf ne '' and
+					    $debconf_command_buf !~ /\n$/) {
+						$debconf_command_buf .= "\n";
+					}
+					$debconf_command_eof = 1;
+					last;
+				}
+				last if $debconf_command_buf =~ /\n/;
+			}
+
+			while ($debconf_command_buf =~ /\n/) {
+				my $debconf_command_line;
+				($debconf_command_line, $debconf_command_buf) =
+					split /\n/, $debconf_command_buf, 2;
+				handle_debconf_command $debconf_command_line;
+			}
+		}
 	}
 
 	waitpid $pid, 0;
