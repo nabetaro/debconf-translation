@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"POT-Creation-Date: 2007-02-26 20:46-0500\n"
+"POT-Creation-Date: 2007-07-25 14:59+0100\n"
 "PO-Revision-Date: 2007-03-01 23:14+0100\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -205,14 +205,14 @@ msgstr "L<debconf-devel(7)>, L<debconf(7)>"
 #: ../../debconf-loadtemplate:47 ../../debconf-mergetemplate:180
 #: ../../debconf-set-selections:228 ../../debconf-show:154
 #: ../../dpkg-preconfigure:235 ../../dpkg-reconfigure:260 debconf.conf.5:523
-#: confmodule.3:41 debconf.7:379 debconf-devel.7:950
+#: confmodule.3:42 debconf.7:379 debconf-devel.7:950
 #, no-wrap
 msgid "AUTHOR"
 msgstr "AUTEUR"
 
 # type: textblock
 #: ../../debconf:111 ../../Debconf/Client/ConfModule.pm:160
-#: ../../debconf-apt-progress:441 ../../debconf-communicate:75
+#: ../../debconf-apt-progress:556 ../../debconf-communicate:75
 #: ../../debconf-copydb:177 ../../debconf-getlang:257
 #: ../../debconf-loadtemplate:49 ../../debconf-mergetemplate:182
 #: ../../dpkg-preconfigure:237 ../../dpkg-reconfigure:262
@@ -636,12 +636,12 @@ msgstr ""
 "\n"
 
 # type: SH
-#: ../../debconf-apt-progress:437
+#: ../../debconf-apt-progress:552
 msgid "AUTHORS"
 msgstr "AUTEURS"
 
 # type: textblock
-#: ../../debconf-apt-progress:439
+#: ../../debconf-apt-progress:554
 msgid "Colin Watson <cjwatson@debian.org>"
 msgstr "Colin Watson <cjwatson@debian.org>"
 
@@ -3242,7 +3242,7 @@ msgid "B<debconf>(7)"
 msgstr "B<debconf>(7)"
 
 # type: Plain text
-#: debconf.conf.5:524 confmodule.3:42 debconf.7:380 debconf-devel.7:951
+#: debconf.conf.5:524 confmodule.3:43 debconf.7:380 debconf-devel.7:951
 msgid "Joey Hess E<lt>joeyh@debian.orgE<gt>"
 msgstr "Joey Hess E<lt>joeyh@debian.orgE<gt>"
 
@@ -3341,10 +3341,11 @@ msgstr ""
 "chargement de la bibliothèque sera peut-être exécuté une fois de plus."
 
 # type: Plain text
-#: confmodule.3:41
+#: confmodule.3:42
+#, fuzzy
 msgid ""
-"B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), debconf_specification in "
-"the debian-policy package"
+"B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
+"debconf_specification in the debian-policy package"
 msgstr ""
 "B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), les spécifications debconf "
 "dans le paquet debian-policy"

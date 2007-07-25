@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2007-07-25 14:59+0100\n"
 "PO-Revision-Date: 2007-04-12 18:07+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -97,8 +97,10 @@ msgid "no"
 msgstr "ez"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(sar 0 edo elementu gehiago gako bat eta hutsune batez bereizirik (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(sar 0 edo elementu gehiago gako bat eta hutsune batez bereizirik (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -177,7 +179,8 @@ msgstr ""
 "interfazea ezin da erabili."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
 "Elkarrizketa interfazeak 13 lerro altuerako eta 31 zutabe zabalerako "
 "pantaila bat beharko du behintzat."
@@ -212,8 +215,8 @@ msgstr ""
 "Momentu horretan debconf-ek editaturiko fitxategia irakurri eta aukeratutako "
 "aukerekin sistema konfiguratuko du."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf %s-n"
@@ -233,7 +236,8 @@ msgstr "Gehiago"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Oharra: Debconf web moduan funtzionatzen ari da. Joan : http://localhost:%i/"
+msgstr ""
+"Oharra: Debconf web moduan funtzionatzen ari da. Joan : http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
@@ -283,7 +287,8 @@ msgstr "aurrekonfiguratzeko deb batzuek ezarri behar dituzu"
 
 #: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "pakete konfigurazio atzeratu egingo da apt-utils ez bait dago instalaturik."
+msgstr ""
+"pakete konfigurazio atzeratu egingo da apt-utils ez bait dago instalaturik."
 
 #: ../dpkg-preconfigure:129
 #, perl-format
@@ -372,7 +377,8 @@ msgstr ""
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Erabilera: debconf-mergetemplate [aukerak] [txantiloiak.ll ...] txantiloiak"
+msgstr ""
+"Erabilera: debconf-mergetemplate [aukerak] [txantiloiak.ll ...] txantiloiak"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -425,4 +431,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paketea\t\tEzarri komandoaren jabe den paketea."
-
