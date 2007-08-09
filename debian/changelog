@@ -2,6 +2,9 @@ debconf (1.5.15) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add manual page description for debconf-set-selections. Closes: #435954
+  * Ignore AttributeError in the Python DebconfCommunicator destructor, so
+    that you don't get a confusing exception message if you give the wrong
+    number of arguments to the constructor.
 
   [ Debconf Translations ]
   * Nepali updated. Closes: #435388

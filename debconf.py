@@ -134,8 +134,12 @@ class DebconfCommunicator(Debconf, object):
             self.dccomm.wait()
             self.dccomm = None
 
+    # Don't rely on this; call .shutdown() explicitly.
     def __del__(self):
-        self.shutdown()
+        try:
+            self.shutdown()
+        except AttributeError:
+            pass
 
 
 if ('DEBCONF_USE_CDEBCONF' in os.environ and
