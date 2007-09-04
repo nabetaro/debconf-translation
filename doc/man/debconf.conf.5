@@ -263,6 +263,20 @@ should be sufficient most of the time for read-only access.  Specifying a
 bind DN and password should be reserved for the occasional case where you
 wish to update the debconf configuration data.
 .RE
+.TP
+.B keybykey
+Enable access to individual LDAP entries, instead of fetching them
+all at once in the beginning. This is very useful if you want to monitor
+your LDAP logs for specific debconf keys requested. In this way, you could also
+write custom handling code on the LDAP server part.
+.P
+.RS
+Note that when this option is enabled, the connection to the LDAP server
+is kept active during the whole Debconf run. This is a little different
+from the all-in-one behavior where two brief connections are made to LDAP;
+in the beginning to retrieve all the entries, and in the end to save 
+eventual changes.
+.RE
 .RE
 .P
 An example stanza setting up a database using this driver, assuming the
@@ -273,6 +287,7 @@ remote database is on example.com and can be accessed anonymously:
   Readonly: true
   Server: example.com
   BaseDN: cn=debconf,dc=example,dc=com
+  KeyByKey: 0
 .P
 Another example, this time the LDAP database is on localhost, and can be
 written to:
@@ -282,6 +297,7 @@ written to:
   Server: localhost
   BaseDN: cn=debconf,dc=domain,dc=com
   BindPasswd: secret
+  KeyByKey: 1
 .RE
 .TP
 .B Pipe

@@ -12,7 +12,12 @@ debconf (1.5.15) UNRELEASED; urgency=low
   [ Programs Translations ]
   * Nepali added. Closes: #435389
 
- -- Christian Perrier <bubulle@debian.org>  Tue, 31 Jul 2007 22:00:50 +0200
+  [ Joey Hess ]
+  * Applied Davor Ocelic's patch adding a keybykey option to the LDAP
+    DbDriver. Closes: #440857
+    (Note that it currently has some minor uninitialised value warnings.)
+
+ -- Joey Hess <joeyh@debian.org>  Tue, 04 Sep 2007 17:43:54 -0400
 
 debconf (1.5.14) unstable; urgency=low
 

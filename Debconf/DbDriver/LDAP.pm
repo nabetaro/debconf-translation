@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 # Copyright (C) 2002 Matthew Palmer.
+# Copyright (C) 2007 Davor Ocelic.
 
 =head1 NAME
 
@@ -61,11 +62,24 @@ should be sufficient most of the time for read-only access.  Specifying a
 bind DN and password should be reserved for the occasional case where you
 wish to update the debconf configuration data.
 
+=item keybykey
+
+Enable access to individual LDAP entries, instead of fetching them
+all at once in the beginning. This is very useful if you want to monitor your
+LDAP logs for specific debconf keys requested. In this way, you could also
+write custom handling code on the LDAP server part.
+
+Note that when this option is enabled, the connection to the LDAP server
+is kept active during the whole Debconf run. This is a little different
+from the all-in-one behavior where two brief connections are made to LDAP;
+in the beginning to retrieve all the entries, and in the end to save 
+eventual changes.
+
 =back
 
 =cut
 
-use fields qw(server port basedn binddn bindpasswd exists);
+use fields qw(server port basedn binddn bindpasswd exists keybykey ds);
 
 =head1 METHODS
 
@@ -90,8 +104,8 @@ sub binddb {
 	debug "db $this->{name}" => "talking to $this->{server}, data under $this->{basedn}";
 
 	# Whee, LDAP away!  Net::LDAP tells us about all these methods.
-	my $ds = Net::LDAP->new($this->{server}, port => $this->{port}, version => 3);
-	if (! $ds) {
+	$this->{ds} = Net::LDAP->new($this->{server}, port => $this->{port}, version => 3);
+	if (! $this->{ds}) {
 		$this->error("Unable to connect to LDAP server");
 		return; # if not fatal, give up anyway
 	}
@@ -100,16 +114,16 @@ sub binddb {
 	my $rv = "";
 	if (!($this->{binddn} && $this->{bindpasswd})) {
 		debug "db $this->{name}" => "binding anonymously; hope that's OK";
-		$rv = $ds->bind;
+		$rv = $this->{ds}->bind;
 	} else {
 		debug "db $this->{name}" => "binding as $this->{binddn}";
-		$rv = $ds->bind($this->{binddn}, password => $this->{bindpasswd});
+		$rv = $this->{ds}->bind($this->{binddn}, password => $this->{bindpasswd});
 	}
 	if ($rv->code) {
 		$this->error("Bind Failed: ".$rv->error);
 	}
 	
-	return $ds;
+	return $this->{ds};
 }
 
 =head2 init
@@ -117,74 +131,40 @@ sub binddb {
 On initialization, connect to the directory, read all of the debconf data
 into the cache, and close off the connection again.
 
+If KeyByKey is enabled, then skip the complete data load and only retrieve
+few keys required by debconf.
+
 =cut
 
 sub init {
 	my $this = shift;
 
 	$this->SUPER::init(@_);
-	
-	debug "db $this->{name}" => "getting database data";
-	my $ds=$this->binddb;
-	return unless $ds;
-	my $data = $ds->search(base => $this->{basedn}, sizelimit => 0, timelimit => 0, filter => "(objectclass=debconfDbEntry)");
-	if ($data->code) {
-		$this->error("Search failed: ".$data->error);
-	}
-		
-	# Every language does LDAP search() returns fairly similarly.  Perl's
-	# modus is documented in Net::LDAP::Search, for those interested.
-	my $records = $data->as_struct();
-	debug "db $this->{name}" => "Read ".$data->count()." entries";	
+
+	$this->binddb;
+	return unless $this->{ds};
 
 	# A record of all the existing entries in the DB so we know which
 	# ones need to added, and which modified
 	$this->{exists} = {};
-
-	# This is a rather great honking loop, but it's quite simply a nested
-	# bunch of loops iterating through every DN, attribute, and value in
-	# the returned set (the complete debconf database) and storing it in
-	# a format which the cache driver hopefully understands.
-	foreach my $dn (keys %{$records}) {
-		my $entry = $records->{$dn};
-		debug "db $this->{name}" => "Reading data from $dn";
-		my %ret = (owners => {},
-			fields => {},
-			variables => {},
-			flags => {},
-		);
-		my $name = "";
-					
-		foreach my $attr (keys %{$entry}) {
-			if ($attr eq 'objectclass') {
-				next;
-			}
-			debug "db $this->{name}" => "Setting data for $attr";
-			my $values = $entry->{$attr};
-			foreach my $val (@{$values}) {
-				debug "db $this->{name}" => "$attr = $val";
-				if ($attr eq 'owners') {
-					$ret{owners}->{$val}=1;
-				} elsif ($attr eq 'flags') {
-					$ret{flags}->{$val}='true';
-				} elsif ($attr eq 'cn') {
-					$name = $val;
-				} elsif ($attr eq 'variables') {
-					my ($var, $value)=split(/\s*=\s*/, $val, 2);
-					$ret{variables}->{$var}=$value;
-				} else {
-					$val=~s/\\n/\n/g;
-					$ret{fields}->{$attr}=$val;
-				}
-			}
-		}
-
-		$this->{cache}->{$name} = \%ret;
-		$this->{exists}->{$name} = 1;
-	}
 	
-	# Having done all of that, all that remains is to clean up.
-	$ds->unbind;
+	if ($this->{keybykey}) {
+		debug "db $this->{name}" => "will get database data key by key";
+	}
+	else {
+		debug "db $this->{name}" => "getting database data";
+		my $data = $this->{ds}->search(base => $this->{basedn}, sizelimit => 0, timelimit => 0, filter => "(objectclass=debconfDbEntry)");
+		if ($data->code) {
+			$this->error("Search failed: ".$data->error);
+		}
+			
+		my $records = $data->as_struct();
+		debug "db $this->{name}" => "Read ".$data->count()." entries";	
+	
+		parse_records($records);
+	
+		$this->{ds}->unbind;
+	}
 }
 
 =head2 shutdown
@@ -206,8 +186,10 @@ sub shutdown
 		return 1;
 	}
 	
-	my $ds=$this->binddb;
-	return unless $ds;
+	unless ($this->{keybykey}) {
+		$this->binddb;
+		return unless $this->{ds};
+	}
 
 	foreach my $item (keys %{$this->{cache}}) {
 		next unless defined $this->{cache}->{$item};  # skip deleted
@@ -256,25 +238,41 @@ sub shutdown
 		
 		my $rv="";
 		if ($this->{exists}->{$item}) {
-			$rv = $ds->modify($entry_dn, replace => \%modify_data);
+			$rv = $this->{ds}->modify($entry_dn, replace => \%modify_data);
 		} else {
-			$rv = $ds->add($entry_dn, attrs => $add_data);
+			$rv = $this->{ds}->add($entry_dn, attrs => $add_data);
 		}
 		if ($rv->code) {
 			$this->error("Modify failed: ".$rv->error);
 		}
 	}
 
-	$ds->unbind();
+	$this->{ds}->unbind();
 
 	$this->SUPER::shutdown(@_);
 }
-				
-# Empty routine
 
-sub load {}
+=head2 load 
 
-=sub remove
+Empty routine for all-in-one db fetch, but does some actual
+work for individual keys retrieval.
+
+=cut
+
+sub load {
+	my $this = shift;
+	return unless $this->{keybykey};
+	my $entry_cn = shift;
+
+	my $records = $this->get_key($entry_cn);
+	return unless $records;
+		
+	debug "db $this->{name}" => "Read entry for $entry_cn";
+
+	$this->parse_records($records);
+}
+
+=head2 remove
 
 Called by Cache::shutdown, nothing to do because already done in LDAP::shutdown
 
@@ -284,7 +282,7 @@ sub remove {
 	return 1;
 }
 
-=sub save
+=head2 save
 
 Called by Cache::shutdown, nothing to do because already done in LDAP::shutdown
 
@@ -294,9 +292,88 @@ sub save {
 	return 1;
 }
 
+=head2 get_key
+
+Retrieve individual key from LDAP db.
+The function is a no-op if KeyByKey is disabled.
+Returns entry->as_struct if found, undef otherwise.
+
+=cut
+
+sub get_key {
+	my $this = shift;
+	return unless $this->{keybykey};
+	my $entry_cn = shift;
+
+	my $data = $this->{ds}->search(
+		base => $this->{basedn},
+		sizelimit => 0,
+		timelimit => 0,
+		filter => "(&(cn=$entry_cn)(objectclass=debconfDbEntry))");
+
+	if ($data->code) {
+		$this->error("Search failed: ".$data->error);
+	}
+
+	return unless $data->entries;
+	$data->as_struct();
+}
+
+# Parse struct data (such as one returned by get_key())
+# into internal hash/cache representation
+sub parse_records {
+	my $this = shift;
+	my $records = shift;
+
+	# This is a rather great honking loop, but it's quite simply a nested
+	# bunch of loops iterating through every DN, attribute, and value in
+	# the returned set (the complete debconf database) and storing it in
+	# a format which the cache driver hopefully understands.
+	foreach my $dn (keys %{$records}) {
+		my $entry = $records->{$dn};
+		debug "db $this->{name}" => "Reading data from $dn";
+		my %ret = (owners => {},
+			fields => {},
+			variables => {},
+			flags => {},
+		);
+		my $name = "";
+
+		foreach my $attr (keys %{$entry}) {
+			if ($attr eq 'objectclass') {
+				next;
+			}
+			debug "db $this->{name}" => "Setting data for $attr";
+			my $values = $entry->{$attr};
+			foreach my $val (@{$values}) {
+				debug "db $this->{name}" => "$attr = $val";
+				if ($attr eq 'owners') {
+					$ret{owners}->{$val}=1;
+				} elsif ($attr eq 'flags') {
+					$ret{flags}->{$val}='true';
+				} elsif ($attr eq 'cn') {
+					$name = $val;
+				} elsif ($attr eq 'variables') {
+					my ($var, $value)=split(/\s*=\s*/, $val, 2);
+					$ret{variables}->{$var}=$value;
+				} else {
+					$val=~s/\\n/\n/g;
+					$ret{fields}->{$attr}=$val;
+				}
+			}
+		}
+
+		$this->{cache}->{$name} = \%ret;
+		$this->{exists}->{$name} = 1;
+	}
+}
+
 =head1 AUTHOR
 
 Matthew Palmer <mpalmer@ieee.org>
+
+Davor Ocelic <debconf@spinlocksolutions.com> -
+Added KeyByKey support for http://infrastructures.spinlocksolutions.com/
 
 =cut
 
