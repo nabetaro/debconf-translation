@@ -5,6 +5,9 @@ debconf (1.5.15) UNRELEASED; urgency=low
   * Ignore AttributeError in the Python DebconfCommunicator destructor, so
     that you don't get a confusing exception message if you give the wrong
     number of arguments to the constructor.
+  * Don't use dh_python's postinst fragment (and copy its prerm fragment by
+    hand). debconf is too important to fail because some random python
+    module wouldn't compile. Closes: #225384, #293820
 
   [ Debconf Translations ]
   * Nepali updated. Closes: #435388

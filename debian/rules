@@ -63,7 +63,7 @@ binary-indep: build
 	perl -ne '$$c++ if /^debconf /; last if $$c > 100 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
 
-	dh_python
+	dh_python -n
 	dh_installchangelogs
 	dh_compress -X demo.templates -X tutorial.templates
 	dh_fixperms
