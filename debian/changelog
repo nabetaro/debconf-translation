@@ -19,8 +19,10 @@ debconf (1.5.15) UNRELEASED; urgency=low
   * Applied Davor Ocelic's patch adding a keybykey option to the LDAP
     DbDriver. Closes: #440857
     (Note that it currently has some minor uninitialised value warnings.)
+  * TERM isn't set if run from synaptic, avoid uninitialised value in Readline
+    frontend. Closes: #307568
 
- -- Joey Hess <joeyh@debian.org>  Tue, 04 Sep 2007 17:43:54 -0400
+ -- Joey Hess <joeyh@debian.org>  Wed, 17 Oct 2007 12:24:23 -0400
 
 debconf (1.5.14) unstable; urgency=low
 

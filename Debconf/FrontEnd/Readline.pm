@@ -54,7 +54,7 @@ sub init {
 	if (Term::ReadLine->ReadLine =~ /::Gnu$/) {
 		# Well, emacs shell buffer has some annoying interactions
 		# with Term::ReadLine::GNU. It's not worth the pain.
-		if ($ENV{TERM} =~ /emacs/i) {
+		if (exists $ENV{TERM} && $ENV{TERM} =~ /emacs/i) {
 			die gettext("Term::ReadLine::GNU is incompatable with emacs shell buffers.")."\n";
 		}
 		
