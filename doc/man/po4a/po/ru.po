@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_man\n"
-"POT-Creation-Date: 2007-07-25 14:59+0100\n"
+"POT-Creation-Date: 2007-10-19 21:26-0400\n"
 "PO-Revision-Date: 2006-07-04 21:42+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 #: ../../debconf-copydb:101 ../../debconf-getlang:73
 #: ../../debconf-loadtemplate:30 ../../debconf-mergetemplate:60
 #: ../../debconf-set-selections:82 ../../dpkg-preconfigure:55
-#: ../../dpkg-reconfigure:75 debconf.conf.5:521 confmodule.3:36 debconf.7:373
+#: ../../dpkg-reconfigure:75 debconf.conf.5:537 confmodule.3:36 debconf.7:373
 #: debconf-devel.7:940
 #, no-wrap
 msgid "SEE ALSO"
@@ -206,7 +206,7 @@ msgstr "L<debconf-devel(7)>, L<debconf(7)>"
 #: ../../debconf-getlang:255 ../../debconf-get-selections:74
 #: ../../debconf-loadtemplate:47 ../../debconf-mergetemplate:180
 #: ../../debconf-set-selections:228 ../../debconf-show:154
-#: ../../dpkg-preconfigure:235 ../../dpkg-reconfigure:260 debconf.conf.5:523
+#: ../../dpkg-preconfigure:235 ../../dpkg-reconfigure:260 debconf.conf.5:539
 #: confmodule.3:42 debconf.7:379 debconf-devel.7:950
 #, no-wrap
 msgid "AUTHOR"
@@ -741,7 +741,7 @@ msgstr ""
 "последней выполненной команды."
 
 # type: Content of: <refentry><refsect1><title>
-#: ../../debconf-communicate:28 debconf.conf.5:428
+#: ../../debconf-communicate:28 debconf.conf.5:444
 #, no-wrap
 msgid "EXAMPLE"
 msgstr "ПРИМЕР"
@@ -1144,8 +1144,11 @@ msgstr "L<debconf-mergetemplate(1)>"
 
 # type: textblock
 #: ../../debconf-get-selections:5
-msgid "debconf-get-selections"
-msgstr "debconf-get-selections"
+#, fuzzy
+msgid "debconf-get-selections - output contents of debconf database"
+msgstr ""
+"debconf-set-selections - вставляет новые ответы по умолчанию в базу данных "
+"debconf"
 
 # type: textblock
 #: ../../debconf-get-selections:9
@@ -1992,7 +1995,7 @@ msgstr ""
 "окружения DEBCONF_ADMIN_EMAIL."
 
 # type: Plain text
-#: debconf.conf.5:59 debconf.conf.5:379
+#: debconf.conf.5:59 debconf.conf.5:395
 #, no-wrap
 msgid "B<Debug>"
 msgstr "B<Debug>"
@@ -2204,7 +2207,7 @@ msgstr ""
 "целиком и его сохранение медленно."
 
 # type: Plain text
-#: debconf.conf.5:132 debconf.conf.5:168 debconf.conf.5:238 debconf.conf.5:293
+#: debconf.conf.5:132 debconf.conf.5:168 debconf.conf.5:238 debconf.conf.5:309
 msgid "The following things are configurable for this driver."
 msgstr "Настройки драйвера:"
 
@@ -2235,7 +2238,7 @@ msgstr ""
 "умолчанию -- 600, так как в файл могут хранятся пароли в некоторых случаях."
 
 # type: TP
-#: debconf.conf.5:140 debconf.conf.5:176 debconf.conf.5:294
+#: debconf.conf.5:140 debconf.conf.5:176 debconf.conf.5:310
 #, no-wrap
 msgid "B<Format>"
 msgstr "B<Format>"
@@ -2250,7 +2253,7 @@ msgstr ""
 "822 подобный формат."
 
 # type: Plain text
-#: debconf.conf.5:144 debconf.conf.5:180 debconf.conf.5:355
+#: debconf.conf.5:144 debconf.conf.5:180 debconf.conf.5:371
 #, no-wrap
 msgid "B<Backup>"
 msgstr "B<Backup>"
@@ -2541,8 +2544,33 @@ msgstr ""
 "Указание DN подключения и пароля должно быть зарезервировано для редких "
 "случаев, когда вы хотите обновить конфигурационные данные debconf."
 
+# type: TP
+#: debconf.conf.5:266
+#, no-wrap
+msgid "B<keybykey>"
+msgstr ""
+
 # type: Plain text
-#: debconf.conf.5:270
+#: debconf.conf.5:272
+msgid ""
+"Enable access to individual LDAP entries, instead of fetching them all at "
+"once in the beginning. This is very useful if you want to monitor your LDAP "
+"logs for specific debconf keys requested. In this way, you could also write "
+"custom handling code on the LDAP server part."
+msgstr ""
+
+# type: Plain text
+#: debconf.conf.5:279
+msgid ""
+"Note that when this option is enabled, the connection to the LDAP server is "
+"kept active during the whole Debconf run. This is a little different from "
+"the all-in-one behavior where two brief connections are made to LDAP; in the "
+"beginning to retrieve all the entries, and in the end to save eventual "
+"changes."
+msgstr ""
+
+# type: Plain text
+#: debconf.conf.5:284
 msgid ""
 "An example stanza setting up a database using this driver, assuming the "
 "remote database is on example.com and can be accessed anonymously:"
@@ -2552,14 +2580,15 @@ msgstr ""
 "доступна анонимно:"
 
 # type: Plain text
-#: debconf.conf.5:276
-#, no-wrap
+#: debconf.conf.5:291
+#, fuzzy, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
 "  Readonly: true\n"
 "  Server: example.com\n"
 "  BaseDN: cn=debconf,dc=example,dc=com\n"
+"  KeyByKey: 0\n"
 msgstr ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2568,7 +2597,7 @@ msgstr ""
 "  BaseDN: cn=debconf,dc=example,dc=com\n"
 
 # type: Plain text
-#: debconf.conf.5:279
+#: debconf.conf.5:294
 msgid ""
 "Another example, this time the LDAP database is on localhost, and can be "
 "written to:"
@@ -2577,14 +2606,15 @@ msgstr ""
 "в неё разрешена запись:"
 
 # type: Plain text
-#: debconf.conf.5:285
-#, no-wrap
+#: debconf.conf.5:301
+#, fuzzy, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
 "  Server: localhost\n"
 "  BaseDN: cn=debconf,dc=domain,dc=com\n"
 "  BindPasswd: secret\n"
+"  KeyByKey: 1\n"
 msgstr ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2593,13 +2623,13 @@ msgstr ""
 "  BindPasswd: secret\n"
 
 # type: TP
-#: debconf.conf.5:286
+#: debconf.conf.5:302
 #, no-wrap
 msgid "B<Pipe>"
 msgstr "B<Pipe>"
 
 # type: Plain text
-#: debconf.conf.5:291
+#: debconf.conf.5:307
 msgid ""
 "This special-purpose database driver reads and writes the database from "
 "standard input/output. It may be useful for people with special needs."
@@ -2608,7 +2638,7 @@ msgstr ""
 "стандартного ввода/вывода. Он может быть полезным в нестандартных ситуациях."
 
 # type: Plain text
-#: debconf.conf.5:298
+#: debconf.conf.5:314
 msgid ""
 "The format to read and write. See FORMATS below. Defaults to using a rfc-822 "
 "like format."
@@ -2617,13 +2647,13 @@ msgstr ""
 "используется rfc-822 подобный формат."
 
 # type: TP
-#: debconf.conf.5:298
+#: debconf.conf.5:314
 #, no-wrap
 msgid "B<Infd>"
 msgstr "B<Infd>"
 
 # type: Plain text
-#: debconf.conf.5:302
+#: debconf.conf.5:318
 msgid ""
 "File descriptor number to read from. Defaults to reading from stdin. If set "
 "to \"none\", the database will not read any data on startup."
@@ -2633,13 +2663,13 @@ msgstr ""
 "данных проводиться не будет."
 
 # type: TP
-#: debconf.conf.5:302
+#: debconf.conf.5:318
 #, no-wrap
 msgid "B<Outfd>"
 msgstr "B<Outfd>"
 
 # type: Plain text
-#: debconf.conf.5:306
+#: debconf.conf.5:322
 msgid ""
 "File descriptor number to write to. Defaults to writing to stdout. If set to "
 "\"none\", the database will be thrown away on shutdown."
@@ -2649,18 +2679,18 @@ msgstr ""
 "выброшена."
 
 # type: Plain text
-#: debconf.conf.5:310
+#: debconf.conf.5:326
 msgid "That's all of the real drivers, now moving on to meta-drivers.."
 msgstr "Это все реальные драйверы, теперь переходим к мета-драйверам.."
 
 # type: TP
-#: debconf.conf.5:310 debconf.conf.5:338
+#: debconf.conf.5:326 debconf.conf.5:354
 #, no-wrap
 msgid "B<Stack>"
 msgstr "B<Stack>"
 
 # type: Plain text
-#: debconf.conf.5:319
+#: debconf.conf.5:335
 msgid ""
 "This driver stacks up a number of other databases (of any type), and allows "
 "them to be accessed as one. When debconf asks for a value, the first "
@@ -2678,7 +2708,7 @@ msgstr ""
 "доступную для записи базу данных стека."
 
 # type: Plain text
-#: debconf.conf.5:327
+#: debconf.conf.5:343
 msgid ""
 "Things become more interesting if one of the databases on the stack is "
 "readonly. Consider a stack of the databases foo, bar, and baz, where foo and "
@@ -2697,7 +2727,7 @@ msgstr ""
 "перекрыто значением из bar, и более не видно для debconf."
 
 # type: Plain text
-#: debconf.conf.5:334
+#: debconf.conf.5:350
 msgid ""
 "This kind of thing is particularly useful if you want to point many systems "
 "at a central, readonly database, while still allowing things to be "
@@ -2714,12 +2744,12 @@ msgstr ""
 "база данных хранит что-то ещё."
 
 # type: Plain text
-#: debconf.conf.5:336
+#: debconf.conf.5:352
 msgid "Only one piece of configuration is needed to set up a stack:"
 msgstr "Только один параметр конфигурации требуется для настройки стека:"
 
 # type: Plain text
-#: debconf.conf.5:342
+#: debconf.conf.5:358
 msgid ""
 "This is where you specify a list of other databases, by name, to tell it "
 "what makes up the stack."
@@ -2728,12 +2758,12 @@ msgstr ""
 "чего состоит стек."
 
 # type: Plain text
-#: debconf.conf.5:345 debconf.conf.5:371
+#: debconf.conf.5:361 debconf.conf.5:387
 msgid "For example:"
 msgstr "Например:"
 
 # type: Plain text
-#: debconf.conf.5:349
+#: debconf.conf.5:365
 #, no-wrap
 msgid ""
 "  Name: megadb\n"
@@ -2745,7 +2775,7 @@ msgstr ""
 "  Stack: passworddb, configdb, companydb\n"
 
 # type: Plain text
-#: debconf.conf.5:352
+#: debconf.conf.5:368
 msgid ""
 "WARNING: The stack driver is not very well tested yet. Use at your own risk."
 msgstr ""
@@ -2753,7 +2783,7 @@ msgstr ""
 "на свой страх и риск."
 
 # type: Plain text
-#: debconf.conf.5:358
+#: debconf.conf.5:374
 msgid ""
 "This driver passes all requests on to another database driver. But it also "
 "copies all write requests to a backup database driver."
@@ -2762,34 +2792,34 @@ msgstr ""
 "также копирует все запросы на запись драйверу резервной базы данных."
 
 # type: Plain text
-#: debconf.conf.5:360 debconf.conf.5:384
+#: debconf.conf.5:376 debconf.conf.5:400
 msgid "You must specify the following fields to set up this driver:"
 msgstr "Для настройки драйвера вы должны указать следующие поля:"
 
 # type: TP
-#: debconf.conf.5:362 debconf.conf.5:386
+#: debconf.conf.5:378 debconf.conf.5:402
 #, no-wrap
 msgid "B<Db>"
 msgstr "B<Db>"
 
 # type: Plain text
-#: debconf.conf.5:365 debconf.conf.5:389
+#: debconf.conf.5:381 debconf.conf.5:405
 msgid "The database to read from and write to."
 msgstr "База данных для чтения и записи."
 
 # type: TP
-#: debconf.conf.5:365
+#: debconf.conf.5:381
 #, no-wrap
 msgid "B<Backupdb>"
 msgstr "B<Backupdb>"
 
 # type: Plain text
-#: debconf.conf.5:368
+#: debconf.conf.5:384
 msgid "The name of the database to send copies of writes to."
 msgstr "Имя базы данных, куда посылаются копии запросов на запись."
 
 # type: Plain text
-#: debconf.conf.5:376
+#: debconf.conf.5:392
 #, no-wrap
 msgid ""
 "  Name: backup\n"
@@ -2803,7 +2833,7 @@ msgstr ""
 "  Backupdb: mybackupdb\n"
 
 # type: Plain text
-#: debconf.conf.5:382
+#: debconf.conf.5:398
 msgid ""
 "This driver passes all requests on to another database driver, outputting "
 "verbose debugging output about the request and the result."
@@ -2812,13 +2842,13 @@ msgstr ""
 "подробную информацию для отладки о запросе и результате."
 
 # type: SH
-#: debconf.conf.5:391
+#: debconf.conf.5:407
 #, no-wrap
 msgid "ACCESS CONTROLS"
 msgstr "УПРАВЛЕНИЕ ДОСТУПОМ"
 
 # type: Plain text
-#: debconf.conf.5:395
+#: debconf.conf.5:411
 msgid ""
 "When you set up a database, you can also use some fields to specify access "
 "controls. You can specify that a database only accepts passwords, for "
@@ -2830,13 +2860,13 @@ msgstr ""
 "имени которых есть выражение \"foo\"."
 
 # type: TP
-#: debconf.conf.5:395
+#: debconf.conf.5:411
 #, no-wrap
 msgid "B<Readonly>"
 msgstr "B<Readonly>"
 
 # type: Plain text
-#: debconf.conf.5:400
+#: debconf.conf.5:416
 msgid ""
 "As was mentioned earlier, this access control, if set to \"true\", makes a "
 "database readonly. Debconf will read values from it, but will never write "
@@ -2847,13 +2877,13 @@ msgstr ""
 "читать значения из неё, но не никогда не будет что-либо писать."
 
 # type: TP
-#: debconf.conf.5:400
+#: debconf.conf.5:416
 #, no-wrap
 msgid "B<Accept-Name>"
 msgstr "B<Accept-Name>"
 
 # type: Plain text
-#: debconf.conf.5:406
+#: debconf.conf.5:422
 msgid ""
 "The text in this field is a perl-compatible regular expression that is "
 "matched against the names of items as they are requested from the database. "
@@ -2866,13 +2896,13 @@ msgstr ""
 "подпадают под регулярное выражение."
 
 # type: TP
-#: debconf.conf.5:406
+#: debconf.conf.5:422
 #, no-wrap
 msgid "B<Reject-Name>"
 msgstr "B<Reject-Name>"
 
 # type: Plain text
-#: debconf.conf.5:410
+#: debconf.conf.5:426
 msgid ""
 "Like Accept-Name, except any item name matching this regular expression will "
 "be rejected."
@@ -2881,13 +2911,13 @@ msgstr ""
 "регулярное выражение имя будет отклонено."
 
 # type: TP
-#: debconf.conf.5:410
+#: debconf.conf.5:426
 #, no-wrap
 msgid "B<Accept-Type>"
 msgstr "B<Accept-Type>"
 
 # type: Plain text
-#: debconf.conf.5:415
+#: debconf.conf.5:431
 msgid ""
 "Another regular expression, this matches against the type of the item that "
 "is being accessed. Only if the type matches the regex will access be granted."
@@ -2897,13 +2927,13 @@ msgstr ""
 "регулярное выражение."
 
 # type: TP
-#: debconf.conf.5:415
+#: debconf.conf.5:431
 #, no-wrap
 msgid "B<Reject-Type>"
 msgstr "B<Reject-Type>"
 
 # type: Plain text
-#: debconf.conf.5:419
+#: debconf.conf.5:435
 msgid ""
 "Like Accept-Type, except any type matching this regular expression will be "
 "rejected."
@@ -2912,13 +2942,13 @@ msgstr ""
 "регулярное выражение тип будет отклонён."
 
 # type: SH
-#: debconf.conf.5:419
+#: debconf.conf.5:435
 #, no-wrap
 msgid "FORMATS"
 msgstr "ФОРМАТЫ"
 
 # type: Plain text
-#: debconf.conf.5:423
+#: debconf.conf.5:439
 msgid ""
 "Some of the database drivers use format modules to control the actual format "
 "in which the database is stored on disk. These formats are currently "
@@ -2929,13 +2959,13 @@ msgstr ""
 "форматы:"
 
 # type: TP
-#: debconf.conf.5:423
+#: debconf.conf.5:439
 #, no-wrap
 msgid "B<822>"
 msgstr "B<822>"
 
 # type: Plain text
-#: debconf.conf.5:428
+#: debconf.conf.5:444
 msgid ""
 "This is a file format loosely based upon the rfc-822 format for email "
 "message headers. Similar formats are used throughout Debian; in the dpkg "
@@ -2946,12 +2976,12 @@ msgstr ""
 "status программы dpkg и т.д."
 
 # type: Plain text
-#: debconf.conf.5:430
+#: debconf.conf.5:446
 msgid "Here is a more complicated example of a debconf.conf file."
 msgstr "Вот более сложный пример файла debconf.conf."
 
 # type: Plain text
-#: debconf.conf.5:436
+#: debconf.conf.5:452
 #, no-wrap
 msgid ""
 "  # This stanza is used for general debconf setup.\n"
@@ -2967,7 +2997,7 @@ msgstr ""
 "  Debug: developer\n"
 
 # type: Plain text
-#: debconf.conf.5:441
+#: debconf.conf.5:457
 #, no-wrap
 msgid ""
 "  # This is my own local database.\n"
@@ -2981,7 +3011,7 @@ msgstr ""
 "  Directory: /var/cache/debconf/config\n"
 
 # type: Plain text
-#: debconf.conf.5:453
+#: debconf.conf.5:469
 #, no-wrap
 msgid ""
 "  # This is another database that I use to hold\n"
@@ -3009,7 +3039,7 @@ msgstr ""
 "  Accept-Name: xserver|xfree86|xbase\n"
 
 # type: Plain text
-#: debconf.conf.5:469
+#: debconf.conf.5:485
 #, no-wrap
 msgid ""
 "  # This is our company's global, read-only\n"
@@ -3045,7 +3075,7 @@ msgstr ""
 "  Required: false\n"
 
 # type: Plain text
-#: debconf.conf.5:477
+#: debconf.conf.5:493
 #, no-wrap
 msgid ""
 "  # I use this database to hold\n"
@@ -3065,7 +3095,7 @@ msgstr ""
 "  Accept-Type: password\n"
 
 # type: Plain text
-#: debconf.conf.5:490
+#: debconf.conf.5:506
 #, no-wrap
 msgid ""
 "  # Let's put them all together\n"
@@ -3095,7 +3125,7 @@ msgstr ""
 "  # (за исключением значений паролей).\n"
 
 # type: Plain text
-#: debconf.conf.5:498
+#: debconf.conf.5:514
 #, no-wrap
 msgid ""
 "  # A database is also used to hold templates. We \n"
@@ -3115,13 +3145,13 @@ msgstr ""
 "  Filename: /var/cache/debconf/templates\n"
 
 # type: Content of: <refentry><refsect1><title>
-#: debconf.conf.5:498 confmodule.3:22
+#: debconf.conf.5:514 confmodule.3:22
 #, no-wrap
 msgid "NOTES"
 msgstr "ЗАМЕЧАНИЯ"
 
 # type: Plain text
-#: debconf.conf.5:501
+#: debconf.conf.5:517
 msgid ""
 "If you use something like ${HOME} in this file, it will be replaced with the "
 "value of the named environment variable."
@@ -3130,7 +3160,7 @@ msgstr ""
 "значением с именем переменной окружения."
 
 # type: Plain text
-#: debconf.conf.5:505
+#: debconf.conf.5:521
 msgid ""
 "Environment variables can also be used to override the databases on the fly, "
 "see B<debconf>(7)"
@@ -3139,7 +3169,7 @@ msgstr ""
 "лету, смотрите B<debconf>(7)."
 
 # type: Plain text
-#: debconf.conf.5:508
+#: debconf.conf.5:524
 msgid ""
 "The field names (the part of the line before the colon) is case-insensitive. "
 "The values, though, are case sensitive."
@@ -3148,13 +3178,13 @@ msgstr ""
 "Но значения зависят от регистра символов."
 
 # type: SH
-#: debconf.conf.5:508
+#: debconf.conf.5:524
 #, no-wrap
 msgid "PLANNED ENHANCEMENTS"
 msgstr "ПЛАНИРУЕМЫЕ УЛУЧШЕНИЯ"
 
 # type: Plain text
-#: debconf.conf.5:517
+#: debconf.conf.5:533
 msgid ""
 "More drivers and formats. Some ideas include: A SQL driver, with the "
 "capability to access a remote database.  A DHCP driver, that makes available "
@@ -3171,28 +3201,28 @@ msgstr ""
 "заменять значения поля или флагов во всех запросах, переданных через него."
 
 # type: Content of: <refentry><refsect1><title>
-#: debconf.conf.5:517
+#: debconf.conf.5:533
 #, no-wrap
 msgid "FILES"
 msgstr "ФАЙЛЫ"
 
 # type: Plain text
-#: debconf.conf.5:519
+#: debconf.conf.5:535
 msgid "/etc/debconf.conf"
 msgstr "/etc/debconf.conf"
 
 # type: Plain text
-#: debconf.conf.5:521
+#: debconf.conf.5:537
 msgid "~/.debconfrc"
 msgstr "~/.debconfrc"
 
 # type: Plain text
-#: debconf.conf.5:523
+#: debconf.conf.5:539
 msgid "B<debconf>(7)"
 msgstr "B<debconf>(7)"
 
 # type: Plain text
-#: debconf.conf.5:524 confmodule.3:43 debconf.7:380 debconf-devel.7:951
+#: debconf.conf.5:540 confmodule.3:43 debconf.7:380 debconf-devel.7:951
 msgid "Joey Hess E<lt>joeyh@debian.orgE<gt>"
 msgstr "Joey Hess E<lt>joeyh@debian.orgE<gt>"
 
@@ -6860,3 +6890,7 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) содержит много полезной информации, включая описание "
 "среды хранения базы данных."
+
+# type: textblock
+#~ msgid "debconf-get-selections"
+#~ msgstr "debconf-get-selections"
