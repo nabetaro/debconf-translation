@@ -73,6 +73,12 @@ Otherwise, install packages with their progress bar ending at this
 
 Stop a running progress bar.
 
+=item B<--no-progress>
+
+Avoid starting, stopping, or stepping the progress bar. Progress
+messages from apt, media change events, and debconf questions will still
+be passed through to debconf.
+
 =item B<--logfile> I<file>
 
 Send the normal output from apt to the given file.
@@ -128,6 +134,7 @@ use Getopt::Long;
 use Debconf::Client::ConfModule ();
 
 my ($config, $start, $from, $to, $stop);
+my $progress=1;
 my ($logfile, $logstderr);
 
 sub checkopen (@) {
@@ -290,7 +297,7 @@ sub handle_status ($$$) {
 	$percent = ($percent * $len / 100 + $min);
 	$percent = ($percent * ($to - $from) / 100 + $from);
 	$percent =~ s/\..*//;
-	Debconf::Client::ConfModule::progress('SET', $percent);
+	Debconf::Client::ConfModule::progress('SET', $percent) if $progress;
 	Debconf::Client::ConfModule::subst(
 		'debconf-apt-progress/info', 'DESCRIPTION', $description);
 	Debconf::Client::ConfModule::progress(
@@ -321,7 +328,7 @@ sub run_progress ($$@) {
 	use IO::Handle;
 
 	Debconf::Client::ConfModule::progress(
-		'INFO', 'debconf-apt-progress/preparing');
+		'INFO', 'debconf-apt-progress/preparing') if $progress;
 
 	reservefds(4, 5, 6);
 
@@ -458,7 +465,7 @@ sub run_progress ($$@) {
 	my $status = $?;
 
 	# make sure that the progress bar always gets to the end
-	Debconf::Client::ConfModule::progress('SET', $to);
+	Debconf::Client::ConfModule::progress('SET', $to) if $progress;
 
 	return ($status >> 8);
 }
@@ -466,13 +473,13 @@ sub run_progress ($$@) {
 sub start_bar ($$) {
 	my ($from, $to) = @_;
 	Debconf::Client::ConfModule::progress(
-		'START', $from, $to, 'debconf-apt-progress/title');
+		'START', $from, $to, 'debconf-apt-progress/title') if $progress;
 	Debconf::Client::ConfModule::progress(
-		'INFO', 'debconf-apt-progress/preparing');
+		'INFO', 'debconf-apt-progress/preparing') if $progress;
 }
 
 sub stop_bar () {
-	Debconf::Client::ConfModule::progress('STOP');
+	Debconf::Client::ConfModule::progress('STOP') if $progress;
 	# If we don't stop, we leave a zombie in case some daemon fails to
 	# disconnect from fd 3.
 	Debconf::Client::ConfModule::stop();
@@ -498,7 +505,12 @@ my $result = GetOptions('config'    => \$config,
 			'to=i'      => \$to,
 			'stop'      => \$stop,
 			'logfile=s' => \$logfile,
-			'logstderr' => \$logstderr);
+			'logstderr' => \$logstderr,
+			'progress!' => \$progress);
+
+if (! $progress && ($start || $from || $to || $stop)) {
+	die "--no-progress cannot be used with --start, --from, --to, or --stop\n";
+}
 
 unless ($start) {
 	if (defined $from and not defined $to) {
