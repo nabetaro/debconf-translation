@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_man\n"
-"POT-Creation-Date: 2007-10-19 21:26-0400\n"
+"POT-Creation-Date: 2007-10-26 06:01-0400\n"
 "PO-Revision-Date: 2006-07-04 21:42+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -148,7 +148,7 @@ msgid "Specify the minimum priority of question that will be displayed."
 msgstr "Установить минимальный приоритет задаваемых вопросов."
 
 # type: Content of: <refentry><refsect1><title>
-#: ../../debconf:47 ../../debconf-apt-progress:93 ../../debconf-copydb:74
+#: ../../debconf:47 ../../debconf-apt-progress:99 ../../debconf-copydb:74
 #: ../../debconf-set-selections:59
 msgid "EXAMPLES"
 msgstr "ПРИМЕРЫ"
@@ -214,7 +214,7 @@ msgstr "АВТОР"
 
 # type: textblock
 #: ../../debconf:111 ../../Debconf/Client/ConfModule.pm:160
-#: ../../debconf-apt-progress:556 ../../debconf-communicate:75
+#: ../../debconf-apt-progress:568 ../../debconf-communicate:75
 #: ../../debconf-copydb:177 ../../debconf-getlang:257
 #: ../../debconf-loadtemplate:49 ../../debconf-mergetemplate:182
 #: ../../dpkg-preconfigure:237 ../../dpkg-reconfigure:262
@@ -524,21 +524,35 @@ msgstr "Остановить запущенный индикатор выпол�
 
 # type: =item
 #: ../../debconf-apt-progress:76
+#, fuzzy
+msgid "B<--no-progress>"
+msgstr "B<--no-reload>"
+
+# type: textblock
+#: ../../debconf-apt-progress:78
+msgid ""
+"Avoid starting, stopping, or stepping the progress bar. Progress messages "
+"from apt, media change events, and debconf questions will still be passed "
+"through to debconf."
+msgstr ""
+
+# type: =item
+#: ../../debconf-apt-progress:82
 msgid "B<--logfile> I<file>"
 msgstr "B<--logfile> I<файл>"
 
 # type: textblock
-#: ../../debconf-apt-progress:78
+#: ../../debconf-apt-progress:84
 msgid "Send the normal output from apt to the given file."
 msgstr "Направить результат работы apt в указанный файл."
 
 # type: =item
-#: ../../debconf-apt-progress:80
+#: ../../debconf-apt-progress:86
 msgid "B<--logstderr>"
 msgstr "B<--logstderr>"
 
 # type: textblock
-#: ../../debconf-apt-progress:82
+#: ../../debconf-apt-progress:88
 msgid ""
 "Send the normal output from apt to stderr. If you supply neither B<--"
 "logfile> nor B<--logstderr>, the normal output from apt will be discarded."
@@ -548,12 +562,12 @@ msgstr ""
 "пропадут."
 
 # type: =item
-#: ../../debconf-apt-progress:86
+#: ../../debconf-apt-progress:92
 msgid "B<-->"
 msgstr "B<-->"
 
 # type: textblock
-#: ../../debconf-apt-progress:88
+#: ../../debconf-apt-progress:94
 msgid ""
 "Terminate options. Since you will normally need to give at least the B<-y> "
 "argument to the command being run, you will usually need to use B<--> to "
@@ -565,7 +579,7 @@ msgstr ""
 "эти параметры от параметров B<debconf-apt-progress>."
 
 # type: textblock
-#: ../../debconf-apt-progress:95
+#: ../../debconf-apt-progress:101
 msgid ""
 "Install the GNOME desktop and an X window system development environment "
 "within a progress bar:"
@@ -574,7 +588,7 @@ msgstr ""
 "выводом индикатора выполнения:"
 
 # type: verbatim
-#: ../../debconf-apt-progress:98
+#: ../../debconf-apt-progress:104
 #, no-wrap
 msgid ""
 " debconf-apt-progress -- aptitude -y install gnome x-window-system-dev\n"
@@ -584,7 +598,7 @@ msgstr ""
 "\n"
 
 # type: textblock
-#: ../../debconf-apt-progress:100
+#: ../../debconf-apt-progress:106
 msgid ""
 "Install the GNOME, KDE, and XFCE desktops within a single progress bar, "
 "allocating 45% of the progress bar for each of GNOME and KDE and the "
@@ -594,7 +608,7 @@ msgstr ""
 "отдав по 45% индикатора выполнения GNOME и KDE, а оставшиеся 10% под XFCE:"
 
 # type: verbatim
-#: ../../debconf-apt-progress:104
+#: ../../debconf-apt-progress:110
 #, no-wrap
 msgid ""
 " #! /bin/sh\n"
@@ -634,12 +648,12 @@ msgstr ""
 "\n"
 
 # type: =head1
-#: ../../debconf-apt-progress:552
+#: ../../debconf-apt-progress:564
 msgid "AUTHORS"
 msgstr "АВТОРЫ"
 
 # type: textblock
-#: ../../debconf-apt-progress:554
+#: ../../debconf-apt-progress:566
 msgid "Colin Watson <cjwatson@debian.org>"
 msgstr "Colin Watson <cjwatson@debian.org>"
 
