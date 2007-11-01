@@ -128,7 +128,8 @@ remaining 10% for XFCE:
 
 The exit code of the specified command is returned, unless the user hit the
 cancel button on the progress bar. If the cancel button was hit, a value of
-30 is returned.
+30 is returned. To avoid ambiguity, if the command returned 30, a value of
+3 will be returned.
 
 =cut
 
@@ -606,6 +607,9 @@ EOF
 
 if ($numcancel) {
 	exit 30;
+}
+elsif ($status == 30) {
+	exit 3;
 }
 else {
 	exit $status;
