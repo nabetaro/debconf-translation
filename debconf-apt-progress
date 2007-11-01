@@ -497,12 +497,12 @@ sub run_progress ($$@) {
 
 # Called if the progress bar is canceled. Starts with a SIGINT but
 # if called repeatedly, falls back to SIGKILL.
-my $numcancel=0;
+my $cancelled=0;
 sub cancel () {
 	if (defined $pid) {
-		$numcancel++;
-		#print STDERR "canceled ($numcancel)\n";
-		if ($numcancel == 1) {
+		$cancelled++;
+		#print STDERR "canceled ($cancelled)\n";
+		if ($cancelled == 1) {
 			kill 2, $pid;
 		}
 		else {
@@ -605,7 +605,7 @@ EOF
 	stop_bar();
 }
 
-if ($numcancel) {
+if ($cancelled) {
 	exit 30;
 }
 elsif ($status == 30) {
