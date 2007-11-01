@@ -124,6 +124,12 @@ remaining 10% for XFCE:
      ;;
  esac
 
+=head1 RETURN CODE
+
+The exit code of the specified command is returned, unless the user hit the
+cancel button on the progress bar. If the cancel button was hit, a value of
+30 is returned.
+
 =cut
 
 use strict;
@@ -598,7 +604,12 @@ EOF
 	stop_bar();
 }
 
-exit $status;
+if ($numcancel) {
+	exit 30;
+}
+else {
+	exit $status;
+}
 
 =head1 AUTHORS
 
