@@ -14,8 +14,10 @@ debconf (1.5.17) UNRELEASED; urgency=low
     capb before calling it and everything should work. Of course, this should
     only be done when the apt operation being run is one that can be cleanly
     killed.
+  * debconf-apt-progress: Notice if the child exited abnormally, and exit
+    nonzero.
 
- -- Joey Hess <joeyh@debian.org>  Thu, 01 Nov 2007 14:31:55 -0400
+ -- Joey Hess <joeyh@debian.org>  Thu, 01 Nov 2007 18:36:20 -0400
 
 debconf (1.5.16) unstable; urgency=low
 
