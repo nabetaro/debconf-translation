@@ -1,3 +1,22 @@
+debconf (1.5.17) UNRELEASED; urgency=low
+
+  * Partial support for cancelable progress bars. While the dialog frontend
+    cannot support them due to limitations in whiptail(1) and dialog(1),
+    and I haven't implemented support in frontends like gnome or kde,
+    the confmoodule does now check to see if the frontend's progress bar
+    methods return nonzero, and will pass that nonzero status along
+    to the caller.
+  * Implemented support for cancelable progress bars in the passthrough
+    frontend.
+  * debconf-apt-progress: Check for the progress bar being canceled, and if
+    this happens, try to kill the apt process. Users of debconf-apt-progress
+    that want a cancelable progress bar can thus just set the progresscancel
+    capb before calling it and everything should work. Of course, this should
+    only be done when the apt operation being run is one that can be cleanly
+    killed.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 01 Nov 2007 14:31:55 -0400
+
 debconf (1.5.16) unstable; urgency=low
 
   * Drop python 2.3. Closes: #447864

@@ -179,20 +179,25 @@ sub progress_start {
 
 sub progress_set {
 	my $this=shift;
-	$this->SUPER::progress_set(@_);
+
+	my $ret=$this->SUPER::progress_set(@_);
 
 	while (Gtk2->events_pending) {
 		Gtk2->main_iteration;
 	}
+
+	return $ret;
 }
 
 sub progress_info {
 	my $this=shift;
-	$this->SUPER::progress_info(@_);
+	my $ret=$this->SUPER::progress_info(@_);
 
 	while (Gtk2->events_pending) {
 		Gtk2->main_iteration;
 	}
+
+	return $ret;
 }
 
 sub progress_stop {

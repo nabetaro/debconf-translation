@@ -297,11 +297,19 @@ sub handle_status ($$$) {
 	$percent = ($percent * $len / 100 + $min);
 	$percent = ($percent * ($to - $from) / 100 + $from);
 	$percent =~ s/\..*//;
-	Debconf::Client::ConfModule::progress('SET', $percent) if $progress;
+	if ($progress) {
+		my @ret=Debconf::Client::ConfModule::progress('SET', $percent);
+		if ($ret[0] eq '30') {
+			cancel();
+		}
+	}
 	Debconf::Client::ConfModule::subst(
 		'debconf-apt-progress/info', 'DESCRIPTION', $description);
-	Debconf::Client::ConfModule::progress(
+	my @ret=Debconf::Client::ConfModule::progress(
 		'INFO', 'debconf-apt-progress/info');
+	if ($ret[0] eq '30') {
+		cancel();
+	}
 }
 
 sub handle_debconf_command ($) {
@@ -316,6 +324,7 @@ sub handle_debconf_command ($) {
 		die "can't write to DEBCONF_REPLY_WRITE: $!";
 }
 
+my $pid;
 sub run_progress ($$@) {
 	my $from = shift;
 	my $to = shift;
@@ -327,8 +336,13 @@ sub run_progress ($$@) {
 	local *APT_LOG;
 	use IO::Handle;
 
-	Debconf::Client::ConfModule::progress(
-		'INFO', 'debconf-apt-progress/preparing') if $progress;
+	if ($progress) {
+		my @ret=Debconf::Client::ConfModule::progress(
+			'INFO', 'debconf-apt-progress/preparing');
+		if ($ret[0] eq '30') {
+			cancel();
+		}
+	}
 
 	reservefds(4, 5, 6);
 
@@ -373,7 +387,7 @@ sub run_progress ($$@) {
 	}
 	nocloexec(\*APT_LOG);
 
-	my $pid = passthrough $command,
+	$pid = passthrough $command,
 		'-o', 'APT::Status-Fd=4',
 		'-o', 'APT::Keep-Fds::=5',
 		'-o', 'APT::Keep-Fds::=6',
@@ -470,12 +484,33 @@ sub run_progress ($$@) {
 	return ($status >> 8);
 }
 
+# Called if the progress bar is canceled. Starts with a SIGINT but
+# if called repeatedly, falls back to SIGKILL.
+my $numcancel=0;
+sub cancel () {
+	if (defined $pid) {
+		$numcancel++;
+		#print STDERR "canceled ($numcancel)\n";
+		if ($numcancel == 1) {
+			kill 2, $pid;
+		}
+		else {
+			kill 9, $pid;
+		}
+	}
+}
+
 sub start_bar ($$) {
 	my ($from, $to) = @_;
-	Debconf::Client::ConfModule::progress(
-		'START', $from, $to, 'debconf-apt-progress/title') if $progress;
-	Debconf::Client::ConfModule::progress(
-		'INFO', 'debconf-apt-progress/preparing') if $progress;
+	if ($progress) {
+		Debconf::Client::ConfModule::progress(
+			'START', $from, $to, 'debconf-apt-progress/title');
+		my @ret=Debconf::Client::ConfModule::progress(
+			'INFO', 'debconf-apt-progress/preparing');
+		if ($ret[0] eq '30') {
+			cancel();
+		}
+	}
 }
 
 sub stop_bar () {

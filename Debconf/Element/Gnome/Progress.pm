@@ -51,6 +51,10 @@ sub set {
 
 	$this->progress_cur($value);
 	$this->widget->set_fraction($this->_fraction);
+
+	# TODO: to support a cancelable progress bar, should return 0 here
+	# if the user hit cancel.
+	return 1;
 }
 
 sub info {
@@ -58,6 +62,10 @@ sub info {
 	my $question=shift;
 
 	$this->widget->set_text(to_Unicode($question->description));
+	
+	# TODO: to support a cancelable progress bar, should return 0 here
+	# if the user hit cancel.
+	return 1;
 }
 
 sub stop {

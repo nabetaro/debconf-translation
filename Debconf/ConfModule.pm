@@ -94,6 +94,7 @@ my %codes = (
 	input_invisible => 30,
 	version_bad => 30,
 	go_back => 30,
+	progresscancel => 30,
 	internalerror => 100,
 );
 
@@ -815,6 +816,9 @@ This subcommand takes no arguments. It destroys the progress bar.
 
 =back
 
+Note that the frontend's progress_set, progress_step, and progress_info 
+functions should return true, unless the progress bar was canceled.
+
 =cut
 
 sub command_progress {
@@ -823,6 +827,8 @@ sub command_progress {
 	my $subcommand=shift;
 	$subcommand=lc($subcommand);
 	
+	my $ret;
+
 	if ($subcommand eq 'start') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 3;
 		my $min=shift;
@@ -835,16 +841,17 @@ sub command_progress {
 			return $codes{badparams}, "$question_name doesn't exist";
 
 		$this->frontend->progress_start($min, $max, $question);
+		$ret=1;
 	}
 	elsif ($subcommand eq 'set') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 		my $value=shift;
-		$this->frontend->progress_set($value);
+		$ret = $this->frontend->progress_set($value);
 	}
 	elsif ($subcommand eq 'step') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
 		my $inc=shift;
-		$this->frontend->progress_step($inc);
+		$ret = $this->frontend->progress_step($inc);
 	}
 	elsif ($subcommand eq 'info') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 1;
@@ -853,17 +860,23 @@ sub command_progress {
 		my $question=Debconf::Question->get($question_name) ||
 			return $codes{badparams}, "$question_name doesn't exist";
 
-		$this->frontend->progress_info($question);
+		$ret = $this->frontend->progress_info($question);
 	}
 	elsif ($subcommand eq 'stop') {
 		return $codes{syntaxerror}, "Incorrect number of arguments" if @_ != 0;
 		$this->frontend->progress_stop();
+		$ret=1;
 	}
 	else {
 		return $codes{syntaxerror}, "Unknown subcommand";
 	}
 
-	return $codes{success}, "OK";
+	if ($ret) {
+		return $codes{success}, "OK";
+	}
+	else {
+		return $codes{progresscancel}, "CANCELED";
+	}
 }
 
 =item command_data

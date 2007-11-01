@@ -335,20 +335,20 @@ sub progress_start {
 sub progress_set {
 	my $this=shift;
 
-	return $this->talk('PROGRESS', 'SET', $_[0]);
+	return (scalar($this->talk('PROGRESS', 'SET', $_[0])) ne "30");
 }
 
 sub progress_step {
 	my $this=shift;
 
-	return $this->talk('PROGRESS', 'STEP', $_[0]);
+	return (scalar($this->talk('PROGRESS', 'STEP', $_[0])) ne "30");
 }
 
 sub progress_info {
 	my $this=shift;
 
 	$this->progress_data('INFO', $_[0]);
-	return $this->talk('PROGRESS', 'INFO', $_[0]->template->template);
+	return (scalar($this->talk('PROGRESS', 'INFO', $_[0]->template->template)) ne "30");
 }
 
 sub progress_stop {

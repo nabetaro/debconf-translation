@@ -24,9 +24,11 @@ sub start {
 }
 
 sub set {
+	return 1;
 }
 
 sub info {
+	return 1;
 }
 
 sub stop {

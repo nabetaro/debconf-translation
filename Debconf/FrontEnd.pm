@@ -248,18 +248,26 @@ sub progress_start {
 Set the value of a progress bar, within the minimum and maximum values
 passed when starting it.
 
+Returns true unless the progress bar was canceled by the user.
+Cancelation is indicated by the progress bar object's set method returning
+false.
+
 =cut
 
 sub progress_set {
 	my $this=shift;
 	my $value=shift;
 
-	$this->progress_bar->set($value);
+	return $this->progress_bar->set($value);
 }
 
 =item progress_step
 
 Step a progress bar by the given amount.
+
+Returns true unless the progress bar was canceled by the user.
+Cancelation is indicated by the progress bar object's set method returning
+false.
 
 =cut
 
@@ -267,12 +275,16 @@ sub progress_step {
 	my $this=shift;
 	my $inc=shift;
 
-	$this->progress_set($this->progress_bar->progress_cur + $inc);
+	return $this->progress_set($this->progress_bar->progress_cur + $inc);
 }
 
 =item progress_info
 
 Set an informational message to be displayed along with the progress bar.
+
+Returns true unless the progress bar was canceled by the user.
+Cancelation is indicated by the progress bar object's info method returning
+false.
 
 =cut
 
@@ -280,7 +292,7 @@ sub progress_info {
 	my $this=shift;
 	my $question=shift;
 
-	$this->progress_bar->info($question);
+	return $this->progress_bar->info($question);
 }
 
 =item progress_stop

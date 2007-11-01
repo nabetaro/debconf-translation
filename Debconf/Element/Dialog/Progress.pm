@@ -67,6 +67,8 @@ sub set {
 
 	$this->progress_cur($value);
 	$this->_communicate($this->_percent . "\n");
+
+	return 1;
 }
 
 sub info {
@@ -92,6 +94,8 @@ sub info {
 	$this->_communicate(
 		sprintf("XXX\n%d\n%s\nXXX\n%d\n",
 			$this->_percent, $text, $this->_percent));
+
+	return 1;
 }
 
 sub stop {

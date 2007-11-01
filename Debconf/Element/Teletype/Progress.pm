@@ -39,9 +39,12 @@ sub set {
 
 	$this->last($new);
 	$this->frontend->display("..$new%");
+
+	return 1;
 }
 
 sub info {
+	return 1;
 }
 
 sub stop {

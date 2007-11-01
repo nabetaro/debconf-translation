@@ -51,6 +51,10 @@ sub set {
 
 	$this->progress_cur($value);
 	$this->progress_bar->setProgress($this->progress_cur() - $this->progress_min());
+	
+	# TODO: to support a cancelable progress bar, should return 0 here
+	# if the user hit cancel.
+	return 1;
 }
 
 sub info {
@@ -58,6 +62,10 @@ sub info {
 	my $question=shift;
 
 	$this->progress_label->setText(to_Unicode($question->description));
+	
+	# TODO: to support a cancelable progress bar, should return 0 here
+	# if the user hit cancel.
+	return 1;
 }
 
 sub stop {

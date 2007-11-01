@@ -186,16 +186,20 @@ sub progress_start {
 
 sub progress_set {
 	my $this=shift;
-	$this->SUPER::progress_set(@_);
+	my $ret=$this->SUPER::progress_set(@_);
 
 	$this->qtapp->processEvents;
+
+	return $ret;
 }
 
 sub progress_info {
 	my $this=shift;
-	$this->SUPER::progress_info(@_);
+	my $ret=$this->SUPER::progress_info(@_);
 
 	$this->qtapp->processEvents;
+
+	return $ret;
 }
 
 sub progress_stop {
