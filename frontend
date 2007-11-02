@@ -86,7 +86,7 @@ else {
 	}
 }
 debug developer => "frontend running, package name is $package";
-$frontend->default_title($package);
+$frontend->default_title($package) if length $package;
 $frontend->info(undef);
 
 # See if the preinst or postinst of the package is being run, and if there

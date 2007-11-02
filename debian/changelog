@@ -16,8 +16,10 @@ debconf (1.5.17) UNRELEASED; urgency=low
     killed.
   * debconf-apt-progress: Notice if the child exited abnormally, and exit
     nonzero.
+  * Avoid setting a default title of "Configuring " when starting up the
+    frontend if no package name could be determined.
 
- -- Joey Hess <joeyh@debian.org>  Thu, 01 Nov 2007 18:36:20 -0400
+ -- Joey Hess <joeyh@debian.org>  Fri, 02 Nov 2007 15:48:51 -0400
 
 debconf (1.5.16) unstable; urgency=low
 
