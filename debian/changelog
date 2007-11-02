@@ -3,7 +3,7 @@ debconf (1.5.17) UNRELEASED; urgency=low
   * Partial support for cancelable progress bars. While the dialog frontend
     cannot support them due to limitations in whiptail(1) and dialog(1),
     and I haven't implemented support in frontends like gnome or kde,
-    the confmoodule does now check to see if the frontend's progress bar
+    the confmodule does now check to see if the frontend's progress bar
     methods return nonzero, and will pass that nonzero status along
     to the caller.
   * Implemented support for cancelable progress bars in the passthrough
