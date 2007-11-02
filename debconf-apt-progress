@@ -512,16 +512,6 @@ sub cancel () {
 		else {
 			kill 9, $pid;
 		}
-
-		# This is pure paranoia. What if the child was in the
-		# middle of writing a debconf command out, only to be
-		# interrupted with a truncated write? Let's send a no-op
-		# command to finish it out just in case.
-		Debconf::Client::ConfModule::get("debconf/priority");
-		# It may take a while for the cancel to happen, so update
-		# the progress.
-		my @ret=Debconf::Client::ConfModule::progress(
-			'INFO', 'debconf-apt-progress/cancelled');
 	}
 }
 
@@ -622,6 +612,12 @@ EOF
 }
 
 if ($cancelled) {
+	# This is pure paranoia. What if the child was in the
+	# middle of writing a debconf command out, only to be
+	# interrupted with a truncated write? Let's send a no-op
+	# command to finish it out just in case.
+	Debconf::Client::ConfModule::get("debconf/priority");
+
 	exit 30;
 }
 elsif ($status == 30) {
