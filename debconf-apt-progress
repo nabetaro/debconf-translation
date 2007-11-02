@@ -79,6 +79,12 @@ Avoid starting, stopping, or stepping the progress bar. Progress
 messages from apt, media change events, and debconf questions will still
 be passed through to debconf.
 
+=item B<--dlwaypoint> I<percentage>
+
+Specify what percent of the progress bar to use for downloading packages.
+The remainder will be used for installing packages. The default is to use
+15% for downloading and the remaining 85% for installing.
+
 =item B<--logfile> I<file>
 
 Send the normal output from apt to the given file.
@@ -142,6 +148,7 @@ use Debconf::Client::ConfModule ();
 
 my ($config, $start, $from, $to, $stop);
 my $progress=1;
+my $dlwaypoint=15;
 my ($logfile, $logstderr);
 
 sub checkopen (@) {
@@ -274,17 +281,14 @@ sub handle_status ($$$) {
 	my ($from, $to, $line) = @_;
 	my ($status, $pkg, $percent, $description) = split ':', $line, 4;
 
-	# Crude waypointing. 15% was chosen to match base-installer,
-	# but could benefit from timing tests under various
-	# bandwidth conditions.
 	my ($min, $len);
 	if ($status eq 'dlstatus') {
 		$min = 0;
-		$len = 15;
+		$len = $dlwaypoint;
 	}
 	elsif ($status eq 'pmstatus') {
-		$min = 15;
-		$len = 85;
+		$min = $dlwaypoint;
+		$len = 100 - $dlwaypoint;
 	}
 	elsif ($status eq 'media-change') {
 		Debconf::Client::ConfModule::subst(
@@ -495,19 +499,29 @@ sub run_progress ($$@) {
 	return ($status >> 8);
 }
 
-# Called if the progress bar is canceled. Starts with a SIGINT but
+# Called if the progress bar is cancelled. Starts with a SIGINT but
 # if called repeatedly, falls back to SIGKILL.
 my $cancelled=0;
 sub cancel () {
 	if (defined $pid) {
 		$cancelled++;
-		#print STDERR "canceled ($cancelled)\n";
+		#print STDERR "cancelled ($cancelled)\n";
 		if ($cancelled == 1) {
 			kill 2, $pid;
 		}
 		else {
 			kill 9, $pid;
 		}
+
+		# This is pure paranoia. What if the child was in the
+		# middle of writing a debconf command out, only to be
+		# interrupted with a truncated write? Let's send a no-op
+		# command to finish it out just in case.
+		Debconf::Client::ConfModule::get("debconf/priority");
+		# It may take a while for the cancel to happen, so update
+		# the progress.
+		my @ret=Debconf::Client::ConfModule::progress(
+			'INFO', 'debconf-apt-progress/cancelled');
 	}
 }
 
@@ -545,14 +559,16 @@ if (envnonempty('DEBCONF_APT_PROGRESS_DB_OVERRIDE')) {
 
 my @saved_argv = @ARGV;
 
-my $result = GetOptions('config'    => \$config,
-			'start'     => \$start,
-			'from=i'    => \$from,
-			'to=i'      => \$to,
-			'stop'      => \$stop,
-			'logfile=s' => \$logfile,
-			'logstderr' => \$logstderr,
-			'progress!' => \$progress);
+my $result = GetOptions('config'       => \$config,
+			'start'        => \$start,
+			'from=i'       => \$from,
+			'to=i'         => \$to,
+			'stop'         => \$stop,
+			'logfile=s'    => \$logfile,
+			'logstderr'    => \$logstderr,
+			'progress!'    => \$progress,
+			'dlwaypoint=i' => \$dlwaypoint,
+);
 
 if (! $progress && ($start || $from || $to || $stop)) {
 	die "--no-progress cannot be used with --start, --from, --to, or --stop\n";
