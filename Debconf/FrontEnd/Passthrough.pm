@@ -67,7 +67,9 @@ sub init {
 	$this->{readfh}->autoflush(1);
 	$this->{writefh}->autoflush(1);
 	
-	$this->SUPER::init(@_);
+	# Note: SUPER init is not called, since it does several things
+	# innappropriate for passthrough frontends, including clearing the capb.
+	$this->elements([]);
 	$this->interactive(1);
 	$this->need_tty(0);
 }

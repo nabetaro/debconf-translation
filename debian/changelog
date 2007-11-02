@@ -18,8 +18,9 @@ debconf (1.5.17) UNRELEASED; urgency=low
     nonzero.
   * Avoid setting a default title of "Configuring " when starting up the
     frontend if no package name could be determined.
+  * Fix the passthrough frontend to not clear the capb on startup.
 
- -- Joey Hess <joeyh@debian.org>  Fri, 02 Nov 2007 15:48:51 -0400
+ -- Joey Hess <joeyh@debian.org>  Fri, 02 Nov 2007 16:01:29 -0400
 
 debconf (1.5.16) unstable; urgency=low
 
