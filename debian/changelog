@@ -1,4 +1,4 @@
-debconf (1.5.17) UNRELEASED; urgency=low
+debconf (1.5.17) unstable; urgency=low
 
   * Partial support for cancelable progress bars. While the dialog frontend
     cannot support them due to limitations in whiptail(1) and dialog(1),
@@ -21,7 +21,7 @@ debconf (1.5.17) UNRELEASED; urgency=low
   * Fix the passthrough frontend to not clear the capb on startup.
   * debconf-apt-progress: Add --dlwaypoint option.
 
- -- Joey Hess <joeyh@debian.org>  Fri, 02 Nov 2007 16:41:01 -0400
+ -- Joey Hess <joeyh@debian.org>  Mon, 12 Nov 2007 01:57:15 -0500
 
 debconf (1.5.16) unstable; urgency=low
 

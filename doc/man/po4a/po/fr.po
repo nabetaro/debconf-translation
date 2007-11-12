@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"POT-Creation-Date: 2007-10-26 06:01-0400\n"
+"POT-Creation-Date: 2007-11-12 01:57-0500\n"
 "PO-Revision-Date: 2007-03-01 23:14+0100\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -145,7 +145,7 @@ msgid "Specify the minimum priority of question that will be displayed."
 msgstr "Spécifier la priorité minimale des questions qui vont être posées."
 
 # type: =head1
-#: ../../debconf:47 ../../debconf-apt-progress:99 ../../debconf-copydb:74
+#: ../../debconf:47 ../../debconf-apt-progress:105 ../../debconf-copydb:74
 #: ../../debconf-set-selections:59
 msgid "EXAMPLES"
 msgstr "EXEMPLES"
@@ -183,7 +183,7 @@ msgstr ""
 
 # type: SH
 #: ../../debconf:57 ../../Debconf/Client/ConfModule.pm:153
-#: ../../debconf-escape:23 ../../debconf-communicate:39
+#: ../../debconf-escape:21 ../../debconf-communicate:39
 #: ../../debconf-copydb:101 ../../debconf-getlang:73
 #: ../../debconf-loadtemplate:30 ../../debconf-mergetemplate:60
 #: ../../debconf-set-selections:82 ../../dpkg-preconfigure:55
@@ -212,7 +212,7 @@ msgstr "AUTEUR"
 
 # type: textblock
 #: ../../debconf:111 ../../Debconf/Client/ConfModule.pm:160
-#: ../../debconf-apt-progress:568 ../../debconf-communicate:75
+#: ../../debconf-apt-progress:634 ../../debconf-communicate:75
 #: ../../debconf-copydb:177 ../../debconf-getlang:257
 #: ../../debconf-loadtemplate:49 ../../debconf-mergetemplate:182
 #: ../../dpkg-preconfigure:237 ../../dpkg-reconfigure:262
@@ -538,21 +538,34 @@ msgstr ""
 
 # type: =item
 #: ../../debconf-apt-progress:82
+msgid "B<--dlwaypoint> I<percentage>"
+msgstr ""
+
+# type: textblock
+#: ../../debconf-apt-progress:84
+msgid ""
+"Specify what percent of the progress bar to use for downloading packages.  "
+"The remainder will be used for installing packages. The default is to use "
+"15% for downloading and the remaining 85% for installing."
+msgstr ""
+
+# type: =item
+#: ../../debconf-apt-progress:88
 msgid "B<--logfile> I<file>"
 msgstr "B<--logfile> I<fichier>"
 
 # type: textblock
-#: ../../debconf-apt-progress:84
+#: ../../debconf-apt-progress:90
 msgid "Send the normal output from apt to the given file."
 msgstr "Envoyer la sortie normale d'APT dans le I<fichier>."
 
 # type: =item
-#: ../../debconf-apt-progress:86
+#: ../../debconf-apt-progress:92
 msgid "B<--logstderr>"
 msgstr "B<--logstderr>"
 
 # type: textblock
-#: ../../debconf-apt-progress:88
+#: ../../debconf-apt-progress:94
 msgid ""
 "Send the normal output from apt to stderr. If you supply neither B<--"
 "logfile> nor B<--logstderr>, the normal output from apt will be discarded."
@@ -562,12 +575,12 @@ msgstr ""
 "logstderr>, la sortie normale d'APT sera désactivée."
 
 # type: =item
-#: ../../debconf-apt-progress:92
+#: ../../debconf-apt-progress:98
 msgid "B<-->"
 msgstr "B<-->"
 
 # type: textblock
-#: ../../debconf-apt-progress:94
+#: ../../debconf-apt-progress:100
 msgid ""
 "Terminate options. Since you will normally need to give at least the B<-y> "
 "argument to the command being run, you will usually need to use B<--> to "
@@ -580,7 +593,7 @@ msgstr ""
 "progress> lui-même."
 
 # type: textblock
-#: ../../debconf-apt-progress:101
+#: ../../debconf-apt-progress:107
 msgid ""
 "Install the GNOME desktop and an X window system development environment "
 "within a progress bar:"
@@ -589,7 +602,7 @@ msgstr ""
 "avec une barre d'avancement."
 
 # type: verbatim
-#: ../../debconf-apt-progress:104
+#: ../../debconf-apt-progress:110
 #, no-wrap
 msgid ""
 " debconf-apt-progress -- aptitude -y install gnome x-window-system-dev\n"
@@ -599,7 +612,7 @@ msgstr ""
 "\n"
 
 # type: textblock
-#: ../../debconf-apt-progress:106
+#: ../../debconf-apt-progress:112
 msgid ""
 "Install the GNOME, KDE, and XFCE desktops within a single progress bar, "
 "allocating 45% of the progress bar for each of GNOME and KDE and the "
@@ -610,7 +623,7 @@ msgstr ""
 "10 % restants à XFCE :"
 
 # type: verbatim
-#: ../../debconf-apt-progress:110
+#: ../../debconf-apt-progress:116
 #, no-wrap
 msgid ""
 " #! /bin/sh\n"
@@ -649,13 +662,27 @@ msgstr ""
 " esac\n"
 "\n"
 
+# type: =head1
+#: ../../debconf-apt-progress:133
+msgid "RETURN CODE"
+msgstr ""
+
+# type: textblock
+#: ../../debconf-apt-progress:135
+msgid ""
+"The exit code of the specified command is returned, unless the user hit the "
+"cancel button on the progress bar. If the cancel button was hit, a value of "
+"30 is returned. To avoid ambiguity, if the command returned 30, a value of 3 "
+"will be returned."
+msgstr ""
+
 # type: SH
-#: ../../debconf-apt-progress:564
+#: ../../debconf-apt-progress:630
 msgid "AUTHORS"
 msgstr "AUTEURS"
 
 # type: textblock
-#: ../../debconf-apt-progress:566
+#: ../../debconf-apt-progress:632
 msgid "Colin Watson <cjwatson@debian.org>"
 msgstr "Colin Watson <cjwatson@debian.org>"
 
@@ -695,15 +722,8 @@ msgstr ""
 "récupérer des descriptions étendues multilignes de manière fiable en "
 "utilisant C<METAGET>."
 
-# type: Plain text
-#: ../../debconf-escape:21
-msgid "This program unescapes replies sent by debconf in this mode."
-msgstr ""
-"Ce programme va retirer les séquences d'échappement envoyées par debconf "
-"dans ce mode :"
-
 # type: textblock
-#: ../../debconf-escape:25
+#: ../../debconf-escape:23
 msgid "L<debconf-devel(7)> (available in the debconf-doc package)"
 msgstr "L<debconf-devel(7)> (disponible dans le paquet debconf-doc)"
 
@@ -7050,6 +7070,12 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) contient beaucoup d'informations, y compris des "
 "informations sur les pilotes de la base de données."
+
+# type: Plain text
+#~ msgid "This program unescapes replies sent by debconf in this mode."
+#~ msgstr ""
+#~ "Ce programme va retirer les séquences d'échappement envoyées par debconf "
+#~ "dans ce mode :"
 
 # type: textblock
 #~ msgid "debconf-get-selections"
