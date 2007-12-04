@@ -409,11 +409,13 @@ sub run_progress ($$@) {
 	my $status_buf = '';
 	my $debconf_command_buf = '';
 
-	while (not $status_eof or not $debconf_command_eof) {
+	# STATUS_READ should be the last fd to close. DEBCONF_COMMAND_WRITE
+	# may end up captured by buggy daemons, so terminate the loop even
+	# if we haven't hit $debconf_command_eof.
+	while (not $status_eof) {
 		my $rin = '';
 		my $rout;
-		vec($rin, fileno(STATUS_READ), 1) = 1
-			unless $status_eof;
+		vec($rin, fileno(STATUS_READ), 1) = 1;
 		vec($rin, fileno(DEBCONF_COMMAND_READ), 1) = 1
 			unless $debconf_command_eof;
 		my $sel = select($rout = $rin, undef, undef, undef);

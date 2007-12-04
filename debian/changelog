@@ -1,3 +1,13 @@
+debconf (1.5.18) UNRELEASED; urgency=low
+
+  [ Søren Hansen ]
+  * debconf-apt-progress sometimes gets captured by buggy daemons, causing
+    tasksel to hang because $debconf_command_eof never becomes true.
+    STATUS_READ should be the last fd to close, so checking $status_eof is
+    sufficient (LP: #141601).
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 04 Dec 2007 17:09:43 +0000
+
 debconf (1.5.17) unstable; urgency=low
 
   * Partial support for cancelable progress bars. While the dialog frontend
