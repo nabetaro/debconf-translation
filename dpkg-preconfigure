@@ -157,7 +157,7 @@ unless (open(INFO, "-|")) {
 		}
 		else {
 			if (system("apt-extracttemplates", @collect) != 0) {
-				print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
+				print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s")."\n",$!);
 			}
 			if ($apt && @debs > 30) {
 				$progress += @collect;
@@ -169,7 +169,7 @@ unless (open(INFO, "-|")) {
 		}
 	}
 	if (system("apt-extracttemplates", @collect) != 0) {
-		print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s"),$!);
+		print STDERR sprintf("debconf: ".gettext("apt-extracttemplates failed: %s")."\n",$!);
 	}
 	if ($apt && @debs > 30) {
 		$progress += @collect;
