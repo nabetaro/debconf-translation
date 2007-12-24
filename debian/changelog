@@ -6,6 +6,9 @@ debconf (1.5.18) UNRELEASED; urgency=low
     STATUS_READ should be the last fd to close, so checking $status_eof is
     sufficient (LP: #141601).
 
+  [ Joey Hess ]
+  * debconf(1): Document that this command is rarely used. Closes: #457598
+
  -- Colin Watson <cjwatson@debian.org>  Tue, 04 Dec 2007 17:09:43 +0000
 
 debconf (1.5.17) unstable; urgency=low
