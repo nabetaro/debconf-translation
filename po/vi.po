@@ -1,12 +1,12 @@
 # Vietnamese Translation for debconf.
 # Copyright © 2006 Free Software Foundation, Inc.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2006.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2006-10-12 21:20+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -145,7 +145,7 @@ msgstr "Hãy nhận những mục bạn muốn chọn, định giới bằng d�
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Không thể tải « Debconf::Element::%s ». Thất bại vì: %s."
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Đang cấu hình %s"
@@ -210,8 +210,8 @@ msgstr ""
 "cứ mục nào như cần thiết, rồi lưu nó và thoát. Sau đó, debconf sẽ đọc tập "
 "tin mới chỉnh sửa, và dùng nhưng giá trị mới nhập để cấu hình hệ thống."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf trên %s"
@@ -233,8 +233,8 @@ msgstr "Thêm nữa"
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Ghi chú : Debconf đang chạy trong chế độ Mạng. Hãy đi tới « http://localhost:"
-"%i/ »."
+"Ghi chú : Debconf đang chạy trong chế độ Mạng. Hãy đi tới « http://localhost:%"
+"i/ »."
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
@@ -426,11 +426,11 @@ msgstr "%s cũ"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s cũ nên thả toàn mẫu."
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Cách sử dụng: debconf [tùy_chọn ...] lệnh [đối_số ...]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
-"POT-Creation-Date: 2007-11-12 01:57-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2007-03-01 23:14+0100\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -100,20 +100,27 @@ msgstr ""
 "La commande à exécuter depuis debconf doit être spécifiée de manière à ce "
 "qu'elle soit trouvée dans votre PATH."
 
+# type: textblock
+#: ../../debconf:27
+msgid ""
+"This command is not the usual way that debconf is used. It's more typical "
+"for debconf to be used via L<dpkg-preconfigure(8)> or L<dpkg-reconfigure(8)>."
+msgstr ""
+
 # type: =head1
-#: ../../debconf:27 ../../debconf-apt-progress:43 ../../debconf-copydb:35
+#: ../../debconf:30 ../../debconf-apt-progress:43 ../../debconf-copydb:35
 #: ../../debconf-mergetemplate:44 ../../debconf-set-selections:68
 #: ../../debconf-show:36 ../../dpkg-preconfigure:20 ../../dpkg-reconfigure:18
 msgid "OPTIONS"
 msgstr "OPTIONS"
 
 # type: =item
-#: ../../debconf:31
+#: ../../debconf:34
 msgid "B<-o>I<package>, B<--owner=>I<package>"
 msgstr "B<-o>I<paquet>, B<--owner=>I<paquet>"
 
 # type: textblock
-#: ../../debconf:33
+#: ../../debconf:36
 msgid ""
 "Tell debconf what package the command it is running is a part of. This is "
 "necessary to get ownership of registered questions right, and to support "
@@ -125,39 +132,39 @@ msgstr ""
 "gérées correctement."
 
 # type: =item
-#: ../../debconf:37 ../../dpkg-preconfigure:24 ../../dpkg-reconfigure:22
+#: ../../debconf:40 ../../dpkg-preconfigure:24 ../../dpkg-reconfigure:22
 msgid "B<-f>I<type>, B<--frontend=>I<type>"
 msgstr "B<-f>I<type>, B<--frontend=>I<type>"
 
 # type: textblock
-#: ../../debconf:39 ../../dpkg-preconfigure:26
+#: ../../debconf:42 ../../dpkg-preconfigure:26
 msgid "Select the frontend to use."
 msgstr "Sélectionner l'interface à utiliser."
 
 # type: =item
-#: ../../debconf:41 ../../dpkg-preconfigure:28 ../../dpkg-reconfigure:33
+#: ../../debconf:44 ../../dpkg-preconfigure:28 ../../dpkg-reconfigure:33
 msgid "B<-p>I<value>, B<--priority=>I<value>"
 msgstr "B<-p>I<valeur>, B<--priority=>I<valeur>"
 
 # type: textblock
-#: ../../debconf:43
+#: ../../debconf:46
 msgid "Specify the minimum priority of question that will be displayed."
 msgstr "Spécifier la priorité minimale des questions qui vont être posées."
 
 # type: =head1
-#: ../../debconf:47 ../../debconf-apt-progress:105 ../../debconf-copydb:74
+#: ../../debconf:50 ../../debconf-apt-progress:105 ../../debconf-copydb:74
 #: ../../debconf-set-selections:59
 msgid "EXAMPLES"
 msgstr "EXEMPLES"
 
 # type: textblock
-#: ../../debconf:49
+#: ../../debconf:52
 msgid "To debug a shell script that uses debconf, you might use:"
 msgstr ""
 "Pour déboguer un script shell qui utilise debconf, vous devriez utiliser :"
 
 # type: verbatim
-#: ../../debconf:51
+#: ../../debconf:54
 #, no-wrap
 msgid ""
 " DEBCONF_DEBUG=developer debconf my-shell-prog\n"
@@ -167,12 +174,12 @@ msgstr ""
 "\n"
 
 # type: textblock
-#: ../../debconf:53
+#: ../../debconf:56
 msgid "Or, you might use this:"
 msgstr "Ou ceci :"
 
 # type: verbatim
-#: ../../debconf:55
+#: ../../debconf:58
 #, no-wrap
 msgid ""
 " debconf --frontend=readline sh -x my-shell-prog\n"
@@ -182,7 +189,7 @@ msgstr ""
 "\n"
 
 # type: SH
-#: ../../debconf:57 ../../Debconf/Client/ConfModule.pm:153
+#: ../../debconf:60 ../../Debconf/Client/ConfModule.pm:153
 #: ../../debconf-escape:21 ../../debconf-communicate:39
 #: ../../debconf-copydb:101 ../../debconf-getlang:73
 #: ../../debconf-loadtemplate:30 ../../debconf-mergetemplate:60
@@ -194,12 +201,12 @@ msgid "SEE ALSO"
 msgstr "VOIR AUSSI"
 
 # type: textblock
-#: ../../debconf:59
+#: ../../debconf:62
 msgid "L<debconf-devel(7)>, L<debconf(7)>"
 msgstr "L<debconf-devel(7)>, L<debconf(7)>"
 
 # type: SH
-#: ../../debconf:109 ../../Debconf/Client/ConfModule.pm:158
+#: ../../debconf:112 ../../Debconf/Client/ConfModule.pm:158
 #: ../../debconf-communicate:73 ../../debconf-copydb:175
 #: ../../debconf-getlang:255 ../../debconf-get-selections:74
 #: ../../debconf-loadtemplate:47 ../../debconf-mergetemplate:180
@@ -211,8 +218,8 @@ msgid "AUTHOR"
 msgstr "AUTEUR"
 
 # type: textblock
-#: ../../debconf:111 ../../Debconf/Client/ConfModule.pm:160
-#: ../../debconf-apt-progress:634 ../../debconf-communicate:75
+#: ../../debconf:114 ../../Debconf/Client/ConfModule.pm:160
+#: ../../debconf-apt-progress:636 ../../debconf-communicate:75
 #: ../../debconf-copydb:177 ../../debconf-getlang:257
 #: ../../debconf-loadtemplate:49 ../../debconf-mergetemplate:182
 #: ../../dpkg-preconfigure:237 ../../dpkg-reconfigure:262
@@ -677,12 +684,12 @@ msgid ""
 msgstr ""
 
 # type: SH
-#: ../../debconf-apt-progress:630
+#: ../../debconf-apt-progress:632
 msgid "AUTHORS"
 msgstr "AUTEURS"
 
 # type: textblock
-#: ../../debconf-apt-progress:632
+#: ../../debconf-apt-progress:634
 msgid "Colin Watson <cjwatson@debian.org>"
 msgstr "Colin Watson <cjwatson@debian.org>"
 
@@ -2967,9 +2974,9 @@ msgid ""
 "allow debconf to access or modify it."
 msgstr ""
 "Le texte de ce champ est une expression rationnelle compatible Perl "
-"(« PCRE ») qui correspond aux noms des éléments requis de la base de "
-"données. La base de données ne permettra à debconf d'y accéder ou de la "
-"modifier que si le nom d'un élément concorde avec l'expression rationnelle."
+"(« PCRE ») qui correspond aux noms des éléments requis de la base de données. "
+"La base de données ne permettra à debconf d'y accéder ou de la modifier que "
+"si le nom d'un élément concorde avec l'expression rationnelle."
 
 # type: TP
 #: debconf.conf.5:422
@@ -4428,8 +4435,8 @@ msgid ""
 "Set to \"true\" to cause the seen flag to be set for questions asked in the "
 "noninteractive frontend."
 msgstr ""
-"Positionné à \"true\", cela positionne le drapeau « seen » pour les "
-"questions posées dans l'interface non-interactive."
+"Positionné à \"true\", cela positionne le drapeau « seen » pour les questions "
+"posées dans l'interface non-interactive."
 
 # type: SH
 #: debconf.7:358
@@ -4869,8 +4876,8 @@ msgid ""
 "spaces, like this:"
 msgstr ""
 "Un choix entre des valeurs. Les choix doivent être spécifiés dans un champ "
-"nommé « Choices ». Les valeurs sont séparées par des virgules et des "
-"espaces, comme ceci :"
+"nommé « Choices ». Les valeurs sont séparées par des virgules et des espaces, "
+"comme ceci :"
 
 # type: Plain text
 #: debconf-devel.7:134
@@ -4985,10 +4992,10 @@ msgid ""
 msgstr ""
 "Le champ « Default » indique à debconf la valeur par défaut. Pour "
 "multiselect, elle peut être une liste de choix séparés par des virgules "
-"semblable au champ « Choices ». Pour select, elle devrait être l'un des "
-"choix possibles. Pour Boolean, c'est « true » ou « false », alors que cela "
-"peut être n'importe quoi pour une chaîne de caractères et est ignoré pour "
-"les mots de passe."
+"semblable au champ « Choices ». Pour select, elle devrait être l'un des choix "
+"possibles. Pour Boolean, c'est « true » ou « false », alors que cela peut être "
+"n'importe quoi pour une chaîne de caractères et est ignoré pour les mots de "
+"passe."
 
 # type: Plain text
 #: debconf-devel.7:178
@@ -5502,10 +5509,10 @@ msgid ""
 "message to the user that you can't hard-code in the templates file."
 msgstr ""
 "Des questions peuvent avoir des substitutions incluses dans leurs champs "
-"« Description » et « Choices » (l'utilisation de substitutions dans les "
-"champs « Choices » fait un peu bidouillage, un meilleur mécanisme sera "
-"développé). Ces substitutions ressemblent à « ${key} ». Quand les questions "
-"sont affichées, les substitutions sont remplacées par leurs valeurs. Cette "
+"« Description » et « Choices » (l'utilisation de substitutions dans les champs "
+"« Choices » fait un peu bidouillage, un meilleur mécanisme sera développé). "
+"Ces substitutions ressemblent à « ${key} ». Quand les questions sont "
+"affichées, les substitutions sont remplacées par leurs valeurs. Cette "
 "commande peut être utilisée pour fixer la valeur d'une substitution. Cela "
 "peut être utile si vous avez besoin d'afficher à l'utilisateur des messages "
 "que vous ne pouvez pas mettre dans le fichier templates."
@@ -5559,13 +5566,12 @@ msgid ""
 "package).  Sometimes you want the user to see a question again -- in these "
 "cases you can set the seen flag to false to force debconf to redisplay it."
 msgstr ""
-"La marque « seen » est courante. Elle n'est normalement positionnée que si "
-"un utilisateur a déjà vu la question. Habituellement, debconf affiche à "
-"l'utilisateur seulement les questions dont la marque « seen » est "
-"positionnée à « false » (ou si vous reconfigurez un paquet). Quelquefois "
-"vous voulez que l'utilisateur revoie une question -- dans ce cas vous pouvez "
-"positionner la marque « seen » à false pour forcer debconf à l'afficher à "
-"nouveau."
+"La marque « seen » est courante. Elle n'est normalement positionnée que si un "
+"utilisateur a déjà vu la question. Habituellement, debconf affiche à "
+"l'utilisateur seulement les questions dont la marque « seen » est positionnée "
+"à « false » (ou si vous reconfigurez un paquet). Quelquefois vous voulez que "
+"l'utilisateur revoie une question -- dans ce cas vous pouvez positionner la "
+"marque « seen » à false pour forcer debconf à l'afficher à nouveau."
 
 # type: TP
 #: debconf-devel.7:377
@@ -5695,8 +5701,8 @@ msgstr ""
 "confmodule que vous pouvez inclure en début d'un script shell ; vous pourrez "
 "communiquer avec debconf de façon presque naturelle en utilisant la version "
 "en minuscules des commandes du protocole debconf qui sont préfixées de "
-"« db_ » (par ex. « db_input » et « db_go »). Pour plus de précisions "
-"veuillez consulter B<confmodule(3)>."
+"« db_ » (par ex. « db_input » et « db_go »). Pour plus de précisions veuillez "
+"consulter B<confmodule(3)>."
 
 # type: Plain text
 #: debconf-devel.7:425
@@ -5862,10 +5868,10 @@ msgid ""
 "can treat it just like \"configure\". This will be used in a later version "
 "of debconf to let postinsts know when they are reconfigured."
 msgstr ""
-"faites accepter à votre script postinst un premier paramètre "
-"« reconfigure ». Il peut le traiter comme « configure ». Cela sera utilisé "
-"dans une version ultérieure de debconf pour permettre aux scripts postinst "
-"de savoir quand ils sont reconfigurés."
+"faites accepter à votre script postinst un premier paramètre « reconfigure ». "
+"Il peut le traiter comme « configure ». Cela sera utilisé dans une version "
+"ultérieure de debconf pour permettre aux scripts postinst de savoir quand "
+"ils sont reconfigurés."
 
 # type: SH
 #: debconf-devel.7:485
@@ -7019,11 +7025,11 @@ msgid ""
 msgstr ""
 "Le comportement historique de /usr/share/debconf/confmodule de jouer avec "
 "les descripteurs de fichier et de configurer un descripteur de fichier "
-"spécial (« fd #3 ») qui communique avec debconf, peut causer toutes sortes "
-"de trouble lorsqu'un démon est lancé par un script postinst, puisque le "
-"démon cesse de communiquer avec debconf et que debconf ne peut pas savoir "
-"quand le script se termine. La commande STOP peut être utilisée pour ceci. "
-"Nous envisagerons plus tard de faire passer la communication avec debconf à "
+"spécial (« fd #3 ») qui communique avec debconf, peut causer toutes sortes de "
+"trouble lorsqu'un démon est lancé par un script postinst, puisque le démon "
+"cesse de communiquer avec debconf et que debconf ne peut pas savoir quand le "
+"script se termine. La commande STOP peut être utilisée pour ceci. Nous "
+"envisagerons plus tard de faire passer la communication avec debconf à "
 "travers une socket ou un autre mécanisme que les entrées et sorties standard."
 
 # type: Plain text

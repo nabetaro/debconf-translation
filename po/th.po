@@ -2,12 +2,12 @@
 # Copyright (C) 2006 Software in the Public Interest, Inc.
 # This file is distributed under the same license as the debconf package.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2006.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2006-10-22 17:19+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -139,7 +139,7 @@ msgstr "ป้อนรายการที่คุณต้องการเ
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "ไม่สามารถโหลด Debconf::Element::%s ได้ เพราะ: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "กำลังตั้งค่า %s"
@@ -200,8 +200,8 @@ msgstr ""
 "โดยเปลี่ยนแปลงรายการตามต้องการ แล้วบันทึกและออกจากเครื่องมือแก้ไขข้อความ จากนั้น debconf "
 "จะอ่านแฟ้มที่แก้ไข แล้วใช้ค่าต่างๆ ที่คุณป้อนเพื่อตั้งค่าระบบ"
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf ที่เครื่อง %s"
@@ -400,11 +400,11 @@ msgstr "%s ไม่ใช้แล้ว"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ไม่ใช้แล้ว; จะทิ้งต้นแบบคำถามนี้ทั้งหมด!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "วิธีใช้: debconf [options] command [args]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

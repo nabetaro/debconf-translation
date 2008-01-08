@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2005-01-23 19:33+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
@@ -148,7 +148,7 @@ msgstr "Skriv inn dei elementa du vil velje, skilde med mellomrom."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Ikkje i stand til å lasta Debconf::Element::%s. Feila på grunn av: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Set opp %s"
@@ -216,8 +216,8 @@ msgstr ""
 "lese den redigerte fila og bruka dei verdiane du har skrive inn for å setje "
 "opp systemet."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf på %s"
@@ -262,8 +262,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to "
-"malar ikkje skikkeleg skilde med ei tom linje.\n"
+"Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to malar "
+"ikkje skikkeleg skilde med ei tom linje.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -407,11 +407,11 @@ msgstr "%s er utdatert"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s er utdatert; droppar heile malen!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr ""
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

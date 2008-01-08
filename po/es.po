@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2006-10-05 20:27+0200\n"
 "Last-Translator: Javier Fernandez-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "No se pudo cargar Debconf::Element::%s. Fallo debido a: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configuración de %s"
@@ -224,8 +224,8 @@ msgstr ""
 "debconf leerá el fichero editado, y usará los valores introducidos para "
 "configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -273,9 +273,9 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"La plantilla #%s en %s tiene un campo «%s» duplicado con el nuevo valor «%"
-"s». Probablemente dos plantillas no están separadas correctamente con un "
-"sólo retorno de carro.\n"
+"La plantilla #%s en %s tiene un campo «%s» duplicado con el nuevo valor «%s». "
+"Probablemente dos plantillas no están separadas correctamente con un sólo "
+"retorno de carro.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -436,11 +436,11 @@ msgstr "%s está desactualizado"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está desactualizada: ¡descartando la plantilla completa!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Modo de uso: debconf [opciones] orden [argumentos]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

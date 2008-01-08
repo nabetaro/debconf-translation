@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2006-10-07 10:33+0200\n"
 "Last-Translator: Stefano Canepa <sc@linux.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -43,8 +43,8 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Le opzioni «Sigils» e «Smileys» nel file config non sono più usate e "
-"pertanto vanno rimosse."
+"Le opzioni «Sigils» e «Smileys» nel file config non sono più usate e pertanto "
+"vanno rimosse."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -145,7 +145,7 @@ msgstr "Inserire gli elementi che si vuole scegliere, separati da spazi."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Impossibile caricare Debconf::Element::%s. Fallito perché: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configurazione in corso di %s"
@@ -212,8 +212,8 @@ msgstr ""
 "quindi salvare e uscire; a questo punto, debconf leggerà il file modificato "
 "e userà i valori specificati per configurare il sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf su %s"
@@ -270,8 +270,7 @@ msgstr "Campo «%s» sconosciuto nel template, nella stanza n°%s di %s\n"
 #: ../Debconf/Template.pm:254
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr ""
-"Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
+msgstr "Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
 
 #: ../Debconf/Template.pm:260
 #, perl-format
@@ -416,11 +415,11 @@ msgstr "%s è obsoleto"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s è obsoleto; il template sarà completamente omesso!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Uso: debconf [opzioni] comando [argomenti]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

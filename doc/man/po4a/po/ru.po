@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_man\n"
-"POT-Creation-Date: 2007-11-12 01:57-0500\n"
+"POT-Creation-Date: 2008-01-08 14:08+0000\n"
 "PO-Revision-Date: 2006-07-04 21:42+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -104,20 +104,27 @@ msgstr ""
 "Команда для запуска с помощью debconf, должна находиться в одном из "
 "каталогов указанных в PATH."
 
+# type: textblock
+#: ../../debconf:27
+msgid ""
+"This command is not the usual way that debconf is used. It's more typical "
+"for debconf to be used via L<dpkg-preconfigure(8)> or L<dpkg-reconfigure(8)>."
+msgstr ""
+
 # type: Content of: <refentry><refsect1><title>
-#: ../../debconf:27 ../../debconf-apt-progress:43 ../../debconf-copydb:35
+#: ../../debconf:30 ../../debconf-apt-progress:43 ../../debconf-copydb:35
 #: ../../debconf-mergetemplate:44 ../../debconf-set-selections:68
 #: ../../debconf-show:36 ../../dpkg-preconfigure:20 ../../dpkg-reconfigure:18
 msgid "OPTIONS"
 msgstr "ПАРАМЕТРЫ"
 
 # type: =item
-#: ../../debconf:31
+#: ../../debconf:34
 msgid "B<-o>I<package>, B<--owner=>I<package>"
 msgstr "B<-o>I<пакет>, B<--owner=>I<пакет>"
 
 # type: textblock
-#: ../../debconf:33
+#: ../../debconf:36
 msgid ""
 "Tell debconf what package the command it is running is a part of. This is "
 "necessary to get ownership of registered questions right, and to support "
@@ -128,38 +135,38 @@ msgstr ""
 "поддержки команд unregister и purge."
 
 # type: =item
-#: ../../debconf:37 ../../dpkg-preconfigure:24 ../../dpkg-reconfigure:22
+#: ../../debconf:40 ../../dpkg-preconfigure:24 ../../dpkg-reconfigure:22
 msgid "B<-f>I<type>, B<--frontend=>I<type>"
 msgstr "B<-f>I<интерфейс>, B<--frontend=>I<интерфейс>"
 
 # type: textblock
-#: ../../debconf:39 ../../dpkg-preconfigure:26
+#: ../../debconf:42 ../../dpkg-preconfigure:26
 msgid "Select the frontend to use."
 msgstr "Указать нужную интерфейсную программу."
 
 # type: =item
-#: ../../debconf:41 ../../dpkg-preconfigure:28 ../../dpkg-reconfigure:33
+#: ../../debconf:44 ../../dpkg-preconfigure:28 ../../dpkg-reconfigure:33
 msgid "B<-p>I<value>, B<--priority=>I<value>"
 msgstr "B<-p>I<значение_приоритета>, B<--priority=>I<значение_приоритета>"
 
 # type: textblock
-#: ../../debconf:43
+#: ../../debconf:46
 msgid "Specify the minimum priority of question that will be displayed."
 msgstr "Установить минимальный приоритет задаваемых вопросов."
 
 # type: Content of: <refentry><refsect1><title>
-#: ../../debconf:47 ../../debconf-apt-progress:105 ../../debconf-copydb:74
+#: ../../debconf:50 ../../debconf-apt-progress:105 ../../debconf-copydb:74
 #: ../../debconf-set-selections:59
 msgid "EXAMPLES"
 msgstr "ПРИМЕРЫ"
 
 # type: textblock
-#: ../../debconf:49
+#: ../../debconf:52
 msgid "To debug a shell script that uses debconf, you might use:"
 msgstr "Отладка сценария командной строки, использующего debconf:"
 
 # type: verbatim
-#: ../../debconf:51
+#: ../../debconf:54
 #, no-wrap
 msgid ""
 " DEBCONF_DEBUG=developer debconf my-shell-prog\n"
@@ -169,12 +176,12 @@ msgstr ""
 "\n"
 
 # type: textblock
-#: ../../debconf:53
+#: ../../debconf:56
 msgid "Or, you might use this:"
 msgstr "Или так:"
 
 # type: verbatim
-#: ../../debconf:55
+#: ../../debconf:58
 #, no-wrap
 msgid ""
 " debconf --frontend=readline sh -x my-shell-prog\n"
@@ -184,7 +191,7 @@ msgstr ""
 "\n"
 
 # type: Content of: <refentry><refsect1><title>
-#: ../../debconf:57 ../../Debconf/Client/ConfModule.pm:153
+#: ../../debconf:60 ../../Debconf/Client/ConfModule.pm:153
 #: ../../debconf-escape:21 ../../debconf-communicate:39
 #: ../../debconf-copydb:101 ../../debconf-getlang:73
 #: ../../debconf-loadtemplate:30 ../../debconf-mergetemplate:60
@@ -196,12 +203,12 @@ msgid "SEE ALSO"
 msgstr "СМОТРИТЕ ТАКЖЕ"
 
 # type: textblock
-#: ../../debconf:59
+#: ../../debconf:62
 msgid "L<debconf-devel(7)>, L<debconf(7)>"
 msgstr "L<debconf-devel(7)>, L<debconf(7)>"
 
 # type: =head1
-#: ../../debconf:109 ../../Debconf/Client/ConfModule.pm:158
+#: ../../debconf:112 ../../Debconf/Client/ConfModule.pm:158
 #: ../../debconf-communicate:73 ../../debconf-copydb:175
 #: ../../debconf-getlang:255 ../../debconf-get-selections:74
 #: ../../debconf-loadtemplate:47 ../../debconf-mergetemplate:180
@@ -213,8 +220,8 @@ msgid "AUTHOR"
 msgstr "АВТОР"
 
 # type: textblock
-#: ../../debconf:111 ../../Debconf/Client/ConfModule.pm:160
-#: ../../debconf-apt-progress:634 ../../debconf-communicate:75
+#: ../../debconf:114 ../../Debconf/Client/ConfModule.pm:160
+#: ../../debconf-apt-progress:636 ../../debconf-communicate:75
 #: ../../debconf-copydb:177 ../../debconf-getlang:257
 #: ../../debconf-loadtemplate:49 ../../debconf-mergetemplate:182
 #: ../../dpkg-preconfigure:237 ../../dpkg-reconfigure:262
@@ -675,12 +682,12 @@ msgid ""
 msgstr ""
 
 # type: =head1
-#: ../../debconf-apt-progress:630
+#: ../../debconf-apt-progress:632
 msgid "AUTHORS"
 msgstr "АВТОРЫ"
 
 # type: textblock
-#: ../../debconf-apt-progress:632
+#: ../../debconf-apt-progress:634
 msgid "Colin Watson <cjwatson@debian.org>"
 msgstr "Colin Watson <cjwatson@debian.org>"
 
