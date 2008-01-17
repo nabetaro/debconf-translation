@@ -92,11 +92,17 @@ sub display_nowrap {
 		# with an infinite height "screen" of fan-fold paper..
 		if (! $this->screenheight_guessed &&
 		    $this->linecount($this->linecount+1) > $this->screenheight - 2) {
-			$this->prompt(
+			my $resp=$this->prompt(
 				prompt => '['.gettext("More").']',
 				default => '',
 				completions => [],
 			);
+			# Hack, there's not a good UI to suggest this is
+			# allowed, but you can enter 'q' to break out of
+			# the pager.
+			if (defined $resp && $resp eq 'q') {
+				last;
+			}
 		}
 		print "$_\n";
 	}

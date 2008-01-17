@@ -1,3 +1,12 @@
+debconf (1.5.19) UNRELEASED; urgency=low
+
+  * Add a hack to the teletype frontend to allow typing "q" at a "[More]"
+    prompt and break out of the 'pager'. Useful when ucf's diff turns out
+    to be many many pages in length. There's no UI indication that "q" works
+    here, but it's the same as in other pagers like less.
+
+ -- Joey Hess <joeyh@debian.org>  Thu, 17 Jan 2008 15:01:59 -0500
+
 debconf (1.5.18) unstable; urgency=low
 
   [ Søren Hansen ]
