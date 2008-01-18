@@ -46,7 +46,7 @@ use base qw(Exporter);
 our @EXPORT_OK=qw(version capb stop reset title input beginblock endblock go
 	      unset set get register unregister clear previous_module
 	      start_frontend fset fget subst purge metaget visible exist
-	      settitle info progress data);
+	      settitle info progress data x_loadtemplatefile);
 
 # Import :all to get everything.		   
 our %EXPORT_TAGS = (all => [@EXPORT_OK]);

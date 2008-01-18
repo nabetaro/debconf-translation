@@ -4,6 +4,9 @@ debconf (1.5.19) UNRELEASED; urgency=low
     prompt and break out of the 'pager'. Useful when ucf's diff turns out
     to be many many pages in length. There's no UI indication that "q" works
     here, but it's the same as in other pagers like less.
+  * Add (experimental, nonstandard, untested) implementation of
+    the X_LOADTEMPLATEFILE protocol command. Should be compatibile with
+    cdebconf's.
 
  -- Joey Hess <joeyh@debian.org>  Thu, 17 Jan 2008 15:01:59 -0500
 

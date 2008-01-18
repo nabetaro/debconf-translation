@@ -948,6 +948,38 @@ sub command_exist {
 		Debconf::Question->get($question_name) ? "true" : "false";
 }
 
+=item x_loadtemplatefile
+
+Extension to load a specified template file.
+
+=cut
+
+sub x_loadtemplatefile {
+	my $this=shift;
+
+	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 1 || @_ > 2;
+
+	my $file=shift;
+	my $fh=FileHandle->new($file);
+	if (! $fh) {
+		return $codes{badparams}, "failed to open $file: $!";
+	}
+
+	my $owner=$this->owner;
+	if (@_) {
+		$owner=shift;
+	}
+
+	eval {
+		Debconf::Template->load($fh, $owner);
+	};
+	if ($@) {
+		$@=~s/\n/\\n/g;
+		return $codes{internalerror}, $@;
+	}
+	return $codes{success};
+}
+
 =item AUTOLOAD
 
 Handles storing and loading fields.
