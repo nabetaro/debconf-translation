@@ -391,6 +391,10 @@ This removes a question from the database.
 .B PURGE
 Call this in your postrm when your package is purged. It removes
 all of your package's questions from debconf's database.
+.TP
+.B X_LOADTEMPLATEFILE /path/to/templates [owner]
+This extension loads the specified template file, into debconf's database.
+The owner defaults to the package that is being configured with debconf.
 .P
 Here is a simple example of the debconf protocol in action.
 .P
