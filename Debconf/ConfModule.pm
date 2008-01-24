@@ -948,13 +948,13 @@ sub command_exist {
 		Debconf::Question->get($question_name) ? "true" : "false";
 }
 
-=item x_loadtemplatefile
+=item command_x_loadtemplatefile
 
 Extension to load a specified template file.
 
 =cut
 
-sub x_loadtemplatefile {
+sub command_x_loadtemplatefile {
 	my $this=shift;
 
 	return $codes{syntaxerror}, "Incorrect number of arguments" if @_ < 1 || @_ > 2;
