@@ -49,7 +49,7 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "fset FSET" "fget FGET" "visible VISIBLE" "purge PURGE" \
 	 "metaget METAGET" "exist EXIST"
-	 "x_loadtemplatefile" "X_LOADTEMPLATEFILE"; do
+	 "x_loadtemplatefile X_LOADTEMPLATEFILE"; do
 	# Break string up into words.
 	set -- $i
 	eval "db_$1 () {
