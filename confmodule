@@ -78,7 +78,7 @@ db_previous_module () { _db_cmd "PREVIOUS_MODULE $@"; }
 db_info ()	{ _db_cmd "INFO $@"; }
 db_progress ()	{ _db_cmd "PROGRESS $@"; }
 db_data ()	{ _db_cmd "DATA $@"; }
-db_x_loadtemplate ()	{ _db_cmd "X_LOADTEMPLATE $@"; }
+db_x_loadtemplatefile ()	{ _db_cmd "X_LOADTEMPLATEFILE $@"; }
 
 # An old alias for input.
 db_text () {
