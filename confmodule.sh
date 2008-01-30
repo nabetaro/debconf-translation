@@ -48,7 +48,7 @@ for i in "capb CAPB" "set SET" "reset RESET" "title TITLE" \
          "input INPUT" "beginblock BEGINBLOCK" "endblock ENDBLOCK" "go GO" \
 	 "get GET" "register REGISTER" "unregister UNREGISTER" "subst SUBST" \
 	 "fset FSET" "fget FGET" "visible VISIBLE" "purge PURGE" \
-	 "metaget METAGET" "exist EXIST"
+	 "metaget METAGET" "exist EXIST" \
 	 "x_loadtemplatefile X_LOADTEMPLATEFILE"; do
 	# Break string up into words.
 	set -- $i
