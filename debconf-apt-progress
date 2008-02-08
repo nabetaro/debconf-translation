@@ -509,10 +509,10 @@ sub cancel () {
 		$cancelled++;
 		#print STDERR "cancelled ($cancelled)\n";
 		if ($cancelled == 1) {
-			kill 2, $pid;
+			kill INT => $pid;
 		}
 		else {
-			kill 9, $pid;
+			kill KILL => $pid;
 		}
 	}
 }
