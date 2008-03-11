@@ -299,10 +299,10 @@ sub handle_status ($$$) {
 		$ret[0] == 0 or die "Can't display media change request!\n";
 		Debconf::Client::ConfModule::go();
 		print COMMAND_WRITE "\n" || die "can't talk to command fd: $!";
-		next;
+		return;
 	}
 	else {
-		next;
+		return;
 	}
 
 	$percent = ($percent * $len / 100 + $min);

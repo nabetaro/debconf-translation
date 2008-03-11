@@ -1,6 +1,8 @@
 debconf (1.5.20) UNRELEASED; urgency=low
 
   * Use signal names rather than numbers in debconf-apt-progress.
+  * Fix use of 'next' rather than 'return' in debconf-apt-progress
+    handle_status.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 08 Feb 2008 20:30:06 +0000
 
