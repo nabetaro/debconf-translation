@@ -161,7 +161,7 @@ sub init {
 		my $records = $data->as_struct();
 		debug "db $this->{name}" => "Read ".$data->count()." entries";	
 	
-		parse_records($records);
+		$this->parse_records($records);
 	
 		$this->{ds}->unbind;
 	}
