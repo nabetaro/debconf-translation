@@ -306,10 +306,10 @@ sub get_key {
 	my $entry_cn = shift;
 
 	my $data = $this->{ds}->search(
-		base => $this->{basedn},
+		base => 'cn=' . $entry_cn . ',' . $this->{basedn},
 		sizelimit => 0,
 		timelimit => 0,
-		filter => "(&(cn=$entry_cn)(objectclass=debconfDbEntry))");
+		filter => "(objectclass=debconfDbEntry)");
 
 	if ($data->code) {
 		$this->error("Search failed: ".$data->error);
