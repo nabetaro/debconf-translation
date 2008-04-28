@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 # Copyright (C) 2002 Matthew Palmer.
-# Copyright (C) 2007 Davor Ocelic.
+# Copyright (C) 2007-2008 Davor Ocelic.
 
 =head1 NAME
 
@@ -79,7 +79,7 @@ eventual changes.
 
 =cut
 
-use fields qw(server port basedn binddn bindpasswd exists keybykey ds);
+use fields qw(server port basedn binddn bindpasswd exists keybykey ds accept_attribute reject_attribute);
 
 =head1 METHODS
 
@@ -205,11 +205,30 @@ sub shutdown
 				'objectclass' => 'debconfdbentry',
 				'cn' => $item
 		];
+
+		# Perform generic replacement in style of:
+		# extended_description -> extendedDescription
+		my @fields = keys %{$data{fields}};
+		foreach my $field (@fields) {
+			my $ldapname = $field;
+			if ( $ldapname =~ s/_(\w)/uc($1)/ge ) {
+				$data{fields}->{$ldapname} =  $data{fields}->{$field};
+				delete $data{fields}->{$field};
+			}
+		}
 		
 		foreach my $field (keys %{$data{fields}}) {
 			# skip empty fields exept value field
 			next if ($data{fields}->{$field} eq '' && 
 				 !($field eq 'value'));
+			if ((exists $this->{accept_attribute} &&
+				 $field !~ /$this->{accept_attribute}/) or
+				(exists $this->{reject_attribute} &&
+				 $field =~ /$this->{reject_attribute}/)) {
+				debug "db $item" => "reject $field";
+				next;
+			}
+
  			$modify_data{$field}=$data{fields}->{$field};
 			push(@{$add_data}, $field);
 			push(@{$add_data}, $data{fields}->{$field});
@@ -343,8 +362,13 @@ sub parse_records {
 			if ($attr eq 'objectclass') {
 				next;
 			}
-			debug "db $this->{name}" => "Setting data for $attr";
 			my $values = $entry->{$attr};
+
+			# Perform generic replacement in style of:
+			# extendedDescription -> extended_description
+			$attr =~ s/([a-z])([A-Z])/$1.'_'.lc($2)/ge;
+
+			debug "db $this->{name}" => "Setting data for $attr";
 			foreach my $val (@{$values}) {
 				debug "db $this->{name}" => "$attr = $val";
 				if ($attr eq 'owners') {
@@ -372,8 +396,7 @@ sub parse_records {
 
 Matthew Palmer <mpalmer@ieee.org>
 
-Davor Ocelic <debconf@spinlocksolutions.com> -
-Added KeyByKey support for http://infrastructures.spinlocksolutions.com/
+Davor Ocelic <docelic@spinlocksolutions.com>
 
 =cut
 

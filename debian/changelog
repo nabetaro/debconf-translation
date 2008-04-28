@@ -2,6 +2,8 @@ debconf (1.5.22) UNRELEASED; urgency=low
 
   * Improve LDAP KeyByKey option by setting the LDAP search base to the exact
     key that is requested. Patch from Davor Ocelic. 
+  * Initial support for storing templates database in LDAP. (i18n not
+    supported). Patch from Davor Ocelic. Closes: #477531
 
  -- Joey Hess <joeyh@debian.org>  Fri, 25 Apr 2008 17:02:49 -0400
 
