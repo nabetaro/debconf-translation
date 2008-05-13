@@ -1,0 +1,418 @@
+# translation of bg.po to Bulgarian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Damyan Ivanov <dam@modsoftsys.com>, 2006, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-05 19:44+0200\n"
+"PO-Revision-Date: 2007-05-09 10:02+0300\n"
+"Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "превключване към интерфейс: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "грешка при стартиране на интерфейс: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Грешка при стартиране на интерфейс: %s"
+
+#: ../Debconf/Config.pm:130
+msgid "Config database not specified in config file."
+msgstr "Във файла с настройките няма указата база данни за настройки."
+
+#: ../Debconf/Config.pm:134
+msgid "Template database not specified in config file."
+msgstr "Във файла с настройките няма указата база данни за шаблони."
+
+#: ../Debconf/Config.pm:139
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Настройките „Sigils“ и „Smileys“ вече не се използват. Премахнете ги "
+"от файла с настройки."
+
+#: ../Debconf/Config.pm:153
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Грешка при работа с базата данни, дефинирана с %s от %s."
+
+#: ../Debconf/Config.pm:228
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f  --frontend\t\tИнтерфейс, използван от debconf.\n"
+"  -p  --priority\t\tМинимален приоритет на въпросите.\n"
+"      --terse\t\t\tСбит режим.\n"
+
+#: ../Debconf/Config.pm:308
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Игнориране на грешен приоритет „%s“"
+
+#: ../Debconf/Config.pm:309
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Възможните приоритети са: %s"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Възможности"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "да"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "не"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr "(Въведете стойности, разделени със заметая и интервал („, “).)"
+
+#: ../Debconf/Element/Gnome.pm:183
+msgid "_Help"
+msgstr "_Помощ"
+
+#: ../Debconf/Element/Gnome.pm:185
+msgid "Help"
+msgstr "Помощ"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr ""
+"Настройките на debconf не позволяват показването на това съобщение. Поради "
+"тази причина то Ви беше изпратено по електронната поща."
+
+#: ../Debconf/Element/Noninteractive/Error.pm:63
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:86
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "никое от горните"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Въведете стойности, разделени с интервал."
+
+#: ../Debconf/FrontEnd.pm:131
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Unable to load Debconf::Element::%s. Failed because: %s"
+
+#: ../Debconf/FrontEnd.pm:312
+#, perl-format
+msgid "Configuring %s"
+msgstr "Настройване на %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM is not set, so the dialog frontend is not usable."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Dialog frontend is incompatible with emacs shell buffers"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr "Интерфейсът „dialog“ изисква терминалът да бъде поне 13 реда на 31 колони."
+
+#: ../Debconf/FrontEnd/Dialog.pm:280
+msgid "Package configuration"
+msgstr "Настройка на пакет"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"За подробни иструкции относно използването на интерфейса „редактор“, "
+"погледнете в края на документа."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Интерфейсът „текстов редактор“ ви дава няколко текстови файла за промяна. "
+"Това е пример за такъв файл. Ще ви се стори познат ако сте свикнали да "
+"работите със стандартни файлове с настройки. Файлът съдържа коментари и настройки. "
+"Редактирайте файла, променяйки настройките според предпочитанията си, запишете "
+"го и излезте ит редактора. Debconf ще прочете файла и ще приложи указаните промени."
+
+#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
+#: ../Debconf/FrontEnd/Kde.pm:85
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf на %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Този интерфейс изисква контролен терминал (tty)."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::Readline::GNU не е съвместим с буферите на emacs."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Още"
+
+#: ../Debconf/FrontEnd/Web.pm:65
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr "Debconf е в режим web-сървър. Посетете http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:165
+msgid "Back"
+msgstr "Назад"
+
+#: ../Debconf/FrontEnd/Web.pm:167
+msgid "Next"
+msgstr "Напред"
+
+#: ../Debconf/Template.pm:90
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"предупреждение: вероятна повреда в базата данни. Ще бъде направен опит за "
+"поправка чрез добавяне на липсващия въпрос %s."
+
+#: ../Debconf/Template.pm:203
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"Шаблонът #%s от %s съдържа дублирано поле \"%s\" със стойност \"%s\". "
+"Честа причина е липсващ празен ред между два последователни шаблона.\n"
+
+#: ../Debconf/Template.pm:228
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Непознато поле '%s' в текста #%s от %s\n"
+
+#: ../Debconf/Template.pm:254
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Грешка при анализ близо до '%s', в текста #%s от %s\n"
+
+#: ../Debconf/Template.pm:260
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Шаблонът #%s в %s не съдържа ред 'Template:'\n"
+
+#: ../dpkg-preconfigure:113
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "грешка при отваряне на стандартния вход: %s"
+
+#: ../dpkg-preconfigure:116
+#, perl-format
+msgid "must specify some debs to preconfigure"
+msgstr "не са указани пакети за пренастройване"
+
+#: ../dpkg-preconfigure:121
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "apt-utils не е инсталиран; отлагане на настройката на пакетите"
+
+#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "грешка при apt-extracttemplates: %s"
+
+#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "Извличане на шаблони от пакети: %d%%"
+
+#: ../dpkg-preconfigure:180
+msgid "Preconfiguring packages ...\n"
+msgstr "Предварително настройване на пакети ...\n"
+
+#: ../dpkg-preconfigure:192
+#, perl-format
+msgid "template parse error: %s"
+msgstr "грешка при анализ на шаблон: %s"
+
+#: ../dpkg-preconfigure:206
+#, perl-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: грешха при промяна на правата на файл: %s"
+
+#: ../dpkg-preconfigure:217
+#, perl-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "Грешка при предварителната настройка на %s. Код за грешка: %s"
+
+#: ../dpkg-reconfigure:100
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages."
+msgstr ""
+"Употреба: dpkg-reconfigure [параметри] пакети\n"
+"  -a,  --all\t\t\tПренастройване на всички пакети.\n"
+"  -u,  --unseen-only\t\tПоказване само на незададените въпроси.\n"
+"       --default-priority\tУзползване на приоритет по подразбиране вместо „нисък“.\n"
+"       --force\t\t\tПренастройване на пакети с проблем в инсталацията."
+
+#: ../dpkg-reconfigure:113
+#, perl-format
+msgid "%s must be run as root"
+msgstr "%s трябва да се изпълнява като потребител „root“"
+
+#: ../dpkg-reconfigure:146
+msgid "please specify a package to reconfigure"
+msgstr "укажете пакет за пренастройка"
+
+#: ../dpkg-reconfigure:167
+#, perl-format
+msgid "%s is not installed"
+msgstr "%s не е инсталиран"
+
+#: ../dpkg-reconfigure:171
+#, perl-format
+msgid "%s is broken or not fully installed"
+msgstr "%s има проблем в инсталацията"
+
+#: ../dpkg-reconfigure:250
+#, perl-format
+msgid "Cannot read status file: %s"
+msgstr "Грешка при четене на файла със състоянията: %s"
+
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr "Употреба: debconf-communicate [параметри] [пакет]"
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: Тази програма е остаряла и не трябва да се използва. "
+"Използвайте po2debconf от пакета po-debconf."
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr "Употреба: debconf-mergetemplate [параметри] [шаблон.ез ...] шаблони"
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+"\n"
+"        --outdated\t\tСливане на остарелите преводи.\n"
+"\t--drop-old-templates\tПремахване на остарелите шаблони."
+
+#: ../debconf-mergetemplate:119
+#, perl-format
+msgid "%s is missing"
+msgstr "Липсва %s"
+
+#: ../debconf-mergetemplate:123
+#, perl-format
+msgid "%s is missing; dropping %s"
+msgstr "Липсва %s; премахване на %s"
+
+#: ../debconf-mergetemplate:146
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "Текстът %s е неточен при байт %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "Текстът %s е неточен при байт %s: %s; премахване"
+
+#: ../debconf-mergetemplate:168
+#, perl-format
+msgid "%s is outdated"
+msgstr "%s е стар"
+
+#: ../debconf-mergetemplate:173
+#, perl-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s е стар; премахване на шаблона."
+
+#: ../debconf:88
+msgid "Usage: debconf [options] command [args]"
+msgstr "Употреба: debconf [параметри] команда [аргументи]"
+
+#: ../debconf:90
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
+"\n"
+"  -o  --owner-package\t\tУказване на пакет, притежаващ командата."
+

@@ -1,21 +1,21 @@
-# translation of ru.po to Russian
-# translation of debconf_ru1.po to Russian
-# translation of debconf_ru.po to Russian
+# translation of debconf_1.5.18_ru.po to Russian
 # SOME DESCRIPTIVE TITLE
-# Copyright (C) 2006 Free Software Foundation, Inc.
-# Yuri Kozlov <kozlov.y@gmail.com>, 2006.
+# Copyright (C) 2006, 2008 Free Software Foundation, Inc.
 #
+# Yuri Kozlov <kozlov.y@gmail.com>, 2006, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_man\n"
-"POT-Creation-Date: 2008-01-29 20:19-0500\n"
-"PO-Revision-Date: 2006-07-04 21:42+0300\n"
+"Project-Id-Version: 1.5.18\n"
+"POT-Creation-Date: 2008-03-11 14:38+0000\n"
+"PO-Revision-Date: 2008-01-27 17:03+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 # type: =head1
 #: ../../debconf:3 ../../Debconf/Client/ConfModule.pm:3
@@ -45,7 +45,7 @@ msgstr "debconf - запускает программу, использующу�
 #: confmodule.3:4
 #, no-wrap
 msgid "SYNOPSIS"
-msgstr "КРАТКИЙ ОБЗОР"
+msgstr "СИНТАКСИС"
 
 # type: verbatim
 #: ../../debconf:11
@@ -101,8 +101,8 @@ msgid ""
 "The command to be run under debconf must be specified in a way that will let "
 "your PATH find it."
 msgstr ""
-"Команда для запуска с помощью debconf, должна находиться в одном из "
-"каталогов указанных в PATH."
+"Команда для запуска с помощью debconf должна находиться в одном из "
+"каталогов, указанных в PATH."
 
 # type: textblock
 #: ../../debconf:27
@@ -110,6 +110,8 @@ msgid ""
 "This command is not the usual way that debconf is used. It's more typical "
 "for debconf to be used via L<dpkg-preconfigure(8)> or L<dpkg-reconfigure(8)>."
 msgstr ""
+"Эта команда не используется тем же способом, обычным для debconf. Обычно, "
+"debconf запускается из L<dpkg-preconfigure(8)> или L<dpkg-reconfigure(8)>."
 
 # type: Content of: <refentry><refsect1><title>
 #: ../../debconf:30 ../../debconf-apt-progress:43 ../../debconf-copydb:35
@@ -531,9 +533,8 @@ msgstr "Остановить запущенный индикатор выпол�
 
 # type: =item
 #: ../../debconf-apt-progress:76
-#, fuzzy
 msgid "B<--no-progress>"
-msgstr "B<--no-reload>"
+msgstr "B<--no-progress>"
 
 # type: textblock
 #: ../../debconf-apt-progress:78
@@ -542,11 +543,14 @@ msgid ""
 "from apt, media change events, and debconf questions will still be passed "
 "through to debconf."
 msgstr ""
+"Не запускать, останавливать или изменять индикатор выполнения. Сообщения о "
+"ходе выполнения от apt, события смены носителей и вопросы debconf всё равно "
+"будут проходить через debconf."
 
 # type: =item
 #: ../../debconf-apt-progress:82
 msgid "B<--dlwaypoint> I<percentage>"
-msgstr ""
+msgstr "B<--dlwaypoint> I<процент>"
 
 # type: textblock
 #: ../../debconf-apt-progress:84
@@ -555,6 +559,9 @@ msgid ""
 "The remainder will be used for installing packages. The default is to use "
 "15% for downloading and the remaining 85% for installing."
 msgstr ""
+"Задать, какой процент заполнения индикатора выполнения отвести на скачивание "
+"пакетов. Оставшаяся часть будет использована на показ установки пакетов. По "
+"умолчанию используется 15% на показ скачивания и оставшиеся 85% на установку."
 
 # type: =item
 #: ../../debconf-apt-progress:88
@@ -670,7 +677,7 @@ msgstr ""
 # type: =head1
 #: ../../debconf-apt-progress:133
 msgid "RETURN CODE"
-msgstr ""
+msgstr "КОД ВОЗВРАТА"
 
 # type: textblock
 #: ../../debconf-apt-progress:135
@@ -680,6 +687,10 @@ msgid ""
 "30 is returned. To avoid ambiguity, if the command returned 30, a value of 3 "
 "will be returned."
 msgstr ""
+"Код, возвращаемый при возврате указанной команды, если пользователь не нажал "
+"клавишу отмены на индикаторе выполнения. Если кнопка отмены была нажата, то "
+"возвращается значение 30. Для избежания неоднозначности, если команда "
+"возвращает 30, то будет возвращаться значение 3."
 
 # type: =head1
 #: ../../debconf-apt-progress:632
@@ -1185,11 +1196,8 @@ msgstr "L<debconf-mergetemplate(1)>"
 
 # type: textblock
 #: ../../debconf-get-selections:5
-#, fuzzy
 msgid "debconf-get-selections - output contents of debconf database"
-msgstr ""
-"debconf-set-selections - вставляет новые ответы по умолчанию в базу данных "
-"debconf"
+msgstr "debconf-get-selections - выводит содержимое базы данных debconf"
 
 # type: textblock
 #: ../../debconf-get-selections:9
@@ -2589,7 +2597,7 @@ msgstr ""
 #: debconf.conf.5:266
 #, no-wrap
 msgid "B<keybykey>"
-msgstr ""
+msgstr "B<keybykey>"
 
 # type: Plain text
 #: debconf.conf.5:272
@@ -2599,6 +2607,10 @@ msgid ""
 "logs for specific debconf keys requested. In this way, you could also write "
 "custom handling code on the LDAP server part."
 msgstr ""
+"Включить доступ к отдельным записям в LDAP, а не получать их все сразу в "
+"начале. Это очень полезно при мониторинге журналов LDAP при запросе "
+"определённых ключей debconf. В этом случае вы также можете записать "
+"пользовательский код обработки на серверной части LDAP."
 
 # type: Plain text
 #: debconf.conf.5:279
@@ -2609,6 +2621,11 @@ msgid ""
 "beginning to retrieve all the entries, and in the end to save eventual "
 "changes."
 msgstr ""
+"Заметим, что когда этот параметр включён, соединение с сервером LDAP "
+"остаётся активным на всё время работы Debconf. Это слегка отличается от "
+"поведения при получении всего за один раз, где производятся два подключения "
+"к LDAP: в начале при получении всех записей, и в конце для записи "
+"произошедших изменений."
 
 # type: Plain text
 #: debconf.conf.5:284
@@ -2622,7 +2639,7 @@ msgstr ""
 
 # type: Plain text
 #: debconf.conf.5:291
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2636,6 +2653,7 @@ msgstr ""
 "  Readonly: true\n"
 "  Server: example.com\n"
 "  BaseDN: cn=debconf,dc=example,dc=com\n"
+"  KeyByKey: 0\n"
 
 # type: Plain text
 #: debconf.conf.5:294
@@ -2648,7 +2666,7 @@ msgstr ""
 
 # type: Plain text
 #: debconf.conf.5:301
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2662,6 +2680,7 @@ msgstr ""
 "  Server: localhost\n"
 "  BaseDN: cn=debconf,dc=domain,dc=com\n"
 "  BindPasswd: secret\n"
+"  KeyByKey: 1\n"
 
 # type: TP
 #: debconf.conf.5:302
@@ -3363,13 +3382,12 @@ msgstr ""
 
 # type: Plain text
 #: confmodule.3:42
-#, fuzzy
 msgid ""
 "B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
 "debconf_specification in the debian-policy package"
 msgstr ""
-"B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), debconf_specification из "
-"пакета debian-policy"
+"B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
+"debconf_specification из пакета debian-policy"
 
 # type: TH
 #: debconf.7:1
@@ -4824,7 +4842,6 @@ msgstr "B<note>"
 
 # type: Plain text
 #: debconf-devel.7:147
-#, fuzzy
 msgid ""
 "Rather than being a question per se, this datatype indicates a note that can "
 "be displayed to the user. It should be used only for important notes that "
@@ -4837,9 +4854,8 @@ msgstr ""
 "может быть показано пользователю. Данный тип должен использоваться только "
 "для важных сообщений, которые пользователи обязательно должны увидеть, так "
 "как debconf обязательно сделает так, чтобы пользователь увидел это; "
-"установка прервётся, пока не будет нажата клавиша и даже в некоторых случаях "
-"примечание может быть отправлено по почте. Данный тип лучше использовать "
-"только для предупреждений о серьёзных проблемах."
+"установка остановится, пока не будет нажата клавиша. Данный тип лучше "
+"использовать только для предупреждений о серьёзных проблемах."
 
 # type: TP
 #: debconf-devel.7:147
@@ -6944,13 +6960,3 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) содержит много полезной информации, включая описание "
 "среды хранения базы данных."
-
-# type: textblock
-#~ msgid "This program unescapes replies sent by debconf in this mode."
-#~ msgstr ""
-#~ "Эта программа снимает экранирование с ответов посланных debconf в этом "
-#~ "режиме."
-
-# type: textblock
-#~ msgid "debconf-get-selections"
-#~ msgstr "debconf-get-selections"
