@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 19:44+0200\n"
+"POT-Creation-Date: 2008-05-14 19:37-0400\n"
 "PO-Revision-Date: 2007-05-09 10:02+0300\n"
 "Last-Translator: Damyan Ivanov <dam@modsoftsys.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -44,8 +44,8 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Настройките „Sigils“ и „Smileys“ вече не се използват. Премахнете ги "
-"от файла с настройки."
+"Настройките „Sigils“ и „Smileys“ вече не се използват. Премахнете ги от "
+"файла с настройки."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -93,7 +93,8 @@ msgid "no"
 msgstr "не"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(Въведете стойности, разделени със заметая и интервал („, “).)"
 
 #: ../Debconf/Element/Gnome.pm:183
@@ -138,12 +139,12 @@ msgstr "никое от горните"
 msgid "Enter the items you want to select, separated by spaces."
 msgstr "Въведете стойности, разделени с интервал."
 
-#: ../Debconf/FrontEnd.pm:131
+#: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Unable to load Debconf::Element::%s. Failed because: %s"
 
-#: ../Debconf/FrontEnd.pm:312
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Настройване на %s"
@@ -173,8 +174,10 @@ msgstr ""
 "cannot be used."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "Интерфейсът „dialog“ изисква терминалът да бъде поне 13 реда на 31 колони."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Интерфейсът „dialog“ изисква терминалът да бъде поне 13 реда на 31 колони."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
 msgid "Package configuration"
@@ -199,12 +202,13 @@ msgid ""
 msgstr ""
 "Интерфейсът „текстов редактор“ ви дава няколко текстови файла за промяна. "
 "Това е пример за такъв файл. Ще ви се стори познат ако сте свикнали да "
-"работите със стандартни файлове с настройки. Файлът съдържа коментари и настройки. "
-"Редактирайте файла, променяйки настройките според предпочитанията си, запишете "
-"го и излезте ит редактора. Debconf ще прочете файла и ще приложи указаните промени."
+"работите със стандартни файлове с настройки. Файлът съдържа коментари и "
+"настройки. Редактирайте файла, променяйки настройките според предпочитанията "
+"си, запишете го и излезте ит редактора. Debconf ще прочете файла и ще "
+"приложи указаните промени."
 
-#: ../Debconf/FrontEnd/Gnome.pm:96 ../Debconf/FrontEnd/Kde.pm:74
-#: ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf на %s"
@@ -221,16 +225,16 @@ msgstr "Term::Readline::GNU не е съвместим с буферите на 
 msgid "More"
 msgstr "Още"
 
-#: ../Debconf/FrontEnd/Web.pm:65
+#: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr "Debconf е в режим web-сървър. Посетете http://localhost:%i/"
 
-#: ../Debconf/FrontEnd/Web.pm:165
+#: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
 msgstr "Назад"
 
-#: ../Debconf/FrontEnd/Web.pm:167
+#: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
 msgstr "Напред"
 
@@ -249,8 +253,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Шаблонът #%s от %s съдържа дублирано поле \"%s\" със стойност \"%s\". "
-"Честа причина е липсващ празен ред между два последователни шаблона.\n"
+"Шаблонът #%s от %s съдържа дублирано поле \"%s\" със стойност \"%s\". Честа "
+"причина е липсващ празен ред между два последователни шаблона.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
@@ -267,45 +271,45 @@ msgstr "Грешка при анализ близо до '%s', в текста #
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Шаблонът #%s в %s не съдържа ред 'Template:'\n"
 
-#: ../dpkg-preconfigure:113
-#, perl-format
-msgid "unable to re-open stdin: %s"
-msgstr "грешка при отваряне на стандартния вход: %s"
-
-#: ../dpkg-preconfigure:116
+#: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "не са указани пакети за пренастройване"
 
-#: ../dpkg-preconfigure:121
+#: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "apt-utils не е инсталиран; отлагане на настройката на пакетите"
 
-#: ../dpkg-preconfigure:154 ../dpkg-preconfigure:166
+#: ../dpkg-preconfigure:129
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "грешка при отваряне на стандартния вход: %s"
+
+#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "грешка при apt-extracttemplates: %s"
 
-#: ../dpkg-preconfigure:158 ../dpkg-preconfigure:170
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Извличане на шаблони от пакети: %d%%"
 
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
 msgstr "Предварително настройване на пакети ...\n"
 
-#: ../dpkg-preconfigure:192
+#: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
 msgstr "грешка при анализ на шаблон: %s"
 
-#: ../dpkg-preconfigure:206
+#: ../dpkg-preconfigure:212
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: грешха при промяна на правата на файл: %s"
 
-#: ../dpkg-preconfigure:217
+#: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Грешка при предварителната настройка на %s. Код за грешка: %s"
@@ -321,7 +325,8 @@ msgstr ""
 "Употреба: dpkg-reconfigure [параметри] пакети\n"
 "  -a,  --all\t\t\tПренастройване на всички пакети.\n"
 "  -u,  --unseen-only\t\tПоказване само на незададените въпроси.\n"
-"       --default-priority\tУзползване на приоритет по подразбиране вместо „нисък“.\n"
+"       --default-priority\tУзползване на приоритет по подразбиране вместо "
+"„нисък“.\n"
 "       --force\t\t\tПренастройване на пакети с проблем в инсталацията."
 
 #: ../dpkg-reconfigure:113
@@ -404,15 +409,14 @@ msgstr "%s е стар"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s е стар; премахване на шаблона."
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Употреба: debconf [параметри] команда [аргументи]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
 "  -o  --owner-package\t\tУказване на пакет, притежаващ командата."
-
