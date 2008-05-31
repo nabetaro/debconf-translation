@@ -4,13 +4,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "POT-Creation-Date: 2008-01-29 20:19-0500\n"
-"PO-Revision-Date: 2007-03-01 23:14+0100\n"
+"PO-Revision-Date: 2008-05-15 22:15+0200\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
 
 # type: SH
 #: ../../debconf:3 ../../Debconf/Client/ConfModule.pm:3
@@ -106,6 +106,9 @@ msgid ""
 "This command is not the usual way that debconf is used. It's more typical "
 "for debconf to be used via L<dpkg-preconfigure(8)> or L<dpkg-reconfigure(8)>."
 msgstr ""
+"Cette commande ne reflète pas l'utilisation habituelle de debconf. Il est "
+"courant pour debconf d'être appellé via L<dpkg-preconfigure(8)> ou L<dpkg-"
+"reconfigure(8)>."
 
 # type: =head1
 #: ../../debconf:30 ../../debconf-apt-progress:43 ../../debconf-copydb:35
@@ -531,9 +534,8 @@ msgstr "Arrêter une barre d'avancement en cours."
 
 # type: =item
 #: ../../debconf-apt-progress:76
-#, fuzzy
 msgid "B<--no-progress>"
-msgstr "B<--no-reload>"
+msgstr "B<--no-progress>"
 
 # type: textblock
 #: ../../debconf-apt-progress:78
@@ -542,11 +544,14 @@ msgid ""
 "from apt, media change events, and debconf questions will still be passed "
 "through to debconf."
 msgstr ""
+"Ne pas démarrer, arrêter, ou passer en pas à pas la barre de progression. "
+"Les messages de progression d'apt, les événements des média amovibles et les "
+"questionnaires debconf seront transférés à debconf."
 
 # type: =item
 #: ../../debconf-apt-progress:82
 msgid "B<--dlwaypoint> I<percentage>"
-msgstr ""
+msgstr "B<--dlwaypoint> I<pourcentage>"
 
 # type: textblock
 #: ../../debconf-apt-progress:84
@@ -555,6 +560,10 @@ msgid ""
 "The remainder will be used for installing packages. The default is to use "
 "15% for downloading and the remaining 85% for installing."
 msgstr ""
+"Spécifier le pourcentage de la barre de progression à utiliser pour le "
+"téléchargement des paquets. Le reste sera utilisé pour la phase "
+"d'installation des paquets. Par défaut, 15 % de la barre de progression est "
+"utilisé pour le téléchargement, les 85 % restant pour l'installation."
 
 # type: =item
 #: ../../debconf-apt-progress:88
@@ -672,7 +681,7 @@ msgstr ""
 # type: =head1
 #: ../../debconf-apt-progress:133
 msgid "RETURN CODE"
-msgstr ""
+msgstr "CODE RENVOYÉ"
 
 # type: textblock
 #: ../../debconf-apt-progress:135
@@ -682,6 +691,10 @@ msgid ""
 "30 is returned. To avoid ambiguity, if the command returned 30, a value of 3 "
 "will be returned."
 msgstr ""
+"Le code de retour de la commande spécifiée est renvoyé à moins que "
+"l'utilisateur presse le bouton Annuler de la barre de progression. Si le "
+"bouton Annuler est pressé, la valeur 30 est renvoyée. Pour éviter toute "
+"ambiguité, si la commande renvoie 30, la valeur 3 sera renvoyée."
 
 # type: SH
 #: ../../debconf-apt-progress:632
@@ -1194,11 +1207,9 @@ msgstr "L<debconf-mergetemplate(1)>"
 
 # type: textblock
 #: ../../debconf-get-selections:5
-#, fuzzy
 msgid "debconf-get-selections - output contents of debconf database"
 msgstr ""
-"debconf-set-selections - insérer de nouvelles valeurs par défaut dans la "
-"base de données de debconf"
+"debconf-get-selections - afficher le contenu de la base de données de debconf"
 
 # type: textblock
 #: ../../debconf-get-selections:9
@@ -2623,7 +2634,7 @@ msgstr ""
 #: debconf.conf.5:266
 #, no-wrap
 msgid "B<keybykey>"
-msgstr ""
+msgstr "B<keybykey>"
 
 # type: Plain text
 #: debconf.conf.5:272
@@ -2633,6 +2644,10 @@ msgid ""
 "logs for specific debconf keys requested. In this way, you could also write "
 "custom handling code on the LDAP server part."
 msgstr ""
+"Activer l'accès aux entrées individuelles de l'annuaire LDAP au lieu de "
+"toutes les télécharger au début. Cela est très utile si vous voulez analyser "
+"des requêtes debconf depuis les journaux de LDAP. Cette option permet aussi "
+"d'écrire du code de gestion sur le serveur LDAP."
 
 # type: Plain text
 #: debconf.conf.5:279
@@ -2643,6 +2658,12 @@ msgid ""
 "beginning to retrieve all the entries, and in the end to save eventual "
 "changes."
 msgstr ""
+"Notez que lorsque cette option est activée, la connexion au serveur LDAP "
+"reste active durant toute l'exécution de debconf. Ce comportement est "
+"différent lorsque vous télécharger toutes les données d'un seul bloc car "
+"deux connexions au serveur LDAP sont réalisées ; une au début pour récupérer "
+"toutes les données et une à la fin pour sauvegarder les éventuelles "
+"modifications."
 
 # type: Plain text
 #: debconf.conf.5:284
@@ -2656,7 +2677,7 @@ msgstr ""
 
 # type: Plain text
 #: debconf.conf.5:291
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2668,8 +2689,9 @@ msgstr ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
 "  Readonly: true\n"
-"  Server: exemple.com\n"
-"  BaseDN: cn=debconf,dc=exemple,dc=com\n"
+"  Server: example.com\n"
+"  BaseDN: cn=debconf,dc=example,dc=com\n"
+"  KeyByKey: 0\n"
 
 # type: Plain text
 #: debconf.conf.5:294
@@ -2682,7 +2704,7 @@ msgstr ""
 
 # type: Plain text
 #: debconf.conf.5:301
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
@@ -2694,8 +2716,9 @@ msgstr ""
 "  Name: ldapdb\n"
 "  Driver: LDAP\n"
 "  Server: localhost\n"
-"  BaseDN: cn=debconf,dc=domaine,dc=com\n"
+"  BaseDN: cn=debconf,dc=domain,dc=com\n"
 "  BindPasswd: secret\n"
+"  KeyByKey: 1\n"
 
 # type: TP
 #: debconf.conf.5:302
@@ -3413,13 +3436,12 @@ msgstr ""
 
 # type: Plain text
 #: confmodule.3:42
-#, fuzzy
 msgid ""
 "B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
 "debconf_specification in the debian-policy package"
 msgstr ""
-"B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), les spécifications debconf "
-"dans le paquet debian-policy"
+"B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), les "
+"spécifications debconf dans le paquet debian-policy"
 
 # type: TH
 #: debconf.7:1
@@ -5638,7 +5660,7 @@ msgstr ""
 #: debconf-devel.7:394
 #, no-wrap
 msgid "B<X_LOADTEMPLATEFILE /path/to/templates [owner]>"
-msgstr ""
+msgstr "B<X_LOADTEMPLATEFILE /path/to/templates [owner]>"
 
 # type: Plain text
 #: debconf-devel.7:398
@@ -5646,6 +5668,9 @@ msgid ""
 "This extension loads the specified template file, into debconf's database.  "
 "The owner defaults to the package that is being configured with debconf."
 msgstr ""
+"Cette extensions charge le fichier de modèle spécifié dans la base de "
+"données de debconf. Le propriétaire assume que le paquet est en cours de "
+"configuration avec debconf."
 
 # type: Plain text
 #: debconf-devel.7:400
@@ -7089,13 +7114,3 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) contient beaucoup d'informations, y compris des "
 "informations sur les pilotes de la base de données."
-
-# type: Plain text
-#~ msgid "This program unescapes replies sent by debconf in this mode."
-#~ msgstr ""
-#~ "Ce programme va retirer les séquences d'échappement envoyées par debconf "
-#~ "dans ce mode :"
-
-# type: textblock
-#~ msgid "debconf-get-selections"
-#~ msgstr "debconf-get-selections"
