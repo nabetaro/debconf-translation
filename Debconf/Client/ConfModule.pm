@@ -28,7 +28,7 @@ The design is that each command in the protocol is represented by one
 function in this module (with the name lower-cased).  Call the function and
 pass in any parameters you want to follow the command. If the function is
 called in scalar context, it will return any textual return code. If it is
-called in list context, an array consiting of the numeric return code and
+called in list context, an array consisting of the numeric return code and
 the textual return code will be returned.
 
 This module uses Exporter to export all functions it defines. To import
