@@ -1,3 +1,4 @@
+# translation of ro.po to Romanian
 #
 # Romanian translation
 #
@@ -13,22 +14,21 @@
 #
 #    Developers do not need to manually edit POT or PO files.
 #
-# Eddy Petrişor <eddy.petrisor@gmail.com>, 2004, 2005, 2006.
-# Eddy Petrisor <eddy_petrisor@yahoo.com>, 2006.
+# Eddy Petrișor <eddy.petrisor@gmail.com>, 2004, 2005, 2006, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-07-30 19:37+0300\n"
-"Last-Translator: Eddy Petrişor <eddy.petrisor@gmail.com>\n"
+"PO-Revision-Date: 2008-06-29 17:12+0300\n"
+"Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1))\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
 
 #. Type: select
 #. Choices
@@ -58,7 +58,7 @@ msgstr "Non-interactiv"
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "Interfaţa folosită:"
+msgstr "Interfața folosită:"
 
 #. Type: select
 #. Description
@@ -68,7 +68,7 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "Pachetele care folosesc debconf pentru configurare, sunt asemănătoare în "
-"aspect şi comportament. Puteţi selecta tipul de interfaţă utilizat de ele."
+"aspect și comportament. Puteți selecta tipul de interfață utilizat de ele."
 
 #. Type: select
 #. Description
@@ -81,12 +81,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Interfaţa dialog este o interfaţă în mod text, pe tot ecranul, în timp ce "
-"linia de comandă foloseşte o interfaţă în mod text, mai tradiţională, şi, "
-"atât  interfaţa gnome cât şi kde sunt interfeţe moderne în X, care se "
-"incadrează în mediile respective (dar pot fi folosite şi în mediul X). "
-"Interfaţa editor vă permite sa configuraţi lucrurile folosind editorul de "
-"text preferat de dvs. Interafţa non-interactivă nu vă întreabă niciodată "
+"Interfața dialog este o interfață în mod text, pe tot ecranul, în timp ce "
+"linia de comandă folosește o interfață în mod text, mai tradițională, și, "
+"atât  interfața gnome cât și kde sunt interfețe moderne în X, care se "
+"încadrează în mediile respective (dar pot fi folosite și în mediul X). "
+"Interfața editor vă permite sa configurați lucrurile folosind editorul de "
+"text preferat de dvs. Interfața non-interactivă nu vă întreabă niciodată "
 "vreo întrebare."
 
 #. Type: select
@@ -131,13 +131,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf prioritizează întrebările pe care vi le pune. Alegeţi cea mai mică "
-"prioritate a întrebărilor pe care doriţi să le vedeţi:\n"
+"Debconf prioritizează întrebările pe care vi le pune. Alegeți cea mai mică "
+"prioritate a întrebărilor pe care doriți să le vedeți:\n"
 "  - 'critic' apare doar când sistemul se poate să se strice.\n"
-"     Alegeţi-o dacă sunteţi începător, sau vă grăbiţi.\n"
+"     Alegeți-o dacă sunteți începător, sau vă grăbiți.\n"
 "  - 'ridicat' este pentru întrebări destul de importante\n"
 "  - 'mediu' este pentru întrebări normale\n"
-"  - 'scăzut' este pentru obsedaţii de control care vor să vadă tot"
+"  - 'scăzut' este pentru obsedații de control care vor să vadă tot"
 
 #. Type: select
 #. Description
@@ -146,8 +146,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"A se nota că indiferent ce nivel alegeţi aici, veţi putea să vedeţi fiecare "
-"întrebare dacă reconfiguraţi un pachet cu dpkg-reconfigure."
+"A se nota că indiferent ce nivel alegeți aici, veți putea să vedeți fiecare "
+"întrebare dacă reconfigurați un pachet cu dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -159,7 +159,7 @@ msgstr "Se instalează pachete"
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr "Vă rugăm, aşteptaţi..."
+msgstr "Vă rugăm, așteptați..."
 
 #~ msgid "Gnome"
 #~ msgstr "Gnome"
@@ -175,9 +175,9 @@ msgstr "Vă rugăm, aşteptaţi..."
 #~ "might ask you. Only questions with a certain priority or higher are "
 #~ "actually shown to you; all less important questions are skipped."
 #~ msgstr ""
-#~ "Pachetele care utilizează debconf pentru configurare asociază priorităţi "
+#~ "Pachetele care utilizează debconf pentru configurare asociază priorități "
 #~ "la posibilele întrebări. Numai întrebările cu o anumită prioritate sau "
-#~ "mai mare vă sunt arătate; toate întrebările mai puţin importante sunt "
+#~ "mai mare vă sunt arătate; toate întrebările mai puțin importante sunt "
 #~ "sărite."
 
 #~ msgid ""
@@ -189,26 +189,26 @@ msgstr "Vă rugăm, aşteptaţi..."
 #~ " - 'low' is for trivial items that have defaults that will work in\n"
 #~ "   the vast majority of cases."
 #~ msgstr ""
-#~ "Puteţi selecta cel mai scăzut nivel de prioritate a întrebărilor\n"
-#~ "pe care doriţi să le vedeţi:\n"
+#~ "Puteți selecta cel mai scăzut nivel de prioritate a întrebărilor\n"
+#~ "pe care doriți să le vedeți:\n"
 #~ " - 'critic' pentru elemente care probabil vor corupe sistemul\n"
-#~ "     fără intervenţia utilizatorului.\n"
+#~ "     fără intervenția utilizatorului.\n"
 #~ " - 'ridicat' pentru elemente care nu au valori implicite\n"
 #~ "     rezonabile.\n"
 #~ " - 'mediu' pentru elemente normale care au valori implicite \n"
 #~ "     rezonabile.\n"
 #~ " - 'scăzut' pentru elemente triviale care au valori implicite\n"
-#~ "     care funcţionează pentru o vastă majoritate a cazurilor."
+#~ "     care funcționează pentru o vastă majoritate a cazurilor."
 
 #~ msgid ""
 #~ "For example, this question is of medium priority, and if your priority "
 #~ "were already 'high' or 'critical', you wouldn't see this question."
 #~ msgstr ""
-#~ "De exemplu, aceasta este o întrebare de nivel mediu, şi dacă nivelul ales "
-#~ "este 'ridicat' sau 'critic', nu veţi vedea această întrebare."
+#~ "De exemplu, aceasta este o întrebare de nivel mediu, și dacă nivelul ales "
+#~ "este 'ridicat' sau 'critic', nu veți vedea această întrebare."
 
 #~ msgid "Change debconf priority"
-#~ msgstr "Schimbare a priorităţii debconf"
+#~ msgstr "Schimbare a priorității debconf"
 
 #~ msgid "Continue"
 #~ msgstr "Continuă"
@@ -228,7 +228,7 @@ msgstr "Vă rugăm, aşteptaţi..."
 #~ msgid ""
 #~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
 #~ msgstr ""
-#~ "<Tab> mişcare între elemente; <Spaţiu> selectează; <Enter> activează "
+#~ "<Tab> mișcare între elemente; <Spațiu> selectează; <Enter> activează "
 #~ "butoane"
 
 #~ msgid "LTR"
@@ -247,7 +247,7 @@ msgstr "Vă rugăm, aşteptaţi..."
 #~ msgstr "TASTE:"
 
 #~ msgid "Display this help message"
-#~ msgstr "Afişează acest mesaj de ajutor"
+#~ msgstr "Afișează acest mesaj de ajutor"
 
 #~ msgid "Go back to previous question"
 #~ msgstr "Înapoi la întrebarea anterioară"
@@ -265,7 +265,7 @@ msgstr "Vă rugăm, aşteptaţi..."
 #~ msgstr "Prompt: '%c' pentru ajutor, implicit=%s> "
 
 #~ msgid "[Press enter to continue]"
-#~ msgstr "[Apăsaţi enter pentru a continua]"
+#~ msgstr "[Apăsați enter pentru a continua]"
 
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
 #~ msgstr "Dialog, Linie de comandă, Gnome, Kde, Editor, Non-interactiv"
@@ -275,4 +275,4 @@ msgstr "Vă rugăm, aşteptaţi..."
 
 #~ msgid "What interface should be used for configuring packages?"
 #~ msgstr ""
-#~ "Ce fel de interfaţă ar trebui folosită pentru configurarea pachetelor?"
+#~ "Ce fel de interfață ar trebui folosită pentru configurarea pachetelor?"

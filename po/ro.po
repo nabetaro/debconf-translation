@@ -3,53 +3,53 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Sorin Batariuc <sorin@bonbon.net>, 2004, 2005.
-# Eddy Petrișor <eddy.petrisor@gmail.com>, 2006.
+# Eddy Petrișor <eddy.petrisor@gmail.com>, 2006, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf\n"
+"Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
-"PO-Revision-Date: 2006-10-06 02:22+0300\n"
+"POT-Creation-Date: 2008-05-13 22:23+0200\n"
+"PO-Revision-Date: 2008-06-29 17:18+0300\n"
 "Last-Translator: Eddy Petrișor <eddy.petrisor@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1))\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "retragere la interfaţa program: %s"
+msgstr "retragere la interfața program: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "nu pot iniţializa interfaţa program: %s"
+msgstr "nu pot inițializa interfața program: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Nu pot porni interfaţa program: %s"
+msgstr "Nu pot porni interfața program: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
 msgstr ""
-"Configurarea bazei de date n-a fost specificată în fişierul de configurare."
+"Configurarea bazei de date n-a fost specificată în fișierul de configurare."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Şablonul bazei de date n-a fost specificat în fişierul de configurare."
+msgstr "Șablonul bazei de date n-a fost specificat în fișierul de configurare."
 
 #: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Opţiunile Sigils şi Smileys din fişierul de configurare nu mai sunt "
-"folosite. Sunteţi rugat(ă) să le ştergeţi."
+"Opțiunile Sigils și Smileys din fișierul de configurare nu mai sunt "
+"folosite. Sunteți rugat(ă) să le ștergeți."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -62,9 +62,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tPrecizaţi ce interfaţă pentru debconf să fie folosită.\n"
-"  -p,  --priority\t\tPrecizaţi prioritatea minimă a întrebării de arătat.\n"
-"       --terse\t\t\tActivaţi modul concis.\n"
+"  -f,  --frontend\t\tPrecizați ce interfață pentru debconf să fie folosită.\n"
+"  -p,  --priority\t\tPrecizați prioritatea minimă a întrebării de arătat.\n"
+"       --terse\t\t\tActivați modul concis.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -74,13 +74,13 @@ msgstr "Se ignoră prioritatea nevalidă \"%s\""
 #: ../Debconf/Config.pm:309
 #, perl-format
 msgid "Valid priorities are: %s"
-msgstr "Priorităţile valide sunt: %s"
+msgstr "Prioritățile valide sunt: %s"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
-msgstr "Opţiuni"
+msgstr "Opțiuni"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -100,8 +100,8 @@ msgstr "nu"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Introduceţi zero sau mai multe articole separate de virgulă urmată de "
-"spaţiu (', ').)"
+"(Introduceți zero sau mai multe articole separate de virgulă urmată de "
+"spațiu (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:183
 msgid "_Help"
@@ -116,7 +116,7 @@ msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf nu a fost configurat să afişeze aceast mesaje de eroare, astfel "
+"Debconf nu a fost configurat să afișeze acest mesaje de eroare, astfel "
 "acesta v-a fost expediat."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
@@ -134,8 +134,8 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Nu s-a găsit în opţiunile C valoarea introdusă, \"%s\"! Aceasta n-ar fi "
-"trebuit să se întâmple. Poate şabloanele au fost localizate incorect."
+"Nu s-a găsit în opțiunile C valoarea introdusă, \"%s\"! Aceasta n-ar fi "
+"trebuit să se întâmple. Poate șabloanele au fost localizate incorect."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -144,14 +144,14 @@ msgstr "niciunul din cele de mai sus"
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
 msgstr ""
-"Introduceţi articolele pe care doriţi să le alegeţi, separate de spaţii."
+"Introduceți articolele pe care doriți să le alegeți, separate de spații."
 
 #: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Nu pot încărca Debconf::Element::%s. Eşuare datorată: %s"
+msgstr "Nu pot încărca Debconf::Element::%s. Eșuare datorată: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configurez %s"
@@ -159,13 +159,13 @@ msgstr "Configurez %s"
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
-"TERM nu este specificat, astfel încât dialogul interfeţei program nu este "
+"TERM nu este specificat, astfel încât dialogul interfeței program nu este "
 "utilizabil."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr ""
-"Dialogul interfeţei program este incompatibil cu zonele de memorie tampon "
+"Dialogul interfeței program este incompatibil cu zonele de memorie tampon "
 "shell emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
@@ -173,7 +173,7 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Dialogul interfeţei program nu va funcţiona pe un terminal mut, pe o zonă de "
+"Dialogul interfeței program nu va funcționa pe un terminal mut, pe o zonă de "
 "memorie tampon shell emacs, sau fără un terminal controlor."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
@@ -181,27 +181,27 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Nu este instalat nici un program utilizabil gen dialog, aşa încât dialogul "
-"interfeţei program nu poate fi folosit."
+"Nu este instalat nici un program utilizabil gen dialog, așa încât dialogul "
+"interfeței program nu poate fi folosit."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Dialogul interfeţei program are nevoie de un ecran de cel puţin 13 linii "
-"înălţime şi 31 coloane lăţime."
+"Dialogul interfeței program are nevoie de un ecran de cel puțin 13 linii "
+"înălțime și 31 coloane lățime."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
 msgid "Package configuration"
-msgstr "Configuraţia pachetului"
+msgstr "Configurația pachetului"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Utilizaţi interfaţa debconf de tipul program de editare pentru a configura "
-"sistemul. Vedeţi sfârşitul acestui document pentru instrucţiuni detaliate."
+"Utilizați interfața debconf de tipul program de editare pentru a configura "
+"sistemul. Vedeți sfârșitul acestui document pentru instrucțiuni detaliate."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -212,23 +212,23 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Interfaţa program de editare debconf vă prezintă unul sau mai multe fişiere "
-"text pentru editare. Acesta este unul din astfel de fişiere. Dacă sunteţi "
-"familiarizat cu fişierele de configurare standard unix, acest fişier vă va "
-"părea cunoscut -- conţine comentarii intercalate printre liniile de "
-"configurare. Editaţi fişierul, schimbând după necesităţi orice linie, "
-"salvaţi-l şi ieşiţi. În acest punct, debconf va citi fişierul editat, şi va "
+"Interfața program de editare debconf vă prezintă unul sau mai multe fișiere "
+"text pentru editare. Acesta este unul din astfel de fișiere. Dacă sunteți "
+"familiarizat cu fișierele de configurare standard unix, acest fișier vă va "
+"părea cunoscut -- conține comentarii intercalate printre liniile de "
+"configurare. Editați fișierul, schimbând după necesități orice linie, "
+"salvați-l și ieșiți. În acest punct, debconf va citi fișierul editat, și va "
 "folosi valorile introduse pentru a configura sistemul."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf la %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Această interfaţă program are nevoie de un tty controlor."
+msgstr "Această interfață program are nevoie de un tty controlor."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
@@ -242,7 +242,7 @@ msgstr "Mai mult"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Notă: Debconf rulează în modul web. Duceţi-vă la http://localhost:%i/"
+msgstr "Notă: Debconf rulează în modul web. Duceți-vă la http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
@@ -267,29 +267,29 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Şablonul #%s din %s are un câmp duplicat \"%s\" cu valoarea nouă \"%s\". "
-"Probabil două şabloane nu sunt separate corespunzător de o singură nouă "
+"Șablonul #%s din %s are un câmp duplicat \"%s\" cu valoarea nouă \"%s\". "
+"Probabil două șabloane nu sunt separate corespunzător de o singură nouă "
 "linie.\n"
 
 #: ../Debconf/Template.pm:228
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Câmp de şablon necunoscut '%s', în strofa #%s din %s\n"
+msgstr "Câmp de șablon necunoscut '%s', în strofa #%s din %s\n"
 
 #: ../Debconf/Template.pm:254
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Eroare de analiză a şablonului aproape de `%s', în strofa #%s din %s\n"
+msgstr "Eroare de analiză a șablonului aproape de `%s', în strofa #%s din %s\n"
 
 #: ../Debconf/Template.pm:260
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Şablonul #%s în %s nu conţine o linie 'Template:'\n"
+msgstr "Șablonul #%s în %s nu conține o linie 'Template:'\n"
 
 #: ../dpkg-preconfigure:117
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "trebuie specificate unele pachete deb pentru preconfigurare"
+msgstr "trebuie precizate pachete deb pentru preconfigurare"
 
 #: ../dpkg-preconfigure:122
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -300,17 +300,17 @@ msgstr ""
 #: ../dpkg-preconfigure:129
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "nu pot re-deschide stdin: %s"
+msgstr "nu pot redeschide stdin: %s"
 
 #: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr "eşuare extragere şabloane apt: %s"
+msgstr "eșuare extragere șabloane apt: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Se extrag şabloanele din pachete: %d%%"
+msgstr "Se extrag șabloanele din pachete: %d%%"
 
 #: ../dpkg-preconfigure:186
 msgid "Preconfiguring packages ...\n"
@@ -319,7 +319,7 @@ msgstr "Se preconfigurează pachetele ...\n"
 #: ../dpkg-preconfigure:198
 #, perl-format
 msgid "template parse error: %s"
-msgstr "eroare la analiza şablonului: %s"
+msgstr "eroare la analiza șablonului: %s"
 
 #: ../dpkg-preconfigure:212
 #, perl-format
@@ -329,7 +329,7 @@ msgstr "debconf: nu pot schimba permisiunea de acces: %s"
 #: ../dpkg-preconfigure:223
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s eşuat la preconfigurare, cu starea de ieşire %s"
+msgstr "%s a eșuat la preconfigurare, cu starea de eroare %s"
 
 #: ../dpkg-reconfigure:100
 msgid ""
@@ -339,12 +339,12 @@ msgid ""
 "       --default-priority\tUse default priority instead of low.\n"
 "       --force\t\t\tForce reconfiguration of broken packages."
 msgstr ""
-"Utilizare: dpkg-reconfigure [opţiuni] pachete\n"
+"Utilizare: dpkg-reconfigure [opțiuni] pachete\n"
 "  -a,  --all\t\t\tReconfigurează toate pachetele.\n"
 "  -u,  --unseen-only\t\tArată doar întrebările ce n-au fost văzute încă.\n"
 "       --default-priority\tUtilizează prioritatea implicită în locul celei "
 "joase.\n"
-"       --force\t\t\tForţează reconfigurarea pachetelor deteriorate."
+"       --force\t\t\tForțează reconfigurarea pachetelor deteriorate."
 
 #: ../dpkg-reconfigure:113
 #, perl-format
@@ -353,7 +353,7 @@ msgstr "%s trebuie pornit ca root"
 
 #: ../dpkg-reconfigure:146
 msgid "please specify a package to reconfigure"
-msgstr "vă rog specificaţi un pachet pentru reconfigurare"
+msgstr "vă rog specificați un pachet pentru reconfigurare"
 
 #: ../dpkg-reconfigure:167
 #, perl-format
@@ -368,23 +368,23 @@ msgstr "%s este deteriorat sau instalat incomplet"
 #: ../dpkg-reconfigure:250
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Nu pot citi fişierul de stare: %s"
+msgstr "Nu pot citi fișierul de stare: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr "Utilizare: debconf-communicate [opţiuni] [pachet]"
+msgstr "Utilizare: debconf-communicate [opțiuni] [pachet]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Acest utilitar este depăşit. Ar trebui să folosiţi în "
+"debconf-mergetemplate: Acest utilitar este depășit. Ar trebui să folosiți în "
 "loc programul po2debconf al lui po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Utilizare: debconf-mergetemplate [opţiuni] [templates.ll ...] şabloane"
+msgstr "Utilizare: debconf-mergetemplate [opțiuni] [templates.ll ...] șabloane"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -393,18 +393,18 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tFuzionează chiar şi în traducerile neactualizate.\n"
-"\t--drop-old-templates\tRenunţă la toate şabloanele neactualizate."
+"\t--outdated\t\tFuzionează chiar și în traducerile neactualizate.\n"
+"\t--drop-old-templates\tRenunță la toate șabloanele neactualizate."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
 msgid "%s is missing"
-msgstr "%s lipseşte"
+msgstr "%s lipsește"
 
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "%s lipseşte; se renunţă la %s"
+msgstr "%s lipsește; se renunță la %s"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
@@ -414,7 +414,7 @@ msgstr "%s este neclar la octetul %s: %s"
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s este neclar la octetul %s: %s; renunţ"
+msgstr "%s este neclar la octetul %s: %s; renunț"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
@@ -424,19 +424,19 @@ msgstr "%s este învechit"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s este învechit, se renunţă la întregul şablon!"
+msgstr "%s este învechit, se renunță la întregul șablon!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
-msgstr "Utilizare: debconf [opţiuni] comanda [argumente]"
+msgstr "Utilizare: debconf [opțiuni] comanda [argumente]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=pachet\t\tDetermină pachetul care deţine comanda."
+"  -o,  --owner=pachet\t\tDetermină pachetul care deține comanda."
 
 #~ msgid "Save (mail) Note"
 #~ msgstr "Salvează (expediază) nota"
@@ -447,7 +447,7 @@ msgstr ""
 #~ "fost expediată."
 
 #~ msgid "Information"
-#~ msgstr "Informaţie"
+#~ msgstr "Informație"
 
 #~ msgid "The note has been mailed."
 #~ msgstr "Această notă a fost expediată."
@@ -461,5 +461,5 @@ msgstr ""
 #~ msgid ""
 #~ "Debconf was not configured to display this note, so it mailed it to you."
 #~ msgstr ""
-#~ "Debconf nu a fost configurat să afişeze această notă, astfel încât v-a "
+#~ "Debconf nu a fost configurat să afișeze această notă, astfel încât v-a "
 #~ "fost expediată."
