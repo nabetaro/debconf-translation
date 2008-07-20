@@ -1,12 +1,15 @@
-# 
-# 
+# debconf debconf template Korean translation.
+#
+# Sunjae Park <darehanl@gmail.com>, 2006.
+# Changwoo Ryu <cwryu@debian.org>, 2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
 "POT-Creation-Date: 2006-08-26 11:15+0200\n"
-"PO-Revision-Date: 2006-07-29 23:57+0900\n"
-"Last-Translator:  Sunjae park <darehanl@gmail.com>\n"
+"PO-Revision-Date: 2008-07-20 11:16+0900\n"
+"Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,13 +19,13 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr "Dialog 방식"
+msgstr "다이얼로그 방식"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr "Readline 방식"
+msgstr "리드라인 방식"
 
 #. Type: select
 #. Choices
@@ -49,7 +52,7 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"설정할 때 debconf를 사용하는 꾸러미는 비슷한 모양의 인터페이스를 사용합니다. "
+"설정할 때 debconf를 사용하는 패키지는 비슷한 모양의 인터페이스를 사용합니다. "
 "여기서 어떤 종류의 인터페이스를 사용할 지 선택할 수 있습니다."
 
 #. Type: select
@@ -63,11 +66,11 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"dialog 프론트엔드는 문자 기반의 전체 화면 인터페이스이고, readline 프론트엔드"
-"는 더 전통적인 일반 텍스트 인터페이스를 사용하고, 그놈과 KDE는 현대적인 X 인"
-"터페이스로 해당 데스크탑에 적합합니다 (하지만 X 환경에서만 사용할 수 있습니"
-"다). 편집기 프론트엔드는 본인이 자주 사용하는 텍스트 편집기를 이용해서 설정합"
-"니다. 물어보지 않음 프론트엔드의 경우 어떤 설정도 물어보지 않습니다."
+"다이얼로그 프론트엔드는 문자 기반의 전체 화면 인터페이스이고, 리드라인 프론트"
+"엔드는 더 전통적인 일반 텍스트 인터페이스를 사용하고, 그놈과 KDE는 현대적인 "
+"X 인터페이스로 해당 데스크탑에 적합합니다 (하지만 X 환경에서만 사용할 수 있습"
+"니다). 편집기 프론트엔드는 본인이 자주 사용하는 텍스트 편집기를 이용해서 설정"
+"합니다. 물어보지 않음 프론트엔드의 경우 어떤 설정도 물어보지 않습니다."
 
 #. Type: select
 #. Choices
@@ -97,7 +100,7 @@ msgstr "낮음"
 #. Description
 #: ../templates:2002
 msgid "Ignore questions with a priority less than:"
-msgstr "이보다 우선순위가 낮은 질문은 무시..."
+msgstr "이보다 우선 순위가 낮은 질문은 무시:"
 
 #. Type: select
 #. Description
@@ -127,13 +130,13 @@ msgid ""
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
 "기억해 두십시오. 여기에서 어떤 우선 순위를 선택하든지 간에, dpkg-reconfigure"
-"로 꾸러미를 설정하면 모든 질문을 볼 수 있습니다."
+"로 패키지를 설정하면 모든 질문을 볼 수 있습니다."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr "꾸러미를 설치하는 중입니다"
+msgstr "패키지를 설치하는 중입니다"
 
 #. Type: text
 #. Description
@@ -148,14 +151,14 @@ msgstr "잠시 기다리십시오..."
 #~ msgstr "KDE 방식"
 
 #~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "이보다 우선순위가 낮은 질문은 무시..."
+#~ msgstr "이보다 우선 순위가 낮은 질문은 무시..."
 
 #~ msgid ""
 #~ "Packages that use debconf for configuration prioritize the questions they "
 #~ "might ask you. Only questions with a certain priority or higher are "
 #~ "actually shown to you; all less important questions are skipped."
 #~ msgstr ""
-#~ "debconf를 사용하는 꾸러미에서는 물어보는 질문들에 우선 순위를 매깁니다. 지"
+#~ "debconf를 사용하는 패키지에서는 물어보는 질문들에 우선 순위를 매깁니다. 지"
 #~ "정한 우선 순위 혹은 그보다 높은 우선 순위의 질문들만 나타납니다; 더 낮은 "
 #~ "질문들은 건너 뜁니다."
 
@@ -241,10 +244,10 @@ msgstr "잠시 기다리십시오..."
 #~ msgstr "[계속하시려면 Enter를 누르십시오]"
 
 #~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "dialog, readline, 그놈, KDE, 편집기, 물어보지 않기"
+#~ msgstr "다이얼로그, 리드라인, 그놈, KDE, 편집기, 물어보지 않기"
 
 #~ msgid "critical, high, medium, low"
 #~ msgstr "중요, 높음, 중간, 낮음"
 
 #~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "꾸러미 설정에 어떤 인터페이스를 사용하시겠습니까?"
+#~ msgstr "패키지 설정에 어떤 인터페이스를 사용하시겠습니까?"
