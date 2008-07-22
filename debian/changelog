@@ -1,4 +1,4 @@
-debconf (1.5.23) UNRELEASED; urgency=low
+debconf (1.5.23) unstable; urgency=low
 
   [ Manpages Translations ]
   * Russian updated. Closes: #482288
@@ -17,8 +17,10 @@ debconf (1.5.23) UNRELEASED; urgency=low
 
   [ Joey Hess ]
   * Typo. Closes: #486870
+  * Disable Russian man pages until the encoding issue affecting them can be
+    fixed.
 
- -- Christian Perrier <bubulle@debian.org>  Wed, 21 May 2008 23:18:32 +0200
+ -- Joey Hess <joeyh@debian.org>  Tue, 22 Jul 2008 00:18:49 -0400
 
 debconf (1.5.22) unstable; urgency=low
 
