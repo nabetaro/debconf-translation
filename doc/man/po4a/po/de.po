@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2008-03-11 14:38+0000\n"
-"PO-Revision-Date: 2008-06-18 18:30+0200\n"
+"PO-Revision-Date: 2008-07-25 18:34+0200\n"
 "Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
 "Language-Team: de <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -426,6 +426,11 @@ msgid ""
 "may also interact with the progress bar itself using the debconf protocol if "
 "it so desires."
 msgstr ""
+"Die Optionen B<--start>, B<--stop>, B<--from> und B<--to> können zum "
+"Erstellen eines Fortschritsbalkens mit mehreren Segmenten für verschiedene "
+"Stufen der Installation verwandt werden, vorausgesetzt das der Aufrufende "
+"ein Debconf-Confmodule ist. Der Aufrufende darf mit dem Debconf-Protokoll "
+"auch mit dem Fortschrittsbalken selbst interagieren falls er dies wünscht."
 
 # type: textblock
 #: ../../debconf-apt-progress:36
@@ -437,6 +442,13 @@ msgid ""
 "eval the output of the B<--config> option before starting the debconf "
 "frontend to work around this. See L<the EXAMPLES section/EXAMPLES> below."
 msgstr ""
+"Debconf sperrt seine Konfigurationsdatenbank beim Starten, wodurch es "
+"unpraktisch wird, eine Instanz zur Darstellung des Fortschrittsbalkens und "
+"eine andere zur Weitergabe der Fragen von zu-installierenden Paketen zu "
+"verwenden. Falls Sie einen Fortschrittsbalken mit mehreren Segmenten "
+"verwenden, müssen SIe die Ausgabe der Option B<--config> vor dem Starten "
+"der Debconf-Oberfläche auswerten, um dies zu umgehen. Lesen Sie L<den "
+"Abschnitt BEISPIELE/BEISPIELE> unten."
 
 # type: =item
 #: ../../debconf-apt-progress:47
@@ -533,11 +545,14 @@ msgid ""
 "from apt, media change events, and debconf questions will still be passed "
 "through to debconf."
 msgstr ""
+"Vermeide das Starten, Stoppen oder Fortschreiten des Fortschrittsbalkens. "
+"Fortschrittsnachrichten von Apt, Meldungen über geänderte Medien und Fragen "
+"von Debconf werden noch an Debconf weitergegeben."
 
 # type: =item
 #: ../../debconf-apt-progress:82
 msgid "B<--dlwaypoint> I<percentage>"
-msgstr ""
+msgstr "B<--dlwaypoint> I<Prozent>"
 
 # type: textblock
 #: ../../debconf-apt-progress:84
@@ -546,6 +561,10 @@ msgid ""
 "The remainder will be used for installing packages. The default is to use "
 "15% for downloading and the remaining 85% for installing."
 msgstr ""
+"Legt fest, welchen Prozentanteil des Fortschrittsbalkens zum Herunterladen "
+"von Paketen verwandt wird. Der Rest wird zur Installation von Paketen "
+"verwandt. Standardmäßig werden 15% zum Herunterladen und die verbleibenden "
+"85% für die Installation verwandt."
 
 # type: =item
 #: ../../debconf-apt-progress:88
@@ -568,6 +587,9 @@ msgid ""
 "Send the normal output from apt to stderr. If you supply neither B<--"
 "logfile> nor B<--logstderr>, the normal output from apt will be discarded."
 msgstr ""
+"Schicke die normale Ausgabe von Apt nach Stderr. Falls Sie weder die Option "
+"B<--logfile> noch B<--logstderr> verwenden, wird die normale Ausgabe von "
+"Apt verworfen."
 
 # type: =item
 #: ../../debconf-apt-progress:98
@@ -582,6 +604,10 @@ msgid ""
 "prevent that being interpreted as an option to B<debconf-apt-progress> "
 "itself."
 msgstr ""
+"Beende Optionen. Da Sie normalerweise mindestens das Argument B<-y> an den "
+"ausgeführten Befehl übergeben müssen, werden sie gewöhnlich B<--> verwenden "
+"müssen, um dessen Interpretation als Option für B<debconf-apt-progress> "
+"selbst zu verhindern."
 
 # type: textblock
 #: ../../debconf-apt-progress:107
@@ -656,7 +682,7 @@ msgstr ""
 # type: =head1
 #: ../../debconf-apt-progress:133
 msgid "RETURN CODE"
-msgstr ""
+msgstr "RÜCKGABEWERT"
 
 # type: textblock
 #: ../../debconf-apt-progress:135
@@ -666,6 +692,11 @@ msgid ""
 "30 is returned. To avoid ambiguity, if the command returned 30, a value of 3 "
 "will be returned."
 msgstr ""
+"Der Exit-Code des angegeben Befehls wird zurückgegeben, falls der Benutzer "
+"nicht den Knopf »Abbrechen« beim Fortschrittsbalken gedrückt hat. Falls "
+"dieser Knopf gedrückt worden, wird der Wert 30 zurückgegeben. Um "
+"Mehrdeutigkeiten zu vermeiden, wird ein Wert von 3 zurückgegeben, falls der "
+"Befehl 30 zurücklieferte."
 
 # type: =head1
 #: ../../debconf-apt-progress:632
@@ -811,6 +842,10 @@ msgid ""
 "another, possibly new database. The two databases may have different "
 "formats; if so a conversion will automatically be done."
 msgstr ""
+"B<debconf-copydb> kopiert Einträge aus einer existierenden Debconf-Datenbank "
+"in eine andere, möglicherweise neue Datenbank. Die zwei Datenbanken düfen "
+"verschieden Formate haben, in diesem Falle wird automatisch eine "
+"Konvertierung durchgeführt."
 
 # type: =item
 #: ../../debconf-copydb:39
@@ -944,6 +979,7 @@ msgstr ""
 #: ../../debconf-copydb:91
 msgid "Spit out all the items in the debconf database related to package foo."
 msgstr ""
+"Gebe alle Einträge in der Debconf-Datenbank mit Bezug zum Paket foo aus."
 
 # type: verbatim
 #: ../../debconf-copydb:93
@@ -971,7 +1007,7 @@ msgstr "L<debconf.conf(5)>"
 # type: textblock
 #: ../../debconf-getlang:5
 msgid "debconf-getlang - extract a language from a templates file"
-msgstr ""
+msgstr "debconf-getlang - extrahiere eine Sprache aus einer Vorlagendatei"
 
 # type: verbatim
 #: ../../debconf-getlang:17
@@ -981,6 +1017,9 @@ msgid ""
 " debconf-getlang --stats master translation [...]\n"
 "\n"
 msgstr ""
+" debconf-getlang Sprache Hauptdatei [Übersetzung]\n"
+" debconf-getlang --stats Hauptdatei Übersetzung [...]\n"
+"\n"
 
 # type: textblock
 #: ../../debconf-getlang:22
@@ -997,6 +1036,9 @@ msgid ""
 "This program helps make and manage translations of debconf templates.  There "
 "are basically three situations in which this program might be called:"
 msgstr ""
+"Dieses Programm hilft beim Erstellen und Verwalten von Übersetzungen von "
+"Debconf-Vorlagen. Es gibt im Prinzip drei Situationen, in denen dieses "
+"Programm aufgerufen werden könnte:"
 
 # type: =item
 #: ../../debconf-getlang:29
@@ -2800,17 +2842,19 @@ msgid ""
 "B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
 "debconf_specification in the debian-policy package"
 msgstr ""
+"B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), "
+"debconf_specification im Paket debian-policy"
 
 # type: TH
 #: debconf.7:1
 #, no-wrap
 msgid "DEBCONF"
-msgstr ""
+msgstr "DEBCONF"
 
 # type: Plain text
 #: debconf.7:4
 msgid "debconf - Debian package configuration system"
-msgstr ""
+msgstr "debconf - Debian-Paket-Konfigurationssystem"
 
 # type: Plain text
 #: debconf.7:8
@@ -2818,6 +2862,9 @@ msgid ""
 "Debconf is a configuration system for Debian packages. There is a rarely-"
 "used command named debconf, documented in B<debconf>(1)"
 msgstr ""
+"Debconf ist ein Konfigurationssystem für Debian-Pakete. Es gibt auch einen "
+"selten verwandten Befehl namens debconf, der in B<debconf>(1) dokumentiert "
+"ist."
 
 # type: Plain text
 #: debconf.7:16
@@ -2830,12 +2877,20 @@ msgid ""
 "in a hurry, skip over less important questions and information while "
 "installing a package (and revisit it later)."
 msgstr ""
+"Debconf stellt eine konsistente Schnittstelle zur Paketkonfiguration bereit "
+"und erlaubt es Ihnen, aus mehreren Benutzerschnittstellen auszuwählen. Es "
+"unterstützt die Vorkonfiguration von Paketen vor der Installation, womit bei "
+"großen Installationen und Upgrades alle notwendigen Informationen am Anfang "
+"abgefragt werden können und Sie dann während der Installation selbst sich "
+"anderen Dingen widmen können. Falls Sie in Eile sind, können Sie damit "
+"während der Paketinstallation weniger wichtige Fragen und Informationen "
+"überspringen (und diese dann später nochmal angehen)."
 
 # type: SH
 #: debconf.7:16
 #, no-wrap
 msgid "Preconfiguring packages"
-msgstr ""
+msgstr "Pakete vorkonfigurieren"
 
 # type: Plain text
 #: debconf.7:22
@@ -2845,6 +2900,11 @@ msgid ""
 "going to ask be asked at the beginning of an install, so the rest of the "
 "install can proceed while you are away getting a cup of coffee."
 msgstr ""
+"Debconf kann sogar Pakete konfigurieren, bevor Sie auf Ihrem System "
+"installiert sind. Dies ist nützlich, weil damit alle Fragen, die die "
+"Pakete stellen werden, am Anfang der Installation gestellt werden können, "
+"so dass der Rest der Installation ablaufen kann, während Sie eine Tasse "
+"Kaffee holen."
 
 # type: Plain text
 #: debconf.7:27
@@ -2853,6 +2913,9 @@ msgid ""
 "each package apt installs will be automatically preconfigured. This is "
 "controlled via I</etc/apt/apt.conf.d/70debconf>"
 msgstr ""
+"Falls Sie Apt (Version 0.6 oder neuer) verwenden und apt-utils ist "
+"installiert, wird jedes von Apt installierte Paket automatisch "
+"vorkonfiguriert. Dies wird über I</etc/apt/apt.conf.d/70debconf> gesteuert."
 
 # type: Plain text
 #: debconf.7:33
@@ -4050,7 +4113,7 @@ msgstr ""
 #: debconf-devel.7:199
 #, no-wrap
 msgid "QUESTIONS"
-msgstr ""
+msgstr "FRAGEN"
 
 # type: Plain text
 #: debconf-devel.7:211
@@ -4088,7 +4151,7 @@ msgstr ""
 #: debconf-devel.7:218
 #, no-wrap
 msgid "THE DEBCONF PROTOCOL"
-msgstr ""
+msgstr "DAS DEBCONF-PROTOKOLL"
 
 # type: Plain text
 #: debconf-devel.7:224
@@ -5101,6 +5164,10 @@ msgid ""
 " . /usr/share/debconf/confmodule\n"
 " db_capb backup\n"
 msgstr ""
+" #!/bin/sh\n"
+" set -e\n"
+" . /usr/share/debconf/confmodule\n"
+" db_capb backup\n"
 
 # type: Plain text
 #: debconf-devel.7:759
@@ -5296,6 +5363,10 @@ msgid ""
 " db_metaget shared/window-manager choices\n"
 " CHOICES=$RET\n"
 msgstr ""
+" db_metaget shared/window-manager owners\n"
+" OWNERS=$RET\n"
+" db_metaget shared/window-manager choices\n"
+" CHOICES=$RET\n"
 
 # type: Plain text
 #: debconf-devel.7:847
@@ -5306,6 +5377,10 @@ msgid ""
 " \tdb_fset shared/window-manager seen false\n"
 " fi\n"
 msgstr ""
+" if [ \"$OWNERS\" != \"$CHOICES\" ]; then\n"
+" \tdb_subst shared/window-manager choices $OWNERS\n"
+" \tdb_fset shared/window-manager seen false\n"
+" fi\n"
 
 # type: Plain text
 #: debconf-devel.7:850
@@ -5351,6 +5426,9 @@ msgid ""
 "This can be accomplished by adding something like this to the prerm scripts "
 "of all related packages (replacing E<lt>packageE<gt> with the package name):"
 msgstr ""
+"Dies kann erreicht werden, in dem etwas der folgenden Art in die Prerm-"
+"Skripte aller betroffenen Pakete eingefügt wird (ersetzen Sie "
+"E<lt>PaketE<gt> durch den Namen des Pakets."
 
 # type: Plain text
 #: debconf-devel.7:876
@@ -5361,6 +5439,10 @@ msgid ""
 " \t# I no longer claim this question.\n"
 " \tdb_unregister shared/window-manager\n"
 msgstr ""
+" if [ -e /usr/share/debconf/confmodule ]; then\n"
+" \t. /usr/share/debconf/confmodule\n"
+" \t# I no longer claim this question.\n"
+" \tdb_unregister shared/window-manager\n"
 
 # type: Plain text
 #: debconf-devel.7:887
@@ -5377,6 +5459,16 @@ msgid ""
 " \t\t\tdb_go || true\n"
 " \t\tfi\n"
 msgstr ""
+" \t# Prüfe, ob die gemeinsam benutzen Fragen noch existieren.\n"
+" \tif db_get shared/window-manager; then\n"
+" \t\tdb_metaget shared/window-manager owners\n"
+" \t\tdb_subst shared/window-manager choices $RET\n"
+" \t\tdb_metaget shared/window-manager value\n"
+" \t\tif [ \"E<lt>PaketE<gt>\" = \"$RET\" ] ; then\n"
+" \t\t\tdb_fset shared/window-manage seen false\n"
+" \t\t\tdb_input high shared/window-manager || true\n"
+" \t\t\tdb_go || true\n"
+" \t\tfi\n"
 
 # type: Plain text
 #: debconf-devel.7:892
@@ -5481,6 +5573,10 @@ msgid ""
 "the debconf protocol. /usr/share/doc/debian-policy/debconf_specification.txt."
 "gz"
 msgstr ""
+"Die Debcon-Spezifikation in den Debian-Richtlinien (»policy«) ist die "
+"kanonische Definition des Debconf-Proto'kolls. /usr/share/doc/debian-policy/"
+"debconf_specification.txt.gz"
+
 
 # type: Plain text
 #: debconf-devel.7:954
@@ -5488,3 +5584,5 @@ msgid ""
 "B<debconf.conf>(5)  has much useful information, including some info about "
 "the backend database."
 msgstr ""
+"In B<debconf.conf>(5) sind viele nützliche Informationen, darunter auch "
+"über die Backend-Datenbank."
