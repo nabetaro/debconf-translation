@@ -1574,6 +1574,10 @@ msgid ""
 "will ask configuration questions, much like when the package was first "
 "installed."
 msgstr ""
+"B<dpkg-reconfigure> konfiguriert Pakete erneut, nachdem sie bereits "
+"installiert wurden. Übergeben Sie ihm den oder die Namen des oder der "
+"Pakete, die erneut konfiguriert werden sollen. Es stellt dann "
+"Konfigurationsfragen, so ziemlich wie als das Paket installiert wurde."
 
 # type: textblock
 #: ../../dpkg-reconfigure:24
@@ -1581,6 +1585,8 @@ msgid ""
 "Select the frontend to use. The default frontend can be permanently changed "
 "by:"
 msgstr ""
+"Wählt das zu benutzende Frontend. Das standardmäßige Frontend kann "
+"durch das Folgende dauerhaft geändert werden:"
 
 # type: verbatim
 #: ../../dpkg-reconfigure:27
@@ -1589,6 +1595,8 @@ msgid ""
 " dpkg-reconfigure debconf\n"
 "\n"
 msgstr ""
+" dpkg-reconfigure debconf\n"
+"\n"
 
 # type: textblock
 #: ../../dpkg-reconfigure:29
@@ -1597,6 +1605,10 @@ msgid ""
 "frontend, dpkg-reconfigure will use the dialog frontend instead, so you "
 "actually get to reconfigure the package."
 msgstr ""
+"Beachten Sie, dass, falls Sie normalerweise Debconf das nicht-interaktive "
+"Frontend benutzen lassen, B<dpkg-reconfigure> hier stattdessen das "
+"Frontend Dialog benutzt, so dass Sie tatsächlich dazu kommen, das Paket "
+"erneut zu konfigurieren."
 
 # type: textblock
 #: ../../dpkg-reconfigure:35
@@ -1605,11 +1617,15 @@ msgid ""
 "reconfigure normally shows low priority questions no matter what your "
 "default priority is. See L<debconf(7)> for a list."
 msgstr ""
+"Gibt die Schwell-Priorität für Fragen an, die angezeigt werden sollen. "
+"B<dpkg-reconfigure> zeigt normalerweise Fragen mit niedriger Priorität an, "
+"egal was Ihre voreingestellte Priorität ist. Siehe L<debconf(7)> für eine "
+"Liste."
 
 # type: =item
 #: ../../dpkg-reconfigure:39
 msgid "B<--default-priority>"
-msgstr ""
+msgstr "B<--default-priority>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:41
@@ -1617,11 +1633,13 @@ msgid ""
 "Use whatever the default priority of question is, instead of forcing the "
 "priority to low."
 msgstr ""
+"Benutze wasimmer die voreingestellte Priorität für Fragen ist, statt die "
+"niedrige Priorität (low) zu erzwingen."
 
 # type: =item
 #: ../../dpkg-reconfigure:44
 msgid "B<-a>, B<--all>"
-msgstr ""
+msgstr "B<-a>, B<--all>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:46
@@ -1629,11 +1647,13 @@ msgid ""
 "Reconfigure all installed packages that use debconf. Warning: this may take "
 "a long time."
 msgstr ""
+"Konfiguriere alle installierten Pakete erneut, die Debconf benutzen. "
+"Warnung: dies kann viel Zeit beanspruchen."
 
 # type: =item
 #: ../../dpkg-reconfigure:49
 msgid "B<-u>, B<--unseen-only>"
-msgstr ""
+msgstr "B<-u>, B<--unseen-only>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:51
@@ -1642,11 +1662,14 @@ msgid ""
 "answered. If this parameter is set though, only questions that have not yet "
 "been seen will be asked."
 msgstr ""
+"Standardmäßig werden alle Fragen angezeigt, selbst falls sie schon "
+"beantwortet wurden. Falls dieser Parameter aber gesetzt ist, werden nur die "
+"Fragen gestellt, die noch nicht gesehen wurden."
 
 # type: =item
 #: ../../dpkg-reconfigure:55
 msgid "B<--force>"
-msgstr ""
+msgstr "B<--force>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:57
@@ -1654,11 +1677,14 @@ msgid ""
 "Force dpkg-reconfigure to reconfigure a package even if the package is in an "
 "inconsistent or broken state. Use with caution."
 msgstr ""
+"Zwinge B<dpkg-reconfigure> ein Paket erneut zu konfigurieren, selbst falls "
+"es in einem inkonsistenten oder kaputten Status ist. Mit Vorsicht zu "
+"benutzen."
 
 # type: =item
 #: ../../dpkg-reconfigure:60
 msgid "B<--no-reload>"
-msgstr ""
+msgstr "B<--no-reload>"
 
 # type: textblock
 #: ../../dpkg-reconfigure:62
@@ -1668,6 +1694,10 @@ msgid ""
 "However, it may be useful in constrained environments where rewriting the "
 "templates database is expensive."
 msgstr ""
+"Vermeidet, dass B<dpkg-reconfigure> Vorlagen erneut lädt. Mit Vorsicht zu "
+"benutzen; dies vermeidet, dass B<dpkg-reconfigure> kaputte Vorlage-"
+"Datenbanken repariert. Es kann aber in eingezwängten Umgebungen nützlich "
+"sein, wo das erneute Schreiben der Vorlage-Datenbank teuer ist."
 
 # type: TH
 #: debconf.conf.5:1
@@ -5576,7 +5606,6 @@ msgstr ""
 "Die Debcon-Spezifikation in den Debian-Richtlinien (»policy«) ist die "
 "kanonische Definition des Debconf-Proto'kolls. /usr/share/doc/debian-policy/"
 "debconf_specification.txt.gz"
-
 
 # type: Plain text
 #: debconf-devel.7:954
