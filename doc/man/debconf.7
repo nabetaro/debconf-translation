@@ -27,7 +27,7 @@ controlled via
 .P
 Sometimes you might want to preconfigure a package
 by hand, when you're not installing it with apt. You can use
-.B dpkg-preconfigure (8)
+.B dpkg-preconfigure(8)
 to do that, just pass it the filenames of the packages you 
 want to preconfigure. You will need apt-utils installed for that to work.
 .SH Reconfiguring packages
@@ -53,9 +53,9 @@ debconf frontends available:
 .TP
 .B dialog
 The default frontend, this uses the 
-.B whiptail (1)
+.B whiptail(1)
 or
-.B dialog (1)
+.B dialog(1)
 programs to display questions to you. It works in text mode.
 .TP
 .B readline
@@ -132,9 +132,9 @@ the name of the frontend to use. For example:
   DEBIAN_FRONTEND=readline apt-get install slrn
 .P
 The 
-.B dpkg-reconfigure (8)
+.B dpkg-reconfigure(8)
 and
-.B dpkg-preconfigure (8)
+.B dpkg-preconfigure(8)
 commands also let you pass 
 .I --frontend=
 to them, followed by the frontend you want them to use.
@@ -168,9 +168,9 @@ choose will be shown to you. You can set the priority value by
 reconfiguring debconf, or temporarily by passing
 .I --priority=
 followed by the value to the
-.B dpkg-reconfigure (8)
+.B dpkg-reconfigure(8)
 and
-.B dpkg-preconfigure (8)
+.B dpkg-preconfigure(8)
 commands, or by setting the DEBIAN_PRIORITY environment variable.
 .SH Backend Database
 Debconf uses a rather flexible and potentially complicated backend
@@ -179,7 +179,7 @@ database for storing data such as the answers to questions. The file
 is used to configure this database. If you need to set up something
 complicated, like make debconf read a remote database to get defaults,
 with local overrides, read the
-.B debconf.conf (5)
+.B debconf.conf(5)
 man page for all the gory details. Generally,
 the backend database is located in
 .B /var/cache/debconf/
@@ -192,12 +192,12 @@ involve setting up a database and making debconf use it to get the answers
 you want.
 .P
 You should really read
-.B debconf.conf (5)
+.B debconf.conf(5)
 before this section, as you need to understand how debconf's databases work.
 .P
 The easiest way to set up the database is to install the packages on one
 machine and answer their questions as usual. Or you might just use
-.BR dpkg-preconfigure (8)
+.BR dpkg-preconfigure(8)
 to configure a set of packages without actually installing them. Or you
 might even decide to write a plain text debconf database by hand or
 something.
@@ -260,7 +260,7 @@ to override existing values.
 .SH Developing for Debconf
 Package developers and others who want to develop packages that use 
 debconf should read
-.BR debconf-devel (7) .
+.BR debconf-devel(7) .
 .P
 Briefly, debconf communicates with maintainer scripts or other programs
 via standard input and output, using a simple line-oriented command language 
