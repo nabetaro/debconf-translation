@@ -1,4 +1,4 @@
-# translation of debconf_po_el.po to Greek
+# translation of debconf_po_el.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
-"PO-Revision-Date: 2006-10-31 15:12+0200\n"
-"Last-Translator: QUAD-nrg.net <yodesy@quad-nrg.net>\n"
-"Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
+"POT-Creation-Date: 2008-06-19 01:54+0000\n"
+"PO-Revision-Date: 2008-08-24 17:53+0300\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "επιστροφή στο περιβάλλον: %s"
+msgstr "επιστροφή στο frontend: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
@@ -154,7 +154,7 @@ msgstr "Εισάγετε τις επιλογές σας, χωρισμένες μ
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Αδύνατη η φόρτωση του Debconf::Element::%s. Αιτία αποτύχιας: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Ρύθμιση του %s"
@@ -224,8 +224,8 @@ msgstr ""
 "εξέλθετε από το πρόγραμμα. Στο σημείο αυτό, το debconf θα διαβάσει το "
 "επεξεργασμένο αρχείο και θα χρησιμοποιήσει τις ρυθμίσεις που δώσατε."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf στο %s"
@@ -434,11 +434,11 @@ msgstr "το %s είναι ξεπερασμένο"
 msgid "%s is outdated; dropping whole template!"
 msgstr "το %s είναι ξεπερασμένο, παραλείπεται ολόκληρο το πρότυπο!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Usage: debconf [options] command [args]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
