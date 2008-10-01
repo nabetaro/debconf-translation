@@ -31,7 +31,9 @@ debconf (1.5.24) UNRELEASED; urgency=low
   * Add an AUTHOR section to debconf-escape(1) to make the German po4a
     translations work better.
   * Add missing =back to debconf-apt-progress(1)'s OPTIONS section.
-  * Use =head1 in German POD addendum, not =HEAD1.
+  * Use =head1 in German POD addendum, not =HEAD1. Together with switching
+    output to UTF-8 (below), this fixes various problems with German manual
+    page output. Closes: #492368
   * Recode all manual pages to UTF-8 and re-enable Russian manual page
     generation, now that pod2man has a --utf8 option. Requires perl (>=
     5.10.0-15) as bug #500210 broke the Russian pages. Closes: #485756
