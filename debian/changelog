@@ -28,6 +28,8 @@ debconf (1.5.24) UNRELEASED; urgency=low
     for Choices-en.UTF-8 should fall back to Choices if Choices-en.UTF-8
     doesn't exist. LP: #271652
   * Remove some dead code in Debconf::Template::AUTOLOAD.
+  * Add an AUTHOR section to debconf-escape to make the German po4a
+    translations work better.
 
  -- Joey Hess <joeyh@debian.org>  Fri, 25 Jul 2008 14:42:10 -0400
 
