@@ -1,4 +1,4 @@
-PO4A-HEADER:mode=after;position=^\.SH ξαϊχαξιε;beginboundary=^FakePo4aBoundary
+PO4A-HEADER:mode=after;position=^\.SH ΠΠΠ—Π’ΠΠΠΠ•;beginboundary=^FakePo4aBoundary
 .\" Russian translation:
 .\"  Yuri Kozlov kozlov.y@gmail.com, 2006
 .\"  debian-l10n-russian@lists.debian.org

@@ -1,7 +1,7 @@
 all: manpages
 	./graph.pl `find .. -name \*.pm` > hierarchy.txt
 
-pod2man=pod2man -c Debconf -r ''
+pod2man=pod2man -c Debconf -r '' --utf8
 manpages:
 	cd man && po4a po4a/po4a.cfg
 	install -d man/gen

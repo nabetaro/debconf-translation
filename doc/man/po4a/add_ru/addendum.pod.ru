@@ -1,4 +1,4 @@
-PO4A-HEADER:mode=before;position=^=head1 ξαϊχαξιε;beginboundary=^=head1
+PO4A-HEADER:mode=before;position=^=head1 ΠΠΠ—Π’ΠΠΠΠ•;beginboundary=^=head1
 Russian translation:
   Yuri Kozlov kozlov.y@gmail.com, 2006
   debian-l10n-russian@lists.debian.org
