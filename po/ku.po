@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-10-01 02:02+0100\n"
 "PO-Revision-Date: 2008-09-21 18:42+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <ku@li.org>\n"
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nikare daxe Debconf::Element::%s. Bi serneket ji ber: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s tê mîhengkirin"
@@ -214,8 +214,8 @@ msgstr ""
 "ji bernameyê derkeve. Wê demê dê debconf li gor nirx û mîhengkirinên te "
 "bixebite."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf di %s de"
@@ -382,7 +382,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tTevlêkirin bi hemû wergeran re ta bi yê ne nûkirî re jî.\n"
+"        --outdated\t\tTevlêkirin bi hemû wergeran re ta bi yê ne nûkirî re "
+"jî.\n"
 "\t--drop-old-templates\tPiştguhkirina hemû qalibên ne nûkirî."
 
 #: ../debconf-mergetemplate:119
@@ -415,11 +416,11 @@ msgstr "%s kevn e"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s kevn e, şablon nayê bikaranîn!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Bikaranîn: debconf [bijare] ferman [guhêr]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
