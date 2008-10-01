@@ -33,8 +33,8 @@ debconf (1.5.24) UNRELEASED; urgency=low
   * Add missing =back to debconf-apt-progress(1)'s OPTIONS section.
   * Use =head1 in German POD addendum, not =HEAD1.
   * Recode all manual pages to UTF-8 and re-enable Russian manual page
-    generation, now that pod2man has a --utf8 option (closes: #485756).
-    Requires perl (>= 5.10.0-15) as bug #500210 broke the Russian pages.
+    generation, now that pod2man has a --utf8 option. Requires perl (>=
+    5.10.0-15) as bug #500210 broke the Russian pages. Closes: #485756
 
  -- Joey Hess <joeyh@debian.org>  Fri, 25 Jul 2008 14:42:10 -0400
 
