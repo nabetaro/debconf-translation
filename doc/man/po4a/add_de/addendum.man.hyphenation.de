@@ -1,0 +1,407 @@
+PO4A-HEADER:mode=before;position=^\.TH;beginboundary=^\.SH "NAME"
+.\" hyphenation mode (don't hypenate last word on a page or column):
+.hy 2
+.\" hyphenation language german
+.hla de
+.\" words with special hyphenation
+.\" *** debconf.conf.5 * confmodule.3 * debconf.7 ***
+.hw Ab-fra-ge ab-ge-fragt ab-lau-fen Ab-satz Ab-schnitt Ab-sät-zen
+.hw Ad-mi-nis-tra-tions-ar-beit Ad-mi-nis-tra-tor ak-tiv Ak-ti-vie-re
+.hw ak-ti-vie-ren ak-tu-a-li-sie-ren Ak-tu-a-li-sie-rung ak-zep-tier-bar
+.hw ak-zep-tiert al-le al-lem al-len al-les Al-les-in-Ei-nem-Ver-hal-ten al-so
+.hw Al-so al-ten an-de-re an-de-ren an-de-rer An-fang An-frage An-fra-gen
+.hw an-fragt an-ge-ben an-ge-fer-tigt an-ge-fragt an-ge-ge-ben an-ge-hen
+.hw an-ge-nom-men An-ge-nom-men an-ge-wen-det an-ge-zeigt an-ge-zeig-ten
+.hw An-läs-se An-nah-me an-neh-men ano-nym ano-ny-me Ano-ny-me An-satz
+.hw an-sons-ten An-sons-ten an-statt an-stel-le an-stel-len An-ti-Front-end
+.hw Ant-wor-ten An-wei-sung An-wen-dun-gen An-zahl An-zei-ge-mo-dus an-zei-gen
+.hw an-zei-gen an-zu-ge-ben an-zu-zei-gen ar-bei-ten ar-bei-tet Ar-chi-vie-ren
+.hw au-ßer auf-ge-fan-gen auf-ge-setzt Auf-he-bun-gen auf-set-zen auf-setzt
+.hw auf-stei-gen-der auf-trat Auf-wand auf-zu-set-zen Aus-druck -aus-ga-be
+.hw Aus-ga-be Aus-ga-ben aus-ge-ben aus-ge-ben aus-ge-führt aus-ge-ge-ben
+.hw aus-ge-las-sen aus-ge-tauscht aus-gibt aus-rei-chend aus-se-hen aus-sieht
+.hw aus-zu-füh-ren aus-zu-lö-sen aus-zu-wäh-len au-then-ti-fi-zier-ten
+.hw au-to-ma-tisch au-to-ma-ti-sche Au-tor Back-end-Da-ten-bank back-up
+.hw Back-up ba-sie-rend ba-siert Baum-struk-tur Be-ach-ten be-an-sprucht
+.hw be-ant-wor-ten be-ant-wor-tet be-deu-tet Be-dürf-nis-sen Be-fehl Be-fehl
+.hw Be-feh-le Be-fehls-spra-che be-fragt be-gin-nen be-ginnt be-gren-zen
+.hw Be-hal-ten be-han-delt Be-hand-lungs-kode bei-de Bei-spiel
+.hw Bei-spiel-Ab-satz Bei-spiel-an-wen-dung be-kom-men Be-lie-ben be-läs-tigt
+.hw be-nann-ten Be-nen-nung be-nö-ti-gen be-nö-tigt be-nö-tig-tes Be-nut-ze
+.hw be-nut-zen be-nut-zen-de be-nut-zen-den Be-nut-zer Be-nut-zers
+.hw Be-nut-zer-schnitt-stel-len be-nutzt be-nutz-ten Be-nut-zung über-all
+.hw Be-rech-ti-gun-gen über-ein-stimmt be-reit be-reit-zu-stel-len über-ge-ben
+.hw über-gibt Über-set-zung über-sprin-gen über-sprun-gen über-stim-men
+.hw über-stimmt Über-stim-mungs-trei-ber über-wa-chen be-schleu-nigt
+.hw be-schrie-ben be-son-de-re be-son-de-ren be-son-ders bes-ser bes-te
+.hw be-ste-hen-de be-ste-hen-den be-stim-men be-stim-mten be-stim-mter
+.hw Be-trach-ten be-vor be-vor-zugt be-werk-stel-li-gen be-zie-hen
+.hw Bib-lio-thek bie-tet bil-det Bild-nach-oben Bild-nach-un-ten bin-den
+.hw Bin-dung Bit-te bit-ten üb-lich brau-chen bringt bräuch-te da-für da-hin
+.hw da-mit Da-mit da-rin da-rum da-run-ter Da-tei Da-tei-de-skrip-tor
+.hw Da-tei-de-skrip-tors Da-tei-en Da-tei-for-mat Da-tei-na-men Da-tei-sys-tem
+.hw Da-ten Da-ten-bank Da-ten-ban-ken Da-ten-ban-ken-Ab-satz
+.hw Da-ten-ban-ken-ab-schnitt Da-ten-ban-ken-Back-end Da-ten-ban-ken-For-mat
+.hw Da-ten-ban-ken-sta-pel Da-ten-ban-ken-trei-ber Da-ten-ban-ken-Ty-pen
+.hw Da-ten-bank-For-ma-te Da-ten-bank-Trei-ber Da-ten-Kon-sis-tenz da-zu
+.hw de-ak-ti-vie-ren deb-conf Deb-conf Deb-conf-be-nut-zen-den
+.hw Deb-conf-Be-nut-zer Deb-conf-Da-ten-bank
+.hw Deb-conf-Da-ten-ban-ken-Kon-fi-gu-ra-tion Deb-conf-Front-end
+.hw Deb-conf-Front-ends Deb-conf-Kon-fi-gu-ra-tions-da-ten Deb-conf-Laufs
+.hw Deb-conf-Pro-to-koll Deb-confs Deb-conf-Schlüs-sel Deb-conf-Vor-la-gen
+.hw Deb-ian Deb-ian-Kon-troll-Da-tei Deb-ian-Ma-schi-nen Deb-ian-Pa-ke-te
+.hw Deb-ian-Pa-ket-Kon-fi-gu-ra-tions-sys-tem Deb-ians de-fi-niert de-nen
+.hw der-sel-be des-halb Desk-top des-sen De-tails deut-sche DHCP-Trei-ber
+.hw Dia-log die-se Die-se die-sel-be die-sem die-sen die-ser Die-ser die-ses
+.hw Die-ses dies-mal Din-ge Din-gen di-rekt Dir-Tree DIS-PLAY DNS-Ein-trä-gen
+.hw DNS-Ser-ver Do-ku-men-ta-tion do-ku-men-tiert Dop-pel-punkt
+.hw dpkg-re-con-fi-gure dpkg-Sta-tus-Da-tei dy-na-mi-sche eben-falls ech-te
+.hw ech-ten edi-tie-ren Edi-tie-ren Edi-tor ei-ge-ne ei-ge-nen ei-ge-nes Ei-le
+.hw ein-be-zie-hen ei-ne Ei-ne ei-nem ei-nen ei-ner ei-nes Ei-nes ein-fach
+.hw ein-fa-che ein-fa-chen ein-fa-ches ein-fachs-te
+.hw Ein-ga-be-auf-for-de-run-gen ein-ge-le-sen ein-gibt ei-ni-ge Ei-ni-ge
+.hw ein-le-sen ein-mal ein-rei-chen ein-rich-ten Ein-rich-ten ein-rich-tet
+.hw Ein-rich-tung ein-schrän-ken ein-stel-len Ein-trä-ge ein-zel-nen
+.hw ein-zig-ar-ti-gen ein-zu-ho-len Ele-ment Ele-men-te Ele-men-tes Ele-ments
+.hw Email-Ad-res-se Email-Ad-res-sen empfoh-len En-de ent-fern-te ent-fern-ten
+.hw ent-hal-ten ent-hält ent-schei-den ent-wi-ckeln Ent-wi-ckeln
+.hw er-for-der-lich Er-for-der-lich er-for-der-li-ches er-for-dert Er-geb-nis
+.hw er-in-nern er-ken-nen Er-klä-rung er-lau-ben er-laubt er-le-di-gen
+.hw er-le-digt er-leich-tert.  er-neut er-neu-te er-rei-chen er-setzt ers-te
+.hw er-stel-len Er-stel-len ers-ten ers-te-ren er-wei-ter-ba-res
+.hw Er-wei-te-rung er-wä-gen er-wähnt er-zeugt es-sen-zi-ell et-wa et-was
+.hw exis-tie-ren-den exis-tiert ex-pe-ri-men-tell ex-por-tier-ter Fal-le
+.hw Fa-na-ti-ker fa-ta-len Feh-ler Feh-ler-be-richt Feh-ler-mel-dung
+.hw Feh-ler-mel-dun-gen Feh-ler-su-che Fel-der Feld-na-me Feld-na-men
+.hw Feld-wert Feld:Wert-Ein-stel-lun-gen Fer-ne öf-fent-li-chen öff-nen
+.hw Fä-hig-keit Füh-ren fin-den fin-det Fir-ma Fir-ma-wei-ten fla-chen
+.hw fle-xib-les Fäl-len Flo-rian Fol-ge fol-gen Fol-gen-de fol-gen-den For-mat
+.hw For-ma-te For-mat-Mo-du-le for-men Fra-ge Fra-gen Front-end Front-End
+.hw Front-end-Ein-stel-lung Front-ends fun-giert Funk-tion funk-tio-nie-ren
+.hw Funk-tio-nie-ren funk-tio-niert Funk-tions-na-me Funk-tions-wei-se gan-ze
+.hw Gan-zen ge-ach-tet ge-ben ge-führt ge-folgt ge-ge-be-ne ge-gen-über
+.hw ge-gen-wär-tig ge-hal-ten ge-hen ge-hö-ren ge-la-den ge-lan-gen
+.hw ge-le-gent-li-chen ge-legt ge-le-sen ge-lie-fert ge-macht ge-nannt
+.hw Ge-ne-ral ge-ne-rell Ge-ne-rell ge-ne-rel-len ge-nug ge-rie-ten ge-sagt
+.hw ge-sam-te ge-sam-ten ge-sam-tes ge-schickt ge-schieht ge-schrie-ben
+.hw ge-schwun-ge-nen ge-se-hen ge-sen-det ge-setzt ge-setz-ter ge-spei-chert
+.hw ge-stat-tet ge-stellt ge-steu-ert ge-tes-tet ge-trennt ge-trenn-ten
+.hw ge-tun-nel-te ge-zeigt Glück-li-cher-wei-se gleich-zei-ti-ge glo-ba-le
+.hw gül-ti-ge gül-ti-ges gän-gi-gen GNOME-Bib-lio-the-ken grö-ßer Grün-den
+.hw groß-en Groß-Klein-schrei-bung Grup-pe Grup-pen Grup-pen-na-men gu-te
+.hw ha-be ha-ben HAF-TUNG hal-te Hal-ten Hand-buch-sei-ten
+.hw Haupt-Deb-conf-Da-ten-bank Hel-ge her-aus-fin-den her-aus-zie-hen
+.hw her-aus-zu-fin-den hie-rar-chi-schen hin-über hin-über-ko-pier-te
+.hw hin-durch-ge-lei-tet hin-ein hin-sicht-lich hin-zu-ge-fügt ähn-lich
+.hw Ähn-li-che ähn-li-chs-te ho-len Host-na-me igno-riert Ih-nen ih-re Ih-re
+.hw ih-rem Ih-rem Ih-ren ih-rer Ih-rer Ih-res il-lus-triert im-mer in-dem
+.hw in-di-vi-du-el-le In-for-ma-tio-nen In-stal-la-tion In-stal-la-tio-nen
+.hw in-stal-lie-ren In-stal-lie-ren in-stal-liert in-stal-lier-te
+.hw in-te-res-san-te in-te-res-san-ter in-te-res-san-te-re In-ter-es-se
+.hw In-ter-net-Pro-to-kol-len in-ter-pre-tie-ren in-ter-pre-tiert IP-Ad-res-se
+.hw ir-gend-ei-nem ir-gend-ei-ner ir-gend-wel-che ir-gend-wel-chen je-de Je-de
+.hw je-dem je-der Je-der je-des jeg-li-che jeg-li-chen jeg-li-cher Jeg-li-cher
+.hw je-weils Kaf-fee kei-ne KEI-NE kei-nen kei-ner Klam-mern
+.hw Klar-text-Deb-conf-Da-ten-bank Klar-text-for-mat klei-ne klei-nen
+.hw klein-ge-schrie-ben kle-ver knap-pe knap-pen kön-nen könn-te.  könn-ten
+.hw kom-bi-nie-ren kom-bi-niert kom-men Kom-men-tar-zei-len kom-men-tie-ren
+.hw Kom-mu-ni-ka-tion kom-mu-ni-zie-ren kom-mu-ni-ziert kom-pak-te-ren
+.hw kom-pa-ti-bel kom-plett kom-pli-zier-te-res kom-pli-zier-tes
+.hw Kom-pli-zier-tes Kom-pro-miss Kon-fi-gu-ra-tion Kon-fi-gu-ra-tions-da-tei
+.hw Kon-fi-gu-ra-tions-Da-tei Kon-fi-gu-ra-tions-da-tei-en
+.hw Kon-fi-gu-ra-tions-da-ten Kon-fi-gu-ra-tions-ele-ment
+.hw Kon-fi-gu-ra-tions-ele-men-te Kon-fi-gu-ra-tions-fra-gen
+.hw Kon-fi-gu-ra-tions-in-for-ma-tio-nen
+.hw Kon-fi-gu-ra-tions-ma-na-ge-ment-sys-tem Kon-fi-gu-ra-tions-sys-tem
+.hw Kon-fi-gu-ra-tions-sys-tem-front-end kon-fi-gu-rier-bar kon-fi-gu-rie-ren
+.hw kon-fi-gu-rier-ten kon-sis-ten-te Kon-so-le Kon-takt Kon-troll-Freak
+.hw kon-trol-lie-ren kon-trol-liert Kon-troll-Me-ta-da-ten Kon-zept-stu-die
+.hw Kopf-zei-len Ko-pie Ko-pien Ko-pier-be-din-gun-gen ko-pie-ren ko-piert
+.hw Kreutz-mann kur-ze Kurz-form Kurz-griff La-de- lang-sam lang-sa-me
+.hw lang-sams-ten las-sen Las-sen lau-fen LDAP-Da-ten-bank
+.hw LDAP-Deb-conf-Da-ten-bank LDAP-Ein-trä-ge LDAP-Ser-ver LDAP-Ser-vers
+.hw LDAP-Ver-bin-dung LDAP-Ver-bin-dun-gen LDAP-Ver-zeich-nis
+.hw LDAP-Ver-zeich-nis-se lee-re Leer-raum Leer-zei-chen leich-ter lei-tet
+.hw les-bar le-sen le-sen-de Leu-te Li-cense lie-fern lie-fert Lis-te
+.hw local-host lo-ka-le lo-ka-len lo-ka-li-siert ma-che ma-chen
+.hw Maintainer-Skrip-ten man-che manch-mal Manch-mal mar-kie-ren Mar-kie-rung
+.hw Ma-schi-ne Ma-schi-nen möch-te möch-ten meh-re-re meh-re-ren mei-ne
+.hw meis-te meis-ten Mel-dung Men-ge Men-gen Me-ta-Trei-ber Me-ta-Trei-bern
+.hw Me-tho-de mö-gen mög-lich mög-li-che mög-li-cher-wei-se min-des-tens
+.hw mi-ni-ma-lem Mi-ni-mum Mo-de mo-dern mo-di-fi-zie-ren mo-di-fi-zier-te
+.hw Mo-dul Mo-dus müs-sen nach-ge-schla-gen Nach-richt Nach-teil Na-me Na-men
+.hw na-mens na-ment-lich Na-tür-lich Na-tur nächs-ten än-dern Än-de-run-gen
+.hw neh-men net-tes Netz-werk neu-er nicht-in-ter-ak-ti-ven nicht-lee-re
+.hw nicht-vor-ge-ge-be-ne nied-ri-ger nie-mals nie-mand noch-mal noch-mals
+.hw (non-in-ter-ac-ti-ve) Nor-ma-le nor-ma-len nor-ma-ler-wei-se
+.hw not-wen-di-gen nütz-lich Num-mer num-me-ri-sche Nur-Le-se-Mo-dus
+.hw nur-le-send nur-le-sen-de Nur-Le-se-Zu-griff oh-ne Op-tion op-tio-nal
+.hw ord-nungs-ge-mä-ße Pa-ket Pa-ke-te Pa-ke-ten Pa-ket-Ent-wick-ler
+.hw Pa-ket-in-stal-la-tion Pa-ket-In-stal-la-tion Pa-ket-kon-fi-gu-ra-tion
+.hw Pa-kets Pa-ra-me-ter Pa-ra-me-tern Pa-ra-me-ters Pass-wort
+.hw Pass-wort-da-ten-bank Pass-wör-ter per-fek-tes perl-kom-pa-tib-ler
+.hw per-ma-nent Plat-te Plat-ten-platz.  Po-si-tion po-ten-ti-ell Prä-fix
+.hw prio-ri-siert Prio-ri-tät Prio-ri-tä-ten Prio-ri-täts-ein-stel-lung
+.hw Prio-ri-täts-wert Prob-lem Pro-gram-me Pro-gram-men Pro-to-koll
+.hw pro-to-kol-liert prä-sent prä-sen-tier-te Pub-lic Qt-Bib-lio-the-ken
+.hw Quel-le Rück-ga-be-wert Rück-ga-be-wer-te Rück-griff
+.hw Rück-griffs-da-ten-bank Rück-griffs-Da-ten-bank Rech-ner re-gu-lä-ren
+.hw re-gu-lä-rer Reh-nisch Rei-he rei-ner re-pro-du-zie-ren re-prä-sen-tiert.
+.hw re-ser-viert RFC-822-For-mat RFC-822-ähn-li-ches rich-tet Ri-si-ko Ru-fen
+.hw Sa-che sa-gen sa-hen Schal-tet schau-en schei-tert schi-cken schlie-ßen
+.hw Schlie-ßen Schnitt-stel-le schreib-ba-ren Schrei-be-An-fra-gen schrei-ben
+.hw Schrei-ben schrei-ben-de Schreib-zu-griff Schreib-zu-grif-fen
+.hw Schwell-Prio-ri-tät Schwie-rig-keit se-hen Sei-te selbst-ver-ständ-lich
+.hw Selbst-ver-ständ-lich sel-ten Ser-ver set-zen Set-zen Shell-Funk-tio-nen
+.hw si-cher si-che-re si-cher-ge-stellt Si-cher-heits-grün-den
+.hw Si-cher-heits-ko-pie Si-cher-heits-Ver-wick-lun-gen si-cher-zu-stel-len
+.hw sicht-bar sie-he Sie-he Si-tua-tion Skrip-tes So-bald so-gar So-lan-ge
+.hw sol-che sol-len soll-te soll-ten soll-ten Son-der-tas-ten sorg-fäl-tig
+.hw sour-cen Sour-cen so-was so-was so-weit Spei-cher-Ge-schwin-dig-kei-ten
+.hw spei-chern Spei-chern spe-zi-ell spä-ter SQL-Trei-ber SSH-Ver-bin-dung
+.hw Stan-dard-aus-ga-be Stan-dard-ein- Stan-dard-ein/aus-ga-be
+.hw Stan-dard-feh-ler-aus-ga-be Stan-dard-Front-end stan-dard-mä-ßig
+.hw Stan-dard-mä-ßig stan-dard-mä-ßi-ge Stan-dard-Mo-du-le Sta-pel sta-peln
+.hw Sta-pels sta-pelt Sta-pelt Sta-pel-Trei-ber Star-ten star-tet sta-ti-sche
+.hw statt-des-sen statt-fin-den stö-bern Std-in Std-out Stel-le stel-len
+.hw Struk-tur Sys-log Sys-tem Sys-te-me Sys-te-men Sys-tems sys-tem-wei-te
+.hw sys-tem-wei-ten Ta-bu-la-tor-Tas-te Tas-se ta-ten tat-säch-lich
+.hw tat-säch-li-che tem-po-rär tem-po-rä-re Tes-ten teuf-li-schen Text-da-tei
+.hw Text-edi-tor Text-mo-dus tie-fen tie-fe-re tra-di-tio-nell-ste
+.hw Trans-fe-rie-ren trans-fe-riert Trei-ber Trei-bern Trei-bers tren-nen
+.hw trick-sen.  tri-via-le TXT-Fel-dern Ty-pen ty-pi-sche ty-pi-scher-wei-se
+.hw Ty-pi-scher-wei-se Um-ge-bungs-va-riab-le Um-ge-bungs-va-ria-blen
+.hw Um-stän-de Um-stän-den um-zu-lei-ten unaufdringlich un-be-auf-sich-tig-te
+.hw Un-be-auf-sich-tig-te un-ge-fähr Unix-Kon-fi-gu-ra-tions-da-tei un-se-rer
+.hw un-ten un-ter Un-ter-drückt un-ter-stützt Un-ter-ver-zeich-nis Up-grades
+.hw Va-ria-ble Va-ria-blen ver-bin-den Ver-bin-dung ver-blei-ben-de
+.hw ver-bun-den ver-bun-de-ne ver-deckt ver-füg-bar Ver-gan-gen-heit
+.hw ver-lo-ren ver-mei-den ver-än-dern ver-än-dert ver-nünf-ti-ge
+.hw ver-schie-den ver-schie-de-ne ver-schie-de-nen Ver-sion ver-ste-hen
+.hw ver-sucht ver-trau-en ver-traut Ver-voll-stän-di-gung ver-wal-ten
+.hw ver-wan-delt ver-wand-ten ver-wei-sen ver-wen-den Ver-wen-dung ver-wor-fen
+.hw Ver-zeich-nis Ver-zeich-nis-se Ver-zeich-nis-struk-tur vie-le Vie-le
+.hw vie-len viel-leicht viel-ver-spre-chend voll-stän-dig voll-stän-di-ge
+.hw voll-stän-di-gen Vor-aus-set-zun-gen Vor-bei-ge-hen Vor-ein-stel-lung
+.hw Vor-ein-stel-lun-gen vor-ge-ge-be-ne vor-ge-ge-be-nen vor-her vo-ri-gen
+.hw Vor-kon-fi-gu-ra-tion vor-kon-fi-gu-rie-ren vor-kon-fi-gu-riert Vor-la-gen
+.hw Vor-la-gen-da-tei Vor-la-gen-da-ten vor-neh-men vor-sä-en Vor-sicht
+.hw vor-zu-kon-fi-gu-rie-ren wahr-schein-lich WAR-NUNG War-nun-gen wa-rum
+.hw Web-Brow-ser Web-ser-ver Web-Ser-ver We-ge We-gen Wei-le Wei-se wei-ter
+.hw wei-te-re wei-te-res wei-ter-ma-chen wel-che wel-chem wel-cher wel-ches
+.hw we-nig we-ni-ger wer-den Wer-te Wer-ten Wert-Fel-der Wet-te wäh-len
+.hw wäh-len wäh-rend Wäh-rend wich-ti-ge Wich-tig-keit wich-tig-sten wid-men
+.hw wirk-lich wis-sen wo-bei wol-len wo-mit wort-rei-che Wort-reich-tum
+.hw wärm-stens wört-li-che wur-de wur-den X11-Be-nut-zer-schnitt-stel-le
+.hw X-Ser-ver Zei-chen Zei-chen-ket-te zei-gen Zei-le Zei-len zeit-wei-se
+.hw zen-tra-le ziem-lich Zu-erst zu-ge-grif-fen zu-ge-grif-fe-nen zu-greif-bar
+.hw zu-grei-fen zu-greift Zu-griff Zu-grif-fe Zu-griffs-kon-trol-le
+.hw ZU-GRIFFS-KON-TROL-LE Zu-griffs-kon-trol-len ZU-GRIFFS-KON-TROL-LEN
+.hw zu-rück zu-rück-ge-ge-ben zu-rück-ge-hen zu-rück-ge-wie-sen
+.hw zu-sam-men-pa-cken zu-sätz-lich Zu-sätz-li-che zu-sätz-li-chen zu-tref-fen
+.hw zu-zu-grei-fen zwei-ten zwi-schen zwi-schen-ge-le-ge-nen
+.hw Zwi-schen-spei-chern KEI-NE HAF-TUNG
+.\"*** debconf-devel.7 ***
+.hw Füh-rer Ent-wi-ck-ler Ent-wi-ckeln Pa-ke-ten be-nut-zen Die-ses Hand-buch
+.hw Be-nut-zer ver-traut Grund-la-gen Kon-struk-tion Debian-Pa-ke-ten
+.hw ab-bre-chen ab-ge-legt Ab-hän-gig-keit Ab-satz Ab-sät-ze Ab-schnitt
+.hw ab-sur-des Ach-ja ähn-lich Ak-tion ak-tu-a-li-sie-ren ak-tu-a-li-siert
+.hw ak-tu-el-le ak-zep-tie-ren al-le Al-le al-lei-ne al-lem al-len
+.hw al-ler-dings al-les all-ge-mei-ne al-so Al-so ana-ly-sie-ren an-de-re
+.hw An-de-re an-de-ren än-dern än-dert An-fang an-ge-ben an-ge-ge-ben
+.hw an-ge-ge-be-ne an-ge-sam-mel-te an-ge-zeigt an-hal-ten An-lass An-mer-kung
+.hw An-mer-kun-gen an-se-hen Ant-wort Ant-wor-ten ant-wor-tet An-zahl
+.hw An-zei-ge an-zei-gen an-zeigt an-zu-zei-gen Ar-beit ar-bei-tet Ar-ten
+.hw as-so-zi-iert auf-ge-ru-fen auf-ge-teilt auf-set-zen auf-zu-bau-en
+.hw auf-zu-ru-fen aus-den-ken aus-füh-ren Aus-füh-ren Aus-ga-be aus-ge-führt
+.hw aus-ge-führt Aus-nah-me au-ßer Aus-wahl Aus-wah-len aus-wäh-len
+.hw Aus-wahl-lis-te Aus-wahl-mög-lich-kei-ten aus-zu-füh-ren aus-zu-geben
+.hw au-to-ma-tisch ba-sie-rend Be-ach-ten be-en-det Be-en-di-gung Be-fehl
+.hw Be-feh-le Be-feh-len Be-fehls Be-ginn be-ginnt be-hal-ten Be-hal-ten
+.hw be-han-deln be-han-delt Bei-spiel Bei-spie-le Bei-spiel-Shell-Skrip-ten
+.hw Bei-spiel-Skript be-kom-men be-las-sen be-läs-ti-gen Be-mer-ken
+.hw be-nann-ten be-nut-zen Be-nut-zer Be-nut-zern Be-nut-zers
+.hw Be-nut-zer-schnitt-stel-le Be-nut-zer-schnitt-stel-len be-nutzt be-nutz-te
+.hw Be-nut-zung be-rech-net be-reits Be-schrei-bung Be-schrei-bun-gen
+.hw bes-se-rer Bes-ten be-stimmt be-stimm-ten be-stimm-tes Be-su-chen
+.hw Be-treu-er-Skript Be-treu-er-Skrip-te Be-treu-er-skrip-ten
+.hw Be-treu-er-Skrip-ten be-vor be-zeich-net Bib-li-o-thek Bib-li-o-the-ken
+.hw Bild-schirm Bit-te bit-ten Bit-ten bit-tet Blö-cke Boole-schen brau-chen
+.hw da-für da-mit Dä-mon da-nach Da-nach da-rü-ber da-rum Da-tei Da-tei-en
+.hw Da-tei-sys-tem Da-ten Da-ten-bank Da-ten-typ
+.hw Debconf-Be-nut-zer-schnitt-stel-le Debconf-Da-ten-bank Debconf-Fra-gen
+.hw Debconf-Pro-to-koll Debconf-Pro-to-kol-les Debconf-Spe-zi-fi-ka-tion
+.hw Debconf-Vor-la-gen Debian-Kon-troll-Da-tei Debian-Pa-ke-ten
+.hw Debian-Pa-ke-tes Debian-Richt-li-ni-en De-fi-ni-tion de-fi-ni-tiv
+.hw dem-sel-ben de-nen den-ken der-sel-ben des-sen De-tails die-se Die-se
+.hw die-sel-be die-sel-ben die-sem die-sen die-ser Die-ser die-ses Din-ge
+.hw Dis-kus-sion dis-ku-tiert Do-ku-ment durch-ge-führt dy-na-mi-sche ei-ge-ne
+.hw ei-ge-nen Ei-gen-tü-mer ei-ne Ei-ne ei-nem ei-nen Ei-nen ei-ner ei-nes
+.hw ein-fach ein-fa-ches Ein-ga-be-auf-for-de-rung Ein-ga-be-feld
+.hw Ein-ga-be-Va-li-die-rung.  ein-ge-ben ein-ge-bet-tet ein-ge-ge-ben
+.hw ein-ge-rich-tet ein-ge-rück-ter ein-gibt ei-ni-ge Ei-ni-ge ein-le-sen
+.hw ein-mal Ein-schrän-kun-gen.  Ein-trä-ge ein-zel-nen ein-zi-ge
+.hw ein-zu-rich-ten Ele-men-te Ele-men-ten ent-fer-nen ent-fernt ent-hält
+.hw ent-hal-ten ent-hielt ent-packt ent-schei-det ent-spre-chen-des ent-we-der
+.hw ent-wi-ckelt Er-folg er-for-der-lich er-for-der-li-che er-füllt
+.hw Er-geb-nis-kode er-hält er-hal-ten er-ken-nen er-klärt er-laubt
+.hw er-leich-tern er-neut ernst-haf-te er-rei-chen er-set-zen Er-set-zung
+.hw Er-set-zun-gen ers-te ers-ten er-war-tet er-wei-ter-te er-wei-ter-ten
+.hw Er-wei-te-rung er-zeu-gen er-zeugt er-zwin-gen es-sen-zi-el-len et-was
+.hw exa-mi-niert exis-tie-ren ex-pli-zit Fä-hig-keit Fä-hig-kei-ten Fäl-le
+.hw Fäl-len Feh-ler Feh-ler-mel-dun-gen Feh-ler-su-che Fehl-schlä-gen Fel-der
+.hw Fel-dern fer-tig fin-den fla-ches For-mat fort-ge-schrit-ten
+.hw fort-ge-schrit-te-ne-ren Fra-ge Fra-gen frei-er Frond-ends
+.hw funk-tio-nie-ren funk-tio-niert gän-gi-gen gän-gi-ges gän-gigs-ten
+.hw ga-ran-tier-ter-wei-se ge-ben Ge-brauch ge-bun-den ge-füllt.  ge-ge-ben
+.hw ge-gen ge-gen-ü-ber ge-gen-wär-tig ge-gen-wär-ti-ger Ge-gen-zug
+.hw ge-han-delt ge-le-gend-lich ge-mein-sam ge-nau ge-ne-rell Ge-ne-rell
+.hw ge-nug ge-schach-telt ge-sche-hen ge-schrie-ben ge-schützt ge-se-hen
+.hw ge-setzt ge-spei-chert ge-star-tet ge-stellt ge-teilt Ge-teil-te
+.hw ge-trenn-te ge-trenn-ten ge-wöhn-lich Glück-li-cher-wei-se gro-ße gro-ßen
+.hw Grün-den grup-pie-ren ha-ben Hand-bu-ches han-deln Hau-fen
+.hw her-aus-zu-ar-bei-ten hier-zu Hil-fe hin-aus hin-ter-ein-an-der hin-zu
+.hw hin-zu-ge-fügt idem-po-tent iden-ti-sche ig-no-rie-ren ig-no-riert Ih-nen
+.hw Ih-re Ih-rem ih-ren Ih-ren ih-rer Ih-res im-mer in-dem In-dem
+.hw INPUT-Be-feh-le INPUT-Be-feh-len Ins-tal-la-tion ins-tal-lie-ren
+.hw ins-tal-liert ins-tal-lier-te Ins-tan-zen ins-tan-zi-ie-ren
+.hw ins-tan-zi-iert ins-tan-zi-ier-te in-ter-a-gie-ren
+.hw In-ter-net-pro-to-kol-len In-ter-ven-tion ir-gend-was je-de je-dem je-der
+.hw je-des Je-doch jeg-li-che jeg-li-chen Kan-ten kei-ne kei-nen
+.hw klein-buch-sta-bi-ge klei-ne-re ko-die-ren Kom-ma kom-men
+.hw kom-mu-ni-zie-ren.  Kon-fi-gu-ra-tion kon-fi-gu-riert kön-nen könn-ten.
+.hw Kon-troll-Freaks Ko-pie ko-pieren.  kos-me-ti-schen Kurz-be-schrei-bung
+.hw kur-ze La-bels lan-ge las-sen Las-sen lau-fen Lau-fen Lay-out Le-ben
+.hw le-dig-lich Leer-raum Leer-zei-chen lei-tet le-sen Le-sen letz-te lie-fern
+.hw lie-fert Li-nie Lis-te Lis-ten Ma-chen man-cher Manch-mal maß-geb-li-che
+.hw Me-cha-nis-mus meh-re-re Mehr-fach-aus-wahl Mehr-heit mehr-zei-li-ge
+.hw meis-te Mel-dung möch-te Mo-dus mög-lich mög-li-chen mög-li-cher-wei-se
+.hw mul-ti-se-lect müs-sen müss-ten Mus-ter Na-me Na-men Na-mens-raum näm-lich
+.hw na-tür-li-che Ne-ben ner-vig neu-en nicht-ab-ge-fan-ge-ner nied-rig
+.hw Nor-ma-le nor-ma-ler-wei-se not-wen-dig not-wen-di-gen Num-mer
+.hw num-me-ri-sche num-me-ri-schen Num-mern nütz-lich Ober-flä-chen-Ele-ment
+.hw of-fen oh-ne oh-ne-hin op-tio-na-len Or-dnung Pa-ket Pa-ket-be-schrei-bung
+.hw Pa-ke-te Pa-ke-ten Pa-ke-tes Pa-kets Pa-ra-me-ter pas-sen-de-re pas-siert
+.hw Pass-wort Pass-wör-ter Perl-Mo-dul Perl-Pro-gram-mie-rer plat-ziert
+.hw postinst-Skrip-te Pri-o-ri-tät Pri-o-ri-täts-Wer-te Pro-ble-me Pro-gramm
+.hw Pro-gram-me Pro-gram-mes Pro-gram-mie-rung Pro-to-koll Pro-to-kol-les
+.hw Pro-to-koll-Ver-sion Pseu-do-Ver-zeich-nis Py-thon-Mo-dul
+.hw Py-thon-Pro-gram-mie-rer re-den re-den Rei-he res-pek-ti-ve Re-sul-tiert
+.hw Rück-ga-be-wert rück-wärts-kom-pa-ti-bel Rück-wärts-schräg-stri-che Ru-fen
+.hw Sa-chen.  säu-bern schi-cken Schin-de-rei schlan-ke schlech-tes schlüs-sel
+.hw Schmer-zen Schrei-ben Schrift-stel-ler-Se-mi-nar Schrit-te schüt-zen
+.hw se-hen Sei-en sei-ne sei-nen sei-ner sel-ben sel-ten Se-rie set-zen
+.hw Shell-Pro-gram-mie-rung Shell-Skrip-tes si-cher si-cher-lich
+.hw si-cher-zu-stel-len sie-he Sie-he Sin-ne Si-tu-a-tio-nen Skrip-te
+.hw Skrip-ten Skrip-tes so-bald so-gar so-lan-ge sol-che sol-cher soll-te
+.hw soll-ten son-dern sor-gen so-weit so-wohl spä-ter spä-te-ren spei-chern
+.hw spei-chert sprach-spe-zi-fi-sche spre-chen Stan-dard-aus-ga-be
+.hw Stan-dard-ein-ga-be Stan-dard-feh-ler-aus-ga-be stan-dard-mä-ßig
+.hw Stan-dard-mä-ßig star-tet sta-ti-sche statt-des-sen Statt-des-sen ste-hen
+.hw Stel-le stel-len Stol-per-fal-len stö-ren Sys-tem Sys-tem-in-te-gri-tät
+.hw Sys-tems Ta-bel-le Tas-te tat-sä-ch-lich Tech-ni-ken Tei-le
+.hw Text-ein-ga-ben Text-frag-men-te The-men Ti-tel Tren-nen tri-vi-a-le
+.hw Ty-pen ty-pisch ty-pi-scher-wei-se über-ge-ben über-haupt über-setzt
+.hw über-stim-men üb-ri-gens um-bro-chen Um-ge-kehrt un-ab-hän-gi-ge un-gleich
+.hw un-spe-zi-fi-ziert un-ter Un-ter-schei-dung un-ter-stüt-zen un-ter-stützt
+.hw un-ter-stütz-ten un-ter-stütz-ter Un-ter-ver-zeich-nis-se Va-ri-ab-len
+.hw ver-än-dern ver-an-lasst ver-ant-wort-lich Ver-bin-dun-gen
+.hw ver-ge-gen-wär-ti-gen Ver-hal-ten ver-läss-lich ver-mei-den Ver-mei-den
+.hw ver-mei-det ver-nünf-ti-ge ver-nünf-ti-gen ver-schie-de-ne Ver-sion
+.hw Ver-sio-nen ver-sio-nier-te Ver-sions-num-mer ver-su-chen Ver-su-chen
+.hw ver-sucht ver-tei-len ver-wand-te ver-weist ver-wir-ren ver-wir-rend
+.hw ver-wirrt Ver-zeich-nis Viel-leicht vol-len voll-stän-dig vo-ran-ge-stellt
+.hw Vor-bei-ge-hen Vor-ga-be Vor-ga-ben Vor-ga-be-wert Vor-ga-be-Wert
+.hw Vor-Kon-fi-gu-ra-tion vor-kon-fi-gu-riert Vor-la-ge Vor-la-ge-Da-tei
+.hw Vor-la-ge-da-tei-en Vor-la-gen Vor-la-gen-da-tei Vor-la-gen-Da-tei
+.hw Vor-la-gen-form Vor-la-gen-na-mens-raum Vor-sicht vor-sich-tig Vor-teil
+.hw vor-zei-tig vor-zu-be-rei-ten wah-ren wäh-rend wann-im-mer War-nun-gen
+.hw wei-ter wei-te-re wel-che we-nig wer-den Wer-te Wer-ten wich-tig.
+.hw wich-ti-ge wie-der wie-der-holt wirk-lich wis-sen wo-bei wol-len
+.hw wort-reich wort-wei-se wur-de wür-de Zei-chen-ket-te Zei-chen-ket-ten
+.hw Zei-chen-ket-ten-fra-ge Zei-le zei-len-o-ri-en-tier-tes Zei-len-um-brü-che
+.hw ziem-lich zu-erst zu-ge-ord-ne-te zu-ge-ord-ne-ten Zu-kunft zu-künf-tig
+.hw zu-rück zu-rück-ge-ge-ben zu-rück-ge-hen zu-rück-zu-ge-ben
+.hw zu-rück-zu-ge-hen zu-sätz-li-cher zu-sätz-li-ches Zu-stand zwei-fach
+.hw zwei-mal zwei-te zwei-ten zwi-schen
+.hw Ak-ti-vi-tä-ten Al-le al-lein-ste-hen-den Al-so an-de-ren Ant-wor-ten
+.hw An-wen-dun-gen auf-pas-sen aus-ge-legt Be-ach-ten bei-den be-nut-zen
+.hw be-vor Da-tei-en Da-ten-bank Debconf-Da-ten-bank dem-sel-ben den-ken
+.hw die-se ei-ne ei-nem ein-le-sen ein-zi-ge ein-zu-le-sen ent-fernt et-was
+.hw fin-den Fra-ge Fra-gen funk-tio-nie-ren ge-ben Ge-brauch ge-löscht
+.hw ge-schieht han-deln Ih-re Ih-rem Ih-res im-mer ir-gend-ei-nem
+.hw ir-gend-ei-ner kon-fi-gu-riert kön-nen lan-ge las-sen mög-li-cher-wei-se
+.hw müs-sen.  ne-bu-lö-sen ob-wohl oh-ne-hin Pa-ket Pa-ke-tes Prob-lem
+.hw Pro-gramm Pro-gram-me Pro-gram-men Re-gis-trie-rung sei-ne Skrip-ten
+.hw sol-che soll-ten stel-len tren-nen um-fas-sen-de-rer ver-füg-bar
+.hw ver-wen-den ver-wen-det viel-leicht voll-stän-dig Vor-la-gen
+.hw Vor-la-gen-da-tei wä-re weg-ge-bla-sen wer-den woll-ten zie-hen
+.hw Zwi-schen-spei-cher
+.hw Ant-wor-ten be-fragt Be-nut-zer be-nutzt ei-ner ein-zu-rich-ten er-ge-ben
+.hw Fäl-le han-delt In-stal-la-tions-pro-zess kon-sis-tent Pro-gramm sei-nen
+.hw un-mit-tel-bar Wei-se
+.hw agie-ren an-de-ren auf-lis-ten Aus-füh-ren Aus-wahl-Fra-ge
+.hw Aus-wahl-Vor-la-ge au-to-ma-tisch Bau-zeit-Ab-hän-gig-keit Be-fehls
+.hw Bei-spiel be-nann-tes be-nut-zen be-nutzt über-set-zen Über-set-zer
+.hw über-setzt über-setz-ten über-setz-tes Über-set-zung Über-set-zun-gen
+.hw Über-set-zun-gen Be-schrei-bung brau-chen dan-ken Da-tei Da-tei-en
+.hw Debconf-Über-set-zun-gen der-sel-ben De-tails die-ses ei-ne ei-ner
+.hw ein-fach ein-fa-cher ein-fa-ches ein-ma-li-ges Eng-lisch eng-li-sche
+.hw ent-hal-ten ent-hält er-reicht er-schei-nen er-setzt Fel-der fin-den
+.hw Fra-ge Ge-brauch ge-nau-so ge-trenn-ten hal-ten Haupt-feld Hin-zu-fü-gen
+.hw Ih-nen Ih-re Je-des könn-ten Kon-ver-tie-ren Lo-ka-li-sie-rung Ma-chen
+.hw Me-cha-nis-mus Mehr-fach Ne-ben neu-en nor-ma-le Op-tio-nen Pa-ket
+.hw .po-Da-tei-en Pro-gram-me READ-ME  Rei-hen-fol-ge sei-ne si-cher sie-he
+.hw soll-ten Spa-ni-sche Stel-len un-ter-stützt ver-bes-ser-ten ver-füg-bar
+.hw Ver-gan-gen-heit ver-wal-ten Vor-la-ge-Da-tei-en wei-te-rer wel-ches
+.hw wer-den wol-len wur-de wur-den zu-rück zu-rück-ge-ge-ben
+.hw ab-hängt al-lem al-so an-geht au-ßer Auf-ruf be-nut-zen Be-nut-zen
+.hw be-nutzt über-setz-ten b-eschrie-be-nen Da-tei Da-tei-en Debian-Pa-ket
+.hw die-se Die-se die-sem Din-ge ei-ne ei-nem Feh-ler-su-che Fra-gen frühe-re
+.hw ge-ne-rie-ren grund-le-gen-de ha-ben Hand-buch Ih-re Ih-ren
+.hw in-te-res-san-te-re kön-nen kom-pa-ti-bel ko-piert Le-sen ma-chen Pa-ket
+.hw rich-ti-gen si-cher so-gar soll-te ste-hen stel-len Stel-len
+.hw tat-säch-li-che Tei-le Tes-ten Ver-sio-nen Vor-la-gen wa-ren wei-ter
+.hw wel-ches zu-sam-men-fügt zu-sam-men-zu-set-zen
+.hw Ab-zug al-le al-ler al-so An-zei-ge auf-be-wahrt auf-set-zen
+.hw auf-zu-set-zen aus-füh-ren Aus-ga-be aus-sieht aus-zu-füh-ren
+.hw aus-zu-pro-bie-ren Au-tors Bau-en/In-stal-lie-ren/Feh-ler-su-chen
+.hw be-ach-ten Be-fehl be-gin-nen Be-lie-ben be-nut-zen Be-nut-zer
+.hw Be-nut-zer-schnitt-stel-le be-nutzt be-rich-tet be-sitzt config-Skrip-te
+.hw Da-tei Da-tei-en Da-ten-bank Deb-conf Deb-conf-Da-ten-bank
+.hw Deb-conf-Pro-to-koll Deb-conf-Pro-to-kol-les Deb-confs De-tails die-sen
+.hw ei-ne ei-nem ei-nen ei-ner ein-fach ein-ge-rich-tet End-los-schlei-fe
+.hw er-mü-den-den er-ste er-stel-len et-was ex-por-tie-ren Feh-ler-su-che
+.hw Fä-hig-kei-ten Fra-gen fri-sche funk-tio-niert ger-ne ge-schieht ge-se-hen
+.hw Glück-li-cher-wei-se grei-fen groß-ar-tig gu-te ha-ben idea-ler-wei-se
+.hw Ih-re ih-rer Ih-res im-mer In-stal-la-tion in-ter-ak-tiv ir-gend-ei-nen
+.hw ir-gend-ei-ner Je-doch kön-nen la-den lö-schen ma-chen möch-ten Mei-nung
+.hw müs-sen nor-ma-len nütz-lich nütz-li-ches oh-ne Pa-ket Pa-ke-tes
+.hw per-sön-li-che Prob-lem Pro-gramm pro-to-kol-liert rich-tig ro-he
+.hw root-Zu-griff Sa-che Sa-chen sau-be-ren schlim-mer se-hen set-zen sie-he
+.hw spre-chen Stan-dard-feh-ler-aus-ga-be Star-ten Tipp-feh-ler
+.hw Um-ge-bungs-va-ria-ble un-ge-fähr un-ter ver-mei-den ver-rück-te-res
+.hw ver-weist vie-le viel-leicht Viel-leicht Vor-bei-ge-hen Vor-la-ge
+.hw Vor-la-gen Vor-ne wei-te-res wel-ches wer-den Werk-zeug Wer-te wäh-rend
+.hw wür-den ziem-lich Zyk-lus ab-gibt
+.hw Ad-mi-nis-tra-tor Ad-mi-nis-tra-tors Ak-tu-a-li-sie-run-gen al-le
+.hw Al-ter-na-ti-ve an-ge-zeigt Ant-wor-ten Ar-ten aus-kom-men-tiert
+.hw aus-lie-fern aus-se-hen ba-sie-rend Be-den-ken bei-den be-nut-zen
+.hw Be-nut-zer be-nutzt Be-sit-zer brau-chen Conf-file da-rin Da-tei
+.hw da-zwi-schen Deb-conf Deb-conf-Da-ten-bank Deb-conf-DB den-ken des-halb
+.hw die-se durch-ein-an-der-brin-gen ein-brin-gen ei-ne Ei-ne ei-nem ei-nen
+.hw ei-ner ein-fach ein-ge-le-sen ei-ni-ge ein-zu-le-sen er-le-di-gen
+.hw er-neu-tem er-setzt exis-tiert Feh-ler-be-rich-te fü-gen Fäl-le For-mat
+.hw fra-gen Fra-gen fri-schen ge-hen.  ge-löscht Ge-ne-rie-ren ge-ne-riert
+.hw ge-ne-rier-te ge-nug ge-setzt ge-setz-ten ge-stellt gu-te ha-ben
+.hw hand-ha-ben hel-fen hin-zu.  hän-di-sche ih-nen Ih-nen Ih-re Ih-res
+.hw In-stal-la-tion ir-gend-wo-an-ders je-mand kei-ne kön-nte Kom-men-ta-ren
+.hw kom-pli-zier-te-res Kon-fi-gu-ra-tions-da-tei Kon-fi-gu-ra-tions-da-tei-en
+.hw Kon-fi-gu-rie-ren ko-pie-ren la-den La-den las-send le-sen ma-chen me-dium
+.hw mei-sten mög-li-cher-wei-se än-dern Än-de-run-gen of-fen-sicht-li-che
+.hw Op-ti-mie-run-gen Pa-ke-tes Rech-te Rei-he rich-ti-gen schei-nen
+.hw schrei-ben sei-nen Set-zen Shell-Va-ri-ab-len si-cher Skrip-te soll-te
+.hw Spei-chern Stel-len un-ge-fähr un-ver-än-dert Va-ri-ab-len ver-lo-ren
+.hw ver-än-dert ver-är-ger-te Ver-wal-tung ver-zwick-ter vie-le Vie-le
+.hw Viel-leicht Vor-ein-stel-lung Vor-la-gen-Da-tei we-nig wer-den Wer-te
+.hw wie-der wirk-lich wol-len zu-rück
