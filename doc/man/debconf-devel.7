@@ -754,7 +754,7 @@ is a skeleton of a state machine that you can fill out and expand.
  		# with no gaps, as the default case will also be entered
  		# if there is a break in the numbering
  		break # exits the enclosing "while" loop
-	;;
+  	;;
   	esac
  
  	if db_go; then
@@ -764,7 +764,7 @@ is a skeleton of a state machine that you can fill out and expand.
  	fi
  done
 
- if [ $STATE -eq 1 ]; then
+ if [ $STATE -eq 0 ]; then
  	# The user has asked to back up from the first
  	# question. This case is problematical. Regular
  	# dpkg and apt package installation isn't capable
