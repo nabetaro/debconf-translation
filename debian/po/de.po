@@ -2,14 +2,13 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
-# Holger Wansing <linux@wansing-online.de>, 2006.
+# Holger Wansing <linux@wansing-online.de>, 2006, 2008.
 # Dennis Stampfer <seppy@debian.org>, 2003, 2004, 2005.
 # Alwin Meschede <ameschede@gmx.de>, 2003, 2004.
 # Bastian Blank <waldi@debian.org>, 2003.
 # Jan Luebbe <jluebbe@lasnet.de>, 2003.
 # Thorsten Sauter <tsauter@gmx.net>, 2003.
 #
-# This file is maintained by Dennis Stampfer <seppy@debian.org>
 #
 msgid ""
 msgstr ""
@@ -51,7 +50,7 @@ msgstr "Nicht-interaktiv"
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "Zu benutzende Schnittstelle:"
+msgstr "Zu nutzende Schnittstellenoberfläche:"
 
 #
 #. Type: select
@@ -76,13 +75,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Das Dialog-Frontend nutzt eine zeichen-basierte Vollbildschirmdarstellung, "
-"während das Readline-Frontend eine eher traditionelle einfache "
-"Textschnittstelle verwendet, und sowohl das GNOME- als auch das KDE-Frontend "
-"sind moderne X-Schnittstellen, die in den jeweiligen Desktop eingepasst sind "
-"(aber in beliebigen X-Umgebungen verwendet werden können). Das Editor-"
-"Frontend läßt Sie die Dinge mit Ihrem Lieblingseditor konfigurieren. Das "
-"nicht-interaktive Frontend stellt Ihnen niemals Fragen."
+"Die Dialog-Oberfläche nutzt eine zeichen-basierte Vollbildschirmdarstellung, "
+"während die Readline-Oberfläche eine eher traditionelle einfache "
+"Textschnittstelle verwendet. Die GNOME- wie auch die KDE-Oberfläche sind "
+"moderne X-Schnittstellen, die in den jeweiligen Desktop eingepasst sind "
+"(aber in beliebigen X-Umgebungen verwendet werden können). Die Editor-"
+"Oberfläche gibt Ihnen die Möglichkeit, die Dinge mit Ihrem Lieblingseditor "
+"zu konfigurieren. Die nicht-interaktive Oberfläche stellt Ihnen keine Fragen."
 
 #. Type: select
 #. Choices
@@ -130,7 +129,7 @@ msgstr ""
 "unterdrückt diese. Wählen Sie die niedrigste Prioritätsstufe der Fragen, die "
 "Sie sehen möchten:\n"
 "  - »kritisch« fragt Sie nur, wenn das System beschädigt werden könnte.\n"
-"    Wählen Sie dies, wenn Sie Linux-Neuling sind oder es eilig haben.\n"
+"    Wählen Sie dies, falls Sie Linux-Neuling sind oder es eilig haben.\n"
 "  - »hoch« ist für ziemlich wichtige Fragen.\n"
 "  - »mittel« ist für normale Fragen.\n"
 "  - »niedrig« ist für Kontroll-Freaks, die alles sehen möchten."
@@ -143,7 +142,7 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Beachten Sie, daß Sie unabhängig von der hier gewählten Stufe jede Frage "
+"Beachten Sie, dass Sie unabhängig von der hier gewählten Stufe jede Frage "
 "sehen können, wenn Sie ein Paket mit dpkg-reconfigure neu konfigurieren."
 
 #. Type: text
@@ -157,58 +156,3 @@ msgstr "Installiere Pakete"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Bitte warten ..."
-
-#~ msgid "Gnome"
-#~ msgstr "GNOME"
-
-#~ msgid "Kde"
-#~ msgstr "KDE"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "Dialog, Readline, GNOME, KDE, Editor, nicht-interaktiv"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kritisch, hoch, mittel, niedrig"
-
-#  Template: debconf/frontend
-#  ddtp-prioritize: 54
-#
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr ""
-#~ "Welche Schnittstelle soll zum Konfigurieren der Pakete verwendet werden?"
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Pakete, die debconf für ihre Konfiguration verwenden, priorisieren die "
-#~ "Fragen, die sie Ihnen möglicherweise stellen. Nur Fragen mit einer "
-#~ "bestimmten Priorität (oder höher) werden Ihnen gestellt. Alle Fragen, die "
-#~ "weniger bedeutend sind, werden übersprungen."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Sie können hier die niedrigste Priorität der Fragen festlegen, die Ihnen "
-#~ "noch gestellt werden sollen;\n"
-#~ " - kritisch ist für Dinge, die das System möglicherweise\n"
-#~ "   schädigen können, falls der Benutzer nicht eingreift.\n"
-#~ " - hoch ist für Dinge, die keine sinnvollen Standardwerte haben.\n"
-#~ " - mittel ist für normale Dinge, die gute Standardwerte haben.\n"
-#~ " - niedrig ist für triviale Dinge, die Werte vordefiniert haben,\n"
-#~ "   die in den allermeisten Fällen gut funktionieren."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Diese Frage ist zum Beispiel Priorität Mittel, und falls Ihre Priorität "
-#~ "bereits auf hoch oder kritisch gesetzt wäre, würden Sie die Frage nicht "
-#~ "sehen."
