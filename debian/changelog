@@ -8,6 +8,8 @@ debconf (1.5.25) UNRELEASED; urgency=low
   * Support overriding frontend's package name determination (used to set
     the owner) using the DEBCONF_PACKAGE environment variable. Useful for
     applications driving debconf other than by way of package installation.
+  * Refer to po-debconf(7) rather than its README (thanks, James R. Van
+    Zandt). Closes: #505392
 
   [ Manpages translations ]
   * Completed german man page translation.

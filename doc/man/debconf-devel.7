@@ -539,11 +539,13 @@ in separate files; one file per translation. In the past, the
 and
 .BR debconf-mergetemplate (1)
 programs were used to manage debian/template.ll files. This has been
-superseded by the po-debconf package, which lets you deal with debconf
+superseded by the
+.BR po-debconf (7)
+package, which lets you deal with debconf
 translations in .po files, just like any other translations. Your
 translators will thank you for using this new improved mechanism. 
 .P
-For the details on po-debconf, see its README file. If you're using
+For the details on po-debconf, see its man page. If you're using
 debhelper, converting to po-debconf is as simple as running the
 .BR debconf-gettextize (1)
 command once, and adding a Build-Dependency on po-debconf and on debhelper
