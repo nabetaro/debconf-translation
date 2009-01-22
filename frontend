@@ -34,7 +34,10 @@ shift @ARGV if $ARGV[0] eq '--';
 
 # Set the default title.
 my $package;
-if ($ARGV[0]=~m!^.*/(.*?)\.(?:postinst|postrm|prerm)$!) {
+if ($ENV{DEBCONF_PACKAGE}) {
+	$package=$ENV{DEBCONF_PACKAGE};
+}
+elsif ($ARGV[0]=~m!^.*/(.*?)\.(?:postinst|postrm|prerm)$!) {
 	$package=$1;
 }
 elsif (-e "/var/lib/dpkg/tmp.ci/control") {
