@@ -10,6 +10,8 @@ debconf (1.5.25) UNRELEASED; urgency=low
     applications driving debconf other than by way of package installation.
   * Refer to po-debconf(7) rather than its README (thanks, James R. Van
     Zandt). Closes: #505392
+  * Refer to debconf-show(1) from dpkg-reconfigure(8) for those who just
+    want to see the current configuration. Closes: #506070
 
   [ Manpages translations ]
   * Completed german man page translation.
