@@ -15,6 +15,12 @@ debconf (1.5.25) UNRELEASED; urgency=low
   * Only use -C fields when explicitly disabling internationalisation within
     debconf (or when DEBCONF_C_VALUES=true), not merely when in the C
     locale. Based on a patch by Frans Pop, for which thanks! Closes: #476873
+  * Force fallback to the default template if we encounter 'en' in the
+    locale list and no language-specific template for English was
+    found,since English text is usually found in a plain field rather than
+    something like Choices-en.UTF-8. This allows you to override other
+    locale variables for a different language with LANGUAGE=en. Thanks again
+    to Frans Pop.
 
   [ Manpages translations ]
   * Completed german man page translation.

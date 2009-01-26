@@ -462,6 +462,15 @@ sub AUTOLOAD {
 						}
 					}
 				}
+
+				# For en, force the default template if no
+				# language-specific template was found,
+				# since English text is usually found in a
+				# plain field rather than something like
+				# Choices-en.UTF-8. This allows you to
+				# override other locale variables for a
+				# different language with LANGUAGE=en.
+				last if $lang eq 'en';
 			}
 		} elsif (not $want_i18n && $field !~ /-c$/i) {
 			# If i18n is turned off, try *-C first.
