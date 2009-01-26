@@ -19,6 +19,7 @@ use Debconf::Question;
 use fields qw(template);
 use Debconf::Log q{:all};
 use Debconf::Encoding;
+use Debconf::Config;
 
 # Class data
 our %template;
@@ -144,9 +145,11 @@ sub get {
 
 =head2 i18n
 
-This class method controls whether internationalzation is enabled for all 
+This class method controls whether internationalization is enabled for all
 templates. Sometimes it may be necessary to get at the C values of fields,
 bypassing internationalization. To enable this, set i18n to a false value.
+This is only for when you explicitly want an untranslated version (which may
+not be suitable for display), not merely for when a C locale is in use.
 
 =cut
 
@@ -431,11 +434,15 @@ sub AUTOLOAD {
 		}
 		
 		my $ret;
+		my $want_i18n = $Debconf::Template::i18n && Debconf::Config->c_values ne 'true';
 
 		# Check to see if i18n and/or charset encoding should
 		# be used.
-		if ($Debconf::Template::i18n && @langs) {
+		if ($want_i18n && @langs) {
 			foreach my $lang (@langs) {
+				# Avoid displaying Choices-C values
+				$lang = 'en' if $lang eq 'c';
+
 				# First check for a field that matches the
 				# language and the encoding. No charset
 				# conversion is needed. This also takes care
@@ -456,7 +463,7 @@ sub AUTOLOAD {
 					}
 				}
 			}
-		} elsif (not $Debconf::Template::i18n && $field !~ /-c$/i) {
+		} elsif (not $want_i18n && $field !~ /-c$/i) {
 			# If i18n is turned off, try *-C first.
 			$ret=$Debconf::Db::templates->getfield($this->{template}, $field.'-c');
 			return $ret if defined $ret;

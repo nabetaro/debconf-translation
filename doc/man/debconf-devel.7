@@ -586,6 +586,13 @@ It's rather useful to use debconf's readline frontend when you're debugging
 the debugging output is easily preserved and logged.
 .RE
 .TP
+.B DEBCONF_C_VALUES
+.RS
+If this environment variable is set to 'true', the frontend will display
+the values in Choices-C field (if present) of select and multiselect
+templates rather than the descriptive values.
+.RE
+.TP
 .B debconf-communicate
 Another useful tool is the
 .BR debconf-communicate (1)

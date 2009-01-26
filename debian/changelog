@@ -12,6 +12,9 @@ debconf (1.5.25) UNRELEASED; urgency=low
     Zandt). Closes: #505392
   * Refer to debconf-show(1) from dpkg-reconfigure(8) for those who just
     want to see the current configuration. Closes: #506070
+  * Only use -C fields when explicitly disabling internationalisation within
+    debconf (or when DEBCONF_C_VALUES=true), not merely when in the C
+    locale. Based on a patch by Frans Pop, for which thanks! Closes: #476873
 
   [ Manpages translations ]
   * Completed german man page translation.
