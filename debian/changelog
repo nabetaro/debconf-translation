@@ -1,3 +1,10 @@
+debconf (1.5.26) UNRELEASED; urgency=low
+
+  * Use 'key not in dict' rather than 'not dict.has_key(key)' in debconf.py;
+    dict.has_key is deprecated in Python 2.6.
+
+ -- Colin Watson <cjwatson@debian.org>  Mon, 23 Feb 2009 10:18:15 +0000
+
 debconf (1.5.25) unstable; urgency=low
 
   [ Joey Hess ]
