@@ -2,6 +2,9 @@ debconf (1.5.26) UNRELEASED; urgency=low
 
   * Use 'key not in dict' rather than 'not dict.has_key(key)' in debconf.py;
     dict.has_key is deprecated in Python 2.6.
+  * debconf-apt-progress: Don't send STOP if we didn't start the debconf
+    frontend ourselves; in that case the application calling us should
+    arrange to stop itself.
 
  -- Colin Watson <cjwatson@debian.org>  Mon, 23 Feb 2009 10:18:15 +0000
 

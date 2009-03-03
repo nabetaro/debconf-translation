@@ -229,9 +229,14 @@ sub start_debconf (@) {
 		# passthrough instance is going to be sending us db updates.
 		$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
 
+		delete $ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND};
+
 		# Restore @ARGV so that
 		# Debconf::Client::ConfModule::import() can use it.
 		@ARGV = @_;
+	} else {
+		# Leave a note for ourselves.
+		$ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND} = 1;
 	}
 
 	import Debconf::Client::ConfModule;
@@ -535,8 +540,12 @@ sub start_bar ($$) {
 sub stop_bar () {
 	Debconf::Client::ConfModule::progress('STOP') if $progress;
 	# If we don't stop, we leave a zombie in case some daemon fails to
-	# disconnect from fd 3.
-	Debconf::Client::ConfModule::stop();
+	# disconnect from fd 3. Don't do this if debconf was already
+	# running, though, since in that case we're running as part of a
+	# larger application which will need to take its own care to stop
+	# when it's finished.
+	Debconf::Client::ConfModule::stop()
+		unless $ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND};
 }
 
 # Restore saved environment variables.
