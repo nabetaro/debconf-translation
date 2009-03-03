@@ -26,7 +26,12 @@
 import sys, os
 import errno
 import re
-import popen2
+try:
+    import subprocess
+    using_subprocess = True
+except ImportError:
+    import popen2
+    using_subprocess = False
 import fcntl
 
 class DebconfError(Exception):
@@ -118,19 +123,30 @@ class Debconf:
 
 class DebconfCommunicator(Debconf, object):
     def __init__(self, owner, title=None, cloexec=False):
-        self.dccomm = popen2.Popen3(['debconf-communicate', '-fnoninteractive',
-                                     owner])
+        args = ['debconf-communicate', '-fnoninteractive', owner]
+        if using_subprocess:
+            self.dccomm = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+            read = self.dccomm.stdout
+            write = self.dccomm.stdin
+        else:
+            self.dccomm = popen2.Popen3(args)
+            read = self.dccomm.fromchild
+            write = self.dccomm.tochild
         super(DebconfCommunicator, self).__init__(title=title,
-                                                  read=self.dccomm.fromchild,
-                                                  write=self.dccomm.tochild)
+                                                  read=read,
+                                                  write=write)
         if cloexec:
             fcntl.fcntl(self.read.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
             fcntl.fcntl(self.write.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
 
     def shutdown(self):
         if self.dccomm is not None:
-            self.dccomm.tochild.close()
-            self.dccomm.fromchild.close()
+            if using_subprocess:
+                self.dccomm.stdin.close()
+                self.dccomm.stdout.close()
+            else:
+                self.dccomm.tochild.close()
+                self.dccomm.fromchild.close()
             self.dccomm.wait()
             self.dccomm = None
 
