@@ -1,6 +1,10 @@
 debconf (1.5.27) UNRELEASED; urgency=low
 
   * Fix Plural-Forms header in Tagalog translation.
+  * debconf-apt-progress: If we didn't start the debconf frontend ourselves,
+    then it's unlikely that the passthrough child will be able to start
+    debconf normally, so tell it to use a pipe database in that case and
+    rely on passthrough to save answers (LP: #337306).
 
   [ Manpages translations ]
   * Completed german man page translation. Closes: #518396

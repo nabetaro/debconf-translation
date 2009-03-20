@@ -274,6 +274,13 @@ sub passthrough (@) {
 		$ENV{DEBCONF_READFD} = 5;
 		$ENV{DEBCONF_WRITEFD} = 6;
 		$ENV{APT_LISTCHANGES_FRONTEND} = 'none';
+		# If we already had a debconf frontend when we started, then
+		# the passthrough child needs to use the same pipe-database
+		# trick as we do. See start_debconf.
+		if ($ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND}) {
+			$ENV{DEBCONF_DB_REPLACE} = 'configdb';
+			$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
+		}
 		exec @_;
 	}
 
