@@ -152,6 +152,7 @@ my ($config, $start, $from, $to, $stop);
 my $progress=1;
 my $dlwaypoint=15;
 my ($logfile, $logstderr);
+my $had_frontend;
 
 sub checkopen (@) {
 	my $file = $_[0];
@@ -229,14 +230,14 @@ sub start_debconf (@) {
 		# passthrough instance is going to be sending us db updates.
 		$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
 
-		delete $ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND};
+		# Leave a note for ourselves. We need to do it this way
+		# round since DEBIAN_HAS_FRONTEND will be set the second
+		# time round even if it isn't set initially.
+		$ENV{DEBCONF_APT_PROGRESS_NO_FRONTEND} = 1;
 
 		# Restore @ARGV so that
 		# Debconf::Client::ConfModule::import() can use it.
 		@ARGV = @_;
-	} else {
-		# Leave a note for ourselves.
-		$ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND} = 1;
 	}
 
 	import Debconf::Client::ConfModule;
@@ -277,7 +278,7 @@ sub passthrough (@) {
 		# If we already had a debconf frontend when we started, then
 		# the passthrough child needs to use the same pipe-database
 		# trick as we do. See start_debconf.
-		if ($ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND}) {
+		if ($had_frontend) {
 			$ENV{DEBCONF_DB_REPLACE} = 'configdb';
 			$ENV{DEBCONF_DB_OVERRIDE} = 'Pipe{infd:none outfd:none}';
 		}
@@ -551,8 +552,7 @@ sub stop_bar () {
 	# running, though, since in that case we're running as part of a
 	# larger application which will need to take its own care to stop
 	# when it's finished.
-	Debconf::Client::ConfModule::stop()
-		unless $ENV{DEBCONF_APT_PROGRESS_HAD_FRONTEND};
+	Debconf::Client::ConfModule::stop() unless $had_frontend;
 }
 
 # Restore saved environment variables.
@@ -566,6 +566,8 @@ if (envnonempty('DEBCONF_APT_PROGRESS_DB_OVERRIDE')) {
 } else {
 	delete $ENV{DEBCONF_DB_OVERRIDE};
 }
+$had_frontend = 1 unless $ENV{DEBCONF_APT_PROGRESS_NO_FRONTEND};
+delete $ENV{DEBCONF_APT_PROGRESS_NO_FRONTEND}; # avoid inheritance
 
 my @saved_argv = @ARGV;
 

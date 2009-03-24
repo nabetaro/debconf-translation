@@ -5,6 +5,10 @@ debconf (1.5.27) UNRELEASED; urgency=low
     then it's unlikely that the passthrough child will be able to start
     debconf normally, so tell it to use a pipe database in that case and
     rely on passthrough to save answers (LP: #337306).
+  * debconf-apt-progress: DEBIAN_HAS_FRONTEND is always set here at some
+    point, even if only on the second run after starting debconf, so we need
+    to invert our handling of the check for whether we started the debconf
+    frontend ourselves (LP: #347648).
 
   [ Manpages translations ]
   * Completed german man page translation. Closes: #518396
