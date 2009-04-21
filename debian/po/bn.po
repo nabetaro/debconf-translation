@@ -1,0 +1,148 @@
+# Bengali translation of debconf_debian.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Md. Rezwan Shahid <rezwan@ankur.org.bd>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf_debian\n"
+"Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
+"POT-Creation-Date: 2006-08-26 11:15+0200\n"
+"PO-Revision-Date: 2009-04-19 10:29+0600\n"
+"Last-Translator: Md. Rezwan Shahid <rezwan@ankur.org.bd>\n"
+"Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WordForge 0.5-beta1\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "ডায়লগ"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "Readline"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "সম্পাদক"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "ইন্টারঅ্যাকটিভ নয়"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "যে ইন্টারফেস ব্যবহার করা হবে:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"যেসকল প্যকেজ কনফিগারেশনের জন্য debconf ব্যবহার করে তারা একই রকম চেহারা ধারন "
+"করে। তারা কি ধরনের ব্যবহারকারী ইন্টারফেস ব্যবহার করবে তা আপনি নির্বাচন করতে "
+"পারেন।"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"ডায়লগ ফ্রন্টএন্ড একটি পূর্ণ পর্দা, ক্যারেক্টার ভিত্তিক ইন্টারফেস, কিন্তু রিডলাইন ফ্রন্টএন্ড "
+"একটি অধিক সরল টেক্সট ইন্টারফেস ব্যবহার করে, এবং জিনোম এবং কেডিই ফ্রন্টএন্ড উভয়ই হয় "
+"মডার্ণ X ইন্টারফেস, যা ডেস্কটপে ফিট হয় (কিন্তু যেকোনো X এনভায়রনমেন্টে ব্যবহার করা "
+"যেতে পারে)। সম্পাদক ফ্রন্টএন্ড আপনাকে আপনার পছন্দসই টেক্সট সম্পাদক দ্বারা সবকিছু "
+"কনফিগার করতে দেবে। ননইন্টারঅ্যাকটিভ ফ্রন্টএন্ড আপনাকে কখনই কোন প্রশ্ন করবে না।"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "জটিল"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "উচ্চ"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "মাঝারি"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "নিম্ন"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "এর চেয়ে কম অগ্রাধিকারের প্রশ্ন উপেক্ষা করা হবে:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"আপনাকে যে প্রশ্ন জিজ্ঞেস করা হয় তা Debconf অগ্রাধিকার ভিত্তিতে সাজায়। আপনি যেই "
+"প্রশ্নগুলো দেখতে চান সেগুলো সর্বনিম্ন অগ্রাধিকার দিন:\n"
+"  - 'জটিল' শুধুমাত্র আপনাকে তখনই জিজ্ঞেস করবে যদি সিস্টেমটি ভেঙ্গে যাওয়ার সম্ভাবনা "
+"থাকে।\n"
+"    যদি আপনি নতুন হোন, বা তাড়া থাকে তাহলে এটি পছন্দ করুন।\n"
+"  - 'উচ্চ' হল তুলনামূলক প্রয়োজনীয় প্রশ্নের জন্য\n"
+"  - 'মাঝারি' হল সাধারন প্রশ্নের জন্য\n"
+"  - 'নিম্ন' হল নিয়ন্ত্রনপাগলদের জন্য যারা সবকিছু দেখতে চায়।"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"মনে রাখবেন, আপনি এখানে যে স্তর ই পছন্দ করেন না কেন, আপনি সকল প্রশ্ন দেখতে পারবেন "
+"যদি আপনি কোন প্যাকেজ dpkg-reconfigure দ্বারা পুন:কনফিগার করেন।"
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "প্যাকেজ ইন্সটল করা হচ্ছে"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "অনুগ্রহ করে অপেক্ষা করুন..."
