@@ -9,6 +9,8 @@ debconf (1.5.27) UNRELEASED; urgency=low
     point, even if only on the second run after starting debconf, so we need
     to invert our handling of the check for whether we started the debconf
     frontend ourselves (LP: #347648).
+  * Minor GET optimisation: fetch the question value only once rather than
+    twice.
 
   [ Manpages translations ]
   * Completed german man page translation. Closes: #518396

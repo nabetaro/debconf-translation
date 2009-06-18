@@ -534,11 +534,12 @@ sub command_get {
 	my $question=Debconf::Question->get($question_name) ||
 		return $codes{badparams}, "$question_name doesn't exist";
 
-	if (defined $question->value) {
+	my $value=$question->value;
+	if (defined $value) {
 		if (defined $this->client_capb and grep { $_ eq 'escape' } @{$this->client_capb}) {
-			return $codes{escaped_data}, escape($question->value);
+			return $codes{escaped_data}, escape($value);
 		} else {
-			return $codes{success}, $question->value;
+			return $codes{success}, $value;
 		}
 	}
 	else {
