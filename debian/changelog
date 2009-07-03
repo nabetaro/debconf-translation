@@ -14,6 +14,9 @@ debconf (1.5.27) UNRELEASED; urgency=low
   * debconf-apt-progress: If we get cancelled very early on before managing
     to start the process we're controlling, make sure that we don't carry on
     and start it anyway, and that we still return 30.
+  * debconf-apt-progress: Handle cancellation right at the end. We don't
+    have a process to kill at this point, but we should at least return the
+    correct exit code.
 
   [ Manpages translations ]
   * Completed german man page translation. Closes: #518396

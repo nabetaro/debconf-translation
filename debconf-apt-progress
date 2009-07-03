@@ -505,10 +505,16 @@ sub run_progress ($$@) {
 	}
 
 	waitpid $pid, 0;
+	undef $pid;
 	my $status = $?;
 
 	# make sure that the progress bar always gets to the end
-	Debconf::Client::ConfModule::progress('SET', $to) if $progress;
+	if ($progress) {
+		my @ret=Debconf::Client::ConfModule::progress('SET', $to);
+		if ($ret[0] eq '30') {
+			cancel();
+		}
+	}
 
 	if ($status & 127) {
 		return 127;
