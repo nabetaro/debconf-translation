@@ -23,6 +23,7 @@ Description: Debian configuration management system
  use Debconf to ask questions when they are installed.
 
 Package: debconf-i18n
+Section: localization
 Priority: important
 Conflicts: debconf-english, debconf-utils (<< 1.3.22)
 Replaces: debconf (<< 1.3.0), debconf-utils (<< 1.3.22)
