@@ -367,6 +367,7 @@ sub run_progress ($$@) {
 			'INFO', 'debconf-apt-progress/preparing');
 		if ($ret[0] eq '30') {
 			cancel();
+			return 30;
 		}
 	}
 
@@ -519,11 +520,12 @@ sub run_progress ($$@) {
 # Called if the progress bar is cancelled. Starts with a SIGINT but
 # if called repeatedly, falls back to SIGKILL.
 my $cancelled=0;
+my $cancel_sent_signal=0;
 sub cancel () {
+	$cancelled++;
 	if (defined $pid) {
-		$cancelled++;
-		#print STDERR "cancelled ($cancelled)\n";
-		if ($cancelled == 1) {
+		$cancel_sent_signal++;
+		if ($cancel_sent_signal == 1) {
 			kill INT => $pid;
 		}
 		else {
@@ -629,8 +631,10 @@ EOF
 	stop_bar();
 } else {
 	start_bar(0, 100);
-	$status = run_progress(0, 100, @ARGV);
-	stop_bar();
+	if (! $cancelled) {
+		$status = run_progress(0, 100, @ARGV);
+		stop_bar();
+	}
 }
 
 if ($cancelled) {

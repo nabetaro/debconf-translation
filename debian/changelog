@@ -11,6 +11,9 @@ debconf (1.5.27) UNRELEASED; urgency=low
     frontend ourselves (LP: #347648).
   * Minor GET optimisation: fetch the question value only once rather than
     twice.
+  * debconf-apt-progress: If we get cancelled very early on before managing
+    to start the process we're controlling, make sure that we don't carry on
+    and start it anyway, and that we still return 30.
 
   [ Manpages translations ]
   * Completed german man page translation. Closes: #518396
