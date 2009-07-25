@@ -1,6 +1,8 @@
 debconf (1.5.28) UNRELEASED; urgency=low
 
   * Put debconf-i18n in Section: localization, to match overrides.
+  * Remove unused subcommand parameter from
+    Debconf::FrontEnd::Passthrough::progress_data().
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 03 Jul 2009 14:55:42 +0100
 

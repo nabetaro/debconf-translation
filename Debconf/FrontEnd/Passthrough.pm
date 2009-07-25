@@ -306,7 +306,6 @@ Send necessary data about any progress bar template to the UI agent.
 
 sub progress_data {
 	my $this=shift;
-	my $subcommand=shift;
 	my $question=shift;
 
 	my $tag=$question->template->template;
@@ -330,7 +329,7 @@ sub progress_data {
 sub progress_start {
 	my $this=shift;
 
-	$this->progress_data('START', $_[2]);
+	$this->progress_data($_[2]);
 	return $this->talk('PROGRESS', 'START', $_[0], $_[1], $_[2]->template->template);
 }
 
@@ -349,7 +348,7 @@ sub progress_step {
 sub progress_info {
 	my $this=shift;
 
-	$this->progress_data('INFO', $_[0]);
+	$this->progress_data($_[0]);
 	return (scalar($this->talk('PROGRESS', 'INFO', $_[0]->template->template)) ne "30");
 }
 
