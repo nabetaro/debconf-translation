@@ -4,6 +4,8 @@ debconf (1.5.28) UNRELEASED; urgency=low
   * Put debconf-i18n in Section: localization, to match overrides.
   * Remove unused subcommand parameter from
     Debconf::FrontEnd::Passthrough::progress_data().
+  * Override Lintian warning about debconf's postrm not calling db_purge;
+    debconf itself is a special case here.
 
   [ Christian Perrier ]
   * Add translation of "-a" in "man dpkg-reconfigure".
