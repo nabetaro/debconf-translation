@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: be\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2006-08-26 11:15+0200\n"
+"POT-Creation-Date: 2009-08-24 09:36+0100\n"
 "PO-Revision-Date: 2005-04-09 14:08+0300\n"
 "Last-Translator: Andrei Darashenka <adorosh2@it.org.by>\n"
 "Language-Team: Byelarusian\n"
@@ -52,8 +52,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Пакеты, што выкарыстоўваюць debconf для наладак, маюць агульны выгляд. "
-"Вы можаце вылучыць тып карыстальніцкага інтэрфейсу, з якім будзеце працаваць."
+"Пакеты, што выкарыстоўваюць debconf для наладак, маюць агульны выгляд. Вы "
+"можаце вылучыць тып карыстальніцкага інтэрфейсу, з якім будзеце працаваць."
 
 #. Type: select
 #. Description
@@ -65,13 +65,13 @@ msgid ""
 "desktops (but may be used in any X environment). The editor frontend lets "
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
-
 msgstr ""
-"Дыялогавае кіраванне ёсць поўнаэкранным сімвальным інтэрфейсам, а кіраванне чытаннем "
-"радкоў выкарыстоўвае больш традыцыйную схему інтэрфейсу простага тэксту, і "
-"gnome- і kde-кіраванні ёсць навейшымі X-інтэрфейсамі, што запускаюцца ў адпаведнай графічнай "
-"сістэме (але могуць быць выкарыставаны ў любым асяроддзі X). Кіраванне рэдактарам дазваляе "
-"вам наладжваць рэчы, выкарыстоўвая ваш улюбёны тэкставы рэдактар. Неінтэрактыўнае кіраванне "
+"Дыялогавае кіраванне ёсць поўнаэкранным сімвальным інтэрфейсам, а кіраванне "
+"чытаннем радкоў выкарыстоўвае больш традыцыйную схему інтэрфейсу простага "
+"тэксту, і gnome- і kde-кіраванні ёсць навейшымі X-інтэрфейсамі, што "
+"запускаюцца ў адпаведнай графічнай сістэме (але могуць быць выкарыставаны ў "
+"любым асяроддзі X). Кіраванне рэдактарам дазваляе вам наладжваць рэчы, "
+"выкарыстоўвая ваш улюбёны тэкставы рэдактар. Неінтэрактыўнае кіраванне "
 "ніколі не задае вам ніякіх пытанняў."
 
 #. Type: select
@@ -116,8 +116,8 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf надае прыярытэт пытанням, што пытае ў вас. Выберыце найніжэйшы прыярытэт "
-"пытанняў, што хочаце бачыць:\n"
+"Debconf надае прыярытэт пытанням, што пытае ў вас. Выберыце найніжэйшы "
+"прыярытэт пытанняў, што хочаце бачыць:\n"
 "  - 'крытычны' чакае вашай рэакцыі, толькі калі сістэма можа пашкодзіцца.\n"
 "    Выберыце яго, калі вы навічок, або маеце няшмат вольнага часу.\n"
 "  - 'высокі' для пераважна ўплывовых пытанняў\n"
@@ -131,8 +131,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Заўважце, што няма розніцы, які ўзровень вы выбралі, вы зможаце бачыць любое пытанне, "
-"калі зробіце пераналадку пакета з дапамогай dpkg-reconfigure."
+"Заўважце, што няма розніцы, які ўзровень вы выбралі, вы зможаце бачыць любое "
+"пытанне, калі зробіце пераналадку пакета з дапамогай dpkg-reconfigure."
 
 #. Type: text
 #. Description
@@ -145,6 +145,12 @@ msgstr "Усталяванне пакетаў"
 #: ../templates:4001
 msgid "Please wait..."
 msgstr "Калі ласка, чакайце..."
+
+#. Type: text
+#. Description
+#: ../templates:6001
+msgid "Media change"
+msgstr ""
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Ігнараваць пытанні з прыярытэтам меньш, чым ..."

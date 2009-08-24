@@ -6,6 +6,9 @@ debconf (1.5.28) UNRELEASED; urgency=low
     Debconf::FrontEnd::Passthrough::progress_data().
   * Override Lintian warning about debconf's postrm not calling db_purge;
     debconf itself is a special case here.
+  * Declare "Media change" string as needing translation. (apt gives us
+    translated messages for substitution into the extended description here,
+    but not for the short description.)
 
   [ Christian Perrier ]
   * Add translation of "-a" in "man dpkg-reconfigure".

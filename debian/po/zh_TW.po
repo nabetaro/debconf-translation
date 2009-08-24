@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2006-08-26 11:15+0200\n"
+"POT-Creation-Date: 2009-08-24 09:36+0100\n"
 "PO-Revision-Date: 2006-10-21 14:30+0800\n"
 "Last-Translator: Asho Yeh <asho@debian.org.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -50,14 +50,28 @@ msgstr "使用介面："
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid "Packages that use debconf for configuration share a common look and feel. You can select the type of user interface they use."
-msgstr "使用 debconf 進行設定的套件共享一個通用的外觀。請選擇設定過程將使用的使用者介面種類。"
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"使用 debconf 進行設定的套件共享一個通用的外觀。請選擇設定過程將使用的使用者介"
+"面種類。"
 
 #. Type: select
 #. Description
 #: ../templates:1002
-msgid "The dialog frontend is a full-screen, character based interface, while the readline frontend uses a more traditional plain text interface, and both the gnome and kde frontends are modern X interfaces, fitting the respective desktops (but may be used in any X environment). The editor frontend lets you configure things using your favorite text editor. The noninteractive frontend never asks you any questions."
-msgstr "Dialog 前端是一種全螢幕的文字介面，readline 前端則是一種更傳統的純文字介面，而 gnome 和 kde 前端則是適合其各自桌面系統(但可能也適用於任何 X 環境)的新型 X 介面。編輯器前端則允許您使用您最喜愛的文件編輯器進行配置工作。非互動式前端則不會向您提出任何問題。"
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Dialog 前端是一種全螢幕的文字介面，readline 前端則是一種更傳統的純文字介面，"
+"而 gnome 和 kde 前端則是適合其各自桌面系統(但可能也適用於任何 X 環境)的新型 "
+"X 介面。編輯器前端則允許您使用您最喜愛的文件編輯器進行配置工作。非互動式前端"
+"則不會向您提出任何問題。"
 
 #. Type: select
 #. Choices
@@ -93,7 +107,8 @@ msgstr "忽略問題，如果它的優先級低於："
 #. Description
 #: ../templates:2002
 msgid ""
-"Debconf prioritizes the questions it asks you. Pick the lowest priority of question you want to see:\n"
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
 "  - 'critical' only prompts you if the system might break.\n"
 "    Pick it if you are a newbie, or in a hurry.\n"
 "  - 'high' is for rather important questions\n"
@@ -110,8 +125,12 @@ msgstr ""
 #. Type: select
 #. Description
 #: ../templates:2002
-msgid "Note that no matter what level you pick here, you will be able to see every question if you reconfigure a package with dpkg-reconfigure."
-msgstr "注意：不管您在此處選擇哪種級別，當您使用 dpkg-reconfigure 重新設定套件時都將能看到所有的問題。"
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"注意：不管您在此處選擇哪種級別，當您使用 dpkg-reconfigure 重新設定套件時都將"
+"能看到所有的問題。"
 
 #. Type: text
 #. Description
@@ -125,3 +144,8 @@ msgstr "正在安裝套件"
 msgid "Please wait..."
 msgstr "請稍後…"
 
+#. Type: text
+#. Description
+#: ../templates:6001
+msgid "Media change"
+msgstr ""
