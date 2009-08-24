@@ -45,6 +45,9 @@ Description: ${DESCRIPTION}
 
 Template: debconf-apt-progress/media-change
 Type: text
+# This string is the 'title' of dialog boxes that prompt users
+# when they need to insert a new medium (most often a CD or DVD)
+# to install a package or a collection of packages
 #flag:translate!:2
 _Description: Media change
  ${MESSAGE}
