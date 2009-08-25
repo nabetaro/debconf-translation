@@ -3,14 +3,15 @@
 # This file is distributed under the same license as debian-installer.
 # Samuel Gimeno <sgimeno@gmail.com>, 2005.
 # Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005-2006.
+# Felipe Castro <fefcas@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-12-26 17:44+0100\n"
-"Last-Translator:  Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
+"PO-Revision-Date: 2009-08-24 20:11-0300\n"
+"Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,31 +21,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr "Dialoga"
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr "Komandlinia"
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr "Redaktila"
+msgstr "Redaktilo"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr "Seninteraga"
+msgstr "Neinteraga"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "Uzota dialoginterfaco:"
+msgstr "Uzota interfaco:"
 
 #. Type: select
 #. Description
@@ -53,8 +54,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Pakoj, kiu uzas 'debconf'-programon por agordiĝi, komune aspektas. Vi povas "
-"elekti la tipon de uzota dialoginterfaco."
+"Pakoj kiuj uzas debconf por agordo kunhavas komunan aspekton. Vi povas "
+"elekti la tipon de interfaco kiun ili uzos."
 
 #. Type: select
 #. Description
@@ -67,18 +68,18 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"La 'Dialoga'-fasado estas tutekrane signbazata interfaco, kiam 'Komandlinia'-"
-"fasado pli tradicie uzas tekstan interfacon. Ambaŭ 'Gnome' kaj 'Kde'-fasadoj "
-"estas modernaj 'X'-interfacoj, respektive konformiĝas kun iliaj labortabloj "
-"(sed ili eble estas uzataj de ajn 'X'-medio). La 'Redaktila'-fasado permesas "
-"akomodi aĵojn per via favorata tekstprilaborilo. La 'Seninteraga'-fasado "
-"neniam petos al vi demandojn."
+"La interfaco Dialog estas tutekrana, signo-aspekta interfaco, dum la "
+"interfaco Readline uzas pli tradician pur-tekstan interfacon, kaj la "
+"interfacoj Gnome kaj Kde estas modernaj X-interfacoj, konformaj al la "
+"respektivaj labortabloj (sed ili uzeblas en iu ajn X-medio). La interfaco "
+"Redaktilo ebligas akomodi aferojn per via preferata teksto-redaktilo. La "
+"Neinteraga interfaco neniam demandos vin pri io ajn."
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "critical"
-msgstr "kriza"
+msgstr "altega"
 
 #. Type: select
 #. Choices
@@ -102,7 +103,7 @@ msgstr "malalta"
 #. Description
 #: ../templates:2002
 msgid "Ignore questions with a priority less than:"
-msgstr "Ignori demandojn kun prioritato malpli granda ol:"
+msgstr "Preterpasi demandojn kun prioritato malpli granda ol:"
 
 #. Type: select
 #. Description
@@ -116,13 +117,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"'Debconf'-programo ordometas petotajn demandojn. Elektu plej malalta "
-"prioritato ol demandoj, kiujn vi volos vidi:\n"
-"  - 'kriza', petos nur demandojn se via sistemo fiaskus.\n"
-"    Elektu ĝin se vi estas novuzanto aŭ hastuzanto.\n"
-"  - 'alta', petos nur gravajn demandojn.\n"
-"  - 'meza', petos nur normajn demandojn.\n"
-"  - 'malalta', petos ĉiujn demandojn, por tute regi la respondojn."
+"Debconf prioritatigas farotajn demandojn. Elektu la plej malaltan "
+"prioritaton por la demandoj kiujn vi volas vidi:\n"
+"  - 'altega' demandos vin nur kiam via sistemo povos fiaski.\n"
+"    Elektu ĝin se vi estas novulo, aŭ se vi hastas.\n"
+"  - 'alta' faros nur gravajn demandojn.\n"
+"  - 'meza', faros normalajn demandojn.\n"
+"  - 'malalta' estas por \"reg-maniuloj\", kiuj volas vidi ĉion detalege"
 
 #. Type: select
 #. Description
@@ -131,8 +132,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Notu: kia ajn estas via elekto, ĉiuokaze vi povas vidi ĉiujn demandojn se vi "
-"denove akomodi pakon per 'dpkg-reconfigure'-komando."
+"Rimarku ke, kia ajn estas via elekto, ĉiel vi povos vidi ĉiujn demandojn, se "
+"vi re-agordas pakon per 'dpkg-reconfigure'."
 
 #. Type: text
 #. Description
@@ -153,4 +154,4 @@ msgstr "Bonvolu atendi..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "Ŝanĝo de datumportilo"
