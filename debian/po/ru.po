@@ -1,24 +1,25 @@
 #
 # translation of ru.po to Russian
+#
 # Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004.
 # Yuri Kozlov <yuray@id.ru>, 2004, 2005.
 # Dmitry Beloglazov <dm-guest@alioth.debian.org>, 2005.
 # Yuri Kozlov <kozlov.y@gmail.com>, 2005, 2006.
-#
+# Yuri Kozlov <yuray@komyakino.ru>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: debconf 1.5.28\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-07-30 10:09+0300\n"
-"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
+"PO-Revision-Date: 2009-08-25 19:08+0400\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. Type: select
 #. Choices
@@ -57,8 +58,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Пакеты, использующие debconf, обладают единым интерфейсом настройки. Вы "
-"можете выбрать наиболее подходящий."
+"Пакеты, использующие debconf, обладают единообразным интерфейсом настройки. "
+"Вы можете выбрать наиболее подходящий."
 
 #. Type: select
 #. Description
@@ -74,7 +75,7 @@ msgstr ""
 "Диалоговый интерфейс представляет собой текстовое полноэкранное приложение, "
 "\"командная строка\" использует более традиционный простой текстовый "
 "интерфейс, а Gnome и Kde -- современные X интерфейсы, встроенные в "
-"соответствующие рабочие столы(но могут использоваться в любой X-среде). "
+"соответствующие рабочие столы (но могут использоваться в любой X-среде). "
 "Интерфейс \"из текстового редактора\" позволит вам задавать настройки в "
 "вашем любимом редакторе. Пакетный интерфейс вообще избавляет от "
 "необходимости отвечать на вопросы."
@@ -121,7 +122,7 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf различает уровень важности задаваемых вам вопросов. Выберите "
+"Debconf различает степень важности задаваемых вам вопросов. Выберите "
 "наименьший уровень вопросов, которые хотите видеть: \n"
 "  - 'критический' -- выдает только вопросы, критичные для работы системы.\n"
 "     Выберите этот уровень, если вы новичок или если торопитесь.\n"
@@ -136,8 +137,9 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Заметьте, что независимо от выбранного сейчас уровня важности, вы всегда "
-"сможете увидеть старые вопросы с помощью программы dpkg-reconfigure."
+"Заметим, что независимо от выбранной сейчас степени важности, вы всегда "
+"сможете видеть все вопросы при перенастройке пакета с помощью программы dpkg-"
+"reconfigure."
 
 #. Type: text
 #. Description
@@ -158,10 +160,4 @@ msgstr "Подождите..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
-
-#~ msgid "Gnome"
-#~ msgstr "Gnome"
-
-#~ msgid "Kde"
-#~ msgstr "Kde"
+msgstr "Смена носителя"
