@@ -8,7 +8,6 @@ Debconf::Element::Gnome - gnome UI element
 
 package Debconf::Element::Gnome;
 use strict;
-use I18N::Langinfo qw(langinfo CODESET);
 use utf8;
 use Gtk2;
 use Debconf::Gettext;

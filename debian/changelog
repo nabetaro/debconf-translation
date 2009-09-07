@@ -9,6 +9,8 @@ debconf (1.5.28) UNRELEASED; urgency=low
   * Declare "Media change" string as needing translation. (apt gives us
     translated messages for substitution into the extended description here,
     but not for the short description.)
+  * Remove unused 'use I18N::Langinfo' from Debconf::Element::Gnome
+    (LP: #387112).
 
   [ Christian Perrier ]
   * Add translation of "-a" in "man dpkg-reconfigure".
