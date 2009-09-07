@@ -1,79 +1,43 @@
-#!/usr/bin/make -f
+#! /usr/bin/make -f
 
 # Ensure that builds are self-hosting, which means I have to use the .pm
 # files in this package, not any that may be on the system.
 export PERL5LIB=.
 
-build: build-stamp
-build-stamp:
-	dh_testdir
-	$(MAKE)
-	touch build-stamp
+%:
+	dh --with python-central $@
 
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
-	$(MAKE) clean
-	# This will guarantee that PO files are always synced with templates
-	debconf-updatepo
-	dh_clean debian/debconf.changelog
-
-binary-indep:
-binary-indep: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-
+override_dh_auto_install:
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 	$(MAKE) prefix=`pwd`/debian/debconf-i18n install-i18n
 	$(MAKE) prefix=`pwd`/debian/debconf install-rest
 
-	# Link doc dirs where appropriate.
-	for p in debconf-utils debconf-i18n debconf-english; do \
-		dh_link -p $$p usr/share/doc/debconf usr/share/doc/$$p; \
-	done
+# Run dh_link earlier so that it has an opportunity to link documentation
+# directories.
+override_dh_installdocs:
+	dh_link
+	dh_installdocs
 
+override_dh_installdebconf:
 	# Don't modify postrm, I purge differently than normal packages
 	# using me
 	dh_installdebconf -n
-	
-	dh_installdocs
-	dh_installdirs etc/apt/apt.conf.d/ /etc/bash_completion.d/
+
+override_dh_install:
+	dh_install
 	cp debian/apt.conf debian/debconf/etc/apt/apt.conf.d/70debconf
 	cp bash_completion debian/debconf/etc/bash_completion.d/debconf
-	dh_installman doc/man/gen/dpkg-*configure.8 \
-		doc/man/gen/debconf-show.1 doc/man/gen/debconf-copydb.1 \
-		doc/man/gen/debconf.1 doc/man/gen/debconf-communicate.1 \
-		doc/man/gen/debconf-set-selections.1 \
-		doc/man/gen/debconf-apt-progress.1 \
-		doc/man/gen/debconf-escape.1
-	dh_installman -p debconf-i18n doc/man/gen/dpkg-*.*.8 \
-		doc/man/gen/debconf-show*.*.1 doc/man/gen/debconf-copydb*.*.1 \
-		doc/man/gen/debconf.*.1 doc/man/gen/debconf-communicate.*.1 \
-		doc/man/gen/debconf-set-selections.*.1 \
-		doc/man/gen/debconf-apt-progress.*.1 \
-		doc/man/gen/debconf-escape.*.1
-	dh_installman -p debconf-doc doc/man/confmodule*.3 doc/man/debconf*.7 \
-		doc/man/debconf.conf*.5 doc/man/gen/Debconf::Client::ConfModule*
-	dh_installman -p debconf-utils `find doc/man/gen/debconf-* | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-set-selections | grep -v debconf-communicate | grep -v debconf-apt-progress | grep -v debconf-escape`
-	dh_installexamples -pdebconf-doc samples/*
-	
+
+override_dh_installchangelogs:
 	# Changelog reduction hack for debconf. Only include top 100 entries.
 	perl -ne '$$c++ if /^debconf /; last if $$c > 100 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
-
-	dh_python -n
 	dh_installchangelogs
-	dh_lintian
+
+override_dh_pycentral:
+	# We use python-central for its nomove facility, so that debconf's
+	# python modules are available even when debconf is unconfigured.
+	DH_PYCENTRAL=nomove dh_pycentral -pdebconf -n
+
+override_dh_compress:
 	dh_compress -X demo.templates -X tutorial.templates
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary-arch:
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary

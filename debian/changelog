@@ -11,6 +11,10 @@ debconf (1.5.28) UNRELEASED; urgency=low
     but not for the short description.)
   * Remove unused 'use I18N::Langinfo' from Debconf::Element::Gnome
     (LP: #387112).
+  * Upgrade to debhelper v7. In the process, convert to python-central with
+    DH_PYCENTRAL=nomove (since we need our modules to be usable even when
+    debconf is unconfigured; at the moment, the effect of this use of
+    python-central is only to add a Python-Versions control field).
 
   [ Christian Perrier ]
   * Add translation of "-a" in "man dpkg-reconfigure".
