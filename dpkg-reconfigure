@@ -44,6 +44,10 @@ default priority is. See L<debconf(7)> for a list.
 Use whatever the default priority of question is, instead of forcing the
 priority to low.
 
+=item B<--terse>
+
+Enables terse output mode. This affects only some frontends.
+
 =item B<-a>, B<--all>
 
 Reconfigure all installed packages that use debconf. Warning: this may take
