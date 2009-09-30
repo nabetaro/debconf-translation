@@ -44,10 +44,6 @@ default priority is. See L<debconf(7)> for a list.
 Use whatever the default priority of question is, instead of forcing the
 priority to low.
 
-=item B<--terse>
-
-Enables terse output mode. This affects only some frontends.
-
 =item B<-a>, B<--all>
 
 Reconfigure all installed packages that use debconf. Warning: this may take
@@ -108,7 +104,8 @@ gettext(qq{Usage: dpkg-reconfigure [options] packages
   -a,  --all			Reconfigure all packages.
   -u,  --unseen-only		Show only not yet seen questions.
        --default-priority	Use default priority instead of low.
-       --force			Force reconfiguration of broken packages.}),
+       --force			Force reconfiguration of broken packages.
+       --no-reload		Do not reload templates. (Use with caution.)}),
 	"all|a"			=> \$all,
 	"unseen-only|u"		=> \$unseen_only,
 	"default-priority"	=> \$default_priority,
