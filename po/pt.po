@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2008-05-13 22:23+0200\n"
 "PO-Revision-Date: 2006-10-10 23:19+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -147,7 +147,7 @@ msgstr "Introduza os items que deseja escolher, separados por espaços."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Não conseguiu carregar Debconf::Element::%s. Falhou devido a: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "A configurar %s"
@@ -212,8 +212,8 @@ msgstr ""
 "necessário, depois grave-o e saia. Nesse ponto, o debconf irá ler o ficheiro "
 "editado, e utilizar os valores que introduziu para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
@@ -418,11 +418,11 @@ msgstr "%s está ultrapassado"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está ultrapassado; deixando todo o template!"
 
-#: ../debconf:88
+#: ../debconf:91
 msgid "Usage: debconf [options] command [args]"
 msgstr "Utilização: debconf [opções] comando [args]"
 
-#: ../debconf:90
+#: ../debconf:93
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
