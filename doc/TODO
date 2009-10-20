@@ -88,15 +88,8 @@ Gnome frontend:
   the gtk label widgets are, and I don't know why.
 
 KDE frontend:
-* Document the code! (Better)
-* Use libkde-perl when it arrives
-* Fix the mysterious and annoying DESTROY warnings from perlqt (they seem to
-  be harmless... but i'd rather see them go away)
-* Needs testing...
-* Embedding into package manager (kapture) -- maybe there's no need for
-  changing the frontend itself for this to work
-* Blocks and stuff (need to read some docs and/or code first)
-* More?
+* Needs to be updated to use new perl QT interface. Work in progress;
+  removed in the meantime as the old libqt-perl was dropped.
 
 Web based frontend:
 * Well, a little security would be nice! It only allows connections
