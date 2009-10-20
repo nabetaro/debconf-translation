@@ -49,6 +49,7 @@ debconf (1.5.28) UNRELEASED; urgency=low
     them is not ready. If the KDE frontend is specified, debconf will
     now attempt to fall back to the Gnome frontend, or failing that,
     to dialog. Closes: #522580
+  * Enable set -e in debconf-utils postinst.
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 03 Jul 2009 14:55:42 +0100
 
