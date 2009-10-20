@@ -15,7 +15,7 @@ Pre-Depends: perl-base (>= 5.6.1-4)
 Conflicts: cdebconf (<< 0.96), debconf-tiny, apt (<< 0.3.12.1), menu (<= 2.1.3-1), dialog (<< 0.9b-20020814-1), whiptail (<< 0.51.4-11), whiptail-utf8 (<= 0.50.17-13), debconf-utils (<< 1.3.22)
 Provides: debconf-2.0
 Replaces: debconf-tiny
-Depends: debconf-i18n | debconf-english
+Depends: debconf-i18n | debconf-english, ${misc:Depends}
 Recommends: apt-utils (>= 0.5.1)
 Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome2-perl, libnet-ldap-perl, perl
 XB-Python-Version: ${python:Versions}
@@ -30,7 +30,7 @@ Priority: important
 Conflicts: debconf-english, debconf-utils (<< 1.3.22)
 Replaces: debconf (<< 1.3.0), debconf-utils (<< 1.3.22)
 Architecture: all
-Depends: debconf, liblocale-gettext-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtext-charwidth-perl
+Depends: debconf, liblocale-gettext-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtext-charwidth-perl, ${misc:Depends}
 Description: full internationalization support for debconf
  This package provides full internationalization for debconf, including
  translations into all available languages, support for using translated
@@ -41,7 +41,7 @@ Package: debconf-english
 Priority: extra
 Conflicts: debconf-i18n
 Architecture: all
-Depends: debconf
+Depends: debconf, ${misc:Depends}
 Description: small footprint English-only debconf
  This package is an alternative to the debconf-i18n package, intended for
  systems that are administered only in English, and low-footprint systems.
@@ -51,6 +51,7 @@ Description: small footprint English-only debconf
 Package: debconf-doc
 Conflicts: debconf (<< 0.3.10)
 Suggests: debian-policy (>= 3.5)
+Depends: ${misc:Depends}
 Section: doc
 Architecture: all
 Description: debconf documentation
