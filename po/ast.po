@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-13 22:23+0200\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2009-03-09 07:36+0100\n"
 "Last-Translator: Marcos Alvarez Costales <marcos.alvarez.costales@gmail."
 "com>\n"
@@ -105,11 +105,11 @@ msgstr ""
 "(Introduz dengún o más elementos dixebraos por una coma siguíos per un "
 "espaciu (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Aida"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Aida"
 
@@ -249,7 +249,7 @@ msgstr "Volver"
 msgid "Next"
 msgstr "Siguiente"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -258,7 +258,7 @@ msgstr ""
 "avisu: dable corrupción de la base de datos. Intentará iguase volviendo a "
 "amesta-y la entruga perdida %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -268,72 +268,74 @@ msgstr ""
 "Dablemente dos plantíes nun tán dixebraes correutamente con ún sólo retornu "
 "de carru.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Campu desconocíu '%s' na plantía, na estrofa #%s de %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Fallu d'analís de plantía cerca de `%s', na estrofa #%s de %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Plantía #%s en %s nun contién una llinia 'Template:'\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "debes especificar dalgún debs pa preconfigurar"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "retrasando configuración del paquete, dende qu'apt-utils nun ta instaláu"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "nun puede reabrise stdin: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "falló apt-extracttemplates: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Estrayendo plantíes dende los paquetes: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Preconfigurando paquetes ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Fallu procesando plantía: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nun puede camudar los permisos: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "falló al preconfigurar %s, con estáu de salida %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Usu: dpkg-reconfigure [opciones] paquetes\n"
 "  -a,  --all\t\t\tReconfigura tolos paquetes.\n"
@@ -341,26 +343,26 @@ msgstr ""
 "       --default-priority\tUsa prioridá por defeutu a baxa.\n"
 "       --force\t\t\tForciar reconfiguración de paquetes frayaos."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s debes executalu como root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "por favor, especifica un paquete a reconfigurar"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s nun ta instaláu"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ta rotu o non instaláu ensembre"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nun puede lleese'l ficheru d'estáu: %s"
@@ -422,11 +424,11 @@ msgstr "%s ta desactualizáu"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ta desactualizada: ¡descartando la plantía completa!"
 
-#: ../debconf:91
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Usu: debconf [opciones] comandu [argumentos]"
 
-#: ../debconf:93
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

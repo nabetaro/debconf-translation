@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-01 02:02+0100\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2008-09-21 18:42+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
 "Language-Team: Kurdish <ku@li.org>\n"
@@ -100,11 +100,11 @@ msgstr ""
 "(Sifir, hejmara yek û bi jor de, bêhnok û valahiyan (', ') di têketinê de ji "
 "hev veqetîne.)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Alîkarî"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Alîkarî"
 
@@ -245,7 +245,7 @@ msgstr "Vegere"
 msgid "Next"
 msgstr "Piştre"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -254,7 +254,7 @@ msgstr ""
 "Hişyarî: bêbandorkirina danegira pêkan. Dê bi lêzêdekirina pirsa windayî "
 "xuya bike %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -263,71 +263,73 @@ msgstr ""
 "Şablona #%s di %s xwedî dosya hevsere \"%s\" bi nirxeke nû \"%s\". bi piranî "
 "herdû dirbên nû ne bi rengekî rast bi rêzikeke nû ji hev hatine cudakirin.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Qada şablona nenas '%s', di stanza #%s ji %s de\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Çewtiya veqetandina şablonê nêzîkê `%s', di qaliba #%s ji %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Di şablona #%s ya %s de rêzika 'Template:' tune\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "pêwiste hin desteyên deb bên destnîşankirin ji bo pakêtkirinê"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "Paşvexistina pakêtkirinê ji ber ku apt-utils nesepandîne"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "nikare stdin ji nû ve veke: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates biserneket: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Şablon ji pakêtan tên derxistin: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Pêşamadekirina pakêtan ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "çewtî di şîroveya qalibê de:%s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nikare chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ji bo amadekirinê bi serneket, bi rewşa derketinê re %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Bikaranîn: dpkg-reconfigure [opsiyon] pakêt\n"
 "  -a,  --all\t\t\tHemû pakêtan ji nû mîheng bike.\n"
@@ -335,26 +337,26 @@ msgstr ""
 "       --default-priority\tBikaranîna pêştirîna texmînî li şûna ya nizim.\n"
 "       --force\t\t\tZorê dide mîhengkirina pakêtên xirabûyî."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s pêwiste wekî root bixebite"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "ji kerema xwe re ji bo dîsa avakirinê pakêtekê destnîşan bike"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ne hate sazkirin"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s çewtiyek heye an jî ne hate sazkirin"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nikare pelê rewşe bixwîne: %s"
@@ -416,11 +418,11 @@ msgstr "%s kevn e"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s kevn e, şablon nayê bikaranîn!"
 
-#: ../debconf:91
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Bikaranîn: debconf [bijare] ferman [guhêr]"
 
-#: ../debconf:93
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-08 14:08+0000\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-01-28 03:04+0800\n"
 "Last-Translator: Eric Pareja <xenos@upm.edu.ph>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
@@ -102,11 +102,11 @@ msgstr ""
 "(Magbigay ng wala o labis na mga aytem na hiniwalay ng kuwit at sundan ng "
 "puwang (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Tulong"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Tulong"
 
@@ -249,7 +249,7 @@ msgstr "Bumalik"
 msgid "Next"
 msgstr "Susunod"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -258,7 +258,7 @@ msgstr ""
 "babala: maaring nasira ang database. Susubukan itong ayusin sa pag-dagdag "
 "muli ng nawawalang tanong %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -268,73 +268,75 @@ msgstr ""
 "\"%s\". Maaring ang dalawang template ay hindi nahiwalay ng tugma na mag-"
 "isang newline.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Hindi kilalang template field '%s', sa estropa #%s ng %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Parse error sa template malapit sa `%s' sa estropa #%s ng %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s sa %s ay hindi naglalaman ng linyang 'Template:'\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "kailangan magtakda ng ilang mga deb na isasaayos bago ng pagluklok"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "ipinagpapaliban ang pagsasaayos ng pakete, dahil ang apt-utils ay hindi "
 "nakaluklok"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "hindi mabuksan muli ang stdin: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "bigo ang apt-extracttemplates: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Binubuklat ang mga template mula sa mga pakete: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Isinasaayos ang mga pakete bago luklokin ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "error sa pag-parse ng template: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: hindi ma-chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "bigo ang pagsasaayos ng %s, may exit status na %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Pag-gamit: dpkg-reconfigure [mga opsyon] pakete\n"
 "  -a,  --all\t\t\tIsaayos muli ang lahat ng mga pakete.\n"
@@ -343,26 +345,26 @@ msgstr ""
 "antas\n"
 "       --force\t\t\tIpilit ang pagsasaayos muli ng mga sirang mga pakete."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s ay dapat ipatakbo bilang root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "paki-takda ang pakete na isasaayos muli"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ay hindi nakaluklok"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ay sira o hindi buong nailuklok"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Hindi mabasa ang talaksang status: %s"
@@ -424,11 +426,11 @@ msgstr "%s ay laos na"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ay laos na; hindi gagamitin ang buong template!"
 
-#: ../debconf:91
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Pag-gamit: debconf [mga opsyon] utos [mga arg]"
 
-#: ../debconf:93
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-10-05 10:27+0200\n"
 "Last-Translator: Jacobo Tarrío <jtarrio@debian.org>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -103,11 +103,11 @@ msgstr ""
 "(Introduza cero ou máis elementos separados por unha coma seguida dun "
 "espacio [', '])."
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "A_xuda"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Axuda"
 
@@ -149,7 +149,7 @@ msgstr "Introduza os elementos que quere seleccionar, separados por espacios."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Non se puido cargar Debconf::Element::%s. Erro debido a: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
@@ -213,8 +213,8 @@ msgstr ""
 "gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
 "valores introducidos para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -245,7 +245,7 @@ msgstr "Anterior"
 msgid "Next"
 msgstr "Seguinte"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -254,7 +254,7 @@ msgstr ""
 "aviso: posible corrupción da base de datos. Hase tentar arranxar engadindo a "
 "pregunta %s que falla."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -264,72 +264,74 @@ msgstr ""
 "posible que dous patróns non estean correctamente separados cun retorno de "
 "carro.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Campo de patrón \"%s\" descoñecido, na estrofa nº %s de %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro na análise do patrón preto de \"%s\", na estrofa nº %s de %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "O patrón nº %s en %s non contén unha liña \"Template:\"\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "débense especificar algúns paquetes para preconfigurar"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "retrásase a configuración dos paquetes porque apt-utils non está instalado"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "non se puido volver abrir a entrada estándar: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates non funcionou: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "A extraer os patróns dos paquetes: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "A preconfigurar os paquetes ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erro na análise dos patróns: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: non se puido facer chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "Non se puido preconfigurar %s, co estado de saída %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Emprego: dpkg-reconfigure [opcións] paquetes\n"
 "  -a,  --all\t\t\tReconfigura tódolos paquetes.\n"
@@ -337,26 +339,26 @@ msgstr ""
 "       --default-priority\tEmprega a prioridade predeterminada.\n"
 "       --force\t\t\tForza a reconfiguración dos paquetes rotos."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "débese executar %s coma root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "especifique un paquete a reconfigurar"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s non está instalado"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s está avariado ou non está completamente instalado"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Non se puido ler o ficheiro de estado: %s"
@@ -417,11 +419,11 @@ msgstr "%s é antigo de máis"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s é antigo de máis; descártase o patrón enteiro"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Emprego: debconf [opcións] orde [args]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

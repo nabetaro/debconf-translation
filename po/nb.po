@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-10-05 22:22+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -99,11 +99,11 @@ msgid ""
 msgstr ""
 "(Skriv inn null eller flere elementet atskilt med komma og mellomrom (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Hjelp"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Hjelp"
 
@@ -146,7 +146,7 @@ msgstr "Skriv inn de elementene du vil velge, atskilt med mellomrom."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Ikke i stand til å laste Debconf::Element::%s. Mislyktes fordi: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Setter opp %s"
@@ -212,8 +212,8 @@ msgstr ""
 "vil debconf lese den redigerte fila og bruke de verdiene du har skrevet inn "
 "for å setteopp systemet."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf på %s"
@@ -243,7 +243,7 @@ msgstr "Tilbake"
 msgid "Next"
 msgstr "Neste"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -252,7 +252,7 @@ msgstr ""
 "advarsel: muligens ødelagt database. Vil forsøke å reparere ved å legge til "
 "igjen manglende spørsmål %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -261,71 +261,73 @@ msgstr ""
 "Mal #%s i %s har et duplisert felt «%s» med ny verdi «%s». Antakelig er to "
 "maler ikke skikkelig atskilte med en tom linje.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Ukjent malfelt «%s», i strofe #%s i %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Maltolkingsfeil i nærheten av «%s», i strofe #%s i %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Mal #%s i %s inneholder ingen linje med «Template:»\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "må oppgi noen debs som skal settes opp på forhånd"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "utsetter pakkeoppsett, siden apt-utils ikke er installert"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "ikke i stand til å åpne standard inn igjen: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates mislyktes: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Trekker ut maler fra pakker: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Forhåndsoppsetter pakker ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "maltolkingsfeil: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: klarer ikke chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "forhåndsoppsettet av %s mislyktes med avslutningsstatus %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Bruk: dpkg-reconfigure [options] pakker\n"
 "  -a,  --all\t\t\tSett opp alle pakker på nytt.\n"
@@ -333,26 +335,26 @@ msgstr ""
 "       --default-priority\tBruk standard prioritet i stedet for lav.\n"
 "       --force\t\t\tNytt oppsett påtvinges ødelagte pakker."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s må kjøres som root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "oppgi en pakke som skal settes opp på nytt"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s er ikke installert"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s er ødelagt eller ikke fullstendig installert"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Klarer ikke lese statusfil: %s"
@@ -413,11 +415,11 @@ msgstr "%s er utdatert"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s er utdatert; dropper hele malen!"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Bruk: debconf [parametre] kommando [argumenter]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

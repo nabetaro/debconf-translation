@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-02-21 08:18+0300\n"
 "Last-Translator: Ossama M. Khayat <okhayat@yahoo.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -100,11 +100,11 @@ msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(لا تُدخل أي عنصر أو عنصر أو أكثر مفصولة بفواصل يتبعها مسافة (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_مساعدة"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "مساعدة"
 
@@ -146,7 +146,7 @@ msgstr "أدخل العناصر التي تريد اختيارها، مفصول�
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "لم يمكن تحميل Debconf::Element::%s. فشل ذلك بسبب: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "تهيئة %s"
@@ -206,8 +206,8 @@ msgstr ""
 "بتغيير أي عناصر كما يلزم، ثم احفظ الملف واخرج من البرنامج. عند هذا، سيقرأ "
 "debconf الملف، ويستخدم القيم التي أدخلتها لتهيئة نظامك."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf على %s"
@@ -237,7 +237,7 @@ msgstr "السابق"
 msgid "Next"
 msgstr "التالي"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -246,7 +246,7 @@ msgstr ""
 "تحذير: احتمال فساد قاعدة البيانات. ستتم محاولة إصلاحها بإعادة السؤال المفقود "
 "%s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -256,72 +256,74 @@ msgstr ""
 "القالبين الجديدين غير مفصولين بشكل صحيح بسطر جديد.\n"
 
 # # CHECK
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "## CHECKحقل قالب مجهول '%s'، في المَقْطع #%s من %s\n"
 
 # # CHECK
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "خطأ في إعراب القالب قُرْب `%s'، في المَقْطع #%s من %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "القالب #%s في %s لا يحتوي على سطر 'Template:'\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "يجب تحديد بعض حزم deb لتهيئتها مسبقاً"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "تأجيل تهيئة الحزم، حيث أن apt-utils غير مثبتة"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "لم يمكن إعادة فتح stdin: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "فشل apt-extracttemplates: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "استخراج القوالب من الحزم: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "تهيئة الحزم مسبقاً ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "خطأ في إعراب القالب: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: لايمكن تنفيذ chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "فشلت تهيئة %s مسبقاً، مع حالة خروج %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "الاستخدام: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tإعادة تهيئة جميع الحزم.\n"
@@ -329,26 +331,26 @@ msgstr ""
 "       --default-priority\tاستخدام الأولوية الافتراضية بدلاً من المنخفضة.\n"
 "       --force\t\t\tأإجبار إعادة تهيئة الحزم المعطوبة."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "يجب تشغيل %s كمستخدم جذر"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "الرجاء تحديد حزمة لتهيئتها مسبقاً"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s غير مُثبّتة"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s معطوبة أو غير مُثبّتة بالكامل"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "لا يمكن قراءة ملف الحالة: %s"
@@ -412,11 +414,11 @@ msgstr "%s انتهت صلاحيتها"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s انتهت صلاحيتها، إسقاط القالب بالكامل"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "الاستخدام: debconf [options] command [args]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

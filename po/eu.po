@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-25 14:59+0100\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2007-04-12 18:07+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale <librezale@librezale.org>\n"
@@ -102,11 +102,11 @@ msgid ""
 msgstr ""
 "(sar 0 edo elementu gehiago gako bat eta hutsune batez bereizirik (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Laguntza"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Laguntza"
 
@@ -149,7 +149,7 @@ msgstr "Sar aukeratu nahi dituzunak, leku batez bereizirik."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Ezin izan da Debconf::Element::%s kargatu. Errorea : %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s konfiguratzen"
@@ -247,7 +247,7 @@ msgstr "Atzera"
 msgid "Next"
 msgstr "Hurrengoa"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -256,7 +256,7 @@ msgstr ""
 "kontuz: databasea hondatuta egon liteke. Konpontzen saiatuko da galdutako %s "
 "galdera gehitzen."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -265,72 +265,74 @@ msgstr ""
 "#%s Txantiloiak %s-n bikoiztutako \"%s\" eremu bat du \"%s\". balio "
 "berriarekin.Ziurrenik bi txantiloi ez daude lerro berri batez bereizirik.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "'%s' Txantiloi eremu ezezaguna #%s parrafoan %s-n.\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "'%s' gertu txantiloi errorea, #%s parrafoan %s-n.\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "#%s txantiloiak ez du 'Template:' lerro bat %s-n:\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "aurrekonfiguratzeko deb batzuek ezarri behar dituzu"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "pakete konfigurazio atzeratu egingo da apt-utils ez bait dago instalaturik."
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "Ezin izan da stdin berrireki: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates-ek huts egin du: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Txantiloiak paketeetatik ateratzen: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Paketeak aurrekonfiguratzen ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "Errorea txantiloia analizatzerakoan: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: ezin da chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s huts aurrekonfiguratzerakoan, %s irteera kodeaz."
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Erabilera: dpkg-reconfigure [aukerak] paketeak\n"
 "  -a,  --all\t\t\tPakete guztiak birkonfiguratu.\n"
@@ -339,26 +341,26 @@ msgstr ""
 "ordez.\n"
 "       --force\t\t\tApurtutako paketeen birkonfiguraketa indartu."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s root bezala abiarazi behar da"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "Mesedez ezarri berkonfiguratu nahi duzun paketea"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ez dago instalaturik"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s hondaturik edo erdi instalaturik dago"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Ezin da egoera fitxategia irakurri: %s"
@@ -420,11 +422,11 @@ msgstr "%s zaharkiturik dago"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s zaharkiturik dago, txantiloia osoa alde batetara uzten!"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Erabilera: debconf [aukerak] komandoak [argumentuak]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

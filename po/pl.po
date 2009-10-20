@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-10-06 18:28+0100\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -98,11 +98,11 @@ msgid ""
 msgstr ""
 "(Wpisz zero lub wiêcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Pomoc"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Pomoc"
 
@@ -145,7 +145,7 @@ msgstr "Wpisz, oddzielone spacjami, pozycje, które chcesz zaznaczyæ."
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "Nie uda³o siê za³adowaæ Debconf::Element:: %s. Powodem by³o: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "Konfiguracja pakietu %s"
@@ -211,8 +211,8 @@ msgstr ""
 "przeczyta zapisany plik i u¿yje wprowadzonych przez Ciebie warto¶ci do "
 "konfiguracji systemu."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
@@ -242,7 +242,7 @@ msgstr "Powrót"
 msgid "Next"
 msgstr "Dalej"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -251,7 +251,7 @@ msgstr ""
 "uwaga: mog³o nast±piæ uszkodzenie bazy danych. Zostanie wykonana próba "
 "naprawy przez dodanie brakuj±cego pytania %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -261,73 +261,75 @@ msgstr ""
 "Prawdopodobnie dwa szablony nie zosta³y poprawnie rozdzielone przy pomocy "
 "pustej linii.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Nieznane pole szablonu '%s', w czê¶ci nr %s pliku %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "B³±d w szablonie w pobli¿u `%s', w czê¶ci nr %s pliku %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "nale¿y podaæ pakiety do skonfigurowania"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "opó¼nienie konfiguracji pakietów, poniewa¿ pakiet apt-utils nie jest "
 "zainstalowany"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "nie uda³o siê ponownie otworzyæ stdin: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "Dzia³anie apt-extracttemplates zakoñczy³o siê b³êdem: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Rozpakowywanie szablonów dla pakietów: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "Prekonfiguracja pakietów ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "b³±d w szablonie: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: nie uda³o siê zmieniæ uprawnieñ: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "nie uda³o siê skonfigurowaæ %s, kod wyj¶cia: %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "U¿ycie: dpkg-reconfigure [opcje] nazwa_pakietu\n"
 "  -a,  --all\t\t\tPrzekonfiguruje wszystkie pakiety.\n"
@@ -337,26 +339,26 @@ msgstr ""
 "       --force\t\t\tWymusza konfigurowanie pakietów z uszkodzonymi "
 "zale¿no¶ciami."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s musi byæ uruchamiany jako root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "proszê podaæ pakiet do skonfigurowania"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s nie jest zainstalowany"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s jest uszkodzony, lub nie jest w pe³ni zainstalowany"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Nie mo¿na czytaæ pliku stanu: %s"
@@ -417,11 +419,11 @@ msgstr "%s jest nieaktualny"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s jest nieaktualne; zostaje pominiêty ca³y szablon!"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "U¿ycie: debconf [opcje] polecenie [argumenty]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

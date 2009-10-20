@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-23 13:58+0000\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-09-12 17:25+0000\n"
 "Last-Translator: Priti Patil <prithisd@gmail.com>\n"
 "Language-Team:  Marathi, janabhaaratii, C-DAC, Mumbai, India "
@@ -97,11 +97,11 @@ msgid ""
 msgstr ""
 "(अर्धविरामाने विलग केलेल्या व नंतर रिक्त जागा सोडलेल्या शून्य वा अधिक बाबी लिहा (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_मदत"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "मदत"
 
@@ -144,7 +144,7 @@ msgstr "आपल्याला निवडायच्या बाबी र
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "डेबकाॅन्फ::घटक::%s भरता आले नाहीत. असफल होण्याचे कारण: %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "%s संरचित होत आहे"
@@ -238,7 +238,7 @@ msgstr "मागे"
 msgid "Next"
 msgstr "पुढील"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -247,7 +247,7 @@ msgstr ""
 "धोक्याची सूचना: डेटा बेस भ्रष्ट झाल्याची शक्यता. गायब प्रश्न %s पुन्हा संचित करून दुरुस्तीचा "
 "प्रयत्न केला जाईल."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -256,71 +256,73 @@ msgstr ""
 "%s मधील #%s नमुन्यामधे \"%s\" या क्षेत्राची \"%s\" या नवीन मूल्याने पुनरावृत्ती झाली आहे. "
 "बहुदा हे दोन नमुने एकट्या न्यूलाईलने व्यवस्थित वेगळे केलेले नाहीत.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "%s च्या #%s स्टॅन्झा मधे '%s' हे अपरिचित नमुना क्षेत्र\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "%s च्या #%s स्टॅन्झा मधे `%s' जवळ नमुना पदविच्छेदन त्रुटी\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "%s मधील #%s नमुन्यामधे 'नमुना:' ही ओळ नाही\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "पूर्वसंरचनेकरिता काही डेबज् निर्धारित करणे आवश्यक आहे"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "अॅप्ट-युटिलस् अधिष्ठापित नसल्याने पॅकेज संरचना पुढे ढकलत आहे"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "एसटीडीइन पुन्हा उघडता येत नाही: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "अॅप्ट-नमुनेकाढा फसले: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "पॅकेजेस् मधून नमुने बाहेर काढत आहे: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "पॅकेजेस् पूर्वसंरचित करत आहे ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "नमुना पदविच्छेदन त्रुटी: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "डेबकाॅन्फ: परवानगीबदल करता येत नाही: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s पूर्वसंरचित झाले नाही, निर्गमन स्थिती %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "वापर: डीपीकेजी-पुनर्संरचना [पर्याय] पॅकेजेस्\n"
 "  -a,  --सर्व\t\t\tपुनर्संरचना सर्व पॅकेजेस्.\n"
@@ -328,26 +330,26 @@ msgstr ""
 "       --मूलनिर्धारित-अग्रक्रम\tवापरा कमी एेवजी मूलनिर्धारित अग्रक्रम.\n"
 "       --बळजबरी\t\t\tबळजबरी करून मोडक्या पॅकेजेस्ची पुनर्संरचना करा."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s चालवण्याकरिता मूल असणे आवश्यक"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "पुनर्रचनेकरिता पॅकेज निश्चित करा"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s अधिष्ठापित झालेले नाही"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s मोडलेले आहे वा पूर्ण अधिष्ठापित झालेले नाही"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "स्थिती फाइल वाचता येत नाही: %s"
@@ -408,11 +410,11 @@ msgstr "%s कालबाह्य आहे"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s कालबाह्य आहे; संपूर्ण नमूना सोडून देत आहे!"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "वापर: डेबकाॅन्फ [पर्याय] आज्ञा [पर्याय]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

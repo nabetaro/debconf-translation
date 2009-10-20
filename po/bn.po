@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-13 22:23+0200\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2009-04-19 16:07+0600\n"
 "Last-Translator: Md. Rezwan Shahid <rezwan@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -96,11 +96,11 @@ msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(শুন্য বা অধিক আইটেম একটি কমা এবং স্পেস দ্বারা পৃথক করে এন্টার করুন (', ')।)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_সহায়তা"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "সহায়তা"
 
@@ -236,7 +236,7 @@ msgstr "পূর্ববর্তী"
 msgid "Next"
 msgstr "পরবর্তী"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -245,7 +245,7 @@ msgstr ""
 "সতর্কবার্তা: সম্ভাব্য ডেটাবেজ করাপশন। এটি মেরামত করার চেষ্টা করা হবে হারানো প্রশ্ন %"
 "s যোগ করার মাধ্যমে।"
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -254,71 +254,73 @@ msgstr ""
 "%2$s এর মধ্যে টেমপ্লেট #%1$s এর \"%4$s\" নতুন মানসহ একটি ডুপ্লিকেট ফিল্ড আছে \"%3$s"
 "\"। সম্ভবত দুটি টেমপ্লেট সঠিকভাবে একটি নতুন লাইন দ্বারা পৃথক করা হয়নি।\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "অজানা টেমপ্লেট ফিল্ড '%1$s', %3$s এর মধ্যে স্ট্যানজা #%2$s এ\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "টেমপ্লেট পার্স সমস্যা '%1$s' এর কাছাকাছি, %3$s এর মধ্যে স্ট্যানজা #%2$s এ\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "#%2$s এ টেমপ্লেট #%1$s কোনো 'টেমপ্লেট:' লাইন ধারন করে না\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "পূর্বকনফিগারের জন্য কিছু debs উল্লেখ করা লাগবে"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "প্যাকেজ কনফিগারেশন বিলম্ব করা হচ্ছে, যেহেতু apt-utils ইন্সটল করা নেই"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "stdin পুন:খুলতে ব্যর্থ: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates ব্যর্থ: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "প্যাকেজ থেকে টেমপ্লেট এক্সট্র্যাক্ট করা হচ্ছে: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "প্যাকেজ পূর্বকনফিগার করা হচ্ছে ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "টেমপ্লেট পার্স সমস্যা: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: chmod করা যায়নি: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s পূর্বকনফিগার করতে ব্যর্থ, প্রস্থানের স্ট্যাটাস %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "ব্যবহারবিধি: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tসকল প্যাকেজ পুন:কনফিগার করার জন্য।\n"
@@ -326,26 +328,26 @@ msgstr ""
 "       --default-priority\tনিম্নের চেয়ে ডিফল্ট অগ্রাধিকার ব্যবহার করা হবে।\n"
 "       --force\t\t\tভাঙ্গা প্যাকেজের পুন:কনফিগারেশনে জোড় দেয়া।"
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s অবশ্যই রুট হিসেবে চালাতে হবে"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "অনুগ্রহ করে পুন:কনফিগারের জন্য একটি প্যাকেজ উল্লেখ করুন"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s ইন্সটল করা নেই"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s ভাঙ্গা বা সম্পূর্ণভাবে ইন্সটল করা নয়"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "স্ট্যাটাস ফাইল পড়া যায়নি: %s"
@@ -407,11 +409,11 @@ msgstr "%s মেয়াদোত্তীর্ণ"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s মেয়াদোত্তীর্ণ; সম্পূর্ণ টেমপ্লেট বাতিল করা হচ্ছে!"
 
-#: ../debconf:91
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "ব্যবহারবিধি: debconf [options] command [args]"
 
-#: ../debconf:93
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."

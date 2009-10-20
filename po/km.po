@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_po_km\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-12-20 14:31-0500\n"
+"POT-Creation-Date: 2009-10-19 19:52-0400\n"
 "PO-Revision-Date: 2006-10-05 14:09+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -98,11 +98,11 @@ msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr "(បញ្ចូល សូន្យ ឬ ធាតុ​ច្រើន​ដែល​ចែក​ដោយ​សញ្ញា​ក្បៀស​ដែល​បន្ដ​ដោយ​ចន្លោះ (', ') ។)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_ជំនួយ"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "ជំនួយ"
 
@@ -144,7 +144,7 @@ msgstr "បញ្ចូល​ធាតុ​ដែល​អ្នក​ចង់
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
 msgstr "មិន​អាច​ផ្ទុក Debconf::Element::%s បានទេ ។ ​បរាជ័យ​ពី​ព្រោះ ៖ %s"
 
-#: ../Debconf/FrontEnd.pm:321
+#: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
 msgstr "កំពុង​កំណត់​រចនា​សម្ព័ន្ធ %s"
@@ -207,8 +207,8 @@ msgstr ""
 "ហើយ​ ចេញ​ ។ ក្នុង​ចំណុច​នោះដែរ debcon នឹង​អាន​ឯកសារ​ដែល​បាន​កែសម្រួល ហើយ​ប្រើ​តម្លៃ​ដែល​អ្នក​បាន​បញ្ចូល​ "
 "ដើម្បីកំណត់រចនាសម្ព័ន្ធ​របស់ប្រព័ន្ធ  ។"
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:75
-#: ../Debconf/FrontEnd/Kde.pm:86
+#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
+#: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf លើ %s"
@@ -238,7 +238,7 @@ msgstr "ថយ​ក្រោយ​"
 msgid "Next"
 msgstr "បន្ទាប់"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -246,7 +246,7 @@ msgid ""
 msgstr ""
 "ព្រមាន ៖ អាចធ្វើ​ការ​បង្ខូច​មូលដ្ឋាន​ទិន្ន័យបាន​ ។ នឹងប៉ុនប៉ង​ជួសជុល​ដោយ​បន្ថែម​មកវិញ​នូវ​សំណួរ​ដែល​បាត់ %s ។"
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -255,71 +255,73 @@ msgstr ""
 "ពុម្ព #%s នៅ​ក្នុង %s មាន​វាល​ស្ទួន \"%s\" ជាមួយ​តម្លៃ​ថ្មី \"%s\" ។ ប្រហែល​ជា​ពុម្ព​ពីរ​មិន​ត្រូវ​បាន​ចែក​"
 "បន្ទាត់​ថ្មី​តែ​មួយ​បានត្រឹមត្រូវទេ ។\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "មិន​ស្គាល់​វាល​ពុម្ព '%s' នៅ​ក្នុង stanza #%s នៃ %s ឡើយ\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "កំហុសក្នុងការ​​ញែក​ពុម្ព​នៅក្បែរ `%s' នៅ​ក្នុង stanza #%s នៃ %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "ពុម្ព #%s នៅ​ក្នុង %s មិន​មានបន្ទាត់ 'ពុម្ព ៖' ឡើយ\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "ត្រូវ​តែ​បញ្ជាក់ debs មួយចំនួន​ដែលត្រូវ​កំណត់​រចនា​សម្ព័ន្ធ​ជាមុន"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr "កំពុង​ពន្យា​ការ​កំណត់​រចនា​សម្ព័ន្ធ​កញ្ចប់ គឺចាប់​តាំងពីមិនបានដំឡើង​ apt-utils មកម្លេះ"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "មិន​អាច​បើក stdin ឡើងវិញបានទេ ៖ %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates បានបរាជ័យ​ ៖ %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "កំពុង​ស្រង់​ចេញ​ពុម្ព​ពី​កញ្ចប់ ៖ %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "កំពុង​កំណត់​រចនា​សម្ព័ន្ធ​កញ្ចប់​ជាមុន ...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "កំហុស​ក្នុង​ការ​ញែក​ពុម្ព ៖ %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf ៖ មិន​អាច chmod ៖ %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s បរាជ័យ​ក្នុង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​ជាមុន ជាមួយ​ស្ថានភាព​ចេញ %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "ការប្រើប្រាស់ ៖ កញ្ចប់​ dpkg-កំណត់​រចនាសម្ព័ន្ធ​ឡើង​វិញ​ [ជម្រើស] \n"
 "  -a,  --all\t\t\tកំណត់​រចនាសម្ព័ន្ធ​កញ្ចប់​ទាំងអស់​ឡើង​វិញ​ ។\n"
@@ -327,26 +329,26 @@ msgstr ""
 "       --default-priority\tប្រើ​អាទិភាព​លំនាំដើម​ជំនួស​​តម្លៃ​ទាប ។\n"
 "       --force\t\t\tបង្ខំ​ការកំណត់រចនាសម្ព័ន្ធឡើងវិញ​​នៃ​កញ្ចប់​ដែល​ខូច ។"
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s ត្រូវ​តែ​រត់​ជា​ root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "សូម​បញ្ជាក់​កញ្ចប់​ដែលត្រូវ​កំណត់​រចនា​សម្ព័ន្ធ​ឡើងវិញ"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "មិនបានដំឡើង %s ទេ"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s បាន​ខូច ឬ មិន​បាន​ដំឡើងចប់​ពេញលេញ"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "មិន​អាច​អាន​ឯកសារ​ស្ថានភាព ៖ %s"
@@ -407,11 +409,11 @@ msgstr "%s ត្រូវបានគេ​លែងប្រើ"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s ត្រូវបានគេលែងប្រើ ។ កំពុង​ទម្លាក់​ពុម្ព​ទាំងអស់ !"
 
-#: ../debconf:88
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "របៀបប្រើ ៖ debconf [option] ពាក្យ​បញ្ជា [args]"
 
-#: ../debconf:90
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
