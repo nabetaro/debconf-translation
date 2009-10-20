@@ -8,18 +8,14 @@ MUNGE=xargs perl -i.bak -ne ' \
 		print $$_ \
 	'
 
-all: Debconf/FrontEnd/Kde/WizardUi.pm
+all:
 	$(MAKE) -C doc
 	$(MAKE) -C po
-
-Debconf/FrontEnd/Kde/WizardUi.pm: Debconf/FrontEnd/Kde/WizardUi.ui
-	LC_ALL=C puic $< |sed 's/package WizardUi/package Debconf::FrontEnd::Kde::WizardUi/' > $@
 
 clean:
 	find . \( -name \*~ -o -name \*.pyc -o -name \*.pyo \) | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
-	rm -f Debconf/FrontEnd/Kde/WizardUi.pm
 
 # Does not attempt to install documentation, as that can be fairly system
 # specific.
