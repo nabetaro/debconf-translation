@@ -1,4 +1,4 @@
-debconf (1.5.28) UNRELEASED; urgency=low
+debconf (1.5.28) unstable; urgency=low
 
   [ Colin Watson ]
   * Put debconf-i18n in Section: localization, to match overrides.
@@ -23,6 +23,17 @@ debconf (1.5.28) UNRELEASED; urgency=low
     l10n mailing list. Patch by Simon Paillard.
   * French debconf translation update
 
+  [ Joey Hess ]
+  * document --terse in relevant man pages and show --no-reload in
+    dpkg-reconfigure usage. Closes: #548994
+  * German man page addendum fixed. Closes: #546789
+  * Dropped the KDE frontend. libqt-perl is uninstallable, and
+    work on the new qt4 perl bindings and a new KDE frontend based on
+    them is not ready. If the KDE frontend is specified, debconf will
+    now attempt to fall back to the Gnome frontend, or failing that,
+    to dialog. Closes: #522580
+  * Enable set -e in debconf-utils postinst.
+
   [ Programs translation updates ]
   * Portuguese (Miguel Figueiredo). Closes: #551379
 
@@ -40,18 +51,7 @@ debconf (1.5.28) UNRELEASED; urgency=low
   * Japanese (Kenshi Muto).
   * Russian (Yuri Kozlov).
 
-  [ Joey Hess ]
-  * document --terse in relevant man pages and show --no-reload in
-    dpkg-reconfigure usage. Closes: #548994
-  * German man page addendum fixed. Closes: #546789
-  * Dropped the KDE frontend. libqt-perl is uninstallable, and
-    work on the new qt4 perl bindings and a new KDE frontend based on
-    them is not ready. If the KDE frontend is specified, debconf will
-    now attempt to fall back to the Gnome frontend, or failing that,
-    to dialog. Closes: #522580
-  * Enable set -e in debconf-utils postinst.
-
- -- Colin Watson <cjwatson@debian.org>  Fri, 03 Jul 2009 14:55:42 +0100
+ -- Joey Hess <joeyh@debian.org>  Mon, 19 Oct 2009 20:14:23 -0400
 
 debconf (1.5.27) unstable; urgency=low
 
