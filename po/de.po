@@ -2,15 +2,16 @@
 # Copyright (C) 2002 Free Software Foundation, Inc.
 # Leonard Michlmayr <leonard.michlmayr@ap.univie.ac.at>, 2002.
 # Michael Piefel <piefel@debian.org>, 2004, 2006
+# Helge Kreutzmann <debian@helgefjell.de>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.5.5\n"
+"Project-Id-Version: debconf 1.5.28\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-06 14:19+0200\n"
-"Last-Translator: Michael Piefel <piefel@debian.org>\n"
-"Language-Team: German, freelance\n"
+"PO-Revision-Date: 2009-10-24 17:34+0200\n"
+"Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
+"Language-Team: de <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,17 +19,17 @@ msgstr ""
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "greife zurück auf das Frontend: %s"
+msgstr "greife zurück auf die Oberfläche: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "kann Frontend nicht initialisieren: %s"
+msgstr "kann Oberfläche nicht initialisieren: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Kann das Frontend nicht starten: %s"
+msgstr "Kann die Oberfläche nicht starten: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
@@ -36,7 +37,7 @@ msgstr "Konfigurationsdatenbank in der Konfigurationsdatei nicht angegeben."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Templatedatenbank in der Konfigurationsdatei nicht angegeben."
+msgstr "Vorlagendatenbank in der Konfigurationsdatei nicht angegeben."
 
 #: ../Debconf/Config.pm:139
 msgid ""
@@ -57,7 +58,7 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tZu benutzendes Debconf-Frontend angeben.\n"
+"  -f,  --frontend\t\tZu benutzende Debconf-Oberfläche angeben.\n"
 "  -p,  --priority\t\tMinimale anzuzeigende Priorität für Fragen angeben.\n"
 "       --terse\t\t\tKompakten Modus aktivieren.\n"
 
@@ -130,7 +131,7 @@ msgid ""
 "Perhaps the templates were incorrectly localized."
 msgstr ""
 "Eingabewert „%s“ nicht in der C-Auswahl gefunden! Das sollte nie passieren. "
-"Vielleicht wurde das Template unvorschriftsmäßig lokalisiert."
+"Vielleicht wurde die Vorlage unvorschriftsmäßig lokalisiert."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -155,19 +156,19 @@ msgstr "Konfiguriere %s"
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
-"TERM ist nicht gesetzt, das Dialog-Frontend kann daher nicht verwendet "
+"TERM ist nicht gesetzt, die Dialog-Oberfläche kann daher nicht verwendet "
 "werden."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Das Dialog-Frontend ist mit dem Emacs-Shellbuffer nicht kompatibel"
+msgstr "Die Dialog-Oberfläche ist mit dem Emacs-Shellbuffer nicht kompatibel"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Das Dialog-Frontend funktioniert nicht auf einem Dumb-Terminal, einem Emacs-"
+"Die Dialog-Oberfläche funktioniert nicht auf einem Dumb-Terminal, einem Emacs-"
 "Shellbuffer oder ohne ein steuerndes Terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
@@ -175,26 +176,26 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Kein passendes Dialog-Programm ist installiert, daher kann das Dialog-"
-"Frontend nicht verwendet werden."
+"Kein passendes Dialog-Programm ist installiert, daher kann die Dialog-"
+"Oberfläche nicht verwendet werden."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Für das Dialog-Frontend muss das Bild mindestens 13 Zeilen hoch und 31 "
+"Für die Dialog-Oberfläche muss das Bild mindestens 13 Zeilen hoch und 31 "
 "Spalten breit sein."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
 msgid "Package configuration"
-msgstr "Paket-Konfiguration"
+msgstr "Paketkonfiguration"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Sie benutzen das Editor-basierte Debconf-Frontend, um Ihr System zu "
+"Sie benutzen die Editor-basierte Debconf-Oberfläche, um Ihr System zu "
 "konfigurieren. Siehe Ende dieser Unterlagen für genauere Anweisungen."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -206,11 +207,11 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Das Editor-basierte Debconf-Frontend legt Ihnen eine oder mehrere "
-"Textdateien zur Bearbeitung vor. Dieses ist eine solche Testdatei. Wenn Sie "
+"Die Editor-basierte Debconf-Oberfläche legt Ihnen eine oder mehrere "
+"Textdateien zur Bearbeitung vor. Dieses ist eine solche Textdatei. Falls Sie "
 "mit gewöhnlichen Unix-Konfigurationsdateien vertraut sind, wird ihnen diese "
-"Datei vertraut erscheinen – sie beinhaltet Erläuterungen und eingestreute "
-"Konfigurationselemente. Bearbeiten Sie die Datei, Ändern Sie nach Bedarf "
+"Datei vertraut erscheinen –- sie beinhaltet Erläuterungen und eingestreute "
+"Konfigurationselemente. Bearbeiten Sie die Datei, ändern Sie nach Bedarf "
 "Elemente, speichern Sie sie anschließend und beenden Sie den Editor. Dann "
 "wird Debconf die bearbeitete Datei lesen und die von Ihnen eingegebenen "
 "Werte verwenden, um das System zu konfigurieren."
@@ -223,7 +224,7 @@ msgstr "Debconf auf %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Dieses Frontend bedarf eines steuernden Terminals."
+msgstr "Diese Oberfläche bedarf eines steuernden Terminals."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
@@ -261,24 +262,24 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Template Nr. %s in %s hat ein doppeltes Feld „%s“ mit dem neuen Wert „%s“. "
-"Wahrscheinlich sind zwei Templates nicht ordentlich durch eine leere Zeile "
+"Vorlage Nr. %s in %s hat ein doppeltes Feld „%s“ mit dem neuen Wert „%s“. "
+"Wahrscheinlich sind zwei Vorlagen nicht ordentlich durch eine leere Zeile "
 "abgetrennt.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Unbekanntes Template-Feld „%s“ in Absatz Nr. %s von %s\n"
+msgstr "Unbekanntes Vorlagenfeld „%s“ in Absatz Nr. %s von %s\n"
 
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Lesefehler im Template bei „%s“ in Absatz Nr. %s von %s\n"
+msgstr "Auswertfehler in Vorlage bei „%s“ in Absatz Nr. %s von %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "Template Nr. %s in %s enthält keine „Template:“-Zeile.\n"
+msgstr "Vorlage Nr. %s in %s enthält keine „Template:“-Zeile.\n"
 
 #: ../dpkg-preconfigure:121
 #, perl-format
@@ -288,12 +289,12 @@ msgstr "es müssen debs zum Vorkonfigurieren angegeben werden"
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
-"Schiebe die Paket-Konfiguration auf, da apt-utils nicht installiert ist"
+"Schiebe die Paketkonfiguration auf, da apt-utils nicht installiert ist"
 
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "kann stdin nicht wieder öffnen: %s"
+msgstr "kann Stdin nicht wieder öffnen: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
@@ -303,7 +304,7 @@ msgstr "apt-extracttemplates schlug fehl: %s"
 #: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Extrahiere Templates aus Paketen: %d%%"
+msgstr "Extrahiere Vorlagen aus Paketen: %d%%"
 
 #: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
@@ -312,7 +313,7 @@ msgstr "Vorkonfiguration der Pakete ...\n"
 #: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
-msgstr "Template-Lesefehler: %s"
+msgstr "Vorlagen-Auswertefehler: %s"
 
 #: ../dpkg-preconfigure:216
 #, perl-format
@@ -325,7 +326,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s konnte nicht vorkonfiguriert werden, Exit-Status %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -339,7 +339,8 @@ msgstr ""
 "  -u,  --unseen-only\t\tNur noch nicht gestellte Fragen zeigen.\n"
 "       --default-priority\tVoreingestellte Priorität benutzen (statt "
 "niedrig).\n"
-"       --force\t\t\tNeukonfiguration kaputter Pakete erzwingen."
+"       --force\t\t\tNeukonfiguration kaputter Pakete erzwingen.\n"
+"       --no-reload\t\tVorlagen nicht neu laden. (Vorsichtig verwenden)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
@@ -379,7 +380,7 @@ msgstr ""
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Aufruf: debconf-mergetemplate [Optionen] [Templates.ll ...] Templates"
+msgstr "Aufruf: debconf-mergetemplate [Optionen] [Vorlage.ll ...] Vorlagen"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -389,7 +390,7 @@ msgid ""
 msgstr ""
 "\n"
 "        --outdated\t\tSelbst veraltete Übersetzungen einbeziehen.\n"
-"\t--drop-old-templates\tVeraltete Templates ganz ignorieren."
+"\t--drop-old-templates\tVeraltete Vorlagen ganz ignorieren."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -419,7 +420,7 @@ msgstr "%s ist veraltet"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s ist veraltet; lasse das ganze Tamplate fallen!"
+msgstr "%s ist veraltet; lasse die ganze Vorlage fallen!"
 
 #: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
@@ -431,14 +432,14 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=package\t\tDas Paket setzen, dem der Befehl gehört."
+"  -o,  --owner=Paket\t\tDas Paket setzen, dem der Befehl gehört."
 
 #~ msgid "Save (mail) Note"
 #~ msgstr "Notiz aufbewahren (per E-Mail senden)"
 
 #~ msgid "Debconf was asked to save this note, so it mailed it to you."
 #~ msgstr ""
-#~ "Debconf wurde gebeten diese Nachricht zu speichern, daher sendet es sie "
+#~ "Debconf wurde gebeten, diese Nachricht zu speichern, daher sendet es sie "
 #~ "Ihnen."
 
 #~ msgid "Information"
@@ -459,9 +460,8 @@ msgstr ""
 #~ "Debconf wurde nicht konfiguriert, diese Nachricht anzuzeigen, daher "
 #~ "sendet es sie Ihnen."
 
-#, fuzzy
 #~ msgid "preconfiguring %s (%s)"
-#~ msgstr "Konfiguriere %s"
+#~ msgstr "Vorkonfiguriere %s (%s)"
 
 #~ msgid "Debconf was asked to save this "
 #~ msgstr "Debconf wurde gebeten, diese Notiz aufzubewahren, "
