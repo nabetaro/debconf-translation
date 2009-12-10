@@ -266,17 +266,21 @@ to help with this if you want), but the confmodule libraries will unescape
 replies for you.
 .RE
 .TP
-.B TITLE string
-This sets the title debconf displays to the user. You rarely need to use
-this command since debconf can automatically generate a title based on
-your package's name.
-.TP
 .B SETTITLE question
-This sets the title to the short description of the template for the
-specified question. The template should be of type title. The advantage
-this has over the TITLE command is that it allows for titles to be stored
-in the same place as the rest of the debconf questions, and allows them to
-be translated.
+.RS
+This sets the title debconf displays to the user, using the short description
+of the template for the specified question. The template should be of type
+title. You rarely need to use this command since debconf can automatically
+generate a title based on your package's name.
+.P
+Setting the title from a template means they are stored in the same place
+as the rest of the debconf questions, and allows them to be translated.
+.RE
+.TP
+.B TITLE string
+This sets the title debconf displays to the user to the specified string.
+Use of the SETTITLE command is normally to be preferred as it allows for
+translation of the title.
 .TP
 .B INPUT priority question
 .RS
