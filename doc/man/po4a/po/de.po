@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-10-19 19:51-0300\n"
-"PO-Revision-Date: 2009-10-20 19:22+0200\n"
+"PO-Revision-Date: 2009-12-12 15:11+0100\n"
 "Last-Translator: Florian 'eix' Rehnisch <eixman@gmx.de>\n"
 "Language-Team: de <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -5877,6 +5877,32 @@ msgstr ""
 "Befehl selten benutzen, weil Debconf automatisch einen Titel basierend auf "
 "dem Namen Ihres Paketes erstellt."
 
+# type: Plain text
+#. type: Plain text
+#: debconf-devel.7:275
+msgid ""
+"This sets the title debconf displays to the user, using the short "
+"description of the template for the specified question. The template should "
+"be of type title. You rarely need to use this command since debconf can "
+"automatically generate a title based on your package's name."
+msgstr ""
+"Dies setzt den Titel, den Debconf dem Benutzer anzeigt. Hierzu wird die "
+"Kurzbeschreibung der Vorlage für die angegebene Frage verwandt. Die Vorlage "
+"sollte vom Typ »Title« sein. Sie müssen diesen Befehl selten benutzen, weil "
+"Debconf automatisch einen Titel basierend auf dem Namen Ihres Paketes "
+"erstellt."
+
+# type: Plain text
+#. type: Plain text
+#: debconf-devel.7:278
+msgid ""
+"Setting the title from a template means they are stored in the same place as "
+"the rest of the debconf questions, and allows them to be translated."
+msgstr ""
+"Setzen des Titel aus einer Vorlage bedeutet, dass sie am gleichen Ort wie der "
+"Rest der Debconf-Fragen gespeichert sind und dass eine Übersetzung erlaubt "
+"wird. "
+
 # type: TP
 #. type: TP
 #: debconf-devel.7:273
@@ -5899,6 +5925,18 @@ msgstr ""
 "Befehl TITLE besteht darin, dass die Speicherung von Titeln an der selben "
 "Stelle wie der Rest der Debconf-Fragen ermöglicht ist und dass eine "
 "Übersetzung erlaubt wird. "
+
+# type: Plain text
+#. type: Plain text
+#: debconf-devel.7:284
+msgid ""
+"This sets the title debconf displays to the user to the specified string.  "
+"Use of the SETTITLE command is normally to be preferred as it allows for "
+"translation of the title."
+msgstr ""
+"Dies setzt den Titel, den Debconf dem Benutzer anzeigt. Hierzu wird die "
+"angegebene Zeichenkette verwandt. Die Verwendung des Befehls »SETTITLE« "
+"wird normalerweise bevorzugt, da es die Übersetzung des Titels erlaubt."
 
 # type: TP
 #. type: TP
