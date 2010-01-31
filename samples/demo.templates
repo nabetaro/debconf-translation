@@ -12,9 +12,6 @@ Description: Do you like Linux?
      - ... but also, free as in beer!
   * Linux has a cuddley mascot.
   * Linux prints out really fun stuff when it crashes, like "fucking sun blows me". Isn't a sense of humour great? Aren't you glad you have one?
-Description-nl_NL.UTF-8: Dit is dan in het Nëderlãndš.
- foë
- aaa��ţs.
 
 Template: demo/string
 Type: string
@@ -103,6 +100,8 @@ Description: A description
  This is a shell variable: \${PATH}
  .
  This is a literal backslash: \
+ .
+ This is a \ followed by n , not a newline: \n
 
 Template: demo/progress/title
 Type: text

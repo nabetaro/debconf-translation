@@ -147,6 +147,21 @@ sub sizetext {
 	       $window_columns + $this->borderwidth;
 }
 
+=item hide_escape
+
+Used to hide escaped characters in input text from processing by dialog.
+
+=cut
+
+sub hide_escape {
+	my $line = $_;
+
+	# dialog will display "\n" as a liternal newline; use zero-width
+	# utf-8 characters to avoid this.
+	$line =~ s/\\n/\\\xe2\x81\xa0n/g;
+	return $line;
+}
+
 =item showtext
 
 Pass this some text and it will display the text to the user in
@@ -175,7 +190,7 @@ sub showtext {
 		else {
 			# Dialog has to use a temp file.
 			my $fh=Debconf::TmpFile::open();
-			print $fh join("\n", @lines);
+			print $fh join("\n", map &hide_escape, @lines);
 			close $fh;
 			@args=("--textbox", Debconf::TmpFile::filename());
 		}
@@ -382,6 +397,8 @@ showdialog will return undef.
 sub showdialog {
 	my $this=shift;
 	my $question=shift;
+
+	@_=map &hide_escape, @_;
 
 	# It's possible to ask questions in the middle of a progress bar.
 	# However, whiptail doesn't like having two instances of itself

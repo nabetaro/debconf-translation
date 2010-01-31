@@ -21,6 +21,9 @@ debconf (1.5.29) UNRELEASED; urgency=low
   * DbDriver::File: Open file read-write so exclusive flock locking can be
     done portably. Fixes issue on Solaris. (Thanks, James Lee)
     Closes: #563577
+  * Prevent dialog from escaping "\n" to a liternal newline in the text
+    it displays by doing some tricky things with UTF-8 zero-width characters.
+    Closes: #566954 (Thanks, Ben Hutchings)
 
  -- Helge Kreutzmann <debian@helgefjell.de>  Wed, 21 Oct 2009 17:33:43 +0200
 
