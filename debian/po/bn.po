@@ -3,25 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Md. Rezwan Shahid <rezwan@ankur.org.bd>, 2009.
 # Md. Rezwan Shahid<rezwan@ankur.org.bd>,2009-08-26 16:08+0600
+# Sadia Afroz <sadia@ankur.org.bd>, 2010.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_debian\n"
+"Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2009-08-26 16:09+0600\n"
-"Last-Translator: Md. Rezwan Shahid<rezwan@ankur.org.bd>\n"
+"PO-Revision-Date: 2010-02-02 16:09+0600\n"
+"Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
 "Language-Team: Bengali<ankur-bd-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WordForge 0.6 RC1\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr "ডায়লগ"
+msgstr "ডায়ালগ"
 
 #. Type: select
 #. Choices
@@ -39,7 +41,7 @@ msgstr "সম্পাদক"
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr "ইন্টারঅ্যাকটিভ নয়"
+msgstr "ক্রিয়া-প্রতিক্রিয়াহীন"
 
 #. Type: select
 #. Description
@@ -54,8 +56,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"যেসকল প্যকেজ কনফিগারেশনের জন্য debconf ব্যবহার করে তারা একই রকম চেহারা ধারন "
-"করে। সেগুলো কি ধরনের ব্যবহারকারী ইন্টারফেস ব্যবহার করবে তা আপনি নির্বাচন করতে "
+"যে সকল প্যাকেজ কনফিগারেশনের জন্য debconf ব্যবহার করে তারা একই রকম চেহারা ধারন "
+"করে। তারা কি ধরনের ব্যবহারকারী ইন্টারফেস ব্যবহার করবে তা আপনি নির্বাচন করে দিতে "
 "পারেন।"
 
 #. Type: select
@@ -69,11 +71,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"ডায়লগ ফ্রন্টএন্ড একটি পূর্ণ পর্দা, ক্যারেক্টার ভিত্তিক ইন্টারফেস, কিন্তু রিডলাইন ফ্রন্টএন্ড "
-"একটি অধিক সরল টেক্সট ইন্টারফেস ব্যবহার করে, এবং জিনোম এবং কেডিই ফ্রন্টএন্ড উভয়ই হয় "
-"মডার্ণ X ইন্টারফেস, যা ডেস্কটপে ফিট হয় (কিন্তু যেকোনো X এনভায়রনমেন্টে ব্যবহার করা "
-"যেতে পারে)। সম্পাদক ফ্রন্টএন্ড আপনাকে আপনার পছন্দসই টেক্সট সম্পাদক দ্বারা সবকিছু "
-"কনফিগার করতে দেবে। ননইন্টারঅ্যাকটিভ ফ্রন্টএন্ড আপনাকে কখনই কোন প্রশ্ন করবে না।"
+"ডায়ালগ ফ্রন্টএন্ড একটি পূর্ণ পর্দা, অক্ষর ভিত্তিক ইন্টারফেস, কিন্তু রিডলাইন ফ্রন্টএন্ড "
+"অধিক সনাতন সরল টেক্সট ইন্টারফেস ব্যবহার করে, এবং জিনোম ও কেডিই ফ্রন্টএন্ড উভয়ই "
+"আধুনিক X ইন্টারফেস, যা ডেস্কটপে মানানসই হয় (কিন্তু যেকোন X এনভায়রনমেন্টে ব্যবহার "
+"করা যেতে পারে)। সম্পাদক ফ্রন্টএন্ড আপনাকে আপনার পছন্দসই টেক্সট সম্পাদকের মাধ্যমে "
+"সবকিছু কনফিগার করতে দেবে। ক্রিয়া-প্রতিক্রিয়াহীন ফ্রন্টএন্ড আপনাকে কখনই কোন প্রশ্ন "
+"করবে না।"
 
 #. Type: select
 #. Choices
@@ -117,14 +120,14 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"আপনাকে যে প্রশ্ন জিজ্ঞেস করা হয় তা Debconf অগ্রাধিকার ভিত্তিতে সাজায়। আপনি যেই "
-"প্রশ্নগুলো দেখতে চান সেগুলো সর্বনিম্ন অগ্রাধিকার দিন:\n"
-"  - 'জটিল' শুধুমাত্র আপনাকে তখনই জিজ্ঞেস করবে যদি সিস্টেমটি ভেঙ্গে যাওয়ার সম্ভাবনা "
+"আপনাকে যে প্রশ্নগুলো জিজ্ঞেস করা হয় তা Debconf অগ্রাধিকার ভিত্তিতে সাজায়। আপনি "
+"সর্বনিম্ন যে অগ্রাধিকারের প্রশ্ন দেখতে চান তা নির্বাচন করুন:\n"
+"  - 'জটিল' আপনাকে শুধুমাত্র তখনই জিজ্ঞেস করবে যদি সিস্টেমটি ভেঙ্গে যাওয়ার সম্ভাবনা "
 "থাকে।\n"
 "    যদি আপনি নতুন হোন, বা তাড়া থাকে তাহলে এটি পছন্দ করুন।\n"
-"  - 'উচ্চ' হল তুলনামূলক প্রয়োজনীয় প্রশ্নের জন্য\n"
-"  - 'মাঝারি' হল সাধারন প্রশ্নের জন্য\n"
-"  - 'নিম্ন' হল নিয়ন্ত্রনপাগলদের জন্য যারা সবকিছু দেখতে চায়।"
+"  - 'উচ্চ' হচ্ছে তুলনামূলক প্রয়োজনীয় প্রশ্নের জন্য\n"
+"  - 'মাঝারি' হল সাধারণ প্রশ্নের জন্য\n"
+"  - 'নিম্ন' হল নিয়ন্ত্রন পাগলদের জন্য যারা সবকিছু দেখতে চায়"
 
 #. Type: select
 #. Description
@@ -133,8 +136,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"মনে রাখবেন, আপনি এখানে যে স্তর ই পছন্দ করেন না কেন, আপনি সকল প্রশ্ন দেখতে পারবেন "
-"যদি আপনি কোন প্যাকেজ dpkg-reconfigure দ্বারা পুন:কনফিগার করেন।"
+"মনে রাখবেন, আপনি এখানে যে স্তরই পছন্দ করুন না কেন, আপনি সকল প্রশ্ন দেখতে পারবেন "
+"যদি আপনি কোন প্যাকেজ dpkg-reconfigure দ্বারা পুনরায় কনফিগার করেন।"
 
 #. Type: text
 #. Description
