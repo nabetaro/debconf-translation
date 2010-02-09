@@ -1,21 +1,23 @@
+# Vietnamese translation for Debconf Debian.
+# Copyright © 2010 Free Software Foundation, Inc.
 # Jean Christophe André <progfou@gmail.com>
 # Vũ Quang Trung <vu.quang.trung@auf.org>
 # Trịnh Minh Thành <tmthanh@yahoo.com>
-# Clytie Siddall <clytie@riverland.net.au>, 2005-2006.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-07-31 21:54+0930\n"
+"PO-Revision-Date: 2010-02-09 17:26+1030\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: LocFactoryEditor 1.6fc1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.8\n"
 
 #. Type: select
 #. Choices
@@ -154,115 +156,4 @@ msgstr "Hãy chờ..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
-
-#~ msgid "Gnome"
-#~ msgstr "GNOME"
-
-#~ msgid "Kde"
-#~ msgstr "KDE"
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Bỏ qua các câu hỏi có ưu tiên thấp hơn so với..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Gói cấu hình bằng debconf thì ưu tiên hóa các câu hỏi cho bạn. Chỉ những "
-#~ "câu hỏi có ưu tiên nào đó hoặc cao hơn sẽ thật được hiển thị cho bạn xem; "
-#~ "mọi câu hỏi ít quan trọng hơn bị nhảy qua."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Bạn có thể chọn ưu tiên thấp nhất cho câu hỏi bạn muốn xem :\n"
-#~ " • tới hạn, cho mục có khả năng ngắt hệ thống\n"
-#~ "\tnếu người sử dụng không sửa.\n"
-#~ " • cao, cho mục không có giá trị mặc định hợp lý.\n"
-#~ " • vừa, cho mục bình thường có giá trị mặc định hợp lý.\n"
-#~ " • thấp, cho mục không quan trọng có giá trị mặc định\n"
-#~ "\tsẽ làm việc trong hầu hết trường hợp."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Lấy ví dụ, câu hỏi này có ưu tiên vừa, vì thế nếu ưu tiên của bạn đã « cao "
-#~ "» hoặc « tới hạn », bạn sẽ không xem câu hỏi này."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Thay đổi ưu tiên debconf"
-
-#~ msgid "Continue"
-#~ msgstr "Tiếp tục"
-
-#~ msgid "Go Back"
-#~ msgstr "Lùi"
-
-#~ msgid "Yes"
-#~ msgstr "Có"
-
-#~ msgid "No"
-#~ msgstr "Không"
-
-#~ msgid "Cancel"
-#~ msgstr "Thôi"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "Phím <tab> chuyển đổi giữa mục, phím dài chọn mục và phím Enter hoạt hóa "
-#~ "cái nút"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Ảnh chụp"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Ảnh chụp được lưu dạng %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! LỖI : %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "NHẤN PHÍM :"
-
-#~ msgid "Display this help message"
-#~ msgstr "Hiển thị trợ giúp này"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Lùi lại về câu hỏi trước"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Chọn mục nhập rỗng"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Dấu nhắc : « %c » cho trợ giúp, mặc định=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Dấu nhắc : « %c » cho trợ giúp> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Dấu nhắc : « %c » cho trợ giúp, mặc định=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Nhấn phím Enter để tiếp tục lại]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "hộp thoại, Readline, Gnome, Kde, trình hiệu chỉnh, không tương tác"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "Tới hạn, cao, trung bình, thấp"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Để cấu hình gói tin, trình debconf nên dùng giao diện nào?"
+msgstr "Đổi vật chứa"
