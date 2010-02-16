@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the debconf package
 # Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>, 2006.
 # Florentin Duneau <f.baced@wanadoo.fr>, 2006.
-# Florentin Duneau <fduneau@gmail.com>, 2009.
+# Florentin Duneau <fduneau@gmail.com>, 2009. 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "POT-Creation-Date: 2009-10-19 19:51-0300\n"
-"PO-Revision-Date: 2009-10-21 19:38+0200\n"
+"PO-Revision-Date: 2010-02-16 19:28+0100\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -2154,7 +2154,7 @@ msgstr ""
 "debconf.conf et ~/.debconfrc sont les fichiers de configuration utilisés "
 "pour déterminer la base de données qui doit être utilisée. Ces bases de "
 "données sont utilisées pour garder deux types d'informations ; les données "
-"dynamiques de configuration que l'utilisateur y a entrées et les données "
+"dynamiques de configuration que l'utilisateur a définies et les données "
 "statiques des questions. Debconf offre une interface souple et extensible "
 "pour la gestion des bases de données. De nouveaux pilotes peuvent être créés "
 "sans effort et les pilotes peuvent être combinés de différentes façons."
@@ -3663,7 +3663,8 @@ msgid ""
 "The values, though, are case sensitive."
 msgstr ""
 "Il n'est pas tenu compte de la casse des noms des champs (la partie de la "
-"ligne avant le deux-points). Cependant, les valeurs sont sensibles à la casse."
+"ligne avant le deux-points). Cependant, les valeurs sont sensibles à la "
+"casse."
 
 # type: SH
 #. type: SH
@@ -3688,7 +3689,7 @@ msgstr ""
 "rend disponible certaines choses spécifiques comme le nom d'hôte, l'adresse "
 "IP et les serveurs DNS ; un pilote qui prend ses valeurs dans les champs TXT "
 "des enregistrements DNS publics ; un format compatible avec la sortie de "
-"debconf ; un pilote d'annulation, qui peut annuler la valeur d'un champ ou "
+"cdebconf ; un pilote d'annulation, qui peut annuler la valeur d'un champ ou "
 "les drapeaux de toutes les requêtes qui lui sont adressées."
 
 # type: SH
@@ -7380,7 +7381,7 @@ msgid ""
 " \tfi\n"
 " done\n"
 msgstr ""
-" ok=''\n"
+" ok=\\(aq\\(aq\n"
 " do while [ ! \"$ok\" ];\n"
 " \tdb_input low toto/titi || true\n"
 " \tdb_go || true\n"
