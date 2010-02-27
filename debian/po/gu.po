@@ -1,0 +1,153 @@
+# Gujarati translation of debconf.
+# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Kartik Mistry <kartik@debian.org>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf-gu\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-02-27 10:20+0530\n"
+"Last-Translator: Kartik Mistry <kartik@debian.org>\n"
+"Language-Team: Gujarati <debian-boot@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "સંવાદ"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "રીડલાઈન"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "સંપાદક"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "અસક્રિય"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "વાપરવા માટેનો દેખાવ:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"જે પેકેજો રુપરેખાંકન માટે ડેબકોન્ફ વાપરે છે તેઓ સમાન દેખાવ ધરાવે છે. તમે તેઓ જે દેખાવ વાપરે છે તે "
+"પસંદ કરી શકો છો."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"સંવાદ દેખાવ એ પૂર્ણ-સ્ક્રિન, અક્ષર પર આધારિત દેખાવ છે, જ્યારે રીડલાઈન દેખાવ પરંપરાગત "
+"સામાન્ય લખાણ દેખાવ વાપરે છે, અને ગ્નોમ અને કેડીઈ દેખાવો તાજેતરનાં X દેખાવો છે, જે સંબંધિત "
+"ડેસ્કટોપ્સમાં મેળ ખાય છે (પણ કોઈપણ X વાતાવરણમાં ઉપયોગી છે). સંપાદક દેખાવ તમને તમારા "
+"પસંદગીનાં સંપાદકમાં રુપરેખાંકન કરવા દેશે. અસક્રિય દેખાવ તમને ક્યારેય પ્રશ્નો પૂછશે નહી."
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "અત્યંત જરુરી"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "ઉચ્ચ"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "મધ્યમ"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "નીચું"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "આની કરતા ઓછી પ્રાથમિકતા વાળા પ્રશ્નો અવગણો:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"ડેબકોન્ફ તમને પૂછવામાં આવતા પ્રશ્નની પ્રાથમિકતા આપશે. તમારે જોઈતા પ્રશ્નની નીચામાં નીચી "
+"પ્રાથમિકતા પસંદ કરો:\n"
+"  - 'અત્યંત જરુરી' ત્યારે જ પૂછશે જ્યારે તમારી સિસ્ટમમાં ભંગાણ થઈ શકે છે.\n"
+"    આ પસંદ કરો જો તમે નવા હોવ, અથવા જલ્દીમાં હોવ.\n"
+"  - 'ઉચ્ચ' એ મહત્વનાં પ્રશ્નો માટે છે.\n"
+"  - 'મધ્યમ' એ સામાન્ય પ્રશ્નો માટે છે\n"
+"  - 'નીચું' એ નિયંત્રણ પસંદ કરતાં લોકો માટે છે જે બધું જોવા માંગે છે"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"અહીં કોઈ પણ સ્તર પસંદ કર્યા છતાં, પેકેજને dpkg-reconfigure સાથે ફરી રુપરેખાંકિત કરતા તમે "
+"દરેક પ્રશ્ન જોઈ શકશો."
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "પેકેજો સ્થાપન કરે છે"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "મહેરબાની કરી રાહ જુઓ..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "માધ્યમ બદલાવ"
