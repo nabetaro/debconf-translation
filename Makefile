@@ -46,12 +46,14 @@ install-rest:
 		xargs -i install -d $(prefix)/usr/share/perl5/{}
 	install -d \
 		$(prefix)/usr/lib/python2.4/site-packages/ \
-		$(prefix)/usr/lib/python2.5/site-packages/
+		$(prefix)/usr/lib/python2.5/site-packages/ \
+		$(prefix)/usr/lib/python2.6/dist-packages/
 	# Install modules.
 	find Debconf -type f -name '*.pm' |grep -v CVS | \
 		xargs -i install -m 0644 {} $(prefix)/usr/share/perl5/{}
 	install -m 0644 debconf.py $(prefix)/usr/lib/python2.4/site-packages/
 	install -m 0644 debconf.py $(prefix)/usr/lib/python2.5/site-packages/
+	install -m 0644 debconf.py $(prefix)/usr/lib/python2.6/dist-packages/
 	# Special case for back-compatability.
 	install -d $(prefix)/usr/share/perl5/Debian/DebConf/Client
 	cp Debconf/Client/ConfModule.stub \
