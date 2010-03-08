@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5.28\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-03-08 13:08+0000\n"
 "PO-Revision-Date: 2009-10-24 17:34+0200\n"
 "Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
 "Language-Team: de <debian-l10n-german@lists.debian.org>\n"
@@ -168,8 +168,8 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Die Dialog-Oberfläche funktioniert nicht auf einem Dumb-Terminal, einem Emacs-"
-"Shellbuffer oder ohne ein steuerndes Terminal."
+"Die Dialog-Oberfläche funktioniert nicht auf einem Dumb-Terminal, einem "
+"Emacs-Shellbuffer oder ohne ein steuerndes Terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 "Für die Dialog-Oberfläche muss das Bild mindestens 13 Zeilen hoch und 31 "
 "Spalten breit sein."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Paketkonfiguration"
 
@@ -216,8 +216,7 @@ msgstr ""
 "wird Debconf die bearbeitete Datei lesen und die von Ihnen eingegebenen "
 "Werte verwenden, um das System zu konfigurieren."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf auf %s"
@@ -288,8 +287,7 @@ msgstr "es müssen debs zum Vorkonfigurieren angegeben werden"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"Schiebe die Paketkonfiguration auf, da apt-utils nicht installiert ist"
+msgstr "Schiebe die Paketkonfiguration auf, da apt-utils nicht installiert ist"
 
 #: ../dpkg-preconfigure:133
 #, perl-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-13 22:23+0200\n"
+"POT-Creation-Date: 2010-03-08 13:08+0000\n"
 "PO-Revision-Date: 2010-02-11 21:12+0000\n"
 "Last-Translator: YOUR NAME <E-MAIL@ADDRESS>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -100,11 +100,11 @@ msgstr ""
 "(Introduza os itens que deseja escolher separados por uma vírgula seguida de "
 "um espaço (', ').)"
 
-#: ../Debconf/Element/Gnome.pm:183
+#: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
 msgstr "_Ajuda"
 
-#: ../Debconf/Element/Gnome.pm:185
+#: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
 msgstr "Ajuda"
 
@@ -183,7 +183,7 @@ msgstr ""
 "O frontend Dialog requer um ecrã de pelo menos 13 linhas de altura e 31 "
 "colunas de largura."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configuração de pacotes"
 
@@ -212,8 +212,7 @@ msgstr ""
 "necessário, depois grave-o e saia. Nesse ponto, o debconf irá ler o ficheiro "
 "editado, e utilizar os valores que introduziu para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf em %s"
@@ -244,7 +243,7 @@ msgstr "Atrás"
 msgid "Next"
 msgstr "Próximo"
 
-#: ../Debconf/Template.pm:90
+#: ../Debconf/Template.pm:91
 #, perl-format
 msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
@@ -253,7 +252,7 @@ msgstr ""
 "aviso: possível corrupção de base de dados. Irei tentar reparar adicionando "
 "a questão em falta %s."
 
-#: ../Debconf/Template.pm:203
+#: ../Debconf/Template.pm:206
 #, perl-format
 msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
@@ -263,72 +262,74 @@ msgstr ""
 "Provavelmente os dois templates não estão devidamente separados por uma "
 "única newline.\n"
 
-#: ../Debconf/Template.pm:228
+#: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
 msgstr "Campo template desconhecido '%s' na estrofe #%s de %s\n"
 
-#: ../Debconf/Template.pm:254
+#: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
 msgstr "Erro de parse do template perto de `%s', na estrofe #%s de %s\n"
 
-#: ../Debconf/Template.pm:260
+#: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
 msgstr "Template #%s em %s não contém uma linha 'Template:'\n"
 
-#: ../dpkg-preconfigure:117
+#: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
 msgstr "tem de especificar alguns debs para pré-configurar"
 
-#: ../dpkg-preconfigure:122
+#: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
 "a atrasar a configuração do pacote, já que o apt-utils não está instalado"
 
-#: ../dpkg-preconfigure:129
+#: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "não conseguiu re-abrir stdin: %s"
 
-#: ../dpkg-preconfigure:160 ../dpkg-preconfigure:172
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates falhou: %s"
 
-#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "A extrair templates a partir dos pacotes: %d%%"
 
-#: ../dpkg-preconfigure:186
+#: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
 msgstr "A pré-configurar os pacotes...\n"
 
-#: ../dpkg-preconfigure:198
+#: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
 msgstr "erro de parse do template: %s"
 
-#: ../dpkg-preconfigure:212
+#: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
 msgstr "debconf: não pode fazer chmod: %s"
 
-#: ../dpkg-preconfigure:223
+#: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou a pré-configuração, com estado de saída %s"
 
-#: ../dpkg-reconfigure:100
+#: ../dpkg-reconfigure:103
+#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
 "  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
 "       --default-priority\tUse default priority instead of low.\n"
-"       --force\t\t\tForce reconfiguration of broken packages."
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Utilização: dpkg-reconfigure [opções] pacotes\n"
 "  -a,  --all\t\t\tReconfigurar todos os pacotes.\n"
@@ -337,26 +338,26 @@ msgstr ""
 "baixa.\n"
 "       --force\t\t\tForçar a reconfiguração de pacotes com problemas."
 
-#: ../dpkg-reconfigure:113
+#: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
 msgstr "%s tem de ser corrido como root"
 
-#: ../dpkg-reconfigure:146
+#: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
 msgstr "por favor especifique um pacote para reconfigurar"
 
-#: ../dpkg-reconfigure:167
+#: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
 msgstr "%s não está instalado"
 
-#: ../dpkg-reconfigure:171
+#: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
 msgstr "%s está defeituoso ou não totalmente instalado"
 
-#: ../dpkg-reconfigure:250
+#: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
 msgstr "Não pode ler o estado do ficheiro: %s"
@@ -418,11 +419,11 @@ msgstr "%s está ultrapassado"
 msgid "%s is outdated; dropping whole template!"
 msgstr "%s está ultrapassado; deixando todo o template!"
 
-#: ../debconf:91
+#: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
 msgstr "Utilização: debconf [opções] comando [args]"
 
-#: ../debconf:93
+#: ../debconf:97
 msgid ""
 "\n"
 "  -o,  --owner=package\t\tSet the package that owns the command."
