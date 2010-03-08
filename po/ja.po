@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-06 19:58+0900\n"
+"POT-Creation-Date: 2010-03-08 19:52+0100\n"
+"PO-Revision-Date: 2010-03-09 00:08+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Debian Japanese list <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -183,7 +183,7 @@ msgstr ""
 "Dialog フロントエンドはすくなくとも 13 行あり、幅 31 文字ある画面を必要としま"
 "す。"
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "パッケージの設定"
 
@@ -212,8 +212,7 @@ msgstr ""
 "debconf は編集されたファイルを読み込み、入力された値をシステムの設定に利用し"
 "ます。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "%s の Debconf"
@@ -327,7 +326,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s は終了コード %s で前設定に失敗しました"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -340,7 +338,8 @@ msgstr ""
 "  -a,  --all\t\t\tすべてのパッケージを再設定する。\n"
 "  -u,  --unseen-only\t\tまだ示していない質問のみを表示する。\n"
 "       --default-priority\tlow の代わりにデフォルトの優先度を使う。\n"
-"       --force\t\t\t壊れたパッケージの再設定を強制的に行う。"
+"       --force\t\t\t壊れたパッケージの再設定を強制的に行う。\n"
+"       --no-reload\t\tテンプレートを再読み込みしない。(注意して利用のこと)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
@@ -435,29 +434,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=パッケージ\t\tコマンドを所有するパッケージを設定する。"
-
-#~ msgid "Save (mail) Note"
-#~ msgstr "注意を保存 (メール) する"
-
-#~ msgid "Debconf was asked to save this note, so it mailed it to you."
-#~ msgstr ""
-#~ "この注意を保存するよう要求されたので、debconf があなたにメールを送りまし"
-#~ "た。"
-
-#~ msgid "Information"
-#~ msgstr "情報"
-
-#~ msgid "The note has been mailed."
-#~ msgstr "この注意はメールされました。"
-
-#~ msgid "Error"
-#~ msgstr "エラー"
-
-#~ msgid "Unable to save note."
-#~ msgstr "この注意を保存できません。"
-
-#~ msgid ""
-#~ "Debconf was not configured to display this note, so it mailed it to you."
-#~ msgstr ""
-#~ "この注意を表示するようには設定されていないので、debconf があなたにメールを"
-#~ "送りました。"

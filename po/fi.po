@@ -1,15 +1,15 @@
 # Finnish translation of debconf
 # Copyright (C) 2001 Jaakko Kangasharju
 # Jaakko Kangasharju <ashar@iki.fi>, 2001.
-# Tommi Vainikainen, 2004-2005.
+# Tommi Vainikainen, 2004-2005, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.0.00\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-06 12:49+0300\n"
-"Last-Translator: Tommi Vainikainen <thv+debian@lists.debian.org>\n"
+"POT-Creation-Date: 2010-03-08 19:52+0100\n"
+"PO-Revision-Date: 2010-03-08 16:53+0200\n"
+"Last-Translator: Tommi Vainikainen <thv+debian@iki.fi>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -183,7 +183,7 @@ msgstr ""
 "Dialog-liittymä tarvitsee vähintään 13 riviä pitkän ja 31 saraketta leveän "
 "ruudun."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Paketin asetukset"
 
@@ -211,8 +211,7 @@ msgstr ""
 "poistu, minkä jälkeen debconf lukee editoidun tiedoston ja säätää asetukset "
 "syöttämiesi tietojen perusteella."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf @ %s"
@@ -323,7 +322,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s:n esiasetus epäonnistui; paluukoodi oli %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -338,7 +336,8 @@ msgstr ""
 "\t\t\t\tvielä näytetty.\n"
 "       --default-priority\tKäytä oletusprioriteettia matalan sijaan.\n"
 "       --force\t\t\tPakota rikkinäisten pakettien\n"
-"\t\t\t\tuudelleenkonfigurointi."
+"\t\t\t\tuudelleenkonfigurointi.\n"
+"       --no-reload\t\tÄlä uudelleenlataa mallinteita. (Käytä varoen.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
