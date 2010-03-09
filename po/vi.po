@@ -1,35 +1,35 @@
 # Vietnamese Translation for debconf.
-# Copyright © 2006 Free Software Foundation, Inc.
-# Clytie Siddall <clytie@riverland.net.au>, 2005-2006.
+# Copyright © 2010 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf\n"
+"Project-Id-Version: debconf 1.5.29\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-12 21:20+0930\n"
+"POT-Creation-Date: 2010-03-08 19:52+0100\n"
+"PO-Revision-Date: 2010-03-09 17:53+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: LocFactoryEditor 1.6fc1\n"
+"X-Generator: LocFactoryEditor 1.8\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "nên trở về lối vào : %s"
+msgstr "đang phục hồi giao diện: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "không thể khởi tạo lối vào : %s"
+msgstr "không thể sơ khởi giao diện: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Không thể khởi chạy lối vào : %s"
+msgstr "Không thể khởi chạy một giao diện: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
@@ -43,7 +43,7 @@ msgstr "Cơ sở dữ liệu mẫu không được ghi rõ trong tập tin cấu
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
-msgstr "Không còn dùng lại những tùy chọn Sigils và Smileys. Hãy gỡ bỏ chúng."
+msgstr "Không còn dùng lại hai tùy chọn Sigils và Smileys. Hãy gỡ bỏ cả hai."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -57,9 +57,9 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tGhi rõ _lối vào_ debconf cần dùng.\n"
-"  -p,  --priority\t\tSGhi rõ câu hỏi _ưu tiên_ tối thiểu cân hiển thị.\n"
-"       --terse\t\t\tBật chế độ _ngắn gọn_.\n"
+"  -f,  --frontend\t\tGhi rõ giao diện debconf cần dùng.\n"
+"  -p,  --priority\t\tSGhi rõ câu hỏi ưu tiên tối thiểu cần hiển thị.\n"
+"       --terse\t\t\tBật chế độ ngắn gọn.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -95,8 +95,8 @@ msgstr "không"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Hãy nhập mục [số không hay nhiều] định, giới, bằng, dấu, phẩy, và, dấu, "
-"cách.)"
+"(Hãy nhập số không hay nhiều mục định giới bằng một dấu phẩy và một dấu cách "
+"(v.d. « cái1, cái2, cái3 »).)"
 
 #: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
@@ -112,7 +112,7 @@ msgid ""
 "you."
 msgstr ""
 "Trình Debconf không được cấu hình để hiển thị thông điệp lỗi này, vì vậy nó "
-"đã gởi thư cho bạn."
+"đã gửi cho bạn trong một thư."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -129,8 +129,8 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Không tìm thấy giá trị nhập « %s » trong các sự chọn C. Trường hợp này không "
-"bao giờ nên xảy ra. Có thể những mẫu đã được dịch sai."
+"Không tìm thấy giá trị đầu vào « %s » trong các sự chọn C. Trường hợp này "
+"không bao giờ nên xảy ra. Có thể là những mẫu bị sai địa phương hoá."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -143,7 +143,7 @@ msgstr "Hãy nhận những mục bạn muốn chọn, định giới bằng d�
 #: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Không thể tải « Debconf::Element::%s ». Thất bại vì: %s."
+msgstr "Không thể nạp « Debconf::Element::%s ». Thất bại vì: %s."
 
 #: ../Debconf/FrontEnd.pm:333
 #, perl-format
@@ -152,47 +152,49 @@ msgstr "Đang cấu hình %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "Chưa đặt TERM nên không thể sử dụng lối vào hội thoại."
+msgstr "Chưa đặt TERM nên không thể sử dụng giao diện cung cấp hộp thoại."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Lối vào hội thoại không tương thích với bộ đệm trình bao của emacs."
+msgstr ""
+"Giao diện cung cấp hộp thoại thì không tương thích với bộ đệm trình bao của "
+"emacs."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Lối vào hội thoại sẽ không hoạt động được trên thiết bị cuối câm, trong bộ "
-"đệm trình bao của emacs, hoặc khi không có thiết bị cuối điều khiển."
+"Giao diện cung cấp hộp thoại thì không hoạt động được trên thiết bị cuối "
+"câm, trong bộ đệm trình bao của emacs, hoặc khi không có thiết bị cuối điều "
+"khiển."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Chưa cài đặt chương trình kiểu hội thoại có thể sử dụng được nên không thể "
-"sử dụng lối vào dựa vào hội thoại."
+"Chưa cài đặt chương trình kiểu hộp thoại có thể sử dụng được nên không thể "
+"sử dụng giao diện cung cấp hộp thoại."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Lối vào hội thoại cần thiết màn hình có ít nhất độ cao 13 dòng và độ rộng 31 "
-"cột."
+"Giao diện cung cấp hộp thoại thì yêu cầu một màn hình có ít nhất chiều cao "
+"13 dòng và chiều rộng 31 cột."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
-msgstr "Cấu hình gói phần mềm"
+msgstr "Cấu hình gói"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Bạn đang sử dụng lối vào debconf dựa vào trình chỉnh sửa để cấu hình hệ "
-"thống của mình. Hãy xem kết thúc của tài liệu này để tìm những hướng dẫn chi "
-"tiết."
+"Bạn đang sử dụng giao diện debconf dựa vào trình chỉnh sửa để cấu hình hệ "
+"thống của mình. Xem kết thúc của tài liệu này để tìm các hướng dẫn chi tiết."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -203,22 +205,22 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Lối vào debconf dựa vào trình chỉnh sửa sẽ cho bạn chỉnh sửa một hay nhiều "
-"tập tin văn bản. Đây là một tập tin văn bản như thế. Nếu bạn quen với các "
-"tập tin cấu hình Unix chuẩn, tập tin này hình thông thường — nó chứa cả chú "
-"thích lẫn mục cấu hình đều xen nhau. Hãy chỉnh sửa tập tin này, thay đổi bất "
-"cứ mục nào như cần thiết, rồi lưu nó và thoát. Sau đó, debconf sẽ đọc tập "
-"tin mới chỉnh sửa, và dùng nhưng giá trị mới nhập để cấu hình hệ thống."
+"Giao diện debconf dựa vào trình chỉnh sửa sẽ cho bạn chỉnh sửa một hay nhiều "
+"tập tin nhập thô. Đây là một tập tin văn bản như vậy. Nếu bạn quen với các "
+"tập tin cấu hình Unix tiêu chuẩn, tập tin này hình như thông thường — nó "
+"chứa một tổ hợp các ghi chú và mục cấu hình. Hãy chỉnh sửa tập tin đó, cũng "
+"thay đổi mục nào như thích hợp, sau đó lưu lại và thoát. Vào điểm thời đó, "
+"debconf sẽ đọc tập tin đã chỉnh sửa, và sử dụng những giá trị được bạn chỉnh "
+"sửa để cấu hình hệ thống."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf trên %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Lối vào này cần thiết một tty điều khiển."
+msgstr "Giao diện này yêu cầu một tty điều khiển."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
@@ -227,13 +229,13 @@ msgstr ""
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
-msgstr "Thêm nữa"
+msgstr "Xem thêm"
 
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
 msgstr ""
-"Ghi chú : Debconf đang chạy trong chế độ Mạng. Hãy đi tới « http://localhost:%"
+"Ghi chú : Debconf đang chạy trong chế độ Web. Hãy đi tới « http://localhost:%"
 "i/ »."
 
 #: ../Debconf/FrontEnd/Web.pm:166
@@ -242,7 +244,7 @@ msgstr "Lùi"
 
 #: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "Kế"
+msgstr "Tiếp"
 
 #: ../Debconf/Template.pm:91
 #, perl-format
@@ -259,18 +261,19 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Mẫu #%s trong %s có trường trùng « %s » có giá trị mới « %s ». Rất có thể là "
-"hai mẫu chưa định giới được bằng một dòng mới riêng lẻ.\n"
+"Mẫu #%s trong %s có một trường trùng « %s » có giá trị mới « %s ». Rất có thể "
+"là hai mẫu chưa định giới được bằng một dòng mới riêng lẻ.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Không biết trường mẫu « %s », trong đoạn dong #%s của %s\n"
+msgstr "Không rõ trường mẫu « %s », trong đoạn dong #%s của %s\n"
 
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Gặp lỗi phân tách mẫu gần « %s », trong đoạn dòng #%s của %s\n"
+msgstr ""
+"Gặp lỗi phân tích cú pháp mẫu ở gần « %s », trong đoạn dòng #%s của %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
@@ -291,7 +294,7 @@ msgstr ""
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "không thể mở lại thiết bị nhập chuẩn: %s"
+msgstr "không thể mở lại đầu vào tiêu chuẩn: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
@@ -310,7 +313,7 @@ msgstr "Đang cấu hình sẵn các gói ...\n"
 #: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
-msgstr "lỗi phân tách mẫu : %s"
+msgstr "lỗi phân tích cú pháp của mẫu : %s"
 
 #: ../dpkg-preconfigure:216
 #, perl-format
@@ -323,7 +326,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s lỗi cấu hình sẵn, có trang thái thoát %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -332,7 +334,7 @@ msgid ""
 "       --force\t\t\tForce reconfiguration of broken packages.\n"
 "       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
-"Cách sử dụng: dpkg-reconfigure [tùy_chọn ...] những_gói\n"
+"Sử dụng: dpkg-reconfigure [tùy_chọn ...] những_gói\n"
 "\n"
 "[reconfigure: cấu hình lại]\n"
 "\n"
@@ -340,12 +342,13 @@ msgstr ""
 "  -u,  --unseen-only\t\tHiện _chỉ_ những câu hỏi _chưa xem_.\n"
 "       --default-priority\tDùng _ưu tiên mặc định_ thay cho\n"
 "\t\tưu tiên thấp.\n"
-"       --force\t\t\t_Buộc_ cấu hình lại các gói bị ngắt."
+"       --force\t\t\t_Buộc_ cấu hình lại các gói bị ngắt.\n"
+"       --no-reload\t\tĐừng nạp lại mẫu. (Hãy sử dụng cẩn thận.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s phải được chạy như là người chủ (root)"
+msgstr "%s phải được chạy dưới người chủ (root)"
 
 #: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
@@ -354,12 +357,12 @@ msgstr "hãy ghi rõ một gói cần cấu hình lại"
 #: ../dpkg-reconfigure:171
 #, perl-format
 msgid "%s is not installed"
-msgstr "chưa cài đặt %s"
+msgstr "%s chưa được cài đặt"
 
 #: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s bị ngắt hay chưa được cài đặt hoàn thành"
+msgstr "%s bị hỏng hoặc chưa được cài đặt hoàn thành"
 
 #: ../dpkg-reconfigure:254
 #, perl-format
@@ -369,7 +372,7 @@ msgstr "Không thể đọc tập tin trạng thái: %s"
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
 msgstr ""
-"Cách sử dụng: debconf-communicate [tùy_chọn ...] [gói]\n"
+"Sử dụng: debconf-communicate [tùy_chọn ...] [gói]\n"
 "\n"
 "[communicate: liên lạc]"
 
@@ -379,12 +382,12 @@ msgid ""
 "using po-debconf's po2debconf program."
 msgstr ""
 "debconf-mergetemplate: tiện ích này bị phản đối. Như thế thì bạn nên chuyển "
-"đổi sang sử dụng chương trình « po2debconf » của po-debconf."
+"đổi sang sử dụng chương trình « po2debconf » của gói po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
 msgstr ""
-"Cách sử dụng: debconf-mergetemplate [tùy_chọn ...] [mẫu.ll ...] mẫu\n"
+"Sử dụng: debconf-mergetemplate [tùy_chọn ...] [mẫu.ll ...] mẫu\n"
 "\n"
 "[mergetemplate: trộn các mẫu với nhau]"
 
@@ -395,8 +398,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tTrộn ngay cả bản dịch _cũ_.\n"
-"\t--drop-old-templates\t_Thả_ toàn bộ _mẫu cũ_."
+"        --outdated\t\tTrộn ngay cả bản dịch cũ.\n"
+"\t--drop-old-templates\tBỏ toàn bộ mẫu cũ."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -406,17 +409,17 @@ msgstr "%s còn thiếu"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "%s còn thiếu nên thả %s"
+msgstr "%s còn thiếu nên bỏ %s"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s mờ tại byte %s: %s"
+msgstr "%s vẫn được dịch mờ tại byte %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s mờ tại byte %s: %s nên thả nó"
+msgstr "%s vẫn được dịch mờ tại byte %s: %s nên bỏ nó"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
@@ -426,11 +429,11 @@ msgstr "%s cũ"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s cũ nên thả toàn mẫu."
+msgstr "%s cũ nên bỏ toàn bộ mẫu."
 
 #: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
-msgstr "Cách sử dụng: debconf [tùy_chọn ...] lệnh [đối_số ...]"
+msgstr "Sử dụng: debconf [tùy_chọn ...] lệnh [đối_số ...]"
 
 #: ../debconf:97
 msgid ""
@@ -438,4 +441,4 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=gói\t\tLập gói _sở hữu_ lệnh đó."
+"  -o,  --owner=gói\t\tLập gói sở hữu lệnh đó."

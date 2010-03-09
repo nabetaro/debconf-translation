@@ -6,28 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-06 18:28+0100\n"
+"POT-Creation-Date: 2010-03-08 19:52+0100\n"
+"PO-Revision-Date: 2010-03-09 09:03+0100\n"
 "Last-Translator: Marcin Owsiany <porridge@debian.org>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "powrÛt do nak≥adki: %s"
+msgstr "powr√≥t do nak≈Çadki: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "nie uda≥o siÍ zainicjalizowaÊ nak≥adki: %s"
+msgstr "nie uda≈Ço siƒô zainicjalizowaƒá nak≈Çadki: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Nie uda≥o siÍ uruchomiÊ nak≥adki: %s"
+msgstr "Nie uda≈Ço siƒô uruchomiƒá nak≈Çadki: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
@@ -35,15 +35,15 @@ msgstr "Brak bazy danych konfiguracji w pliku konfiguracyjnym."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Brak bazy danych szablonÛw w pliku konfiguracyjnym."
+msgstr "Brak bazy danych szablon√≥w w pliku konfiguracyjnym."
 
 #: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Opcje Sigils i Smileys w pliku konfiguracyjnym nie s± juø wykorzystywane - "
-"zaleca siÍ ich usuniÍcie."
+"Opcje Sigils i Smileys w pliku konfiguracyjnym nie sƒÖ ju≈º wykorzystywane - "
+"zaleca siƒô ich usuniƒôcie."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -57,20 +57,20 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tUstawia okre∂lon± nak≥adkÍ.\n"
-"  -p,  --priority\t\tOkre∂la minimalny priorytet pytaÒ jakie bÍd± "
+"  -f,  --frontend\t\tUstawia okre≈õlonƒÖ nak≈Çadkƒô.\n"
+"  -p,  --priority\t\tOkre≈õla minimalny priorytet pyta≈Ñ jakie bƒôdƒÖ "
 "pokazywane.\n"
-"       --terse\t\t\tW≥±cza tryb zwiÍz≥y.\n"
+"       --terse\t\t\tW≈ÇƒÖcza tryb zwiƒôz≈Çy.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignorowanie niew≥a∂ciwego priorytetu \"%s\""
+msgstr "Ignorowanie niew≈Ça≈õciwego priorytetu \"%s\""
 
 #: ../Debconf/Config.pm:309
 #, perl-format
 msgid "Valid priorities are: %s"
-msgstr "W≥a∂ciwe priorytety to: %s"
+msgstr "W≈Ça≈õciwe priorytety to: %s"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Multiselect.pm:31
@@ -96,7 +96,7 @@ msgstr "nie"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Wpisz zero lub wiÍcej pozycji oddzielonych przecinkiem i spacj± (', ').)"
+"(Wpisz zero lub wiƒôcej pozycji oddzielonych przecinkiem i spacjƒÖ (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
@@ -111,8 +111,8 @@ msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf zosta≥ skonfigurowany tak, aby nie wy∂wietlaÊ tej uwagi, wiÍc "
-"zosta≥a przes≥ana do Ciebie."
+"Debconf zosta≈Ç skonfigurowany tak, aby nie wy≈õwietlaƒá tej uwagi, wiƒôc "
+"zosta≈Ça przes≈Çana do Ciebie."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -121,7 +121,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, dzia≥aj±cy na %s"
+msgstr "Debconf, dzia≈ÇajƒÖcy na %s"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
@@ -129,21 +129,21 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Warto∂Ê wej∂ciowa \"%s\" nie zosta≥a znaleziona w ºrÛd≥ach C! To niepowinno. "
-"siÍ nigdy zdarzyÊ. ByÊ moøe szablony nie zosta≥y poprawnie przet≥umaczone."
+"Warto≈õƒá wej≈õciowa \"%s\" nie zosta≈Ça znaleziona w ≈∫r√≥d≈Çach C! To niepowinno. "
+"siƒô nigdy zdarzyƒá. Byƒá mo≈ºe szablony nie zosta≈Çy poprawnie przet≈Çumaczone."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "øadna z powyøych"
+msgstr "≈ºadna z powy≈ºych"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Wpisz, oddzielone spacjami, pozycje, ktÛre chcesz zaznaczyÊ."
+msgstr "Wpisz, oddzielone spacjami, pozycje, kt√≥re chcesz zaznaczyƒá."
 
 #: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Nie uda≥o siÍ za≥adowaÊ Debconf::Element:: %s. Powodem by≥o: %s"
+msgstr "Nie uda≈Ço siƒô za≈Çadowaƒá Debconf::Element:: %s. Powodem by≈Ço: %s"
 
 #: ../Debconf/FrontEnd.pm:333
 #, perl-format
@@ -153,36 +153,36 @@ msgstr "Konfiguracja pakietu %s"
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
 msgstr ""
-"Zmienna TERM nie jest ustawiona, wiÍc nak≥adka \"dialog\" nie moøe dzia≥aÊ."
+"Zmienna TERM nie jest ustawiona, wiƒôc nak≈Çadka \"dialog\" nie mo≈ºe dzia≈Çaƒá."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Nak≥adka \"dialog\" nie jest zgodna z buforami pow≥oki emacsa"
+msgstr "Nak≈Çadka \"dialog\" nie jest zgodna z buforami pow≈Çoki emacsa"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Nak≥adka \"dialog\" nie moøe dzia≥aÊ na terminalu \"dumb\", buforze pow≥oki "
-"emacsa ani bez terminala steruj±cego."
+"Nak≈Çadka \"dialog\" nie mo≈ºe dzia≈Çaƒá na terminalu \"dumb\", buforze pow≈Çoki "
+"emacsa ani bez terminala sterujƒÖcego."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Øaden program typu dialog nie jest zainstalowany, wiÍc nie moøna uøyÊ "
-"nak≥adki \"dialog\"."
+"≈ªaden program typu dialog nie jest zainstalowany, wiƒôc nie mo≈ºna u≈ºyƒá "
+"nak≈Çadki \"dialog\"."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Nak≥adka \"dialog\" wymaga ekranu o wymiarach conajmniej 13 linii na 31 "
+"Nak≈Çadka \"dialog\" wymaga ekranu o wymiarach conajmniej 13 linii na 31 "
 "kolumn."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Konfiguracja pakietu"
 
@@ -191,8 +191,8 @@ msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Uøywasz nak≥adki debconf opartej na edytorze. Dok≥adne instrukcje znajduj± "
-"siÍ na koÒcu dokumentu."
+"U≈ºywasz nak≈Çadki debconf opartej na edytorze. Dok≈Çadne instrukcje znajdujƒÖ "
+"siƒô na ko≈Ñcu dokumentu."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -203,27 +203,26 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Nak≥adka oparta na edytorze pokazuje jeden lub wiÍcej plikÛw tekstowych, "
-"ktÛre moøna modyfikowaÊ. To jest jeden z takich plikÛw. Je∂li znasz "
-"standardowe pliki konfiguracyjne UNIXa, ten plik bÍdzie wygl±da≥ znajomo -- "
-"zawiera komentarze oraz linie konfiguracji. Zmodyfikuj plik, zmieniaj±c "
-"potrzebne pozycje, zapisz go i zakoÒcz edytor. W tym momencie debconf "
-"przeczyta zapisany plik i uøyje wprowadzonych przez Ciebie warto∂ci do "
+"Nak≈Çadka oparta na edytorze pokazuje jeden lub wiƒôcej plik√≥w tekstowych, "
+"kt√≥re mo≈ºna modyfikowaƒá. To jest jeden z takich plik√≥w. Je≈õli znasz "
+"standardowe pliki konfiguracyjne UNIXa, ten plik bƒôdzie wyglƒÖda≈Ç znajomo -- "
+"zawiera komentarze oraz linie konfiguracji. Zmodyfikuj plik, zmieniajƒÖc "
+"potrzebne pozycje, zapisz go i zako≈Ñcz edytor. W tym momencie debconf "
+"przeczyta zapisany plik i u≈ºyje wprowadzonych przez Ciebie warto≈õci do "
 "konfiguracji systemu."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf na %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Ta nak≥adka wymaga terminala steruj±cego."
+msgstr "Ta nak≈Çadka wymaga terminala sterujƒÖcego."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr "Term::ReadLine::GNU nie jest zgodny z buforami pow≥oki emacsa."
+msgstr "Term::ReadLine::GNU nie jest zgodny z buforami pow≈Çoki emacsa."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -232,11 +231,11 @@ msgstr "Dalej"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Uwaga: Debconf dzia≥a w trybie www. Patrz http://localhost:%i/"
+msgstr "Uwaga: Debconf dzia≈Ça w trybie www. Patrz http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
-msgstr "PowrÛt"
+msgstr "Powr√≥t"
 
 #: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
@@ -248,8 +247,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"uwaga: mog≥o nast±piÊ uszkodzenie bazy danych. Zostanie wykonana prÛba "
-"naprawy przez dodanie brakuj±cego pytania %s."
+"uwaga: mog≈Ço nastƒÖpiƒá uszkodzenie bazy danych. Zostanie wykonana pr√≥ba "
+"naprawy przez dodanie brakujƒÖcego pytania %s."
 
 #: ../Debconf/Template.pm:206
 #, perl-format
@@ -257,19 +256,19 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Szablon nr %s w %s ma drugie pole \"%s\" z inn± warto∂ci± \"%s\". "
-"Prawdopodobnie dwa szablony nie zosta≥y poprawnie rozdzielone przy pomocy "
+"Szablon nr %s w %s ma drugie pole \"%s\" z innƒÖ warto≈õciƒÖ \"%s\". "
+"Prawdopodobnie dwa szablony nie zosta≈Çy poprawnie rozdzielone przy pomocy "
 "pustej linii.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Nieznane pole szablonu '%s', w czÍ∂ci nr %s pliku %s\n"
+msgstr "Nieznane pole szablonu '%s', w czƒô≈õci nr %s pliku %s\n"
 
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "B≥±d w szablonie w pobliøu `%s', w czÍ∂ci nr %s pliku %s\n"
+msgstr "B≈ÇƒÖd w szablonie w pobli≈ºu `%s', w czƒô≈õci nr %s pliku %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
@@ -279,50 +278,49 @@ msgstr "Szablon nr %s w pliku %s nie zawiera linii `Template:'\n"
 #: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "naleøy podaÊ pakiety do skonfigurowania"
+msgstr "nale≈ºy podaƒá pakiety do skonfigurowania"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
 msgstr ""
-"opÛºnienie konfiguracji pakietÛw, poniewaø pakiet apt-utils nie jest "
+"op√≥≈∫nienie konfiguracji pakiet√≥w, poniewa≈º pakiet apt-utils nie jest "
 "zainstalowany"
 
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "nie uda≥o siÍ ponownie otworzyÊ stdin: %s"
+msgstr "nie uda≈Ço siƒô ponownie otworzyƒá stdin: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr "Dzia≥anie apt-extracttemplates zakoÒczy≥o siÍ b≥Ídem: %s"
+msgstr "Dzia≈Çanie apt-extracttemplates zako≈Ñczy≈Ço siƒô b≈Çƒôdem: %s"
 
 #: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Rozpakowywanie szablonÛw dla pakietÛw: %d%%"
+msgstr "Rozpakowywanie szablon√≥w dla pakiet√≥w: %d%%"
 
 #: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
-msgstr "Prekonfiguracja pakietÛw ...\n"
+msgstr "Prekonfiguracja pakiet√≥w ...\n"
 
 #: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
-msgstr "b≥±d w szablonie: %s"
+msgstr "b≈ÇƒÖd w szablonie: %s"
 
 #: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: nie uda≥o siÍ zmieniÊ uprawnieÒ: %s"
+msgstr "debconf: nie uda≈Ço siƒô zmieniƒá uprawnie≈Ñ: %s"
 
 #: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "nie uda≥o siÍ skonfigurowaÊ %s, kod wyj∂cia: %s"
+msgstr "nie uda≈Ço siƒô skonfigurowaƒá %s, kod wyj≈õcia: %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -331,22 +329,23 @@ msgid ""
 "       --force\t\t\tForce reconfiguration of broken packages.\n"
 "       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
-"Uøycie: dpkg-reconfigure [opcje] nazwa_pakietu\n"
+"U≈ºycie: dpkg-reconfigure [opcje] pakiety\n"
 "  -a,  --all\t\t\tPrzekonfiguruje wszystkie pakiety.\n"
-"  -u,  --unseen-only\t\tWy∂wietla tylko te pytania, ktÛre nie by≥y wcze∂niej "
+"  -u,  --unseen-only\t\tWy≈õwietla tylko te pytania, kt√≥re nie by≈Çy wcze≈õniej "
 "pokazane.\n"
-"       --default-priority\tUøywa domy∂lnego priorytetu zamiast niskiego.\n"
-"       --force\t\t\tWymusza konfigurowanie pakietÛw z uszkodzonymi "
-"zaleøno∂ciami."
+"       --default-priority\tU≈ºywa domy≈õlnego priorytetu zamiast niskiego.\n"
+"       --force\t\t\tWymusza konfigurowanie pakiet√≥w z uszkodzonymi "
+"zale≈ºno≈õciami.\n"
+"       --no-reload\t\tNie prze≈Çadowuje szablon√≥w. (U≈ºywaƒá ostro≈ºnie.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s musi byÊ uruchamiany jako root"
+msgstr "%s musi byƒá uruchamiany jako root"
 
 #: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
-msgstr "proszÍ podaÊ pakiet do skonfigurowania"
+msgstr "proszƒô podaƒá pakiet do skonfigurowania"
 
 #: ../dpkg-reconfigure:171
 #, perl-format
@@ -356,28 +355,28 @@ msgstr "%s nie jest zainstalowany"
 #: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s jest uszkodzony, lub nie jest w pe≥ni zainstalowany"
+msgstr "%s jest uszkodzony, lub nie jest w pe≈Çni zainstalowany"
 
 #: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Nie moøna czytaÊ pliku stanu: %s"
+msgstr "Nie mo≈ºna czytaƒá pliku stanu: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr "Uøycie: debconf-communicate [opcje] [pakiet]"
+msgstr "U≈ºycie: debconf-communicate [opcje] [pakiet]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Uøywanie tego narzÍdzia jest odradzane. Naleøy uøywaÊ "
+"debconf-mergetemplate: U≈ºywanie tego narzƒôdzia jest odradzane. Nale≈ºy u≈ºywaƒá "
 "programu po2debconf z pakietu po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Uøycie: debconf-mergetemplate [opcje] [szablony.ll ...] szablony"
+msgstr "U≈ºycie: debconf-mergetemplate [opcje] [szablony.ll ...] szablony"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -386,8 +385,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\t£±czy nawet przestarza≥e t≥umaczenia.\n"
-"\t--drop-old-templates\tPomija wszystkie przestarza≥e szablony."
+"        --outdated\t\t≈ÅƒÖczy nawet przestarza≈Çe t≈Çumaczenia.\n"
+"\t--drop-old-templates\tPomija wszystkie przestarza≈Çe szablony."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -397,17 +396,17 @@ msgstr "brakuje %s"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "brakuje %s; %s zostaje pominiÍte"
+msgstr "brakuje %s; %s zostaje pominiƒôte"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "t≥umaczenie %s budzi w±tpliwo∂ci. Bajt %s: %s"
+msgstr "t≈Çumaczenie %s budzi wƒÖtpliwo≈õci. Bajt %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "t≥umaczenie %s (bajt %s) budzi w±tpliwo∂ci: %s; zostaje pominiÍte"
+msgstr "t≈Çumaczenie %s (bajt %s) budzi wƒÖtpliwo≈õci: %s; zostaje pominiƒôte"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
@@ -417,11 +416,11 @@ msgstr "%s jest nieaktualny"
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s jest nieaktualne; zostaje pominiÍty ca≥y szablon!"
+msgstr "%s jest nieaktualne; zostaje pominiƒôty ca≈Çy szablon!"
 
 #: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
-msgstr "Uøycie: debconf [opcje] polecenie [argumenty]"
+msgstr "U≈ºycie: debconf [opcje] polecenie [argumenty]"
 
 #: ../debconf:97
 msgid ""
@@ -429,5 +428,5 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=pakiet\t\tOkre∂la z jakiego pakietu pochodzi uruchomione "
+"  -o,  --owner=pakiet\t\tOkre≈õla z jakiego pakietu pochodzi uruchomione "
 "przez debconf polecenie."
