@@ -1,14 +1,14 @@
-# translation of debconf_1.5.28_ru.po to Russian
+# translation of ru.po to Russian
 # SOME DESCRIPTIVE TITLE
-# Copyright (C) 2006, 2008, 2009 Free Software Foundation, Inc.
+# Copyright (C) 2006, 2008, 2009, 2010 Free Software Foundation, Inc.
 #
 # Yuri Kozlov <kozlov.y@gmail.com>, 2006, 2008.
-# Yuri Kozlov <yuray@komyakino.ru>, 2009.
+# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.5.28\n"
+"Project-Id-Version: debconf 1.5.29\n"
 "POT-Creation-Date: 2010-01-04 14:32-0500\n"
-"PO-Revision-Date: 2009-11-15 10:30+0300\n"
+"PO-Revision-Date: 2010-03-09 21:15+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -5730,29 +5730,26 @@ msgstr "B<SETTITLE вопрос>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:275
-#, fuzzy
 msgid ""
 "This sets the title debconf displays to the user, using the short "
 "description of the template for the specified question. The template should "
 "be of type title. You rarely need to use this command since debconf can "
 "automatically generate a title based on your package's name."
 msgstr ""
-"Устанавливает заголовок, который debconf показывает пользователю. Обычно "
-"редко используется, так как debconf может автоматически генерировать "
-"заголовок из имени вашего пакета."
+"Устанавливает заголовок, который debconf показывает пользователю, используя "
+"короткое описание шаблона указанного вопроса. Шаблон должен быть типа title. "
+"Обычно редко используется, так как debconf может автоматически генерировать "
+"заголовок на основе имени пакета."
 
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:278
-#, fuzzy
 msgid ""
 "Setting the title from a template means they are stored in the same place as "
 "the rest of the debconf questions, and allows them to be translated."
 msgstr ""
-"Устанавливает заголовок к краткому описанию шаблона для определённого "
-"вопроса. Шаблон должен быть типа title. Преимущество над командой TITLE в "
-"том, что это позволяет заголовкам храниться в одном месте вместе с вопросами "
-"debconf, что даёт возможность переводить их на другой язык."
+"Установка заголовка из шаблона означает, что они хранятся в том же месте что "
+"и все вопросы debconf, и их можно переводить на другие языки."
 
 # type: TP
 #. type: TP
@@ -5764,15 +5761,14 @@ msgstr "B<TITLE строка>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:284
-#, fuzzy
 msgid ""
 "This sets the title debconf displays to the user to the specified string.  "
 "Use of the SETTITLE command is normally to be preferred as it allows for "
 "translation of the title."
 msgstr ""
-"Устанавливает заголовок, который debconf показывает пользователю. Обычно "
-"редко используется, так как debconf может автоматически генерировать "
-"заголовок из имени вашего пакета."
+"Устанавливает заголовок, который debconf показывает пользователю, используя "
+"заданную строку. Использование команды SETTITLE предпочтительно, так как "
+"позволяет переводить заголовок на другие языки."
 
 # type: TP
 #. type: TP
