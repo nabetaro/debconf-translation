@@ -2,13 +2,12 @@
 # Copyright (C) 2006-2009 Debian French l10n team <debian-l10n-french@lists.debian.org>
 # This file is distributed under the same license as the debconf package
 # Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>, 2006.
-# Florentin Duneau <f.baced@wanadoo.fr>, 2006.
-# Florentin Duneau <fduneau@gmail.com>, 2009. 2010
+# Florentin Duneau <fduneau@gmail.com>, 2006, 2009. 2010, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "POT-Creation-Date: 2010-03-08 13:08+0000\n"
-"PO-Revision-Date: 2010-02-16 19:28+0100\n"
+"PO-Revision-Date: 2010-03-10 19:41+0100\n"
 "Last-Translator: Florentin Duneau <fduneau@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -5833,7 +5832,6 @@ msgstr "B<SETTITLE question>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:275
-#, fuzzy
 #| msgid ""
 #| "This sets the title debconf displays to the user. You rarely need to use "
 #| "this command since debconf can automatically generate a title based on "
@@ -5844,14 +5842,14 @@ msgid ""
 "be of type title. You rarely need to use this command since debconf can "
 "automatically generate a title based on your package's name."
 msgstr ""
-"Cela positionne le titre de l'écran debconf affiché à l'utilisateur. Vous "
+"Utilisez la description courte du message comme titre de l'écran debconf "
+"pour la question indiquée. Le message devrait être de type titre. Vous "
 "n'aurez que rarement besoin de cette commande puisque debconf peut "
 "automatiquement générer un titre basé sur le nom de votre paquet."
 
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:278
-#, fuzzy
 #| msgid ""
 #| "This sets the title to the short description of the template for the "
 #| "specified question. The template should be of type title. The advantage "
@@ -5862,11 +5860,9 @@ msgid ""
 "Setting the title from a template means they are stored in the same place as "
 "the rest of the debconf questions, and allows them to be translated."
 msgstr ""
-"Positionne le titre de la description courte du questionnaire pour la "
-"question spécifiée. Le questionnaire devrait être du type titre (« title »). "
-"Cela a pour avantage, par rapport à la commande TITLE, de stocker les titres "
-"à la même place que le reste des questions posées par debconf. Elle permet "
-"aussi de traduire ces titres."
+"Définir le titre depuis un message signifie que les titres seront stockés à "
+"la même place que les autres questions posées par debconf. Elle permet aussi "
+"de traduire ces titres."
 
 # type: TP
 #. type: TP
@@ -5878,7 +5874,6 @@ msgstr "B<TITLE chaîne de caractères>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:284
-#, fuzzy
 #| msgid ""
 #| "This sets the title debconf displays to the user. You rarely need to use "
 #| "this command since debconf can automatically generate a title based on "
@@ -5888,9 +5883,9 @@ msgid ""
 "Use of the SETTITLE command is normally to be preferred as it allows for "
 "translation of the title."
 msgstr ""
-"Cela positionne le titre de l'écran debconf affiché à l'utilisateur. Vous "
-"n'aurez que rarement besoin de cette commande puisque debconf peut "
-"automatiquement générer un titre basé sur le nom de votre paquet."
+"Utiliser la chaîne de caractères comme titre de l'écran debconf. "
+"L'utilisation de la commande SETTITLE est préférable car elle permet de "
+"traduire les titres affichés par debconf."
 
 # type: TP
 #. type: TP
