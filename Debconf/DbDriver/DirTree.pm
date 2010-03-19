@@ -11,10 +11,6 @@ use strict;
 use Debconf::Log qw(:all);
 use base 'Debconf::DbDriver::Directory';
 
-# Works around a bug in perl. This was fixed as of perl 5.8.3-2, but I am
-# leaving this for upgrades for a while.
-use fields "perl_hates_dirtree";
-
 =head1 DESCRIPTION
 
 This is an extension to the Directory driver that uses a deeper directory
