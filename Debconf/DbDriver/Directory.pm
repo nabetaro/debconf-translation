@@ -10,7 +10,7 @@ package Debconf::DbDriver::Directory;
 use strict;
 use Debconf::Log qw(:all);
 use IO::File;
-use POSIX;
+use POSIX ();
 use Fcntl qw(:DEFAULT :flock);
 use Debconf::Iterator;
 use base 'Debconf::DbDriver::Cache';

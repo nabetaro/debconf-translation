@@ -9,7 +9,7 @@ Debconf::DbDriver::File - store database in flat file
 package Debconf::DbDriver::File;
 use strict;
 use Debconf::Log qw(:all);
-use POSIX;
+use POSIX ();
 use Fcntl qw(:DEFAULT :flock);
 use IO::Handle;
 use base 'Debconf::DbDriver::Cache';

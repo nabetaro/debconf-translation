@@ -8,7 +8,6 @@ Debconf::Template::Transient - Transient template object
 
 package Debconf::Template::Transient;
 use strict;
-use POSIX;
 use base 'Debconf::Template';
 use fields qw(_fields);
 

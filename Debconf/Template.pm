@@ -404,13 +404,7 @@ sub _getlocalelist {
 # Helper for AUTOLOAD; calculate the current locale, with aliases expanded,
 # and normalized. May also generate a fallback. Returns both.
 sub _getlangs {
-	# I really dislike hard-coding 5 here, but the POSIX module sadly
-	# does not let us get at the value of LC_MESSAGES in locale.h in a
-	# more portable way.
-	# FIXME: perl does now allow it; use POSIX qw{LC_MESSAGES}.
-	# I am waiting on changing that until the perl that supports it
-	# hits testing, and I will need to (pre?)depend on it then.
-	my $language=setlocale(5); # LC_MESSAGES
+	my $language=setlocale(LC_MESSAGES);
 	my @langs = ();
 	# LANGUAGE has a higher precedence than LC_MESSAGES
 	if (exists $ENV{LANGUAGE} && $ENV{LANGUAGE} ne '') {

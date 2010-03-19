@@ -41,6 +41,10 @@ debconf (1.5.29) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Build for Python 2.6.
 
+  [ Joey Hess ]
+  * Clean up use of POSIX perl module, which exports a large amount
+    of stuff by default. Closes: #574573
+
  -- Helge Kreutzmann <debian@helgefjell.de>  Wed, 21 Oct 2009 17:33:43 +0200
 
 debconf (1.5.28) unstable; urgency=low
