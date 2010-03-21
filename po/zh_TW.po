@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: debconf 1.2.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-07 17:53+0800\n"
+"PO-Revision-Date: 2010-03-15 08:41+0800\n"
 "Last-Translator: Kanru Chen <koster@debian.org.tw>\n"
 "Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -302,7 +302,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "預先設定 %s 失敗，中止狀態 %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -314,8 +313,9 @@ msgstr ""
 "使用方法： dpkg-reconfigure [選項] 套件\n"
 "  -a,  --all\t\t\t重新設定所有套件。\n"
 "  -u,  --unseen-only\t\t只顯示還沒看過的問題。\n"
-"       --default-priority\t使用預設優先權，而不是 low 。\n"
-"       --force\t\t\t強制重新設定損毀套件。"
+"       --default-priority\t使用預設優先權。\n"
+"       --force\t\t\t強制重新設定損毀套件。\n"
+"       --no-reload\t\t不要重新載入樣版 (小心使用)。"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
