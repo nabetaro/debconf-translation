@@ -1,15 +1,15 @@
-# Debconf Catalan Translation 
+# Debconf Catalan Translation
 # Copyright © 2001, 2002, 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the debconf package.
 # Jordi Mallach <jordi@debian.org>, 2001, 2002, 2004, 2005.
-# Guillem Jover <guillem@debian.org>, 2005, 2006.
+# Guillem Jover <guillem@debian.org>, 2005, 2006, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.70\n"
+"Project-Id-Version: debconf 1.5.28\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-05 22:27+0300\n"
+"PO-Revision-Date: 2010-03-10 18:57+0100\n"
 "Last-Translator: Guillem Jover <guillem@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -174,7 +174,7 @@ msgid ""
 "without a controlling terminal."
 msgstr ""
 "La interfície de dialog no funcionarà en un terminal ximple, un búfer de "
-"l'intèrpret d'emacs, o sense un terminal control·lador."
+"l'intèrpret d'emacs, o sense un terminal controlador."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -293,7 +293,7 @@ msgstr "La plantilla #%s en %s no conté una línia «Template:»\n"
 #: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "heu d'especificar algún deb a preconfigurar"
+msgstr "heu d'especificar algun deb a preconfigurar"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
@@ -336,7 +336,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s ha fallat al preconfigurar, amb estat de sortida %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -350,7 +349,8 @@ msgstr ""
 "  -u,  --unseen-only\t\tMostra només preguntes encara no vistes.\n"
 "       --default-priority\tUsa la prioritat predeterminada en comptes de "
 "baixa.\n"
-"       --force\t\t\tForça la reconfiguració de paquets trencats."
+"       --force\t\t\tForça la reconfiguració de paquets trencats.\n"
+"       --no-reload\t\tNo actualitza les plantilles (empreu amb cura)."
 
 #: ../dpkg-reconfigure:117
 #, perl-format
@@ -385,7 +385,7 @@ msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Aquesta utilitat és obsoleta. Haurieu decanviar al "
+"debconf-mergetemplate: Aquesta utilitat és obsoleta. Hauríeu de canviar al "
 "programa de po-debconf, po2debconf."
 
 #: ../debconf-mergetemplate:66
@@ -443,7 +443,7 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=paquet\t\tEstableix el paquet que poseeix l'ordre."
+"  -o,  --owner=paquet\t\tEstableix el paquet que posseeix l'ordre."
 
 #~ msgid "Save (mail) Note"
 #~ msgstr "Desa (envia per correu) la nota"
