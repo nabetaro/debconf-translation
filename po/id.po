@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debconf.po\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-04-11 13:04+0700\n"
+"PO-Revision-Date: 2009-03-09 13:04+0700\n"
 "Last-Translator: Parlin Imanuel <parlin_i@yahoo.com>\n"
 "Language-Team: Debian Indonesia L10N Team <debid@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +24,12 @@ msgstr "kembali ke antarmuka: %s"
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "Tidak dapat menyiapkan antarmuka: %s"
+msgstr "Tak dapat menyiapkan antarmuka: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Tidak dapat memulai sebuah antarmuka: %s"
+msgstr "Tak dapat memulai sebuah antarmuka: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
@@ -37,7 +37,7 @@ msgstr "Basis data konfigurasi tidak ditentukan dalam berkas konfigurasi."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Basis data template tidak ditentukan dalam berkas konfigurasi."
+msgstr "Basis data template belum ditentukan dalam berkas konfigurasi."
 
 #: ../Debconf/Config.pm:139
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-"Ada masalah saat menyetel basis data yang dinyatakan oleh bait %s dari %s."
+"Ada masalah saat menyetel basis data yang ditentukan oleh bait %s dari %s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -59,8 +59,8 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tBerikan antar muka debconf frontend yg dipakai.\n"
-"  -p,  --priority\t\tBerikan prioritas pertanyaan minimum yg ditampilkan.\n"
+"  -f,  --frontend\t\tTentukan antar muka debconf yg dipakai.\n"
+"  -p,  --priority\t\tTentukan prioritas pertanyaan minimum yg ditampilkan.\n"
 "       --terse\t\t\tMampukan mode terse.\n"
 
 #: ../Debconf/Config.pm:308
@@ -77,7 +77,7 @@ msgstr "Prioritas yang sah adalah: %s"
 #: ../Debconf/Element/Editor/Multiselect.pm:31
 #: ../Debconf/Element/Editor/Select.pm:31
 msgid "Choices"
-msgstr "PIlihan"
+msgstr "Pilihan"
 
 #: ../Debconf/Element/Editor/Boolean.pm:30
 #: ../Debconf/Element/Editor/Boolean.pm:36
@@ -114,7 +114,7 @@ msgid ""
 "you."
 msgstr ""
 "Debconf tidak dikonfigurasi untuk menampilkan pesan kesalahan ini, jadi akan "
-"dikirimkan kepada Anda."
+"di-e-mailkan kepada Anda."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -132,7 +132,7 @@ msgid ""
 "Perhaps the templates were incorrectly localized."
 msgstr ""
 "Nilai masukkan, \"%s\" tidak ditemukan dalam pilihan C! Hal ini tidak boleh "
-"terjadi. Mungkin template salah diterjemahkan."
+"terjadi. Mungkin lokalisasi template salah."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -154,7 +154,7 @@ msgstr "Sedang mengonfigurasi %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM tidak disetel, jadi antarmuka dialog tidak berguna."
+msgstr "TERM tidak diset, antarmuka dialog tidak berguna."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -173,20 +173,18 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Tidak ada program mirip dialog yang dapat dipakai. Jadi antarmuka berbasis "
-"dialog tidak dapat digunakan"
+"Tidak ada program dialog yang dapat dipakai. Antarmuka berbasis dialog tidak "
+"dapat digunakan"
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Antarmuka dialog membutuhkan layar minimal tinggi 13 baris dan lebar 31 "
-"kolom."
+"Antarmuka dialog membutuhkan layar minimal berukuran 13 baris dan 31 kolom."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
-#, fuzzy
 msgid "Package configuration"
-msgstr "Konfigurasi Debian"
+msgstr "Konfigurasi Paket"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
@@ -207,11 +205,11 @@ msgid ""
 msgstr ""
 "Antarmuka debconf berbasis editor menyajikan kepada Anda satu atau lebih "
 "berkas teks yang harus diubah. Ini termasuk salah satu berkas tersebut. Jika "
-"Anda tidak akrab dengan berkas konfigurasi standar unix, berkas ini akan "
-"tampak akrab bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
-"item konfigurasi. Ubahlah file ini, ganti sebarang item yang diperlukan, dan "
-"simpanlah lalu keluar. Pada titik ini debconf akan membaca berkas yang telah "
-"diubah, dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
+"Anda tidak terbiasa dengan berkas konfigurasi standar unix, berkas ini akan "
+"tampak mudah bagi Anda -- berkas ini berisi keterangan yang diikuti dengan "
+"item konfigurasi. Sunting file ini, ganti item yang diperlukan, dan simpan "
+"dan keluar. Pada titik ini debconf akan membaca berkas yang telah diubah, "
+"dan menggunakan nilai yang Anda masukkan untuk mengonfigurasi sistem."
 
 #: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
 #: ../Debconf/FrontEnd/Kde.pm:96
@@ -251,8 +249,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"Peringatan: ada kemungkinan basis data terkorupsi. Akan diperbaiki dengan "
-"menanyakan kembali hal-hal yang hilang %s."
+"Peringatan: kemungkinan basis data rusak. Akan diperbaiki dengan menanyakan "
+"kembali hal-hal yang hilang %s."
 
 #: ../Debconf/Template.pm:206
 #, perl-format
@@ -315,15 +313,14 @@ msgstr "Kesalahan penguraian template: %s"
 #: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: tidak dapat chmod: %s"
+msgstr "debconf: chmod gagal: %s"
 
 #: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "Prakonfigurasi %s gagal, dengan status %s"
+msgstr "Prakonfigurasi %s gagal dengan status %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -336,7 +333,9 @@ msgstr ""
 "  -a,  --all\t\t\tKonfigurasi kembali semua paket.\n"
 "  -u,  --unseen-only\t\tHanya tampilkan pertanyaan yg belum dilihat.\n"
 "       --default-priority\tGunakan prioritas bawaan, bukan yang rendah.\n"
-"       --force\t\t\tPaksakan konfigurasi kembali paket-paket yang rusak."
+"       --force\t\t\tPaksakan konfigurasi kembali paket-paket yang rusak.\n"
+"       --no-reload\t\tJangan muat kembali templet-templet. (Gunakan secara "
+"hati-hati)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
@@ -360,7 +359,7 @@ msgstr "%s rusak atau tidak sepenuhnya terpasang"
 #: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Tidak dapat membaca berkas status: %s"
+msgstr "Tak dapat membaca berkas status: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
@@ -430,29 +429,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=paket\t\tSet paket yang memiliki perintah."
-
-#~ msgid "Save (mail) Note"
-#~ msgstr "Simpan (kirim) Catatan"
-
-#~ msgid "Debconf was asked to save this note, so it mailed it to you."
-#~ msgstr ""
-#~ "Debconf telah diminta untuk menyimpan catatan ini, jadi akan dikirimkan "
-#~ "kepada Anda."
-
-#~ msgid "Information"
-#~ msgstr "Informasi"
-
-#~ msgid "The note has been mailed."
-#~ msgstr "Catatan telah dikirimkan."
-
-#~ msgid "Error"
-#~ msgstr "Ada Kesalahan"
-
-#~ msgid "Unable to save note."
-#~ msgstr "Catatan tidak dapat disimpan"
-
-#~ msgid ""
-#~ "Debconf was not configured to display this note, so it mailed it to you."
-#~ msgstr ""
-#~ "Debconf tidak dikonfigurasi untuk menampilkan catatan ini, jadi akan "
-#~ "dikirimkan kepada Anda."
