@@ -1,14 +1,15 @@
 # translation to Esperanto
-# Copyright (C) 2007 Free Software Foundation, Inc.
+# Copyright (C) 2007, 2010 Free Software Foundation, Inc.
 # Serge Leblanc <serge.leblanc@wanadoo.fr>, 2007.
+# Felipe Castro <fefcas@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2007-06-10 12:03+0200\n"
-"Last-Translator: Serge Leblanc <serge.leblanc@wanadoo.fr>\n"
+"PO-Revision-Date: 2010-03-14 10:31-0300\n"
+"Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,39 +18,38 @@ msgstr ""
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "Retroiru al la fasado: %s"
+msgstr "retroiro al la fasado: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "Ne eblas komencvalori la fasadon: %s"
+msgstr "ne eblas ekigi la fasadon: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Ne eblas starti la fasadon: %s"
+msgstr "Ne eblas lanĉi fasadon: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "La agorda dosiero ne indikas la lokon de la agorda datumbazo."
+msgstr "La agordo-dosiero ne referencas agordan datumbazon."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr ""
-"La agorda dosiero ne indikas la lokon de la mesaĝa datumbazo (\"templates\")."
+msgstr "La agordo-dosiero ne referencas ŝablonan datumbazon."
 
 #: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"La 'Sigils' kaj 'Smileys'-elektoj el agorda dosiero ne plu estas uzitaj. "
-"Bonvolu forviŝi ilin."
+"La opcioj Sigils kaj Smileys en la agordo-dosiero ne plu estas uzataj. "
+"Bonvolu forigi ilin."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Problemo dum la datumbaza agordado difinita de la paragrafo %s pri %s."
+msgstr "Problemo dum agordado de la datumbaza difinita de la grupo %s de %s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -57,14 +57,15 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tIndikas la uzotan 'debconf'-fasadon.\n"
-"  -p,  --priority\t\tIndikas la vidotan mininuman prioritatan demandon.\n"
-"       --terse\t\t\tAktivigas la lakonan 'terse'-modon.\n"
+"  -f,  --frontend\t\tIndikas la uzotan fasadon de debconf.\n"
+"  -p,  --priority\t\tIndikas la mininuman prioritaton por aperotaj "
+"demandoj.\n"
+"       --terse\t\t\tAktivigas lakonan, ŝparvortan reĝimon.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Ignoras la malvalidan prioritaton \"%s\""
+msgstr "Ni preterpasas malvalidan prioritaton \"%s\""
 
 #: ../Debconf/Config.pm:309
 #, perl-format
@@ -95,7 +96,8 @@ msgstr "ne"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Tajpu nulon aŭ pliajn erojn interspacigitaj de la (komo,spaco) paro: ', '.)"
+"(Tajpu neniun aŭ iujn erojn interspacigitajn per komo sekvata de spaco (', "
+"').)"
 
 #: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
@@ -110,8 +112,8 @@ msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"'Debconf'-programo ne estis agordita por montri tiun eraran mesagon, do ĝi "
-"sendis ĝin al vi."
+"Debconf ne estas agordita por montri tiun ĉi erar-mesaĝon, do ĝi retsendis "
+"ĝin al vi."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -120,7 +122,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, plenumiĝas sur %s"
+msgstr "Debconf, plenumiĝas ĉe %s"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
@@ -128,21 +130,21 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"La valoro \"%s\" maltroviĝas en disponeblaj elektoj! Tiu nepre ne okazus. "
-"Eble, la ŝablonoj estis malbone tradukitaj."
+"Eniga valoro, \"%s\" ne trovita en elektoj C! Tio ĉi neniam devus okazi. "
+"Eble la ŝablonoj estis malĝuste lok-agordataj."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "neniu el indikitaj elementoj"
+msgstr "neniu el la supraj"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Tajpu interspace la erojn kiujn vi volas elekti."
+msgstr "Tajpu la erojn kiujn vi volas elekti, apartitaj per spacoj."
 
 #: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Neeblas ŝargi 'Debconf::Element::%s'-n. La kaŭzo de la fiasko: %s"
+msgstr "Neeblas ŝargi je Debconf::Element::%s. Malsukcesis pro: %s"
 
 #: ../Debconf/FrontEnd.pm:333
 #, perl-format
@@ -151,48 +153,45 @@ msgstr "Agordado de %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr ""
-"La 'TERM'-variablo ne estas agordita, do la dialoga fasado ne estas uzebla."
+msgstr "TERM ne estas difinita, do la dialoga fasado ne uzeblas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "La dialoga fasado malakordas kun la 'emacs'-interpretilaj bufroj"
+msgstr "La dialoga fasado malakordas kun la emacs-interpretilaj bufroj"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Dialoga fasado mallaboros sur kruda konzolo, nek sur 'emacs'-interpretila "
-"bufo, nek sen kontrola konzolo."
+"Dialoga fasado ne funkcios sur kruda konzolo, nek sur emacs-interpretila "
+"bufro, nek sen reganta konzolo."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Neniu dialoga programo estas instalita, do la dialog-bazita fasado ne povas "
-"esti uzita."
+"Neniu uzebla dialog-tipa programo estas instalita, do la dialog-bazata "
+"fasado ne povas esti uzata."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"La dialoga fasado bezonas enhavantan ekranon minimume 13 linojn kaj 31 "
-"kolonojn."
+"La dialoga fasado bezonas ekranon kun minimume 13 linojn kaj 31 kolumnojn."
 
 #: ../Debconf/FrontEnd/Dialog.pm:280
 msgid "Package configuration"
-msgstr "Paka agordo"
+msgstr "Pak-agordado"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Vi uzas la 'debconf'-fasadon bazitan sur la dosier-aliigado por agordi vian "
-"sistemon. Bonvolu legi la finon de ĉi tiu dokumento por akiri detalajn "
-"informojn."
+"Vi uzas la redaktilan debconf-fasadon por agordi vian sistemon. Bonvolu legi "
+"la finon de ĉi tiu dokumento por akiri detalajn informojn."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
 msgid ""
@@ -203,27 +202,27 @@ msgid ""
 "items as necessary, and then save it and exit. At that point, debconf will "
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
-"Ĉi tiu fasado prezentas al vi unu aŭ plurajn ŝanĝotajn tekstajn dosierojn. "
-"Jen ekzemplo. Se vi kutimas kun 'Unix'-a agorda dosiero, tiu dosiero estos "
-"facile komprenebla. Ĝi enhavas agordajn termojn interspacigitajn de komentoj "
-"Bonvolu modifi la dosieron kaj ŝanĝi ĉiujn necesajn elementojn. Poste, savu "
-"kaj forigu, tiam la 'Debconf'-progamo uzos la ĉeestantajn valorojn de la "
-"dosiero por agordi la sistemon."
+"La redaktila debconf-fasado prezentas al vi unu aŭ pli tekstajn dosierojn "
+"por redakti. Tiu ĉi estas tia teksta dosiero. Se vi kutimas kun ordinaraj "
+"uniksaj agordaj dosieroj, tiu ĉi dosiero estos facile komprenebla -- ĝi "
+"enhavas komentojn kune kun agordaj eroj. Redaktu la dosieron modifante "
+"laŭnecese ĉiun eron, kaj tiam konservu ĝin kaj eliru. Je tiu momento, "
+"debconf legos la redaktitan dosieron, kaj uzos la valorojn kiujn vi enmetis "
+"por agordi la sistemon."
 
 #: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
 #: ../Debconf/FrontEnd/Kde.pm:96
 #, perl-format
 msgid "Debconf on %s"
-msgstr "'Debconf' sur %s"
+msgstr "Debconf sur %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Tiu fasado bezonas 'tty'-kontrolkonzolon."
+msgstr "Tiu ĉi fasado postulas regantan tty."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
-msgstr ""
-"'Term::ReadLine::GNU'-o malakordas kun la 'emacs'-interpretilaj bufroj."
+msgstr "Term::ReadLine::GNU malakordas kun la emacs-interpretilaj bufroj."
 
 #: ../Debconf/FrontEnd/Teletype.pm:96
 msgid "More"
@@ -232,17 +231,15 @@ msgstr "Pli"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr ""
-"Notu: 'Debconf'-programo TTT-mode funkcias. Iru al la retadreso 'http://"
-"localhost:%i/'"
+msgstr "Rimarku: Debconf funkcias laŭ TTT-reĝimo. Aliru http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
-msgstr "Retroiru"
+msgstr "Retroiri"
 
 #: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "Sekvu"
+msgstr "Sekvi"
 
 #: ../Debconf/Template.pm:91
 #, perl-format
@@ -250,8 +247,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"Atentu: eble datumbaza difektiĝo. Provo de rebonigo aldonante la "
-"maldisponeblan demandon %s."
+"averto: eble datumbaza difektiĝo. Ni provos ripari reinkluzivante la "
+"mankantan demandon %s."
 
 #: ../Debconf/Template.pm:206
 #, perl-format
@@ -259,70 +256,68 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"La ŝablono #%s el %s havas duplikitan kampon \"%s\" kun nova valoro \"%s\"."
-"Eble du ŝablonoj ne estas korekte dispartigitaj per vakua lino.\n"
+"La ŝablono #%s el %s havas duobligitan kampon \"%s\" kun nova valoro \"%s\". "
+"Probable du ŝablonoj ne estas ĝuste apartigataj per sola novlinio.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format
 msgid "Unknown template field '%s', in stanza #%s of %s\n"
-msgstr "Nekonata ŝablona kampo '%s', en la paragrafo #%s el %s\n"
+msgstr "Nekonata ŝablona kampo '%s', en la grupo #%s el %s\n"
 
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Ŝablona analizo eraras apud '%s', en la paragrafo #%s el %s\n"
+msgstr "Ŝablona analiz-eraro apud '%s', en la grupo #%s el %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
 msgid "Template #%s in %s does not contain a 'Template:' line\n"
-msgstr "La ŝablono #%s el %s ne enhavas 'Template:'-linon\n"
+msgstr "La ŝablono #%s en %s ne enhavas linion 'Template:'\n"
 
 #: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "Vi devas indiki kelkajn antaŭagordotajn pakajn"
+msgstr "necesas indiki kelkajn pakojn por antaŭagordi"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr ""
-"la paka agordo estis prokrastata, ĉar la 'apt-utils'-pako ne estas instalita"
+msgstr "ni prokrastigas la pak-agordadon, ĉar apt-utils ne estas instalita"
 
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "ne kapablas denove malfermi 'stdin': %s"
+msgstr "ne eblas remalfermi stdin: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
-msgstr "'apt-extracttemplates'-o fiaskis: %s"
+msgstr "apt-extracttemplates malsukcesis: %s"
 
 #: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Ekstraktado de ŝablonoj el pakoj: %d%%"
+msgstr "Elmetado de ŝablonoj el pakoj: %d%%"
 
 #: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
-msgstr "Pakaj antaŭagordoj ...\n"
+msgstr "Antaŭagordado de pakoj ...\n"
 
 #: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
-msgstr "Ŝablona analiza eraro: %s"
+msgstr "ŝablona analiz-eraro: %s"
 
 #: ../dpkg-preconfigure:216
 #, perl-format
 msgid "debconf: can't chmod: %s"
-msgstr "debconf: ne povas ŝanĝi la modon: %s"
+msgstr "debconf: ne povas chmod: %s"
 
 #: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s fiaskigis la antaŭagordon, kun la erara kodo %s"
+msgstr "%s malsukcesis antaŭagordi, kun elir-stato %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -331,21 +326,21 @@ msgid ""
 "       --force\t\t\tForce reconfiguration of broken packages.\n"
 "       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
-"Uzado: dpkg-reconfigure [ebloj] pakoj\n"
-"  -a,  --all\t\t\tDenove agordas ĉiujn pakojn.\n"
-"  -u,  --unseen-only\t\tAfiŝas nur ne ankoraŭ demanditajn demandojn.\n"
-"       --default-priority\tUzas la implicitan prioritaton anstataŭ\n"
-"                         \tol la malhalta prioritato;\n"
-"       --force\t\t\tDevigas la reagordon de rompitaj pakoj."
+"Uzado: dpkg-reconfigure [opcioj] pakoj\n"
+"  -a,  --all\t\t\tReagordi ĉiujn pakojn.\n"
+"  -u,  --unseen-only\t\tNur montri ne viditajn demandojn.\n"
+"       --default-priority\tUzi aprioran prioritaton anstataŭ malalta.\n"
+"       --force\t\t\tDevigi la reagordon de rompitaj pakoj.\n"
+"       --no-reload\t\tNe reŝargi je la ŝablonoj. (Uzu sin-garde.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s devas esti lanĉita de la ĉefuzanto"
+msgstr "%s devas esti lanĉata de root"
 
 #: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
-msgstr "bonvolu indiki reagordotan pakon."
+msgstr "bonvolu indiki pakon por reagordi."
 
 #: ../dpkg-reconfigure:171
 #, perl-format
@@ -355,28 +350,28 @@ msgstr "%s ne estas instalita"
 #: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s estas rompita au malkomplete instalita"
+msgstr "%s estas rompita aŭ malkomplete instalita"
 
 #: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Ne povas legi statan dosieron: %s"
+msgstr "Ne povas legi stat-dosieron: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
-msgstr "Uzado: debconf-communicate [ebloj] [pakoj]"
+msgstr "Uzado: debconf-communicate [opcioj] [pako]"
 
 #: ../debconf-mergetemplate:14
 msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Tiu ilo estas malmoderna. Vi devos uzi la programon "
-"'po2debconf' el la 'po-debcon'-pako."
+"debconf-mergetemplate: Tiu ĉi ilo estas malmoderna. Vi devos uzi anstataŭe "
+"la programon po2debconf, el la pako po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
-msgstr "Uzado: debconf-mergetemplate [ebloj] [ŝablonoj.ll ...] ŝablonoj"
+msgstr "Uzado: debconf-mergetemplate [opcioj] [ŝablonoj.ll ...] ŝablonoj"
 
 #: ../debconf-mergetemplate:71
 msgid ""
@@ -385,8 +380,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tKunfandas êc la malmodernajn tradukojn.\n"
-"\t--drop-old-templates\tViŝas la malmodernajn domandojn."
+"\t--outdated\t\tKunfandi êc malĝisdatajn tradukojn.\n"
+"\t--drop-old-templates\tForlasi tutajn malĝisdatajn ŝablonojn."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -396,31 +391,31 @@ msgstr "%s mankas"
 #: ../debconf-mergetemplate:123
 #, perl-format
 msgid "%s is missing; dropping %s"
-msgstr "%s mankas; forlasu '%s'-n"
+msgstr "%s mankas; ni forlasas %s"
 
 #: ../debconf-mergetemplate:146
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s"
-msgstr "%s proksimas al bajto %s: %s"
+msgstr "%s estas nebula ĉe bajto %s: %s"
 
 #: ../debconf-mergetemplate:151
 #, perl-format
 msgid "%s is fuzzy at byte %s: %s; dropping it"
-msgstr "%s proksimas al bajto %s: %s; forlasu ĝin"
+msgstr "%s estas nebula ĉe bajto %s: %s; ni forlasas ĝin"
 
 #: ../debconf-mergetemplate:168
 #, perl-format
 msgid "%s is outdated"
-msgstr "%s malmodernas"
+msgstr "%s ne estas ĝisdata"
 
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s malmodernas; forlasu tutan ŝoblonon!"
+msgstr "%s ne estas ĝisdata; ni forlasas tutan ŝablonon!"
 
 #: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
-msgstr "Uzado: debconf [ebloj] ordono [argumentoj]"
+msgstr "Uzado: debconf [opcioj] komando [argumentoj]"
 
 #: ../debconf:97
 msgid ""
@@ -428,4 +423,4 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=package\t\tIndikas la pakon kies la ordono estas."
+"  -o,  --owner=package\t\tDifini la pakon, kiu posedas la komandon."
