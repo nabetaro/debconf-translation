@@ -1,27 +1,31 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Asturian translation for debconf
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the debconf package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
-# 
+# Xandru Armesto <xandru@softastur.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2009-03-09 07:36+0100\n"
-"Last-Translator: Marcos Alvarez Costales <marcos.alvarez.costales@gmail."
-"com>\n"
-"Language-Team: Asturian <ast@li.org>\n"
+"POT-Creation-Date: 2010-03-08 13:08+0000\n"
+"PO-Revision-Date: 2010-03-08 18:00+0200\n"
+"Last-Translator: Xandru Armesto <xandru@softastur.org>\n"
+"Language-Team: Asturian Team <alministradores@softastur.org>\n"
+"Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Virtaal 0.5.2\n"
 "X-Launchpad-Export-Date: 2009-02-17 13:28+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "prebando agora'l frontend: %s"
+msgstr "probando agora'l frontend: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
@@ -31,7 +35,7 @@ msgstr "nun pudo aniciase frontend: %s"
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
 msgid "Unable to start a frontend: %s"
-msgstr "Nun pudo entamase un frontend: %s"
+msgstr "Nun pudo aniciase un frontend: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
@@ -49,7 +53,7 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Ya nun s'usen les opciones Sigils y Smileys nel ficheru de configuración. "
+"Yá nun s'usen les opciones Sigils y Smileys nel ficheru de configuración. "
 "Por favor, desaníciales."
 
 #: ../Debconf/Config.pm:153
@@ -64,14 +68,14 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --frontend\t\tConseña a debconf la interface que tien qu'usar.\n"
+"  -f,  --frontend\t\tConseña la interfaz a usar por debconf.\n"
 "  -p,  --priority\t\tEspecifica la prioridá mínima a mostrar.\n"
 "       --terse\t\t\tActiva'l mou resumíu.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
 msgid "Ignoring invalid priority \"%s\""
-msgstr "Inorando prioridá non válida \"%s\""
+msgstr "Inorando prioridá nun válida \"%s\""
 
 #: ../Debconf/Config.pm:309
 #, perl-format
@@ -118,8 +122,8 @@ msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf nun ta configuráu pa visualizar esti mensaxe de fallu, asina "
-"qu'unvióse per email."
+"Debconf nun ta configuráu pa visualizar esti mensaxe de fallu, asina que "
+"s'unvió per email."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -159,19 +163,19 @@ msgstr "Configuración de %s"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERMINU nun ta afitáu, colo que'l diálogu de frontend nun ye usable."
+msgstr "TÉRMINU nun ta afitáu, colo que'l diálogu de frontend nun ye usable."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
-msgstr "Frontend de diálogu nun ye compatible colos buffers shell d'emacs"
+msgstr "El frontend de diálogu nun ye compatible colos buffers shell d'emacs"
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
 msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"La interface dialog nun trabayará nun terminal tontu, un buffer d'intérprete "
-"d'órdenes d'emacs, o ensín una terminal controladora."
+"La interfaz dialog nun trabayará nun terminal tontu, un buffer d'intérprete "
+"d'órdenes d'emacs, o ensin una terminal controladora."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
 msgid ""
@@ -188,7 +192,7 @@ msgstr ""
 "Frontend dialog requier una pantalla con al menos 13 llinies d'altor y 31 "
 "columnes d'anchor."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configuración paquete"
 
@@ -217,8 +221,7 @@ msgstr ""
 "lluéu grábalu y sal del editor. Nesi puntu, debconf lleerá'l ficheru iguáu, "
 "y usará los valores inxertaos pa configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -328,7 +331,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "falló al preconfigurar %s, con estáu de salida %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -339,9 +341,10 @@ msgid ""
 msgstr ""
 "Usu: dpkg-reconfigure [opciones] paquetes\n"
 "  -a,  --all\t\t\tReconfigura tolos paquetes.\n"
-"  -u,  --unseen-only\t\tAmosar sólo entrugues nun amosaes tovía.\n"
-"       --default-priority\tUsa prioridá por defeutu a baxa.\n"
-"       --force\t\t\tForciar reconfiguración de paquetes frayaos."
+"  -u,  --unseen-only\t\tAmosar namás entrugues nun vistes tovía.\n"
+"       --default-priority\tUsa prioridá por defeutu a la baxa.\n"
+"       --force\t\t\tForciar reconfiguración de paquetes frayaos.\n"
+"       --no-reload\t\tNun recargar plantíes. (Usar con curiáu.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
