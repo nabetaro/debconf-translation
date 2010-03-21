@@ -313,7 +313,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s পূর্বকনফিগার করতে ব্যর্থ, প্রস্থানের স্ট্যাটাস %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -326,7 +325,9 @@ msgstr ""
 "  -a,  --all\t\t\tসকল প্যাকেজ পুন:কনফিগার করার জন্য।\n"
 "  -u,  --unseen-only\t\tশুধুমাত্র না দেখা প্রশ্ন দেখানো হবে।\n"
 "       --default-priority\tনিম্নের চেয়ে ডিফল্ট অগ্রাধিকার ব্যবহার করা হবে।\n"
-"       --force\t\t\tভাঙ্গা প্যাকেজের পুন:কনফিগারেশনে জোড় দেয়া।"
+"       --force\t\t\tভাঙ্গা প্যাকেজের পুন:কনফিগারেশনে জোড় দেয়া।\n"
+"       --no-reload\t\tটেমপ্লেট পুনরায় রিলোড করা হবে না। (সতর্কতার সাথে ব্যবহার "
+"করুন।)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
