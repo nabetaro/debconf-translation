@@ -156,7 +156,7 @@ Used to hide escaped characters in input text from processing by dialog.
 sub hide_escape {
 	my $line = $_;
 
-	# dialog will display "\n" as a liternal newline; use zero-width
+	# dialog will display "\n" as a literal newline; use zero-width
 	# utf-8 characters to avoid this.
 	$line =~ s/\\n/\\\xe2\x81\xa0n/g;
 	return $line;
