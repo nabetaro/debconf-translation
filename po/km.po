@@ -1,22 +1,23 @@
-# translation of debconf_po_km.po to Khmer
+# translation of km.po to Khmer
 # translation of debconf_po_km.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # auk piseth <piseth_dv@khmeros.info>, 2006.
-# Khoem Sokhem <khoemsokhem@khmeros.info>, 2006.
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2006, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf_po_km\n"
+"Project-Id-Version: km\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-19 19:52-0400\n"
-"PO-Revision-Date: 2006-10-05 14:09+0700\n"
+"PO-Revision-Date: 2010-03-09 08:15+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
@@ -314,7 +315,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s បរាជ័យ​ក្នុង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​ជាមុន ជាមួយ​ស្ថានភាព​ចេញ %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -323,11 +323,12 @@ msgid ""
 "       --force\t\t\tForce reconfiguration of broken packages.\n"
 "       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
-"ការប្រើប្រាស់ ៖ កញ្ចប់​ dpkg-កំណត់​រចនាសម្ព័ន្ធ​ឡើង​វិញ​ [ជម្រើស] \n"
-"  -a,  --all\t\t\tកំណត់​រចនាសម្ព័ន្ធ​កញ្ចប់​ទាំងអស់​ឡើង​វិញ​ ។\n"
-"  -u,  --unseen-only\t\tបានតែ​បង្ហាញ សំណួរ​មិន​ទាន់​មើល​ ។\n"
-"       --default-priority\tប្រើ​អាទិភាព​លំនាំដើម​ជំនួស​​តម្លៃ​ទាប ។\n"
-"       --force\t\t\tបង្ខំ​ការកំណត់រចនាសម្ព័ន្ធឡើងវិញ​​នៃ​កញ្ចប់​ដែល​ខូច ។"
+"ការ​ប្រើប្រាស់ ៖ កញ្ចប់ dpkg-reconfigure [ជម្រើស]\n"
+"  -a,  --all\t\t\tកំណត់​រចនាសម្ព័ន្ធ​កញ្ចប់​ទាំងអស់​ឡើង​វិញ ។\n"
+"  -u,  --unseen-only\t\tបង្ហាញ​តែ​សំណួរ​ដែលមិន​ទាន់​មើល​ប៉ុណ្ណោះ ។\n"
+"       --default-priority\tប្រើ​អាទិភាព​លំនាំដើម​ជំនួស​ឲ្យ​តម្លៃ​ទាប ។\n"
+"       --force\t\t\tបង្ខំ​កា​រកំណត់​រចនាសម្ព័ន្ធ​ឡើង​របស់​កញ្ចប់​ដែល​ខូច ។\n"
+"       --no-reload\t\tកុំ​ផ្ទុក​ពុម្ព​ឡើង​វិញ ។ (ប្រើ​ដោយ​ប្រុងប្រយ័ត្ន ។)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
