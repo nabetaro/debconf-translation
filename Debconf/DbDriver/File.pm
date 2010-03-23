@@ -94,7 +94,13 @@ sub init {
 
 	# Open file for read but also with write access so below exclusive
 	# lock can be done portably.
-	if (! open ($this->{_fh}, "+<", $this->{filename})) {
+	my $openmode;
+	if ($this->{readonly} or not -w $this->{filename}) {
+		$openmode = "<";
+	} else {
+		$openmode = "+<";
+	}
+	if (! open ($this->{_fh}, $openmode, $this->{filename})) {
 		$this->error("could not open $this->{filename}: $!");
 		return; # always abort, even if not throwing fatal error
 	}

@@ -1,3 +1,11 @@
+debconf (1.5.30) UNRELEASED; urgency=low
+
+  * Don't open file databases read-write if the database is read-only, or if
+    the file isn't writable (e.g. running debconf as non-root).  Closes:
+    #575070
+
+ -- Colin Watson <cjwatson@debian.org>  Tue, 23 Mar 2010 10:13:08 +0000
+
 debconf (1.5.29) unstable; urgency=low
 
   [ Programs translation update ]
