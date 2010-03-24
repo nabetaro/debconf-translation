@@ -1,3 +1,9 @@
+debconf (1.5.31) UNRELEASED; urgency=low
+
+  * Squash chomp warning in Debconf::FrontEnd::Teletype on EOF or error.
+
+ -- Colin Watson <cjwatson@debian.org>  Wed, 24 Mar 2010 10:17:08 +0000
+
 debconf (1.5.30) unstable; urgency=low
 
   * Don't open file databases read-write if the database is read-only, or if

@@ -129,7 +129,8 @@ sub prompt {
 	$this->linecount(0);
 	local $|=1;
 	print "$params{prompt} ";
-	chomp(my $ret=<STDIN>);
+	my $ret=<STDIN>;
+	chomp $ret if defined $ret;
 	$this->display_nowrap("\n");
 	return $ret;
 }
