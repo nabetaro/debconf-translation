@@ -79,7 +79,7 @@ my (@argv, @command);
 for (my $x=0; $x <= $#ARGV; $x++) {
 	if ($ARGV[$x] =~ /^-(o|f|p|-(owner|frontend|priority))$/) {
 		push @argv, $ARGV[$x++];
-		push @argv, $ARGV[$x]; # skip option argument
+		push @argv, $ARGV[$x] if defined $ARGV[$x]; # skip option argument
 		next;
 	}
 	elsif ($ARGV[$x] =~ /^-/) {
