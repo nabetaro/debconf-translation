@@ -94,11 +94,12 @@ sub init {
 
 	# Open file for read but also with write access so below exclusive
 	# lock can be done portably.
-	my $openmode;
-	if ($this->{readonly} or not -w $this->{filename}) {
-		$openmode = "<";
-	} else {
-		$openmode = "+<";
+	my $openmode = "<";
+	if (not $this->{readonly}) {
+		use filetest 'access';
+		if (-W $this->{filename}) {
+			$openmode = "+<";
+		}
 	}
 	if (! open ($this->{_fh}, $openmode, $this->{filename})) {
 		$this->error("could not open $this->{filename}: $!");

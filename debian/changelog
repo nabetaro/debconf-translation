@@ -2,6 +2,8 @@ debconf (1.5.31) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Squash chomp warning in Debconf::FrontEnd::Teletype on EOF or error.
+  * Test database writability more carefully to avoid breaking use of
+    debconf under fakeroot.  Closes: #577299
 
   [ Joey Hess ]
   * Fix uninitialized value warning if debconf -f is not followed by
