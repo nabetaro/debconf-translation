@@ -3,12 +3,12 @@
 # Shell Hung <shell@debian.org>, 2001. (Traditional Chinese translation)
 # Carlos Z.F. Liu <carlos_liu@yahoo.com>, 2004.
 # Ming Hua <minghua@rice.edu>, 2006.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-04-12 22:05+0100\n"
 "PO-Revision-Date: 2006-10-11 04:11-0500\n"
 "Last-Translator: Ming Hua <minghua@rice.edu>\n"
 "Language-Team: Debian Chinese [GB] <debian-chinese-gb@lists.debian.org>\n"
@@ -171,7 +171,7 @@ msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr "对话框界面要求屏幕画面必须为至少 13 行高及 31 列宽."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "软件包设置"
 
@@ -197,8 +197,7 @@ msgstr ""
 "一些注释和设定项目。请编辑此文件，更改任何必要的项目，然后保存并离开。同时，"
 "debconf 会读取已修改的文件，并使用您输入的值来配置系统。"
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf 运行于 %s"
