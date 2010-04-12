@@ -3,7 +3,7 @@
 # Shell Hung <shell@debian.org>, 2001. (Traditional Chinese translation)
 # Carlos Z.F. Liu <carlos_liu@yahoo.com>, 2004.
 # Ming Hua <minghua@rice.edu>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5.7\n"
@@ -303,7 +303,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "预设定 %s 失败，退出状态为 %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -316,7 +315,8 @@ msgstr ""
 "  -a,  --all\t\t\t重配置所有软件包。\n"
 "  -u,  --unseen-only\t\t仅显示未提过的问题。\n"
 "       --default-priority\t使用默认优先级，而非“低”级。\n"
-"       --force\t\t\t强迫重配置受损软件包。"
+"       --force\t\t\t强迫重配置受损软件包。\n"
+"       --no-reload\t\t不要轻易的重装模板(使用时请慎重考虑)。"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
