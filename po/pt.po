@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-08 13:08+0000\n"
-"PO-Revision-Date: 2010-02-11 21:12+0000\n"
-"Last-Translator: YOUR NAME <E-MAIL@ADDRESS>\n"
+"PO-Revision-Date: 2010-04-12 22:57+0100\n"
+"Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -322,7 +322,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "%s falhou a pré-configuração, com estado de saída %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -336,7 +335,8 @@ msgstr ""
 "  -u,  --unseen-only\t\tMostrar apenas as questões ainda não vistas.\n"
 "       --default-priority\tUtilizar a prioridade predefinida em vez de "
 "baixa.\n"
-"       --force\t\t\tForçar a reconfiguração de pacotes com problemas."
+"       --force\t\t\tForçar a reconfiguração de pacotes com problemas.\t--no-"
+"reload\t\tNão carregar novamente os modelos. (Usar com cuidado.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
