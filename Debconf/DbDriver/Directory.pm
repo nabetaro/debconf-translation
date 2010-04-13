@@ -91,15 +91,12 @@ sub init {
 		# directory, and flock locking. I don't wait on locks, just
 		# error out. Since I open a lexical filehandle, the lock is
 		# dropped when this object is destroyed.
-		if (open ($this->{lock}, ">".$this->{directory}."/.lock")) {
-			while (! flock($this->{lock}, LOCK_EX | LOCK_NB)) {
-				next if $! == &POSIX::EINTR;
-				$this->error("$this->{directory} is locked by another process: $!");
-				last;
-			}
-		}
-		else {
-			$this->{readonly}=1;
+		open ($this->{lock}, ">".$this->{directory}."/.lock") or
+			$this->error("could not lock $this->{directory}: $!");
+		while (! flock($this->{lock}, LOCK_EX | LOCK_NB)) {
+			next if $! == &POSIX::EINTR;
+			$this->error("$this->{directory} is locked by another process: $!");
+			last;
 		}
 	}
 }
