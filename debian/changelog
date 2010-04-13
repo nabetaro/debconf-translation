@@ -3,6 +3,10 @@ debconf (1.5.32) UNRELEASED; urgency=low
   * File: Avoid using filetest to test if database can be written to, as that
     is not in perl-base. Instead, try to open database for read+write, 
     and if it fails, degrade the database to read-only mode. Closes: #577632
+  * Directory: This DbDriver also wants to write to a lock file,
+    make it likewise degrade to readonly if it cannot. Now it should
+    really be safe for non-root processes to use debconf read-only,
+    fully fixing #577299.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 13 Apr 2010 12:50:36 -0400
 
