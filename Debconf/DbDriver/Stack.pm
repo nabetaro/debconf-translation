@@ -42,7 +42,7 @@ for this field.
 
 =cut
 
-use fields qw(stack);
+use fields qw(stack stack_change_errors);
 
 =head1 METHODS
 
@@ -115,6 +115,13 @@ sub shutdown {
 	foreach my $driver (@{$this->{stack}}) {
 		$ret=undef if not defined $driver->shutdown(@_);
 	}
+
+	if ($this->{stack_change_errors}) {
+		$this->error("unable to save changes to: ".
+			join(" ", @{$this->{stack_change_errors}}));
+		$ret=undef;
+	}
+
 	return $ret;
 }
 
@@ -201,8 +208,7 @@ sub _change {
 	my $writer;
 	foreach my $driver (@{$this->{stack}}) {
 		if ($driver == $src) {
-			debug "db $this->{name}" =>
-				"$src->{name} is readonly, and nothing above it in the stack will accept $item -- FAILURE";
+			push @{$this->{stack_change_errors}}, $item;
 			return;
 		}
 		if (! $driver->{readonly}) {
