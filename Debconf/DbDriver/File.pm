@@ -92,6 +92,7 @@ sub init {
 		close $fh;
 	}
 
+	my $implicit_readonly=0;
 	if (! $this->{readonly}) {
 		# Open file for read but also with write access so
 		# exclusive lock can be done portably.
@@ -108,10 +109,10 @@ sub init {
 		}
 		else {
 			# fallthrough to readonly mode
-			$this->{readonly}=1;
+			$implicit_readonly=1;
 		}
 	}
-	if ($this->{readonly}) {
+	if ($this->{readonly} || $implicit_readonly) {
 		if (! open ($this->{_fh}, "<", $this->{filename})) {
 			$this->error("could not open $this->{filename}: $!");
 			return; # always abort, even if not throwing fatal error
@@ -128,7 +129,7 @@ sub init {
 		$this->{cache}->{$item}=$cache;
 	}
 	# Close only if we are not keeping a lock.
-	if ($this->{readonly}) {
+	if ($this->{readonly} || $implicit_readonly) {
 		close $this->{_fh};
 	}
 }
