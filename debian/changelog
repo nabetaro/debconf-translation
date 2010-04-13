@@ -1,10 +1,10 @@
-debconf (1.5.32) UNRELEASED; urgency=low
+debconf (1.5.32) unstable; urgency=low
 
   * File: Avoid using filetest to test if database can be written to, as that
     is not in perl-base. Instead, try to open database for read+write,
     and if it fails, open readonly without locking. Closes: #577632
 
- -- Joey Hess <joeyh@debian.org>  Tue, 13 Apr 2010 12:50:36 -0400
+ -- Joey Hess <joeyh@debian.org>  Tue, 13 Apr 2010 13:53:46 -0400
 
 debconf (1.5.31) unstable; urgency=low
 
