@@ -1,0 +1,155 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Dr,T,Vasudevan <agnihot3@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: templates\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-04-18 19:43+0530\n"
+"Last-Translator: Dr,T,Vasudevan <agnihot3@gmail.com>\n"
+"Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "உரையாடல்"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "ரீட்லைன்"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "திருத்தர்"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "ஊடாடல் இல்லாத"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "பயனர் பயன்படுத்த இடைமுகம்"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr "வடிவமைப்புக்கு டெப்கான்ஃப் ஐ பயன்படுத்தும் பொதிகள் ஒரு பொது தோற்றமும் உணர்வும்"
+" உள்ளவை. அவை பயன்படுத்தும் பயனர் இடைமுகத்தை நீங்கள் தேர்ந்தெடுக்கலாம்."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr "உரையாடல் முன் முனை முழுத்திரை, எழுத்துரு கொண்ட இடைமுகமாகும்."
+"பயனர் பயன்படுத்தும் ரீட் லைன் மேலும் பாரம்பரிய வெற்று உரை இடைமுகமாகும்."
+"க்னோம், கேடிஈ முன்முனைகள் இரண்டும் நவீன எக்ஸ் இடைமுகங்களாகும். "
+"அவை அவற்றின் மேல்மேசை சூழலில் பொருந்தினாலும் எந்த எக்ஸ் சூழலிலும் இயங்கக்கூடும்."
+" உங்கள் அபிமான உரை திருத்தியை பயன்படுத்தி நீங்கள் வடிவமைப்பை செய்யலாம்."
+"ஊடாடல் இல்லா முன்முனை உங்களை கேள்வியே கேட்காது!"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "மிக முக்கியமான"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "உயர்"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "நடுத்தரம்"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "குறைவு"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "இதைவிட முன்னுரிமை குறைந்த கேள்விகளைத் தவிர்."
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"டெப்கான்ஃப்  அது உங்களை கேட்கும் கேள்விகளை முன்னுரிமை படுத்துகிறது. "
+" நீங்கள் பார்க்க விரும்பும் கேள்விகளின் மிகக்குறைந்த முன்னுரிமையை தேர்ந்தெடுங்கள்:\n"
+"  - 'மிக முக்கியமான' என்பது அது இல்லாமல் கணினி இயங்கா கேள்விகள்.\n"
+"    நீங்கள் மிகப்புதியவராக இருந்தாலோ அல்லது மிக அவசரத்தில் இருந்தாலோ இதை தேர்ந்தெடுக்கவும்.\n"
+"  - 'உயர்' மிக முக்கியமான கேள்விகளுக்கு\n"
+"  - 'நடுத்தரம்' வழக்கமான கேள்விகளுக்கு\n"
+"  - 'குறைவு' எல்லாவற்றையும் பார்க்க விரும்பும் நபருக்கு."
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr "ஒரு விஷயம் இங்கு நினைவு கொள்ளலாம். நீங்கள் எந்த மட்டத்தை இப்போது"
+" தேர்ந்தெடுத்தாலும் ஒரு பொதியை மறு வடிவமைப்பு செய்ய dpkg-reconfigure "
+" கட்டளை கொடுத்தல் எல்லா கேள்விகளையும் காணலாம். "
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "நிறுவும் தொகுப்புகள்"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "தயவு செய்து பொறுத்திருக்கவும் ..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "ஊடக மாற்றம்"
+
