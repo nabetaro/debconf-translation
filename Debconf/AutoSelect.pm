@@ -58,7 +58,7 @@ other types, all the way to a Noninteractive frontend if all else fails.
 
 sub make_frontend {
 	my $script=shift;
-	my $starttype=ucfirst($type);
+	my $starttype=ucfirst($type) if defined $type;
 	if (! defined $starttype || ! length $starttype) {
 		$starttype = Debconf::Config->frontend;
 		if ($starttype =~ /^[A-Z]/) {
