@@ -12,6 +12,11 @@ debconf (1.5.33) UNRELEASED; urgency=low
   * Fix new initialized value warning from perl 5.12.
     Closes: #578849
 
+  [ Colin Watson ]
+  * Remove carriage return characters from Swedish programs translation.  In
+    some cases these were in the middle of a line, breaking the format for
+    strict parsers.
+
  -- Christian Perrier <bubulle@debian.org>  Tue, 13 Apr 2010 22:27:53 +0200
 
 debconf (1.5.32) unstable; urgency=low
