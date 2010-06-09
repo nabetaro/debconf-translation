@@ -1,0 +1,429 @@
+# debconf slovenian translation
+# Copyright (C) 2004 the debconf development team
+# This file is distributed under the same license as the debconf package.
+# Vanja Cvelbar <cvelbar@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf 1.5.32\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-08 19:52+0100\n"
+"PO-Revision-Date: 2010-06-09 10:05+0100\n"
+"Last-Translator: Vanja Cvelbar <cvelbar@gmail.com>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: utf-8\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+"X-Poedit-Language: Slovenian\n"
+
+#: ../Debconf/AutoSelect.pm:76
+#, perl-format
+msgid "falling back to frontend: %s"
+msgstr "vračanje v začelje: %s"
+
+#: ../Debconf/AutoSelect.pm:84
+#, perl-format
+msgid "unable to initialize frontend: %s"
+msgstr "začelja ni bilo mogoče nastaviti: %s"
+
+#: ../Debconf/AutoSelect.pm:90
+#, perl-format
+msgid "Unable to start a frontend: %s"
+msgstr "Začelja ni bilo mogoče zagnati: %s"
+
+#: ../Debconf/Config.pm:130
+msgid "Config database not specified in config file."
+msgstr "V datoteki nastavitev ni določena baza podatkov z nastavitvami."
+
+#: ../Debconf/Config.pm:134
+msgid "Template database not specified in config file."
+msgstr "V datoteki nastavitev ni določena baza podatkov s predlogami."
+
+#: ../Debconf/Config.pm:139
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Možnosti Sigils in Smileys v nastavitveni datoteki niso več v rabi. "
+"Odstranite jih prosim."
+
+#: ../Debconf/Config.pm:153
+#, perl-format
+msgid "Problem setting up the database defined by stanza %s of %s."
+msgstr "Napaka pri nastavitvi baze podatkov določene v stavku  %s od %s."
+
+#: ../Debconf/Config.pm:228
+msgid ""
+"  -f,  --frontend\t\tSpecify debconf frontend to use.\n"
+"  -p,  --priority\t\tSpecify minimum priority question to show.\n"
+"       --terse\t\t\tEnable terse mode.\n"
+msgstr ""
+"  -f,  --frontend\t\tDoloči začelje, ki naj ga uporablja debconf.\n"
+"  -p,  --priority\t\tDoloči najnižjo prioriteto vprašanj, ki naj bodo "
+"prikazana.\n"
+"       --terse\t\t\tUporabi jedrnati način.\n"
+
+#: ../Debconf/Config.pm:308
+#, perl-format
+msgid "Ignoring invalid priority \"%s\""
+msgstr "Neveljavne prioritete ne bodo upoštevane \"%s\""
+
+#: ../Debconf/Config.pm:309
+#, perl-format
+msgid "Valid priorities are: %s"
+msgstr "Veljavne prioritete: %s"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Multiselect.pm:31
+#: ../Debconf/Element/Editor/Select.pm:31
+msgid "Choices"
+msgstr "Izbire"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:36
+#: ../Debconf/Element/Editor/Boolean.pm:59
+#: ../Debconf/Element/Teletype/Boolean.pm:28
+msgid "yes"
+msgstr "da"
+
+#: ../Debconf/Element/Editor/Boolean.pm:30
+#: ../Debconf/Element/Editor/Boolean.pm:39
+#: ../Debconf/Element/Editor/Boolean.pm:62
+#: ../Debconf/Element/Teletype/Boolean.pm:29
+msgid "no"
+msgstr "ne"
+
+#: ../Debconf/Element/Editor/Multiselect.pm:32
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Vnesite nič ali več vnosov ločenih z vejico kateri sledi presledek (', ').)"
+
+#: ../Debconf/Element/Gnome.pm:182
+msgid "_Help"
+msgstr "_Pomoč"
+
+#: ../Debconf/Element/Gnome.pm:184
+msgid "Help"
+msgstr "Pomoč"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:39
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr ""
+"Debconf ni bil nastavljen, da prikaže sledeče poročilo o napaki, zato vam ga "
+"je poslal po pošti."
+
+#: ../Debconf/Element/Noninteractive/Error.pm:63
+msgid "Debconf"
+msgstr "Debconf"
+
+#: ../Debconf/Element/Noninteractive/Error.pm:86
+#, perl-format
+msgid "Debconf, running at %s"
+msgstr "Debconf, zagnan pri %s"
+
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
+#, perl-format
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"V izbirah C ni bilo najti vrednosti vnosa \"%s\"! To se ne sme zgoditi, "
+"Mogoče je bila predloga nepravilno lokalizirana."
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:27
+msgid "none of the above"
+msgstr "nič od tega"
+
+#: ../Debconf/Element/Teletype/Multiselect.pm:47
+msgid "Enter the items you want to select, separated by spaces."
+msgstr "Vnose, ki jih želite, vpišite ločeno s presledkom."
+
+#: ../Debconf/FrontEnd.pm:140
+#, perl-format
+msgid "Unable to load Debconf::Element::%s. Failed because: %s"
+msgstr "Ni bilo mogoče naložiti Debconf::Element::%s. Napaka zaradi: %s"
+
+#: ../Debconf/FrontEnd.pm:333
+#, perl-format
+msgid "Configuring %s"
+msgstr "Nastavljanje %s"
+
+#: ../Debconf/FrontEnd/Dialog.pm:52
+msgid "TERM is not set, so the dialog frontend is not usable."
+msgstr "TERM ni nastavljen, zaradi tega ni mogoče uporabiti začelja za dialog."
+
+#: ../Debconf/FrontEnd/Dialog.pm:55
+msgid "Dialog frontend is incompatible with emacs shell buffers"
+msgstr "Začelje za dialog ni združljivo z emacsovimi medpomnilniki lupine"
+
+#: ../Debconf/FrontEnd/Dialog.pm:58
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"Začelje za dialog ne bo delovalo s pasivnim terminalom, z emacsovim "
+"medpomnilnikom lupine ali pa brez nadzornega terminala"
+
+#: ../Debconf/FrontEnd/Dialog.pm:104
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Noben dialogu podoben program ni nameščen, zaradi tega začelja za dialog ni "
+"mogoče uporabljati."
+
+#: ../Debconf/FrontEnd/Dialog.pm:111
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"Začelje za dialog potrebuje zaslon visok vsak 13 vrstic in širok vsaj 31 "
+"stolpcev."
+
+#: ../Debconf/FrontEnd/Dialog.pm:295
+msgid "Package configuration"
+msgstr "Nastavljanje paketa"
+
+#: ../Debconf/FrontEnd/Editor.pm:94
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Za nastavitev sistema uporabljate začelje debconf osnovano na urejevalniku. "
+"Na koncu tega dokumenta dobite podrobnejša navodila."
+
+#: ../Debconf/FrontEnd/Editor.pm:111
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"Začelje debconf osnovano na urejevalniku vam prikaže eno ali več besedilnih "
+"datotek za urejanje. To je ena izmed teh datotek. V primeru, da poznate "
+"standardne nastavitvene datoteke unix vam bo datoteka domača -- v njej so "
+"opombe in vrinjeni nastavitveni elementi. Uredite datoteko, spremenite "
+"potrebne elemente, shranite jo in zaprite. Takrat bo debconf pregledal "
+"spremenjeno datoteko in uporabil vrednosti, ki ste jih vpisali za nastavitev "
+"sistema."
+
+#: ../Debconf/FrontEnd/Gnome.pm:97
+#, perl-format
+msgid "Debconf on %s"
+msgstr "Debconf pri %s"
+
+#: ../Debconf/FrontEnd/Readline.pm:47
+msgid "This frontend requires a controlling tty."
+msgstr "Začelje potrebuje nadzorni tty."
+
+#: ../Debconf/FrontEnd/Readline.pm:58
+msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
+msgstr "Term::ReadLine::GNU ni združljiv z medpomnilniki emacs za lupino."
+
+#: ../Debconf/FrontEnd/Teletype.pm:96
+msgid "More"
+msgstr "Več"
+
+#: ../Debconf/FrontEnd/Web.pm:66
+#, perl-format
+msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
+msgstr ""
+"Opomba: Debconf teče v spletnem načinu. Pojdite na http://localhost:%i/"
+
+#: ../Debconf/FrontEnd/Web.pm:166
+msgid "Back"
+msgstr "Nazaj"
+
+#: ../Debconf/FrontEnd/Web.pm:168
+msgid "Next"
+msgstr "Naprej"
+
+#: ../Debconf/Template.pm:91
+#, perl-format
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"pozor: možna napaka v bazi podatkov. Poskus popravljanje s ponovnim "
+"dodajanjem manjkajočih vprašanj %s"
+
+#: ../Debconf/Template.pm:206
+#, perl-format
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"Predloga #%s v %s vsebuje podvojeno polje \"%s\" z novo vrednostjo \"%s\". "
+"Verjetno dve predlogi nista pravilno ločeni s samostojno novo vrstico.\n"
+
+#: ../Debconf/Template.pm:231
+#, perl-format
+msgid "Unknown template field '%s', in stanza #%s of %s\n"
+msgstr "Neznano polje `%s' v predlogi, v stavku #%s od %s\n"
+
+#: ../Debconf/Template.pm:257
+#, perl-format
+msgid "Template parse error near `%s', in stanza #%s of %s\n"
+msgstr "Napaka v predlogi v bližini `%s', v stavku #%s od %s\n"
+
+#: ../Debconf/Template.pm:263
+#, perl-format
+msgid "Template #%s in %s does not contain a 'Template:' line\n"
+msgstr "Predloga #%s v %s ne vsebuje vrstice 'Template:'\n"
+
+#: ../dpkg-preconfigure:121
+#, perl-format
+msgid "must specify some debs to preconfigure"
+msgstr "določiti morate nekaj paketov deb za prednastavitev"
+
+#: ../dpkg-preconfigure:126
+msgid "delaying package configuration, since apt-utils is not installed"
+msgstr "zakasnitev nastavitve paketov ker apt-utils ni nameščen"
+
+#: ../dpkg-preconfigure:133
+#, perl-format
+msgid "unable to re-open stdin: %s"
+msgstr "ni mogoče ponovno odprti stdin: %s"
+
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
+#, perl-format
+msgid "apt-extracttemplates failed: %s"
+msgstr "apt-extracttemplates ni uspel: %s"
+
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
+#, perl-format
+msgid "Extracting templates from packages: %d%%"
+msgstr "Razširjanje predlog iz paketov: %d%%"
+
+#: ../dpkg-preconfigure:190
+msgid "Preconfiguring packages ...\n"
+msgstr "Prednastavljanje paketov ...\n"
+
+#: ../dpkg-preconfigure:202
+#, perl-format
+msgid "template parse error: %s"
+msgstr "napaka pri razćlenjevanju predloge: %s"
+
+#: ../dpkg-preconfigure:216
+#, perl-format
+msgid "debconf: can't chmod: %s"
+msgstr "debconf: ni mogoče izvesti chmod: %s"
+
+#: ../dpkg-preconfigure:227
+#, perl-format
+msgid "%s failed to preconfigure, with exit status %s"
+msgstr "%s napaka pri prednastavljanju, izhodno stanje %s"
+
+#: ../dpkg-reconfigure:103
+msgid ""
+"Usage: dpkg-reconfigure [options] packages\n"
+"  -a,  --all\t\t\tReconfigure all packages.\n"
+"  -u,  --unseen-only\t\tShow only not yet seen questions.\n"
+"       --default-priority\tUse default priority instead of low.\n"
+"       --force\t\t\tForce reconfiguration of broken packages.\n"
+"       --no-reload\t\tDo not reload templates. (Use with caution.)"
+msgstr ""
+"Uporaba: debconf-reconfigure [izbira] paketi\n"
+"  -a,  --all\t\t\tPonovno nastavi vse pakete.\n"
+"  -u,  --unseen-only\t\tPokaži samo ne že videna vprašanja.\n"
+"       --default-priority\tUporabi privzeto prioriteto namesto nizke.\n"
+"       --force\t\t\tVsili ponovno nastavitev polomljenih paketov.\n"
+"       --no-reload\t\tNe nalagaj ponovno predlog. (Uporabljajte pazljivo.)"
+
+#: ../dpkg-reconfigure:117
+#, perl-format
+msgid "%s must be run as root"
+msgstr "%s mora zagnati sistemski skrbnik"
+
+#: ../dpkg-reconfigure:150
+msgid "please specify a package to reconfigure"
+msgstr "določite paket za ponovno nastavitev"
+
+#: ../dpkg-reconfigure:171
+#, perl-format
+msgid "%s is not installed"
+msgstr "%s bo nameščen"
+
+#: ../dpkg-reconfigure:175
+#, perl-format
+msgid "%s is broken or not fully installed"
+msgstr "%s je polomljen ali ne popolnoma nameščen"
+
+#: ../dpkg-reconfigure:254
+#, perl-format
+msgid "Cannot read status file: %s"
+msgstr "Ni mogoče brati datoteke s stanjem: %s"
+
+#: ../debconf-communicate:53
+msgid "Usage: debconf-communicate [options] [package]"
+msgstr "Uporaba: debconf-communicate [izbira] [paket]"
+
+#: ../debconf-mergetemplate:14
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: To orodje je zastarelo. Uporabljati bi morali program "
+"po-debconf."
+
+#: ../debconf-mergetemplate:66
+msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
+msgstr "Uporaba: debconf-mergetemplate [izbira] [predloge.ll ...] predloge"
+
+#: ../debconf-mergetemplate:71
+msgid ""
+"\n"
+"        --outdated\t\tMerge in even outdated translations.\n"
+"\t--drop-old-templates\tDrop entire outdated templates."
+msgstr ""
+"\n"
+"        --outdated\t\tZdruži tudi zastarele prevode.\n"
+"\t--drop-old-templates\tPopolnoma opusti zastarele predloge."
+
+#: ../debconf-mergetemplate:119
+#, perl-format
+msgid "%s is missing"
+msgstr "%s manjka"
+
+#: ../debconf-mergetemplate:123
+#, perl-format
+msgid "%s is missing; dropping %s"
+msgstr "%s manjka; izpuščanje %s"
+
+#: ../debconf-mergetemplate:146
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s"
+msgstr "%s je nejasna pri bytu %s: %s"
+
+#: ../debconf-mergetemplate:151
+#, perl-format
+msgid "%s is fuzzy at byte %s: %s; dropping it"
+msgstr "%s je nejasna pri bytu %s: %s; izpuščena"
+
+#: ../debconf-mergetemplate:168
+#, perl-format
+msgid "%s is outdated"
+msgstr "%s je zastarel"
+
+#: ../debconf-mergetemplate:173
+#, perl-format
+msgid "%s is outdated; dropping whole template!"
+msgstr "%s je zastarel; izpuščena bo celotna predloga!"
+
+#: ../debconf:95
+msgid "Usage: debconf [options] command [args]"
+msgstr "Uporaba: debconf [izbira] ukaz [paket]"
+
+#: ../debconf:97
+msgid ""
+"\n"
+"  -o,  --owner=package\t\tSet the package that owns the command."
+msgstr ""
+"\n"
+"  -o,  --owner=paket\t\tNastavi paket, ki je lastnik ukaza."
