@@ -1,7 +1,9 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Traditional Chinese translation of debconf
+# Copyright (C) 2010 Tetralet <tetralet@gmail.com>
+# This file is distributed under the same license as the debconf package.
+#
+# Asho Yeh <asho@debian.org.tw>, 2006
+# Tetralet <tetralet@gmail.com>, 2010
 #
 msgid ""
 msgstr ""
@@ -9,13 +11,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
 "PO-Revision-Date: 2006-10-21 14:30+0800\n"
-"Last-Translator: Asho Yeh <asho@debian.org.tw>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Last-Translator: Tetralet <tetralet@gmail.com>\n"
+"Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
+"debian.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: TAIWAN\n"
 
 #. Type: select
 #. Choices
@@ -45,7 +47,7 @@ msgstr "非互動式"
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "使用介面："
+msgstr "要使用的介面："
 
 #. Type: select
 #. Description
@@ -54,8 +56,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"使用 debconf 進行設定的套件共享一個通用的外觀。請選擇設定過程將使用的使用者介"
-"面種類。"
+"使用 debconf 來進行設定的套件有著共同的外觀及風格。您可以指定它們將會使用的使"
+"用者介面類型。"
 
 #. Type: select
 #. Description
@@ -68,10 +70,10 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Dialog 前端是一種全螢幕的文字介面，readline 前端則是一種更傳統的純文字介面，"
-"而 gnome 和 kde 前端則是適合其各自桌面系統(但可能也適用於任何 X 環境)的新型 "
-"X 介面。編輯器前端則允許您使用您最喜愛的文件編輯器進行配置工作。非互動式前端"
-"則不會向您提出任何問題。"
+"Dialog 前端是一種全螢幕的文字介面，readline 前端則使用了一種更傳統的純文字介"
+"面，而 gnome 和 kde 前端則是適合其各自桌面系統（但可能也適用於任何 X 環境）的"
+"新型 X 介面。編輯器前端則允許您使用您最喜愛的文字編輯器進行配置工作。非互動式"
+"前端則不會向您提出任何問題。"
 
 #. Type: select
 #. Choices
@@ -115,12 +117,12 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf 將需要提出的問題分成多個級別。請選擇您想看到的最低級別的問題：\n"
-"  - “關鍵” 僅提示您那些可能會造成系統損壞的問題\n"
-"     如果您是新手或非常匆忙，可以考慮選擇此項。\n"
-"  - “高” 針對那些相當重要的問題\n"
-"  - “中” 針對那些普通問題\n"
-"  - “低” 適用於對一切細節控制上癮的用戶"
+"Debconf 把將會提出的問題分成多個級別。請選擇您想回答的問題的最低級別：\n"
+"  - 【關鍵】僅提示您那些可能會造成系統損壞的問題。\n"
+"    如果您是新手或時間緊迫，可以考慮選擇此項。\n"
+"  - 【高】針對那些相當重要的問題\n"
+"  - 【中】針對那些普通問題\n"
+"  - 【低】適用於對一切細節控制上癮的使用者"
 
 #. Type: select
 #. Description
@@ -129,20 +131,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"注意：不管您在此處選擇哪種級別，當您使用 dpkg-reconfigure 重新設定套件時都將"
-"能看到所有的問題。"
+"注意：不管您在此處選擇了哪種級別，當您使用 dpkg-reconfigure 重新設定套件時都"
+"將能看到所有的問題。"
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr "正在安裝套件"
+msgstr "安裝套件"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr "請稍後…"
+msgstr "請稍候..."
 
 #. Type: text
 #. Description
@@ -151,4 +153,4 @@ msgstr "請稍後…"
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "變更媒體"
