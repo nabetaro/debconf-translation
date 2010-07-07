@@ -1,12 +1,13 @@
-#
+# started in: Debian-installer 1st-stage master file HR
+# by: Krunoslav Gernhard <kruno@linux.hr>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Debian-installer 1st-stage master file HR\n"
+"Project-Id-Version: debconf 1.5.33\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2005-03-05 21:51+0100\n"
-"Last-Translator: Krunoslav Gernhard <kruno@linux.hr>\n"
+"PO-Revision-Date: 2010-07-07 15:10+0200\n"
+"Last-Translator: Josip Rodin <joy+ditrans@linux.hr>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,31 +17,31 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "Neinteraktivno"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "Koristiti sučelje:"
 
 #. Type: select
 #. Description
@@ -49,6 +50,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"Paketi koji koriste debconf za postavke dijele zajednički izgled i način "
+"rada. Možete odabrati vrstu korisničkog sučelja koji oni koriste."
 
 #. Type: select
 #. Description
@@ -61,6 +64,13 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"Sučelje 'Dialog' je tekstualno preko cijelog ekrana, dok je sučelje "
+"'Readline' više tradicionalno tekstualno sučelje. I 'Gnome' i 'KDE' "
+"sučelja su moderna X sučelja, koja se uklapaju u odgovarajuća grafička "
+"radna okruženja (iako se mogu koristiti u bilo kojem X okruženju). "
+"Sučelje 'Editor' vam omogućuje podešavanje stvari u vašem omiljenom "
+"programu za uređivanje teksta. Neinteraktivno sučelje nikad ne pita "
+"nikakva pitanja."
 
 #. Type: select
 #. Choices
@@ -89,9 +99,8 @@ msgstr "niske"
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "Preskoči pitanja razine važnosti niže od..."
+msgstr "Preskoči pitanja razine važnosti niže od:"
 
 #. Type: select
 #. Description
@@ -105,6 +114,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf slaže pitanja koja vas pita po prioritetu odn. razini važnosti. "
+"Odaberite najnižu razinu važnosti pitanja koja želite vidjeti:\n"
+" - 'kritična' znači da će neodgovaranje na to pitanje može pokvariti sustav.\n"
+"    Odaberite ovu razinu ako ste početnik, ili ako vam se žuri.\n"
+" - 'visoka' je za prilično bitna pitanja\n"
+" - 'srednja' je za uobičajena pitanja\n"
+" - 'niska' je za one opsjednute kontrolom, koji žele vidjeti sve"
 
 #. Type: select
 #. Description
@@ -113,18 +129,21 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"Imajte na umu da neovisno o tome koji nivo ovdje odaberete, moći ćete "
+"vidjeti svako pitanje ako pokrenete ponovo podešavanje nekog paketa "
+"koristeći 'dpkg-reconfigure'."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "Instaliranje paketa"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "Molim pričekajte..."
 
 #. Type: text
 #. Description
@@ -133,46 +152,7 @@ msgstr ""
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Preskoči pitanja razine važnosti niže od..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Paketi koji rabe debconf za podešavanje dijele pitanja koja vam upućuju "
-#~ "prema razini važnosti. Samo pitanja važnosti koju vi odredite, ili "
-#~ "višlje, bit će vam postavljena; sva niže važna pitanja bit će preskočena."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Izaberite najnižu razinu važnosti pitanja koja želite vidjeti:\n"
-#~ " - 'kritična' je za probleme koji će vjerojatno srušiti sustav\n"
-#~ "    bez utjecaja korisnika.\n"
-#~ " - 'visoka' je za probleme koji nemaju zadane vrijednosti.\n"
-#~ " - 'srednja' je za stvari koje imaju zadane vrijednosti.\n"
-#~ " - 'niska' je za nevažne stvari koje će u premoćno najvećem broju\n"
-#~ "   slučajeva dobro raditi po zadanim vrijednostima."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Primjerice, ovo pitanje je srednje važnosti i da ste već odredili željenu "
-#~ "razinu kao 'visoku' ili 'kritičnu', ne biste ga vidjeli."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Promijeni debconf razinu važnosti"
+msgstr "Promjena medija"
 
 #~ msgid "Continue"
 #~ msgstr "Nastavi"
@@ -188,10 +168,6 @@ msgstr ""
 
 #~ msgid "Cancel"
 #~ msgstr "Otkaži"
-
-#, fuzzy
-#~ msgid "LTR"
-#~ msgstr "Litva"
 
 #~ msgid "!! ERROR: %s"
 #~ msgstr "!! POGREŠKA: %s"
