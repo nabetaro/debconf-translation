@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.2.39\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-07-11 12:57+0100\n"
 "PO-Revision-Date: 2006-10-05 20:27+0200\n"
 "Last-Translator: Javier Fernandez-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian Spanish Team <debian-l10n-spanish@lists.debian.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -194,7 +195,7 @@ msgstr ""
 "Necesita una pantalla de al menos 13 líneas de alto y 31 columnas de ancho "
 "para la interfaz «dialog»."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configuración de paquetes"
 
@@ -224,8 +225,7 @@ msgstr ""
 "debconf leerá el fichero editado, y usará los valores introducidos para "
 "configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -273,9 +273,9 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"La plantilla #%s en %s tiene un campo «%s» duplicado con el nuevo valor «%s». "
-"Probablemente dos plantillas no están separadas correctamente con un sólo "
-"retorno de carro.\n"
+"La plantilla #%s en %s tiene un campo «%s» duplicado con el nuevo valor "
+"«%s». Probablemente dos plantillas no están separadas correctamente con un "
+"sólo retorno de carro.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format

@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5.28\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-07-11 12:57+0100\n"
 "PO-Revision-Date: 2010-03-10 18:57+0100\n"
 "Last-Translator: Guillem Jover <guillem@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,8 +56,8 @@ msgstr ""
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-"Ha hagut un problema en configurar la base de dades definida per l'estrofa %"
-"s de %s."
+"Ha hagut un problema en configurar la base de dades definida per l'estrofa "
+"%s de %s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -191,7 +192,7 @@ msgstr ""
 "La interfície de dialog requereix una pantalla d'almenys 13 d'alçada i 31 "
 "columnes d'amplada."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configuració del paquet"
 
@@ -221,8 +222,7 @@ msgstr ""
 "deseu i sortiu. En aquest moment, debconf llegirà el fitxer editat, i "
 "utilitzarà els valors que heu introduir per configurar el sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"

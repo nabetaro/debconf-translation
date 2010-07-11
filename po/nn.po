@@ -12,10 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf_nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-07-11 12:57+0100\n"
 "PO-Revision-Date: 2005-01-23 19:33+0100\n"
 "Last-Translator: Håvard Korsvoll <korsvoll@skulelinux.no>\n"
 "Language-Team: Norwegian (Nynorsk) <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -186,7 +187,7 @@ msgstr ""
 "Det dialogbaserte grensesnittet krev eit skjermvindauge på minst 13 linjer "
 "og 31 kolonner."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 #, fuzzy
 msgid "Package configuration"
 msgstr "Oppsett av Debian"
@@ -216,8 +217,7 @@ msgstr ""
 "lese den redigerte fila og bruka dei verdiane du har skrive inn for å setje "
 "opp systemet."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf på %s"
@@ -262,8 +262,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to malar "
-"ikkje skikkeleg skilde med ei tom linje.\n"
+"Mal #%s i %s har eit duplisert felt «%s» med ny verdi «%s». Truleg er to "
+"malar ikkje skikkeleg skilde med ei tom linje.\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format

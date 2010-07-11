@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.4.70\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 19:52-0400\n"
+"POT-Creation-Date: 2010-07-11 12:57+0100\n"
 "PO-Revision-Date: 2006-10-07 10:33+0200\n"
 "Last-Translator: Stefano Canepa <sc@linux.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,8 +44,8 @@ msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Le opzioni «Sigils» e «Smileys» nel file config non sono più usate e pertanto "
-"vanno rimosse."
+"Le opzioni «Sigils» e «Smileys» nel file config non sono più usate e "
+"pertanto vanno rimosse."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
@@ -182,7 +183,7 @@ msgstr ""
 "Il frontend a dialoghi richiede uno schermo che misuri almeno 13 righe in "
 "altezza e 31 colonne in larghezza."
 
-#: ../Debconf/FrontEnd/Dialog.pm:280
+#: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configurazione del pacchetto"
 
@@ -212,8 +213,7 @@ msgstr ""
 "quindi salvare e uscire; a questo punto, debconf leggerà il file modificato "
 "e userà i valori specificati per configurare il sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97 ../Debconf/FrontEnd/Kde.pm:85
-#: ../Debconf/FrontEnd/Kde.pm:96
+#: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf su %s"
@@ -270,7 +270,8 @@ msgstr "Campo «%s» sconosciuto nel template, nella stanza n°%s di %s\n"
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
+msgstr ""
+"Errore analizzando il template vicino a «%s», nella stanza n°%s di %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
