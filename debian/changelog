@@ -3,6 +3,10 @@ debconf (1.5.34) UNRELEASED; urgency=low
   [ Debconf translation updates ]
   * Bosnian (Armin Beširović).
 
+  [ Colin Watson ]
+  * Use 'dh $@ --options' rather than 'dh --options $@', for
+    forward-compatibility with debhelper v8.
+
  -- Christian Perrier <bubulle@debian.org>  Mon, 12 Jul 2010 22:13:51 +0200
 
 debconf (1.5.33) unstable; urgency=low
