@@ -1,0 +1,159 @@
+# Kazakh translation for debian installer, debconf_debian_po
+# Copyright (C) 2010 HZ
+# This file is distributed under the same license as the debian installer package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sid\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-07-14 12:11+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Poedit-Language: Kazakh\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "Сұхбат"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "Жолды оқу"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "Түзетуші"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "Интерактивті емес"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "Қолданылатын интерфейс:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Бапталу үшін debconf қолданылатын дестелерде бапталу түрі бірдей болады. "
+"Олар қолданатын интерфейсті таңдай аласыз."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Сұхбат интерфейсі толық экрандық, таңбалық құралы болып келеді, жолды оқу "
+"дегеніміз - дәстүрлі қалыпты мәтіндік интерфейс, gnome мен kde нұсқалардың "
+"екеуі де жаңа, X интерфейсіне негізделген, түрлі X жұмыс үстел орталарында "
+"қолданыла алады. Түзетуші - сізге нәрселерді таңдаулы мәтін түзетуші "
+"қолданбасы көмегімен баптауға мүмкіндік береді. Интерактивті емес нұсқасы "
+"сізге ешқашан да сұрақтарды қоймайды."
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "қатаң"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "жоғары"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "орташа"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "төмен"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "Приоритеті келесіден төмен сұрақтарды елемеу:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"Debconf сізге қойылатын сұрақтарды маңызы бойынша келесідей бөледі. Көргіңіз "
+"келетін ең төмен дәрежені таңдаңыз:\n"
+"  - 'катаң' тек жүйеңізге зақым келтіру қауіпі болса ғана сұрайды.\n"
+"    Бастауыш болсаңыз не асықсаңыз, осыны таңдаңыз.\n"
+"  - 'жоғары' тек маңызды сұрақтар үшін\n"
+"  - 'орташа' қалыпты сұрақтар үшін\n"
+"  - 'төмен' егжей-тегжейін көргісі келетіндер үшін"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Осында не таңдасаңыз да, егер дестені dpkg-reconfigure көмегімен қайта "
+"баптасаңыз, ол десте үшін барлық сұрақтарды көре алатыныңызды есте сақтаңыз."
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "Дестелерді орнату"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "Күте тұрыңыз..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "Дискті ауыстыру"
