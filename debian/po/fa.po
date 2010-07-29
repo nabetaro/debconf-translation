@@ -4,43 +4,47 @@ msgstr ""
 "Project-Id-Version: fa\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2005-07-31 18:31+0430\n"
-"Last-Translator: Arash Bijanzadeh <a.bijanzadeh@linuxiran.org>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2010-07-28 19:00+0330\n"
+"Last-Translator: Behrad Eslamifar <behrad_es@yahoo.com>\n"
+"Language-Team: debian-l10n-persian <debian-l10n-persian@lists.debian.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "Readline"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr ""
+msgstr "ویرایشگر"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "غیر محاوره ای"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr ""
+msgstr "رابط کاربری مورد استفاده:"
 
 #. Type: select
 #. Description
@@ -49,6 +53,9 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"بشته هایی که از debconf برای پیکربندی استفاده می کنند، شکل و حس مشترکی "
+"دارند. شما می توانید رابط کاربری که برای آنها مورد استفاده قرار می گیرد را "
+"انتخاب کنید."
 
 #. Type: select
 #. Description
@@ -61,6 +68,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+"رابط dialog یک رابط کاربری تمام صفحه بر مبنای کاراکتر است، در حالی که "
+"readline بیشتر از رابط کاربری متنی استفاده می کند، و gnome و kde رابط های ،"
+"رابط کاربری X هستند که میزکارهای مناسبی را در اختیار می گذارند (اما ممکن است "
+"هر کدام از محیط های تحت X استفاده شود). ویرایشکر رابط به شما اجازه می دهد تا "
+"چیز ها را با ویرایشگر متن مورد علاقه خود ویرایش کنید. رابط های غیر محاوره ای "
+"هیچگاه از شما سؤالی نمی پرسند."
 
 #. Type: select
 #. Choices
@@ -72,7 +85,7 @@ msgstr "بحرانی"
 #. Choices
 #: ../templates:2001
 msgid "high"
-msgstr "زیاد"
+msgstr "بالا"
 
 #. Type: select
 #. Choices
@@ -84,14 +97,13 @@ msgstr "متوسط"
 #. Choices
 #: ../templates:2001
 msgid "low"
-msgstr "کم"
+msgstr "پایین"
 
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
 msgid "Ignore questions with a priority less than:"
-msgstr "از سوالات با اولویت کمتر از مقدار انتخاب شده صرف نظر کن"
+msgstr "از سوالات با اولویت کمتر از مقدار روبرو صرف نظر کن:"
 
 #. Type: select
 #. Description
@@ -105,6 +117,14 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"Debconf سؤالهایی را که از شما می پرسد اولویت بندی می کند. پایین ترین اولویت "
+"هایی را که می خواهیید ببینید انتخاب کنید:\n"
+"  - 'بحرانی' تنها در صورتی که احتمال شکست در سیستم باشد به شما نمایش داده می "
+"شود.\n"
+"    در صورتی که تازه کار هستید و یا عجله دارید آن را انتخاب کنید.\n"
+"  - 'بالا' برای سؤالات نسبتاً مهم است.\n"
+"  - 'متوسط' سؤالات معمولی\n"
+"  - 'پایین' برای کنترل زیاد برای کسی که می خواهد همه چیز را ببیند"
 
 #. Type: select
 #. Description
@@ -113,18 +133,21 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"توجه داشته باشید، که هیچ اهمیتی ندارد که چه گزینه ای را انتخاب می کنید، شما "
+"می توانید در صورتی که یک بسته را با دستور dpkg-reconfigure مجدداً پیکربندی "
+"کردید، تمام سؤال ها را دوباره ببینید."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "نصب بسته ها"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "لطفاً صبر کنید ..."
 
 #. Type: text
 #. Description
@@ -133,7 +156,7 @@ msgstr ""
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "تغییر رسانه"
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "از سوالات با اولویت کمتر از مقدار انتخاب شده صرف نظر کن"
