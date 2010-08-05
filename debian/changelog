@@ -8,6 +8,7 @@ debconf (1.5.34) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Use 'dh $@ --options' rather than 'dh --options $@', for
     forward-compatibility with debhelper v8.
+  * Handle ll[_CC]@modifier as a locale name.  Closes: #591633
 
  -- Christian Perrier <bubulle@debian.org>  Mon, 12 Jul 2010 22:13:51 +0200
 

@@ -217,7 +217,7 @@ sub load {
 		my ($field, $value, $extended)=('', '', '');
 		foreach my $line (split "\n", $_) {
 			chomp $line;
-			if ($line=~/^([-_.A-Za-z0-9]*):\s?(.*)/) {
+			if ($line=~/^([-_@.A-Za-z0-9]*):\s?(.*)/) {
 				# Beginning of new field. First, save the
 				# old one.
 				$save->($field, $value, $extended, $file);
@@ -338,9 +338,9 @@ sub stringify {
 			(grep { $_ ne 'template' && $_ ne 'type'} sort $_->fields)) {
 			next if $key=~/^extended_/;
 			# Support special case of -ll_LL items.
-			if ($key =~ m/-[a-z]{2}_[a-z]{2}(-fuzzy)?$/) {
+			if ($key =~ m/-[a-z]{2}_[a-z]{2}(@[^_@.])?(-fuzzy)?$/) {
 				my $casekey=$key;
-				$casekey=~s/([a-z]{2})(-fuzzy|)$/uc($1).$2/eg;
+				$casekey=~s/([a-z]{2})(@[^_@.]|)(-fuzzy|)$/uc($1).$2.$3/eg;
 				$data.=ucfirst($casekey).": ".$_->$key."\n";
 			}
 			else {
