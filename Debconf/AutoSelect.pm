@@ -26,7 +26,7 @@ it progressively falls back to other types in the list.
 
 my %fallback=(
 	# preferred frontend		# fall back to
-	'Kde'			=>	['Gnome', 'Dialog', 'Readline', 'Teletype'],
+	'Kde'			=>	['Dialog', 'Readline', 'Teletype'],
 	'Gnome'			=>	['Dialog', 'Readline', 'Teletype'],
 	'Web'			=>	['Dialog', 'Readline', 'Teletype'],
 	'Dialog'		=>	['Readline', 'Teletype'],

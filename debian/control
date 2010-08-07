@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debconf Developers <debconf-devel@lists.alioth.debian.org>
 Uploaders: Joey Hess <joeyh@debian.org>, Colin Watson <cjwatson@debian.org>
 Standards-Version: 3.8.3
-Build-Depends-Indep: perl (>= 5.10.0-16), python, python-central (>= 0.6.11), gettext (>= 0.13), libintl-perl
+Build-Depends-Indep: perl (>= 5.10.0-16), python, python-central (>= 0.6.11), gettext (>= 0.13), libintl-perl, libqtgui4-perl
 Build-Depends: debhelper (>= 7.0.50~), po-debconf, po4a (>= 0.23)
 Vcs-Svn: svn://svn.debian.org/debconf/trunk/src/debconf
 XS-Python-Version: 2.4, 2.5, 2.6
@@ -17,7 +17,7 @@ Provides: debconf-2.0
 Replaces: debconf-tiny
 Depends: debconf-i18n | debconf-english, ${misc:Depends}
 Recommends: apt-utils (>= 0.5.1)
-Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome2-perl, libnet-ldap-perl, perl
+Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome2-perl, libnet-ldap-perl, perl, libqtgui4-perl, libqtcore4-perl
 XB-Python-Version: ${python:Versions}
 Architecture: all
 Description: Debian configuration management system

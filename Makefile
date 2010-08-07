@@ -16,6 +16,8 @@ clean:
 	find . \( -name \*~ -o -name \*.pyc -o -name \*.pyo \) | xargs rm -f
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
+	#remove generated file
+	rm -f DebConf/FrontEnd/Kde/Ui_DebconfWizard.pm
 
 # Does not attempt to install documentation, as that can be fairly system
 # specific.
@@ -41,6 +43,8 @@ install-rest:
 	install -m 0644 debian-logo.png $(prefix)/usr/share/pixmaps/
 	# This one is the ultimate backup copy.
 	grep -v '^#' debconf.conf > $(prefix)/usr/share/debconf/debconf.conf
+	#build the Qt ui file
+	cd $(CURDIR)/Debconf/FrontEnd/Kde/ && bash generateui.sh
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
 		xargs -i install -d $(prefix)/usr/share/perl5/{}
