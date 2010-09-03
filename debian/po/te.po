@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Veeven <veeven@gmail.com>\n"
+"Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -17,25 +17,25 @@ msgstr ""
 #. Choices
 #: ../templates:1001
 msgid "Dialog"
-msgstr ""
+msgstr "భాషణ "
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr ""
+msgstr "రీడ్లైన్ "
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Editor"
-msgstr "కూర్పరి"
+msgstr "సరిచేయునది"
 
 #. Type: select
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr ""
+msgstr "ప్రశ్నలు వేయక"
 
 #. Type: select
 #. Description
@@ -50,6 +50,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
+"అమరికలకోసం డెబ్కాన్ఫ్ ని వాడే    పాకేజీలు, ఏకరూపాన్ని, అనుభూతిని కలిగిస్తాయి. అవి  వాడే అంతరవర్తి ని(UI) "
+"ఎంచుకోవచ్చు "
 
 #. Type: select
 #. Description
@@ -62,12 +64,16 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
+" భాషణ  (Dialog)అక్షరాల  అంతర్ముఖముగా గల పూర్తి తెర రూపము, రీడ్లైన్(Readline)  సాంప్రదాయక "
+"పాఠ్య రూపము, గ్నోమ్ (Gnome), కెడిఇ(KDE)  రంగస్థలానికి సరిపడే ఆధునిక  ఎక్స్  రూపాలు (ఏ ఎక్స్ "
+"పర్యావరణంలో అయిన వాడవచ్చు). సరిచేయునది (Editor) రూపముతో  మీ కు ఇష్టమైన సరిచేయు అనువర్తనము "
+"వాడిఅమరికలు చేయవచ్చు. ప్రశ్నలు వేయక(Noninteractive) రూపము ప్రశ్నలు వేయకుండా ఏకబిగిన పనిచేయటానికి"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "critical"
-msgstr "విశమం"
+msgstr "కీలకం"
 
 #. Type: select
 #. Choices
@@ -105,6 +111,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
+"డెబ్కాన్ఫ్  మిమ్ములను  ప్రాధాన్యత ప్రకారము  ప్రశ్నలను అడుగుతుంది. మీరు చూడాలనుకునే కనిష్ఠ స్థాయిని "
+"ఎంచుకో  :\n"
+"  - 'కీలకం'  మీ వ్యవస్థ చెడిపోయే అవకాశముండే ప్రశ్నలుమాత్రము.\n"
+"    మీరు కొత్త  వాడుకరి లేక తొందరలో వుంటే  ఎంచుకో .\n"
+"  - 'ఉన్నతం' ముఖ్యమైన ప్రశ్నలు\n"
+"  - 'మధ్యమం'  సాధారణ  ప్రశ్నలు\n"
+"  - 'అధమం'  ప్రతీది పరీక్షగా చూద్దామనేవారికి"
 
 #. Type: select
 #. Description
@@ -113,6 +126,7 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"మీరు ఏ స్థాయి ఎంచుకున్నా, మీరు dpkg-reconfigure  వాడితే, ప్రతి ప్రశ్న చూడవచ్చని గమనించండి"
 
 #. Type: text
 #. Description
