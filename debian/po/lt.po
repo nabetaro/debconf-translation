@@ -1,15 +1,16 @@
-# Kęstutis Biliūnas <kebil@kaunas.init.lt>, 2004, 2005, 2006.
 # Marius Gedminas <mgedmin@b4net.lt>, 2004.
 # Darius Skilinskas <darius10@takas.lt>, 2005.
+# Kęstutis Biliūnas <kebil@kaunas.init.lt>, 2004...2006, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer\n"
+"Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-07-30 15:24+0300\n"
+"PO-Revision-Date: 2010-09-09 09:32+0300\n"
 "Last-Translator: Kęstutis Biliūnas <kebil@kaunas.init.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,119 +153,4 @@ msgstr "Palaukite..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
-
-#~ msgid "Gnome"
-#~ msgstr "Gnome"
-
-#~ msgid "Kde"
-#~ msgstr "Kde"
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "Ignoruoti klausimus, kurių prioritetas žemesnis negu..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "Paketai, konfigūracijai naudojantys debconf'ą, suteikia prioritetus "
-#~ "užduodamiems klausimams. Jums bus rodomi tik klausimai su su pasirinktu "
-#~ "arba aukštesniu prioritetu. Visi mažiau svarbūs klausimai bus praleisti."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "Galite pasirinkti žemiausią rodomų klausimų prioritetiškumą:\n"
-#~ " - 'kritiškas' - klausimams, kurie neįsikišus naudotojui greičiausiai\n"
-#~ "    nulauš sistemą.\n"
-#~ " - 'aukštas' - klausimams, neturintiems priimtino numatytojo\n"
-#~ "    varianto.\n"
-#~ " - 'vidutinis' - įprastiems klausimams, turintiems priimtiną\n"
-#~ "    numatytąjį variantą.\n"
-#~ " - 'žemas' - paprastiems klausimams, turintiems numatytąjį\n"
-#~ "    atsakymo variantą, tinkantį didžiumai atvejų."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "Pavyzdžiui, šis klausimas turi vidutinį prioritetą, ir jei Jūsų "
-#~ "pasirinktas prioritetas jau būtų nustatytas kaip 'aukštas' ar "
-#~ "'kritiškas', Jūs šio klausimo nematytumėte."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "Debconf'o prioritetiškumo keitimas"
-
-#~ msgid "Continue"
-#~ msgstr "Tęsti"
-
-#~ msgid "Go Back"
-#~ msgstr "Grįžti"
-
-#~ msgid "Yes"
-#~ msgstr "Taip"
-
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#~ msgid "Cancel"
-#~ msgstr "Atsisakyti"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<Tab> judėti tarp įrašų; <Space> pasirinkti; <Enter> vykdymo klavišas"
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "Ekrano muotrauka"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "Ekrano nuotrauka išsaugota kaip %s"
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! KLAIDA: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "SUTRUMPINIMAI:"
-
-#~ msgid "Display this help message"
-#~ msgstr "Rodyti šį pagalbos pranešimą"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "Grįžti į ankstesnį klausimą"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "Pasirinkti tuščią eilutę"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "Kvietimas: '%c' pagalba, numatytasis=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "Kvietimas: '%c' pagalba> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "Kvietimas: '%c' pagalba, numatytasis=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[Enter - tęsti]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr ""
-#~ "Dialog, Readline (komandinė eilutė), Gnome, Kde, tekstinis redaktorius, "
-#~ "neinteraktyvus"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "kritiškas, aukštas, vidutinis, žemas"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "Kokia sąsaja turėtų būti naudojama paketų konfigūravimui?"
+msgstr "Laikmenos keitimas"

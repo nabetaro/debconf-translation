@@ -1,16 +1,17 @@
 # debconf debconf template Korean translation.
 #
 # Sunjae Park <darehanl@gmail.com>, 2006.
-# Changwoo Ryu <cwryu@debian.org>, 2008.
+# Changwoo Ryu <cwryu@debian.org>, 2008, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2008-07-20 11:16+0900\n"
+"PO-Revision-Date: 2010-09-05 04:25+0900\n"
 "Last-Translator:  Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team:  Korean <debian-l10n-korean@lists.debian.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,7 +69,7 @@ msgid ""
 msgstr ""
 "다이얼로그 프론트엔드는 문자 기반의 전체 화면 인터페이스이고, 리드라인 프론트"
 "엔드는 더 전통적인 일반 텍스트 인터페이스를 사용하고, 그놈과 KDE는 현대적인 "
-"X 인터페이스로 해당 데스크탑에 적합합니다 (하지만 X 환경에서만 사용할 수 있습"
+"X 인터페이스로 해당 데스크톱에 적합합니다 (하지만 X 환경에서만 사용할 수 있습"
 "니다). 편집기 프론트엔드는 본인이 자주 사용하는 텍스트 편집기를 이용해서 설정"
 "합니다. 물어보지 않음 프론트엔드의 경우 어떤 설정도 물어보지 않습니다."
 
@@ -151,112 +152,4 @@ msgstr "잠시 기다리십시오..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
-
-#~ msgid "Gnome"
-#~ msgstr "그놈 방식"
-
-#~ msgid "Kde"
-#~ msgstr "KDE 방식"
-
-#~ msgid "Ignore questions with a priority less than..."
-#~ msgstr "이보다 우선 순위가 낮은 질문은 무시..."
-
-#~ msgid ""
-#~ "Packages that use debconf for configuration prioritize the questions they "
-#~ "might ask you. Only questions with a certain priority or higher are "
-#~ "actually shown to you; all less important questions are skipped."
-#~ msgstr ""
-#~ "debconf를 사용하는 패키지에서는 물어보는 질문들에 우선 순위를 매깁니다. 지"
-#~ "정한 우선 순위 혹은 그보다 높은 우선 순위의 질문들만 나타납니다; 더 낮은 "
-#~ "질문들은 건너 뜁니다."
-
-#~ msgid ""
-#~ "You can select the lowest priority of question you want to see:\n"
-#~ " - 'critical' is for items that will probably break the system\n"
-#~ "    without user intervention.\n"
-#~ " - 'high' is for items that don't have reasonable defaults.\n"
-#~ " - 'medium' is for normal items that have reasonable defaults.\n"
-#~ " - 'low' is for trivial items that have defaults that will work in\n"
-#~ "   the vast majority of cases."
-#~ msgstr ""
-#~ "질문의 최저 우선 순위를 선택할 수 있습니다:\n"
-#~ " - '중요'는 사용자가 개입하지 않으면 시스템이 제대로 동작하지 않는 경우.\n"
-#~ " - '높음'은 사용할 만한 기본값이 없는 경우.\n"
-#~ " - '중간'은 사용할 만한 기본값이 있는 경우.\n"
-#~ " - '낮음'은 대부분의 경우에 동작하는 기본값이 있는 경우."
-
-#~ msgid ""
-#~ "For example, this question is of medium priority, and if your priority "
-#~ "were already 'high' or 'critical', you wouldn't see this question."
-#~ msgstr ""
-#~ "예를 들어, 이 질문은 중간 우선 순위입니다. 우선 순위가 '높음'이나 '중요'였"
-#~ "다면, 이 질문을 보지 못했을 것입니다."
-
-#~ msgid "Change debconf priority"
-#~ msgstr "debconf 우선 순위 바꾸기"
-
-#~ msgid "Continue"
-#~ msgstr "계속"
-
-#~ msgid "Go Back"
-#~ msgstr "뒤로 가기"
-
-#~ msgid "Yes"
-#~ msgstr "예"
-
-#~ msgid "No"
-#~ msgstr "아니오"
-
-#~ msgid "Cancel"
-#~ msgstr "취소"
-
-#~ msgid ""
-#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
-#~ msgstr ""
-#~ "<탭>키는 항목간 이동에, <스페이스바>는 선택에, <엔터>는 활성화에 쓰입니다."
-
-#~ msgid "LTR"
-#~ msgstr "LTR"
-
-#~ msgid "Screenshot"
-#~ msgstr "스크린샷 찍기"
-
-#~ msgid "Screenshot saved as %s"
-#~ msgstr "찍은 스크린샷을 %s로 저장하였습니다."
-
-#~ msgid "!! ERROR: %s"
-#~ msgstr "!! 오류: %s"
-
-#~ msgid "KEYSTROKES:"
-#~ msgstr "키스트로크:"
-
-#~ msgid "Display this help message"
-#~ msgstr "이 도움말 메세지를 표시합니다"
-
-#~ msgid "Go back to previous question"
-#~ msgstr "이전 질문으로 돌아갑니다"
-
-#~ msgid "Select an empty entry"
-#~ msgstr "빈 항목을 선택합니다"
-
-#~ msgid "Prompt: '%c' for help, default=%d> "
-#~ msgstr "안내: 도움말은 '%c', 기본값=%d> "
-
-#~ msgid "Prompt: '%c' for help> "
-#~ msgstr "안내: 도움말은 '%c'> "
-
-#~ msgid "Prompt: '%c' for help, default=%s> "
-#~ msgstr "안내: 도움말은 '%c', 기본값=%s> "
-
-#~ msgid "[Press enter to continue]"
-#~ msgstr "[계속하시려면 Enter를 누르십시오]"
-
-#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
-#~ msgstr "다이얼로그, 리드라인, 그놈, KDE, 편집기, 물어보지 않기"
-
-#~ msgid "critical, high, medium, low"
-#~ msgstr "중요, 높음, 중간, 낮음"
-
-#~ msgid "What interface should be used for configuring packages?"
-#~ msgstr "패키지 설정에 어떤 인터페이스를 사용하시겠습니까?"
+msgstr "미디어 교체"
