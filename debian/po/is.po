@@ -2,14 +2,14 @@
 # Copyright (C) 2010 Free Software Foundation
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn ?? Felli <sveinki@nett.is>, 2010.
+# Sveinn í Felli <sveinki@nett.is>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf_debian_is\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
 "PO-Revision-Date: 2010-07-19 07:09+0000\n"
-"Last-Translator: Sveinn ?? Felli <sveinki@nett.is>\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <rglug@rglug.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Samskiptagluggi"
 #. Choices
 #: ../templates:1001
 msgid "Readline"
-msgstr "Lesl??na"
+msgstr "Leslína"
 
 #. Type: select
 #. Choices
@@ -39,13 +39,13 @@ msgstr "Ritill"
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr "??gagnvirkt"
+msgstr "Ógagnvirkt"
 
 #. Type: select
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "Vi??m??t sem nota skal:"
+msgstr "Viðmót sem nota skal:"
 
 #. Type: select
 #. Description
@@ -54,8 +54,8 @@ msgid ""
 "Packages that use debconf for configuration share a common look and feel. "
 "You can select the type of user interface they use."
 msgstr ""
-"Forrit sem nota debconf sem stillingavi??m??t deila me?? s??r svipu??u ??"
-"tliti og ??fer??. ???? getur vali?? hverskonar notandavi??m??t ??au nota."
+"Forrit sem nota debconf sem stillingaviðmót deila með sér svipuðu útliti og "
+"áferð. Þú getur valið hverskonar notandaviðmót þau nota."
 
 #. Type: select
 #. Description
@@ -68,19 +68,18 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"Vi??m??t samskiptagluggans er textavi??m??t ?? heilskj?? (DOS-l??kt), ?? me??"
-"an lesl??na er meira ?? ??tt vi?? hef??bundna skipanal??nu. B????i GNOME og "
-"KDE vi??m??tin eru n??t??ma gluggavi??m??t sem samsvara samnefndum skj??bor??"
-"sumhverfum (en sem h??gt er a?? nota ?? hva??a gluggaumhverfi sem er). "
-"Ritilsvi??m??ti?? gerir ????r kleift a?? stilla hluti me?? ??v?? a?? nota ??"
-"ann ritil sem ????r finnst ????gilegast a?? vinna me??. ??gagnvirkt vi??m??t "
-"spyr ??ig ekki neinna spurninga."
+"Viðmót samskiptagluggans er textaviðmót á heilskjá (DOS-líkt), á meðan "
+"leslína er meira í ætt við hefðbundna skipanalínu. Bæði GNOME og KDE "
+"viðmótin eru nútíma gluggaviðmót sem samsvara samnefndum skjáborðsumhverfum "
+"(en sem hægt er að nota í hvaða gluggaumhverfi sem er). Ritilsviðmótið gerir "
+"þér kleift að stilla hluti með því að nota þann ritil sem þér finnst "
+"þægilegast að vinna með. Ógagnvirkt viðmót spyr þig ekki neinna spurninga."
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "critical"
-msgstr "mikilv??gt"
+msgstr "mikilvægt"
 
 #. Type: select
 #. Choices
@@ -92,19 +91,19 @@ msgstr "mikill"
 #. Choices
 #: ../templates:2001
 msgid "medium"
-msgstr "mi??lungs"
+msgstr "miðlungs"
 
 #. Type: select
 #. Choices
 #: ../templates:2001
 msgid "low"
-msgstr "l??till"
+msgstr "lítill"
 
 #. Type: select
 #. Description
 #: ../templates:2002
 msgid "Ignore questions with a priority less than:"
-msgstr "Sleppa spurningum sem hafa l??gri forgang en:"
+msgstr "Sleppa spurningum sem hafa lægri forgang en:"
 
 #. Type: select
 #. Description
@@ -118,14 +117,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf forgangsra??ar spurningunum sem ???? ver??ur be??in(n) um a?? svara. "
-"Veldu ??ann l??gsta forgang spurninga sem ???? vilt sj??:\n"
-"  - 'mikilv??gt' spyr ??ig einungis ef a?? kerfi?? g??ti or??i?? ??starfh??"
-"ft.\n"
-"    Veldu ??etta ef ???? ert byrjandi e??a a?? fl??ta ????r.\n"
-"  - 'mikill' er fyrir frekar mikilv??gar spurningar\n"
-"  - 'mi??lungs' er fyrir venjulegar spurningar\n"
-"  - 'l??till' er fyrir fullkomnunarsinna sem vilja stilla allt sj??lfir"
+"Debconf forgangsraðar spurningunum sem þú verður beðin(n) um að svara. Veldu "
+"þann lægsta forgang spurninga sem þú vilt sjá:\n"
+"  - 'mikilvægt' spyr þig einungis ef að kerfið gæti orðið óstarfhæft.\n"
+"    Veldu þetta ef þú ert byrjandi eða að flýta þér.\n"
+"  - 'mikill' er fyrir frekar mikilvægar spurningar\n"
+"  - 'miðlungs' er fyrir venjulegar spurningar\n"
+"  - 'lítill' er fyrir fullkomnunarsinna sem vilja stilla allt sjálfir"
 
 #. Type: select
 #. Description
@@ -134,9 +132,8 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
-"Athuga??u a?? ??a?? er sama hva??a stig ???? velur h??rna, ef ???? "
-"endurstillir pakka me?? dpkg-reconfigure ???? muntu geta s???? allar vi??"
-"komandi spurningar aftur."
+"Athugaðu að það er sama hvaða stig þú velur hérna, ef þú endurstillir pakka "
+"með dpkg-reconfigure þá muntu geta séð allar viðkomandi spurningar aftur."
 
 #. Type: text
 #. Description
@@ -148,7 +145,7 @@ msgstr "Set upp pakka"
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr "B??ddu a??eins..."
+msgstr "Bíddu aðeins..."
 
 #. Type: text
 #. Description
@@ -157,4 +154,4 @@ msgstr "B??ddu a??eins..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr "Skipti ?? mi??li"
+msgstr "Skipti á miðli"
