@@ -1,0 +1,157 @@
+# Serbian/Cyrillic messages for debconf.
+# Copyright (C) 2010 Software in the Public Interest, Inc.
+# This file is distributed under the same license as the debconf package.
+# Janos Guljas <janos@janos.in.rs>, 2010.
+# Karolina Kalic <karolina@janos.in.rs>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf 1.5.35\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-08-08 23:12+0100\n"
+"Last-Translator: Janos Guljas <janos@janos.in.rs>\n"
+"Language-Team: Serbian\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "Дијалог"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "Линијски"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "Едитор"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "Неинтерактивно"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "Интерфејс за употребу:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Пакети који користе debconf за конфигурацију користе заједнички интерфејс. "
+"Можете изабрати тип интерфејса за употребу."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Интерфејс у облику дијалога је текстуални који се приказује преко целог "
+"екрана, док је линијски више традиционалног облика. Интерфејси gnome и kde "
+"су модерни X интерфјеси у оквиру одговарајућих десктоп окружења (могу се "
+"користити у било ком X окружењу). Користећи едитор интерфејс, можете вршити "
+"конфигурацију помоћу вашег омиљеног едитора. Неинтераквивни интерфејс никад "
+"не поставља питања."
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "критично"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "високо"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "средње"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "ниско"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "Игнорисати питања мањег приоритета од:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"Debconf разврстава питања по приоритету. Изаберите најнижи приоритет питања "
+"који желите да видите:\n"
+"  - 'критично' пита само ако систем може да се сруши.\n"
+"    Изаберите ако сте почетник или у журби.\n"
+"  - 'високо' пита битна питања\n"
+"  - 'средње' пита нормална питања\n"
+"  - 'ниско' пита најбаналнија питања и објашњава све."
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Било шта да изаберете, моћиће те да видите свако питање ако реконфигуришете "
+"пакет помоћу dpkg-reconfigure."
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "Инсталирање пакета"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "Сачекајте..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "Промена медија"
