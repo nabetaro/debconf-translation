@@ -192,7 +192,7 @@ anything, leave it blank. There is no point in duplicating the short
 description.
 .P
 Text in the extended description will be word-wrapped, unless it is
-prefixed by additional whitespace (beyond the one required space).  You can
+prefixed by additional whitespace (beyond the one required space). You can
 break it up into separate paragraphs by putting " ." on a line by itself
 between them.
 .RE
@@ -397,7 +397,7 @@ Call this in your postrm when your package is purged. It removes
 all of your package's questions from debconf's database.
 .TP
 .B X_LOADTEMPLATEFILE /path/to/templates [owner]
-This extension loads the specified template file, into debconf's database.
+This extension loads the specified template file into debconf's database.
 The owner defaults to the package that is being configured with debconf.
 .P
 Here is a simple example of the debconf protocol in action.
@@ -425,10 +425,11 @@ For shell programming, there is the
 a shell script, and talk to debconf in a fairly natural way, using lower-case
 versions of the debconf protocol commands, that are prefixed with "db_" 
 (ie, "db_input" and "db_go"). For details, see
-.BR confmodule(3) .
+.BR confmodule (3) 
+ .
 .P
 Perl programmers can use the
-.BR Debconf::Client::ConfModule(3)
+.BR Debconf::Client::ConfModule (3pm)
 perl module, and python programmers can use the debconf python module.
 .P
 The rest of this manual will use the /usr/share/debconf/confmodule library
@@ -493,7 +494,7 @@ debconf to let postinsts know when they are reconfigured.
 .SH "OTHER SCRIPTS"
 Besides the config script and postinst, you can use debconf in any of the
 other maintainer scripts. Most commonly, you'll be using debconf in your
-postrm, to call the PURGE command when your package is removed, to clean
+postrm, to call the PURGE command when your package is purged, to clean
 out its entries in the debconf database. (This is automatically set up for
 you by
 .BR dh_installdebconf (1) ,
@@ -593,7 +594,7 @@ the debugging output is easily preserved and logged.
 .B DEBCONF_C_VALUES
 .RS
 If this environment variable is set to 'true', the frontend will display
-the values in Choices-C field (if present) of select and multiselect
+the values in Choices-C fields (if present) of select and multiselect
 templates rather than the descriptive values.
 .RE
 .TP
@@ -794,7 +795,7 @@ debconf will do its best to present them all in one screen, and the user
 won't need to back up.
 .SS "Preventing infinite loops"
 One gotcha with debconf comes up if you have a loop in your
-config script.  Suppose you're asking for input and validating
+config script. Suppose you're asking for input and validating
 it, and looping if it's not valid:
 .P
  ok=''
@@ -893,7 +894,7 @@ the package name):
  		db_subst shared/window-manager choices $RET
  		db_metaget shared/window-manager value
  		if [ "<package>" = "$RET" ] ; then
- 			db_fset shared/window-manage seen false
+ 			db_fset shared/window-manager seen false
  			db_input high shared/window-manager || true
  			db_go || true
  		fi
@@ -953,7 +954,7 @@ reconfigured can look at that variable. This is a hack because the right
 thing would be to pass $1 = "reconfigure", but doing so without breaking
 all the postinsts that use debconf is difficult. The migration plan away
 from this hack is to encourage people to write postinsts that accept
-"reconfigure", and once they all do, begin passing that variable.
+"reconfigure", and once they all do, begin passing that parameter.
 .SH "SEE ALSO"
 .BR debconf (7)
 is the debconf user's guide.

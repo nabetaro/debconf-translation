@@ -7,6 +7,13 @@ debconf (1.5.37) UNRELEASED; urgency=low
   * Icelandic (Sveinn í Felli).
   * Serbian (Janos Guljas).  Closes: #600142
 
+  [ Helge Kreutzmann ]
+  * Fix (mostly) typos. Thanks Florian Rehnisch <eixman@gmx.de> for noticing.
+    Addresses: #518395.
+    Also unfuzzy all translations as far as possible.
+  * Update German translation where unfuzzing was not enough (actually a no-op
+    as Florian already translated appropriately).
+
  -- Christian Perrier <bubulle@debian.org>  Thu, 07 Oct 2010 20:43:39 +0200
 
 debconf (1.5.36) unstable; urgency=low

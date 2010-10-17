@@ -13,7 +13,7 @@ confmodule \- communicate with Debian configuration system FrontEnd.
 This is a library of shell functions that eases communication with Debian's
 configuration management system. It can communicate with a FrontEnd via the
 debconf protocol. The design is that each command in the protocol is
-represented by one function in this module. The functionname  is the same as
+represented by one function in this module. The functionname is the same as
 the command, except it is prefixed with "db_" and is lower-case. Call
 the function and pass in any parameters you want to follow the command. Any
 textual return code from the FrontEnd will be returned to you in the $RET

@@ -217,10 +217,10 @@ As example stanza setting up a database using this driver:
 WARNING: This database driver is currently experimental. Use with caution.
 .P
 This database driver accesses a LDAP directory for debconf configuration
-data.Due to the nature of the beast, LDAP directories should typically be
-accessed in read-only mode.  This is because multiple accesses can take
+data. Due to the nature of the beast, LDAP directories should typically be
+accessed in read-only mode. This is because multiple accesses can take
 place, and it's generally better for data consistency if nobody tries to
-modify the data while this is happening.  Of course, write access is
+modify the data while this is happening. Of course, write access is
 supported for those cases where you do want to update the config data in
 the directory.
 .P
@@ -241,12 +241,12 @@ The following things are configurable for this driver.
 The host name or IP address of an LDAP server to connect to.
 .TP
 .B port
-The port on which to connect to the LDAP server.  If none is given, the
+The port on which to connect to the LDAP server. If none is given, the
 default port is used.
 .TP
 .B basedn
-The DN under which all config items will be stored.  Each config item will
-be assumed to live in a DN of cn=<item name>,<Base DN>.  If this structure
+The DN under which all config items will be stored. Each config item will
+be assumed to live in a DN of cn=<item name>,<Base DN>. If this structure
 is not followed, all bets are off.
 .TP
 .B binddn
@@ -254,12 +254,12 @@ The DN to bind to the directory as. Anonymous bind will be used if none is
 specified.
 .TP
 .B bindpasswd
-The password to use in an authenticated bind (used with binddn, above).  If
+The password to use in an authenticated bind (used with binddn, above). If
 not specified, anonymous bind will be used.
 .P
 .RS
-This option should not be used in the general case.  Anonymous binding
-should be sufficient most of the time for read-only access.  Specifying a
+This option should not be used in the general case. Anonymous binding
+should be sufficient most of the time for read-only access. Specifying a
 bind DN and password should be reserved for the occasional case where you
 wish to update the debconf configuration data.
 .RE
