@@ -1297,8 +1297,8 @@ msgstr ""
 "Quand vous le lancez de cette manière, le programme est assez malin pour "
 "remarquer les traductions approximatives. Par exemple, une traduction "
 "approximative sera sortie comme Description-<lang>-fuzzy et une nouvelle "
-"Description-<lang> vierge sera ajoutée. Les traducteurs doivent supprimer le "
-"champ -fuzzy lorsqu'ils corrigent la traduction approximative."
+"Description-<lang> vierge sera ajoutée. Les traducteurs doivent supprimer les "
+"champs -fuzzy lorsqu'ils corrigent les traductions approximatives."
 
 # type: =item
 #. type: =item
@@ -6546,13 +6546,6 @@ msgstr "AUTRES SCRIPTS"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:502
-#, fuzzy
-#| msgid ""
-#| "Besides the config script and postinst, you can use debconf in any of the "
-#| "other maintainer scripts. Most commonly, you'll be using debconf in your "
-#| "postrm, to call the PURGE command when your package is removed, to clean "
-#| "out its entries in the debconf database. (This is automatically set up "
-#| "for you by B<dh_installdebconf>(1)B<,> by the way.)"
 msgid ""
 "Besides the config script and postinst, you can use debconf in any of the "
 "other maintainer scripts. Most commonly, you'll be using debconf in your "
@@ -6563,7 +6556,7 @@ msgstr ""
 "En plus des scripts config et postinst, vous pouvez utiliser debconf dans "
 "tout autre script d'administration. En général, vous utiliserez debconf dans "
 "votre script postrm, pour appeler la commande PURGE quand votre paquet est "
-"supprimé, pour vider ses entrées dans la base de données de debconf. En "
+"purgé, pour vider ses entrées dans la base de données de debconf. En "
 "fait, cela est automatiquement configuré pour vous par B<dh_installdebconf>"
 "(1)B<.>"
 
@@ -6828,19 +6821,14 @@ msgstr "B<DEBCONF_C_VALUES>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:599
-#, fuzzy
-#| msgid ""
-#| "If this environment variable is set to 'true', the frontend will display "
-#| "the values in Choices-C field (if present) of select and multiselect "
-#| "templates rather than the descriptive values."
 msgid ""
 "If this environment variable is set to 'true', the frontend will display the "
 "values in Choices-C fields (if present) of select and multiselect templates "
 "rather than the descriptive values."
 msgstr ""
 "Si cette variable d'environnement est définie à « true », l'interface "
-"graphique affichera les valeurs dans le champ « Choices-C » (s'il est "
-"présent) des modèles select et multi-select au lieu des valeurs "
+"graphique affichera les valeurs dans les champs « Choices-C » (s'ils sont "
+"présents) des modèles select et multi-select au lieu des valeurs "
 "compréhensibles."
 
 # type: TP
@@ -7810,15 +7798,6 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:958
-#, fuzzy
-#| msgid ""
-#| "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
-#| "postinst script that needs to avoid some expensive operation when "
-#| "reconfigured can look at that variable. This is a hack because the right "
-#| "thing would be to pass $1 = \"reconfigure\", but doing so without "
-#| "breaking all the postinsts that use debconf is difficult. The migration "
-#| "plan away from this hack is to encourage people to write postinsts that "
-#| "accept \"reconfigure\", and once they all do, begin passing that variable."
 msgid ""
 "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
 "postinst script that needs to avoid some expensive operation when "
@@ -7835,7 +7814,7 @@ msgstr ""
 "mais le faire sans casser tous les scripts postinsts qui utilisent debconf "
 "est difficile. Le projet de migration pour cette bidouille est d'encourager "
 "les gens à écrire des scripts postinst qui acceptent \"reconfigure\" et, une "
-"fois qu'ils le feront tous, commencer à passer cette variable."
+"fois qu'ils le feront tous, commencer à passer ce paramètre."
 
 # type: Plain text
 #. type: Plain text
