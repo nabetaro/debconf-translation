@@ -1,14 +1,17 @@
-# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006.
+# Catalan translation of debconf templates.
+# Copyright © 2002, 2003, 2004, 2005, 2006, 2010 Software in the Public Interest, Inc.
+# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006, 2010.
 # Guillem Jover <guillem@debian.org>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.5\n"
+"Project-Id-Version: debconf 1.5.35\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-07-29 14:00+0200\n"
+"PO-Revision-Date: 2010-10-18 20:28+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +44,7 @@ msgstr "No interactiva"
 #. Description
 #: ../templates:1002
 msgid "Interface to use:"
-msgstr "Interfície a utilitzar:"
+msgstr "Interfície a emprar:"
 
 #. Type: select
 #. Description
@@ -52,7 +55,7 @@ msgid ""
 msgstr ""
 "Els paquets que utilitzen debconf per a configurar-se comparteixen un "
 "aspecte comú. Podeu triar el tipus d'interfície d'usuari que voleu que "
-"utilitzen."
+"empren."
 
 #. Type: select
 #. Description
@@ -65,12 +68,12 @@ msgid ""
 "you configure things using your favorite text editor. The noninteractive "
 "frontend never asks you any questions."
 msgstr ""
-"«dialog» és una interfície de text a pantalla completa, mentre que «readline» "
-"és més tradicional, en text simple, i tant «gnome» com «kde» són modernes "
-"interfícies per a X, que s'integren als escriptoris corresponents (encara "
-"que es poden utilitzar en qualsevol entorn d'X). La interfície «editor» vos "
-"permet configurar el sistema utilitzant el vostre editor preferit. La "
-"interfície «no interactiva» no fa cap pregunta."
+"«dialog» és una interfície de text a pantalla completa, mentre que "
+"«readline» és més tradicional, en text simple, i tant «gnome» com «kde» són "
+"interfícies modernes per a X, que s'integren als escriptoris corresponents "
+"(tot i que es poden utilitzar en qualsevol entorn d'X). La interfície "
+"«editor» us permet configurar el sistema utilitzant el vostre editor "
+"preferit. La interfície «no interactiva» no fa cap pregunta."
 
 #. Type: select
 #. Choices
@@ -151,7 +154,7 @@ msgstr "Si us plau, espereu..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "Canvi de medi"
 
 #~ msgid "Gnome"
 #~ msgstr "GNOME"
@@ -185,10 +188,12 @@ msgstr ""
 #~ "veure:\n"
 #~ " - «crítica» és per a elements que probablement trencaran el sistema si\n"
 #~ "   l'usuari no hi intervé.\n"
-#~ " - «alta» és per a elements que no tenen valors predeterminats raonables.\n"
+#~ " - «alta» és per a elements que no tenen valors predeterminats "
+#~ "raonables.\n"
 #~ " - «mitjana» és per a elements normals que tenen valors predeterminats\n"
 #~ "    raonables.\n"
-#~ " - «baixa» és per a elements trivials que tenen valors predeterminats que\n"
+#~ " - «baixa» és per a elements trivials que tenen valors predeterminats "
+#~ "que\n"
 #~ "   funcionaran en la gran majoria dels casos."
 
 #~ msgid ""
