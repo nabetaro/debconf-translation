@@ -1,15 +1,17 @@
 #
 # translation of nl.po to Dutch
 # Frans Pop <aragorn@tiscali.nl>, 2005.
+# Eric Spreen <erispre@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nl\n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2006-10-12 18:19+0100\n"
-"Last-Translator: Bart Cornelis <cobaco@linux.be>\n"
+"PO-Revision-Date: 2010-11-18 21:03+0100\n"
+"Last-Translator: Eric Spreen <erispre@gmail.com>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +39,7 @@ msgstr "Teksteditor"
 #. Choices
 #: ../templates:1001
 msgid "Noninteractive"
-msgstr "Niet-interatief"
+msgstr "Niet-interactief"
 
 #. Type: select
 #. Description
@@ -53,7 +55,7 @@ msgid ""
 "You can select the type of user interface they use."
 msgstr ""
 "Alle pakketten die voor configuratie gebruik maken van debconf werken op "
-"dezelfde manier. U kunt hier het interface-type instellen dat door deze "
+"dezelfde manier. U kunt hier het type interface instellen dat door deze "
 "programma's gebruikt zal worden."
 
 #. Type: select
@@ -68,10 +70,11 @@ msgid ""
 "frontend never asks you any questions."
 msgstr ""
 "De dialog-frontend is een niet-grafische (karaktergebaseerde) interface die "
-"het volledige scherm overneemt, terwijl de ReadLine-frontend een meer "
+"het volledige scherm overneemt, terwijl de ReadLine-frontend in een meer "
 "tradionele tekstinterface voorziet. De KDE en Gnome frontends zijn moderne "
-"grafische interfaces. De editor-frontend laat toe om dingen in te stellen "
-"met behulp van uw favoriete tekst-editor. De niet-interactieve frontend, "
+"grafische interfaces, die bij de betreffende desktops horen (maar in elke X-"
+"omgeving werken). De editor-frontend laat toe om dingen in te stellen met "
+"behulp van uw favoriete tekst-editor. De niet-interactieve frontend, "
 "tenslotte vraagt helemaal niks."
 
 #. Type: select
@@ -90,7 +93,7 @@ msgstr "hoog"
 #. Choices
 #: ../templates:2001
 msgid "medium"
-msgstr "medium"
+msgstr "gemiddeld"
 
 #. Type: select
 #. Choices
@@ -154,7 +157,7 @@ msgstr "Even geduld alstublieft ..."
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "Verwissel medium"
 
 #~ msgid "Ignore questions with a priority less than..."
 #~ msgstr "Vragen met een prioriteit lager dan ... negeren"
