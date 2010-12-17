@@ -424,7 +424,11 @@ sub command_capb {
 	my $this=shift;
 	$this->client_capb([@_]);
 	# Set capb_backup on the frontend if the client can backup.
-	$this->frontend->capb_backup(1) if grep { $_ eq 'backup' } @_;
+	if (grep { $_ eq 'backup' } @_) {
+		$this->frontend->capb_backup(1);
+	} else {
+		$this->frontend->capb_backup('');
+	}
 	# Multiselect is added as a capability to fix a backwards
 	# compatability problem.
 	my @capb=('multiselect', 'escape');
