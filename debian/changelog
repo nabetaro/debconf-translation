@@ -1,7 +1,11 @@
 debconf (1.5.38) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Correctly handle disabling the backup capability in a confmodule after
     it was previously enabled.
+
+  [ Christian Perrier ]
+  * Fix encoding in Spanish translation. Closes: #607688
 
  -- Colin Watson <cjwatson@debian.org>  Fri, 17 Dec 2010 12:45:55 +0000
 
