@@ -1,0 +1,258 @@
+# <>, 2004.
+# Lior Kaplan <kaplan@debian.org>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: debian-installer\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-02-17 19:43+0200\n"
+"Last-Translator: Lior Kaplan <kaplan@debian.org>\n"
+"Language-Team: Hebrew\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "דיאלוג"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "שורת פקודה"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "עורך טקסט"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "לא אינטראקטיבי"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "ממשק לשימוש:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"חבילות משתמשות ב-debconf לקונפיגורציה בן בעלות מראה וממשק משותף. תוכל לבחור "
+"את סוג הממשק משתמש שבו הן ישתמשו."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"ממשק הדיאלוג נפרש על מסך מלא, ומובסס על ממשק תווי, בזמן שממשק ה-readline "
+"משתמש בממשק טקסט יותר מסורתי. גם ממשקי גנום ו-KDE הם ממשקים גרפיים מודרניים. "
+"ממשק העורך מאפשר לך להגדיר דברים דרך עורך הטקסט החביב עליך. והממשק הלא "
+"אינטראקטיבי פשוט אף פעם לא שואל אותך שאלות."
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "קריטית"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "גבוהה"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "בינונית"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "נמוכה"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "התעלם משאלות בעדיפות נמוכה מאשר:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"Debconf מתעדף את השאלות שהוא שואל, בחר את הרמה הכי נמוכה של שאלות שברצונך "
+"לראות:\n"
+"  - 'קריטית' דיווח רק אם המערכת עלולה להשבר.\n"
+"    בחר באפשרות זאת אם אתה משתמש חדש, או שאתה ממהר מאוד.\n"
+"  - 'גבוהה' בשביל שאלות דיי חשובות.\n"
+"  - 'בינונית' בשביל שאלות נורמליות.\n"
+"  - 'נמוכה' בשביל חולי שליטה שרוצים לראות הכל."
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"שיב לב, לא משנה איזה רמה תבחר כאן, תוכל לראות את כל השאלות אם תגדיר מחדש את "
+"החבילה עם dpkg-reconfigure."
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "מתקין חבילות"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "המתן בבקשה..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "החלפת מדיה"
+
+#~ msgid "Gnome"
+#~ msgstr "גנום"
+
+#~ msgid "Kde"
+#~ msgstr "Kde"
+
+#~ msgid "Ignore questions with a priority less than..."
+#~ msgstr "התעלם משאלות בעדיפות נמוכה מאשר...."
+
+#~ msgid ""
+#~ "Packages that use debconf for configuration prioritize the questions they "
+#~ "might ask you. Only questions with a certain priority or higher are "
+#~ "actually shown to you; all less important questions are skipped."
+#~ msgstr ""
+#~ "חבילות שמשתמשות ב-debconf לצורך הגדרות מתעדפות את השאלות שהן עשויות לשאול "
+#~ "אותך. רק שאלות בעדיפות מסויימת או גבוהה יותר יוצגו לך. על השאר ידלגו."
+
+#~ msgid ""
+#~ "You can select the lowest priority of question you want to see:\n"
+#~ " - 'critical' is for items that will probably break the system\n"
+#~ "    without user intervention.\n"
+#~ " - 'high' is for items that don't have reasonable defaults.\n"
+#~ " - 'medium' is for normal items that have reasonable defaults.\n"
+#~ " - 'low' is for trivial items that have defaults that will work in\n"
+#~ "   the vast majority of cases."
+#~ msgstr ""
+#~ "ניתן לבחור את העדיפות הכי נמוכה לשאול שברצונך לראות:\n"
+#~ "- 'קריטית' היא לדברים שכנראה ישברו את המערכת ללא התערבות של המשתמש.\n"
+#~ "- 'גבוהה' היא לדברים שאין להם ברירות מחדל סבירות.\n"
+#~ "- 'בינונית' היא לדברים עם ברירת מחדל סבירה\n"
+#~ "- 'נמוכה' היא לדבר טריוולים שברירות המחדל שלהם יעבדו ברוב המוחלט של "
+#~ "המערכות."
+
+#~ msgid ""
+#~ "For example, this question is of medium priority, and if your priority "
+#~ "were already 'high' or 'critical', you wouldn't see this question."
+#~ msgstr ""
+#~ "לדוגמה, השאלה הזאת היא בעדיפות בינונית, ואם העדיפות שלך היתה גבוהה או "
+#~ "קריטית, השאלה לא היתה מוצגת."
+
+#~ msgid "Change debconf priority"
+#~ msgstr "שינוי העדיפות של Debconf"
+
+#~ msgid "Continue"
+#~ msgstr "המשך"
+
+#~ msgid "Go Back"
+#~ msgstr "חזרה אחורה"
+
+#~ msgid "Yes"
+#~ msgstr "כן"
+
+#~ msgid "No"
+#~ msgstr "לא"
+
+#~ msgid "Cancel"
+#~ msgstr "בטל"
+
+#~ msgid ""
+#~ "<Tab> moves between items; <Space> selects; <Enter> activates buttons"
+#~ msgstr "<Tab> מעביר בין עצמים; <Space> בוחר; <Enter> מפעיל את הכפתורים"
+
+#~ msgid "LTR"
+#~ msgstr "RTL"
+
+#~ msgid "Screenshot"
+#~ msgstr "צילום מסך"
+
+#~ msgid "Screenshot saved as %s"
+#~ msgstr "צילום מסך נשמר כ-%s"
+
+#~ msgid "!! ERROR: %s"
+#~ msgstr "שגיאה : %s !!!"
+
+#~ msgid "KEYSTROKES:"
+#~ msgstr "לחיצות מקשים:"
+
+#~ msgid "Display this help message"
+#~ msgstr "הצגת הודעת העזרה"
+
+#~ msgid "Go back to previous question"
+#~ msgstr "חזרה לשאלה הקודמת"
+
+#~ msgid "Select an empty entry"
+#~ msgstr "בחירת כניסה ריקה"
+
+#~ msgid "Prompt: '%c' for help, default=%d> "
+#~ msgstr "prompt: '%c' לעזרה, ברירת מחדל '%d'>"
+
+#~ msgid "Prompt: '%c' for help> "
+#~ msgstr "prompt: '%c' לעזרה>"
+
+#~ msgid "Prompt: '%c' for help, default=%s> "
+#~ msgstr "prompt: '%c' לעזרה, ברירת מחדל '%s'>"
+
+#~ msgid "[Press enter to continue]"
+#~ msgstr "[יש ללחוץ enter להמשך]"
+
+#~ msgid "Dialog, Readline, Gnome, Kde, Editor, Noninteractive"
+#~ msgstr "דיאלוג, readline, גנום, KDE, עורך, ללא אינטראקטיבי"
+
+#~ msgid "critical, high, medium, low"
+#~ msgstr "קריטית, גבוהה, בינונית, נמוכה"
+
+#~ msgid "What interface should be used for configuring packages?"
+#~ msgstr "איזה ממשק לבחור עבור הגדרת חבילות?"
