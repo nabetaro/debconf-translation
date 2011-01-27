@@ -19,7 +19,7 @@ use base qw(Debconf::FrontEnd);
 This is a FrontEnd that acts as a small, stupid web server. It is worth noting
 that this doesn't worry about security at all, so it really isn't ready for
 use. It's a proof-of-concept only. In fact, it's probably the crappiest web
-server ever. It only accpets one client at a time!
+server ever. It only accepts one client at a time!
 
 =head1 FIELDS
 
@@ -186,11 +186,13 @@ sub go {
 	
 		# Now parse the query string.
 		$query=CGI->new($qs);
-	} until ($query->param('formid') eq $formid);
+	} until (defined $query->param('formid') &&
+		 $query->param('formid') eq $formid);
 
 	# Did they hit the back button? If so, ignore their input and inform
 	# the ConfModule of this.
-	if ($this->capb_backup && $query->param('back') ne '') {
+	if ($this->capb_backup && defined $query->param('back')  &&
+	    $query->param('back') ne '') {
 		return '';
 	}
 
