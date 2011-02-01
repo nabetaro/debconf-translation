@@ -6,7 +6,8 @@ Uploaders: Joey Hess <joeyh@debian.org>, Colin Watson <cjwatson@debian.org>
 Standards-Version: 3.8.3
 Build-Depends-Indep: perl (>= 5.10.0-16), python, python-central (>= 0.6.11), gettext (>= 0.13), libintl-perl, libqtgui4-perl
 Build-Depends: debhelper (>= 7.0.50~), po-debconf, po4a (>= 0.23)
-Vcs-Svn: svn://svn.debian.org/debconf/trunk/src/debconf
+Vcs-Git: git://git.debian.org/git/debconf/debconf.git
+Vcs-Browser: http://git.debian.org/?p=debconf/debconf.git;a=summary
 XS-Python-Version: 2.4, 2.5, 2.6
 
 Package: debconf
