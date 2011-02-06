@@ -1,6 +1,9 @@
 debconf (1.5.39) UNRELEASED; urgency=low
 
   * Moved to a git repository. Updated control file fields.
+  * Removed debconf-english dummy package, and dropped debconf-i18n to a
+    Recommends. Debootstrap will still install debconf-i18n as it is
+    priority Required.
 
  -- Joey Hess <joeyh@debian.org>  Tue, 01 Feb 2011 19:49:50 -0400
 
