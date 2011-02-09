@@ -176,7 +176,6 @@ sub ok_format {
 sub mungeline ($) {
 	my $line=shift;
 	chomp $line;
-	$line=~s/\#.*$//;
 	$line=~s/\r$//;
 	return $line;
 }
@@ -198,7 +197,7 @@ while (<>) {
 		s/\\$//;
 		$_.=mungeline(<>);
 	}
-	next if /^\s*$/;
+	next if /^\s*$/ || /^\s*\#/;
 	# Allow multiple spaces between all values except the last one.
 	# Extra whitespace in the content is significant.
 	my ($owner, $label, $type, $content) = /^\s*(\S+)\s+(\S+)\s+(\S+)(?:\s(.*))?/;
