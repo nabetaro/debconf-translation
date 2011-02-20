@@ -1,5 +1,6 @@
 debconf (1.5.39) UNRELEASED; urgency=low
 
+  [ Joey Hess ]
   * Moved to a git repository. Updated control file fields.
   * Removed debconf-english dummy package, and dropped debconf-i18n to a
     Recommends. Debootstrap will still install debconf-i18n as it is
@@ -8,6 +9,11 @@ debconf (1.5.39) UNRELEASED; urgency=low
     In particular, continued lines that start with a "#" are not comments.
     And, comments only occur at the start of a line (possibly with some
     whitespace before). Closes: #589519
+
+  [ Steve Langasek ]
+  * Mark debconf Multi-Arch: foreign to indicate that it satisfies the
+    dependencies of packages from other than the native arch.  Closes:
+    #614197
 
  -- Joey Hess <joeyh@debian.org>  Tue, 01 Feb 2011 19:49:50 -0400
 

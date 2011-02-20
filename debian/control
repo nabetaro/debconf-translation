@@ -21,6 +21,7 @@ Recommends: apt-utils (>= 0.5.1), debconf-i18n
 Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgnome2-perl, libnet-ldap-perl, perl, libqtgui4-perl, libqtcore4-perl
 XB-Python-Version: ${python:Versions}
 Architecture: all
+Multi-Arch: foreign
 Description: Debian configuration management system
  Debconf is a configuration management system for debian packages. Packages
  use Debconf to ask questions when they are installed.
