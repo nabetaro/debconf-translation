@@ -17,7 +17,7 @@ clean:
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	#remove generated file
-	rm -f DebConf/FrontEnd/Kde/Ui_DebconfWizard.pm
+	rm -f Debconf/FrontEnd/Kde/Ui_DebconfWizard.pm
 
 # Does not attempt to install documentation, as that can be fairly system
 # specific.
