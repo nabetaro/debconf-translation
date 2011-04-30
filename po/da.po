@@ -1,30 +1,31 @@
-# Copyright (C) 2001, 2006 Free Software Foundation, Inc.
+# Copyright (C) 2011 Free Software Foundation, Inc.
 # Morten Brix Pedersen <morten@wtf.dk>, 2001-2002.
 # Morten Bo Johansen <mbj@spamcop.net>, 2002-.
 # Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2006.
+# Joe Hansen <joedalton2@yahoo.dk>, 2011.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.4.70\n"
+"Project-Id-Version: debconf 1.5.38\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-11 12:57+0100\n"
-"PO-Revision-Date: 2006-10-10 20:27+0200\n"
-"Last-Translator: Claus Hindsgaul <claus.hindsgaul@gmail.com>\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: 2011-04-30 20:27+0200\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <debian-l10n-danish@lists.debian.org> \n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
 
 #: ../Debconf/AutoSelect.pm:76
 #, perl-format
 msgid "falling back to frontend: %s"
-msgstr "falder tilbage på brugerflade: %s"
+msgstr "falder tilbage pÃ¥ brugerflade: %s"
 
 #: ../Debconf/AutoSelect.pm:84
 #, perl-format
 msgid "unable to initialize frontend: %s"
-msgstr "kunne ikke klargøre brugerflade: %s"
+msgstr "kunne ikke klargÃ¸re brugerflade: %s"
 
 #: ../Debconf/AutoSelect.pm:90
 #, perl-format
@@ -33,25 +34,25 @@ msgstr "Kunne ikke starte en brugerflade: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "Opsætningsdatabase ikke angivet i opsætningsfil"
+msgstr "OpsÃ¦tningsdatabase ikke angivet i opsÃ¦tningsfil."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Skabelondatabase ikke angivet i opsætningsfil"
+msgstr "Skabelondatabase ikke angivet i opsÃ¦tningsfil."
 
 #: ../Debconf/Config.pm:139
 msgid ""
 "The Sigils and Smileys options in the config file are no longer used. Please "
 "remove them."
 msgstr ""
-"Sigils- og Smileys-tilvalg bruges ikke længere i opsætningsfilen. Fjern dem "
+"Sigils- og Smileys-tilvalg bruges ikke lÃ¦ngere i opsÃ¦tningsfilen. Fjern dem "
 "venligst."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
 msgstr ""
-"Opsætning af database, defineret ved kombination %s af %s, gav problemer."
+"OpsÃ¦tning af database, defineret ved kombination %s af %s, gav problemer."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -59,10 +60,10 @@ msgid ""
 "  -p,  --priority\t\tSpecify minimum priority question to show.\n"
 "       --terse\t\t\tEnable terse mode.\n"
 msgstr ""
-"  -f,  --brugerflade\t\tAnfør hvilken brugerflade til debconf der skal "
+"  -f,  --brugerflade\t\tAnfÃ¸r hvilken brugerflade til debconf der skal "
 "bruges.\n"
-"  -p,  --prioritet\t\tAnfør hvor lavt prioriterede spørgsmål der vises.\n"
-"       --terse\t\t\tSkær spørgsmål og information ned til et minimum.\n"
+"  -p,  --prioritet\t\tAnfÃ¸r hvor lavt prioriterede spÃ¸rgsmÃ¥l der vises.\n"
+"       --terse\t\t\tSkÃ¦r spÃ¸rgsmÃ¥l og information ned til et minimum.\n"
 
 #: ../Debconf/Config.pm:308
 #, perl-format
@@ -98,22 +99,22 @@ msgstr "nej"
 msgid ""
 "(Enter zero or more items separated by a comma followed by a space (', ').)"
 msgstr ""
-"(Vælg nul eller flere punkter, adskilt af komma fulgt af mellemrum (', ').)"
+"(VÃ¦lg nul eller flere punkter, adskilt af komma fulgt af mellemrum (', ').)"
 
 #: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
-msgstr "_Hjælp"
+msgstr "_HjÃ¦lp"
 
 #: ../Debconf/Element/Gnome.pm:184
 msgid "Help"
-msgstr "Hjælp"
+msgstr "HjÃ¦lp"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
 msgid ""
 "Debconf was not configured to display this error message, so it mailed it to "
 "you."
 msgstr ""
-"Debconf var ikke indstillet til at vise denne fejlmeddelelse, så den sendte "
+"Debconf var ikke indstillet til at vise denne fejlmeddelelse, sÃ¥ den sendte "
 "den til dig."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
@@ -123,7 +124,7 @@ msgstr "Debconf"
 #: ../Debconf/Element/Noninteractive/Error.pm:86
 #, perl-format
 msgid "Debconf, running at %s"
-msgstr "Debconf, kørende på %s"
+msgstr "Debconf, kÃ¸rende pÃ¥ %s"
 
 #: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
@@ -131,30 +132,30 @@ msgid ""
 "Input value, \"%s\" not found in C choices! This should never happen. "
 "Perhaps the templates were incorrectly localized."
 msgstr ""
-"Værdi på inddata \"%s\" fandtes ikke i C-valg! Dette burde aldrig ske. Måske "
+"VÃ¦rdi pÃ¥ inddata \"%s\" fandtes ikke i C-valg! Dette burde aldrig ske. MÃ¥ske "
 "var sprogtilpasningen af skabelonerne forkert."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
-msgstr "ingen af ovenstående"
+msgstr "ingen af ovenstÃ¥ende"
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:47
 msgid "Enter the items you want to select, separated by spaces."
-msgstr "Vælg de ønskede punkter, adskilt af mellemrum."
+msgstr "VÃ¦lg de Ã¸nskede punkter, adskilt af mellemrum."
 
 #: ../Debconf/FrontEnd.pm:140
 #, perl-format
 msgid "Unable to load Debconf::Element::%s. Failed because: %s"
-msgstr "Kunne ikke indlæse Debconf::Element::%s. Fejlede pga.: %s"
+msgstr "Kunne ikke indlÃ¦se Debconf::Element::%s. Fejlede pga.: %s"
 
 #: ../Debconf/FrontEnd.pm:333
 #, perl-format
 msgid "Configuring %s"
-msgstr "Sætter %s op"
+msgstr "SÃ¦tter %s op"
 
 #: ../Debconf/FrontEnd/Dialog.pm:52
 msgid "TERM is not set, so the dialog frontend is not usable."
-msgstr "TERM er ikke sat, så dialog-brugerfladen kan ikke bruges"
+msgstr "TERM er ikke sat, sÃ¥ dialog-brugerfladen kan ikke bruges."
 
 #: ../Debconf/FrontEnd/Dialog.pm:55
 msgid "Dialog frontend is incompatible with emacs shell buffers"
@@ -165,7 +166,7 @@ msgid ""
 "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
 "without a controlling terminal."
 msgstr ""
-"Dialog-brugerfladen vil ikke virke på en 'dum' terminal, en Emacs-skalbuffer "
+"Dialog-brugerfladen vil ikke virke pÃ¥ en 'dum' terminal, en Emacs-skalbuffer "
 "eller uden en styrende terminal."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
@@ -173,25 +174,25 @@ msgid ""
 "No usable dialog-like program is installed, so the dialog based frontend "
 "cannot be used."
 msgstr ""
-"Der er ikke installeret noget brugbart dialoglignende program, så den "
+"Der er ikke installeret noget brugbart dialoglignende program, sÃ¥ den "
 "dialogbaserede brugerflade kan ikke bruges."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
 msgid ""
 "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
 msgstr ""
-"Dialog-brugerfladen behøver en skærm, min. 13 linjer høj og 31 kolonner bred."
+"Dialog-brugerfladen behÃ¸ver en skÃ¦rm, min. 13 linjer hÃ¸j og 31 kolonner bred."
 
 #: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
-msgstr "Pakkeopsætning"
+msgstr "PakkeopsÃ¦tning"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
 msgid ""
 "You are using the editor-based debconf frontend to configure your system. "
 "See the end of this document for detailed instructions."
 msgstr ""
-"Du bruger debconfs editorbaserede brugerflade til at sætte dit system op. Se "
+"Du bruger debconfs editorbaserede brugerflade til at sÃ¦tte dit system op. Se "
 "slutningen af dette dokument for detaljerede instruktioner."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
@@ -204,20 +205,20 @@ msgid ""
 "read the edited file, and use the values you entered to configure the system."
 msgstr ""
 "Debconfs editorbaserede brugerflade giver dig en eller flere tekstfiler til "
-"redigering. Dette er en sådan tekstfil. Hvis du er bekendt med standard Unix-"
-"opsætningsfiler, vil denne fil se bekendt ud - den indeholder kommentarer og "
-"opsætningselementer. Redigér filen, ændr alle elementer i det omfang det er "
-"nødvendigt, gem den og afslut så. Derefter vil debconf læse den redigerede "
-"fil og bruge værdierne du indtastede til at sætte systemet op."
+"redigering. Dette er en sÃ¥dan tekstfil. Hvis du er bekendt med standard Unix-"
+"opsÃ¦tningsfiler, vil denne fil se bekendt ud - den indeholder kommentarer og "
+"opsÃ¦tningselementer. RedigÃ©r filen, Ã¦ndr alle elementer i det omfang det er "
+"nÃ¸dvendigt, gem den og afslut sÃ¥. Derefter vil debconf lÃ¦se den redigerede "
+"fil og bruge vÃ¦rdierne du indtastede til at sÃ¦tte systemet op."
 
 #: ../Debconf/FrontEnd/Gnome.pm:97
 #, perl-format
 msgid "Debconf on %s"
-msgstr "Debconf på %s"
+msgstr "Debconf pÃ¥ %s"
 
 #: ../Debconf/FrontEnd/Readline.pm:47
 msgid "This frontend requires a controlling tty."
-msgstr "Denne brugerflade behøver en styrende tty."
+msgstr "Denne brugerflade behÃ¸ver en styrende tty."
 
 #: ../Debconf/FrontEnd/Readline.pm:58
 msgid "Term::ReadLine::GNU is incompatable with emacs shell buffers."
@@ -230,7 +231,7 @@ msgstr "Mere"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Bemærk: Debconf kører i webtilstand. Gå til http://localhost:%i/"
+msgstr "BemÃ¦rk: Debconf kÃ¸rer i webtilstand. GÃ¥ til http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
@@ -238,7 +239,7 @@ msgstr "Tilbage"
 
 #: ../Debconf/FrontEnd/Web.pm:168
 msgid "Next"
-msgstr "Næste"
+msgstr "NÃ¦ste"
 
 #: ../Debconf/Template.pm:91
 #, perl-format
@@ -246,8 +247,8 @@ msgid ""
 "warning: possible database corruption. Will attempt to repair by adding back "
 "missing question %s."
 msgstr ""
-"advarsel: database måske ødelagt. Vil forsøge at reparere ved at gentilføje "
-"manglende spørgsmål %s."
+"advarsel: database mÃ¥ske Ã¸delagt. Vil forsÃ¸ge at reparere ved at gentilfÃ¸je "
+"manglende spÃ¸rgsmÃ¥l %s."
 
 #: ../Debconf/Template.pm:206
 #, perl-format
@@ -255,8 +256,8 @@ msgid ""
 "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
 "Probably two templates are not properly separated by a lone newline.\n"
 msgstr ""
-"Skabelon nr. %s i %s har et dubletfelt \"%s\" med en ny værdi \"%s\". Det "
-"kan være fordi at to skabeloner ikke er adskilt rigtigt med en tom ny "
+"Skabelon nr. %s i %s har et dubletfelt \"%s\" med en ny vÃ¦rdi \"%s\". Det "
+"kan vÃ¦re fordi at to skabeloner ikke er adskilt rigtigt med en tom ny "
 "linje.\n"
 
 #: ../Debconf/Template.pm:231
@@ -267,7 +268,7 @@ msgstr "Ukendt skabelonfelt `%s', i kombination nr. %s af %s\n"
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Fortolkningsfejl i skabelon, nær `%s', i kombination nr. %s af %s\n"
+msgstr "Fortolkningsfejl i skabelon, nÃ¦r `%s', i kombination nr. %s af %s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
@@ -277,16 +278,16 @@ msgstr "Skabelon nr. %s i %s indeholder ikke en 'Template:'-linje\n"
 #: ../dpkg-preconfigure:121
 #, perl-format
 msgid "must specify some debs to preconfigure"
-msgstr "er nødt til at angive nogle debianpakker for at prækonfigurere"
+msgstr "er nÃ¸dt til at angive nogle debianpakker for at prÃ¦konfigurere"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "udsætter pakkeopsætning da apt-utils ikke er installeret"
+msgstr "udsÃ¦tter pakkeopsÃ¦tning da apt-utils ikke er installeret"
 
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
-msgstr "kunne ikke genåbne standardinddata: %s"
+msgstr "kunne ikke genÃ¥bne standardinddata: %s"
 
 #: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
@@ -296,16 +297,16 @@ msgstr "apt-extracttemplates fejlede: %s"
 #: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
-msgstr "Udtrækker skabeloner fra pakker: %d%%"
+msgstr "UdtrÃ¦kker skabeloner fra pakker: %d%%"
 
 #: ../dpkg-preconfigure:190
 msgid "Preconfiguring packages ...\n"
-msgstr "Prækonfigurerer pakker ...\n"
+msgstr "PrÃ¦konfigurerer pakker ...\n"
 
 #: ../dpkg-preconfigure:202
 #, perl-format
 msgid "template parse error: %s"
-msgstr "Fortolkningsfejl i skabelon: %s"
+msgstr "fortolkningsfejl i skabelon: %s"
 
 #: ../dpkg-preconfigure:216
 #, perl-format
@@ -315,10 +316,9 @@ msgstr "debconf: kan ikke chmod: %s"
 #: ../dpkg-preconfigure:227
 #, perl-format
 msgid "%s failed to preconfigure, with exit status %s"
-msgstr "%s fejlede i prækonfigurering med afslutningsstatus %s"
+msgstr "%s fejlede i prÃ¦konfigurering med afslutningsstatus %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -328,19 +328,20 @@ msgid ""
 "       --no-reload\t\tDo not reload templates. (Use with caution.)"
 msgstr ""
 "Brug: dpkg-reconfigure [tilvalg] pakker\n"
-"  -a, --all\t\t\tGenopsæt alle pakker.\n"
-"  -u, --unseen-only\t\tVis kun spørgsmål som ikke tidligere har være vist.\n"
+"  -a, --all\t\t\tGenopsÃ¦t alle pakker.\n"
+"  -u, --unseen-only\t\tVis kun spÃ¸rgsmÃ¥l som ikke tidligere har vÃ¦re vist.\n"
 "      --default-priority\tBrug standardprioritering i stedet for lav.\n"
-"      --force\t\t\tGennemtving genopsætning af brudte pakker."
+"      --force\t\t\tGennemtving genopsÃ¦tning af brudte pakker."
+"       --no-reload\t\tGenindlÃ¦s ikke skabeloner. (Brug med forsigtighed.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
 msgid "%s must be run as root"
-msgstr "%s skal køres som root"
+msgstr "%s skal kÃ¸res som root"
 
 #: ../dpkg-reconfigure:150
 msgid "please specify a package to reconfigure"
-msgstr "angiv venligst pakken som skal genopsættes"
+msgstr "angiv venligst pakken som skal genopsÃ¦ttes"
 
 #: ../dpkg-reconfigure:171
 #, perl-format
@@ -350,12 +351,12 @@ msgstr "%s er ikke installeret"
 #: ../dpkg-reconfigure:175
 #, perl-format
 msgid "%s is broken or not fully installed"
-msgstr "%s har brudte afhængigheder eller ikke fuldt installeret"
+msgstr "%s har brudte afhÃ¦ngigheder eller ikke fuldt installeret"
 
 #: ../dpkg-reconfigure:254
 #, perl-format
 msgid "Cannot read status file: %s"
-msgstr "Kan ikke læse statusfil: %s"
+msgstr "Kan ikke lÃ¦se statusfil: %s"
 
 #: ../debconf-communicate:53
 msgid "Usage: debconf-communicate [options] [package]"
@@ -366,7 +367,7 @@ msgid ""
 "debconf-mergetemplate: This utility is deprecated. You should switch to "
 "using po-debconf's po2debconf program."
 msgstr ""
-"debconf-mergetemplate: Det frarådes at bruge dette program. Du bør i stedet "
+"debconf-mergetemplate: Det frarÃ¥des at bruge dette program. Du bÃ¸r i stedet "
 "bruge programmet po2debconf fra pakken po-debconf."
 
 #: ../debconf-mergetemplate:66
@@ -380,8 +381,8 @@ msgid ""
 "\t--drop-old-templates\tDrop entire outdated templates."
 msgstr ""
 "\n"
-"        --outdated\t\tIndflet også forældede oversættelser.\n"
-"\t--drop-old-templates\tUdelad forældede skabeloner i deres helhed."
+"        --outdated\t\tIndflet ogsÃ¥ forÃ¦ldede oversÃ¦ttelser.\n"
+"\t--drop-old-templates\tUdelad forÃ¦ldede skabeloner i deres helhed."
 
 #: ../debconf-mergetemplate:119
 #, perl-format
@@ -406,12 +407,12 @@ msgstr "%s er uafklaret ved byte %s: %s; udelader den"
 #: ../debconf-mergetemplate:168
 #, perl-format
 msgid "%s is outdated"
-msgstr "%s er forældet"
+msgstr "%s er forÃ¦ldet"
 
 #: ../debconf-mergetemplate:173
 #, perl-format
 msgid "%s is outdated; dropping whole template!"
-msgstr "%s er forældet; udelader hele skabelonen!"
+msgstr "%s er forÃ¦ldet; udelader hele skabelonen!"
 
 #: ../debconf:95
 msgid "Usage: debconf [options] command [args]"
@@ -423,14 +424,14 @@ msgid ""
 "  -o,  --owner=package\t\tSet the package that owns the command."
 msgstr ""
 "\n"
-"  -o,  --owner=pakke\t\tSæt pakke der ejer kommando."
+"  -o,  --owner=pakke\t\tSÃ¦t pakke der ejer kommando."
 
 #~ msgid "Save (mail) Note"
 #~ msgstr "Gem (send) notits med e-post"
 
 #~ msgid "Debconf was asked to save this note, so it mailed it to you."
 #~ msgstr ""
-#~ "Debconf blev bedt om at gemme denne notits, så den sendte den til dig."
+#~ "Debconf blev bedt om at gemme denne notits, sÃ¥ den sendte den til dig."
 
 #~ msgid "Information"
 #~ msgstr "Information"
@@ -447,5 +448,5 @@ msgstr ""
 #~ msgid ""
 #~ "Debconf was not configured to display this note, so it mailed it to you."
 #~ msgstr ""
-#~ "Debconf var ikke sat op til at vise denne notits, så den sendte den til "
+#~ "Debconf var ikke sat op til at vise denne notits, sÃ¥ den sendte den til "
 #~ "dig."
