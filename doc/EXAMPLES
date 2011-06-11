@@ -1,6 +1,7 @@
 This is the Debian Configuration Management system. To test it, try these
 commands.
 
+PERL5LIB=. DEBIAN_FRONTEND=kde ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=gnome ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=dialog ./frontend samples/demo
 PERL5LIB=. DEBIAN_FRONTEND=readline ./frontend samples/demo

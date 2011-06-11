@@ -94,6 +94,12 @@ requires a valid DISPLAY to work; debconf will fall back to other frontends
 if it can't work. Note that this frontend requires you have the
 libgnome2-perl package installed.
 .TP
+.B kde
+This frontend provides a simple X GUI written with the Qt library. It fits
+well the KDE desktop. You of course need a DISPLAY to use this frontend and
+must install libqt-perl. The frontend will fall back to dialog if some of the
+prerequisites are not met.
+.TP
 .B editor
 This is for those fanatics who have to do everything in a
 text editor. It runs your editor on a file that looks
