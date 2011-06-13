@@ -1,8 +1,25 @@
 debconf (1.5.40) UNRELEASED; urgency=low
 
+  [ Joey Hess ]
   * Updated Russian man page translation. Closes: #625935
   * Updated Galician translation of program po file. Closes: #626475
   * Add back documenation for the kde frontend.
+
+  [ Martin Pitt ]
+  * Debconf/FrontEnd/Gnome.pm: Port from Gnome2::Druid to Gtk2::Assistant.
+    Original patch by Jani Monoses, thanks! (Closes: #542175, LP: #415038)
+  * Debconf/Element/Gnome/Select.pm: Drop unused Gnome2 import.
+  * debian/control: Change libgnome2-perl suggestion to libgtk2-perl
+    accordingly.
+
+  [ Colin Watson ]
+  * Fix Gnome frontend to honour backup capability again, and make backup
+    page handling work properly.
+  * Version libgtk2-perl Suggests to match the upstream version where
+    Gtk2::Assistant was introduced.
+  * Convert from deprecated Gtk2::Combo to Gtk2::ComboBox.
+  * Make sure you can't press Forward on a progress bar in the Gnome
+    frontend.
 
  -- Joey Hess <joeyh@debian.org>  Sat, 07 May 2011 20:21:33 -0400
 
