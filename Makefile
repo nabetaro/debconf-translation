@@ -33,6 +33,10 @@ install-utils:
 install-i18n:
 	$(MAKE) -C po install
 
+# This would probably be easier if we used setup.py ...
+PYTHON2_SUPPORTED := $(shell pyversions -s)
+PYTHON_SITEDIR = $(prefix)/usr/lib/$(1)/$(if $(filter 2.0 2.1 2.2 2.3 2.4 2.5,$(patsubst python%,%,$(1))),site-packages,dist-packages)
+
 # Install all else.
 install-rest:
 	install -d $(prefix)/etc \
@@ -48,16 +52,13 @@ install-rest:
 	# Make module directories.
 	find Debconf -type d |grep -v CVS | \
 		xargs -i install -d $(prefix)/usr/share/perl5/{}
-	install -d \
-		$(prefix)/usr/lib/python2.4/site-packages/ \
-		$(prefix)/usr/lib/python2.5/site-packages/ \
-		$(prefix)/usr/lib/python2.6/dist-packages/
 	# Install modules.
 	find Debconf -type f -name '*.pm' |grep -v CVS | \
 		xargs -i install -m 0644 {} $(prefix)/usr/share/perl5/{}
-	install -m 0644 debconf.py $(prefix)/usr/lib/python2.4/site-packages/
-	install -m 0644 debconf.py $(prefix)/usr/lib/python2.5/site-packages/
-	install -m 0644 debconf.py $(prefix)/usr/lib/python2.6/dist-packages/
+	set -e; for dir in $(foreach python,$(PYTHON2_SUPPORTED),$(call PYTHON_SITEDIR,$(python))); do \
+		install -d $$dir; \
+		install -m 0644 debconf.py $$dir/; \
+	done
 	# Special case for back-compatability.
 	install -d $(prefix)/usr/share/perl5/Debian/DebConf/Client
 	cp Debconf/Client/ConfModule.stub \
