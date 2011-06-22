@@ -41,12 +41,12 @@ sub create_assistant_page {
 	my $this=shift;
 
 	$this->assistant_page(Gtk2::VBox->new);
+	$this->assistant->append_page($this->assistant_page);
 
 	if ($this->logo) {
 		$this->assistant->set_page_header_image($this->assistant_page, $this->logo);
 	}
 
-	$this->assistant->append_page($this->assistant_page);
 	$this->configure_assistant_page;
 	$this->assistant_page->show_all;
 }
