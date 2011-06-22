@@ -4,11 +4,11 @@ Priority: optional
 Maintainer: Debconf Developers <debconf-devel@lists.alioth.debian.org>
 Uploaders: Joey Hess <joeyh@debian.org>, Colin Watson <cjwatson@debian.org>
 Standards-Version: 3.9.2
-Build-Depends-Indep: perl (>= 5.10.0-16), python, python-central (>= 0.6.11), gettext (>= 0.13), libintl-perl, libqtgui4-perl
+Build-Depends-Indep: perl (>= 5.10.0-16), python (>= 2.6.6-3~), gettext (>= 0.13), libintl-perl, libqtgui4-perl
 Build-Depends: debhelper (>= 7.0.50~), po-debconf, po4a (>= 0.23)
 Vcs-Git: git://git.debian.org/git/debconf/debconf.git
 Vcs-Browser: http://git.debian.org/?p=debconf/debconf.git;a=summary
-XS-Python-Version: 2.6, 2.7
+X-Python-Version: >= 2.4
 
 Package: debconf
 Priority: important
@@ -19,7 +19,6 @@ Replaces: debconf-tiny
 Depends: ${misc:Depends}
 Recommends: apt-utils (>= 0.5.1), debconf-i18n
 Suggests: debconf-doc, debconf-utils, whiptail | dialog | gnome-utils, libterm-readline-gnu-perl, libgtk2-perl (>= 1:1.130), libnet-ldap-perl, perl, libqtgui4-perl, libqtcore4-perl
-XB-Python-Version: ${python:Versions}
 Architecture: all
 Multi-Arch: foreign
 Description: Debian configuration management system

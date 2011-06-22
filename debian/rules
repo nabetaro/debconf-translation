@@ -5,7 +5,7 @@
 export PERL5LIB=.
 
 %:
-	dh $@ --with python-central
+	dh $@ --with python2
 
 override_dh_auto_install:
 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
@@ -33,11 +33,6 @@ override_dh_installchangelogs:
 	perl -ne '$$c++ if /^debconf /; last if $$c > 100 ; print $$_' \
 		< debian/changelog > debian/debconf.changelog
 	dh_installchangelogs
-
-override_dh_pycentral:
-	# We use python-central for its nomove facility, so that debconf's
-	# python modules are available even when debconf is unconfigured.
-	DH_PYCENTRAL=nomove dh_pycentral -pdebconf -n
 
 override_dh_compress:
 	dh_compress -X demo.templates -X tutorial.templates
