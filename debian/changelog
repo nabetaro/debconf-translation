@@ -27,6 +27,11 @@ debconf (1.5.40) UNRELEASED; urgency=low
     #626706).
   * Convert to dh_python2 (closes: #603965, #616786).
   * Add Python 3 support.
+  * Perl gets a bit confused by Debconf::Config and Debconf::Priority using
+    each other, and objects to bareword use of priority_list in
+    Debconf::Config if you do 'use strict; use Debconf::Priority' before
+    Debconf::Config is loaded.  Work around this.  Thanks to James Hunt for
+    pointing this out.
 
  -- Joey Hess <joeyh@debian.org>  Sat, 07 May 2011 20:21:33 -0400
 
