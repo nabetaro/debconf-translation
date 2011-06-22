@@ -23,7 +23,8 @@ debconf (1.5.40) UNRELEASED; urgency=low
   * debconf.py: Drop popen2 compatibility code.  subprocess has been
     available since Python 2.4, which is old enough that it was dropped from
     squeeze.
-  * Build for all currently supported Python 2 versions (closes: #626706).
+  * Build for all currently supported Python 2 versions (closes: #584844,
+    #626706).
   * Convert to dh_python2 (closes: #603965, #616786).
 
  -- Joey Hess <joeyh@debian.org>  Sat, 07 May 2011 20:21:33 -0400
