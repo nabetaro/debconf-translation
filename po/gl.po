@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debconf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 12:57+0100\n"
+"POT-Creation-Date: 2011-06-22 18:46+0100\n"
 "PO-Revision-Date: 2011-05-12 11:20+0100\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -34,20 +34,30 @@ msgstr "Non é posíbel iniciar unha interface: %s"
 
 #: ../Debconf/Config.pm:130
 msgid "Config database not specified in config file."
-msgstr "Non se especificou unha base de datos de configuracións no ficheiro de configuración."
+msgstr ""
+"Non se especificou unha base de datos de configuracións no ficheiro de "
+"configuración."
 
 #: ../Debconf/Config.pm:134
 msgid "Template database not specified in config file."
-msgstr "Non se especificou unha base de datos de modelos no ficheiro de configuración."
+msgstr ""
+"Non se especificou unha base de datos de modelos no ficheiro de "
+"configuración."
 
 #: ../Debconf/Config.pm:139
-msgid "The Sigils and Smileys options in the config file are no longer used. Please remove them."
-msgstr "Xa non se empregan as opcións Sigils e Smileys do ficheiro de configuración. Retíreas."
+msgid ""
+"The Sigils and Smileys options in the config file are no longer used. Please "
+"remove them."
+msgstr ""
+"Xa non se empregan as opcións Sigils e Smileys do ficheiro de configuración. "
+"Retíreas."
 
 #: ../Debconf/Config.pm:153
 #, perl-format
 msgid "Problem setting up the database defined by stanza %s of %s."
-msgstr "Houbo un problema ao configurar a base de datos definida pola estrofa %s de %s."
+msgstr ""
+"Houbo un problema ao configurar a base de datos definida pola estrofa %s de "
+"%s."
 
 #: ../Debconf/Config.pm:228
 msgid ""
@@ -90,8 +100,11 @@ msgid "no"
 msgstr "non"
 
 #: ../Debconf/Element/Editor/Multiselect.pm:32
-msgid "(Enter zero or more items separated by a comma followed by a space (', ').)"
-msgstr "(Introduza cero ou máis elementos separados por unha coma seguida dun espazo [«, »])."
+msgid ""
+"(Enter zero or more items separated by a comma followed by a space (', ').)"
+msgstr ""
+"(Introduza cero ou máis elementos separados por unha coma seguida dun espazo "
+"[«, »])."
 
 #: ../Debconf/Element/Gnome.pm:182
 msgid "_Help"
@@ -102,8 +115,11 @@ msgid "Help"
 msgstr "Axuda"
 
 #: ../Debconf/Element/Noninteractive/Error.pm:39
-msgid "Debconf was not configured to display this error message, so it mailed it to you."
-msgstr "Non se configurou debconf para amosar este erro, así que lla enviou a Vd."
+msgid ""
+"Debconf was not configured to display this error message, so it mailed it to "
+"you."
+msgstr ""
+"Non se configurou debconf para amosar este erro, así que lla enviou a Vd."
 
 #: ../Debconf/Element/Noninteractive/Error.pm:63
 msgid "Debconf"
@@ -114,11 +130,14 @@ msgstr "Debconf"
 msgid "Debconf, running at %s"
 msgstr "Debconf, executándose en %s"
 
-#: ../Debconf/Element/Select.pm:95
-#: ../Debconf/Element/Select.pm:110
+#: ../Debconf/Element/Select.pm:95 ../Debconf/Element/Select.pm:110
 #, perl-format
-msgid "Input value, \"%s\" not found in C choices! This should never happen. Perhaps the templates were incorrectly localized."
-msgstr "Non se atopou o valor de entrada, «%s», nas opcións de C! Isto non debería ocorrer nunca. Se cadra localizáronse os modelos incorrectamente."
+msgid ""
+"Input value, \"%s\" not found in C choices! This should never happen. "
+"Perhaps the templates were incorrectly localized."
+msgstr ""
+"Non se atopou o valor de entrada, «%s», nas opcións de C! Isto non debería "
+"ocorrer nunca. Se cadra localizáronse os modelos incorrectamente."
 
 #: ../Debconf/Element/Teletype/Multiselect.pm:27
 msgid "none of the above"
@@ -147,30 +166,59 @@ msgid "Dialog frontend is incompatible with emacs shell buffers"
 msgstr "A interface Dialog é incompatíbel cos búferes shell de emacs."
 
 #: ../Debconf/FrontEnd/Dialog.pm:58
-msgid "Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal."
-msgstr "A interface Dialog non funciona nun terminal parvo, nun búfer shell de emacs, ou sen un terminal de control."
+msgid ""
+"Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or "
+"without a controlling terminal."
+msgstr ""
+"A interface Dialog non funciona nun terminal parvo, nun búfer shell de "
+"emacs, ou sen un terminal de control."
 
 #: ../Debconf/FrontEnd/Dialog.pm:104
-msgid "No usable dialog-like program is installed, so the dialog based frontend cannot be used."
-msgstr "Non hai un programa semellante a Dialog instalado, así que non se pode empregar a interface baseada en Dialog."
+msgid ""
+"No usable dialog-like program is installed, so the dialog based frontend "
+"cannot be used."
+msgstr ""
+"Non hai un programa semellante a Dialog instalado, así que non se pode "
+"empregar a interface baseada en Dialog."
 
 #: ../Debconf/FrontEnd/Dialog.pm:111
-msgid "Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
-msgstr "A interface Dialog precisa dunha pantalla de polo menos 13 liñas e 31 columnas."
+msgid ""
+"Dialog frontend requires a screen at least 13 lines tall and 31 columns wide."
+msgstr ""
+"A interface Dialog precisa dunha pantalla de polo menos 13 liñas e 31 "
+"columnas."
 
 #: ../Debconf/FrontEnd/Dialog.pm:295
 msgid "Package configuration"
 msgstr "Configuración do paquete"
 
 #: ../Debconf/FrontEnd/Editor.pm:94
-msgid "You are using the editor-based debconf frontend to configure your system. See the end of this document for detailed instructions."
-msgstr "Está empregando a interface baseada en editores de debconf para configurar o seu sistema. Vexa o final deste documento para obter instrucións detalladas."
+msgid ""
+"You are using the editor-based debconf frontend to configure your system. "
+"See the end of this document for detailed instructions."
+msgstr ""
+"Está empregando a interface baseada en editores de debconf para configurar o "
+"seu sistema. Vexa o final deste documento para obter instrucións detalladas."
 
 #: ../Debconf/FrontEnd/Editor.pm:111
-msgid "The editor-based debconf frontend presents you with one or more text files to edit. This is one such text file. If you are familiar with standard unix configuration files, this file will look familiar to you -- it contains comments interspersed with configuration items. Edit the file, changing any items as necessary, and then save it and exit. At that point, debconf will read the edited file, and use the values you entered to configure the system."
-msgstr "A interface baseada en editores de debconf preséntalle un ou máis ficheiros de texto para editar. Este é un deses ficheiros. Se está familiarizado cos ficheiros de configuración estándar de UNIX, este ficheiro faráselle familiar -- contén comentarios intercalados cos elementos de configuración. Edite o ficheiro, cambiando os elementos que sexan necesarios, e despois gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os valores introducidos para configurar o sistema."
+msgid ""
+"The editor-based debconf frontend presents you with one or more text files "
+"to edit. This is one such text file. If you are familiar with standard unix "
+"configuration files, this file will look familiar to you -- it contains "
+"comments interspersed with configuration items. Edit the file, changing any "
+"items as necessary, and then save it and exit. At that point, debconf will "
+"read the edited file, and use the values you entered to configure the system."
+msgstr ""
+"A interface baseada en editores de debconf preséntalle un ou máis ficheiros "
+"de texto para editar. Este é un deses ficheiros. Se está familiarizado cos "
+"ficheiros de configuración estándar de UNIX, este ficheiro faráselle "
+"familiar -- contén comentarios intercalados cos elementos de configuración. "
+"Edite o ficheiro, cambiando os elementos que sexan necesarios, e despois "
+"gráveo e saia. Nese punto, debconf lerá o ficheiro editado, e empregará os "
+"valores introducidos para configurar o sistema."
 
-#: ../Debconf/FrontEnd/Gnome.pm:97
+#: ../Debconf/FrontEnd/Gnome.pm:144 ../Debconf/FrontEnd/Kde.pm:100
+#: ../Debconf/FrontEnd/Kde.pm:104
 #, perl-format
 msgid "Debconf on %s"
 msgstr "Debconf en %s"
@@ -190,7 +238,8 @@ msgstr "Máis"
 #: ../Debconf/FrontEnd/Web.pm:66
 #, perl-format
 msgid "Note: Debconf is running in web mode. Go to http://localhost:%i/"
-msgstr "Nota: Debconf está executándose en modo web. Vaia a http://localhost:%i/"
+msgstr ""
+"Nota: Debconf está executándose en modo web. Vaia a http://localhost:%i/"
 
 #: ../Debconf/FrontEnd/Web.pm:166
 msgid "Back"
@@ -202,13 +251,22 @@ msgstr "Seguinte"
 
 #: ../Debconf/Template.pm:91
 #, perl-format
-msgid "warning: possible database corruption. Will attempt to repair by adding back missing question %s."
-msgstr "aviso: posíbel estrago da base de datos. Tentarase reparar engadindo a pregunta anterior «%s» que falta."
+msgid ""
+"warning: possible database corruption. Will attempt to repair by adding back "
+"missing question %s."
+msgstr ""
+"aviso: posíbel estrago da base de datos. Tentarase reparar engadindo a "
+"pregunta anterior «%s» que falta."
 
 #: ../Debconf/Template.pm:206
 #, perl-format
-msgid "Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". Probably two templates are not properly separated by a lone newline.\n"
-msgstr "O modelo num. %s en %s ten duplicado o campo «%s» cun novo valor «%s». Probabelmente hai dous modelos que non están correctamente separados cunha liña baleira (retorno de carro).\n"
+msgid ""
+"Template #%s in %s has a duplicate field \"%s\" with new value \"%s\". "
+"Probably two templates are not properly separated by a lone newline.\n"
+msgstr ""
+"O modelo num. %s en %s ten duplicado o campo «%s» cun novo valor «%s». "
+"Probabelmente hai dous modelos que non están correctamente separados cunha "
+"liña baleira (retorno de carro).\n"
 
 #: ../Debconf/Template.pm:231
 #, perl-format
@@ -218,7 +276,9 @@ msgstr "Campo de modelo descoñecido «%s», na estrofa num. %s de %s\n"
 #: ../Debconf/Template.pm:257
 #, perl-format
 msgid "Template parse error near `%s', in stanza #%s of %s\n"
-msgstr "Atopouse un erro analizando o modelo cerca de «%s», na estrofa num. %s de %s\n"
+msgstr ""
+"Atopouse un erro analizando o modelo cerca de «%s», na estrofa num. %s de "
+"%s\n"
 
 #: ../Debconf/Template.pm:263
 #, perl-format
@@ -232,21 +292,20 @@ msgstr "débense especificar algúns paquetes para preconfigurar"
 
 #: ../dpkg-preconfigure:126
 msgid "delaying package configuration, since apt-utils is not installed"
-msgstr "atrasase a configuración dos paquetes porque apt-utils non está instalado"
+msgstr ""
+"atrasase a configuración dos paquetes porque apt-utils non está instalado"
 
 #: ../dpkg-preconfigure:133
 #, perl-format
 msgid "unable to re-open stdin: %s"
 msgstr "non é posíbel volver abrir a entrada estándar: %s"
 
-#: ../dpkg-preconfigure:164
-#: ../dpkg-preconfigure:176
+#: ../dpkg-preconfigure:164 ../dpkg-preconfigure:176
 #, perl-format
 msgid "apt-extracttemplates failed: %s"
 msgstr "apt-extracttemplates non funcionou: %s"
 
-#: ../dpkg-preconfigure:168
-#: ../dpkg-preconfigure:180
+#: ../dpkg-preconfigure:168 ../dpkg-preconfigure:180
 #, perl-format
 msgid "Extracting templates from packages: %d%%"
 msgstr "Extraendo os modelos dos paquetes: %d%%"
@@ -282,7 +341,8 @@ msgstr ""
 "Modo de uso: dpkg-reconfigure [opcións] paquetes\n"
 "  -a,  --all\t\t\tReconfigura todos os paquetes.\n"
 "  -u,  --unseen-only\t\tMostra só as preguntas non visualizadas.\n"
-"       --default-priority\tUsar a prioridade predeterminada no canto da baixa.\n"
+"       --default-priority\tUsar a prioridade predeterminada no canto da "
+"baixa.\n"
 "       --force\t\t\tForzar a reconfiguración dos paquetes estragados.\n"
 "       --no-reload\t\tNon cargar os modelos (usar con tino)"
 
@@ -315,8 +375,12 @@ msgid "Usage: debconf-communicate [options] [package]"
 msgstr "Uso: debconf-communicate [opcións] [paquete]"
 
 #: ../debconf-mergetemplate:14
-msgid "debconf-mergetemplate: This utility is deprecated. You should switch to using po-debconf's po2debconf program."
-msgstr "debconf-mergetemplate: esta utilidade é obsoleta. Debería empregar o programa po2debconf de po-debconf."
+msgid ""
+"debconf-mergetemplate: This utility is deprecated. You should switch to "
+"using po-debconf's po2debconf program."
+msgstr ""
+"debconf-mergetemplate: esta utilidade é obsoleta. Debería empregar o "
+"programa po2debconf de po-debconf."
 
 #: ../debconf-mergetemplate:66
 msgid "Usage: debconf-mergetemplate [options] [templates.ll ...] templates"
@@ -373,4 +437,3 @@ msgid ""
 msgstr ""
 "\n"
 "  -o,  --owner=package\t\tEstabelecer o paquete ao que pertence a orde."
-

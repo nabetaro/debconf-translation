@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: debconf 1.5.39\n"
-"POT-Creation-Date: 2010-10-17 18:28+0000\n"
+"POT-Creation-Date: 2010-11-29 18:11+0000\n"
 "PO-Revision-Date: 2011-05-07 11:22+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>"
-"=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 # type: =head1
 #. type: SH
@@ -515,7 +515,8 @@ msgstr "B<--config>"
 # type: textblock
 #. type: textblock
 #: ../../debconf-apt-progress:49
-msgid "Print environment variables necessary to start up a progress bar frontend."
+msgid ""
+"Print environment variables necessary to start up a progress bar frontend."
 msgstr ""
 "Вывести переменные окружения, необходимые для запуска индикатора выполнения "
 "интерфейса."
@@ -1172,7 +1173,8 @@ msgstr "L<debconf.conf(5)>"
 #. type: textblock
 #: ../../debconf-getlang:5
 msgid "debconf-getlang - extract a language from a templates file"
-msgstr "debconf-getlang - извлекает строки на указанном языке из файла templates"
+msgstr ""
+"debconf-getlang - извлекает строки на указанном языке из файла templates"
 
 # type: verbatim
 #. type: verbatim
@@ -1324,7 +1326,8 @@ msgstr "ЗАМЕЧАНИЕ"
 # type: textblock
 #. type: textblock
 #: ../../debconf-getlang:70
-msgid "Note that the text in the generated templates may be word-wrapped by debconf."
+msgid ""
+"Note that the text in the generated templates may be word-wrapped by debconf."
 msgstr ""
 "Заметим, что debconf может по другому разбить на строки текст в созданных "
 "шаблонах."
@@ -1426,7 +1429,8 @@ msgstr "L<debconf-communicate(1)>"
 #. type: textblock
 #: ../../debconf-mergetemplate:5
 msgid "debconf-mergetemplate - merge together multiple debconf template files"
-msgstr "debconf-mergetemplate - объединяет вместе несколько debconf файлов шаблонов"
+msgstr ""
+"debconf-mergetemplate - объединяет вместе несколько debconf файлов шаблонов"
 
 # type: verbatim
 #. type: verbatim
@@ -1543,7 +1547,8 @@ msgstr "L<debconf-getlang(1)>"
 # type: textblock
 #. type: textblock
 #: ../../debconf-set-selections:5
-msgid "debconf-set-selections - insert new default values into the debconf database"
+msgid ""
+"debconf-set-selections - insert new default values into the debconf database"
 msgstr ""
 "debconf-set-selections - вставляет новые ответы по умолчанию в базу данных "
 "debconf"
@@ -1647,7 +1652,8 @@ msgstr ""
 msgid ""
 "Lines can be continued to the next line by ending them with a \"\\\" "
 "character."
-msgstr "Строки продлеваются на следующую строку, если оканчиваются символом \"\\\"."
+msgstr ""
+"Строки продлеваются на следующую строку, если оканчиваются символом \"\\\"."
 
 # type: verbatim
 #. type: verbatim
@@ -1813,7 +1819,8 @@ msgstr "Joey Hess <joeyh@debian.org> и Sylvain Ferriol"
 # type: textblock
 #. type: textblock
 #: ../../dpkg-preconfigure:5
-msgid "dpkg-preconfigure - let packages ask questions prior to their installation"
+msgid ""
+"dpkg-preconfigure - let packages ask questions prior to their installation"
 msgstr "dpkg-preconfigure - позволяет пакетам задать вопросы перед установкой"
 
 # type: verbatim
@@ -2018,7 +2025,8 @@ msgstr "B<--default-priority>"
 msgid ""
 "Use whatever the default priority of question is, instead of forcing the "
 "priority to low."
-msgstr "Задать приоритет вопросов по умолчанию, а не принудительный низший приоритет."
+msgstr ""
+"Задать приоритет вопросов по умолчанию, а не принудительный низший приоритет."
 
 # type: =item
 #. type: =item
@@ -2584,7 +2592,8 @@ msgstr "B<Backup>"
 msgid ""
 "Whether a backup should be made of the old file before changing it.  "
 "Defaults to true."
-msgstr "Нужно ли делать резервную копию перед изменением. По умолчанию включено."
+msgstr ""
+"Нужно ли делать резервную копию перед изменением. По умолчанию включено."
 
 # type: Plain text
 #. type: Plain text
@@ -2701,7 +2710,8 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: debconf.conf.5:203
-msgid "This driver is configurable in the same ways as is the DirTree driver, plus:"
+msgid ""
+"This driver is configurable in the same ways as is the DirTree driver, plus:"
 msgstr ""
 "Данный драйвер настраивается теми же параметрами как и драйвер DirTree, а "
 "также:"
@@ -2739,7 +2749,8 @@ msgstr "B<LDAP>"
 # type: Plain text
 #. type: Plain text
 #: debconf.conf.5:218
-msgid "WARNING: This database driver is currently experimental. Use with caution."
+msgid ""
+"WARNING: This database driver is currently experimental. Use with caution."
 msgstr ""
 "ПРЕДУПРЕЖДЕНИЕ: Данный драйвер базы данных является экспериментальным. "
 "Используйте с осторожностью."
@@ -3160,7 +3171,8 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: debconf.conf.5:368
-msgid "WARNING: The stack driver is not very well tested yet. Use at your own risk."
+msgid ""
+"WARNING: The stack driver is not very well tested yet. Use at your own risk."
 msgstr ""
 "ПРЕДУПРЕЖДЕНИЕ: Драйвер stack пока не был хорошо протестирован. Используйте "
 "на свой страх и риск."
@@ -4386,7 +4398,8 @@ msgstr ""
 #. type: Plain text
 #: debconf.7:228
 msgid "Here's another way to use the DEBCONF_DB_FALLBACK environment variable:"
-msgstr "Вот другой способ использования переменной окружения DEBCONF_DB_FALLBACK:"
+msgstr ""
+"Вот другой способ использования переменной окружения DEBCONF_DB_FALLBACK:"
 
 # type: Plain text
 #. type: Plain text
@@ -4534,7 +4547,8 @@ msgstr "B<DEBIAN_FRONTEND>"
 #. type: Plain text
 #: debconf.7:276
 msgid "Used to temporarily change the frontend debconf uses. See above."
-msgstr "Используется для временного изменения интерфейса debconf. Смотрите ранее."
+msgstr ""
+"Используется для временного изменения интерфейса debconf. Смотрите ранее."
 
 # type: TP
 #. type: TP
@@ -4847,8 +4861,10 @@ msgstr "Вероятно имеются как и в любом другом к�
 # type: Plain text
 #. type: Plain text
 #: debconf.7:359
-msgid "If you do file a bug report, be sure to include the following information:"
-msgstr "При отправке отчёта об ошибке проверьте, что включили следующую информацию:"
+msgid ""
+"If you do file a bug report, be sure to include the following information:"
+msgstr ""
+"При отправке отчёта об ошибке проверьте, что включили следующую информацию:"
 
 # type: TP
 #. type: TP
@@ -4909,7 +4925,8 @@ msgstr "debconf - руководство разработчика"
 #. type: Plain text
 #: debconf-devel.7:6
 msgid "This is a guide for developing packages that use debconf."
-msgstr "Данное руководство помогает при разработке пакетов, использующих debconf."
+msgstr ""
+"Данное руководство помогает при разработке пакетов, использующих debconf."
 
 # type: Plain text
 #. type: Plain text
@@ -5252,7 +5269,8 @@ msgstr "B<string>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:119
-msgid "Results in a free-form input field that the user can type any string into."
+msgid ""
+"Results in a free-form input field that the user can type any string into."
 msgstr ""
 "Поле ввода произвольных данных, в которое пользователь может ввести любую "
 "строку."
@@ -6414,12 +6432,6 @@ msgstr "ДРУГИЕ СЦЕНАРИИ"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:502
-#| msgid ""
-#| "Besides the config script and postinst, you can use debconf in any of the "
-#| "other maintainer scripts. Most commonly, you'll be using debconf in your "
-#| "postrm, to call the PURGE command when your package is removed, to clean "
-#| "out its entries in the debconf database. (This is automatically set up "
-#| "for you by B<dh_installdebconf>(1)B<,> by the way.)"
 msgid ""
 "Besides the config script and postinst, you can use debconf in any of the "
 "other maintainer scripts. Most commonly, you'll be using debconf in your "
@@ -6683,18 +6695,14 @@ msgstr "B<DEBCONF_C_VALUES>"
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:599
-#| msgid ""
-#| "If this environment variable is set to 'true', the frontend will display "
-#| "the values in Choices-C field (if present) of select and multiselect "
-#| "templates rather than the descriptive values."
 msgid ""
 "If this environment variable is set to 'true', the frontend will display the "
 "values in Choices-C fields (if present) of select and multiselect templates "
 "rather than the descriptive values."
 msgstr ""
 "Если значение данной переменной окружения равно «true», то интерфейсная "
-"программа будет показывать значения шаблонов Choices-C (если есть) выбора "
-"и множественного выбора, вместо описательных значений."
+"программа будет показывать значения шаблонов Choices-C (если есть) выбора и "
+"множественного выбора, вместо описательных значений."
 
 # type: TP
 #. type: TP
@@ -7334,8 +7342,10 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:841
-msgid "Make all the packages in the set use a shared template. Something like this:"
-msgstr "Сделайте так, чтобы все пакеты в наборе использовали общий шаблон. Например:"
+msgid ""
+"Make all the packages in the set use a shared template. Something like this:"
+msgstr ""
+"Сделайте так, чтобы все пакеты в наборе использовали общий шаблон. Например:"
 
 # type: Plain text
 #. type: Plain text
@@ -7630,14 +7640,6 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: debconf-devel.7:958
-#| msgid ""
-#| "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
-#| "postinst script that needs to avoid some expensive operation when "
-#| "reconfigured can look at that variable. This is a hack because the right "
-#| "thing would be to pass $1 = \"reconfigure\", but doing so without "
-#| "breaking all the postinsts that use debconf is difficult. The migration "
-#| "plan away from this hack is to encourage people to write postinsts that "
-#| "accept \"reconfigure\", and once they all do, begin passing that variable."
 msgid ""
 "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
 "postinst script that needs to avoid some expensive operation when "
@@ -7652,10 +7654,9 @@ msgstr ""
 "затратной операции перед перенастройкой, может проверить наличие этой "
 "переменной. Это хак, так как правильно сделать это — передать $1 = "
 "\"reconfigure\", но этого делать нельзя, так как будут работать неправильно "
-"все сценарии postinst, использующие debconf. "
-"Разработан план перехода на приём сценариями postinst значения "
-"«reconfigure», и как только все сделают это, начнётся "
-"передача этого параметра."
+"все сценарии postinst, использующие debconf. Разработан план перехода на "
+"приём сценариями postinst значения «reconfigure», и как только все сделают "
+"это, начнётся передача этого параметра."
 
 # type: Plain text
 #. type: Plain text
@@ -7683,4 +7684,3 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) содержит много полезной информации, включая описание "
 "среды хранения базы данных."
-
