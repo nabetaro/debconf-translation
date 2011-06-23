@@ -14,6 +14,7 @@ all:
 
 clean:
 	find . \( -name \*~ -o -name \*.pyc -o -name \*.pyo \) | xargs rm -f
+	rm -rf __pycache__
 	$(MAKE) -C doc clean
 	$(MAKE) -C po clean
 	#remove generated file
