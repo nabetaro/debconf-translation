@@ -1,6 +1,10 @@
 debconf (1.5.41) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Make sure __pycache__ is removed on clean (from local python3 tests).
+
+  [ Joey Hess ]
+  * Fix IFS sanitization. Really fixes #381619.
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 23 Jun 2011 07:49:55 +0100
 
