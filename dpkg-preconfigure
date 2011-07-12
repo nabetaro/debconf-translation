@@ -87,6 +87,10 @@ BEGIN {
 	}
 }
 
+if (exists $ENV{DEBCONF_USE_CDEBCONF} and $ENV{DEBCONF_USE_CDEBCONF} ne '') {
+    exec "/usr/lib/cdebconf/dpkg-preconfigure", @ARGV;
+}
+
 Debconf::Db->load;
 
 my $apt=0;

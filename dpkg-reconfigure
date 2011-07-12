@@ -81,6 +81,10 @@ L<debconf(7)>
 
 =cut
 
+if (exists $ENV{DEBCONF_USE_CDEBCONF} and $ENV{DEBCONF_USE_CDEBCONF} ne '') {
+    exec "/usr/lib/cdebconf/dpkg-reconfigure", @ARGV;
+}
+
 my $infodir="/var/lib/dpkg/info";
 
 use strict;
