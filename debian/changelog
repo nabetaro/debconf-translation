@@ -5,6 +5,8 @@ debconf (1.5.41) UNRELEASED; urgency=low
 
   [ Joey Hess ]
   * Fix IFS sanitization. Really fixes #381619.
+  * dpkg-reconfigure, dpkg-preconfigure: Call cdebconf versions if
+    the DEBCONF_USE_CDEBCONF variable is set. (Regis Boudin)
 
  -- Colin Watson <cjwatson@debian.org>  Thu, 23 Jun 2011 07:49:55 +0100
 
