@@ -1,4 +1,4 @@
-debconf (1.5.41) UNRELEASED; urgency=low
+debconf (1.5.41) unstable; urgency=low
 
   [ Colin Watson ]
   * Make sure __pycache__ is removed on clean (from local python3 tests).
@@ -8,7 +8,7 @@ debconf (1.5.41) UNRELEASED; urgency=low
   * dpkg-reconfigure, dpkg-preconfigure: Call cdebconf versions if
     the DEBCONF_USE_CDEBCONF variable is set. (Regis Boudin)
 
- -- Colin Watson <cjwatson@debian.org>  Thu, 23 Jun 2011 07:49:55 +0100
+ -- Joey Hess <joeyh@debian.org>  Fri, 29 Jul 2011 12:35:06 +0200
 
 debconf (1.5.40) unstable; urgency=low
 
