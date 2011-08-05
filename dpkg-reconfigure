@@ -85,8 +85,6 @@ if (exists $ENV{DEBCONF_USE_CDEBCONF} and $ENV{DEBCONF_USE_CDEBCONF} ne '') {
     exec "/usr/lib/cdebconf/dpkg-reconfigure", @ARGV;
 }
 
-my $infodir="/var/lib/dpkg/info";
-
 use strict;
 use Debconf::Db;
 use Debconf::Gettext;
@@ -185,8 +183,11 @@ foreach my $pkg (@packages) {
 	
 	if ($reload) {
 		# Load up templates just in case they aren't already.
-		Debconf::Template->load("$infodir/$pkg.templates", $pkg)
-			if -e "$infodir/$pkg.templates";
+		my $templates=`dpkg-query --control-path $pkg templates`;
+		chomp($templates);
+		if ($templates and -e $templates) {
+			Debconf::Template->load($templates, $pkg);
+		}
 	}
 
 	# Simulation of reinstalling a package, without bothering with
@@ -198,7 +199,10 @@ foreach my $pkg (@packages) {
 		          ['config',   'reconfigure', $version],
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
-		next unless -x "$infodir/$pkg.$script";
+		my $path_script=`dpkg-query --control-path $pkg $script`;
+		chomp($path_script);
+
+		next unless $path_script and -x $path_script;
 
 		my $is_confmodule='';
 
@@ -209,7 +213,7 @@ foreach my $pkg (@packages) {
 
 		if ($script ne 'config') {
 			# Test to see if the script uses debconf.
-			open (IN, "<$infodir/$pkg.$script");
+			open (IN, "<$path_script");
 			while (<IN>) {
 				if (/confmodule/i) {
 					$is_confmodule=1;
@@ -221,8 +225,7 @@ foreach my $pkg (@packages) {
 		
 		if ($script eq 'config' || $is_confmodule) {
 			# Start up the confmodule.
-			my $confmodule=make_confmodule(
-				"$infodir/$pkg.$script", @$info);
+			my $confmodule=make_confmodule($path_script, @$info);
 	
 			# Make sure any questions the confmodule registers
 			# are owned by this package.
@@ -241,7 +244,7 @@ foreach my $pkg (@packages) {
 			Debconf::Db->save;
 			
 			delete $ENV{DEBIAN_HAS_FRONTEND};
-			my $ret=system("$infodir/$pkg.$script", @$info);
+			my $ret=system($path_script, @$info);
 			if (int($ret / 256) != 0) {
 				exit int($ret / 256);
 			}
