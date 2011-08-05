@@ -85,6 +85,11 @@ sub init {
 	
 	# Make sure that the file exists, and set the mode too.
 	if (! -e $this->{filename}) {
+		my ($directory)=$this->{filename}=~m!^(.*)/[^/]+!;
+		if (! -d $directory) {
+			mkdir $directory || $this->error("mkdir $directory:$!");
+		}
+
 		$this->{backup}=0;
 		sysopen(my $fh, $this->{filename}, 
 				O_WRONLY|O_TRUNC|O_CREAT,$this->{mode}) or

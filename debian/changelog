@@ -1,3 +1,10 @@
+debconf (1.5.42) UNRELEASED; urgency=low
+
+  * File DbDriver now creates the directory for the file if it is missing.
+    (All other DbDrivers that write files already did this.) Closes: #636621
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 05 Aug 2011 12:57:53 -0400
+
 debconf (1.5.41) unstable; urgency=low
 
   [ Colin Watson ]
