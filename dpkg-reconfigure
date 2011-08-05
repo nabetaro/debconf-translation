@@ -170,6 +170,8 @@ foreach my $pkg (@packages) {
 	$_=`dpkg --status $pkg`;
 	my ($version)=m/Version: (.*)\n/;
 	my ($status)=m/Status: (.*)\n/;
+	my ($package)=m/Package: (.*)\n/;
+	my ($arch)=m/Architecture: (.*)\n/;
 	if (! $force) {
 		if (! defined $status || $status =~ m/not-installed$/) {
 			print STDERR "$0: ".sprintf(gettext("%s is not installed"), $pkg)."\n";
@@ -199,6 +201,11 @@ foreach my $pkg (@packages) {
 		next unless -x "$infodir/$pkg.$script";
 
 		my $is_confmodule='';
+
+		# Set environment variables expected by maintainer scripts
+		$ENV{DPKG_MAINTSCRIPT_PACKAGE}=$package;
+		$ENV{DPKG_MAINTSCRIPT_ARCH}=$arch;
+		$ENV{DPKG_MAINTSCRIPT_NAME}=$script;
 
 		if ($script ne 'config') {
 			# Test to see if the script uses debconf.
