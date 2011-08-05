@@ -36,7 +36,10 @@ sub show {
 	my $this=shift;
 
 	if ($this->question->flag('seen') ne 'true') {
-		$this->sendmail(gettext("Debconf was not configured to display this error message, so it mailed it to you."));
+		$this->sendmail(gettext("Debconf is not confident this error message was displayed, so it mailed it to you."));
+
+	$this->frontend->display($this->question->description."\n\n".
+		$this->question->extended_description."\n");
 	}
 	$this->value('');
 }
