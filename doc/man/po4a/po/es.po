@@ -1,10 +1,10 @@
 # debconf doc/man/po4a/po translation to Spanish
-# Copyright (C) 2010 Software in the Public Interest
+# Copyright (C) 2010, 2011 Software in the Public Interest
 # This file is distributed under the same license as the debconf package.
 #
 # Changes:
 #   - Initial translation
-#       Omar Campagne <ocampagne@gmail.com>, 2010
+#       Omar Campagne <ocampagne@gmail.com>, 2010, 2011.
 #
 #   - Updates
 #       TRANSLATOR
@@ -29,9 +29,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.5.32\n"
+"Project-Id-Version: debconf 1.5.41\n"
 "POT-Creation-Date: 2011-07-29 12:37+0300\n"
-"PO-Revision-Date: 2010-10-17 21:03+0200\n"
+"PO-Revision-Date: 2011-08-02 11:03+0200\n"
 "Last-Translator: Omar Campagne <ocampagne@gmail.com>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.1\n"
+"X-Generator: Virtaal 0.7.0\n"
 
 #. type: SH
 #: ../../debconf:3 ../../Debconf/Client/ConfModule.pm:3
@@ -314,7 +314,7 @@ msgstr ""
 "Éste es un módulo que facilita escribir ConfModules para el sistema de "
 "gestión de configuración de Debian. Se puede comunicar con una interfaz a "
 "través del protocolo de debconf (documentado en «debconf_specification» en "
-"el Manual de normas de Debian),"
+"el Manual de normas de Debian)."
 
 #. type: textblock
 #: ../../Debconf/Client/ConfModule.pm:27
@@ -699,7 +699,7 @@ msgid ""
 " esac\n"
 "\n"
 msgstr ""
-"¡ #! /bin/sh\n"
+" #! /bin/sh\n"
 " set -e\n"
 " case $1 in\n"
 "   '')\n"
@@ -899,7 +899,7 @@ msgid ""
 "another, possibly new database. The two databases may have different "
 "formats; if so a conversion will automatically be done."
 msgstr ""
-"B<debconf-copydb> copia elementos de una base de datos existente a otra,  "
+"B<debconf-copydb> copia elementos de una base de datos existente a otra, "
 "posiblemente nueva. Puede que el formato de las dos bases de datos sea "
 "distinto; en este caso, se hará una conversión automática."
 
@@ -995,7 +995,7 @@ msgstr ""
 "completa. Mientras que se usan líneas en blanco para separar las "
 "definiciones en «debconf.conf», este programa asume que \"Name:dbname"
 "\" (nombre: nombre-base-de-datos) denota el principio de una definición "
-"nueva. "
+"nueva."
 
 #. type: verbatim
 #: ../../debconf-copydb:76
@@ -1270,7 +1270,7 @@ msgid ""
 "To dump the debconf database of the debian-installer, from /var/log/"
 "installer/cdebconf, use the --installer parameter."
 msgstr ""
-"Use el parámetro «--installer» para volcar la base de datos de debeconf de "
+"Use el parámetro «--installer» para volcar la base de datos de debconf de "
 "debian-installer, tomando como fuente «/var/log/installer/cdebconf»."
 
 #. type: textblock
@@ -3120,7 +3120,7 @@ msgid ""
 msgstr ""
 "Algunos de los controladores de base de datos usan módulos de formato para "
 "controlar el formato real en el que la base de datos se guarda en el disco. "
-"Estos son los formatos aceptados actualmente."
+"Estos son los formatos aceptados actualmente:"
 
 #. type: TP
 #: debconf.conf.5:439
@@ -3468,7 +3468,7 @@ msgstr ""
 "En general, es bueno, ya que el texto enviado por la salida estándar será\n"
 "interpretado por la interfaz como una orden. Si desea enviar una orden\n"
 "directamente a la interfaz, deberá enviarlo como salida al descriptor de\n"
-"fichero 3, tal y como se muestra:  echo GET foo/bar E<gt>&3\n"
+"fichero 3, tal y como se muestra: echo GET foo/bar E<gt>&3\n"
 
 #. type: Plain text
 #: confmodule.3:36
@@ -3646,7 +3646,7 @@ msgid ""
 msgstr ""
 "Una de las características únicas de debconf es que la interfaz que le "
 "presenta es sólo una de entre varias posibles, que puede intercambiar como "
-"desee. Puede interactuar con debconf a través de varias interfaces."
+"desee. Puede interactuar con debconf a través de varias interfaces:"
 
 #. type: TP
 #: debconf.7:53
@@ -3759,7 +3759,7 @@ msgstr ""
 #: debconf.7:96
 #, no-wrap
 msgid "B<kde>"
-msgstr ""
+msgstr "B<kde>"
 
 #. type: Plain text
 #: debconf.7:102
@@ -3769,6 +3769,11 @@ msgid ""
 "must install libqt-perl. The frontend will fall back to dialog if some of "
 "the prerequisites are not met."
 msgstr ""
+"Esta interfaz proporciona una sencilla interfaz de usuario para X creada "
+"utilizando la biblioteca QT. Se integra bien en el entorno de escritorio "
+"KDE. Por supuesto, necesita configurar «DISPLAY» para utilizar esta "
+"interfaz, e instalar libqt-perl. Si no se cumplen todos los requisitos, esta "
+"interfaz utilizará dialog de forma predefinida."
 
 #. type: TP
 #: debconf.7:102
@@ -5970,13 +5975,6 @@ msgstr "OTROS SCRIPTS"
 
 #. type: Plain text
 #: debconf-devel.7:502
-#, fuzzy
-#| msgid ""
-#| "Besides the config script and postinst, you can use debconf in any of the "
-#| "other maintainer scripts. Most commonly, you'll be using debconf in your "
-#| "postrm, to call the PURGE command when your package is removed, to clean "
-#| "out its entries in the debconf database. (This is automatically set up "
-#| "for you by B<dh_installdebconf>(1)B<,> by the way.)"
 msgid ""
 "Besides the config script and postinst, you can use debconf in any of the "
 "other maintainer scripts. Most commonly, you'll be using debconf in your "
@@ -5986,7 +5984,7 @@ msgid ""
 msgstr ""
 "Aparte del script «config» y «postinst», puede usar debconf en cualquier "
 "otro script de encargado de paquetes. Habitualmente, usará debconf en su "
-"«postrm» para invocar la orden «PURGE» cuando se elimine su paquete y así "
+"«postrm» para invocar la orden «PURGE» cuando purga su paquete y así "
 "eliminar sus entradas de la base de datos debconf. (Por cierto, está "
 "configurado automáticamente mediante B<dh_installdebconf>(1).)"
 
@@ -6226,18 +6224,13 @@ msgstr "B<DEBCONF_C_VALUES>"
 
 #. type: Plain text
 #: debconf-devel.7:599
-#, fuzzy
-#| msgid ""
-#| "If this environment variable is set to 'true', the frontend will display "
-#| "the values in Choices-C field (if present) of select and multiselect "
-#| "templates rather than the descriptive values."
 msgid ""
 "If this environment variable is set to 'true', the frontend will display the "
 "values in Choices-C fields (if present) of select and multiselect templates "
 "rather than the descriptive values."
 msgstr ""
 "Si define esta variable de entorno como «true», la interfaz mostrará los "
-"valores en el campo «Choices-C» (de existir) de plantillas «select» y "
+"valores en los campos «Choices-C» (de existir) de plantillas «select» y "
 "«multiselect» en lugar de los valores descriptivos."
 
 #. type: TP
@@ -7128,15 +7121,6 @@ msgstr ""
 
 #. type: Plain text
 #: debconf-devel.7:958
-#, fuzzy
-#| msgid ""
-#| "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
-#| "postinst script that needs to avoid some expensive operation when "
-#| "reconfigured can look at that variable. This is a hack because the right "
-#| "thing would be to pass $1 = \"reconfigure\", but doing so without "
-#| "breaking all the postinsts that use debconf is difficult. The migration "
-#| "plan away from this hack is to encourage people to write postinsts that "
-#| "accept \"reconfigure\", and once they all do, begin passing that variable."
 msgid ""
 "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
 "postinst script that needs to avoid some expensive operation when "
@@ -7153,7 +7137,7 @@ msgstr ""
 "romper todos los «postinst» que usan debconf es difícil. La vía para "
 "abandonar este arreglo es animar a la gente a que escriban ficheros "
 "«postinst» que acepten «reconfigure», y una vez que todos lo hagan, empezar "
-"a introducir esa variable."
+"a introducir ese parámetro."
 
 #. type: Plain text
 #: debconf-devel.7:961
