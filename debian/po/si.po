@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
 "POT-Creation-Date: 2009-08-24 19:24+0200\n"
-"PO-Revision-Date: 2011-09-06 15:20+0530\n"
-"Last-Translator: Danishka Navin <danishka@gmail.com>\n"
+"PO-Revision-Date: 2011-09-11 20:28+0530\n"
+"Last-Translator: \n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
@@ -107,12 +107,6 @@ msgstr "වඩා අඩු ප්‍රමුඛතා සහිත ප්‍�
 #. Type: select
 #. Description
 #: ../templates:2002
-#, fuzzy
-#| msgid ""
-#| "Debconf prioritizes the questions it asks you. Pick the lowest priority "
-#| "of question you want to see:\n"
-#| "  - 'critical' only prompts you if the system might break.\n"
-#| "    Pick it"
 msgid ""
 "Debconf prioritizes the questions it asks you. Pick the lowest priority of "
 "question you want to see:\n"
@@ -122,10 +116,13 @@ msgid ""
 "  - 'medium' is for normal questions\n"
 "  - 'low' is for control freaks who want to see everything"
 msgstr ""
-"Debconf ඔබ අසන පැණ සඳහා ප්‍රමුඛත්වය දේ. ඔබට බැලීමට අවශ්‍ය අවම ප්‍රමුඛතාවය සහිත පැණය "
-"තෝරන්න :\n"
-"  - පද්ධතිය බිදවැටීමකදි පමණක්  'දරුණු' යන්න දක්වයි.\n"
-"    එය ගන්න"
+"Debconf ඔබෙන් අසන ගැටළු ප්‍රමුඛතාවන්ට අනුව පෙළ ගසයි. ඔබට දැකීමට ඇවැසි අඩුම ප්‍රමුඛතාව "
+"තෝරන්න:\n"
+"  - 'දරුණු' පද්ධතිය බිඳවැටේනම් පමණක් ඔබෙන් අසයි.\n"
+"    ඔබ නවකයෙක් හෝ හදිසි නම් එය තෝරන්න.\n"
+"  - 'ඉහළ' වඩා වැදගත් ගැටළු වලටයි\n"
+"  - 'මධ්‍යම' සාමාන්‍ය ගැටළු සඳහා\n"
+"  - 'අඩු' සියල්ල දැකීමට කැමැත්තන්ටයි"
 
 #. Type: select
 #. Description
@@ -134,18 +131,20 @@ msgid ""
 "Note that no matter what level you pick here, you will be able to see every "
 "question if you reconfigure a package with dpkg-reconfigure."
 msgstr ""
+"ඔබ මෙහි කුමක් සඳහන් කලද, ඔබ පැකේජය  dpkg-reconfigure මගින් නැවත සැකසුව හොත් ඔබ සියළු "
+"ගැටළු නැවත දකින බව දැනගන්න."
 
 #. Type: text
 #. Description
 #: ../templates:3001
 msgid "Installing packages"
-msgstr ""
+msgstr "පැකේජ ස්ථාපනය කරමින්"
 
 #. Type: text
 #. Description
 #: ../templates:4001
 msgid "Please wait..."
-msgstr ""
+msgstr "කරුණාකර රැඳෙන්න..."
 
 #. Type: text
 #. Description
@@ -154,4 +153,4 @@ msgstr ""
 #. to install a package or a collection of packages
 #: ../templates:6001
 msgid "Media change"
-msgstr ""
+msgstr "මාධ්‍ය වෙනසක්"
