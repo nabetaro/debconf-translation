@@ -56,7 +56,10 @@ BEGIN {
 	no warnings;
 	eval q{ use Text::WrapI18N; use Text::CharWidth };
 	use warnings;
-	if (! $@) {
+	# mblen has been known to get busted and return large numbers when
+	# the wrong version of perl is installed. Avoid an infinite loop
+	# in Text::WrapI18n in this case.
+	if (! $@ && Text::CharWidth::mblen("a") == 1) {
 		# Set up wrap and width functions to point to functions
 		# from the modules.
 		*wrap = *Text::WrapI18N::wrap;
