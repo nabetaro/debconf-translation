@@ -15,6 +15,8 @@ debconf (1.5.42) UNRELEASED; urgency=low
   [ Joey Hess ]
   * Add a belt-and-suspenders test that Text::CharWidth::mblen is not
     returning bogus values, before using Text::WrapI18n. See #641957
+  * Avoid an uninitalized value warning when a blank line is received
+    from the client. Closes: #651642
 
  -- Joey Hess <joeyh@debian.org>  Fri, 05 Aug 2011 12:57:53 -0400
 
