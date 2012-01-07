@@ -1,22 +1,23 @@
-# translation of nb.po to Norwegian Bokmål
+# Translation of nb.po to Norwegian Bokmål
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Håvard Korsvoll <korsvoll@skulelinux.no>, 2004, 2005.
 # Bjørn Steensrud <bjornst@powertech.no>, 2005, 2006.
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-11 12:57+0100\n"
-"PO-Revision-Date: 2006-10-05 22:22+0200\n"
-"Last-Translator: Bjørn Steensrud <bjornst@powertech.no>\n"
+"PO-Revision-Date: 2012-01-05 22:20+0100\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.2\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #: ../Debconf/AutoSelect.pm:76
@@ -320,7 +321,6 @@ msgid "%s failed to preconfigure, with exit status %s"
 msgstr "forhåndsoppsettet av %s mislyktes med avslutningsstatus %s"
 
 #: ../dpkg-reconfigure:103
-#, fuzzy
 msgid ""
 "Usage: dpkg-reconfigure [options] packages\n"
 "  -a,  --all\t\t\tReconfigure all packages.\n"
@@ -333,7 +333,8 @@ msgstr ""
 "  -a,  --all\t\t\tSett opp alle pakker på nytt.\n"
 "  -u,  --unseen-only\t\tVis bare spørsmål som ikke er sett ennå.\n"
 "       --default-priority\tBruk standard prioritet i stedet for lav.\n"
-"       --force\t\t\tNytt oppsett påtvinges ødelagte pakker."
+"       --force\t\t\tNytt oppsett påtvinges ødelagte pakker.\n"
+"       --no-reload\t\tIkke last inn maler på nytt. (Bruk med forsiktighet.)"
 
 #: ../dpkg-reconfigure:117
 #, perl-format
@@ -455,3 +456,4 @@ msgstr ""
 
 #~ msgid "preconfiguring %s (%s)"
 #~ msgstr "førehandsoppset %s (%s)"
+
