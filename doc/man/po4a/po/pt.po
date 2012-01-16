@@ -2,12 +2,12 @@
 # Copyright (C) 2010 Free Software Foundation, Inc.
 # This file is distributed under the same license as the debconf package.
 #
-# Américo Monteiro <a_monteiro@netcabo.pt>, 2010.
+# Américo Monteiro <a_monteiro@netcabo.pt>, 2010, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: debconf 1.5.29\n"
+"Project-Id-Version: debconf\n"
 "POT-Creation-Date: 2011-07-29 12:37+0300\n"
-"PO-Revision-Date: 2010-10-17 20:41+0200\n"
+"PO-Revision-Date: 2012-01-15 19:49+0000\n"
 "Last-Translator: Américo Monteiro <a_monteiro@netcabo.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: ENCODINGX-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 
 #. type: SH
 #: ../../debconf:3 ../../Debconf/Client/ConfModule.pm:3
@@ -389,7 +389,8 @@ msgstr ""
 " debconf-apt-progress [--] comando [argumentos ...]\n"
 " debconf-apt-progress --config\n"
 " debconf-apt-progress --start\n"
-" debconf-apt-progress --from waypoint --to waypoint [--] comando [argumentos ...]\n"
+" debconf-apt-progress --from waypoint --to waypoint [--] comando [argumentos ."
+"..]\n"
 " debconf-apt-progress --stop\n"
 "\n"
 
@@ -856,10 +857,12 @@ msgstr "debconf-copydb - copia uma base de dados de debconf"
 #: ../../debconf-copydb:18
 #, no-wrap
 msgid ""
-" debconf-copydb sourcedb destdb [--pattern=pattern] [--owner-pattern=pattern] [--config=Foo:bar]\n"
+" debconf-copydb sourcedb destdb [--pattern=pattern] [--owner-pattern=pattern] "
+"[--config=Foo:bar]\n"
 "\n"
 msgstr ""
-" debconf-copydb sourcedb destdb [--pattern=padrão] [--owner-pattern=padrão] [--config=Foo:bar]\n"
+" debconf-copydb sourcedb destdb [--pattern=padrão] [--owner-pattern=padrão] "
+"[--config=Foo:bar]\n"
 "\n"
 
 #. type: textblock
@@ -1519,7 +1522,8 @@ msgid ""
 " debconf debconf/frontend seen false\n"
 "\n"
 msgstr ""
-" # Sobrepõe o frontend predefinido para readline, mas permite ai utilizador seleccionar.\n"
+" # Sobrepõe o frontend predefinido para readline, mas permite ai utilizador "
+"seleccionar.\n"
 " debconf debconf/frontend select readline\n"
 " debconf debconf/frontend seen false\n"
 "\n"
@@ -2174,7 +2178,8 @@ msgid ""
 "begins by naming the database:\n"
 "  Name: configdb\n"
 msgstr ""
-"Cada estrofe que permanece no ficheiro define uma base de dados. Uma estrofe de base de dados\n"
+"Cada estrofe que permanece no ficheiro define uma base de dados. Uma estrofe "
+"de base de dados\n"
 "começa por dar o nome à base de dados:\n"
 "  Name: configdb\n"
 
@@ -2186,8 +2191,10 @@ msgid ""
 "See DRIVERS, below, for information about what drivers are available.\n"
 "  Driver: File\n"
 msgstr ""
-"Depois indica que driver de base de dados deve ser usada para esta base de dados.\n"
-"Veja DRIVERS em baixo, para informação acerca de quais drivers estão disponíveis.\n"
+"Depois indica que driver de base de dados deve ser usada para esta base de "
+"dados.\n"
+"Veja DRIVERS em baixo, para informação acerca de quais drivers estão "
+"disponíveis.\n"
 "  Driver: Ficheiro\n"
 
 #. type: Plain text
@@ -2200,7 +2207,8 @@ msgid ""
 "  Required: false\n"
 msgstr ""
 "Você pode indicar que a base de dados não é essencial ao funcionamento\n"
-"apropriado do debconf dizendo que não é requerida. Isto fará com que o debconf\n"
+"apropriado do debconf dizendo que não é requerida. Isto fará com que o "
+"debconf\n"
 "se atrapalhe se a base de dados falhe por alguma razão.\n"
 "  Required: false\n"
 
@@ -2212,7 +2220,8 @@ msgid ""
 "to it.\n"
 "  Readonly: true\n"
 msgstr ""
-"Você pode marcar qualquer base de dados como 'só-leitura' e o debconf não irá\n"
+"Você pode marcar qualquer base de dados como 'só-leitura' e o debconf não "
+"irá\n"
 "escrever nada nela.\n"
 "  Readonly: true\n"
 
@@ -2236,7 +2245,8 @@ msgid ""
 msgstr ""
 "O restante de cada estrofe de base de dados é usado para disponibilizar\n"
 "configuração específica para essa driver. Por exemplo, a driver Text precisa\n"
-"de saber um directório onde colocar a base de dados, para que você possa dizer:\n"
+"de saber um directório onde colocar a base de dados, para que você possa "
+"dizer:\n"
 "  Filename: /var/cache/debconf/config.dat\n"
 
 #. type: SH
@@ -3399,7 +3409,8 @@ msgid ""
 "to file descriptor 3, like this:\n"
 "  echo GET foo/bar E<gt>&3\n"
 msgstr ""
-"Após esta biblioteca estar carregada, qualquer texto que faça sair irá para o\n"
+"Após esta biblioteca estar carregada, qualquer texto que faça sair irá para "
+"o\n"
 "error standard em vez da saída standard. Geralmente isto é bom porque\n"
 "o texto enviado para a saída standard é interpretado pelo FrontEnd como\n"
 "comandos. Se você deseja enviar um comando directamente para o FrontEnd,\n"
@@ -3547,7 +3558,8 @@ msgid ""
 "Suppose you want to reconfigure debconf itself. Just run, as root:\n"
 "  dpkg-reconfigure debconf\n"
 msgstr ""
-"Felizmente, o debconf facilita a reconfiguração de qualquer pacote que o use.\n"
+"Felizmente, o debconf facilita a reconfiguração de qualquer pacote que o use."
+"\n"
 "Suponha que quer reconfigurar o próprio debconf. Como root, execute:\n"
 "  dpkg-reconfigure debconf\n"
 
@@ -3691,7 +3703,7 @@ msgstr ""
 #: debconf.7:96
 #, no-wrap
 msgid "B<kde>"
-msgstr ""
+msgstr "B<kde>"
 
 #. type: Plain text
 #: debconf.7:102
@@ -3701,6 +3713,10 @@ msgid ""
 "must install libqt-perl. The frontend will fall back to dialog if some of "
 "the prerequisites are not met."
 msgstr ""
+"Este frontend disponibiliza uma GUI X simples escrita com a biblioteca Qt. "
+"Adapta-se bem ao ambiente de trabalho KDE. Claro que você precisa de um "
+"DISPLAY para usar este frontend e tem de instalar a libqt-perl. O frontend "
+"irá cair para dialog se algum dos pre-requisitos não estiver satisfeito."
 
 #. type: TP
 #: debconf.7:102
@@ -4065,10 +4081,12 @@ msgstr "Aqui está outro método:"
 #, no-wrap
 msgid ""
 "  scp config.dat root@target:\n"
-"  ssh root@target \"DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get upgrade\n"
+"  ssh root@target \"DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get "
+"upgrade\n"
 msgstr ""
 "  scp config.dat root@target:\n"
-"  ssh root@target \"DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get upgrade\n"
+"  ssh root@target \"DEBCONF_DB_FALLBACK='File{/root/config.dat}' apt-get "
+"upgrade\n"
 
 #. type: Plain text
 #: debconf.7:252
@@ -4311,7 +4329,8 @@ msgid ""
 "use and turns off backups:\n"
 "  DEBCONF_DB_FALLBACK=File{Filename:/root/config.dat Backup:no}\n"
 msgstr ""
-"Enquanto isto define uma nova base de dados do tipo File, e diz-lhe um nome de\n"
+"Enquanto isto define uma nova base de dados do tipo File, e diz-lhe um nome "
+"de\n"
 "ficheiro a usar e desliga os backups:\n"
 "  DEBCONF_DB_FALLBACK=File{Filename:/root/config.dat Backup:no}\n"
 
@@ -5884,7 +5903,6 @@ msgstr "OUTROS SCRIPTS"
 
 #. type: Plain text
 #: debconf-devel.7:502
-#, fuzzy
 #| msgid ""
 #| "Besides the config script and postinst, you can use debconf in any of the "
 #| "other maintainer scripts. Most commonly, you'll be using debconf in your "
@@ -5900,7 +5918,7 @@ msgid ""
 msgstr ""
 "À parte dos scripts config e postinst, você pode usar o debconf em qualquer "
 "dos outros scripts do maintainer. Mais geralmente, você vai usar debconf no "
-"seu postrm, para chamar o comando PURGE quando o seu pacote é removido, para "
+"seu postrm, para chamar o comando PURGE quando o seu pacote é purgado, para "
 "limpar as suas entradas na base de dados debconf. (Já agora, isto é definido "
 "automaticamente para si por B<dh_installdebconf>(1)B<,>.)"
 
@@ -6139,7 +6157,6 @@ msgstr "B<DEBCONF_C_VALUES>"
 
 #. type: Plain text
 #: debconf-devel.7:599
-#, fuzzy
 #| msgid ""
 #| "If this environment variable is set to 'true', the frontend will display "
 #| "the values in Choices-C field (if present) of select and multiselect "
@@ -6150,8 +6167,8 @@ msgid ""
 "rather than the descriptive values."
 msgstr ""
 "Se esta variável de ambiente for definida para 'true', o frontend irá "
-"mostrar os valores no campo Choices-C (se presente) de templates de selecção "
-"e multi-selecção em vez dos valores descritivos."
+"mostrar os valores nos campos Choices-C (se presentes) de templates de "
+"selecção e multi-selecção em vez dos valores descritivos."
 
 #. type: TP
 #: debconf-devel.7:600
@@ -7037,7 +7054,6 @@ msgstr ""
 
 #. type: Plain text
 #: debconf-devel.7:958
-#, fuzzy
 #| msgid ""
 #| "Debconf sets DEBCONF_RECONFIGURE=1 before running postinst scripts, so a "
 #| "postinst script that needs to avoid some expensive operation when "
@@ -7061,7 +7077,7 @@ msgstr ""
 "correcto seria passar $1 = \"reconfigure\", mas fazê-lo sem quebrar todos os "
 "postinsts que usam debconf é difícil. O plano de migração para fugir a este "
 "truque é encorajar as pessoas a escrever postinsts que aceitem \"reconfigure"
-"\", e quanto todos o fizerem, começar a passar essa variável."
+"\", e quanto todos o fizerem, começar a passar esse parâmetro."
 
 #. type: Plain text
 #: debconf-devel.7:961
@@ -7086,3 +7102,5 @@ msgid ""
 msgstr ""
 "B<debconf.conf>(5) tem muita informação útil, incluindo alguma informação "
 "acerca da base de dados backend."
+
+
