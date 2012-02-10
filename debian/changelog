@@ -23,7 +23,7 @@ debconf (1.5.42) UNRELEASED; urgency=low
   [ Joey Hess ]
   * Add a belt-and-suspenders test that Text::CharWidth::mblen is not
     returning bogus values, before using Text::WrapI18n. See #641957
-  * Avoid an uninitalized value warning when a blank line is received
+  * Avoid an uninitialized value warning when a blank line is received
     from the client. Closes: #651642
 
   [ Colin Watson ]
