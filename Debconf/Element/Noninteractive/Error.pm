@@ -12,6 +12,7 @@ use Text::Wrap;
 use Debconf::Gettext;
 use Debconf::Config;
 use Debconf::Log ':all';
+use Debconf::Path;
 use base qw(Debconf::Element::Noninteractive);
 
 =head1 DESCRIPTION
@@ -61,7 +62,7 @@ sub sendmail {
 	my $this=shift;
 	my $footer=shift;
 	return unless length Debconf::Config->admin_email;
-	if (-x '/usr/bin/mail') {
+	if (Debconf::Path::find("mail")) {
 		debug user => "mailing a note";
 	    	my $title=gettext("Debconf").": ".
 			$this->frontend->title." -- ".

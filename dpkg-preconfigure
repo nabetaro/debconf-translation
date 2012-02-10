@@ -78,6 +78,7 @@ BEGIN {
 		use Debconf::Config;
 		use Debconf::AutoSelect qw(:all);
 		use Debconf::Gettext;
+		use Debconf::Path;
 	};
 	if ($@) {
 		# Don't use gettext() on this because it may have failed to
@@ -126,7 +127,7 @@ elsif (! @debs) {
 	exit(1);
 }
 
-if (! -x "/usr/bin/apt-extracttemplates") {
+if (! Debconf::Path::find("apt-extracttemplates")) {
 	warn gettext("delaying package configuration, since apt-utils is not installed");
 	exit;
 }

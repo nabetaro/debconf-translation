@@ -26,6 +26,9 @@ debconf (1.5.42) UNRELEASED; urgency=low
   * Avoid an uninitalized value warning when a blank line is received
     from the client. Closes: #651642
 
+  [ Colin Watson ]
+  * Remove all hardcoded executable paths, using a new Debconf::Path module.
+
  -- Joey Hess <joeyh@debian.org>  Fri, 05 Aug 2011 12:57:53 -0400
 
 debconf (1.5.41) unstable; urgency=low
