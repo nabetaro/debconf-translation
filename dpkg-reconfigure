@@ -159,6 +159,8 @@ else {
 # hysterical raisens.
 $ENV{DEBCONF_RECONFIGURE}=1;
 
+my %initial_triggers=map { $_ => 1 } triggers_pending();
+
 foreach my $pkg (@packages) {
 	# Set default title.
 	$frontend->default_title($pkg);
@@ -255,6 +257,23 @@ foreach my $pkg (@packages) {
 	}
 }
 
+# Maintainer scripts may have activated triggers.  If so, try to process
+# them.
+my @new_triggers;
+do {
+	@new_triggers=();
+	foreach my $trigpend (triggers_pending()) {
+		push @new_triggers, $trigpend
+			if not exists $initial_triggers{$trigpend};
+	}
+	if (@new_triggers) {
+		my $ret=system("dpkg", "--configure", @new_triggers);
+		if (int($ret / 256) != 0) {
+			exit int($ret / 256);
+		}
+	}
+} while (@new_triggers);
+
 $frontend->shutdown;
 
 Debconf::Db->save;
@@ -273,6 +292,26 @@ sub allpackages {
 	close STATUS;
 
 	return sort @ret;
+}
+
+# Returns a list of all packages with pending triggers.
+sub triggers_pending {
+	my @ret;
+	local $_;
+
+	open (QUERY, '-|', 'dpkg-query', '-W',
+		'-f', '${Package} ${binary:Package}\t${Triggers-Pending}\n');
+	while (<QUERY>) {
+		my ($pkgnames, $triggers) = split /\t/;
+		if (length $triggers) {
+			# Handle multiarch.
+			my ($pkg, $binpkg) = split ' ', $pkgnames;
+			push @ret, (length $binpkg ? $binpkg : $pkg);
+		}
+	}
+	close QUERY;
+
+	return @ret;
 }
 
 =head1 AUTHOR
