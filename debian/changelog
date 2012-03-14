@@ -29,6 +29,15 @@ debconf (1.5.42) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Remove all hardcoded executable paths, using a new Debconf::Path module.
 
+  [ Raphaël Hertzog ]
+  * Set environment variables expected by maintainer scripts. Closes:
+    #560317
+  * Do not hardcode the path of maintainer scripts, in order to support the
+    multiarch layout.
+
+  [ Colin Watson ]
+  * Process any newly pending triggers after running maintainer scripts.
+
  -- Joey Hess <joeyh@debian.org>  Fri, 05 Aug 2011 12:57:53 -0400
 
 debconf (1.5.41) unstable; urgency=low
