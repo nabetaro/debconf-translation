@@ -183,10 +183,18 @@ foreach my $pkg (@packages) {
 		}
 	}
 	
+	my @control_paths=`dpkg-query --control-path $pkg`;
+	map chomp, @control_paths;
+	sub control_path {
+		my $file = shift;
+		my $path = (grep /\.\Q$file\E$/, @control_paths)[0];
+		chomp($path) if defined $path;
+		return $path;
+	}
+
 	if ($reload) {
 		# Load up templates just in case they aren't already.
-		my $templates=`dpkg-query --control-path $pkg templates`;
-		chomp($templates);
+		my $templates=control_path('templates');
 		if ($templates and -e $templates) {
 			Debconf::Template->load($templates, $pkg);
 		}
@@ -201,8 +209,7 @@ foreach my $pkg (@packages) {
 		          ['config',   'reconfigure', $version],
 			  ['postinst', 'configure',   $version]) {
 		my $script=shift @$info;
-		my $path_script=`dpkg-query --control-path $pkg $script`;
-		chomp($path_script);
+		my $path_script=control_path($script);
 
 		next unless $path_script and -x $path_script;
 
