@@ -1,0 +1,158 @@
+# Serbian/Latin messages for debconf.
+# Copyright (C) 2010 Software in the Public Interest, Inc.
+# This file is distributed under the same license as the debconf package.
+# Janos Guljas <janos@janos.in.rs>, 2010.
+# Karolina Kalic <karolina@janos.in.rs>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: debconf 1.5.35\n"
+"Report-Msgid-Bugs-To: debconf@packages.debian.org\n"
+"POT-Creation-Date: 2009-08-24 19:24+0200\n"
+"PO-Revision-Date: 2010-08-08 23:12+0100\n"
+"Last-Translator: Janos Guljas <janos@janos.in.rs>\n"
+"Language-Team: Serbian\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Dialog"
+msgstr "Dijalog"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Readline"
+msgstr "Linijski"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Editor"
+msgstr "Editor"
+
+#. Type: select
+#. Choices
+#: ../templates:1001
+msgid "Noninteractive"
+msgstr "Neinteraktivno"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid "Interface to use:"
+msgstr "Interfejs za upotrebu:"
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"Packages that use debconf for configuration share a common look and feel. "
+"You can select the type of user interface they use."
+msgstr ""
+"Paketi koji koriste debconf za konfiguraciju koriste zajednički interfejs. "
+"Možete izabrati tip interfejsa za upotrebu."
+
+#. Type: select
+#. Description
+#: ../templates:1002
+msgid ""
+"The dialog frontend is a full-screen, character based interface, while the "
+"readline frontend uses a more traditional plain text interface, and both the "
+"gnome and kde frontends are modern X interfaces, fitting the respective "
+"desktops (but may be used in any X environment). The editor frontend lets "
+"you configure things using your favorite text editor. The noninteractive "
+"frontend never asks you any questions."
+msgstr ""
+"Interfejs u obliku dijaloga je tekstualni koji se prikazuje preko celog "
+"ekrana, dok je linijski više tradicionalnog oblika. Interfejsi gnome i kde "
+"su moderni X interfjesi u okviru odgovarajućih desktop okruženja (mogu se "
+"koristiti u bilo kom X okruženju). Koristeći editor interfejs, možete vršiti "
+"konfiguraciju pomoću vašeg omiljenog editora. Neinterakvivni interfejs nikad "
+"ne postavlja pitanja."
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "critical"
+msgstr "kritično"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "high"
+msgstr "visoko"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "medium"
+msgstr "srednje"
+
+#. Type: select
+#. Choices
+#: ../templates:2001
+msgid "low"
+msgstr "nisko"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid "Ignore questions with a priority less than:"
+msgstr "Ignorisati pitanja manjeg prioriteta od:"
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Debconf prioritizes the questions it asks you. Pick the lowest priority of "
+"question you want to see:\n"
+"  - 'critical' only prompts you if the system might break.\n"
+"    Pick it if you are a newbie, or in a hurry.\n"
+"  - 'high' is for rather important questions\n"
+"  - 'medium' is for normal questions\n"
+"  - 'low' is for control freaks who want to see everything"
+msgstr ""
+"Debconf razvrstava pitanja po prioritetu. Izaberite najniži prioritet "
+"pitanja koji želite da vidite:\n"
+"  - 'kritično' pita samo ako sistem može da se sruši.\n"
+"    Izaberite ako ste početnik ili u žurbi.\n"
+"  - 'visoko' pita bitna pitanja\n"
+"  - 'srednje' pita normalna pitanja\n"
+"  - 'nisko' pita najbanalnija pitanja i objašnjava sve."
+
+#. Type: select
+#. Description
+#: ../templates:2002
+msgid ""
+"Note that no matter what level you pick here, you will be able to see every "
+"question if you reconfigure a package with dpkg-reconfigure."
+msgstr ""
+"Bilo šta da izaberete, moćiće te da vidite svako pitanje ako rekonfigurišete "
+"paket pomoću dpkg-reconfigure."
+
+#. Type: text
+#. Description
+#: ../templates:3001
+msgid "Installing packages"
+msgstr "Instaliranje paketa"
+
+#. Type: text
+#. Description
+#: ../templates:4001
+msgid "Please wait..."
+msgstr "Sačekajte..."
+
+#. Type: text
+#. Description
+#. This string is the 'title' of dialog boxes that prompt users
+#. when they need to insert a new medium (most often a CD or DVD)
+#. to install a package or a collection of packages
+#: ../templates:6001
+msgid "Media change"
+msgstr "Promena medija"
