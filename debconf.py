@@ -23,6 +23,8 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
+from __future__ import print_function
+
 import sys, os
 import errno
 import re
@@ -68,7 +70,7 @@ class Debconf:
             try:
                 resp = self.read.readline().rstrip('\n')
                 break
-            except IOError, e:
+            except IOError as e:
                 if e.errno == errno.EINTR:
                     continue
                 else:
@@ -103,7 +105,7 @@ class Debconf:
         try:
             self.input(priority, question)
             return 1
-        except DebconfError, e:
+        except DebconfError as e:
             if e.args[0] != 30:
                 raise
         return 0
@@ -119,7 +121,9 @@ class Debconf:
 class DebconfCommunicator(Debconf, object):
     def __init__(self, owner, title=None, cloexec=False):
         args = ['debconf-communicate', '-fnoninteractive', owner]
-        self.dccomm = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        self.dccomm = subprocess.Popen(
+            args, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            close_fds=True, universal_newlines=True)
         super(DebconfCommunicator, self).__init__(title=title,
                                                   read=self.dccomm.stdout,
                                                   write=self.dccomm.stdin)
@@ -162,7 +166,7 @@ if __name__ == '__main__':
     less = db.getBoolean('less/add_mime_handler')
     aptlc = db.getString('apt-listchanges/email-address')
     db.stop()
-    print db.version
-    print db.capabilities
-    print less
-    print aptlc
+    print(db.version)
+    print(db.capabilities)
+    print(less)
+    print(aptlc)

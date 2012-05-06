@@ -7,6 +7,16 @@ debconf (1.5.43) UNRELEASED; urgency=low
   * Uyghur (Sahran). Closes: #627013
   * Serbian Latin (Janos Guljas). Closes: #600143
 
+  [ Colin Watson ]
+  * Make debconf.py Python 3-compatible directly, which only requires
+    dropping pre-2.6 support (2.6 was in squeeze), and drop the separate
+    debconf3.py implementation.  The previous Python 3 implementation
+    expected read and write to be binary files, while this expects them to
+    be text files.  Technically this is an interface break, but since
+    'import debconf; debconf.Debconf()' was failing (since sys.stdin and
+    sys.stdout are text files), I claim that nobody was using this until now
+    anyway.
+
  -- Joey Hess <joeyh@debian.org>  Wed, 21 Mar 2012 18:38:56 -0400
 
 debconf (1.5.42) unstable; urgency=low

@@ -61,7 +61,7 @@ install-rest:
 		install -m 0644 debconf.py $$dir/; \
 	done
 	install -d $(prefix)/usr/lib/python3/dist-packages
-	install -m 0644 debconf3.py $(prefix)/usr/lib/python3/dist-packages/debconf.py
+	install -m 0644 debconf.py $(prefix)/usr/lib/python3/dist-packages/
 	# Special case for back-compatability.
 	install -d $(prefix)/usr/share/perl5/Debian/DebConf/Client
 	cp Debconf/Client/ConfModule.stub \
