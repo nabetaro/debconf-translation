@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2011-07-29 12:37+0300\n"
-"PO-Revision-Date: 2012-05-16 15:28+0900\n"
+"PO-Revision-Date: 2012-05-16 16:19+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "Language: ja\n"
@@ -42,7 +42,7 @@ msgstr "名前"
 #. type: textblock
 #: ../../debconf:5
 msgid "debconf - run a debconf-using program"
-msgstr ""
+msgstr "debconf - debconf を使用するプログラムの実行"
 
 #. type: SH
 #: ../../debconf:9
@@ -151,7 +151,7 @@ msgstr "B<-f>I<type>, B<--frontend=>I<type>"
 #: ../../debconf:42
 #: ../../dpkg-preconfigure:26
 msgid "Select the frontend to use."
-msgstr ""
+msgstr "使用するフロントエンドを選択します。"
 
 #. type: =item
 #: ../../debconf:44
@@ -163,7 +163,7 @@ msgstr "B<-p>I<value>, B<--priority=>I<value>"
 #. type: textblock
 #: ../../debconf:46
 msgid "Specify the minimum priority of question that will be displayed."
-msgstr ""
+msgstr "表示する質問の、最小優先度を指定します。"
 
 #. type: =item
 #: ../../debconf:48
@@ -175,7 +175,7 @@ msgstr "B<--terse>"
 #: ../../debconf:50
 #: ../../dpkg-preconfigure:36
 msgid "Enables terse output mode. This affects only some frontends."
-msgstr ""
+msgstr "簡潔出力モードにします。いくつかのフロントエンドでしか、効果がありません。"
 
 #. type: =head1
 #: ../../debconf:54
@@ -188,7 +188,7 @@ msgstr "例"
 #. type: textblock
 #: ../../debconf:56
 msgid "To debug a shell script that uses debconf, you might use:"
-msgstr ""
+msgstr "debconf を使用するシェルスクリプトをデバッグする場合、以下のように使用してください。"
 
 #. type: verbatim
 #: ../../debconf:58
@@ -203,7 +203,7 @@ msgstr ""
 #. type: textblock
 #: ../../debconf:60
 msgid "Or, you might use this:"
-msgstr ""
+msgstr "または、以下のように使用してください。"
 
 #. type: verbatim
 #: ../../debconf:62
@@ -357,7 +357,7 @@ msgstr ""
 #. type: textblock
 #: ../../Debconf/Client/ConfModule.pm:155
 msgid "The debconf specification (/usr/share/doc/debian-policy/debconf_specification.txt.gz)."
-msgstr ""
+msgstr "debconf 仕様 (/usr/share/doc/debian-policy/debconf_specification.txt.gz)。"
 
 #. type: textblock
 #: ../../debconf-apt-progress:5
@@ -620,7 +620,7 @@ msgstr ""
 #. type: textblock
 #: ../../debconf-escape:23
 msgid "L<debconf-devel(7)> (available in the debconf-doc package)"
-msgstr ""
+msgstr "L<debconf-devel(7)> (debconf-doc パッケージにて入手可能)"
 
 #. type: textblock
 #: ../../debconf-communicate:5
@@ -1166,7 +1166,7 @@ msgstr ""
 #. type: textblock
 #: ../../debconf-set-selections:84
 msgid "L<debconf-get-selections(1)> (available in the debconf-utils package)"
-msgstr ""
+msgstr "L<debconf-get-selections(1)> (debconf-utils パッケージにて入手可能)"
 
 #. type: textblock
 #: ../../debconf-show:5
@@ -1734,7 +1734,7 @@ msgstr ""
 #: debconf.conf.5:371
 #, no-wrap
 msgid "B<Backup>"
-msgstr ""
+msgstr "B<Backup>"
 
 #. type: Plain text
 #: debconf.conf.5:148
@@ -1803,6 +1803,10 @@ msgid ""
 "  Directory: /var/cache/debconf/mydb\n"
 "  Extension: .txt\n"
 msgstr ""
+"  Name: mydb\n"
+"  Driver: DirTree\n"
+"  Directory: /var/cache/debconf/mydb\n"
+"  Extension: .txt\n"
 
 #. type: TP
 #: debconf.conf.5:193
@@ -2456,7 +2460,7 @@ msgstr ""
 #. type: Plain text
 #: confmodule.3:42
 msgid "B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), debconf_specification in the debian-policy package"
-msgstr ""
+msgstr "B<debconf-devel>(7), B<dpkg-preconfigure>(8), B<dpkg-reconfigure>(8), debian-policy パッケージの debconf_specification"
 
 #. type: TH
 #: debconf.7:1
@@ -2472,7 +2476,7 @@ msgstr "debconf - Debian パッケージ設定システム"
 #. type: Plain text
 #: debconf.7:8
 msgid "Debconf is a configuration system for Debian packages. There is a rarely-used command named debconf, documented in B<debconf>(1)"
-msgstr ""
+msgstr "debconf は、Debian パッケージの設定システムです。B<debconf>(1) に文書がある、debconf というほとんど使われないコマンドがあります。"
 
 #. type: Plain text
 #: debconf.7:16
@@ -2483,7 +2487,7 @@ msgstr ""
 #: debconf.7:16
 #, no-wrap
 msgid "Preconfiguring packages"
-msgstr ""
+msgstr "パッケージの事前設定"
 
 #. type: Plain text
 #: debconf.7:22
@@ -2504,7 +2508,7 @@ msgstr ""
 #: debconf.7:33
 #, no-wrap
 msgid "Reconfiguring packages"
-msgstr ""
+msgstr "パッケージの再設定"
 
 #. type: Plain text
 #: debconf.7:40
